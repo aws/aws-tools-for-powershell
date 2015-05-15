@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-CFDistribution -Id EXAMPLE0000ID</code>
+    <description>Retrieves the information for a specific distribution.</description>
+  </example>
+</examples>

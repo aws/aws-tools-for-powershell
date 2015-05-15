@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ELBLoadBalancer -LoadBalancerName my-test-loadbalancer</code>
+    <description>Deletes the specified load balancer. You are prompted for confirmation, unless the -Force switch parameter is also specified.</description>
+  </example>
+</examples>

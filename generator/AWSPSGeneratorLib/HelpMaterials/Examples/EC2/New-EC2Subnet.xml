@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>New-EC2Subnet -VpcId vpc-1a2b3c4d -CidrBlock 10.0.0.0/24
+
+SubnetId                : subnet-1a2b3c4d
+SubnetState             : pending
+VpcId                   : vpc-1a2b3c4d
+CidrBlock               : 10.0.0.0/24
+AvailableIpAddressCount : 251
+AvailabilityZone        : us-east-1
+DefaultForAz            : False
+MapPublicIpOnLaunch     : False
+Tag                     : {}
+    </code>
+    <description>Creates a new VPC subnet with CIDR 10.0.0.0/24 in the current default region.</description>
+  </example>
+</examples>

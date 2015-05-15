@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Start-ASPolicy -AutoScalingGroupName my-test-asg -PolicyName "myPolicy"</code>
+    <description>Executes the specified policy for the Auto Scaling group named 'my-test-asg'. You can also specify the ARN of the group.</description>
+  </example>
+  <example>
+    <code>Start-ASPolicy -AutoScalingGroupName my-test-asg -PolicyName "myPolicy" -HonorCooldown $true</code>
+    <description>Executes the specified policy for the Auto Scaling group named 'my-test-asg', waiting before execution for the cooldown period for the group to complete. You can also specify the ARN of the group.</description>
+  </example>
+</examples>

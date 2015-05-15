@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ASScheduledAction -AutoScalingGroupName my-test-asg -ScheduledAction "scaleup-schedule-year"</code>
+    <description>Deletes the scheduled action named 'scaleup-schedule-year' for the Auto Scaling group named 'my-test-asg'. You are prompted for confirmation before the operation proceeds.</description>
+  </example>
+  <example>
+    <code>Remove-ASScheduledAction -AutoScalingGroupName my-test-asg -ScheduledAction "scaleup-schedule-year" -Force</code>
+    <description>Deletes the scheduled action named 'scaleup-schedule-year' for the Auto Scaling group named 'my-test-asg'. You are not prompted for confirmation before the operation proceeds.</description>
+  </example>
+</examples>

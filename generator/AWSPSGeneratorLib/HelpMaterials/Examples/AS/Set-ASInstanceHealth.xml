@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-ASInstanceHealth -HealthyStatus Unhealthy -InstanceId i-123456</code>
+    <description>Sets the status of the specified instance to 'unhealthy', taking the instance out of service (it will be terminated and replaced).</description>
+  </example>
+  <example>
+    <code>Set-ASInstanceHealth -HealthyStatus Healthy -InstanceId i-123456 -ShouldRespectGracePeriod $false</code>
+    <description>Sets the status of the specified instance to 'healthy', keeping it in service. If the Auto Scaling group to which the instance belongs has a HealthCheckGracePeriod specified, it will not be respected.</description>
+  </example>
+</examples>

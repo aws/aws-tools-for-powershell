@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>Get-AWSPublicIpAddressRange
+
+IpPrefix                Region                Service
+--------                ------                -------
+50.19.0.0/16            us-east-1             AMAZON
+54.239.98.0/24          us-east-1             AMAZON
+...
+50.19.0.0/16            us-east-1             EC2
+75.101.128.0/17         us-east-1             EC2
+...
+205.251.192.0/21        GLOBAL                ROUTE53
+54.232.40.64/26         sa-east-1             ROUTE53_HEALTHCHECKS
+...
+54.239.192.0/19         GLOBAL                CLOUDFRONT
+204.246.176.0/20        GLOBAL                CLOUDFRONT
+...
+    </code>
+    <description>Outputs all of the current IP address range objects to the pipeline.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>Get-AWSPublicIpAddressRange -OutputServiceKeys
+
+AMAZON
+EC2
+ROUTE53
+ROUTE53_HEALTHCHECKS
+CLOUDFRONT
+    </code>
+    <description>Outputs the currently used set of 'Service' keys to the pipeline.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>Get-AWSPublicIpAddressRange -OutputPublicationDate
+
+Monday, December 15, 2014 4:41:01 PM
+    </code>
+    <description>Outputs the publication date of the IP address range information.</description>
+  </example>
+  <example>
+    <code>Get-AWSPublicIpAddressRange -ServiceKey ec2</code>
+    <description>Filters the IP address ranges to output only those with a 'Service' value of 'EC2' to the pipeline.</description>
+  </example>
+  <example>
+    <code>Get-AWSPublicIpAddressRange -Region us-west-2</code>
+    <description>Filters the IP address ranges to output only those used in the US West (Oregon) region to the pipeline.</description>
+  </example>
+  <example>
+    <code>Get-AWSPublicIpAddressRange -ServiceKey ec2,route53_healthchecks -Region us-west-2</code>
+    <description>Filters the IP address ranges to output only those belonging to EC2 and CloudFront and  in the US West (Oregon) region to the pipeline. Multiple values can also be specified for the -Region parameter.</description>
+  </example>
+</examples>

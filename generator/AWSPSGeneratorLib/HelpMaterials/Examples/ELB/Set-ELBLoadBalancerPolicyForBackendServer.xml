@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>Set-ELBLoadBalancerPolicyForBackendServer -LoadBalancerNamemy-test-loadbalancer `
+                                          -InstancePort 80 `
+                                          -PolicyName @("EnableProxyProtocol", "MyPolicyName2", "MyPolicyName3")
+    </code>
+    <description>Replaces the set of policies associated with port 80 on which the back-end server is listening with the set of new policies.</description>
+  </example>
+</examples>

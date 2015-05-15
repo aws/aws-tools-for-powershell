@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>SSM</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonSimpleSystemsManagement</ServiceClientInterface>
+  <ServiceClient>AmazonSimpleSystemsManagementClient</ServiceClient>
+  <ServiceNamespace>Amazon.SimpleSystemsManagement</ServiceNamespace>
+
+  <AdditionalNamespaces />
+
+  <PipelineParameter>InstanceId</PipelineParameter>
+  
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="1000"/>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateAssociation" />
+    <ServiceOperation MethodName="CreateAssociationBatch" Noun="AssociationFromBatch" Output="Response"/>
+    <ServiceOperation MethodName="CreateDocument" PipelineParameter="Content" ShouldProcessTarget="Name"/>
+    <ServiceOperation MethodName="DeleteAssociation" Output="Void"  />
+    <ServiceOperation MethodName="DeleteDocument" Output="Void" />
+    <ServiceOperation MethodName="DescribeAssociation" />
+    <ServiceOperation MethodName="DescribeDocument" Noun="DocumentDescription" />
+    <ServiceOperation MethodName="GetDocument" Output="Response" />
+    <ServiceOperation MethodName="ListAssociations" Verb="Get" Noun="AssociationList" />
+    <ServiceOperation MethodName="ListDocuments" Verb="Get" Noun="DocumentList" />
+    <ServiceOperation MethodName="UpdateAssociationStatus" />
+  </ServiceOperations>
+
+  <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
+  -->
+  <VerbMappings>
+    <Map From="Associate" To="Register" />
+    <Map From="Disassociate" To="Unregister" />
+  </VerbMappings>
+
+  <!-- noun mappings contains service-specific noun remaps, augmenting the global map
+  -->
+  <NounMappings />
+
+  <PipelineByValueProperties>
+    <Property>InstanceId</Property>
+    <Property>Name</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-EC2Instance -Region us-west-2</code>
+    <description>This command returns all of the user's instances in the us-west-2 region. The output is a collection of zero or more Reservation objects, see the RunningInstance collection within each Reservation object to obtain the details of each instance.</description>
+  </example>
+</examples>

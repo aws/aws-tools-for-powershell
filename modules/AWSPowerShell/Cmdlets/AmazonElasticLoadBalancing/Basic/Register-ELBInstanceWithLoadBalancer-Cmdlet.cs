@@ -1,0 +1,178 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ElasticLoadBalancing;
+using Amazon.ElasticLoadBalancing.Model;
+
+namespace Amazon.PowerShell.Cmdlets.ELB
+{
+    /// <summary>
+    /// Adds the specified instances to the specified load balancer.
+    /// 
+    ///  
+    /// <para>
+    /// The instance must be a running instance in the same network as the load balancer (EC2-Classic
+    /// or the same VPC). If you have EC2-Classic instances and a load balancer in a VPC with
+    /// ClassicLink enabled, you can link the EC2-Classic instances to that VPC and then register
+    /// the linked EC2-Classic instances with the load balancer in the VPC.
+    /// </para><para>
+    /// Note that <code>RegisterInstanceWithLoadBalancer</code> completes when the request
+    /// has been registered. Instance registration happens shortly afterwards. To check the
+    /// state of the registered instances, use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.
+    /// </para><para>
+    /// After the instance is registered, it starts receiving traffic and requests from the
+    /// load balancer. Any instance that is not in one of the Availability Zones registered
+    /// for the load balancer is moved to the <code>OutOfService</code> state. If an Availability
+    /// Zone is added to the load balancer later, any instances registered with the load balancer
+    /// move to the <code>InService</code> state.
+    /// </para><para>
+    /// If you stop an instance registered with a load balancer and then start it, the IP
+    /// addresses associated with the instance changes. Elastic Load Balancing cannot recognize
+    /// the new IP address, which prevents it from routing traffic to the instances. We recommend
+    /// that you use the following sequence: stop the instance, deregister the instance, start
+    /// the instance, and then register the instance. To deregister instances from a load
+    /// balancer, use <a>DeregisterInstancesFromLoadBalancer</a>.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html">Deregister
+    /// and Register EC2 Instances</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Register", "ELBInstanceWithLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticLoadBalancing.Model.Instance")]
+    [AWSCmdlet("Invokes the RegisterInstancesWithLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"RegisterInstancesWithLoadBalancer"})]
+    [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.Instance",
+        "This cmdlet returns a collection of Instance objects.",
+        "The service call response (type RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RegisterELBInstanceWithLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        [Alias("Instances")]
+        public Amazon.ElasticLoadBalancing.Model.Instance[] Instance { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the load balancer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String LoadBalancerName { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-ELBInstanceWithLoadBalancer (RegisterInstancesWithLoadBalancer)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (this.Instance != null)
+            {
+                context.Instances = new List<Instance>(this.Instance);
+            }
+            context.LoadBalancerName = this.LoadBalancerName;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new RegisterInstancesWithLoadBalancerRequest();
+            
+            if (cmdletContext.Instances != null)
+            {
+                request.Instances = cmdletContext.Instances;
+            }
+            if (cmdletContext.LoadBalancerName != null)
+            {
+                request.LoadBalancerName = cmdletContext.LoadBalancerName;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.RegisterInstancesWithLoadBalancer(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Instances;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public List<Instance> Instances { get; set; }
+            public String LoadBalancerName { get; set; }
+        }
+        
+    }
+}

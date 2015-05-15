@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonCloudSearch</ServiceClientInterface>
+  <ServiceClient>AmazonCloudSearchClient</ServiceClient>
+  <ServiceNamespace>Amazon.CloudSearch</ServiceNamespace>
+
+  <PositionalParameters>DomainName</PositionalParameters>
+  <PipelineParameter>DomainName</PipelineParameter>
+
+  <NounMappings>
+    <Map From="AnalysisSchemes" To="AnalysisScheme" />
+    <Map From="AvailabilityOptions" To="AvailabilityOption" />
+    <Map From="Domains" To="Domain" />
+    <Map From="DomainNames" To="DomainName" />
+    <Map From="Expressions" To="Expression" />
+    <Map From="IndexFields" To="IndexField" />
+    <Map From="ScalingParameters" To="ScalingParameter" />
+    <Map From="ServiceAccessPolicies" To="ServiceAccessPolicy" />
+    <Map From="Suggesters" To="Suggester" />
+  </NounMappings>
+  
+  <VerbMappings>
+    <Map From="Define" To="Set" />
+  </VerbMappings>
+
+  <CustomAliases>
+    <AliasSet Cmdlet="Set-CSIndexField">Define-CSIndexField</AliasSet>
+    <AliasSet Cmdlet="Start-CSIndex">Index-CSDocuments</AliasSet>
+  </CustomAliases>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="BuildSuggesters" Verb="Start" Noun="SuggestersBuild"/>
+    <ServiceOperation MethodName="CreateDomain"/>
+    <ServiceOperation MethodName="DefineAnalysisScheme" ShouldProcessTarget="DomainName"/>
+    <ServiceOperation MethodName="DefineExpression"/>
+    <ServiceOperation MethodName="DefineIndexField"/>
+    <ServiceOperation MethodName="DefineSuggester"/>
+    <ServiceOperation MethodName="DeleteAnalysisScheme" ShouldProcessTarget="AnalysisSchemeName" PositionalParameters="AnalysisSchemeName"/>
+    <ServiceOperation MethodName="DeleteDomain"/>
+    <ServiceOperation MethodName="DeleteExpression" ShouldProcessTarget="ExpressionName" PositionalParameters="ExpressionName"/>
+    <ServiceOperation MethodName="DeleteIndexField" ShouldProcessTarget="IndexFieldName" PositionalParameters="IndexFieldName"/>
+    <ServiceOperation MethodName="DeleteSuggester" ShouldProcessTarget="SuggesterName" PositionalParameters="SuggesterName"/>
+    <ServiceOperation MethodName="DescribeAnalysisSchemes"/>
+    <ServiceOperation MethodName="DescribeAvailabilityOptions"/>
+    <ServiceOperation MethodName="DescribeDomains" />
+    <ServiceOperation MethodName="DescribeExpressions"/>
+    <ServiceOperation MethodName="DescribeIndexFields" PositionalParameters="FieldNames"/>
+    <ServiceOperation MethodName="DescribeScalingParameters"/>
+    <ServiceOperation MethodName="DescribeServiceAccessPolicies"/>
+    <ServiceOperation MethodName="DescribeSuggesters"/>
+    <ServiceOperation MethodName="IndexDocuments" Verb="Start" Noun="Index"/>
+    <ServiceOperation MethodName="ListDomainNames" Verb="Get"/>
+    <ServiceOperation MethodName="UpdateAvailabilityOptions"/>
+    <ServiceOperation MethodName="UpdateScalingParameters"/>
+    <ServiceOperation MethodName="UpdateServiceAccessPolicies" PositionalParameters="AccessPolicies"/>
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>DomainName</Property>
+    <Property>DomainId</Property>
+    <Property>IndexFieldName</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

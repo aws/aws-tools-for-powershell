@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASAdjustmentType</code>
+    <description>Returns policy adjustment types for use with the Write-ASScalingPolicy cmdlet.</description>
+  </example>
+</examples>

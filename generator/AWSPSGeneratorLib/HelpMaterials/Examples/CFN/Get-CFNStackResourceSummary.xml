@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-CFNStackResourceSummary -StackName "myStack"</code>
+    <description>Returns descriptions of all the resources associated with the specified stack.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-CFNStackResourceSummary -StackName "myStack" -NextToken $nextToken
+  $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns descriptions of all the resources associated with the specified stack using manual paging of the results. The starting token for the next page is retrieved after every call with $null indicating no more details remain to be retrieved.</description>
+  </example>
+</examples>

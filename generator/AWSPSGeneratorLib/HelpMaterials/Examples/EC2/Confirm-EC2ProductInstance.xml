@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Confirm-EC2ProductInstance -ProductCode "774F4FF8" -InstanceId "i-1a2b3c4d"</code>
+    <description>This example determines whether the specified product code (which must be an Amazon DevPay product code that you own) is associated with the specified instance.</description>
+  </example>
+</examples>

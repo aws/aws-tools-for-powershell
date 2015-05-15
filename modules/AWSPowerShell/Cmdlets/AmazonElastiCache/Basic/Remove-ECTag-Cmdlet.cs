@@ -1,0 +1,155 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ElastiCache;
+using Amazon.ElastiCache.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC
+{
+    /// <summary>
+    /// The <i>RemoveTagsFromResource</i> action removes the tags identified by the <code>TagKeys</code>
+    /// list from the named resource.
+    /// </summary>
+    [Cmdlet("Remove", "ECTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.ElastiCache.Model.Tag")]
+    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against Amazon ElastiCache.", Operation = new[] {"RemoveTagsFromResource"})]
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag",
+        "This cmdlet returns a collection of Tag objects.",
+        "The service call response (type RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RemoveECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The name of the ElastiCache resource from which you want the listed tags removed,
+        /// for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public String ResourceName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of <code>TagKeys</code> identifying the tags you want removed from the named
+        /// resource. For example, <code>TagKeys.member.1=Region</code> removes the cost allocation
+        /// tag with the key name <code>Region</code> from the resource named by the <i>ResourceName</i>
+        /// parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ECTag (RemoveTagsFromResource)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.ResourceName = this.ResourceName;
+            if (this.TagKey != null)
+            {
+                context.TagKeys = new List<String>(this.TagKey);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new RemoveTagsFromResourceRequest();
+            
+            if (cmdletContext.ResourceName != null)
+            {
+                request.ResourceName = cmdletContext.ResourceName;
+            }
+            if (cmdletContext.TagKeys != null)
+            {
+                request.TagKeys = cmdletContext.TagKeys;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.RemoveTagsFromResource(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.TagList;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String ResourceName { get; set; }
+            public List<String> TagKeys { get; set; }
+        }
+        
+    }
+}

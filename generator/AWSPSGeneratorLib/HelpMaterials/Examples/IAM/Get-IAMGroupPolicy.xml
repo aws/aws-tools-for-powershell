@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>$results = Get-IAMGroupPolicy -GroupName Testers -PolicyName PowerUserAccess-Testers
+PS C:\>$results
+
+GroupName     PolicyDocument                                              PolicyName
+---------     --------------                                              ----------
+Testers       %7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%0A%20... PowerUserAccess-Testers
+
+PS C:\>[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
+PS C:\>[System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "NotAction": "iam:*",
+      "Resource": "*"
+    }
+  ]
+}</code>
+    <description>This example returns details about the embedded inline policy named <code>PowerUserAccess-Testers</code> for the group <code>Testers</code>. The <code>PolicyDocument</code> property is URL encoded. It is decoded in this example with the <code>UrlDecode</code> .NET method.</description>
+  </example>
+</examples>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Add-ELBTags -LoadBalancerName my-test-loadbalancer -tag @{ Key="project";Value="lima" },@{ Key="otherkey";Value="ABC123" }</code>
+    <description>Sets the specified collection of tags to the load balancer.</description>
+  </example>
+</examples>

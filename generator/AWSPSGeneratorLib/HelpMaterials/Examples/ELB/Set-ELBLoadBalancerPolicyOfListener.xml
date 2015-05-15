@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-ELBLoadBalancerPolicyOfListener -LoadBalancerName MyInternalLoadBalancer -LoadBalancerPort 443 -PolicyName MySSLNegotiationPolicy</code>
+    <description>Associates the specified policy with the listener on port 443 for the load balancer.</description>
+  </example>
+  <example>
+    <code>Set-ELBLoadBalancerPolicyOfListener -LoadBalancerName MyInternalLoadBalancer -LoadBalancerPort 443</code>
+    <description>Removes the current policy associated with the listener on port 443 for the load balancer.</description>
+  </example>
+</examples>

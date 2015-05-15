@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Get-R53HostedZonesByName</code>
+        <description>Returns all of your public and private hosted zones in ASCII order by domain name.</description>
+    </example>
+    <example>
+        <code>Get-R53HostedZonesByName -DnsName example2.com</code>
+        <description>Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.</description>
+    </example>
+    <example>
+        <code>
+Get-R53HostedZonesByName -MaxItem 1
+while ($LastServiceResponse.IsTruncated)
+{
+    $nextPageParams = @{
+        DnsName=$LastServiceResponse.NextDNSName
+        HostedZoneId=$LastServiceResponse.NextHostedZoneId
+    }
+    Get-R53HostedZonesByName -MaxItem 2 @nextPageParams 
+}
+        </code>
+        <description>This example shows how to manually enumerate the hosted zones by first retrieving a single item and then iterating two at a time until all zones have been returned, using marker properties attached to the service response in the $AWSHistory stack after each call.</description>
+    </example>
+</examples>

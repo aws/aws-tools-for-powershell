@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASLaunchConfiguration</code>
+    <description>Returns details of all launch configurations.</description>
+  </example>
+  <example>
+    <code>Get-ASLaunchConfiguration -LaunchConfigurationName my-lc-1</code>
+    <description>Returns details of the launch configuration named 'my-lc-1'..</description>
+  </example>
+  <example>
+    <code>Get-ASLaunchConfiguration -LaunchConfigurationName @("my-lc-1", "my-lc-2")</code>
+    <description>Returns details of the launch configurations named 'my-lc-1' and 'my-lc-2'.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-ASLaunchConfiguration -NextToken $nextToken -MaxRecord 10
+  $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns all launch configurations using manual paging. The configuration details are retrieved in batches of 10.</description>
+  </example>
+</examples>

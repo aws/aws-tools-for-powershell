@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Stop-CTLogging -Name myExampleTrail</code>
+        <description>Suspends the recording of AWS API calls and log file delivery for the trail named 'myExampleTrail'. This example assumes the trail was created in the same region as the current shell default.</description>
+    </example>
+    <example>
+        <code>Stop-CTLogging -Name myExampleTrail -Region eu-central-1</code>
+        <description>Suspends the recording of AWS API calls and log file delivery for a trail that was created in a region other than the current shell default (in this case, the Frankfurt (eu-central-1) region).</description>
+    </example>
+</examples>

@@ -1,0 +1,285 @@
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="../resources/style.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shThemeDefault.css">
+    <link rel="stylesheet" type="text/css" href="../resources/psstyle.css" />
+    <link rel="canonical" href="http://docs.aws.amazon.com/powershell/latest/reference/items/pstoolsref-commonparams.html">
+    <meta name="description" content="Common Credential and Region Parameters">
+    <title>Common Credential and Region Parameters | AWS Tools for Windows PowerShell</title>
+</head>
+    <body>
+        <div id="product_name">AWS Tools for Windows PowerShell</div>
+        <div id="guide_name">Command Reference</div>
+
+        <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+        <!-- BEGIN-SECTION -->
+        <div id="regionDisclaimer">
+            <p>AWS services or capabilities described in AWS Documentation may vary by region/location. Click <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/services.html">Getting Started with Amazon AWS</a> to see specific differences applicable to the China (Beijing) Region.</p>
+        </div>
+        <!-- END-SECTION -->
+
+        <div id="pageHeader">
+            <div id="titles">
+                <h1 class="title">Common Credential and Region Parameters</h1>
+            </div>  
+        </div>
+        
+        <div id="pageToolbar">
+            <!-- BEGIN-SECTION -->
+            <div id="search">
+                <form action="/search/doc-search.html" target="_blank" onsubmit="return AWSHelpObj.searchFormSubmit(this);" method="get">
+                    <div id="sfrm">
+                        <span id="lbl">
+                            <label>Search: </label>
+                        </span>
+                        <select name="searchPath" id="sel">
+                            <option value="all">Entire Site</option>
+                            <option value="articles">Articles &amp; Tutorials</option>
+                            <option value="documentation">Documentation</option>
+                            <option value="documentation-product">Documentation - This Product</option>
+                            <option selected="" value="documentation-guide">Documentation - This Guide</option>
+                            <option value="releasenotes">Release Notes</option>
+                            <option value="code">Sample Code &amp; Libraries</option>
+                        </select>
+                        <input type="text" name="searchQuery" id="sq">
+                        <input type="image" alt="Go" src="../resources/search-button.png" id="sb">
+                    </div>
+                    <input id="this_doc_product" type="hidden" value="AWS Tools for Windows PowerShell" name="this_doc_product">
+                    <input id="this_doc_guide" type="hidden" value="Command Reference" name="this_doc_guide">
+                    <input type="hidden" value="en_us" name="doc_locale">
+                </form>
+            </div>
+            <!-- END-SECTION -->
+        </div>
+
+        <div id="pageContent">
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="synopsis" class="title">Description</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="description">
+                    Most of the cmdlets in the AWS Tools for Windows PowerShell require that the user specify AWS access credentials and/or the AWS region
+                    that the operation should be performed in. To support these requirements, most cmdlets support the common set of parameters described below.
+                </div>
+            </div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="credentialparameters" class="title">Credential Parameters</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="parameters">
+                    <div class="parameter">
+                        <div class="parameterName">-AccessKey &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
+                        <div class="parameterDescription">The AWS access key for the user account.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SecretKey &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
+                        <div class="parameterDescription">The AWS secret key for the user account.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SessionToken &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
+                        <div class="parameterDescription">Temporary session token obtained with Get-STSSessionToken.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-StoredCredentials &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
+                        <div class="parameterDescription">
+                            The name associated with a set of credentials previously saved in the local credentials stored shared with the AWS Toolkit 
+                            for Visual Studio. The credentials may have been set up using the toolkit or the <a href="./Set-AWSCredentials.html">Set-AWSCredentials</a> 
+                            or <a href="./Initialize-AWSDefaults.html">Initialize-AWSDefaults</a> cmdlets.
+                        </div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Credentials &lt;<a href="http://docs.aws.amazon.com/sdkfornet/latest/apidocs/items/T_Amazon_Runtime_AWSCredentials_NET3_5.html" target="_blank">AWSCredentials</a>&gt;</div>
+                        <div class="parameterDescription">An AWSCredentials object containing key information for the user account.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="regionparameters" class="title">Region Parameters</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="parameters">
+                    <div class="parameter">
+                        <div class="parameterName">-Region &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
+                        <div class="parameterDescription">The system name of the AWS region in which the operation should be invoked. For example, us-east-1, eu-west-1 etc.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="supported version" class="title">Supported Version</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="versioninfo"><p><strong>AWS Tools for Windows PowerShell: </strong><span id="assemblyVersion">2.x.y.z</span></p></div>
+            </div>
+        </div>
+        <div id="pageFooter">
+            <div class="copyright">&copy; Copyright 2008-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.</div>
+            <span class="newline linkto"><a href="javascript:void(0)" onclick="AWSHelpObj.displayLink('pstoolsref-commonparams.html', 'Common Parameters')">Link to this page</a></span>
+            <span class="divider">&nbsp;</span>
+            <!-- BEGIN-FEEDBACK-SECTION -->
+            <span class="feedback">
+                <span class="feedbackLinks">Did this page help you?&nbsp;&nbsp;<a href="http://docs.aws.amazon.com/powershell/latest/reference/feedbackyes.html?topic_id=pstoolsref-commonparams" target="_blank">Yes</a>&nbsp;&nbsp;<a href="http://docs.aws.amazon.com/powershell/latest/reference/feedbackno.html?topic_id=Add-SNSPermission" target="_blank">No</a>&nbsp;&nbsp;&nbsp;<a href="https://aws-portal.amazon.com/gp/aws/html-forms-controller/documentation/aws_doc_feedback_04?service_name=PowerShell-Ref&amp;file_name=pstoolsref-commonparams" target="_blank">Tell us about it...</a></span>
+            </span>                         
+            <!-- END-FEEDBACK-SECTION -->
+        </div>
+        <script type="text/javascript" src="../resources/jquery.min.js"></script>
+        <script type="text/javascript">jQuery.noConflict();</script>
+        <script type="text/javascript" src="../resources/parseuri.js"></script>
+        <script type="text/javascript" src="../resources/pagescript.js"></script>
+        <!-- BEGIN-SECTION -->
+        <script type="text/javascript">
+            jQuery(function ($) {
+                var host = parseUri($(window.parent.location).attr('href')).host;
+                if (AWSHelpObj.showRegionalDisclaimer(host)) {
+                    $("div#regionDisclaimer").css("display", "block");
+                } else {
+                    $("div#regionDisclaimer").remove();
+                }
+                AWSHelpObj.setAssemblyVersion();
+            });
+        </script>
+        <!-- END-SECTION -->
+        <script type="text/javascript" src="../resources/syntaxhighlighter/shCore.js"></script>
+        <script type="text/javascript" src="../resources/syntaxhighlighter/shBrushCSharp.js"></script>
+        <script type="text/javascript" src="../resources/syntaxhighlighter/shBrushPlain.js"></script>
+        <script type="text/javascript" src="../resources/syntaxhighlighter/shBrushXml.js"></script> 
+        <!-- BEGIN-URCHIN-TRACKER -->
+        <script type="text/javascript" src="https://d36cz9buwru1tt.cloudfront.net/amznUrchin.js"> <!-- Empty tag --> </script> 
+        <!-- END-URCHIN-TRACKER -->
+        <!-- SiteCatalyst code version: H.25.2. Copyright 1996-2012 Adobe, Inc. All Rights Reserved.
+            More info available at http://www.omniture.com -->
+        <script language="JavaScript" type="text/javascript" src="https://d36cz9buwru1tt.cloudfront.net/js/sitecatalyst/s_code.min.js"> <!-- Empty -->
+    </script>
+        <script language="JavaScript" type="text/javascript">
+  <!--
+    // Documentation Service Name
+            s.prop66 = 'AWS Tools for Windows PowerShell';
+            s.eVar66 = 'D=c66';
+
+            // Documentation Guide Name                                                                 
+            s.prop65 = 'API Reference';
+            s.eVar65 = 'D=c65';
+
+            var s_code = s.t(); if (s_code) document.write(s_code)
+        //-->
+    </script>
+        <script language="JavaScript" type="text/javascript">
+  <!--if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+        //-->
+    </script>
+        <noscript>
+            <img src="http://amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazondev/1/H.25.2--NS/0" height="1" width="1" border="0" alt="" />
+        </noscript>
+        <!--/DO NOT REMOVE/-->
+        <!-- End SiteCatalyst code version: H.25.2. -->
+
+        <script type="text/javascript">SyntaxHighlighter.all()</script>
+    </body>
+</html>

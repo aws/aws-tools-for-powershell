@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Enable-EC2VolumeIO -VolumeId "vol-1a2b3c4d"</code>
+    <description>This example enables I/O operations for the volume vol-1a2b3c4d.</description>
+  </example>
+</examples>

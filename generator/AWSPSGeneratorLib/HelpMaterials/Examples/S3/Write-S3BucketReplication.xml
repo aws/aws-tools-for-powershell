@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>$rule1 = New-Object Amazon.S3.Model.ReplicationRule
+PS C:\>$rule1.ID = "Rule-1"
+PS C:\>$rule1.Status = "Enabled"
+PS C:\>$rule1.Prefix = "TaxDocs"
+PS C:\>$rule1.Destination = @{ BucketArn = "arn:aws:s3:::exampletargetbucket" }
+    
+PS C:\>$params = @{
+    BucketName = "examplebucket"
+    Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
+    Configuration_Rule = $rule1
+}
+
+PS C:\>Write-S3BucketReplication @params
+    </code>
+    <description>This example sets a replication configuration with a single rule enabling replication to the 'exampletargetbucket' bucket any new objects created with the key name prefix "TaxDocs" in the bucket 'examplebucket'.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$rule1 = New-Object Amazon.S3.Model.ReplicationRule
+PS C:\>$rule1.ID = "Rule-1"
+PS C:\>$rule1.Status = "Enabled"
+PS C:\>$rule1.Prefix = "TaxDocs"
+PS C:\>$rule1.Destination = @{ BucketArn = "arn:aws:s3:::exampletargetbucket" }
+    
+PS C:\>$rule2 = New-Object Amazon.S3.Model.ReplicationRule
+PS C:\>$rule2.ID = "Rule-2"
+PS C:\>$rule2.Status = "Enabled"
+PS C:\>$rule2.Prefix = "OtherDocs"
+PS C:\>$rule2.Destination = @{ BucketArn = "arn:aws:s3:::exampletargetbucket" }
+    
+PS C:\>$params = @{
+    BucketName = "examplebucket"
+    Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
+    Configuration_Rule = $rule1,$rule2
+}
+
+PS C:\>Write-S3BucketReplication @params
+    </code>
+    <description>This example sets a replication configuration with multiple rules enabling replication to the 'exampletargetbucket' bucket any new objects created with either the key name prefix "TaxDocs" or "OtherDocs". The key prefixes must not overlap.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$rule1 = New-Object Amazon.S3.Model.ReplicationRule
+PS C:\>$rule1.ID = "Rule-1"
+PS C:\>$rule1.Status = "Disabled"
+PS C:\>$rule1.Prefix = "TaxDocs"
+PS C:\>$rule1.Destination = @{ BucketArn = "arn:aws:s3:::exampletargetbucket" }
+    
+PS C:\>$params = @{
+    BucketName = "examplebucket"
+    Configuration_Role = "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
+    Configuration_Rule = $rule1
+}
+
+PS C:\>Write-S3BucketReplication @params
+    </code>
+    <description>This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix "TaxDocs" to the bucket 'exampletargetbucket'.</description>
+  </example>
+</examples>

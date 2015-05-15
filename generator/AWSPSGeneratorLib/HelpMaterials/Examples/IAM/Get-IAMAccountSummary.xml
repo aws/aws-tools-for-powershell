@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMAccountSummary
+      
+Key                                        Value
+---                                        -----
+Users                                      7
+GroupPolicySizeQuota                       5120
+PolicyVersionsInUseQuota                   10000
+ServerCertificatesQuota                    20
+AccountSigningCertificatesPresent          0
+AccountAccessKeysPresent                   0
+Groups                                     3
+UsersQuota                                 5000
+RolePolicySizeQuota                        10240
+UserPolicySizeQuota                        2048
+GroupsPerUserQuota                         10
+AssumeRolePolicySizeQuota                  2048
+AttachedPoliciesPerGroupQuota              2
+Roles                                      9
+VersionsPerPolicyQuota                     5
+GroupsQuota                                100
+PolicySizeQuota                            5120
+Policies                                   5
+RolesQuota                                 250
+ServerCertificates                         0
+AttachedPoliciesPerRoleQuota               2
+MFADevicesInUse                            2
+PoliciesQuota                              1000
+AccountMFAEnabled                          1
+Providers                                  2
+InstanceProfilesQuota                      100
+MFADevices                                 4
+AccessKeysPerUserQuota                     2
+AttachedPoliciesPerUserQuota               2
+SigningCertificatesPerUserQuota            2
+PolicyVersionsInUse                        4
+InstanceProfiles                           1
+...</code>
+    <description>This example returns information about the current IAM entity usage and current IAM entity quotas in the AWS account.</description>
+  </example>
+</examples>

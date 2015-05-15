@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>WKS</ServiceNounPrefix>
+
+  <ServiceNamespace>Amazon.WorkSpaces</ServiceNamespace>
+
+  <ServiceClientInterface>IAmazonWorkSpaces</ServiceClientInterface>
+
+  <ServiceClient>AmazonWorkSpacesClient</ServiceClient>
+  
+  <AutoIterate EmitLimit="Limit"
+               Start="NextToken"
+               Next="NextToken" />
+       
+  -->
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateWorkspaces" Output="Response" Noun="Workspace"/>
+    <ServiceOperation MethodName="DescribeWorkspaceBundles" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeWorkspaceDirectories" />
+    <ServiceOperation MethodName="DescribeWorkspaces" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="RebootWorkspaces" Verb="Restart" Noun="Workspace">
+      <Params>
+        <Param Name="RebootWorkspaceRequests" NewName="Request" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="RebuildWorkspaces" Verb="Reset" Noun="Workspace">
+      <Params>
+        <Param Name="RebuildWorkspaceRequests" NewName="Request" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="TerminateWorkspaces" Verb="Stop" Noun="Workspace">
+      <Params>
+        <Param Name="TerminateWorkspaceRequests" NewName="Request" />
+      </Params>
+    </ServiceOperation>
+  </ServiceOperations>
+  
+</ConfigModel>

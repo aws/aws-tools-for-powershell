@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ASA</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonAWSSupport</ServiceClientInterface>
+  <ServiceClient>AmazonAWSSupportClient</ServiceClient>
+  <ServiceNamespace>Amazon.AWSSupport</ServiceNamespace>
+
+  <AutoIterate Start="NextToken" EmitLimit="MaxResults" Next="NextToken" />
+
+  <PositionalParameters>CaseId</PositionalParameters>
+  <PipelineParameter>CaseId</PipelineParameter>
+
+  <PipelineByValueProperties>
+    <Property>CaseId</Property>
+    <Property>DisplayId</Property>
+    <Property>CheckId</Property>
+  </PipelineByValueProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AddCommunicationToCase" PositionalParameters="CommunicationBody;CcEmailAddresses" />
+    <ServiceOperation MethodName="CreateCase" PipelineParameter="Subject" PositionalParameters="ServiceCode;SeverityCode;CategoryCode;CommunicationBody" />
+    <ServiceOperation MethodName="DescribeCases" PipelineParameter="CaseIdList"/>
+    <ServiceOperation MethodName="DescribeCommunications"/>
+    <ServiceOperation MethodName="DescribeServices" PipelineParameter="ServiceCodeList" PositionalParameters="Language"/>
+    <ServiceOperation MethodName="DescribeSeverityLevels" />
+    <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" />
+    <ServiceOperation MethodName="DescribeTrustedAdvisorCheckResult" PipelineParameter="CheckId" PositionalParameters="Language"/>
+    <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" />
+    <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" />
+    <ServiceOperation MethodName="RefreshTrustedAdvisorCheck" Verb="Request" Noun="TrustedAdvisorCheckRefresh" />
+    <ServiceOperation MethodName="ResolveCase" Output="Response" />
+    <ServiceOperation MethodName="DescribeAttachment" />
+    <ServiceOperation MethodName="AddAttachmentsToSet" Output="Response" PipelineParameter="AttachmentSetId" />
+  </ServiceOperations>
+
+</ConfigModel>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASScheduledAction</code>
+    <description>Returns all non-executed actions for all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>Get-ASScheduledAction -AutoScalingGroupName my-test-asg</code>
+    <description>Returns all non-executed actions for the Auto Scaling group named 'my-test-asg'.</description>
+  </example>
+  <example>
+    <code>Get-ASScheduledAction -ScheduledActionName @("ScaleOut", "ScaleIn")</code>
+    <description>Returns details of any non-executed 'ScaleOut' and 'ScaleIn' actions for all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>Get-ASScheduledAction -StartTime "2013-05-12T08:00:00Z"</code>
+    <description>Returns details of any non-executed actions since midnight UTC on May 12 2013 for all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>Get-ASScheduledAction -EndTime "2013-05-12T08:00:00Z"</code>
+    <description>Returns details of any non-executed actions up until midnight UTC on May 12 2013 for all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-ASScheduledAction -NextToken $nextToken -MaxRecord 10
+  $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns details of all non-executed actions across all Auto Scaling groups using manual paging. The action details are retrieved in batches of 10.</description>
+  </example>
+</examples>

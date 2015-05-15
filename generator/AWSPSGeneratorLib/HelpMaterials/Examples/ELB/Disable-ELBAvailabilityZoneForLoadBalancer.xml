@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Disable-ELBAvailabilityZoneForLoadBalancer -LoadBalancerName MyHTTPSLoadBalancer -AvailabilityZone "us-west-2a"</code>
+    <description>Removes a single Availability Zone from the set of zones for the specified load balancer.</description>
+  </example>
+  <example>
+    <code>Disable-ELBAvailabilityZoneForLoadBalancer -LoadBalancerName MyHTTPSLoadBalancer -AvailabilityZone @("us-west-2a","us-west-2b")</code>
+    <description>Removes the specified Availability Zones from the set of zones for the load balancer with name 'MyHTTPSLoadBalancer'.</description>
+  </example>
+</examples>

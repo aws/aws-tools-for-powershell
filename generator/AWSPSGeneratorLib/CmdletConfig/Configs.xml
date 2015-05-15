@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<ConfigModelCollection>
+	<Configs>
+		<Path>AWSPowerShellGenerator.CmdletConfig.AutoScaling.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.AWSSupport.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.Beanstalk.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.CloudFormation.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.CloudFront.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.CloudSearch.xml</Path>
+
+		<!--Cmdlets for this service are fully handwritten, as the client has non standard constructors.--> 
+		<!--<Path>AWSPowerShellGenerator.CmdletConfig.CloudSearchDomain.xml</Path>-->
+
+    <Path>AWSPowerShellGenerator.CmdletConfig.CloudTrail.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.CodeDeploy.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.ConfigService.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.CloudWatch.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.CloudWatchLogs.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.DataPipeline.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.DirectConnect.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.DynamoDB.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.EC2.xml</Path>
+  	<Path>AWSPowerShellGenerator.CmdletConfig.ECS.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.ElastiCache.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.ELB.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.EMR.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.ETS.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.HSM.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.IAM.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.ImportExport.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.KMS.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.Kinesis.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.Lambda.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.ML.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.OpsWorks.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.RDS.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.Redshift.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.Route53.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.Route53Domains.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.S3.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.SES.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.SNS.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.SSM.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.SQS.xml</Path>
+		<Path>AWSPowerShellGenerator.CmdletConfig.StorageGateway.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.STS.xml</Path>
+    <Path>AWSPowerShellGenerator.CmdletConfig.WKS.xml</Path>
+	</Configs>
+
+	<ClientNames>
+		<Map From="AS" To="Auto Scaling" />
+		<Map From="EB" To="AWS Elastic Beanstalk" />
+		<Map From="CFN" To="AWS CloudFormation" />
+		<Map From="CD" To="Amazon CodeDeploy" />
+		<Map From="CFG" To="Amazon Config" />
+		<Map From="CF" To="Amazon CloudFront" />
+		<Map From="CS" To="Amazon CloudSearch" />
+		<Map From="CSD" To="Amazon CloudSearchDomain" />
+		<Map From="CT" To="AWS CloudTrail" />
+		<Map From="CW" To="Amazon CloudWatch" />
+		<Map From="CWL" To="Amazon CloudWatch Logs" />
+		<Map From="DC" To="AWS Direct Connect" />
+		<Map From="DDB" To="Amazon DynamoDB" />
+		<Map From="DP" To="AWS Data Pipeline" />
+		<Map From="EC2" To="Amazon Elastic Compute Cloud" />
+    <Map From="ECS" To="Amazon EC2 Container Service" />
+		<Map From="EC" To="Amazon ElastiCache" />
+		<Map From="ELB" To="Elastic Load Balancing" />
+		<Map From="EMR" To="Amazon Elastic MapReduce" />
+    <Map From="HSM" To="AWS Cloud HSM" />
+    <Map From="IAM" To="AWS Identity and Access Management" />
+		<Map From="IE" To="AWS Import/Export" />
+		<Map From="KMS" To="AWS Key Management Service" />
+		<Map From="KIN" To="AWS Kinesis" />
+    <Map From="LM" To="Amazon Lambda" />
+    <Map From="ML" To="Amazon Machine Learning" />
+		<Map From="RDS" To="Amazon Relational Database Service" />
+		<Map From="R53" To="AWS Route 53" />
+		<Map From="R53D" To="AWS Route 53 Domains" />
+		<Map From="S3" To="Amazon Simple Storage Service" />
+		<Map From="SES" To="Amazon Simple Email Service" />
+		<Map From="SNS" To="Amazon Simple Notification Service" />
+		<Map From="SQS" To="Amazon Simple Queue Service" />
+    <Map From="SSM" To="Amazon Simple Systems Management" />
+		<Map From="SG" To="AWS Storage Gateway" />
+		<Map From="STS" To="AWS Security Token Service" />
+		<Map From="ETS" To="Amazon Elastic Transcoder" />
+		<Map From="RS" To="Amazon Redshift" />
+		<Map From="OPS" To="AWS OpsWorks" />
+    <Map From="ASA" To="AWS Support API" />
+    <Map From="WKS" To="Amazon WorkSpaces" />
+	</ClientNames>
+
+	<VerbMappings>
+		<Map From="Create" To="New" />
+		<Map From="Allocate" To="New" />
+		<Map From="Describe" To="Get" />
+		<Map From="Cancel" To="Stop" />
+		<Map From="Activate" To="Enable" />
+		<Map From="Deactivate" To="Disable" />
+		<Map From="Delete" To="Remove" />
+		<Map From="Attach" To="Add" />
+		<Map From="Detach" To="Dismount" />
+		<Map From="Modify" To="Edit" />
+		<Map From="Put" To="Write" />
+	</VerbMappings>
+
+	<TypesNotToFlatten>
+		<Type>System.IO.Stream</Type>
+		<Type>System.IO.MemoryStream</Type>
+		<Type>System.Collections.Generic.List`1</Type>
+		<Type>System.Collections.Generic.Dictionary`2</Type>
+	</TypesNotToFlatten>
+
+	<MetadataProperties>
+		<Property>NextToken</Property>
+		<Property>NextPageToken</Property>
+		<Property>PageToken</Property>
+		<Property>Marker</Property>
+		<Property>NextMarker</Property>
+		<Property>ETag</Property>
+		<Property>IsTruncated</Property>
+		<Property>HasMoreResults</Property>
+		<Property>Owner</Property>
+		<Property>Headers</Property>
+		<Property>MaxRecords</Property>
+		<Property>MaxResults</Property>
+		<Property>MaxItems</Property>
+		<Property>Limit</Property>
+	</MetadataProperties>
+
+	<!-- any cmdlet generated with these verbs will have 'shouldprocess'
+		attributing and operation confirmation code added automatically
+	-->
+	<SupportsShouldProcessVerbs>
+		<Verb>Remove</Verb>
+	</SupportsShouldProcessVerbs> 
+
+</ConfigModelCollection>

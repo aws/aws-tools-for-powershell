@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ETS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonElasticTranscoder</ServiceClientInterface>
+  <ServiceClient>AmazonElasticTranscoderClient</ServiceClient>
+  <ServiceNamespace>Amazon.ElasticTranscoder</ServiceNamespace>
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+  
+  <NounMappings>
+    <Map From="Presets" To="Preset" />
+    <Map From="Pipelines" To="Pipeline" />
+  </NounMappings>
+
+  <AutoIterate Start="PageToken" Next="NextPageToken" />
+
+  <PositionalParameters>Id</PositionalParameters>
+  <PipelineParameter>Id</PipelineParameter>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CancelJob" Output="Void"/>
+    <ServiceOperation MethodName="CreateJob" PipelineParameter="PipelineId">
+      <Params>
+        <!-- op takes same structure for input and output, hence collisions -->
+        <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" />
+        <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" />
+        <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" />
+        <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" />
+        <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" />
+        <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" />
+        <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" />
+        <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreatePipeline" PipelineParameter="Name" PositionalParameters="InputBucket;OutputBucket;Role"/>
+    <ServiceOperation MethodName="CreatePreset" Output="Response" PipelineParameter="Name" PositionalParameters="Description;Container"/>
+    <ServiceOperation MethodName="DeletePipeline" Output="Void"/>
+    <ServiceOperation MethodName="DeletePreset" Output="Void"/>
+    <ServiceOperation MethodName="ListJobsByPipeline" PipelineParameter="PipelineId" PositionalParameters="Ascending"/>
+    <ServiceOperation MethodName="ListJobsByStatus" PipelineParameter="Status" PositionalParameters="Ascending"/>
+    <ServiceOperation MethodName="ListPipelines" PositionalParameters="Ascending"/>
+    <ServiceOperation MethodName="ListPresets" PositionalParameters="Ascending"/>
+    <ServiceOperation MethodName="ReadJob"/>
+    <ServiceOperation MethodName="ReadPipeline"/>
+    <ServiceOperation MethodName="ReadPreset"/>
+    <ServiceOperation MethodName="TestRole" Output="Response" PipelineParameter="Role" PositionalParameters="InputBucket;OutputBucket;Topics"/>
+    <ServiceOperation MethodName="UpdatePipeline" PositionalParameters="Name;InputBucket;Role"/>
+    <ServiceOperation MethodName="UpdatePipelineNotifications" />
+    <ServiceOperation MethodName="UpdatePipelineStatus" PositionalParameters="Status"/>
+  </ServiceOperations>
+
+  <!-- This feature would be a breaking change to several cmdlets, so we're punting it for PS -->
+  <MetadataProperties>
+    <Property>Warnings</Property>
+  </MetadataProperties>
+  
+  <PipelineByValueProperties>
+    <Property>Id</Property>
+    <Property>Key</Property>
+    <Property>PresetId</Property>
+    <Property>PipelineId</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

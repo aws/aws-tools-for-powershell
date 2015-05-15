@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Add-EC2Volume -VolumeId "vol-1a2b3c4d" -InstanceId "i-1a2b3c4d" -Device "/dev/sdh"</code>
+    <description>Attaches the volume with the ID "vol-1a2b3c4d" to the instance with the ID "i-1a2b3c4d" and exposes it as "/dev/sdh".</description>
+  </example>
+</examples>

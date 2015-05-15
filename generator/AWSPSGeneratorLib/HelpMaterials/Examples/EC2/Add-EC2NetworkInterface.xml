@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Add-EC2NetworkInterface -NetworkInterfaceId "eni-1a2b3c4d" -InstanceId "i-1a2b3c4d" -DeviceIndex 1</code>
+    <description>Attaches the specified network interface to the specified instance.</description>
+  </example>
+</examples>

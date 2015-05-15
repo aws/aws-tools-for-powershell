@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-SQSQueue</code>
+    <description>This command retrieves a list of all SQS queues.</description>
+  </example>
+  <example>
+    <code>Get-SQSQueue -QueueNamePrefix ps-</code>
+    <description>This command retrieves a list of all SQS queues with the name prefix of "ps-".</description>
+  </example>
+</examples>

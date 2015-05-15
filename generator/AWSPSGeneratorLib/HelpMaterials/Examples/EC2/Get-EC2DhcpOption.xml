@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>Get-EC2DhcpOption
+
+DhcpOptionsId                           DhcpConfigurations                      Tag
+-------------                           ------------------                      ---
+dopt-1a2b3c4d                           {domain-name, domain-name-servers}      {}
+dopt-2a3b4c5d                           {domain-name, domain-name-servers}      {}
+dopt-3a4b5c6d                           {domain-name, domain-name-servers}      {}
+    </code>
+    <description>Lists the DHCP Option Sets in the current default region.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>(Get-EC2DhcpOption dopt-1a2b3c4d).DhcpConfigurations
+
+Key                                                         Value
+---                                                         -----
+domain-name                                                 {abc.local}
+domain-name-servers                                         {10.0.0.102, 10.0.0.101}{}
+    </code>
+    <description>Gets configuration details for a DHCP Option Set in the current default region.</description>
+  </example>
+</examples>

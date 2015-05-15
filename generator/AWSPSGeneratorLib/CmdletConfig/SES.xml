@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>SES</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonSimpleEmailService</ServiceClientInterface>
+  <ServiceClient>AmazonSimpleEmailServiceClient</ServiceClient>
+  <ServiceNamespace>Amazon.SimpleEmail</ServiceNamespace>
+
+  <NounMappings>
+    <Map From="Identities" To="Identity" />
+    <Map From="IdentityDkimAttributes" To="IdentityDkimAttribute" />
+    <Map From="IdentityNotificationAttributes" To="IdentityNotificationAttribute" />
+    <Map From="IdentityVerificationAttributes" To="IdentityVerificationAttribute" />
+    <Map From="VerifiedEmailAddresses" To="VerifiedEmailAddress" />
+  </NounMappings>
+  
+  <VerbMappings>
+    <Map From="List" To="Get" />
+    <Map From="Verify" To="Confirm" />
+  </VerbMappings>
+
+  <AutoIterate EmitLimit="MaxItems" Start="NextToken" Next="NextToken" />
+  
+  <DefaultRegion>us-east-1</DefaultRegion>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="DeleteIdentity" Output="Void" />
+    <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Output="Void" />
+    <ServiceOperation MethodName="GetIdentityDkimAttributes" />
+    <ServiceOperation MethodName="GetIdentityNotificationAttributes" />
+    <ServiceOperation MethodName="GetIdentityVerificationAttributes" />
+    <ServiceOperation MethodName="GetSendQuota" Output="Response"/>
+    <ServiceOperation MethodName="GetSendStatistics"/>
+    <ServiceOperation MethodName="ListIdentities" />
+    <ServiceOperation MethodName="ListVerifiedEmailAddresses"/>
+    <ServiceOperation MethodName="SendEmail" PipelineParameter="Source" PositionalParameters="Destination_ToAddresses"/>
+    <ServiceOperation MethodName="SendRawEmail" PipelineParameter="Source" PositionalParameters="Destinations"/>
+    <ServiceOperation MethodName="SetIdentityDkimEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="DkimEnabled"/>
+    <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="ForwardingEnabled"/>
+    <ServiceOperation MethodName="SetIdentityNotificationTopic" Output="Void" PipelineParameter="Identity" PositionalParameters="NotificationType;SnsTopic"/>
+    <ServiceOperation MethodName="VerifyDomainDkim" />
+    <ServiceOperation MethodName="VerifyDomainIdentity" />
+    <ServiceOperation MethodName="VerifyEmailAddress" Output="Void" />
+    <ServiceOperation MethodName="VerifyEmailIdentity" Output="Void" />
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>Identity</Property>
+    <Property>EmailAddress</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

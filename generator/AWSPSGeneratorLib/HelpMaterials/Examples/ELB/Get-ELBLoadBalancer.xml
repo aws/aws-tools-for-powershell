@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ELBLoadBalancer</code>
+    <description>Returns details of all of your load balancers in the currently configured default region for the shell.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancer -Region us-west-2</code>
+    <description>Returns details of all of your load balancers in the us-west-2 region.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancer -LoadBalancerName my-test-loadbalancer</code>
+    <description>Returns details of the specified load balancer (which must exist in the currently configured default region for the shell).</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancer -LoadBalancerName my-test-loadbalancer -Region us-west-2</code>
+    <description>Returns details of the specified load balancer which was created in the us-west-2 region.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancer -LoadBalancerName @("my-test-loadbalancer","my-other-test-loadbalancer") -Region us-west-2</code>
+    <description>Returns details of the specified load balancers which were created in the us-west-2 region.</description>
+  </example>
+  <example>
+    <code>Get-AWSRegion | % { Get-ELBLoadBalancer -Region $_ }</code>
+    <description>Returns details of all of your load balancers across all standard regions.</description>
+  </example>
+</examples>

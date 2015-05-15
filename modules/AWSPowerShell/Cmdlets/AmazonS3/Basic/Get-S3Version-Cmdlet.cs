@@ -1,0 +1,208 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.S3;
+using Amazon.S3.Model;
+
+namespace Amazon.PowerShell.Cmdlets.S3
+{
+    /// <summary>
+    /// Returns metadata about all of the versions of objects in a bucket.
+    /// </summary>
+    [Cmdlet("Get", "S3Version")]
+    [OutputType("Amazon.S3.Model.ListVersionsResponse")]
+    [AWSCmdlet("Invokes the ListVersions operation against Amazon Simple Storage Service.", Operation = new[] {"ListVersions"})]
+    [AWSCmdletOutput("Amazon.S3.Model.ListVersionsResponse",
+        "This cmdlet returns a ListVersionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetS3VersionCmdlet : AmazonS3ClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// The name of the bucket containing the objects.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String BucketName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Requests Amazon S3 to encode the object keys in the response and specifies
+        /// the encoding method to use. An object key may contain any Unicode character;
+        /// however, XML 1.0 parser cannot parse some characters, such as characters
+        /// with an ASCII value from 0 to 10. For characters that are not supported in
+        /// XML 1.0, you can add this parameter to request that Amazon S3 encode the
+        /// keys in the response.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public EncodingType Encoding { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Specifies the key to start with when listing objects in a bucket.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String KeyMarker { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Specifies the object version you want to start listing from.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String VersionIdMarker { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// A delimiter is a character you use to group keys.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String Delimiter { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxKeys")]
+        public Int32 MaxKey { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Limits the response to keys that begin with the specified prefix.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public String Prefix { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.BucketName = this.BucketName;
+            context.Delimiter = this.Delimiter;
+            context.KeyMarker = this.KeyMarker;
+            if (ParameterWasBound("MaxKey"))
+                context.MaxKeys = this.MaxKey;
+            context.Prefix = this.Prefix;
+            context.VersionIdMarker = this.VersionIdMarker;
+            context.Encoding = this.Encoding;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new ListVersionsRequest();
+            
+            if (cmdletContext.BucketName != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.Delimiter != null)
+            {
+                request.Delimiter = cmdletContext.Delimiter;
+            }
+            if (cmdletContext.KeyMarker != null)
+            {
+                request.KeyMarker = cmdletContext.KeyMarker;
+            }
+            if (cmdletContext.MaxKeys != null)
+            {
+                request.MaxKeys = cmdletContext.MaxKeys.Value;
+            }
+            if (cmdletContext.Prefix != null)
+            {
+                request.Prefix = cmdletContext.Prefix;
+            }
+            if (cmdletContext.VersionIdMarker != null)
+            {
+                request.VersionIdMarker = cmdletContext.VersionIdMarker;
+            }
+            if (cmdletContext.Encoding != null)
+            {
+                request.Encoding = cmdletContext.Encoding;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.ListVersions(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String BucketName { get; set; }
+            public String Delimiter { get; set; }
+            public String KeyMarker { get; set; }
+            public Int32? MaxKeys { get; set; }
+            public String Prefix { get; set; }
+            public String VersionIdMarker { get; set; }
+            public EncodingType Encoding { get; set; }
+        }
+        
+    }
+}

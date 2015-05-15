@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>EC2</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
+  <ServiceClient>AmazonEC2Client</ServiceClient>
+  <ServiceNamespace>Amazon.EC2</ServiceNamespace>
+
+  <Params>
+    <Param Name="DryRun" Exclude="true" />
+  </Params>
+
+  <PositionalParameters>InstanceId</PositionalParameters>
+  <PipelineParameter>InstanceId</PipelineParameter>
+
+  <ParamEmitters>
+    <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" 
+                  ParamName="InstanceIds" 
+                  EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
+  </ParamEmitters>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="ActivateLicense" Output="Void"/>
+    <ServiceOperation MethodName="AllocateAddress" Output="Response" />
+    <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId"
+                      PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses"/>
+    <ServiceOperation MethodName="AssociateAddress" PositionalParameters="PublicIp;AllocationId;NetworkInterfaceId"/>
+    <ServiceOperation MethodName="AssociateDhcpOptions" Output="Void" PipelineParameter="VpcId" PositionalParameters="DhcpOptionsId"/>
+    <ServiceOperation MethodName="AssociateRouteTable" PipelineParameter="RouteTableId" PositionalParameters="SubnetId"/>
+    <ServiceOperation MethodName="AttachInternetGateway" Output="Void" PipelineParameter="VpcId" PositionalParameters="InternetGatewayId"/>
+    <ServiceOperation MethodName="AttachNetworkInterface" PositionalParameters="NetworkInterfaceId;InstanceId;DeviceIndex"/>
+    <ServiceOperation MethodName="AttachVolume" PositionalParameters="VolumeId;InstanceId;Device"/>
+    <ServiceOperation MethodName="AttachVpnGateway" PipelineParameter="VpcId" PositionalParameters="VpnGatewayId"/>
+    <ServiceOperation MethodName="AuthorizeSecurityGroupEgress" Output="Void" PipelineParameter="GroupId" PositionalParameters="IpPermissions"/>
+    <ServiceOperation MethodName="AuthorizeSecurityGroupIngress" Output="Void" PipelineParameter="GroupId"/>
+    <ServiceOperation MethodName="BundleInstance" Verb="New" Noun="InstanceBundle" PositionalParameters="Storage_S3_Bucket;Storage_S3_Prefix"/>
+    <ServiceOperation MethodName="CancelBundleTask" />
+    <ServiceOperation MethodName="CancelConversionTask" Output="Void" PipelineParameter="ConversionTaskId">
+      <Params>
+        <Param Name="ConversionTaskId" Alias="TaskId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CancelExportTask" Output="Void" />
+    <ServiceOperation MethodName="CancelReservedInstancesListing" />
+    <ServiceOperation MethodName="CancelSpotInstanceRequests" />
+    <ServiceOperation MethodName="ConfirmProductInstance" PositionalParameters="ProductCode;InstanceId"/>
+    <ServiceOperation MethodName="CopyImage" PipelineParameter="SourceImageId" PositionalParameters="SourceRegion;Description;Name;ClientToken"/>
+    <ServiceOperation MethodName="CopySnapshot" PipelineParameter="SourceSnapshotId" PositionalParameters="SourceRegion;Description"/>
+    <ServiceOperation MethodName="CreateCustomerGateway" PipelineParameter="Type" PositionalParameters="PublicIp;BgpAsn">
+      <Params>
+        <Param Name="PublicIp" Alias="IpAddress" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateDhcpOptions" />
+    <ServiceOperation MethodName="CreateImage" PositionalParameters="Name;Description;NoReboot;BlockDeviceMappings"/>
+    <ServiceOperation MethodName="CreateInstanceExportTask" PositionalParameters="TargetEnvironment;Description"/>
+    <ServiceOperation MethodName="CreateInternetGateway"/>
+    <ServiceOperation MethodName="CreateKeyPair" />
+    <ServiceOperation MethodName="CreateNetworkAcl" />
+    <ServiceOperation MethodName="CreateNetworkAclEntry" Output="Void" PipelineParameter="NetworkAclId"/>
+    <ServiceOperation MethodName="CreateNetworkInterface" PipelineParameter="SubnetId" PositionalParameters="Description;PrivateIpAddress;Groups">
+      <Params>
+        <Param Name="PrivateIpAddresses" NewName="PrivateIpAddressSet" />
+        <Param Name="Groups" Alias="GroupId" />  <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreatePlacementGroup" Output="Void" PipelineParameter="GroupName" PositionalParameters="Strategy"/>
+    <ServiceOperation MethodName="CreateReservedInstancesListing" PipelineParameter="ReservedInstancesId" PositionalParameters="InstanceCount;PriceSchedules;ClientToken">
+      <Params>
+        <Param Name="PriceSchedules" Alias="PricingSchedules" />  <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateRoute" Output="Response" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
+    <ServiceOperation MethodName="CreateRouteTable" />
+    <ServiceOperation MethodName="CreateSecurityGroup" PipelineParameter="GroupName" PositionalParameters="Description;VpcId">
+      <Params>
+        <Param Name="Description" Alias="GroupDescription" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateSnapshot" PipelineParameter="VolumeId" PositionalParameters="Description"/>
+    <ServiceOperation MethodName="CreateSpotDatafeedSubscription" PipelineParameter="Bucket" PositionalParameters="Prefix"/>
+    <ServiceOperation MethodName="CreateSubnet" PipelineParameter="VpcId" PositionalParameters="CidrBlock;AvailabilityZone"/>
+    <ServiceOperation MethodName="CreateTags" Output="Void" PipelineParameter="Resources" PositionalParameters="Tags">
+      <Params>
+        <Param Name="Resources" Alias="ResourceId" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+      <PassThru>
+        <Expression>cmdletContext.Tags</Expression>
+        <Documentation>Returns the collection of Tag objects that were created</Documentation>
+      </PassThru>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateVolume" PipelineParameter="SnapshotId" PositionalParameters="Size;AvailabilityZone;IOPS;VolumeType;Encrypted"/>
+    <ServiceOperation MethodName="CreateVpc" PipelineParameter="CidrBlock" PositionalParameters="InstanceTenancy"/>    
+    <ServiceOperation MethodName="CreateVpnConnection" PipelineParameter="Type" 
+                      PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly" 
+                      ShouldProcessTarget="VpnGatewayId">
+      <Params>
+        <Param Name="Options_StaticRoutesOnly" Alias="StaticRoutesOnly" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateVpnConnectionRoute" Output="Void" PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
+    <ServiceOperation MethodName="CreateVpcEndpoint" PipelineParameter="VpcId" Output="Response"/>
+    <ServiceOperation MethodName="CreateVpnGateway" PipelineParameter="Type" PositionalParameters="AvailabilityZone"/>
+    <ServiceOperation MethodName="DeactivateLicense" Output="Void"/>
+    <ServiceOperation MethodName="DeleteCustomerGateway" Output="Void" ShouldProcessMsgNoun="Customer Gateway" />
+    <ServiceOperation MethodName="DeleteDhcpOptions" Output="Void" />
+    <ServiceOperation MethodName="DeleteInternetGateway" Output="Void" ShouldProcessMsgNoun="Internet Gateway" />
+    <ServiceOperation MethodName="DeleteKeyPair" Output="Void" />
+    <ServiceOperation MethodName="DeleteNetworkAcl" Output="Void" ShouldProcessMsgNoun="Network ACL" />
+    <ServiceOperation MethodName="DeleteNetworkAclEntry" Output="Void" ShouldProcessTarget="NetworkAclId"  ShouldProcessMsgNoun="Network ACL Entry"
+                       PipelineParameter="NetworkAclId" PositionalParameters="RuleNumber;Egress"/>
+    <ServiceOperation MethodName="DeleteNetworkInterface" Output="Void" ShouldProcessMsgNoun="Network Interface" />
+    <ServiceOperation MethodName="DeletePlacementGroup" Output="Void" ShouldProcessMsgNoun="Placement Group" />
+    <ServiceOperation MethodName="DeleteRoute" Output="Void" ShouldProcessTarget="RouteTableId"
+                      PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock"/>
+    <ServiceOperation MethodName="DeleteRouteTable" Output="Void" ShouldProcessMsgNoun="Route Table" />
+    <ServiceOperation MethodName="DeleteSecurityGroup" Output="Void" ShouldProcessMsgNoun="Security Group" ShouldProcessTarget="GroupId|GroupName"
+                      PipelineParameter="GroupId"/>
+    <ServiceOperation MethodName="DeleteSnapshot" Output="Void" />
+    <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Output="Void" ShouldProcessMsgNoun="Spot Datafeed Subscription" />
+    <ServiceOperation MethodName="DeleteSubnet" Output="Void" />
+    <ServiceOperation MethodName="DeleteTags" Output="Void" ShouldProcessTarget="Resources" PipelineParameter="Resources" PositionalParameters="Tags">
+      <Params>
+        <Param Name="Resources" Alias="ResourceId" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+      <PassThru>
+        <Expression>cmdletContext.Tags</Expression>
+        <Documentation>Returns the collection of Tag objects that were deleted</Documentation>
+      </PassThru>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeleteVolume" Output="Void" />
+    <ServiceOperation MethodName="DeleteVpc" Output="Void" />
+    <ServiceOperation MethodName="DeleteVpnConnection" Output="Void" ShouldProcessMsgNoun="VPN Connection" />
+    <ServiceOperation MethodName="DeleteVpnConnectionRoute" Output="Void" ShouldProcessTarget="VpnConnectionId" ShouldProcessMsgNoun="VPN Connection Route"
+                       PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
+    <ServiceOperation MethodName="DeleteVpcEndpoints" Noun="VpcEndpoint"/>
+    <ServiceOperation MethodName="DeleteVpnGateway" Output="Void" ShouldProcessMsgNoun="VPN Gateway" />
+    <ServiceOperation MethodName="DeregisterImage" Output="Void" />
+    <ServiceOperation MethodName="DescribeAccountAttributes" >
+      <Params>
+        <Param Name="AttributeNames" Alias="AccountAttributeNames" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeAddresses" PipelineParameter="PublicIps" PositionalParameters="AllocationIds;Filters"/>
+    <ServiceOperation MethodName="DescribeAvailabilityZones" PipelineParameter="ZoneNames" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeBundleTasks" PipelineParameter="BundleIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeConversionTasks" PipelineParameter="ConversionTaskIds">
+      <Params>
+        <Param Name="ConversionTaskIds" Alias="TaskId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeCustomerGateways" PipelineParameter="CustomerGatewayIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeDhcpOptions" PipelineParameter="DhcpOptionsIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeExportTasks" />
+    <ServiceOperation MethodName="DescribeImageAttribute" PipelineParameter="ImageId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="DescribeImages" PipelineParameter="ImageIds" PositionalParameters="Owners;ExecutableUsers;Filters">
+      <Params>
+        <Param Name="ExecutableUsers" Alias="ExecutableBy" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeInstanceAttribute" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="DescribeInstances" Exclude="true"/>
+    <ServiceOperation MethodName="DescribeInstanceStatus" PipelineParameter="InstanceIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeInternetGateways" PipelineParameter="InternetGatewayIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeKeyPairs" PipelineParameter="KeyNames" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeLicenses"/>
+    <ServiceOperation MethodName="DescribeMovingAddresses" Noun="MovingAddress" PipelineParameter="PublicIps" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeNetworkAcls" PipelineParameter="NetworkAclIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeNetworkInterfaceAttribute" Output="Response" PipelineParameter="NetworkInterfaceId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="DescribeNetworkInterfaces" PipelineParameter="NetworkInterfaceIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribePlacementGroups" PipelineParameter="GroupNames" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribePrefixLists" Noun="PrefixList" PipelineParameter="PrefixListIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeRegions" PipelineParameter="RegionNames" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeReservedInstances" PipelineParameter="ReservedInstancesIds" PositionalParameters="Filters;OfferingType"/>
+    <ServiceOperation MethodName="DescribeReservedInstancesListings" PipelineParameter="ReservedInstancesListingId" PositionalParameters="ReservedInstancesId;Filters"/>
+    <ServiceOperation MethodName="DescribeReservedInstancesModifications" />
+    <ServiceOperation MethodName="DescribeReservedInstancesOfferings" PipelineParameter="ReservedInstancesOfferingIds" PositionalParameters="InstanceType;AvailabilityZone">
+      <Params>
+        <Param Name="ReservedInstancesOfferingIds" Alias="ReservedInstancesId" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeRouteTables" PipelineParameter="RouteTableIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeSecurityGroups" PipelineParameter="GroupIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeSnapshotAttribute" Output="Response" PipelineParameter="SnapshotId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="DescribeSnapshots" PipelineParameter="SnapshotIds" PositionalParameters="OwnerIds;RestorableByUserIds;Filters"/>
+    <ServiceOperation MethodName="DescribeSpotDatafeedSubscription"/>
+    <ServiceOperation MethodName="DescribeSpotInstanceRequests" PipelineParameter="SpotInstanceRequestIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeSpotPriceHistory"/>
+    <ServiceOperation MethodName="DescribeSubnets" PipelineParameter="SubnetIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeTags" />
+    <ServiceOperation MethodName="DescribeVolumeAttribute" Output="Response" PipelineParameter="VolumeId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="DescribeVolumes" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVolumeStatus" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVpcAttribute" Output="Response" PipelineParameter="VpcId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="DescribeVpcEndpoints" Noun="VpcEndpoint" PipelineParameter="VpcEndpointIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVpcEndpointServices" Noun="VpcEndpointService"/>
+    <ServiceOperation MethodName="DescribeVpcs" PipelineParameter="VpcIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVpnConnections" PipelineParameter="VpnConnectionIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVpnGateways" PipelineParameter="VpnGatewayIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DetachInternetGateway" Output="Void" PipelineParameter="VpcId" PositionalParameters="InternetGatewayId"/>
+    <ServiceOperation MethodName="DetachNetworkInterface" Output="Void" PipelineParameter="AttachmentId">
+      <Params>
+        <Param Name="Force" NewName="ForceDismount" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DetachVolume" PositionalParameters="VolumeId;InstanceId;Device">
+      <Params>
+        <Param Name="Force" NewName="ForceDismount" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DetachVpnGateway" Output="Void" PipelineParameter="VpcId" PositionalParameters="VpnGatewayId"/>
+    <ServiceOperation MethodName="DisableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
+    <ServiceOperation MethodName="DisassociateAddress" Output="Void" PipelineParameter="PublicIp" PositionalParameters="AssociationId"/>
+    <ServiceOperation MethodName="DisassociateRouteTable" Output="Void" />
+    <ServiceOperation MethodName="DryRun" Exclude="true"/>
+    <ServiceOperation MethodName="EnableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
+    <ServiceOperation MethodName="EnableVolumeIO" Output="Void" />
+    <ServiceOperation MethodName="GetConsoleOutput" Output="Response"/>
+    <ServiceOperation MethodName="GetPasswordData" Exclude="true"/>
+    <ServiceOperation MethodName="ImportInstance" Exclude="true"/>
+    <ServiceOperation MethodName="ImportKeyPair" Output="Response" PipelineParameter="KeyName" PositionalParameters="PublicKeyMaterial"/>
+    <ServiceOperation MethodName="ImportVolume" Exclude="true"/>
+
+    <!-- Import V2 excluded for now -->
+    <ServiceOperation MethodName="CancelImportTask" Exclude="true"/>
+    <ServiceOperation MethodName="DescribeImportImageTasks" Exclude="true"/>
+    <ServiceOperation MethodName="DescribeImportSnapshotTasks" Exclude="true"/>
+    <ServiceOperation MethodName="ImportImage" Exclude="true"/>
+    <ServiceOperation MethodName="ImportSnapshot" Exclude="true"/>
+    
+    <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" PipelineParameter="ImageId"/>
+    <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void">
+      <Params>
+        <Param Name="Groups" Alias="GroupId" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ModifyNetworkInterfaceAttribute" Output="Void" PipelineParameter="NetworkInterfaceId">
+      <Params>
+        <Param Name="Groups" Alias="GroupId" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ModifyReservedInstances" />
+    <ServiceOperation MethodName="ModifySubnetAttribute"  Output="Void" PipelineParameter="PipelineParameter" PositionalParameters="MapPublicIpOnLaunch"/>
+    <ServiceOperation MethodName="ModifySnapshotAttribute" Output="Void" PipelineParameter="SnapshotId">
+      <Params>
+        <Param Name="GroupNames" Alias="UserGroup" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ModifyVolumeAttribute" Output="Void" PipelineParameter="VolumeId" PositionalParameters="AutoEnableIO"/>
+    <ServiceOperation MethodName="ModifyVpcAttribute" Exclude="true"/>
+    <ServiceOperation MethodName="ModifyVpcEndpoint" PipelineParameter="VpcEndpointId" Output="Void"/>
+    <ServiceOperation MethodName="MonitorInstances" Verb="Start" Noun="InstanceMonitoring" />
+    <ServiceOperation MethodName="MoveAddressToVpc" Output="Response"/>
+    <ServiceOperation MethodName="PurchaseReservedInstancesOffering" Verb="New" Noun="ReservedInstance"
+                      PipelineParameter="ReservedInstancesOfferingId" PositionalParameters="InstanceCount;LimitPrice_Amount;LimitPrice_CurrencyCode"/>
+    <ServiceOperation MethodName="RebootInstances" Output="Void" />
+    <ServiceOperation MethodName="RegisterImage" PipelineParameter="ImageLocation" PositionalParameters="Name;Description" ShouldProcessTarget="ImageLocation"/>
+    <ServiceOperation MethodName="ReleaseAddress" Output="Void" ShouldProcessTarget="PublicIp" PipelineParameter="PublicIp" PositionalParameters="AllocationId"/>
+    <ServiceOperation MethodName="ReplaceNetworkAclAssociation" PipelineParameter="AssociationId" PositionalParameters="NetworkAclId"/>
+    <ServiceOperation MethodName="ReplaceNetworkAclEntry" Output="Void" PipelineParameter="NetworkAclId">
+      <Params>
+        <!-- maintain compat with v1 sdk name -->
+        <Param Name="IcmpTypeCode_Code" Alias="Icmp_Code" />
+        <Param Name="IcmpTypeCode_Type" Alias="Icmp_Type" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ReplaceRoute" Output="Void" PipelineParameter="RouteTableId"
+                      PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
+    <ServiceOperation MethodName="ReplaceRouteTableAssociation" PipelineParameter="AssociationId" PositionalParameters="RouteTableId"/>
+    <ServiceOperation MethodName="ReportInstanceStatus" Output="Void" PipelineParameter="Instances" PositionalParameters="Status;StartTime;EndTime;ReasonCodes;Description">
+      <Params>
+        <Param Name="Instances" Alias="InstanceId" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="RequestSpotInstances" ShouldProcessTarget="SpotPrice"/>
+    <ServiceOperation MethodName="ResetImageAttribute" Output="Void" PipelineParameter="ImageId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="ResetInstanceAttribute" Output="Void" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="ResetNetworkInterfaceAttribute" Output="Void" PipelineParameter="NetworkInterfaceId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="ResetSnapshotAttribute" Output="Void" PipelineParameter="SnapshotId" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="RestoreAddressToClassic" Output="Response"/>
+    <ServiceOperation MethodName="RevokeSecurityGroupEgress" Output="Void" PipelineParameter="GroupId" PositionalParameters="IpPermissions"/>
+    <ServiceOperation MethodName="RevokeSecurityGroupIngress" Output="Void" PipelineParameter="GroupId"/>
+    <ServiceOperation MethodName="RunInstances" PipelineParameter="ImageId" Exclude="true"/>
+    <ServiceOperation MethodName="StartInstances" PipelineParameter="InstanceIds">
+      <Params>
+        <Param Name="InstanceIds" Alias="Instance" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="StopInstances" Exclude="true"/>
+    <ServiceOperation MethodName="TerminateInstances" Exclude="true"/>
+    <ServiceOperation MethodName="UnassignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId" PositionalParameters="PrivateIpAddresses">
+      <PassThru>
+        <Expression>cmdletContext.PrivateIpAddresses</Expression>
+        <Documentation>Returns the secondary private IP addresses</Documentation>
+      </PassThru>
+    </ServiceOperation>  
+    <ServiceOperation MethodName="UnmonitorInstances" Verb="Stop" Noun="InstanceMonitoring" />
+
+    <ServiceOperation MethodName="DescribeVpcPeeringConnections" PipelineParameter="VpcPeeringConnectionIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="CreateVpcPeeringConnection" PipelineParameter="VpcId" PositionalParameters="PeerVpcId;PeerOwnerId"/>
+    <ServiceOperation MethodName="AcceptVpcPeeringConnection" Verb="Approve" />
+    <ServiceOperation MethodName="RejectVpcPeeringConnection" Verb="Deny" Output="Void"  />
+    <ServiceOperation MethodName="DeleteVpcPeeringConnection" Output="Void"  />  
+
+    <ServiceOperation MethodName="AttachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId;Groups"/>
+    <ServiceOperation MethodName="DescribeClassicLinkInstances" PipelineParameter="InstanceIds" Noun="ClassicLinkInstance"/>
+    <ServiceOperation MethodName="DescribeVpcClassicLink" PipelineParameter="VpcIds" />
+    <ServiceOperation MethodName="DetachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId"/>
+    <ServiceOperation MethodName="DisableVpcClassicLink" />
+    <ServiceOperation MethodName="EnableVpcClassicLink" />
+
+  </ServiceOperations>
+
+  <!-- define zero or more custom aliases here; these are emitted in addition to automatic
+       noun-operation aliases
+  -->
+  <CustomAliases>
+    <AliasSet Cmdlet="Stop-EC2Instance">EC2-StopInstance</AliasSet>
+  </CustomAliases>
+
+  <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
+  -->
+  <VerbMappings>
+    <Map From="Associate" To="Register" />
+    <Map From="Disassociate" To="Unregister" />
+    <Map From="Replace" To="Set" />
+    <Map From="Report" To="Send" />
+    <Map From="Authorize" To="Grant" />
+    <Map From="Assign" To="Register" />
+    <Map From="Unassign" To="Unregister" />
+    <Map From="Deregister" To="Unregister" />
+    <Map From="Reboot" To="Restart" />
+    <Map From="Release" To="Remove" />
+    <Map From="Run" To="New" />
+  </VerbMappings>
+
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+
+  <!-- noun mappings contains service-specific noun remaps, augmenting the global map
+  -->
+  <NounMappings>
+    <Map From="Addresses" To="Address" />
+    <Map From="AvailabilityZones" To="AvailabilityZone" />
+    <Map From="BundleTasks" To="BundleTask" />
+    <Map From="ConversionTasks" To="ConversionTask" />
+    <Map From="CustomerGateways" To="CustomerGateway" />
+    <Map From="DhcpOptions" To="DhcpOption" />
+    <Map From="Images" To="Image" />
+    <Map From="Instances" To="Instance" />
+    <Map From="InternetGateways" To="InternetGateway" />
+    <Map From="KeyPairs" To="KeyPair" />
+    <Map From="Licenses" To="License" />
+    <Map From="NetworkAcls" To="NetworkAcl" />
+    <Map From="NetworkInterfaces" To="NetworkInterface" />
+    <Map From="PlacementGroups" To="PlacementGroup" />
+    <Map From="PrivateIpAddresses" To="PrivateIpAddress" />
+    <Map From="Regions" To="Region" />
+    <Map From="ReservedInstances" To="ReservedInstance" />
+    <Map From="ReservedInstancesListings" To="ReservedInstancesListing" />
+    <Map From="ReservedInstancesOfferings" To="ReservedInstancesOffering" />
+    <Map From="RouteTables" To="RouteTable" />
+    <Map From="SecurityGroups" To="SecurityGroup" />
+    <Map From="Snapshots" To="Snapshot" />
+    <Map From="SpotInstances" To="SpotInstance" />
+    <Map From="SpotInstanceRequests" To="SpotInstanceRequest" />
+    <Map From="Subnets" To="Subnet" />
+    <Map From="Tags" To="Tag" />
+    <Map From="Volumes" To="Volume" />
+    <Map From="Vpcs" To="Vpc" />
+    <Map From="VpnConnections" To="VpnConnection" />
+    <Map From="VpnGateways" To="VpnGateway" />
+    <!--<Map From="DhcpOptions" To="DhcpOption" />-->
+  </NounMappings>
+
+  <PipelineByValueProperties>
+    <Property>InstanceId</Property>
+    <Property>ImageId</Property>
+    <Property>VolumeId</Property>
+    <Property>SnapshotId</Property>
+    <Property>ReservationId</Property>
+    <Property>ReservedInstancesId</Property>
+    <Property>ReservedInstancesListingId</Property>
+    <Property>ReservedInstancesOfferingId</Property>
+    <Property>VpnGatewayId</Property>
+    <Property>VpnConnectionId</Property>
+    <Property>VpcId</Property>
+    <Property>SubnetId</Property>
+    <Property>GroupId</Property>
+    <!-- excluded so we don't take both values and trigger 'cannot specify both
+         values' ec2 error
+    <Property>GroupName</Property> 
+    -->
+    <Property>RouteTableId</Property>
+    <Property>DestinationCidrBlock</Property>
+    <Property>GatewayId</Property>
+    <Property>InternetGatewayId</Property>
+    <Property>CustomerGatewayId</Property>
+    <Property>NetworkInterfaceId</Property>
+    <Property>NetworkAclId</Property>
+    <Property>ResourceId</Property>
+    <Property>ZoneName</Property>
+    <Property>DhcpOptionsId</Property>
+    <Property>SpotInstanceRequestId</Property>
+    <Property>AvailabilityZone</Property>
+    <Property>AssociationId</Property>
+    <Property>BundleId</Property>
+    <Property>ConversionTaskId</Property>
+    <Property>SpotInstanceRequestId</Property>
+    <Property>KeyName</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

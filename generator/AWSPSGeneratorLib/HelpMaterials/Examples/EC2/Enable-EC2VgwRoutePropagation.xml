@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Enable-EC2VgwRoutePropagation -RouteTableId "rtb-c98a35a0" -GatewayId "vgw-d8e09e8a"</code>
+    <description>This example enables the virtual private gateway vgw-d8e09e8a to propagate routes automatically to the routing table with ID rtb-c98a35a0.</description>
+  </example>
+</examples>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>New-EC2KeyPair -KeyName "my-key-pair"
+
+KeyName                                     KeyFingerprint                              KeyMaterial
+-------                                     --------------                              -----------
+my-key-pair                                 a0:b1:c2:d3:e4:f5:a6:b7:c8:d9:e0:f1:a2:0... -----BEGIN RSA PRIVATE KEY-----...
+    </code>
+    <description>This example request creates a key pair named my-key-pair. The KeyFingerprint member of the returned object contains the SHA-1 digest of the DER encoded private key and the KeyMaterial member contains the unencrypted PEM encoded RSA private key.</description>
+  </example>
+  <example>
+    <code>(New-EC2KeyPair -KeyName "my-key-pair").KeyMaterial | Out-File .\my-key-pair.pem</code>
+    <description>This example request creates a key pair named my-key-pair and captures the PEM encoded RSA private key in a file named my-key-pair.pem.</description>
+  </example>
+</examples>

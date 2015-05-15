@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Register-EC2Address -InstanceId i-1a2b3c4d -PublicIp 192.0.2.1</code>
+    <description>Associates an Elastic IP Address to an Instance in the current default region.</description>
+  </example>
+</examples>

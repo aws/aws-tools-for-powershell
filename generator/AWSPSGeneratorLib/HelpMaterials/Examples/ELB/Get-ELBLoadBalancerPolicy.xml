@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ELBLoadBalancerPolicy -LoadBalancerName MyLoadBalancer</code>
+    <description>Returns the policy descriptions of all policies associated with the specified load balancer.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancerPolicy -LoadBalancerName MyLoadBalancer -PolicyName EnableProxyProtocol</code>
+    <description>Returns the policy description of the specified policy for the load balancer.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancerPolicy -LoadBalancerName MyLoadBalancer -PolicyName @("EnableProxyProtocol","MySSLLoadBalancerPolicy")</code>
+    <description>Returns the policy descriptions of the specified policies for the load balancer.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>Get-ELBLoadBalancerPolicy
+
+PolicyAttributeDescriptions                          PolicyName                                           PolicyTypeName
+---------------------------                          ----------                                           --------------
+{Protocol-SSLv2, Protocol-TLSv1, Protocol-SSLv3, ... ELBSecurityPolicy-2015-02                            SSLNegotiationPolicyType
+{Protocol-SSLv2, Protocol-TLSv1, Protocol-SSLv3, ... ELBSecurityPolicy-2014-10                            SSLNegotiationPolicyType
+{Protocol-SSLv2, Protocol-TLSv1, Protocol-SSLv3, ... ELBSecurityPolicy-2014-01                            SSLNegotiationPolicyType
+{Protocol-SSLv2, Protocol-TLSv1, Protocol-SSLv3, ... ELBSecurityPolicy-2011-08                            SSLNegotiationPolicyType
+{Protocol-SSLv2, Protocol-TLSv1, Protocol-SSLv3, ... ELBSample-ELBDefaultCipherPolicy                     SSLNegotiationPolicyType
+{Protocol-SSLv2, Protocol-TLSv1, Protocol-SSLv3, ... ELBSample-OpenSSLDefaultCipherPolicy                 SSLNegotiationPolicyType
+    </code>
+    <description>Returns the descriptions of all the sample policies. The names of the sample policies have the ELBSample- prefix.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancerPolicy -PolicyName @("ELBSecurityPolicy-2011-08","ELBSample-OpenSSLDefaultCipherPolicy")</code>
+    <description>Returns the descriptions of the specified policies. The names of the sample policies have the ELBSample- prefix.</description>
+  </example>
+</examples>

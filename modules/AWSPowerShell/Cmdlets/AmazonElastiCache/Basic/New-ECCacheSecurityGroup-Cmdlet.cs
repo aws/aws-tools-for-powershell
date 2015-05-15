@@ -1,0 +1,155 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ElastiCache;
+using Amazon.ElastiCache.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC
+{
+    /// <summary>
+    /// The <i>CreateCacheSecurityGroup</i> action creates a new cache security group. Use
+    /// a cache security group to control access to one or more cache clusters.
+    /// 
+    ///  
+    /// <para>
+    /// Cache security groups are only used when you are creating a cache cluster outside
+    /// of an Amazon Virtual Private Cloud (VPC). If you are creating a cache cluster inside
+    /// of a VPC, use a cache subnet group instead. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html">CreateCacheSubnetGroup</a>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("New", "ECCacheSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElastiCache.Model.CacheSecurityGroup")]
+    [AWSCmdlet("Invokes the CreateCacheSecurityGroup operation against Amazon ElastiCache.", Operation = new[] {"CreateCacheSecurityGroup"})]
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSecurityGroup",
+        "This cmdlet returns a CacheSecurityGroup object.",
+        "The service call response (type CreateCacheSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class NewECCacheSecurityGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A name for the cache security group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the
+        /// word "Default".</para><para>Example: <code>mysecuritygroup</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String CacheSecurityGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A description for the cache security group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public String Description { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CacheSecurityGroupName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ECCacheSecurityGroup (CreateCacheSecurityGroup)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.CacheSecurityGroupName = this.CacheSecurityGroupName;
+            context.Description = this.Description;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new CreateCacheSecurityGroupRequest();
+            
+            if (cmdletContext.CacheSecurityGroupName != null)
+            {
+                request.CacheSecurityGroupName = cmdletContext.CacheSecurityGroupName;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.CreateCacheSecurityGroup(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.CacheSecurityGroup;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String CacheSecurityGroupName { get; set; }
+            public String Description { get; set; }
+        }
+        
+    }
+}

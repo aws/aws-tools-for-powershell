@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>$option1 = New-Object -TypeName Amazon.EC2.Model.DhcpConfiguration
+PS C:\>$option1.Key = "domain-name"
+PS C:\>$option1.Values = "abc.local"
+
+PS C:\>$option2 = New-Object -TypeName Amazon.EC2.Model.DhcpConfiguration
+PS C:\>$option2.Key = "domain-name-servers"
+PS C:\>$option2.Values = @("10.0.0.101","10.0.0.102")
+
+PS C:\>$options = @($option1, $option2)
+PS C:\>New-EC2DhcpOption -DhcpConfiguration $options
+    </code>
+    <description>This command uses PowerShell's New-Object cmdlet to build the set of options to pass to the -DhcpConfiguration parameter.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$options = @( @{Key="domain-name";Values=@("domainname1")}, @{Key="domain-name-servers";Values=@("server1","server2")})
+PS C:\>New-EC2DhcpOption -DhcpConfiguration $options
+    </code>
+    <description>This command uses PowerShell's hash-table and array syntax to create the set of options to pass to the -DhcpConfiguration parameter.</description>
+  </example>
+</examples>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Update-IAMOpenIDConnectProviderThumbprint -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com -ThumbprintList 7359755EXAMPLEabc3060bce3EXAMPLEec4542a3</code>
+    <description>This example updates the certificate thumbprint list for the OIDC provider whose ARN is <code>arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code> to use a new thumbprint. The OIDC provider shares the new value when the certificate that is associated with the provider changes.</description>
+  </example>
+</examples>

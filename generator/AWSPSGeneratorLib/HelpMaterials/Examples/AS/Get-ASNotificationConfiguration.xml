@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASNotificationConfiguration</code>
+    <description>Returns a list of notification actions associated with all Auto Scaling groups for specified events.</description>
+  </example>
+  <example>
+    <code>Get-ASNotificationConfiguration -AutoScalingGroupName my-test-asg</code>
+    <description>Returns a list of notification actions associated with the Auto Scaling group named 'my-test-asg' for specified events.</description>
+  </example>
+</examples>

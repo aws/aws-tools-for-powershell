@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>R53D</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonRoute53Domains</ServiceClientInterface>
+  <ServiceClient>AmazonRoute53DomainsClient</ServiceClient>
+  <ServiceNamespace>Amazon.Route53Domains</ServiceNamespace>
+
+  <PipelineParameter>DomainName</PipelineParameter>
+  
+  <AutoIterate Start="Marker" Next="NextPageMarker" />
+
+  <DefaultRegion>us-east-1</DefaultRegion>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CheckDomainAvailability" Verb="Get" />
+    <ServiceOperation MethodName="DeleteTagsForDomain" Output="Void" />
+    <ServiceOperation MethodName="DisableDomainAutoRenew" Output="Void" />
+    <ServiceOperation MethodName="DisableDomainTransferLock" />
+    <ServiceOperation MethodName="EnableDomainAutoRenew" Output="Void" />
+    <ServiceOperation MethodName="EnableDomainTransferLock" />
+    <ServiceOperation MethodName="GetDomainDetail" Output="Response" />
+    <ServiceOperation MethodName="GetOperationDetail" Output="Response" />
+    <ServiceOperation MethodName="ListDomains" Verb="Get" />
+    <ServiceOperation MethodName="ListOperations" Verb="Get" />
+    <ServiceOperation MethodName="ListTagsForDomain" Verb="Get" />
+    <ServiceOperation MethodName="RegisterDomain" ShouldProcessTarget="DomainName">
+      <Params>
+        <!-- stops rename thru singularization -->
+        <Param Name="DurationInYears" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
+
+    <ServiceOperation MethodName="RetrieveDomainAuthCode" Verb="Get" />
+    <ServiceOperation MethodName="TransferDomain" Verb="Invoke" Noun="DomainTransfer" ShouldProcessTarget="DomainName">
+      <Params>
+        <!-- stops rename thru singularization -->
+        <Param Name="DurationInYears" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
+
+    <ServiceOperation MethodName="UpdateDomainContact" />
+    <ServiceOperation MethodName="UpdateDomainContactPrivacy" />
+    <ServiceOperation MethodName="UpdateDomainNameservers" />
+    <ServiceOperation MethodName="UpdateTagsForDomain" Output="Void" />
+  </ServiceOperations>
+
+  <MetadataProperties>
+    <Property>Marker</Property>
+    <Property>NextPageMarker</Property>
+  </MetadataProperties>
+  
+  <PipelineByValueProperties>
+    <Property>DomainName</Property>
+    <Property>OperationId</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

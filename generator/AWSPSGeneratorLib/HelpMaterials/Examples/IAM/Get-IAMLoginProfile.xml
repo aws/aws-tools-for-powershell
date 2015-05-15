@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMLoginProfile -UserName David
+
+CreateDate                   PasswordResetRequired                 UserName
+----------                   ---------------------                 --------
+12/10/2014 3:39:44 PM        False                                 David</code>
+    <description>This example returns the password creation date and whether a password reset is required for the IAM user <code>David</code>.</description>
+  </example>
+</examples>

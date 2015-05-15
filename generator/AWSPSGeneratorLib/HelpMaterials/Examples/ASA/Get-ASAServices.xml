@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASAServices</code>
+    <description>Returns all available service codes, names and categories.</description>
+  </example>
+  <example>
+    <code>Get-ASAServices -ServiceCodeList "amazon-cloudfront"</code>
+    <description>Returns the name and categories for the service with the specified code.</description>
+  </example>
+  <example>
+    <code>Get-ASAServices -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch")</code>
+    <description>Returns the name and categories for the specified service codes.</description>
+  </example>
+  <example>
+    <code>Get-ASAServices -ServiceCodeList @("amazon-cloudfront", "amazon-cloudwatch") -Language "ja"</code>
+    <description>Returns the name and categories (in Japanese) for the specified service codes. Currently English ("en") and Japanese ("ja") language codes are supported.</description>
+  </example>
+</examples>

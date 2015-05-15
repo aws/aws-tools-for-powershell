@@ -1,0 +1,174 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.RDS;
+using Amazon.RDS.Model;
+
+namespace Amazon.PowerShell.Cmdlets.RDS
+{
+    /// <summary>
+    /// Downloads all or a portion of the specified log file.
+    /// </summary>
+    [Cmdlet("Get", "RDSDBLogFilePortion")]
+    [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResult")]
+    [AWSCmdlet("Invokes the DownloadDBLogFilePortion operation against Amazon Relational Database Service.", Operation = new[] {"DownloadDBLogFilePortion"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DownloadDBLogFilePortionResult",
+        "This cmdlet returns a DownloadDBLogFilePortionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetRDSDBLogFilePortionCmdlet : AmazonRDSClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para> The customer-assigned name of the DB instance that contains the log files you want
+        /// to list. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
+        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
+        /// hyphens</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String DBInstanceIdentifier { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The name of the log file to be downloaded. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public String LogFileName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The number of lines to download. </para><para>If the NumberOfLines parameter is specified, then the block of lines returned can
+        /// be from the beginning or the end of the log file, depending on the value of the Marker
+        /// parameter. <ul><li><para>If neither Marker or NumberOfLines are specified, the entire log file is returned.</para></li><li><para>If NumberOfLines is specified and Marker is not specified, then the most recent lines
+        /// from the end of the log file are returned.</para></li><li><para>If Marker is specified as "0", then the specified number of lines from the beginning
+        /// of the log file are returned.</para></li><li><para>You can download the log file in blocks of lines by specifying the size of the block
+        /// using the NumberOfLines parameter, and by specifying a value of "0" for the Marker
+        /// parameter in your first request. Include the Marker value returned in the response
+        /// as the Marker value for the next request, continuing until the AdditionalDataPending
+        /// response element returns false.</para></li></ul></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 NumberOfLines { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The pagination token provided in the previous request or "0". If the Marker parameter
+        /// is specified the response includes only records beyond the marker until the end of
+        /// the file or up to NumberOfLines. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public String Marker { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.DBInstanceIdentifier = this.DBInstanceIdentifier;
+            context.LogFileName = this.LogFileName;
+            context.Marker = this.Marker;
+            if (ParameterWasBound("NumberOfLines"))
+                context.NumberOfLines = this.NumberOfLines;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new DownloadDBLogFilePortionRequest();
+            
+            if (cmdletContext.DBInstanceIdentifier != null)
+            {
+                request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
+            }
+            if (cmdletContext.LogFileName != null)
+            {
+                request.LogFileName = cmdletContext.LogFileName;
+            }
+            if (cmdletContext.Marker != null)
+            {
+                request.Marker = cmdletContext.Marker;
+            }
+            if (cmdletContext.NumberOfLines != null)
+            {
+                request.NumberOfLines = cmdletContext.NumberOfLines.Value;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DownloadDBLogFilePortion(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String DBInstanceIdentifier { get; set; }
+            public String LogFileName { get; set; }
+            public String Marker { get; set; }
+            public Int32? NumberOfLines { get; set; }
+        }
+        
+    }
+}

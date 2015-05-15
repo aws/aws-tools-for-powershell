@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-EC2Instance -ImageId ami-1a2b3c4d -MinCount 1 -MaxCount 1 -InstanceType m1.large</code>
+    <description>Creates a single 'm1.large' instance of the ami 'ami-1a2b3c4d' in the current default region.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$bdm = New-Object Amazon.EC2.Model.BlockDeviceMapping
+PS C:\>$bdm.VirtualName = "ephemeral0"
+PS C:\>$bdm.DeviceName = "/dev/sdb"
+
+PS C:\>$ami = Get-EC2ImageByName WINDOWS_2012_BASE
+
+PS C:\>New-EC2Instance -ImageId $ami.ImageId -MinCount 1 -MaxCount 1 -InstanceType m1.large -BlockDeviceMapping $bdm
+    </code>
+    <description>This example launches an m1.large instance of the latest Windows Server 2012 base ami and maps an instance store volume.</description>
+  </example>
+</examples>

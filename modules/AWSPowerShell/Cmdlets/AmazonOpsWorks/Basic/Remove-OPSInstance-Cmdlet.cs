@@ -1,0 +1,182 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.OpsWorks;
+using Amazon.OpsWorks.Model;
+
+namespace Amazon.PowerShell.Cmdlets.OPS
+{
+    /// <summary>
+    /// Deletes a specified instance, which terminates the associated Amazon EC2 instance.
+    /// You must stop an instance before you can delete it.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-delete.html">Deleting
+    /// Instances</a>.
+    /// </para><para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+    /// level for the stack, or an attached policy that explicitly grants permissions. For
+    /// more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+    /// User Permissions</a>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Remove", "OPSInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteInstance operation against AWS OpsWorks.", Operation = new[] {"DeleteInstance"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type DeleteInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RemoveOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>Whether to delete the instance Elastic IP address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public Boolean DeleteElasticIp { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Whether to delete the instance's Amazon EBS volumes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        public Boolean DeleteVolumes { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The instance ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String InstanceId { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the InstanceId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-OPSInstance (DeleteInstance)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (ParameterWasBound("DeleteElasticIp"))
+                context.DeleteElasticIp = this.DeleteElasticIp;
+            if (ParameterWasBound("DeleteVolumes"))
+                context.DeleteVolumes = this.DeleteVolumes;
+            context.InstanceId = this.InstanceId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new DeleteInstanceRequest();
+            
+            if (cmdletContext.DeleteElasticIp != null)
+            {
+                request.DeleteElasticIp = cmdletContext.DeleteElasticIp.Value;
+            }
+            if (cmdletContext.DeleteVolumes != null)
+            {
+                request.DeleteVolumes = cmdletContext.DeleteVolumes.Value;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DeleteInstance(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.InstanceId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public Boolean? DeleteElasticIp { get; set; }
+            public Boolean? DeleteVolumes { get; set; }
+            public String InstanceId { get; set; }
+        }
+        
+    }
+}

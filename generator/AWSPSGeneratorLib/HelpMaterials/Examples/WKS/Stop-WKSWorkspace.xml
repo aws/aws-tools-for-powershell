@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Stop-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID"}</code>
+        <description>Terminate a workspace.</description>
+    </example>
+  <example>
+    <code>Stop-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID1"},@{"WorkspaceId" = "ws-ID2"}</code>
+    <description>Terminate multiple workspaces.</description>
+  </example>
+</examples>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Stop-EC2Instance -Instance i-1a2b3c4d</code>
+    <description>Stops the instance i-1a2b3c4d.</description>
+  </example>
+  <example>
+    <code>Stop-EC2Instance -Instance i-1a2b3c4d -Terminate -Region us-east-1</code>
+    <description>Stops and terminates instance i-1a2b3c4d in the us-east-1 region. You will be prompted for confirmation before the operation proceeds.</description>
+  </example>
+  <example>
+    <code>Stop-EC2Instance -Instance i-1a2b3c4d -Terminate -Region us-east-1 -Force</code>
+    <description>Stops and terminates instance i-1a2b3c4d in the us-east-1 region. You will not be prompted for confirmation before the operation proceeds.</description>
+  </example>
+</examples>

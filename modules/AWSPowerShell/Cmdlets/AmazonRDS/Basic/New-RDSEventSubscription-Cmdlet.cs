@@ -1,0 +1,264 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.RDS;
+using Amazon.RDS.Model;
+
+namespace Amazon.PowerShell.Cmdlets.RDS
+{
+    /// <summary>
+    /// Creates an RDS event notification subscription. This action requires a topic ARN (Amazon
+    /// Resource Name) created by either the RDS console, the SNS console, or the SNS API.
+    /// To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to
+    /// the topic. The ARN is displayed in the SNS console.
+    /// 
+    ///  
+    /// <para>
+    /// You can specify the type of source (SourceType) you want to be notified of, provide
+    /// a list of RDS sources (SourceIds) that triggers the events, and provide a list of
+    /// event categories (EventCategories) for events you want to be notified of. For example,
+    /// you can specify SourceType = db-instance, SourceIds = mydbinstance1, mydbinstance2
+    /// and EventCategories = Availability, Backup.
+    /// </para><para>
+    /// If you specify both the SourceType and SourceIds, such as SourceType = db-instance
+    /// and SourceIdentifier = myDBInstance1, you will be notified of all the db-instance
+    /// events for the specified source. If you specify a SourceType but do not specify a
+    /// SourceIdentifier, you will receive notice of the events for that source type for all
+    /// your RDS sources. If you do not specify either the SourceType nor the SourceIdentifier,
+    /// you will be notified of events generated from all RDS sources belonging to your customer
+    /// account.
+    /// </para>
+    /// </summary>
+    [Cmdlet("New", "RDSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.EventSubscription")]
+    [AWSCmdlet("Invokes the CreateEventSubscription operation against Amazon Relational Database Service.", Operation = new[] {"CreateEventSubscription"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
+        "This cmdlet returns a EventSubscription object.",
+        "The service call response (type CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class NewRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para> A Boolean value; set to <b>true</b> to activate the subscription, set to <b>false</b>
+        /// to create the subscription but not active it. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean Enabled { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> A list of event categories for a SourceType that you want to subscribe to. You can
+        /// see a list of the categories for a given SourceType in the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
+        /// topic in the Amazon RDS User Guide or by using the <b>DescribeEventCategories</b>
+        /// action. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EventCategories")]
+        public System.String[] EventCategory { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the SNS topic created for event notification. The
+        /// ARN is created by Amazon SNS when you create a topic and subscribe to it. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        public String SnsTopicArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The list of identifiers of the event sources for which events will be returned. If
+        /// not specified, then all sources are included in the response. An identifier must begin
+        /// with a letter and must contain only ASCII letters, digits, and hyphens; it cannot
+        /// end with a hyphen or contain two consecutive hyphens. </para><para>Constraints:</para><ul><li>If SourceIds are supplied, SourceType must also be provided.</li><li>If
+        /// the source type is a DB instance, then a <code>DBInstanceIdentifier</code> must be
+        /// supplied.</li><li>If the source type is a DB security group, a <code>DBSecurityGroupName</code>
+        /// must be supplied.</li><li>If the source type is a DB parameter group, a <code>DBParameterGroupName</code>
+        /// must be supplied.</li><li>If the source type is a DB snapshot, a <code>DBSnapshotIdentifier</code>
+        /// must be supplied.</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SourceIds")]
+        public System.String[] SourceId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The type of source that will be generating the events. For example, if you want to
+        /// be notified of events generated by a DB instance, you would set this parameter to
+        /// db-instance. if this value is not specified, all events are returned. </para><para>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        public String SourceType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the subscription. </para><para>Constraints: The name must be less than 255 characters. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String SubscriptionName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SubscriptionName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RDSEventSubscription (CreateEventSubscription)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (ParameterWasBound("Enabled"))
+                context.Enabled = this.Enabled;
+            if (this.EventCategory != null)
+            {
+                context.EventCategories = new List<String>(this.EventCategory);
+            }
+            context.SnsTopicArn = this.SnsTopicArn;
+            if (this.SourceId != null)
+            {
+                context.SourceIds = new List<String>(this.SourceId);
+            }
+            context.SourceType = this.SourceType;
+            context.SubscriptionName = this.SubscriptionName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Tag>(this.Tag);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new CreateEventSubscriptionRequest();
+            
+            if (cmdletContext.Enabled != null)
+            {
+                request.Enabled = cmdletContext.Enabled.Value;
+            }
+            if (cmdletContext.EventCategories != null)
+            {
+                request.EventCategories = cmdletContext.EventCategories;
+            }
+            if (cmdletContext.SnsTopicArn != null)
+            {
+                request.SnsTopicArn = cmdletContext.SnsTopicArn;
+            }
+            if (cmdletContext.SourceIds != null)
+            {
+                request.SourceIds = cmdletContext.SourceIds;
+            }
+            if (cmdletContext.SourceType != null)
+            {
+                request.SourceType = cmdletContext.SourceType;
+            }
+            if (cmdletContext.SubscriptionName != null)
+            {
+                request.SubscriptionName = cmdletContext.SubscriptionName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.CreateEventSubscription(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.EventSubscription;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public Boolean? Enabled { get; set; }
+            public List<String> EventCategories { get; set; }
+            public String SnsTopicArn { get; set; }
+            public List<String> SourceIds { get; set; }
+            public String SourceType { get; set; }
+            public String SubscriptionName { get; set; }
+            public List<Tag> Tags { get; set; }
+        }
+        
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Disable-IAMMFADevice -UserName "Bob" -SerialNumber "123456789012"</code>
+    <description>This command disables the hardware MFA device associated with the user <code>Bob</code> that has the serial number <code>123456789012</code>.</description>
+  </example>
+
+  <example>
+    <code>PS C:\>Disable-IAMMFADevice -UserName "David" -SerialNumber "arn:aws:iam::210987654321:mfa/David"</code>
+    <description>This command disables the virtual MFA device associated with the user <code>David</code> that has the ARN <code>arn:aws:iam::210987654321:mfa/David</code>.<br/>Note that virtual MFA device is not deleted from the account. The virtual device is still present and appears in the output of the <code>Get-IAMVirtualMFADevice</code> command. Before you can create a new virtual MFA device for the same user, you must delete the old one by using the <code>Remove-IAMVirtualMFADevice</code> command.</description>
+  </example>
+</examples>

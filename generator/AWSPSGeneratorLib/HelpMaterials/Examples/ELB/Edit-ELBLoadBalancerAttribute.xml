@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Edit-ELBLoadBalancerAttribute -LoadBalancerName my-test-loadbalancer -CrossZoneLoadBalancing_Enabled $true</code>
+    <description>Enables cross-zone load balancing for the specified load balancer.</description>
+  </example>
+  <example>
+    <code>Edit-ELBLoadBalancerAttribute -LoadBalancerName my-test-loadbalancer -ConnectionDraining_Enabled $false</code>
+    <description>Disables connection draining for the specified load balancer.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>Edit-ELBLoadBalancerAttribute -LoadBalancerName my-test-loadbalancer `
+                              -AccessLog_Enabled $true `
+                              -AccessLog_S3BucketName myLogsBucket `
+                              -AccessLog_S3BucketPrefix "my-bucket-prefix/prod" `
+                              -AccessLog_EmitInterval 60
+    </code>
+    <description>Enables access logging for the specified load balancer.</description>
+  </example>
+</examples>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-ASDesiredCapacity -AutoScalingGroupName my-test-asg -DesiredCapacity 2</code>
+    <description>Sets the size of the Auto Scaling group named 'my-test-asg' to 2.</description>
+  </example>
+  <example>
+    <code>Set-ASDesiredCapacity -AutoScalingGroupName my-test-asg -DesiredCapacity 2 -HonorCooldown $true</code>
+    <description>Sets the size of the Auto Scaling group named 'my-test-asg' to 2, waiting for the cooldown period for the group to complete before initiating a scaling activity to set the group to the new capacity setting.</description>
+  </example>
+</examples>

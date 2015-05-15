@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-ASTag -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-test-asg"; Key="MyTag"; Value="MyTagValue"; PropagateAtLaunch=$true} )</code>
+    <description>Sets a single tag on the Auto Scaling group 'my-test-asg'. The tag has key 'MyTag' and value 'MyTagValue' and is propagated to new EC2 instances on launch.</description>
+  </example>
+</examples>

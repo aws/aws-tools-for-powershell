@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>$n = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
+PS C:\>$n.AssociatePublicIpAddress = $true
+PS C:\>$n.DeleteOnTermination = $true
+PS C:\>$n.Description = "MY-VPC1"
+PS C:\>$n.DeviceIndex = 0
+PS C:\>$n.Groups.Add("sg-a1b2c3d4")
+PS C:\>$n.PrivateIpAddress = "10.0.0.1"
+PS C:\>$n.SubnetId = "subnet-a1b2c3d4"
+
+PS C:\>Request-EC2SpotInstance `
+        -InstanceCount 1 `
+        -LaunchSpecification_EbsOptimized $false `
+        -LaunchSpecification_ImageId ami-123456 `
+        -LaunchSpecification_InstanceType m1.small `
+        -LaunchSpecification_MonitoringEnabled $true `
+        -Placement_AvailabilityZone us-west-2b `
+        -SpotPrice 5 `
+        -Type one-time `
+        -LaunchSpecification_NetworkInterfaces $n
+    </code>
+    <description>Requests a m1.small Amazon EC2 Spot Instance in the private subnet specified by subnet-a1b2c3d4 with monitoring enabled and placed into a specific availability zone. Note that the security group, sg-a1b2c3d4, must be created in the VPC that contains the specified subnet, subnet-a1b2c3d4</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$interface1 = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
+PS C:\>$interface1.PrivateIpAddress = "10.0.1.5"
+PS C:\>$interface1.SubnetId = "subnet-a1b2c3d4"
+PS C:\>$interface1.DeviceIndex = 0
+PS C:\>$interface1.Groups.Add("sg-a1b2c3d4")
+
+PS C:\>Request-EC2SpotInstance -SpotPrice 0.007 -InstanceCount 2 -Type one-time -LaunchSpecification_ImageId ami-12345678 -LaunchSpecification_InstanceType m1.small -LaunchSpecification_NetworkInterface $interface1
+    </code>
+    <description>Requests two t1.small Amazon EC2 Spot Instances in the private subnet specified by subnet-a1b2c3d4. Note that the security group, sg-a1b2c3d4, must be created in the VPC that contains the specified subnet, subnet-a1b2c3d4.</description>
+  </example>
+</examples>

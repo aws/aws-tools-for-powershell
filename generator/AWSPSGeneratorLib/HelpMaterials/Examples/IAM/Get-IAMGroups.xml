@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMGroups
+
+Arn        : arn:aws:iam::123456789012:group/Administrators
+CreateDate : 10/20/2014 10:06:24 AM
+GroupId    : 6WCH4TRY3KIHIEXAMPLE1
+GroupName  : Administrators
+Path       : /
+
+Arn        : arn:aws:iam::123456789012:group/Developers
+CreateDate : 12/10/2014 3:38:55 PM
+GroupId    : ZU2EOWMK6WBZOEXAMPLE2
+GroupName  : Developers
+Path       : /
+
+Arn        : arn:aws:iam::123456789012:group/Testers
+CreateDate : 12/10/2014 3:39:11 PM
+GroupId    : RHNZZGQJ7QHMAEXAMPLE3
+GroupName  : Testers
+Path       : /</code>
+    <description>This example returns a collection of all the IAM groups defined in the current AWS account.</description>
+  </example>
+</examples>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ASTag -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-test-asg"; Key="MyTag"; } )</code>
+    <description>Removes the tag named 'MyTag' and its associated value from the Auto Scaling group named 'my-test-asg'. You are prompted for confirmation before the operation proceeds.</description>
+  </example>
+  <example>
+    <code>Remove-ASTag -Force -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-test-asg"; Key="MyTag"; }, @{ResourceType="auto-scaling-group"; ResourceId="my-test-asg"; Key="MyOtherTag"; } )</code>
+    <description>Removes the tags named 'MyTag' and 'MyOtherTag' and their associated values from the Auto Scaling group named 'my-test-asg'. You are not prompted for confirmation before the operation proceeds.</description>
+  </example>
+</examples>

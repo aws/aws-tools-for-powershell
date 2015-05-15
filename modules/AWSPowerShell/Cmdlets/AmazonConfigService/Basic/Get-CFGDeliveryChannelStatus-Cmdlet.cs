@@ -1,0 +1,126 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ConfigService;
+using Amazon.ConfigService.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CFG
+{
+    /// <summary>
+    /// Returns the current status of the specified delivery channel. If a delivery channel
+    /// is not specified, this action returns the current status of all delivery channels
+    /// associated with the account. 
+    /// 
+    ///  <note>Currently, you can specify only one delivery channel per account.</note>
+    /// </summary>
+    [Cmdlet("Get", "CFGDeliveryChannelStatus")]
+    [OutputType("Amazon.ConfigService.Model.DeliveryChannelStatus")]
+    [AWSCmdlet("Invokes the DescribeDeliveryChannelStatus operation against Amazon Config.", Operation = new[] {"DescribeDeliveryChannelStatus"})]
+    [AWSCmdletOutput("Amazon.ConfigService.Model.DeliveryChannelStatus",
+        "This cmdlet returns a collection of DeliveryChannelStatus objects.",
+        "The service call response (type DescribeDeliveryChannelStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetCFGDeliveryChannelStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A list of delivery channel names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("DeliveryChannelNames")]
+        public System.String[] DeliveryChannelName { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (this.DeliveryChannelName != null)
+            {
+                context.DeliveryChannelNames = new List<String>(this.DeliveryChannelName);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new DescribeDeliveryChannelStatusRequest();
+            
+            if (cmdletContext.DeliveryChannelNames != null)
+            {
+                request.DeliveryChannelNames = cmdletContext.DeliveryChannelNames;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DescribeDeliveryChannelStatus(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.DeliveryChannelsStatus;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public List<String> DeliveryChannelNames { get; set; }
+        }
+        
+    }
+}

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Write-ASScheduledUpdateGroupAction -AutoScalingGroupName my-test-asg -ScheduledActionName "myScheduledAction" -StartTime "2013-10-01T00:00:00Z" -DesiredCapacity 10</code>
+    <description>Updates (or creates, if the specified ScheduledActionName does not exist) the action to change the desired capacity for the group at the specified start time.</description>
+  </example>
+</examples>

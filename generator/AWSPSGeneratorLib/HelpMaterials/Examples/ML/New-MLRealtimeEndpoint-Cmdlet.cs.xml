@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>New-MLRealtimeEndpoint -ModelId ID</code>
+        <description>Create a new realtime prediction endpoint for the given model id.</description>
+    </example>
+</examples>

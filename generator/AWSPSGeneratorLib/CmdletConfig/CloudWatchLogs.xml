@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CWL</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonCloudWatchLogs</ServiceClientInterface>
+  <ServiceClient>AmazonCloudWatchLogsClient</ServiceClient>
+  <ServiceNamespace>Amazon.CloudWatchLogs</ServiceNamespace>
+
+  <MetadataProperties>
+    <Property>RejectedLogEventsInfo</Property>
+  </MetadataProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateLogGroup" Output="Void" PositionalParameters="LogGroupName"/>
+    <ServiceOperation MethodName="CreateLogStream" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="LogStreamName" ShouldProcessTarget="LogStreamName"/>
+    <ServiceOperation MethodName="DeleteLogGroup" Output="Void" />
+    <ServiceOperation MethodName="DeleteLogStream" Output="Void" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
+    <ServiceOperation MethodName="DeleteMetricFilter" Output="Void" PipelineParameter="FilterName" PositionalParameters="LogGroupName" />
+    <ServiceOperation MethodName="DeleteRetentionPolicy" Output="Void" />
+    <ServiceOperation MethodName="DescribeLogGroups" PipelineParameter="LogGroupNamePrefix"/>
+    <ServiceOperation MethodName="DescribeLogStreams" PipelineParameter="LogGroupName"/>
+    <ServiceOperation MethodName="DescribeMetricFilters" PipelineParameter="LogGroupName"/>
+
+    <ServiceOperation MethodName="FilterLogEvents" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" Output="Response" />
+    
+    <ServiceOperation MethodName="GetLogEvents" Output="Response" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
+    
+    <ServiceOperation MethodName="PutLogEvents" PipelineParameter="SequenceToken" PositionalParameters="LogGroupName;LogStreamName" ShouldProcessTarget="LogStreamName" />
+    <ServiceOperation MethodName="PutMetricFilter" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="FilterName;FilterPattern"/>
+    <ServiceOperation MethodName="PutRetentionPolicy" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="RetentionInDays">
+      <Params>
+        <Param Name="RetentionInDays" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="SetRetention" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="RetentionInDays">
+      <Params>
+        <Param Name="RetentionInDays" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="TestMetricFilter" PipelineParameter="FilterPattern" PositionalParameters="LogEventMessages"/>
+  </ServiceOperations>
+  
+  <PipelineByValueProperties>
+    <Property>LogGroupName</Property>
+    <Property>LogStreamName</Property>
+    <Property>FilterName</Property>
+    <Property>SequenceToken</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ELBTags -LoadBalancerName my-test-loadbalancer</code>
+    <description>Returns the collection of tags currently associated with the specified load balancer.</description>
+  </example>
+  <example>
+    <code>Get-ELBTags -LoadBalancerName @("my-test-loadbalancer","myVPCLoadBalancer")</code>
+    <description>Returns the collection of tags currently associated with the specified load balancers.</description>
+  </example>
+</examples>

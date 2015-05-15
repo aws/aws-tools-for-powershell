@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>Get-ELBLoadBalancerPolicyType
+
+Description                                          PolicyAttributeTypeDescriptions                      PolicyTypeName
+-----------                                          -------------------------------                      --------------
+Stickiness policy with session lifetimes controll... {CookieExpirationPeriod}                             LBCookieStickinessPolicyType
+Policy that controls authentication to back-end s... {PublicKeyPolicyName}                                BackendServerAuthenticationPolicyType
+Listener policy that defines the ciphers and prot... {Protocol-SSLv2, Protocol-TLSv1, Protocol-SSLv3, ... SSLNegotiationPolicyType
+Policy containing a list of public keys to accept... {PublicKey}                                          PublicKeyPolicyType
+Stickiness policy with session lifetimes controll... {CookieName}                                         AppCookieStickinessPolicyType
+Policy that controls whether to include the IP ad... {ProxyProtocol}                                      ProxyProtocolPolicyType
+    </code>
+    <description>Returns the partial description of all the policy types defined by Elastic Load Balancing for your account.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancerPolicyType -PolicyTypeName ProxyProtocolPolicyType</code>
+    <description>Returns the description of the ProxyProtocolPolicyType.</description>
+  </example>
+  <example>
+    <code>Get-ELBLoadBalancerPolicyType -PolicyTypeName @("ProxyProtocolPolicyType","LBCookieStickinessPolicyType")</code>
+    <description>Returns the description of the specified policy types.</description>
+  </example>
+</examples>

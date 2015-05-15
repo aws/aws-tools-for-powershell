@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>New-MLBatchPrediction -ModelId ID -Name NAME -OutputURI s3://...</code>
+        <description>Create a new batch prediction request for model with id ID and put the output at the specified S3 location.</description>
+    </example>
+</examples>

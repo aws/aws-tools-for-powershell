@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Unregister-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 172.31.0.4</code>
+    <description>Disassociates a private IP address from a network interface in the current default region.</description>
+  </example>
+</examples>

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- This is the 2-4 letter prefix identifying the service; cmdlets will
+       all be of the form Verb-{ABCD}Noun.
+  -->
+  <ServiceNounPrefix>ABCD</ServiceNounPrefix>
+
+  <!-- This tells the generator what namespace it can find the service interface
+       and client classes for this service. A .Model namespace is also assumed
+       from this setting.
+  -->
+  <ServiceNamespace>Amazon.{Service}</ServiceNamespace>
+
+  <!-- This tells the generator what interface to reflect over in the service
+       namespace; for V2 this will be 'IAmazon{Service}'
+  -->
+  <ServiceClientInterface>Amazon{Service{</ServiceClientInterface>
+  
+  <!-- This tells the generator what client class to instantiate to make
+       service calls; a {ServiceClient}Cmdlet will be derived from this
+       and the operation cmdlets in turn derive from that
+  -->
+  <ServiceClient>Amazon{Service}Client</ServiceClient>
+
+  <!-- 'using' statements for each of the namespaces listed here will be added 
+       to the generated cmdlets. This is optional. The root service namespace
+       and the '.Model' subnamespace will be added automatically.
+  -->
+  <AdditionalNamespaces>
+    <Namespace>My.Extra.Namespace1</Namespace>
+    <Namespace>My.Extra.Namespace2</Namespace>
+  </AdditionalNamespaces>
+
+  <!-- Specify this only if the service is considered region-less, to stop the 
+       cmdlet insisting that the user specify the -Region parameter.
+  -->
+  <DefaultRegion>region-system-name</DefaultRegion>
+
+  <!-- Defines custom verb mappings specific to this service; a global set
+       of remappings can be found in configs.xml. The 'From' verb is the
+       leading portion of the service api call (eg TerminateInstance), 
+       the 'To' is what we want to remap it to so as to conform to PowerShell
+       standards.
+  -->
+  <VerbMappings>
+    <Map From="ServiceVerb" To="PSPreferredVerb" />
+  </VerbMappings>
+
+  <!-- Like verbs, this allows nouns for service operations to be customized,
+       most usually from plural to the PS-preferred singular. The service noun
+       is the remains of the service api name, less the 'verb' portion.
+  -->
+  <NounMappings>
+    <Map From="ServiceNoun" To="PSPreferredNoun" />
+  </NounMappings>
+
+  <!-- Use this to specify request parameters that should not be emitted as
+       cmdlet parameters globally for a service. Use one <Property> element 
+       per request property. To exclude parameters on an operation-by-operation
+       basis, see the Params and Param child elements of a ServiceOperation
+       element.
+  -->
+  <ExcludeProperties>
+    <Property>PropertyName</Property>
+  </ExcludeProperties>
+
+  <!-- For services that have api calls that paginate, defines the request
+       and response/result fields the generator should look for to do 
+       automatic iteration to get the full set of results. Not all fields
+       are needed, depending on what iteration tokens the service allows.
+       
+       EmitLimit        Set this to the name of the field where the user can
+                        control how many items to return per call. Not all 
+                        services allow this; omit if necessary.
+                  
+       Start            Set this to the name of the field where the user sets
+                        the 'marker' indicating where to start returning results from.
+                  
+       Next             Set this to the name of the field in the results where
+                        the service sets the marker for the next batch of results.
+                  
+       TruncatedFlag    If the service uses a 'IsTruncated' flag to indicate 
+                        more results are available, set the name of the field
+                        containing the flag here.
+                      
+       ServicePageSize  Optional; if the service has a fixed max set of results 
+                        per call, set the value here.
+                        
+        Exclusions      Optional; if the service has operations that return
+                        multiple collections of objects, use this attribute.
+                        These operations will not then have automatic iteration 
+                        code generated and the user will need to control paging 
+                        operations themselves. The attribute value is a ;-delimited 
+                        set of method (operation) names.
+  -->
+  <AutoIterate EmitLimit="MaxRecords" 
+               Start="NextToken" 
+               Next="NextToken" 
+               TruncatedFlag="IsTruncated"
+               ServicePageSize="20"/>
+
+  <!-- ;-delimited set of parameter names that should have 'Position={int}' 
+       setting added to the [Parameter] attribute for the parameter. This indicates 
+       to PowerShell that the user can set the parameter value without needing to 
+       use the parameter name. Up to a max of 5 positional parameters should be 
+       specified.
+       
+       The names given here are global to all operations for the service; it's
+       possible to override this at the service operation level (see below).
+       Typically the service-global version of this config item lists just one 
+       parameter (e.g. InstanceId).
+  -->
+  <PositionalParameters>parameter-name-1;parameter-name-2</PositionalParameters>
+  
+  <!-- ;-delimited set of parameter names that should have 'PipelineParameter=true'
+       setting added to the [Parameter] attribute for the parameter. There can be 
+       only one of these per cmdlet (and can be none). The first name to match a 
+       parameter on a cmdlet is used and this can also be specified at the service 
+       operation level (see below). Typically the service-global version of this 
+       config item lists just one parameter name. If no single parameter is suitable
+       for global usage, omit this element and control pipelining at each service 
+       operation level.
+  -->
+  <PipelineParameter>parameter-name-1;parameter-name-2</PipelineParameter>
+
+  <!-- Lists the names of parameters that should have the 'ValueFromPipelineByPropertyName=true'
+       setting added to the [Parameter] attribute for the parameter. Add one <Property> element
+       per parameter.
+       
+       This setting indicates to PowerShell that the parameter value can be bound from
+       any piped-in object that has a property matching the parameter name.
+  -->
+  <PipelineByValueProperties>
+    <Property>parameter-name</Property>
+  </PipelineByValueProperties>
+
+  <!-- Use CustomAliases to generate additional aliases for a cmdlet into AWSAliases.ps1.
+       Note that aliases of the form <serviceprefix>-<serviceoperation> are generated 
+       automatically and don't need to be declared here.
+  -->
+  <CustomAliases>
+    <AliasSet Cmdlet="Verb-Noun">AlternateVerb-AlternateNoun</AliasSet>
+  </CustomAliases>
+
+  <!-- Use this to declare fields in the response/result that should be
+       ignored when trying to determine whether the operation returns a
+       single 'logical' result. Use one <property> element per field
+       to ignore. 
+       
+       If a service result is analyzed as returning exactly one logical
+       field, that field is emitted to the pipeline otherwise the entire
+       result object is emitted. Attributes on the service operation (see
+       below) tell the generator what to expect, in conjunction with this
+       set of field names.
+  -->
+  <MetadataProperties>
+    <Property>SolutionStackName</Property>
+  </MetadataProperties>
+
+  <!-- Add here any model type names (fully qualified) that need to retain
+       their namespace when added as parameters otherwise name resolution
+       will fail. For example, Amazon.SQS.Model.Attribute will collide
+       with System.Attribute if the namespaces are removed. Add one
+       <TypeName> element per type.
+  -->
+  <RetainFullTypeNames>
+    <TypeName>Fully.Qualified.Type.Name</TypeName>
+  </RetainFullTypeNames>
+
+  <!-- TODO
+  -->
+  <ParamEmitters>
+    <ParamEmitter ParamType="List&lt;Amazon.SQS.Model.Attribute&gt;" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonSQS.ListAttributesParamEmitter" />
+  </ParamEmitters>
+
+  <!-- ServiceOperations contains the set of api operations for the service, each
+       described in a <ServiceOperation> element. PLEASE keep this collection in
+       alphabetical order as it makes updating/spotting errors much easier!
+       
+       Each <ServiceOperation> can take a number of attributes:
+       
+       MethodName
+          This is the name of the method in the service interface
+          
+       Exclude
+          Set Exclude="True" to stop the generator producing a cmdlet for the method
+          name. Use this when the method is handled with a hand-written cmdlet (which
+          should be placed in the./Advanced subfolder for the service)
+
+      Output
+          The tells the generator how to process the response/result object once it
+          has disregarded the 'metadata' properties declared earlier.
+          
+          Some method calls return no usable output in these objects; in these
+          cases specify 'Output="Void"'.
+          
+          Method calls that return multiple fields in the response/result
+          should have a value of 'Output="Response"'. This will cause the response
+          or result object to be emitted as the cmdlet output.
+          
+          For method calls that return a single logical result, you do not specify
+          an Output setting as this behavior is expected by default. In this case,
+          the cmdlet will output the single logical result value to the pipeline.
+          
+          Upon analysis of the response/result objects, if the number of usable
+          result fields does not match the Output mode, an error is thrown by
+          the generator as this may indicate a breaking change and needs investigation.
+       
+       PositionalParameter
+       PipelineParameter
+          The name of the parameter that should be attributed with 'pipeline-by-value',
+          i.e. any data piped into the cmdlet will be bound to this parameter by the
+          shell. If the name exists in the service-global pipelineparameter element,
+          you don't need it here.
+          
+       Verb
+          Custom verb to apply (this should still be a valid PowerShell verb!)
+          
+       Noun
+          Custom noun to apply for the operation.
+           
+       ShouldProcessTarget
+          If the cmdlet creates, deletes or updates something we need to be able to
+          prompt for confirmation depending on shell settings. By default the generator 
+          will attempt to use the pipeline parameter but if this isn't available for the
+          cmdlet, or the cmdlet has multiple parameters, you need to set this to the name
+          of the parameter to use.
+           
+       NoPipelineParameter
+          Set this to "true" to turn off pipeline-by-value attribution for the operation.
+          
+       
+       In addition you can add a couple of child elements to a <ServiceOperation> element
+       to rename parameters and add parameter aliases, as follows.
+       
+      <ParameterRenames>
+        <Map From="Region" To="StackRegion" />
+      </ParameterRenames>
+       
+      <ParameterAliases>
+        <Map From="ProvisionedThroughput_ReadCapacityUnits" To="ReadCapacity" />
+        <Map From="ProvisionedThroughput_WriteCapacityUnits" To="WriteCapacity" />
+      </ParameterAliases>
+       
+  -->
+  <ServiceOperations>
+    <ServiceOperation MethodName="apiMethodName" 
+                      PositionalParameters="parameterName1;parameterName2" 
+                      PipelineParameter="parameterName" 
+                      />
+  </ServiceOperations>
+  
+</ConfigModel>

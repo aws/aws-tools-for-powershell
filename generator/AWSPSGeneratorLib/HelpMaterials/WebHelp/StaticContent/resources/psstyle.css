@@ -1,0 +1,151 @@
+﻿/* PowerShell docset style overrides and extensions  */
+
+.topictitle {
+    border-top: none !important;    
+}
+
+.synopsis:first-child, 
+.description:first-child, 
+.syntax:first-child {
+    margin-left: 15px;
+}
+
+.syntax {
+    font-family: Consolas,"Lucida Console",Courier,monospace;
+    padding: 10px;
+    background-color: #f9f8cd;
+    border: #f9f8cd 1px solid;
+    border-radius: 10px;
+}
+
+.syntax .cmdlet {
+     display: inline;
+}
+
+.syntax .paramlist {
+	display: inline;
+    white-space: pre-wrap;
+    word-break: normal;  
+}
+
+.syntax .inlineParam {
+    margin-left: 5px;
+    display: inline-block;
+}
+.syntax .wrappedParam {
+    margin-left: 80px;
+}
+
+.examples h4 {
+    color: #666;
+    margin-left: 15px;
+}
+
+.example {
+    margin-left: 35px;
+    padding: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #f9f8cd;
+    white-space: pre-wrap;   
+}
+
+.example > .code {
+    font-family: Consolas,"Lucida Console",Courier,monospace;
+    font-weight: bold;
+}
+
+.example > .description {
+    font-family: "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+    margin-top: 20px;
+}
+
+.parameters {
+}
+
+.parameters .parameter:nth-child(n+2) {
+    margin-top: 20px;    
+}
+
+.parameter .parameterName {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.parameter .parameterDescription {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.parameter .parameterAttributes {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.parameterAttributes table {
+    border-collapse: collapse;
+    border: none !important;
+    width: 350px !important;
+}
+
+.parameterAttributes td {
+    padding: 0;
+    border: none !important;
+}
+
+.parameterAttributes td.col1 {
+    width: 150px;
+}
+.parameterAttributes td.col2 {
+    width: 200px;
+}
+
+.inputs {
+}
+
+.inputs .inputType, .inputDescription {
+    font-size: 13px;
+    margin-left: 15px;
+}
+
+.inputs .inputType {
+    font-weight: bold;    
+}
+
+.inputs .inputDescription {
+    margin-top: 10px;
+}
+
+.outputs {
+}
+
+.outputs .output:nth-child(n+2) {
+    margin-top: 10px;    
+}
+
+.output .outputType, 
+.output .outputDescription {
+    font-size: 13px;
+    margin-left: 15px;
+}
+
+.output .outputType {
+    font-weight: bold;    
+}
+
+.output .outputDescription {
+    margin-top: 10px;
+}
+
+.notes {
+}
+
+.related .relatedLink {
+    font-size: 13px;
+    margin-left: 15px;
+}
+
+.versioninfo {
+    
+}

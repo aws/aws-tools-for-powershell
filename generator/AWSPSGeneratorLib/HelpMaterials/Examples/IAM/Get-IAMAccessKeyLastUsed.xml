@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Get-IAMAccessKeyLastUsed -AccessKeyId ABCDEXAMPLE</code>
+        <description>Returns the owning user name and last-usage information for the supplied access key.</description>
+    </example>
+</examples>

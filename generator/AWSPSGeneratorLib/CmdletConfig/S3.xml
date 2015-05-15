@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>S3</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonS3</ServiceClientInterface>
+  <ServiceClient>AmazonS3Client</ServiceClient>
+  <ServiceNamespace>Amazon.S3</ServiceNamespace>
+
+  <DefaultRegion>us-east-1</DefaultRegion>
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+  
+  <NounMappings>
+    <Map From="Versions" To="Version" />
+  </NounMappings>
+
+  <CustomAliases>
+    <AliasSet Cmdlet="Get-S3Bucket">List-S3Buckets</AliasSet>
+    <AliasSet Cmdlet="Get-S3Object">List-S3Objects</AliasSet>
+    <AliasSet Cmdlet="Read-S3Object">Get-S3Content</AliasSet>
+    <AliasSet Cmdlet="Write-S3BucketVersioning">Set-S3BucketVersioning</AliasSet>
+  </CustomAliases>
+
+  <MetadataProperties>
+    <Property>Name</Property>
+    <Property>Prefix</Property>
+    <Property>NextMarker</Property>
+    <Property>MaxKeys</Property>
+    <Property>Delimiter</Property>
+    <Property>CommonPrefixes</Property>
+    <Property>IsTruncated</Property>
+  </MetadataProperties>
+
+  <PipelineByValueProperties>
+    <Property>BucketName</Property>
+    <Property>Key</Property>
+    <Property>KeyPrefix</Property>
+  </PipelineByValueProperties>
+
+  <ParamEmitters>
+    <ParamEmitter ParamType="Amazon.S3.Model.S3StorageClass" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3.S3StorageClassParamEmitter" />
+    <ParamEmitter ParamType="Amazon.S3.Model.HttpVerb" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3.HttpVerbParamEmitter" />
+    <ParamEmitter ParamType="Amazon.S3.Model.Protocol" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3.ProtocolParamEmitter" />
+  </ParamEmitters>
+
+  <ExcludeProperties>
+    <Property>InputStream</Property>
+  </ExcludeProperties>
+
+  <PositionalParameters>BucketName</PositionalParameters>
+  <PipelineParameter>BucketName</PipelineParameter>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="AbortMultipartUpload" Exclude="true"/>
+    <ServiceOperation MethodName="CompleteMultipartUpload" Exclude="true"/>
+    <ServiceOperation MethodName="CopyObject" Exclude="true"/>
+    <ServiceOperation MethodName="CopyPart" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteBucket" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteBucketPolicy" Output="Void" ShouldProcessTarget="BucketName"/>
+    <ServiceOperation MethodName="DeleteBucketReplication" Output="Void" ShouldProcessTarget="BucketName"/>
+    <ServiceOperation MethodName="DeleteBucketTagging" Output="Void" ShouldProcessTarget="BucketName"/>
+    <ServiceOperation MethodName="DeleteBucketWebsite" Output="Void" ShouldProcessTarget="BucketName"/>
+    <ServiceOperation MethodName="DeleteCORSConfiguration" Output="Void" ShouldProcessTarget="BucketName"/>
+    <ServiceOperation MethodName="DeleteLifecycleConfiguration" Output="Void" ShouldProcessTarget="BucketName"/>
+    <ServiceOperation MethodName="DeleteObject" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteObjects" Exclude="true"/>
+
+    <!-- replaced with single PutBucketLogging operation
+    <ServiceOperation MethodName="DisableBucketLogging" Output="Response"/>
+    <ServiceOperation MethodName="EnableBucketLogging" Output="Response"/>
+    -->
+    
+    <ServiceOperation MethodName="GetACL" PositionalParameters="Key;VersionId"/>
+    <ServiceOperation MethodName="GetBucketLocation"/>
+    <ServiceOperation MethodName="GetBucketLogging"/>
+    <ServiceOperation MethodName="GetBucketNotification" Output="Response"/>
+    <ServiceOperation MethodName="GetBucketPolicy"/>
+    <ServiceOperation MethodName="GetBucketRequestPayment"/>
+    <ServiceOperation MethodName="GetBucketReplication"/>
+    <ServiceOperation MethodName="GetBucketTagging"/>
+    <ServiceOperation MethodName="GetBucketVersioning"/>
+    <ServiceOperation MethodName="GetBucketWebsite"/>
+    <ServiceOperation MethodName="GetCORSConfiguration"/>
+    <ServiceOperation MethodName="GetLifecycleConfiguration"/>
+    
+    <!-- replaced with GetBucketNotification
+    <ServiceOperation MethodName="GetNotificationConfiguration"/>
+    -->
+    
+    <ServiceOperation MethodName="GetObject" Exclude="true"/>
+    <ServiceOperation MethodName="GetObjectMetadata" Output="Response" PositionalParameters="Key"/>
+    <ServiceOperation MethodName="GetObjectTorrent" Exclude="true"/>
+    <ServiceOperation MethodName="GetPreSignedURL" Output="Response" PositionalParameters="Key">
+      <Params>
+        <Param Name="Metadata" Exclude="true" />
+        <Param Name="Headers_" Exclude="true" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="InitiateMultipartUpload" Exclude="true"/>
+    <ServiceOperation MethodName="ListBuckets" Exclude="true"/>
+    <ServiceOperation MethodName="ListMultipartUploads" Exclude="true"/>
+    <ServiceOperation MethodName="ListObjects" Exclude="true"/>
+    <ServiceOperation MethodName="ListParts" Exclude="true"/>
+    <ServiceOperation MethodName="ListVersions" Output="Response" PositionalParameters="Prefix"/>
+    <ServiceOperation MethodName="PutACL" Exclude="true"/>
+    <ServiceOperation MethodName="PutBucket" Exclude="true"/>
+    <ServiceOperation MethodName="PutBucketLogging" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketNotification" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketPolicy" Output="Void" PositionalParameters="Policy"/>
+    <ServiceOperation MethodName="PutBucketReplication" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketRequestPayment" Output="Void" PositionalParameters="RequestPaymentConfiguration"/>
+    <ServiceOperation MethodName="PutBucketTagging" Output="Void" PositionalParameters="TagSet">
+      <Params>
+        <Param Name="TagSet" Alias="TagSets" /> <!-- maintain compat with v1 sdk name -->
+      </Params>
+      <PassThru>
+        <Expression>cmdletContext.TagSet</Expression>
+        <Documentation>Returns the collection of Tag objects that were added</Documentation>
+      </PassThru>
+    </ServiceOperation>
+    <ServiceOperation MethodName="PutBucketVersioning" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketWebsite" Output="Void" PositionalParameters="WebsiteConfiguration"/>
+    <ServiceOperation MethodName="PutCORSConfiguration" Output="Void" PositionalParameters="Configuration"/>
+    <ServiceOperation MethodName="PutLifecycleConfiguration" Output="Void" PositionalParameters="Configuration"/>
+    <ServiceOperation MethodName="PutObject" Exclude="true"/>
+    <ServiceOperation MethodName="RestoreObject" Output="Void" PositionalParameters="Key;Days">
+      <Params>
+        <Param Name="Days" NewName="CopyLifetimeInDays" />
+      </Params>
+    </ServiceOperation>
+
+    <!-- replaced with PutBucketVersioning
+    <ServiceOperation MethodName="SetBucketVersioning" Output="Response"/>
+    -->
+    
+    <!-- replaced with PutBucketNotification
+    <ServiceOperation MethodName="SetNotificationConfiguration" Output="Response"/>
+    -->
+    
+    <ServiceOperation MethodName="UploadPart" Exclude="true"/>
+  </ServiceOperations>
+
+</ConfigModel>

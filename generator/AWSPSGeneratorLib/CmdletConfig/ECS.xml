@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ECS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonECS</ServiceClientInterface>
+  <ServiceClient>AmazonECSClient</ServiceClient>
+  <ServiceNamespace>Amazon.ECS</ServiceNamespace>
+
+  <PipelineParameter>Cluster</PipelineParameter>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateCluster"/>
+    <ServiceOperation MethodName="CreateService"/>
+    <ServiceOperation MethodName="DeleteCluster" ShouldProcessTarget="Cluster" />
+    <ServiceOperation MethodName="DeleteService" ShouldProcessTarget="Service" />
+    <ServiceOperation MethodName="DeregisterContainerInstance" ShouldProcessTarget="Cluster">
+      <Params>
+        <Param Name="Force" NewName="ForceDeregistration" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeregisterTaskDefinition"/>
+    
+    <ServiceOperation MethodName="DescribeClusters" Noun="ClusterDetail" Output="Response"/>
+    <ServiceOperation MethodName="DescribeServices" Noun="Service" Output="Response"/>
+    <ServiceOperation MethodName="DescribeContainerInstances" Noun="ContainerInstanceDetail" Output="Response"/>
+    <ServiceOperation MethodName="DescribeTaskDefinition" Noun="TaskDefinitionDetail"/>
+    <ServiceOperation MethodName="DescribeTasks" Noun="TaskDetail" Output="Response" />    
+    
+    <ServiceOperation MethodName="ListClusters"/>
+    <ServiceOperation MethodName="ListServices" Noun="ClusterService"/>
+    <ServiceOperation MethodName="ListContainerInstances"/>
+    <ServiceOperation MethodName="ListTaskDefinitions"/>
+    <ServiceOperation MethodName="ListTaskDefinitionFamilies"/>
+    <ServiceOperation MethodName="ListTasks"/>
+    
+    <ServiceOperation MethodName="RegisterTaskDefinition" ShouldProcessTarget="Family"/>
+    
+    <ServiceOperation MethodName="RunTask" Output="Response"/>
+    <ServiceOperation MethodName="StartTask" Output="Response"/>
+    <ServiceOperation MethodName="StopTask"/>
+
+    <ServiceOperation MethodName="UpdateService" ShouldProcessTarget="Service"/>
+  </ServiceOperations>
+
+  <VerbMappings>
+    <Map From="Deregister" To="Unregister" />
+    <Map From="List" To="Get" />
+    <Map From="Run" To="New" />
+  </VerbMappings>
+  
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />  
+</ConfigModel>

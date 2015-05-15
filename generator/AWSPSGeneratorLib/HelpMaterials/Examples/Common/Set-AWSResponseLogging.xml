@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-AWSResponseLogging -Level Always</code>
+    <description>Enables logging of all service responses configured in the attached listeners. Other values for the -Level parameter are 'Never', which turns off logging and 'OnError' which logs only error responses.</description>
+  </example>
+</examples>

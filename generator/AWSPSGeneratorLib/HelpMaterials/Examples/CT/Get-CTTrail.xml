@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>Get-CTTrail</code>
+      <description>Returns the settings of all trails associated with the current region for your account.</description>
+    </example>
+    <example>
+      <code>Get-CTTrail -TrailNameList trail1,trail2</code>
+      <description>Returns the settings for the specified trails.</description>
+    </example>
+    <example>
+      <code>Get-CTTrail -TrailNameList trailABC,trailDEF -Region eu-central-1</code>
+      <description>Returns the settings for the specified trails that were created in a region other than the current shell default (in this case the Frankfurt (eu-central-1) region).</description>
+    </example>
+</examples>

@@ -1,0 +1,164 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ElastiCache;
+using Amazon.ElastiCache.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC
+{
+    /// <summary>
+    /// The <i>AddTagsToResource</i> action adds up to 10 cost allocation tags to the named
+    /// resource. A <i>cost allocation tag</i> is a key-value pair where the key and value
+    /// are case-sensitive. Cost allocation tags can be used to categorize and track your
+    /// AWS costs.
+    /// 
+    ///  
+    /// <para>
+    ///  When you apply tags to your ElastiCache resources, AWS generates a cost allocation
+    /// report as a comma-separated value (CSV) file with your usage and costs aggregated
+    /// by your tags. You can apply tags that represent business categories (such as cost
+    /// centers, application names, or owners) to organize your costs across multiple services.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html">Using
+    /// Cost Allocation Tags in Amazon ElastiCache</a>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Add", "ECTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElastiCache.Model.Tag")]
+    [AWSCmdlet("Invokes the AddTagsToResource operation against Amazon ElastiCache.", Operation = new[] {"AddTagsToResource"})]
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag",
+        "This cmdlet returns a collection of Tag objects.",
+        "The service call response (type AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class AddECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The name of the resource to which the tags are to be added, for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public String ResourceName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of cost allocation tags to be added to this resource. A tag is a key-value
+        /// pair. A tag key must be accompanied by a tag value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        [Alias("Tags")]
+        public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ECTag (AddTagsToResource)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.ResourceName = this.ResourceName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Tag>(this.Tag);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new AddTagsToResourceRequest();
+            
+            if (cmdletContext.ResourceName != null)
+            {
+                request.ResourceName = cmdletContext.ResourceName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.AddTagsToResource(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.TagList;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String ResourceName { get; set; }
+            public List<Tag> Tags { get; set; }
+        }
+        
+    }
+}

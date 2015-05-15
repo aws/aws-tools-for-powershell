@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Unregister-EC2RouteTable -AssociationId rtbassoc-1a2b3c4d</code>
+    <description>Disassociates a Route Table from a subnet based on an Association ID in the current default region.</description>
+  </example>
+</examples>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId "en-1a2b3c4d" -SourceDestCheck $false</code>
+    <description>Disables source/destination checking for the specified network interface. To re-enable checks, use a value of $true for the -SourceDestCheck parameter.</description>
+  </example>
+  <example>
+    <code>Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId "en-1a2b3c4d" -Description "my network interface"</code>
+    <description>Applies the specified description to the network interface.</description>
+  </example>
+  <example>
+    <code>Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId "en-1a2b3c4d" -Groups "sg-1a2b3c4d"</code>
+    <description>Changes the security group for the network interface to be the single group with the ID "sg-1a2b3c4d".</description>
+  </example>
+  <example>
+    <code>Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId "en-1a2b3c4d" -Groups @("sg-1a2b3c4d", "sg-4d3c2b1a")</code>
+    <description>Changes the security groups for the network interface so that the groups with the specified IDs are used.</description>
+  </example>
+  <example>
+    <code>Edit-EC2NetworkInterfaceAttribute -NetworkInterfaceId "en-1a2b3c4d" -Attachment_AttachmentId "a-1a2b3c4d" -Attachment_DeleteOnTermination $true</code>
+    <description>Modifies the network interface so that the specified attachment is deleted on termination.</description>
+  </example>
+</examples>

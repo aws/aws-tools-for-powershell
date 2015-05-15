@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{242938AA-9D24-4BCF-9589-AAEA20658B58}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AWSPowerShellGenerator</RootNamespace>
+    <AssemblyName>AWSPSGeneratorLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NAnt.Core">
+      <HintPath>..\..\buildtools\ThirdParty\NAnt.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\buildtools\ThirdParty\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Generator.cs" />
+    <Compile Include="CmdletConfig\ConfigModel.cs" />
+    <Compile Include="FormatConfig\ConfigModel.cs" />
+    <Compile Include="GeneratorOptions.cs" />
+    <Compile Include="Generators\CmdletGenerator.cs" />
+    <Compile Include="Generators\FormatGenerator.cs" />
+    <Compile Include="Generators\ParamEmitters\AmazonEC2\InstanceIdsParamEmitter.cs" />
+    <Compile Include="Generators\PSHelpGenerator.cs" />
+    <Compile Include="Generators\HelpGeneratorBase.cs" />
+    <Compile Include="Generators\WebHelpGenerator.cs" />
+    <Compile Include="Analysis\AnalyzedResult.cs" />
+    <Compile Include="Utils\Loggers.cs" />
+    <Compile Include="Analysis\OperationAnalyzer.cs" />
+    <Compile Include="Analysis\SupportsShouldProcessInspection.cs" />
+    <Compile Include="Writers\SourceCode\BaseSourceCodeWriter.cs" />
+    <Compile Include="Writers\Help\BasePageWriter.cs" />
+    <Compile Include="Writers\Help\BaseTemplateWriter.cs" />
+    <Compile Include="Writers\SourceCode\CmdletServiceClientWriter.cs" />
+    <Compile Include="Writers\SourceCode\CmdletSourceWriter.cs" />
+    <Compile Include="Writers\Help\CmdletPageWriter.cs" />
+    <Compile Include="Writers\IndentedTextWriter.cs" />
+    <Compile Include="Generators\ParamEmitters\AmazonS3\HttpVerbParamEmitter.cs" />
+    <Compile Include="Generators\ParamEmitters\AmazonS3\ProtocolParamEmitter.cs" />
+    <Compile Include="Generators\ParamEmitters\AmazonS3\S3StorageClassParamEmitter.cs" />
+    <Compile Include="Generators\ParamEmitters\IParamEmitter.cs" />
+    <Compile Include="Generators\SimplePropertyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\AliasStore.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\IOUtils.cs" />
+    <Compile Include="Utils\ProjectFileFragmentStore.cs" />
+    <Compile Include="Utils\ResourceHelper.cs" />
+    <Compile Include="Utils\SerializableDictionary.cs" />
+    <Compile Include="Utils\TypeExtensionsStore.cs" />
+    <Compile Include="Writers\Help\ServiceCmdletsPageWriter.cs" />
+    <Compile Include="Writers\Help\TOCWriter.cs" />
+    <Compile Include="Writers\ConfigFile\ServiceConfigWriter.cs" />
+    <Compile Include="Writers\StringConstants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CmdletConfig\Configs.xml" />
+    <EmbeddedResource Include="CmdletConfig\DataPipeline.xml" />
+    <EmbeddedResource Include="CmdletConfig\DynamoDB.xml" />
+    <EmbeddedResource Include="FormatConfig\Configs.xml" />
+    <EmbeddedResource Include="CmdletConfig\EC2.xml" />
+    <EmbeddedResource Include="CmdletConfig\ECS.xml" />
+    <EmbeddedResource Include="CmdletConfig\Beanstalk.xml" />
+    <EmbeddedResource Include="CmdletConfig\RDS.xml" />
+    <EmbeddedResource Include="CmdletConfig\S3.xml" />
+    <EmbeddedResource Include="CmdletConfig\STS.xml" />
+    <EmbeddedResource Include="CmdletConfig\AutoScaling.xml" />
+    <EmbeddedResource Include="CmdletConfig\CloudFormation.xml" />
+    <EmbeddedResource Include="CmdletConfig\IAM.xml" />
+    <EmbeddedResource Include="CmdletConfig\SNS.xml" />
+    <EmbeddedResource Include="CmdletConfig\SES.xml" />
+    <EmbeddedResource Include="CmdletConfig\SQS.xml" />
+    <EmbeddedResource Include="CmdletConfig\CloudWatch.xml" />
+    <EmbeddedResource Include="CmdletConfig\Route53.xml" />
+    <EmbeddedResource Include="CmdletConfig\ELB.xml" />
+    <EmbeddedResource Include="CmdletConfig\EMR.xml" />
+    <EmbeddedResource Include="CmdletConfig\StorageGateway.xml" />
+    <EmbeddedResource Include="CmdletConfig\CloudFront.xml" />
+    <EmbeddedResource Include="CmdletConfig\ElastiCache.xml" />
+    <EmbeddedResource Include="CmdletConfig\CloudSearch.xml" />
+    <EmbeddedResource Include="CmdletConfig\DirectConnect.xml" />
+    <EmbeddedResource Include="CmdletConfig\ETS.xml" />
+    <EmbeddedResource Include="CmdletConfig\Redshift.xml" />
+    <EmbeddedResource Include="CmdletConfig\OpsWorks.xml" />
+    <EmbeddedResource Include="CmdletConfig\AWSSupport.xml" />
+    <EmbeddedResource Include="CmdletConfig\ImportExport.xml" />
+    <EmbeddedResource Include="CmdletConfig\SSM.xml" />
+    <EmbeddedResource Include="CmdletConfig\CloudTrail.xml" />
+    <EmbeddedResource Include="CmdletConfig\Kinesis.xml" />
+    <EmbeddedResource Include="CmdletConfig\Lambda.xml" />
+    <EmbeddedResource Include="CmdletConfig\CloudSearchDomain.xml" />
+    <EmbeddedResource Include="CmdletConfig\CloudWatchLogs.xml" />
+    <EmbeddedResource Include="CmdletConfig\Route53Domains.xml" />
+    <EmbeddedResource Include="CmdletConfig\CodeDeploy.xml" />
+    <EmbeddedResource Include="CmdletConfig\ConfigService.xml" />
+    <EmbeddedResource Include="CmdletConfig\KMS.xml" />
+    <EmbeddedResource Include="CmdletConfig\HSM.xml" />
+    <EmbeddedResource Include="CmdletConfig\ML.xml" />
+    <Content Include="CmdletConfig\SampleConfig.xml" />
+    <EmbeddedResource Include="CmdletConfig\WKS.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ServiceResources\TypeExtensions\AmazonEC2\Image.xml" />
+    <EmbeddedResource Include="ServiceResources\TypeExtensions\AmazonEC2\RunningInstance.xml" />
+    <EmbeddedResource Include="FormatConfig\CustomFormats\Amazon.SimpleSystemsManagement.Model.AssociationDescription.ps1xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\feedbackno.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\feedbackyes.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\Index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\items\pstoolsref-commonparams.html" />
+    <Content Include="HelpMaterials\WebHelp\StaticContent\items\pstoolsref-welcome.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\items\Amazon_DynamoDB_TableSchema.html" />
+    <Content Include="HelpMaterials\WebHelp\StaticContent\License.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\blank.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\document.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\feedback_titlegraphic.gif" />
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\folder-horizontal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\imagesprite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\jquery.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\pagescript.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\parseuri.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\psstyle.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\search-button.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\syntaxhighlighter\shBrushCSharp.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\syntaxhighlighter\shBrushPlain.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\syntaxhighlighter\shBrushXml.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\syntaxhighlighter\shCore.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\syntaxhighlighter\shCore.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\syntaxhighlighter\shThemeDefault.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\tocscript.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\toggle-small-expand.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\toggle-small.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HelpMaterials\WebHelp\StaticContent\resources\tocstyle.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\TOC.html" />
+    <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\SiteCatalyst.snippet" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HelpMaterials\Examples\" />
+    <Folder Include="HelpMaterials\LinkLibraries\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

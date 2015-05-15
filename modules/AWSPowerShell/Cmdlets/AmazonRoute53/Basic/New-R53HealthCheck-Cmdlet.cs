@@ -1,0 +1,328 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Route53;
+using Amazon.Route53.Model;
+
+namespace Amazon.PowerShell.Cmdlets.R53
+{
+    /// <summary>
+    /// This action creates a new health check.
+    /// 
+    ///  
+    /// <para>
+    ///  To create a new health check, send a <code>POST</code> request to the <code>2013-04-01/healthcheck</code>
+    /// resource. The request body must include an XML document with a <code>CreateHealthCheckRequest</code>
+    /// element. The response returns the <code>CreateHealthCheckResponse</code> element that
+    /// contains metadata about the health check.
+    /// </para>
+    /// </summary>
+    [Cmdlet("New", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53.Model.CreateHealthCheckResult")]
+    [AWSCmdlet("Invokes the CreateHealthCheck operation against AWS Route 53.", Operation = new[] {"CreateHealthCheck"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.CreateHealthCheckResult",
+        "This cmdlet returns a CreateHealthCheckResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class NewR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A unique string that identifies the request and that allows failed <code>CreateHealthCheck</code>
+        /// requests to be retried without the risk of executing the operation twice. You must
+        /// use a unique <code>CallerReference</code> string every time you create a health check.
+        /// <code>CallerReference</code> can be any unique string; you might choose to use a string
+        /// that identifies your project.</para><para>Valid characters are any Unicode code points that are legal in an XML 1.0 document.
+        /// The UTF-8 encoding of the value must be less than 128 bytes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String CallerReference { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
+        /// 53 to change the current status of the endpoint from unhealthy to healthy or vice
+        /// versa.</para><para>Valid values are integers between 1 and 10. For more information, see "How Amazon
+        /// Route 53 Determines Whether an Endpoint Is Healthy" in the Amazon Route 53 Developer
+        /// Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 HealthCheckConfig_FailureThreshold { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Fully qualified domain name of the instance to be health checked.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String HealthCheckConfig_FullyQualifiedDomainName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>IP Address of the instance being checked. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public String HealthCheckConfig_IPAddress { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Port on which connection will be opened to the instance to health check. For HTTP
+        /// and HTTP_STR_MATCH this defaults to 80 if the port is not specified. For HTTPS and
+        /// HTTPS_STR_MATCH this defaults to 443 if the port is not specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 HealthCheckConfig_Port { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds between the time that Route 53 gets a response from your endpoint
+        /// and the time that it sends the next health-check request.</para><para>Each Route 53 health checker makes requests at this interval. Valid values are 10
+        /// and 30. The default value is 30.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 HealthCheckConfig_RequestInterval { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Path to ping on the instance to check the health. Required for HTTP, HTTPS, HTTP_STR_MATCH,
+        /// and HTTPS_STR_MATCH health checks, HTTP request is issued to the instance on the given
+        /// port and path.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String HealthCheckConfig_ResourcePath { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A string to search for in the body of a health check response. Required for HTTP_STR_MATCH
+        /// and HTTPS_STR_MATCH health checks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String HealthCheckConfig_SearchString { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The type of health check to be performed. Currently supported types are TCP, HTTP,
+        /// HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public HealthCheckType HealthCheckConfig_Type { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HealthCheckConfig_FullyQualifiedDomainName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53HealthCheck (CreateHealthCheck)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.CallerReference = this.CallerReference;
+            context.HealthCheckConfig_IPAddress = this.HealthCheckConfig_IPAddress;
+            if (ParameterWasBound("HealthCheckConfig_Port"))
+                context.HealthCheckConfig_Port = this.HealthCheckConfig_Port;
+            context.HealthCheckConfig_Type = this.HealthCheckConfig_Type;
+            context.HealthCheckConfig_ResourcePath = this.HealthCheckConfig_ResourcePath;
+            context.HealthCheckConfig_FullyQualifiedDomainName = this.HealthCheckConfig_FullyQualifiedDomainName;
+            context.HealthCheckConfig_SearchString = this.HealthCheckConfig_SearchString;
+            if (ParameterWasBound("HealthCheckConfig_RequestInterval"))
+                context.HealthCheckConfig_RequestInterval = this.HealthCheckConfig_RequestInterval;
+            if (ParameterWasBound("HealthCheckConfig_FailureThreshold"))
+                context.HealthCheckConfig_FailureThreshold = this.HealthCheckConfig_FailureThreshold;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new CreateHealthCheckRequest();
+            
+            if (cmdletContext.CallerReference != null)
+            {
+                request.CallerReference = cmdletContext.CallerReference;
+            }
+            
+             // populate HealthCheckConfig
+            bool requestHealthCheckConfigIsNull = true;
+            request.HealthCheckConfig = new HealthCheckConfig();
+            String requestHealthCheckConfig_healthCheckConfig_IPAddress = null;
+            if (cmdletContext.HealthCheckConfig_IPAddress != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_IPAddress = cmdletContext.HealthCheckConfig_IPAddress;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_IPAddress != null)
+            {
+                request.HealthCheckConfig.IPAddress = requestHealthCheckConfig_healthCheckConfig_IPAddress;
+                requestHealthCheckConfigIsNull = false;
+            }
+            Int32? requestHealthCheckConfig_healthCheckConfig_Port = null;
+            if (cmdletContext.HealthCheckConfig_Port != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_Port = cmdletContext.HealthCheckConfig_Port.Value;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_Port != null)
+            {
+                request.HealthCheckConfig.Port = requestHealthCheckConfig_healthCheckConfig_Port.Value;
+                requestHealthCheckConfigIsNull = false;
+            }
+            HealthCheckType requestHealthCheckConfig_healthCheckConfig_Type = null;
+            if (cmdletContext.HealthCheckConfig_Type != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_Type = cmdletContext.HealthCheckConfig_Type;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_Type != null)
+            {
+                request.HealthCheckConfig.Type = requestHealthCheckConfig_healthCheckConfig_Type;
+                requestHealthCheckConfigIsNull = false;
+            }
+            String requestHealthCheckConfig_healthCheckConfig_ResourcePath = null;
+            if (cmdletContext.HealthCheckConfig_ResourcePath != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_ResourcePath = cmdletContext.HealthCheckConfig_ResourcePath;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_ResourcePath != null)
+            {
+                request.HealthCheckConfig.ResourcePath = requestHealthCheckConfig_healthCheckConfig_ResourcePath;
+                requestHealthCheckConfigIsNull = false;
+            }
+            String requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName = null;
+            if (cmdletContext.HealthCheckConfig_FullyQualifiedDomainName != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName = cmdletContext.HealthCheckConfig_FullyQualifiedDomainName;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName != null)
+            {
+                request.HealthCheckConfig.FullyQualifiedDomainName = requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName;
+                requestHealthCheckConfigIsNull = false;
+            }
+            String requestHealthCheckConfig_healthCheckConfig_SearchString = null;
+            if (cmdletContext.HealthCheckConfig_SearchString != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_SearchString = cmdletContext.HealthCheckConfig_SearchString;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_SearchString != null)
+            {
+                request.HealthCheckConfig.SearchString = requestHealthCheckConfig_healthCheckConfig_SearchString;
+                requestHealthCheckConfigIsNull = false;
+            }
+            Int32? requestHealthCheckConfig_healthCheckConfig_RequestInterval = null;
+            if (cmdletContext.HealthCheckConfig_RequestInterval != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_RequestInterval = cmdletContext.HealthCheckConfig_RequestInterval.Value;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_RequestInterval != null)
+            {
+                request.HealthCheckConfig.RequestInterval = requestHealthCheckConfig_healthCheckConfig_RequestInterval.Value;
+                requestHealthCheckConfigIsNull = false;
+            }
+            Int32? requestHealthCheckConfig_healthCheckConfig_FailureThreshold = null;
+            if (cmdletContext.HealthCheckConfig_FailureThreshold != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_FailureThreshold = cmdletContext.HealthCheckConfig_FailureThreshold.Value;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_FailureThreshold != null)
+            {
+                request.HealthCheckConfig.FailureThreshold = requestHealthCheckConfig_healthCheckConfig_FailureThreshold.Value;
+                requestHealthCheckConfigIsNull = false;
+            }
+             // determine if request.HealthCheckConfig should be set to null
+            if (requestHealthCheckConfigIsNull)
+            {
+                request.HealthCheckConfig = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.CreateHealthCheck(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String CallerReference { get; set; }
+            public String HealthCheckConfig_IPAddress { get; set; }
+            public Int32? HealthCheckConfig_Port { get; set; }
+            public HealthCheckType HealthCheckConfig_Type { get; set; }
+            public String HealthCheckConfig_ResourcePath { get; set; }
+            public String HealthCheckConfig_FullyQualifiedDomainName { get; set; }
+            public String HealthCheckConfig_SearchString { get; set; }
+            public Int32? HealthCheckConfig_RequestInterval { get; set; }
+            public Int32? HealthCheckConfig_FailureThreshold { get; set; }
+        }
+        
+    }
+}

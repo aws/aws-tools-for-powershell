@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-AWSProxy -Hostname localhost -Port 8888</code>
+    <description>This command configures a proxy that does not require special credentials.</description>
+  </example>
+  <example>
+    <code>Set-AWSProxy -Hostname localhost -Port 8888 -Username 1 -Password 1</code>
+    <description>This command configures a proxy that requires a username and a password.</description>
+  </example>
+  <example>
+    <code>Set-AWSProxy -Hostname localhost -Port 8888 -Credential ([System.Net.CredentialCache]::DefaultCredentials)</code>
+    <description>This command configures a proxy with default credentials. The -Credentials parameter can be used for any credentials object that implements the ICredentials interface.</description>
+  </example>
+</examples>

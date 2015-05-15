@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>RS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonRedshift</ServiceClientInterface>
+  <ServiceClient>AmazonRedshiftClient</ServiceClient>
+  <ServiceNamespace>Amazon.Redshift</ServiceNamespace>
+
+  <VerbMappings>
+    <Map From="Authorize" To="Approve" />
+    <Map From="Purchase" To="Request" />
+    <Map From="Reboot" To="Restart" />
+  </VerbMappings>
+
+  <CustomAliases>
+    <AliasSet Cmdlet="Approve-RSClusterSecurityGroupIngress">Authorize-RSClusterSecurityGroupIngress</AliasSet>
+    <AliasSet Cmdlet="Request-ECReservedNodeOffering">Purchase-RSReservedNodeOffering</AliasSet>
+    <AliasSet Cmdlet="Restart-RSCluster">Reboot-RSCluster</AliasSet>
+  </CustomAliases>
+
+  <AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker" ServicePageSize="100" />
+
+  <PositionalParameters>ClusterIdentifier</PositionalParameters>
+  <PipelineParameter>ClusterIdentifier</PipelineParameter>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AuthorizeClusterSecurityGroupIngress" PipelineParameter="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId"/>
+    <ServiceOperation MethodName="AuthorizeSnapshotAccess" PipelineParameter="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess"/>
+    <ServiceOperation MethodName="CopyClusterSnapshot" PipelineParameter="SourceSnapshotIdentifier" PositionalParameters="TargetSnapshotIdentifier"/>
+    <ServiceOperation MethodName="CreateCluster" PipelineParameter="DBName" PositionalParameters="ClusterIdentifier;ClusterType;NodeType">
+      <Params>
+        <!-- stops rename thru singularization -->
+        <Param Name="NumberOfNodes" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
+
+    <ServiceOperation MethodName="CreateClusterParameterGroup" PipelineParameter="ParameterGroupName" PositionalParameters="ParameterGroupFamily;Description"/>
+    <ServiceOperation MethodName="CreateClusterSecurityGroup" PipelineParameter="ClusterSecurityGroupName" PositionalParameters="Description"/>
+    <ServiceOperation MethodName="CreateClusterSnapshot" PipelineParameter="SnapshotIdentifier" PositionalParameters="ClusterIdentifier"/>
+    <ServiceOperation MethodName="CreateClusterSubnetGroup" PipelineParameter="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds"/>
+    <ServiceOperation MethodName="CreateTags" Output="Void"/>
+    <ServiceOperation MethodName="DeleteCluster" ShouldProcessTarget="ClusterIdentifier"/>
+    <ServiceOperation MethodName="DeleteClusterParameterGroup" Output="Void" />
+    <ServiceOperation MethodName="DeleteClusterSecurityGroup" Output="Void" />
+    <ServiceOperation MethodName="DeleteClusterSnapshot" PipelineParameter="SnapshotIdentifier" ShouldProcessTarget="SnapshotIdentifier"/>
+    <ServiceOperation MethodName="DeleteClusterSubnetGroup" Output="Void" />
+    <ServiceOperation MethodName="DeleteTags" Output="Void" ShouldProcessTarget="TagKeys"/>
+    <ServiceOperation MethodName="DescribeClusterParameterGroups" PipelineParameter="ParameterGroupName"/>
+    <ServiceOperation MethodName="DescribeClusterParameters" PipelineParameter="ParameterGroupName" PositionalParameters="Source"/>
+    <ServiceOperation MethodName="DescribeClusters"/>
+    <ServiceOperation MethodName="DescribeClusterSecurityGroups" PipelineParameter="ClusterSecurityGroupName"/>
+    <ServiceOperation MethodName="DescribeClusterSnapshots" PositionalParameters="SnapshotIdentifier;SnapshotType"/>
+    <ServiceOperation MethodName="DescribeClusterSubnetGroups" PipelineParameter="ClusterSubnetGroupName"/>
+    <ServiceOperation MethodName="DescribeClusterVersions" PipelineParameter="ClusterVersion" PositionalParameters="ClusterParameterGroupFamily"/>
+    <ServiceOperation MethodName="DescribeDefaultClusterParameters" PipelineParameter="ParameterGroupFamily"/>
+    <ServiceOperation MethodName="DescribeEvents" PipelineParameter="SourceIdentifier" PositionalParameters="SourceType"/>
+    <ServiceOperation MethodName="DescribeOrderableClusterOptions" PipelineParameter="ClusterVersion" PositionalParameters="NodeType"/>
+    <ServiceOperation MethodName="DescribeReservedNodeOfferings" PipelineParameter="ReservedNodeOfferingId"/>
+    <ServiceOperation MethodName="DescribeReservedNodes" PipelineParameter="ReservedNodeId"/>
+    <ServiceOperation MethodName="DescribeResize" Output="Response"/>
+    <ServiceOperation MethodName="DescribeTags"/>
+    <ServiceOperation MethodName="ModifyCluster" ShouldProcessTarget="ClusterIdentifier">
+      <Params>
+        <!-- stops rename thru singularization -->
+        <Param Name="NumberOfNodes" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
+
+    <ServiceOperation MethodName="ModifyClusterParameterGroup" Output="Response" PipelineParameter="ParameterGroupName" PositionalParameters="Parameters"/>
+    <ServiceOperation MethodName="ModifyClusterSubnetGroup" PipelineParameter="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds"/>
+    <ServiceOperation MethodName="PurchaseReservedNodeOffering" PipelineParameter="ReservedNodeOfferingId" PositionalParameters="NodeCount"/>
+    <ServiceOperation MethodName="RebootCluster"/>
+    <ServiceOperation MethodName="ResetClusterParameterGroup" Output="Response" PipelineParameter="ParameterGroupName"/>
+    <ServiceOperation MethodName="RestoreFromClusterSnapshot" PositionalParameters="SnapshotIdentifier" ShouldProcessTarget="SnapshotIdentifier"/>
+    <ServiceOperation MethodName="RevokeClusterSecurityGroupIngress" PipelineParameter="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId"/>
+    <ServiceOperation MethodName="RevokeSnapshotAccess" PipelineParameter="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess"/>
+  
+    <ServiceOperation MethodName="CreateEventSubscription" ShouldProcessTarget="SubscriptionName"/>
+    <ServiceOperation MethodName="DeleteEventSubscription" Output="Void" />
+    <ServiceOperation MethodName="DescribeEventSubscriptions" />
+    <ServiceOperation MethodName="ModifyEventSubscription" ShouldProcessTarget="SubscriptionName"/>
+
+    <ServiceOperation MethodName="DescribeEventCategories" />
+
+    <ServiceOperation MethodName="CreateHsmClientCertificate" ShouldProcessTarget="HsmClientCertificateIdentifier"/>
+    <ServiceOperation MethodName="DeleteHsmClientCertificate" Output="Void" />
+    <ServiceOperation MethodName="DescribeHsmClientCertificates" />
+
+    <ServiceOperation MethodName="CreateHsmConfiguration" />
+    <ServiceOperation MethodName="DeleteHsmConfiguration" Output="Void" />
+    <ServiceOperation MethodName="DescribeHsmConfigurations" />
+
+    <ServiceOperation MethodName="DisableSnapshotCopy" />
+    <ServiceOperation MethodName="EnableSnapshotCopy" />
+    <ServiceOperation MethodName="ModifySnapshotCopyRetentionPeriod" />
+
+    <ServiceOperation MethodName="DescribeLoggingStatus" Output="Response" />
+    <ServiceOperation MethodName="DisableLogging" Output="Response" />
+    <ServiceOperation MethodName="EnableLogging" Output="Response" />
+
+    <ServiceOperation MethodName="RotateEncryptionKey" Verb="Switch" />
+
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>ClusterSecurityGroupName</Property>
+    <Property>CIDRIP</Property>
+    <Property>EC2SecurityGroupName</Property>
+    <Property>EC2SecurityGroupOwnerId</Property>
+    <Property>ParameterGroupName</Property>
+    <Property>DBName</Property>
+    <Property>ClusterIdentifier</Property>
+    <Property>SnapshotIdentifier</Property>
+    <Property>ClusterSubnetGroupName</Property>
+    <Property>ClusterVersion</Property>
+    <Property>ReservedNodeOfferingId</Property>
+    <Property>ReservedNodeId</Property>
+    <Property>HsmConfigurationIdentifier</Property>
+    <Property>SubscriptionName</Property>
+  </PipelineByValueProperties>
+  
+</ConfigModel>

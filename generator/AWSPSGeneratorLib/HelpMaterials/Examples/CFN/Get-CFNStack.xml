@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-CFNStack</code>
+    <description>Returns a collection of Stack instances describing all of the user's stacks.</description>
+  </example>
+  <example>
+    <code>Get-CFNStack -StackName "myStack"</code>
+    <description>Returns a Stack instance describing the specified stack</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+    Get-CFNStack -NextToken $nextToken
+    $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns a collection of Stack instances describing all of the user's stacks using manual paging. The starting token for the next page is retrieved after every call with $null indicating no more details remain to be retrieved.</description>
+  </example>
+</examples>

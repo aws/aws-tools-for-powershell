@@ -1,0 +1,532 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Redshift;
+using Amazon.Redshift.Model;
+
+namespace Amazon.PowerShell.Cmdlets.RS
+{
+    /// <summary>
+    /// Creates a new cluster. To create the cluster in virtual private cloud (VPC), you
+    /// must provide cluster subnet group name. If you don't provide a cluster subnet group
+    /// name or the cluster security group parameter, Amazon Redshift creates a non-VPC cluster,
+    /// it associates the default cluster security group with the cluster. For more information
+    /// about managing clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+    /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i> .
+    /// </summary>
+    [Cmdlet("New", "RSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Redshift.Model.Cluster")]
+    [AWSCmdlet("Invokes the CreateCluster operation against Amazon Redshift.", Operation = new[] {"CreateCluster"})]
+    [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
+        "This cmdlet returns a Cluster object.",
+        "The service call response (type CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class NewRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, major version upgrades can be applied during the maintenance
+        /// window to the Amazon Redshift engine that is running on the cluster.</para><para> When a new major version of the Amazon Redshift engine is released, you can request
+        /// that the service automatically apply upgrades during the maintenance window to the
+        /// Amazon Redshift engine that is running on your cluster. </para><para>Default: <code>true</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean AllowVersionUpgrade { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The number of days that automated snapshots are retained. If the value is 0, automated
+        /// snapshots are disabled. Even if automated snapshots are disabled, you can still create
+        /// manual snapshots when you want with <a>CreateClusterSnapshot</a>. </para><para> Default: <code>1</code></para><para>Constraints: Must be a value from 0 to 35.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 AutomatedSnapshotRetentionPeriod { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the
+        /// cluster. For example, if you have several EC2 instances running in a specific Availability
+        /// Zone, then you might want the cluster to be provisioned in the same zone in order
+        /// to decrease network latency. </para><para> Default: A random, system-chosen Availability Zone in the region that is specified
+        /// by the endpoint. </para><para> Example: <code>us-east-1d</code></para><para> Constraint: The specified Availability Zone must be in the same region as the current
+        /// endpoint. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String AvailabilityZone { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> A unique identifier for the cluster. You use this identifier to refer to the cluster
+        /// for any subsequent cluster operations such as deleting or modifying. The identifier
+        /// also appears in the Amazon Redshift console. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>Alphabetic
+        /// characters must be lowercase.</li><li>First character must be a letter.</li><li>Cannot
+        /// end with a hyphen or contain two consecutive hyphens.</li><li>Must be unique for
+        /// all clusters within an AWS account.</li></ul><para>Example: <code>myexamplecluster</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        public String ClusterIdentifier { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The name of the parameter group to be associated with this cluster. </para><para>Default: The default Amazon Redshift cluster parameter group. For information about
+        /// the default parameter group, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+        /// with Amazon Redshift Parameter Groups</a></para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens.</li><li>First character
+        /// must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive hyphens.</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ClusterParameterGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> A list of security groups to be associated with this cluster. </para><para> Default: The default cluster security group for Amazon Redshift. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ClusterSecurityGroups")]
+        public System.String[] ClusterSecurityGroup { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The name of a cluster subnet group to be associated with this cluster. </para><para> If this parameter is not provided the resulting cluster will be deployed outside
+        /// virtual private cloud (VPC). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String ClusterSubnetGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The type of the cluster. When cluster type is specified as <ul><li><code>single-node</code>,
+        /// the <b>NumberOfNodes</b> parameter is not required.</li><li><code>multi-node</code>,
+        /// the <b>NumberOfNodes</b> parameter is required.</li></ul></para><para> Valid Values: <code>multi-node</code> | <code>single-node</code></para><para>Default: <code>multi-node</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        public String ClusterType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The version of the Amazon Redshift engine software that you want to deploy on the
+        /// cluster. </para><para> The version selected runs on all the nodes in the cluster. </para><para>Constraints: Only version 1.0 is currently available.</para><para>Example: <code>1.0</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String ClusterVersion { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the first database to be created when the cluster is created. </para><para>To create additional databases after the cluster is created, connect to the cluster
+        /// with a SQL client and use SQL commands to create a database. For more information,
+        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
+        /// a Database</a> in the Amazon Redshift Database Developer Guide. </para><para>Default: <code>dev</code></para><para>Constraints:</para><ul><li>Must contain 1 to 64 alphanumeric characters.</li><li>Must contain only
+        /// lowercase letters.</li><li>Cannot be a word that is reserved by the service. A list
+        /// of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// Words</a> in the Amazon Redshift Database Developer Guide. </li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String DBName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Elastic IP (EIP) address for the cluster.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
+        /// an Internet gateway. For more information about provisioning clusters in EC2-VPC,
+        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
+        /// Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ElasticIp { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, the data in the cluster is encrypted at rest. </para><para>Default: false</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean Encrypted { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses
+        /// to retrieve the data encryption keys stored in an HSM.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String HsmClientCertificateIdentifier { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the HSM configuration that contains the information the Amazon
+        /// Redshift cluster can use to retrieve and store keys in an HSM.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String HsmConfigurationIdentifier { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
+        /// use to encrypt data in the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String KmsKeyId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The user name associated with the master user account for the cluster that is being
+        /// created. </para><para>Constraints:</para><ul><li>Must be 1 - 128 alphanumeric characters.</li><li>First character must be
+        /// a letter.</li><li>Cannot be a reserved word. A list of reserved words can be found
+        /// in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// Words</a> in the Amazon Redshift Database Developer Guide. </li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String MasterUsername { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The password associated with the master user account for the cluster that is being
+        /// created. </para><para> Constraints: </para><ul><li>Must be between 8 and 64 characters in length.</li><li>Must contain at
+        /// least one uppercase letter.</li><li>Must contain at least one lowercase letter.</li><li>Must contain one number.</li><li>Can be any printable ASCII character (ASCII
+        /// code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String MasterUserPassword { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The node type to be provisioned for the cluster. For information about node types,
+        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
+        /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
+        /// </para><para> Valid Values: <code>dw1.xlarge</code> | <code>dw1.8xlarge</code> | <code>dw2.large</code>
+        /// | <code>dw2.8xlarge</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 3)]
+        public String NodeType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b>
+        /// parameter is specified as <code>multi-node</code>. </para><para>For information about determining how many nodes you need, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
+        /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
+        /// </para><para>If you don't specify this parameter, you get a single-node cluster. When requesting
+        /// a multi-node cluster, you must specify the number of nodes that you want in the cluster.</para><para>Default: <code>1</code></para><para>Constraints: Value must be at least 1 and no more than 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 NumberOfNodes { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The port number on which the cluster accepts incoming connections. </para><para>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the
+        /// connection string requires the port on which the cluster will listen for incoming
+        /// connections.</para><para> Default: <code>5439</code></para><para> Valid Values: <code>1150-65535</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 Port { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The weekly time range (in UTC) during which automated cluster maintenance can occur.
+        /// </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
+        /// occurring on a random day of the week. For more information about the time blocks
+        /// for each region, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+        /// Windows</a> in Amazon Redshift Cluster Management Guide.</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String PreferredMaintenanceWindow { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, the cluster can be accessed from a public network. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean PubliclyAccessible { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of tag instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.</para><para>Default: The default VPC security group is associated with the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcSecurityGroupIds")]
+        public System.String[] VpcSecurityGroupId { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RSCluster (CreateCluster)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (ParameterWasBound("AllowVersionUpgrade"))
+                context.AllowVersionUpgrade = this.AllowVersionUpgrade;
+            if (ParameterWasBound("AutomatedSnapshotRetentionPeriod"))
+                context.AutomatedSnapshotRetentionPeriod = this.AutomatedSnapshotRetentionPeriod;
+            context.AvailabilityZone = this.AvailabilityZone;
+            context.ClusterIdentifier = this.ClusterIdentifier;
+            context.ClusterParameterGroupName = this.ClusterParameterGroupName;
+            if (this.ClusterSecurityGroup != null)
+            {
+                context.ClusterSecurityGroups = new List<String>(this.ClusterSecurityGroup);
+            }
+            context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
+            context.ClusterType = this.ClusterType;
+            context.ClusterVersion = this.ClusterVersion;
+            context.DBName = this.DBName;
+            context.ElasticIp = this.ElasticIp;
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
+            context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
+            context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
+            context.KmsKeyId = this.KmsKeyId;
+            context.MasterUsername = this.MasterUsername;
+            context.MasterUserPassword = this.MasterUserPassword;
+            context.NodeType = this.NodeType;
+            if (ParameterWasBound("NumberOfNodes"))
+                context.NumberOfNodes = this.NumberOfNodes;
+            if (ParameterWasBound("Port"))
+                context.Port = this.Port;
+            context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (ParameterWasBound("PubliclyAccessible"))
+                context.PubliclyAccessible = this.PubliclyAccessible;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Tag>(this.Tag);
+            }
+            if (this.VpcSecurityGroupId != null)
+            {
+                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new CreateClusterRequest();
+            
+            if (cmdletContext.AllowVersionUpgrade != null)
+            {
+                request.AllowVersionUpgrade = cmdletContext.AllowVersionUpgrade.Value;
+            }
+            if (cmdletContext.AutomatedSnapshotRetentionPeriod != null)
+            {
+                request.AutomatedSnapshotRetentionPeriod = cmdletContext.AutomatedSnapshotRetentionPeriod.Value;
+            }
+            if (cmdletContext.AvailabilityZone != null)
+            {
+                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.ClusterIdentifier != null)
+            {
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.ClusterParameterGroupName != null)
+            {
+                request.ClusterParameterGroupName = cmdletContext.ClusterParameterGroupName;
+            }
+            if (cmdletContext.ClusterSecurityGroups != null)
+            {
+                request.ClusterSecurityGroups = cmdletContext.ClusterSecurityGroups;
+            }
+            if (cmdletContext.ClusterSubnetGroupName != null)
+            {
+                request.ClusterSubnetGroupName = cmdletContext.ClusterSubnetGroupName;
+            }
+            if (cmdletContext.ClusterType != null)
+            {
+                request.ClusterType = cmdletContext.ClusterType;
+            }
+            if (cmdletContext.ClusterVersion != null)
+            {
+                request.ClusterVersion = cmdletContext.ClusterVersion;
+            }
+            if (cmdletContext.DBName != null)
+            {
+                request.DBName = cmdletContext.DBName;
+            }
+            if (cmdletContext.ElasticIp != null)
+            {
+                request.ElasticIp = cmdletContext.ElasticIp;
+            }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
+            if (cmdletContext.HsmClientCertificateIdentifier != null)
+            {
+                request.HsmClientCertificateIdentifier = cmdletContext.HsmClientCertificateIdentifier;
+            }
+            if (cmdletContext.HsmConfigurationIdentifier != null)
+            {
+                request.HsmConfigurationIdentifier = cmdletContext.HsmConfigurationIdentifier;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.MasterUsername != null)
+            {
+                request.MasterUsername = cmdletContext.MasterUsername;
+            }
+            if (cmdletContext.MasterUserPassword != null)
+            {
+                request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.NodeType != null)
+            {
+                request.NodeType = cmdletContext.NodeType;
+            }
+            if (cmdletContext.NumberOfNodes != null)
+            {
+                request.NumberOfNodes = cmdletContext.NumberOfNodes.Value;
+            }
+            if (cmdletContext.Port != null)
+            {
+                request.Port = cmdletContext.Port.Value;
+            }
+            if (cmdletContext.PreferredMaintenanceWindow != null)
+            {
+                request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.PubliclyAccessible != null)
+            {
+                request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.VpcSecurityGroupIds != null)
+            {
+                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.CreateCluster(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Cluster;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public Boolean? AllowVersionUpgrade { get; set; }
+            public Int32? AutomatedSnapshotRetentionPeriod { get; set; }
+            public String AvailabilityZone { get; set; }
+            public String ClusterIdentifier { get; set; }
+            public String ClusterParameterGroupName { get; set; }
+            public List<String> ClusterSecurityGroups { get; set; }
+            public String ClusterSubnetGroupName { get; set; }
+            public String ClusterType { get; set; }
+            public String ClusterVersion { get; set; }
+            public String DBName { get; set; }
+            public String ElasticIp { get; set; }
+            public Boolean? Encrypted { get; set; }
+            public String HsmClientCertificateIdentifier { get; set; }
+            public String HsmConfigurationIdentifier { get; set; }
+            public String KmsKeyId { get; set; }
+            public String MasterUsername { get; set; }
+            public String MasterUserPassword { get; set; }
+            public String NodeType { get; set; }
+            public Int32? NumberOfNodes { get; set; }
+            public Int32? Port { get; set; }
+            public String PreferredMaintenanceWindow { get; set; }
+            public Boolean? PubliclyAccessible { get; set; }
+            public List<Tag> Tags { get; set; }
+            public List<String> VpcSecurityGroupIds { get; set; }
+        }
+        
+    }
+}

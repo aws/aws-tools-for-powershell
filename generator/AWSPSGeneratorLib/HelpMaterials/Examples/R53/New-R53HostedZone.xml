@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\>$params = @{
+    Name="example.com" 
+    CallerReference="myUniqueIdentifier" 
+    HostedZoneConfig_Comment="This is my first hosted zone"
+    DelegationSetId="NZ8X2CISAMPLE"
+}
+
+PS C:\>New-R53HostedZone @params</code>
+        <description>Creates a new hosted zone named 'example.com', associated with a reusable delegation set. This example uses splatting to supply the parameters to the cmdlet.</description>
+    </example>
+</examples>

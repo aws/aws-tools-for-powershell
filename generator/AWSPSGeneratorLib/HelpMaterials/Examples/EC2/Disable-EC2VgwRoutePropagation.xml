@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Disable-EC2VgwRoutePropagation -RouteTableId "rtb-1a2b3c4d" -GatewayId "vgw-1a2b3c4d"</code>
+    <description>This example disables the virtual private gateway from automatically propagating routes to the routing table with ID "rtb-1a2b3c4d".</description>
+  </example>
+</examples>

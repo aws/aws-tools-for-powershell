@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>STS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonSecurityTokenService</ServiceClientInterface>
+  <ServiceClient>AmazonSecurityTokenServiceClient</ServiceClient>
+  <ServiceNamespace>Amazon.SecurityToken</ServiceNamespace>
+
+  <VerbMappings>
+    <Map From="Decode" To="Convert" />
+  </VerbMappings>
+  
+  <CustomAliases>
+    <AliasSet Cmdlet="Use-STSRole">Assume-STSRole</AliasSet>
+    <AliasSet Cmdlet="Use-STSWebIdentityRole">Assume-STSWebIdentityRole</AliasSet>
+  </CustomAliases>
+
+	<ServiceOperations>
+		<ServiceOperation MethodName="AssumeRole" Verb="Use" Noun="Role" Output="Response" PositionalParameters="RoleSessionName;Policy;DurationSeconds;ExternalId" PipelineParameter="RoleArn">
+      <Params>
+        <!-- bring naming convention into line with other services and use suffix 'InUNITS' -->
+        <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="AssumeRoleWithWebIdentity" Exclude="true"/>
+		<ServiceOperation MethodName="DecodeAuthorizationMessage" />
+    <ServiceOperation MethodName="GetFederationToken" Output="Response" PositionalParameters="Policy;DurationSeconds" PipelineParameter="Name">
+      <Params>
+        <!-- bring naming convention into line with other services and use suffix 'InUNITS' -->
+        <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="GetSessionToken" PositionalParameters="SerialNumber;TokenCode" PipelineParameter="DurationSeconds">
+      <Params>
+        <!-- bring naming convention into line with other services and use suffix 'InUNITS' -->
+        <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="AssumeRoleWithSAML" Output="Response" Verb="Use" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn">
+      <Params>
+        <!-- bring naming convention into line with other services and use suffix 'InUNITS' -->
+        <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+      </Params>
+    </ServiceOperation>
+
+  </ServiceOperations>
+
+  <PipelineByValueProperties />
+  
+</ConfigModel>

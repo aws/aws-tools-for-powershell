@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>Get-EC2AvailabilityZone
+
+ZoneName                         ZoneState                        RegionName                       Message
+--------                         ---------                        ----------                       -------
+us-west-2a                       available                        us-west-2                        {}
+us-west-2b                       available                        us-west-2                        {}
+us-west-2c                       available                        us-west-2                        {}
+    </code>
+    <description>This example returns the Availability Zones that are available to you. The response includes Availability Zones only for the current region.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$filter = New-Object Amazon.EC2.Model.Filter
+PS C:\>$filter.Name = "state"
+PS C:\>$filter.Values = "impaired"
+
+# to query on more than one filter, use array syntax e.g. -Filters @( $filter1, $filter2 )
+PS C:\>Get-EC2AvailabilityZone -Filter $filter
+    </code>
+    <description>Returns the Availability Zones that match the specified filter(s). If your are using PowerShell v3 or higher this can be expressed as 'Get-EC2AvailabilityZone -Filter @{ Name="state";Value="impaired" }'.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>Get-EC2AvailabilityZone -Filter @{Name="zone-name";Values="us-east-1a"},@{ Name="state";Values="impaired" } -Region us-east-1
+    </code>
+    <description>Returns the Availability Zones that are in impaired status in zone us-east-1a for the region us-east-1 (PowerShell v3 or higher; for version 2, use the New-Object syntax to construct the filter specifications).</description>
+  </example>
+</examples>

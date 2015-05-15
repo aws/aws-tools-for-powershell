@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>ML</ServiceNounPrefix>
+
+  <ServiceNamespace>Amazon.MachineLearning</ServiceNamespace>
+
+  <ServiceClientInterface>IAmazonMachineLearning</ServiceClientInterface>
+  
+
+  <ServiceClient>AmazonMachineLearningClient</ServiceClient>
+
+  <AutoIterate EmitLimit="Limit" 
+               Start="NextToken" 
+               Next="NextToken" 
+               ServicePageSize="100"/>
+
+  <PipelineParameter>MLModelId</PipelineParameter>
+       
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateBatchPrediction">
+      <Params>
+        <Param Name="BatchPredictionName" Alias="Name" />
+        <Param Name="MLModelId" Alias="ModelId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateDataSourceFromRDS" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName" />
+    <ServiceOperation MethodName="CreateDataSourceFromRedshift" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName"  />
+    <ServiceOperation MethodName="CreateDataSourceFromS3" NoPipelineParameter="true" ShouldProcessTarget="DataSourceName"  />
+    <ServiceOperation MethodName="CreateEvaluation">
+      <Params>
+        <Param Name="EvaluationName" Alias="Name" />
+        <Param Name="MLModelId" Alias="ModelId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateMLModel" Noun="Model">
+      <Params>
+        <Param Name="MLModelId" Alias="ModelId" />
+        <Param Name="MLModelName" Alias="Name" />
+        <Param Name="MLModelType" Alias="ModelType" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateRealtimeEndpoint" Output="Response">
+      <Params>
+        <Param Name="MLModelId" Alias="ModelId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeleteBatchPrediction" />
+    <ServiceOperation MethodName="DeleteDataSource" />
+    <ServiceOperation MethodName="DeleteEvaluation" />
+    <ServiceOperation MethodName="DeleteMLModel" Noun="Model">
+      <Params>
+        <Param Name="MLModelId" Alias="ModelId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeleteRealtimeEndpoint" Output="Response">
+      <Params>
+        <Param Name="MLModelId" Alias="ModelId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeBatchPredictions" />
+    <ServiceOperation MethodName="DescribeDataSources" />
+    <ServiceOperation MethodName="DescribeEvaluations" />
+    <ServiceOperation MethodName="DescribeMLModels" Noun="Models" />
+    <ServiceOperation MethodName="GetBatchPrediction" Output="Response" />
+    <ServiceOperation MethodName="GetDataSource" Output="Response">
+      <Params>
+        <Param Name="Verbose" NewName="VerboseResponse" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="GetEvaluation" Output="Response" />
+    <ServiceOperation MethodName="GetMLModel" Output="Response" Noun="Model">
+      <Params>
+        <Param Name="MLModelId" Alias="ModelId" />
+        <Param Name="Verbose" NewName="VerboseResponse" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>      
+    <ServiceOperation MethodName="Predict" Verb="Get" Noun="Prediction">
+      <Params>
+        <Param Name="MLModelId" Alias="ModelId" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="UpdateBatchPrediction" ShouldProcessTarget="BatchPredictionName">
+      <Params>
+        <Param Name="BatchPredictionName" Alias="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="UpdateDataSource" ShouldProcessTarget="DataSourceName">
+      <Params>
+        <Param Name="DataSourceName" Alias="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="UpdateEvaluation" ShouldProcessTarget="EvaluationName">
+      <Params>
+        <Param Name="EvaluationName" Alias="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="UpdateMLModel">
+      <Params>
+        <Param Name="MLModelId" Alias="ModelId" />
+      </Params>
+    </ServiceOperation>
+  </ServiceOperations>
+  
+</ConfigModel>

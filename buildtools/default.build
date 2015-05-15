@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="AWS PowerShell" default="full-build" basedir=".">
+
+    <!--
+    NOTE
+    Full build consumes the AWSPowerShell project and generates helps and formats files.
+    Full build DOES NOT generate cmdlets.
+    To generate cmdlets, run target 'create-cmdlets', add the new/generated cmdlets to the
+    AWSPowerShell project, then run full-build to create the format and help files.
+    -->
+
+    <!-- Includes and properties -->
+    <include buildfile="..\build\common.include" />
+
+    <property name="msbuilds.flavor" value="Release" />
+	<ternaryPropertySet name="awspowershell.version" test="${property::exists('arg.awspowershell.version')}" ifTrue="${arg.awspowershell.version}" ifFalse="2.0.0.0" />
+    <property name="awspowershell.version.fullversion" value=""/>
+	
+	<!-- <property name="sdkhelp.helproot" value ="http://aws-docs.integ.amazon.com/sdkfornet-v2/latest/apidocs" /> -->
+	<property name="sdkhelp.helproot" value ="http://docs.aws.amazon.com/sdkfornet/latest/apidocs" />
+
+    <!-- override with bjs-docs-aws.integ.amazon.com for beta testing -->
+	<ternaryPropertySet name="bjsdocs.domain" test="${property::exists('arg.bjsdocs.domain')}" ifTrue="${arg.bjsdocs.domain}" ifFalse="docs.amazonaws.cn" />
+        
+    <!-- Targets -->
+    <target name="get-references" description="Get sdk, sdkv1, toolkit and vidro artifacts"
+      depends="common-init,get-sdk,get-buildtools" />
+
+    <target name="init"
+			depends="load-custom-tasks,get-references">
+
+        <property name="awspowershell.version.fullversion" value="${awspowershell.version}" overwrite="true" />
+        <echo message="${awspowershell.version.fullversion}" />
+        <echo message="AWSPowerShell Version number: ${awspowershell.version.fullversion}" failonerror="true" />
+
+    </target>
+    
+    <target name="build"
+            depends="
+                init,
+				clean-deployment,
+                update-version-numbers,
+                compile-ps-all,
+                create-formats,
+                create-pshelp,
+                create-webhelp,
+                create-sitemap,
+                create-source-zip,
+                create-webhelp-zip,
+                deploy-files"
+            />
+            
+    <target name="full-build"
+            depends="
+                build,
+                test-cmdlets,
+                consolidate-artifacts"
+            />
+
+    <target name="full-build-notest"
+            depends="
+                build,
+                consolidate-artifacts"
+            />
+
+    <target name="update-version-numbers" depends="get-buildtools">
+        <if test="${not property::exists('skip.versionstamping')}">
+            <echo message="Updating version numbers" />
+            <exec program="${buildtools-dir}/VersionNumberUpdate.exe"
+                  commandline='awspowershell ${awspowershell.version.fullversion} "${project::get-base-directory()}/AWSPowerShell"' />
+        </if>
+    </target>
+            
+    <target name="compile-ps-all" depends="init">
+        <exec program="${devenv2013}"
+                commandline="/Rebuild ${msbuilds.flavor} ./PowerShellGen.sln"/>
+        <copy file="./AWSPowerShell/bin/${msbuilds.flavor}/AWSPowerShell.dll"
+            tofile="${deployment-dir}/AWSPowerShell.dll" overwrite="true"/>
+        <loadtasks assembly="./PowerShellGenLib/bin/${msbuilds.flavor}/PowerShellGenLib.dll" />
+    </target>
+
+    <target name="compile-ps-tools" depends="init">
+        <exec program="${devenv2013}"
+                commandline="/Rebuild ${msbuilds.flavor} ./PowerShellGenTools.sln"/>
+        <loadtasks assembly="./PowerShellGenLib/bin/${msbuilds.flavor}/PowerShellGenLib.dll" />
+    </target>
+	
+    <target name="create-cmdlets" depends="compile-ps-tools">
+        <CmdletGenerate
+            Dll="./Include/sdk/dotnet35/AWSSDK.dll"
+            PsGenRoot="${project::get-base-directory()}"
+            OutputFolder="./AWSPowerShell/Cmdlets"
+            verbose="false"
+            AliasesOut="awsAliases"
+            TypeExtensionsOut="awsTypeExtensions"
+            BreakOnOutputMismatchError="true"
+            AnalysisLog="${project::get-base-directory()}/buildlogs/analysis.log"
+            />
+        <echo file="./AWSPowerShell/AWSAliases.ps1" message="${awsAliases}" />
+    </target>
+  
+    <target name="test-cmdlets" depends="deploy-files" >
+        <if test="${run-tests}">
+            <delete dir="./Tests/Results" />
+            <mkdir dir="./Tests/Results" />
+            <exec program="powershell"
+                    commandline="-NoProfile .\RunTests.ps1"
+                    workingdir="./Tests" />
+            <copy todir="${deployment-dir}">
+              <fileset basedir="./Tests/Results">
+                <include name="*.*" />          
+              </fileset>
+            </copy>
+        </if>
+    </target>
+
+    <target name="create-formats" depends="compile-ps-all">
+        <FormatGenerate
+            OutputFolder="${deployment-dir}"
+            verbose="false">
+            <Dlls>
+                <include name="./AWSPowerShell/bin/${msbuilds.flavor}/AWSPowerShell.dll" />
+                <include name="./Include/sdk/dotnet35/AWSSDK.dll" />
+            </Dlls>
+        </FormatGenerate>
+    </target>
+
+    <target name="create-pshelp" depends="compile-ps-all">
+        <PsHelpGenerate
+            PsGenRoot="${project::get-base-directory()}"
+            Dll="./AWSPowerShell/bin/${msbuilds.flavor}/AWSPowerShell.dll"
+            OutputFolder="${deployment-dir}"
+            verbose="false">
+        </PsHelpGenerate>
+        <delete file="${deployment-dir}/AWSPowerShell.dll-Help.log" />
+    </target>
+	
+    <target name="create-webhelp" depends="compile-ps-all">
+        <WebHelpGenerate
+            PsGenRoot="${project::get-base-directory()}"
+            Dll="./AWSPowerShell/bin/${msbuilds.flavor}/AWSPowerShell.dll"
+            OutputFolder="${deployment-dir}"
+            verbose="false"
+			SDKHelpRoot="${sdkhelp.helproot}"
+            BJSDocsDomain="${bjsdocs.domain}">
+        </WebHelpGenerate>
+        <delete file="${deployment-dir}/AWSPowerShell.dll-WebHelp.log" />
+    </target>
+
+    <target name="create-sitemap" depends="create-webhelp">
+        <CreateSitemap
+            Source="./WebHelpDeployment"
+            BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/"
+            Output="./WebHelpDeployment/sitemap.xml"
+            Extensions=".html .htm"
+            />
+    </target>	
+	
+    <target name="create-webhelp-zip" depends="create-webhelp">
+        <delete>
+            <fileset>
+                <include name="./AWSPowerShell.WebHelp_${awspowershell.version.fullversion}.zip" />
+            </fileset>
+        </delete>
+        
+        <zip zipfile="./AWSPowerShell.WebHelp_${awspowershell.version.fullversion}.zip">
+            
+            <fileset basedir="./WebHelpDeployment">
+                <include name="/**" />
+            </fileset>    
+
+        </zip>
+
+        <copy
+            file="./AWSPowerShell.WebHelp_${awspowershell.version.fullversion}.zip"
+            tofile="${deployment-dir}/AWSPowerShell.WebHelp_${awspowershell.version.fullversion}.zip"
+        />    
+    </target>
+	
+    <target name="create-source-zip" depends="compile-ps-all">
+    
+        <!-- replace private snk with public snk -->
+
+        <xmlpoke2
+            file="./AWSPowerShell/AWSPowerShell.csproj"
+            xpath="/nf:Project/nf:ItemGroup/nf:None[contains(@Include,'aws-powershell-private.snk')]/.."
+            value="&lt;None Include=&quot;aws-powershell.snk&quot; /&gt;"
+            failonerror="true"
+            >
+            <namespaces>
+                <namespace prefix="nf" uri="http://schemas.microsoft.com/developer/msbuild/2003" />
+            </namespaces>
+        </xmlpoke2>
+        <xmlpoke2
+            file="./AWSPowerShell/AWSPowerShell.csproj"
+            xpath="/nf:Project/nf:PropertyGroup/nf:AssemblyOriginatorKeyFile[text()='aws-powershell-private.snk']/.."
+            value="&lt;AssemblyOriginatorKeyFile&gt;aws-powershell.snk&lt;/AssemblyOriginatorKeyFile&gt;"
+            failonerror="true"
+            >
+            <namespaces>
+                <namespace prefix="nf" uri="http://schemas.microsoft.com/developer/msbuild/2003" />
+            </namespaces>
+        </xmlpoke2>
+    
+        <delete>
+            <fileset>
+                <include name="./AWSPowerShell.Src_${awspowershell.version.fullversion}.zip" />
+            </fileset>
+        </delete>
+        
+        <zip zipfile="./AWSPowerShell.Src_${awspowershell.version.fullversion}.zip">
+            
+            <fileset basedir="./AWSPowerShell" prefix="AWSPowerShell">
+                <include name="Cmdlets/**" />
+                <include name="Common/**" />
+                <include name="Properties/**" />
+                <include name="Utils/**" />
+                <include name="AWSPowerShell.csproj" />
+                <include name="aws-powershell.snk" />
+                
+                <exclude name="**/.svn" />
+                <exclude name="bin/**"/>
+                <exclude name="obj/**"/>
+                <exclude name="*.user"/>
+                <exclude name="AWSPowerShell.Base.csproj" />
+                <exclude name="aws-powershell-private.snk" />
+            </fileset>    
+
+        </zip>
+
+        <copy
+            file="./AWSPowerShell.Src_${awspowershell.version.fullversion}.zip"
+            tofile="${deployment-dir}/AWSPowerShell.Src_${awspowershell.version.fullversion}.zip"
+        />    
+    </target>
+    
+    
+    <target name="deploy-files" depends="compile-ps-all,create-formats,create-pshelp">
+        <copy file="./AWSPowerShell/AWSPowerShell.psd1"
+            tofile="${deployment-dir}/AWSPowerShell.psd1" overwrite="true"/>
+        <copy file="./AWSPowerShell/AWSPowerShell.TypeExtensions.ps1xml"
+            tofile="${deployment-dir}/AWSPowerShell.TypeExtensions.ps1xml" overwrite="true"/>
+        <copy file="./Include/sdk/dotnet35/AWSSDK.dll"
+            tofile="${deployment-dir}/AWSSDK.dll" overwrite="true"/>
+        <copy file="./AWSPowerShell/bin/${msbuilds.flavor}/log4net.dll"
+            tofile="${deployment-dir}/log4net.dll" overwrite="true"/>
+        <copy file="./AWSPowerShell/AWSAliases.ps1"
+            tofile="${deployment-dir}/AWSAliases.ps1" overwrite="true"/>
+    </target>
+
+    <target name="find-all-keys">
+        <if test="${find-keys == 'true'}">
+            <property name="find-keys.folder" value="./" />
+            <property name="find-keys.pattern" value="**" />
+            <call target="find-keys" />
+        </if>
+    </target>
+
+</project>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-EC2Image -Region us-west-1</code>
+    <description>This command fetches details of all public Amazon Machine Images (AMIs) in the 'us-west-1' region.</description>
+  </example>
+  <example>
+    <code>Get-EC2Image -owner self</code>
+    <description>This command fetches details of the Amazon Machine Images (AMIs) in the current region for the currently configured user and default region. To change the user account, use the -StoredCredentials or -AccessKey/-SecretKey parameters to supply alternate credentials.</description>
+  </example>
+  <example>
+    <code>Get-EC2Image -Filter @{ Name="platform"; Values="windows" }</code>
+    <description>This command uses a filter to return only the Amazon Machine Images (AMIs) that run Microsoft Windows for the current default region.</description>
+  </example>
+</examples>

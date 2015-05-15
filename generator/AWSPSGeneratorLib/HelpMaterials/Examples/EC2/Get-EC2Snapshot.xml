@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-EC2Snapshot -Owner self -Region us-west-1</code>
+    <description>Returns all the snapshots owned by the currently configured user credentials in the us-west-1 region.</description>
+  </example>
+  <example>
+    <code>Get-EC2Snapshot | ? { $_.Tags.Count -gt 0 -and $_.Tags.Key -eq "Name" }</code>
+    <description>Returns the set of snapshots for the currently configured default region and filters them to output only those that have a value assigned to the 'Name' tag.</description>
+  </example>
+  <example>
+    <code>Get-EC2Snapshot | ? { $_.Tags.Count -gt 0 -and $_.Tags.Key -eq "Name"  -and $_.Tags.Value -eq "TestValue" }</code>
+    <description>Returns the set of snapshots for the currently configured default region and filters them to output only those that have the value 'TestValue' assigned to the 'Name' tag.</description>
+  </example>
+</examples>

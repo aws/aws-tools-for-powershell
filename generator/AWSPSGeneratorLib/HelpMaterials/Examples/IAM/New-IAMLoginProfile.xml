@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>New-IAMLoginProfile -UserName Bob -Password P@ssw0rd -PasswordResetRequired $true
+
+CreateDate                    PasswordResetRequired                UserName
+----------                    ---------------------                --------
+4/14/2015 12:26:30 PM         True                                 Bob
+</code>
+    <description>This example creates a (temporary) password for the IAM user named Bob, and sets the flag that requires the user to change the password the next time <code>Bob</code> signs in.</description>
+  </example>
+</examples>

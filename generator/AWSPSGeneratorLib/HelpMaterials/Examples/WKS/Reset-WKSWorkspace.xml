@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Reset-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID"}</code>
+        <description>Rebuild a workspace.</description>
+    </example>
+  <example>
+    <code>Reset-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID1"},@{"WorkspaceId" = "ws-ID2"}</code>
+    <description>Rebuild multiple workspaces.</description>
+  </example>
+</examples>

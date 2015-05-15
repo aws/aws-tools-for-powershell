@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Add-EC2VpnGateway -VpnGatewayId "vgw-1a2b3c4d" -VpcId "vpc-1a2b3c4d"</code>
+    <description>Attaches the virtual private gateway to the specified VPC.</description>
+  </example>
+</examples>

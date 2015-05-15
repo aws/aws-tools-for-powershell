@@ -1,0 +1,193 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.EC2;
+using Amazon.EC2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC2
+{
+    /// <summary>
+    /// Adds one or more ingress rules to a security group.
+    /// 
+    ///  <important><para>
+    /// EC2-Classic: You can have up to 100 rules per group.
+    /// </para><para>
+    /// EC2-VPC: You can have up to 50 rules per group (covering both ingress and egress rules).
+    /// </para></important><para>
+    /// Rule changes are propagated to instances within the security group as quickly as possible.
+    /// However, a small delay might occur.
+    /// </para><para>
+    /// [EC2-Classic] This action gives one or more CIDR IP address ranges permission to access
+    /// a security group in your account, or gives one or more security groups (called the
+    /// <i>source groups</i>) permission to access a security group for your account. A source
+    /// group can be for your own AWS account, or another.
+    /// </para><para>
+    /// [EC2-VPC] This action gives one or more CIDR IP address ranges permission to access
+    /// a security group in your VPC, or gives one or more other security groups (called the
+    /// <i>source groups</i>) permission to access a security group for your VPC. The security
+    /// groups must all be for the same VPC.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the AuthorizeSecurityGroupIngress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AuthorizeSecurityGroupIngress"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type AuthorizeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GrantEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the security group. Required for a nondefault VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String GroupId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>[EC2-Classic, default VPC] The name of the security group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String GroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A set of IP permissions. Can be used to specify multiple rules in a single command.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IpPermissions")]
+        public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the GroupId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GroupId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Grant-EC2SecurityGroupIngress (AuthorizeSecurityGroupIngress)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.GroupId = this.GroupId;
+            context.GroupName = this.GroupName;
+            if (this.IpPermission != null)
+            {
+                context.IpPermissions = new List<IpPermission>(this.IpPermission);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new AuthorizeSecurityGroupIngressRequest();
+            
+            if (cmdletContext.GroupId != null)
+            {
+                request.GroupId = cmdletContext.GroupId;
+            }
+            if (cmdletContext.GroupName != null)
+            {
+                request.GroupName = cmdletContext.GroupName;
+            }
+            if (cmdletContext.IpPermissions != null)
+            {
+                request.IpPermissions = cmdletContext.IpPermissions;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.AuthorizeSecurityGroupIngress(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.GroupId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String GroupId { get; set; }
+            public String GroupName { get; set; }
+            public List<IpPermission> IpPermissions { get; set; }
+        }
+        
+    }
+}

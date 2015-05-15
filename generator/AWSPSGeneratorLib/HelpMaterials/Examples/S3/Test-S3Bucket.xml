@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Test-S3Bucket -BucketName test-files</code>
+    <description>This command returns True if the bucket exists, False otherwise. The command returns True even if the bucket does not belong to the user.</description>
+  </example>
+</examples>

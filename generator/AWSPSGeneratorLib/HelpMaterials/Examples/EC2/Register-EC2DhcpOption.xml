@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>$option1 = New-Object -TypeName Amazon.EC2.Model.DhcpConfiguration
+PS C:\>$option1.Key = "domain-name"
+PS C:\>$option1.Values = "abc.local"
+
+PS C:\>$option2 = New-Object -TypeName Amazon.EC2.Model.DhcpConfiguration
+PS C:\>$option2.Key = "domain-name-servers"
+PS C:\>$option2.Values = @("10.0.0.101","10.0.0.102")
+PS C:\>$options = @($option1, $option2)
+
+PS C:\>$DHCPOptions = New-EC2DhcpOption -DhcpConfiguration $options
+
+PS C:\>Register-EC2DhcpOption -DhcpOptionsId $DHCPOptions.DhcpOptionsId -VpcId vpc-f39fcc9b
+    </code>
+    <description>Creates a new DHCP Options Set and associates it with vpc-f39fcc9b in the current default region.</description>
+  </example>
+</examples>

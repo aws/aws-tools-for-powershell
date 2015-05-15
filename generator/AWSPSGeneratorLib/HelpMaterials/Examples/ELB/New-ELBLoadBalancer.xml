@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>New-ELBLoadBalancer -LoadBalancerName my-test-loadbalancer -AvailabilityZone us-west-2a`
+                    -Listener @{ LoadBalancerPort=80;InstancePort=80;Protocol="http";InstanceProtocol="http" }
+    </code>
+    <description>Creates a TCP load balancer in EC2 Classic</description>
+  </example>
+  <example>
+    <code>
+PS C:\>New-ELBLoadBalancer -LoadBalancerName MyHTTPSLoadBalancer -AvailabilityZone us-west-2a `
+                    -Listener @{ LoadBalancerPort=443;InstancePort=443;Protocol="https";InstanceProtocol="https";`
+                                 SSLCertificateId="arn:aws:iam::123456789012:server-certificate/servercert" }
+    </code>
+    <description>Creates a HTTPS load balancer in EC2 Classic</description>
+  </example>
+  <example>
+    <code>
+PS C:\>New-ELBLoadBalancer -LoadBalancerName MyVPCLoadBalancer -SecurityGroup sg-6801da07 -AvailabilityZone us-west-2a `
+                    -Listener @{ LoadBalancerPort=80;InstancePort=80;Protocol="http";InstanceProtocol="http" }
+    </code>
+    <description>Creates a TCP Load Balancer in EC2-VPC</description>
+  </example>
+</examples>

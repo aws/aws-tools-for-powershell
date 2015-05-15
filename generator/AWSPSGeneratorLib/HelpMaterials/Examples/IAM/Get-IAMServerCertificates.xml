@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMServerCertificates
+
+Arn                   : arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate
+Expiration            : 1/14/2018 9:52:36 AM
+Path                  : /Org1/Org2/
+ServerCertificateId   : ASCAJIFEXAMPLE17HQZYW
+ServerCertificateName : MyServerCertificate
+UploadDate            : 4/21/2015 11:14:16 AM</code>
+    <description>This example retrieves the list of server certificates that have been uploaded to the current AWS account.</description>
+  </example>
+</examples>

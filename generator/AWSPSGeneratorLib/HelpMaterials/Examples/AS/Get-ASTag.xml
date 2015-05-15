@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASTag</code>
+    <description>Returns all tags for all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>Get-ASTag -Filter @( @{ Name="Key"; Values=@("keyValue", "keyValue2") } )</code>
+    <description>Returns the tags with a Key value matching either 'keyValue' or 'keyValue2'. The filter names you can query against are 'auto-scaling-group', 'key', 'value', and 'propagate-at-launch'.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$t1 = New-Object Amazon.AutoScaling.Model.Filter
+PS C:\>$t1.Name = "key"
+PS C:\>$t1.Values = @("keyValue", "keyValue2")
+PS C:\>Get-ASTag -Filter @( $t1 )
+    </code>
+    <description>Alternate form using New-Object to construct the filter instances to query against. Returns the tags with a Key value matching either 'keyValue' or 'keyValue2'. The filter names you can query against are 'auto-scaling-group', 'key', 'value', and 'propagate-at-launch'.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-ASTag -NextToken $nextToken -MaxRecord 10
+  $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns the tags for all Auto Scaling groups using manual paging. The tags are returned in batches of 10.</description>
+  </example>
+</examples>

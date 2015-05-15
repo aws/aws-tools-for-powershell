@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>New-MLEvaluation -Name NAME -DataSourceId DSID -ModelId MID</code>
+        <description>Create an evaluation for a given data source id and model id</description>
+    </example>
+</examples>

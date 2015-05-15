@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>DDB</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonDynamoDB</ServiceClientInterface>
+  <ServiceClient>AmazonDynamoDBClient</ServiceClient>
+  <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
+
+  <PositionalParameters>TableName</PositionalParameters>
+  <PipelineParameter>TableName</PipelineParameter>
+
+  <AutoIterate Start="ExclusiveStartTableName" 
+               Next="LastEvaluatedTableName" 
+               EmitLimit="Limit" 
+			         />
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="BatchGetItem" Exclude="true" Verb="Get" Noun="BatchItem" Output="Response"/>
+    <ServiceOperation MethodName="BatchWriteItem" Exclude="true" Verb="Write" Noun="BatchItem" Output="Response"/>
+    <ServiceOperation MethodName="CreateTable" Exclude="true" />
+    <ServiceOperation MethodName="DeleteItem" Exclude="true" Output="Response" ShouldProcessTarget="Key"/>
+    <ServiceOperation MethodName="DeleteTable" ShouldProcessTarget="TableName"/>
+    <ServiceOperation MethodName="DescribeTable"/>
+    <ServiceOperation MethodName="GetItem" Exclude="true" Output="Response"/>
+    <ServiceOperation MethodName="ListTables" Verb="Get" Noun="Tables" />
+    <ServiceOperation MethodName="PutItem" Exclude="true" Output="Response"/>
+    <ServiceOperation MethodName="Query" Exclude="true" Verb="Select" Noun="Data" Output="Response"/>
+    <ServiceOperation MethodName="Scan" Exclude="true" Verb="Read" Noun="Table" Output="Response"/>
+    <ServiceOperation MethodName="UpdateItem" Exclude="true" Output="Response"/>
+    <ServiceOperation MethodName="UpdateTable">
+      <Params>
+        <Param Name="ProvisionedThroughput_ReadCapacityUnits" NewName="ReadCapacity" />
+        <Param Name="ProvisionedThroughput_WriteCapacityUnits" NewName="WriteCapacity" />
+      </Params>
+    </ServiceOperation>
+  </ServiceOperations>
+
+	<MetadataProperties>
+    <Property>ExclusiveStartTableName</Property>
+    <Property>LastEvaluatedTableName</Property>
+	</MetadataProperties>
+  
+  <PipelineByValueProperties>
+    <Property>TableName</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

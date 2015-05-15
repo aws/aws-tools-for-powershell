@@ -1,0 +1,269 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.MachineLearning;
+using Amazon.MachineLearning.Model;
+
+namespace Amazon.PowerShell.Cmdlets.ML
+{
+    /// <summary>
+    /// Creates a new <code>MLModel</code> using the data files and the recipe as information
+    /// sources. 
+    /// 
+    ///  
+    /// <para>
+    /// An <code>MLModel</code> is nearly immutable. Users can only update the <code>MLModelName</code>
+    /// and the <code>ScoreThreshold</code> in an <code>MLModel</code> without creating a
+    /// new <code>MLModel</code>. 
+    /// </para><para><code>CreateMLModel</code> is an asynchronous operation. In response to <code>CreateMLModel</code>,
+    /// Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>MLModel</code>
+    /// status to <code>PENDING</code>. After the <code>MLModel</code> is created and ready
+    /// for use, Amazon ML sets the status to <code>COMPLETED</code>. 
+    /// </para><para>
+    /// You can use the <a>GetMLModel</a> operation to check progress of the <code>MLModel</code>
+    /// during the creation operation.
+    /// </para><para><a>CreateMLModel</a> requires a <code>DataSource</code> with computed statistics,
+    /// which can be created by setting <code>ComputeStatistics</code> to <code>true</code>
+    /// in <a>CreateDataSourceFromRDS</a>, <a>CreateDataSourceFromS3</a>, or <a>CreateDataSourceFromRedshift</a>
+    /// operations. 
+    /// </para>
+    /// </summary>
+    [Cmdlet("New", "MLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the CreateMLModel operation against Amazon Machine Learning.", Operation = new[] {"CreateMLModel"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type CreateMLModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class NewMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("ModelId")]
+        public String MLModelId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A user-supplied name or description of the <code>MLModel</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Name")]
+        public String MLModelName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The category of supervised learning that this <code>MLModel</code> will address. Choose
+        /// from the following types:</para><ul><li>Choose <code>REGRESSION</code> if the <code>MLModel</code> will be used
+        /// to predict a numeric value.</li><li>Choose <code>BINARY</code> if the <code>MLModel</code>
+        /// result has two possible values.</li><li>Choose <code>MULTICLASS</code> if the <code>MLModel</code>
+        /// result has a limited number of values. </li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/machinelearning/latest/dg">Amazon
+        /// Machine Learning Developer Guide</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ModelType")]
+        public MLModelType MLModelType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of the training parameters in the <code>MLModel</code>. The list is implemented
+        /// as a map of key/value pairs.</para><para>The following is the current set of training parameters: </para><ul><li><para><code>sgd.l1RegularizationAmount</code> - Coefficient regularization L1 norm. It controls
+        /// overfitting the data by penalizing large coefficients. This tends to drive coefficients
+        /// to zero, resulting in sparse feature set. If you use this parameter, start by specifying
+        /// a small value such as 1.0E-08.</para><para>The value is a double that ranges from 0 to MAX_DOUBLE. The default is not to use
+        /// L1 normalization. The parameter cannot be used when <code>L2</code> is specified.
+        /// Use this parameter sparingly.</para></li><li><para><code>sgd.l2RegularizationAmount</code> - Coefficient regularization L2 norm. It controls
+        /// overfitting the data by penalizing large coefficients. This tends to drive coefficients
+        /// to small, nonzero values. If you use this parameter, start by specifying a small value
+        /// such as 1.0E-08.</para><para>The valuseis a double that ranges from 0 to MAX_DOUBLE. The default is not to use
+        /// L2 normalization. This cannot be used when <code>L1</code> is specified. Use this
+        /// parameter sparingly.</para></li><li><para><code>sgd.maxPasses</code> - Number of times that the training process traverses the
+        /// observations to build the <code>MLModel</code>. The value is an integer that ranges
+        /// from 1 to 10000. The default value is 10. </para></li><li><para><code>sgd.maxMLModelSizeInBytes</code> - Maximum allowed size of the model. Depending
+        /// on the input data, the size of the model might affect its performance.</para><para> The value is an integer that ranges from 100000 to 2147483648. The default value
+        /// is 33554432. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Parameters")]
+        public System.Collections.Hashtable Parameter { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The data recipe for creating <code>MLModel</code>. You must specify either the recipe
+        /// or its URI. If you don’t specify a recipe or its URI, Amazon ML creates a default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String Recipe { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Simple Storage Service (Amazon S3) location and file name that contains
+        /// the <code>MLModel</code> recipe. You must specify either the recipe or its URI. If
+        /// you don’t specify a recipe or its URI, Amazon ML creates a default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String RecipeUri { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The <code>DataSource</code> that points to the training data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String TrainingDataSourceId { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("MLModelId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MLModel (CreateMLModel)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.MLModelId = this.MLModelId;
+            context.MLModelName = this.MLModelName;
+            context.MLModelType = this.MLModelType;
+            if (this.Parameter != null)
+            {
+                context.Parameters = new Dictionary<String, String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Parameter.Keys)
+                {
+                    context.Parameters.Add((String)hashKey, (String)(this.Parameter[hashKey]));
+                }
+            }
+            context.Recipe = this.Recipe;
+            context.RecipeUri = this.RecipeUri;
+            context.TrainingDataSourceId = this.TrainingDataSourceId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new CreateMLModelRequest();
+            
+            if (cmdletContext.MLModelId != null)
+            {
+                request.MLModelId = cmdletContext.MLModelId;
+            }
+            if (cmdletContext.MLModelName != null)
+            {
+                request.MLModelName = cmdletContext.MLModelName;
+            }
+            if (cmdletContext.MLModelType != null)
+            {
+                request.MLModelType = cmdletContext.MLModelType;
+            }
+            if (cmdletContext.Parameters != null)
+            {
+                request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.Recipe != null)
+            {
+                request.Recipe = cmdletContext.Recipe;
+            }
+            if (cmdletContext.RecipeUri != null)
+            {
+                request.RecipeUri = cmdletContext.RecipeUri;
+            }
+            if (cmdletContext.TrainingDataSourceId != null)
+            {
+                request.TrainingDataSourceId = cmdletContext.TrainingDataSourceId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.CreateMLModel(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.MLModelId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String MLModelId { get; set; }
+            public String MLModelName { get; set; }
+            public MLModelType MLModelType { get; set; }
+            public Dictionary<String, String> Parameters { get; set; }
+            public String Recipe { get; set; }
+            public String RecipeUri { get; set; }
+            public String TrainingDataSourceId { get; set; }
+        }
+        
+    }
+}

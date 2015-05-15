@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-EC2Image -InstanceId i-123456 -Name "Standard Web Server" -Description "Standard web server AMI"</code>
+    <description>This example creates a new AMI, applying the specified name and description, from a running instance. EC2 will attempt to cleanly shut down the instance before the image is created and will restart the instance on completion.</description>
+  </example>
+  <example>
+    <code>New-EC2Image -InstanceId i-123456 -Name "Standard Web Server" -Description "Standard web server AMI" -NoReboot:$true</code>
+    <description>This example creates a new AMI, applying the specified name and description, from a running instance. EC2 will create the image without shutting down and restarting the instance; therefore, file system integrity on the created image can't be guaranteed.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>New-EC2Image -InstanceId i-123456 -Description "FromBootVolumeOnly" -Name BootOnly -NoReboot:$true -BlockDeviceMapping @(@{DeviceName="/dev/sdb";NoDevice=""}, @{DeviceName="/dev/sdc";NoDevice=""})
+    </code>
+    <description>This example creates a new AMI from a running instance that has two additional attached volumes (/dev/sdb and /dev/sdc) but uses only the boot volume to create the AMI.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$ebsBlock1 = @{SnapshotId="snap-1a2b3c4d"}
+PS C:\>$ebsBlock2 = @{VolumeSize=100}
+
+PS C:\>New-EC2Image -InstanceId i-123456 -Name "Standard Web Server" -BlockDeviceMapping @( @{DeviceName="/dev/sdf";Ebs=$ebsBlock1}, @{DeviceName="/dev/sdg";Ebs=$ebsBlock2}, @{DeviceName="/dev/sdc";VirtualName="ephemeral0"})
+    </code>
+    <description>This example command creates an AMI with three volumes. The first volume is based on an Amazon EBS snapshot. The second volume is an empty 100 GiB Amazon EBS volume. The third volume is an instance store volume, ephemeral0.</description>
+  </example>
+</examples>

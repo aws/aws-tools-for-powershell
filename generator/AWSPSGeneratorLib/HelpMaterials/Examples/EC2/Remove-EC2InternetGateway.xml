@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d</code>
+    <description>Removes a VPC Internet Gateway in the current default region.</description>
+  </example>
+</examples>

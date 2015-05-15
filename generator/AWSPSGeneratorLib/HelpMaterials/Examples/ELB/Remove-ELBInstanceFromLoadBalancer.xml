@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ELBInstanceFromLoadBalancer -LoadBalancerName my-test-loadbalancer -Instance "i-1a2b3c4d"</code>
+    <description>Removes the specified EC2 instance from the load balancer. You will be prompted for confirmation before the command proceeds.</description>
+  </example>
+  <example>
+    <code>Remove-ELBInstanceFromLoadBalancer -LoadBalancerName my-test-loadbalancer -Instance @("i-1a2b3c4d", "i-4d3c2b1a")</code>
+    <description>Removes the two EC2 instances from the load balancer. You will be prompted for confirmation before the command proceeds.</description>
+  </example>
+  <example>
+    <code>Remove-ELBInstanceFromLoadBalancer -LoadBalancerName my-test-loadbalancer -Instance @("i-1a2b3c4d", "i-4d3c2b1a") -Force</code>
+    <description>Removes the two EC2 instances from the load balancer without prompting for confirmation.</description>
+  </example>
+</examples>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>Get-EC2InternetGateway
+
+InternetGatewayId                       Attachments                             Tags
+-----------------                       -----------                             ----
+igw-1a2b3c4d                            {vpc-1a2b3c4d}                          {}
+igw-2a3b4c5d                            {}                                      {}
+    </code>
+    <description>Lists the VPC Internet Gateways in the current default region.</description>
+  </example>
+</examples>

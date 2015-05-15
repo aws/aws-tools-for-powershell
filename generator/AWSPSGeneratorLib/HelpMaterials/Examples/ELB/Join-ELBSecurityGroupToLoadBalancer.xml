@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-test-vpc-loadbalancer -SecurityGroup sg-123456789</code>
+    <description>Associates the security group with id 'sg-123456789' to the load balancer in a virtual private cloud (VPC).</description>
+  </example>
+  <example>
+    <code>Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-test-vpc-loadbalancer -SecurityGroup @("sg-123456789","sg-987654321")</code>
+    <description>Associates the specified security groups to the load balancer in a virtual private cloud (VPC).</description>
+  </example>
+</examples>

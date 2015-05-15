@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>IE</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonImportExport</ServiceClientInterface>
+  <ServiceClient>AmazonImportExportClient</ServiceClient>
+  <ServiceNamespace>Amazon.ImportExport</ServiceNamespace>
+
+  <DefaultRegion>us-east-1</DefaultRegion>
+  
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+
+  <NounMappings>
+    <Map From="Jobs" To="Job" />
+  </NounMappings>
+
+  <PositionalParameters>JobId</PositionalParameters>
+  <PipelineParameter>JobId</PipelineParameter>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="CancelJob"/>
+    <ServiceOperation MethodName="CreateJob" Output="Response" PipelineParameter="JobType" PositionalParameters="Manifest;ManifestAddendum;ValidateOnly"/>
+    <ServiceOperation MethodName="GetStatus" Output="Response"/>
+    <ServiceOperation MethodName="ListJobs" PipelineParameter="MaxJobs" PositionalParameters="Marker"/>
+    <ServiceOperation MethodName="UpdateJob" Output="Response" PositionalParameters="Manifest;JobType;ValidateOnly"/>
+    <ServiceOperation MethodName="GetShippingLabel" Output="Response" />
+  
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>JobId</Property>
+  </PipelineByValueProperties>
+  
+</ConfigModel>

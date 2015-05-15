@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASAutoScalingInstance</code>
+    <description>Returns details of all Auto Scaling instances, up to a maximum of 50.</description>
+  </example>
+  <example>
+    <code>Get-ASAutoScalingInstance -InstanceId i-123456</code>
+    <description>Returns details of the Auto Scaling instance with id 'i-123456'.</description>
+  </example>
+  <example>
+    <code>Get-ASAutoScalingInstance -InstanceId @("i-123456", "i-654321")</code>
+    <description>Returns details of the Auto Scaling instances with ids 'i-123456' and 'i-654321'. Up to 50 instance ids may be supplied.</description>
+  </example>
+  <example>
+    <code>Get-ASAutoScalingInstance -MaxRecord 5</code>
+    <description>Returns details of the first 5 Auto Scaling instances.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-ASAutoScalingInstance -NextToken $nextToken -MaxRecord 10
+  $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns Auto Scaling instances (up to a maximum of 50 in total) using manual paging. The instance details are retrieved in batches of 10.</description>
+  </example>
+</examples>

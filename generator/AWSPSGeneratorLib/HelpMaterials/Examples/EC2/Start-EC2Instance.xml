@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>@("i-123456", "i-654321") | Start-EC2Instance</code>
+    <description>Starts the specified instances using their instance ids.</description>
+  </example>
+  <example>
+    <code>(Get-EC2Instance -Filter @{ Name="tag:Name"; Value="*DEV"}).Instances | Start-EC2Instance</code>
+    <description>Retrieves the set of EC2 instances that have a 'Name' tag ending with 'DEV' and starts them. In this example the output from Get-EC2Instance is a collection of zero of more Reservation objects, each containing a collection of Instances. The Instance objects in the Instances collection are piped to Start-EC2Instance.</description>
+  </example>
+  <example>
+    <code>(Get-EC2Instance -Filter @{ Name="instance-state-name"; Value="stopped"}).Instances | Start-EC2Instance</code>
+    <description>This example shows how to retrieve the set of instances that are currently stopped and start them when using PowerShell v3. In this example the output from Get-EC2Instance is a collection of zero of more Reservation objects, each containing a collection of Instances. The Instance objects in the Instances collection are piped to Start-EC2Instance.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>(Get-EC2Instance -Filter @( @{ Name="instance-state-name"; Value="stopped"}, `
+                            @{ Name="availability-zone"; Value="us-west-2a" } )).Instances `
+            | Start-EC2Instance
+    </code>
+    <description>This example shows how to retrieve the set of instances in availability zone us-west-2a that are currently stopped and start them when using PowerShell v3. In this example the output from Get-EC2Instance is a collection of zero of more Reservation objects, each containing a collection of Instances. The Instance objects in the Instances collection are piped to Start-EC2Instance.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$filter1 = New-Object Amazon.EC2.Model.Filter
+PS C:\>$filter1.Name = "instance-state-name"
+PS C:\>$filter1.Value = "stopped"
+
+PS C:\>$filter2 = New-Object Amazon.EC2.Model.Filter
+PS C:\>$filter2.Name = "availability-zone"
+PS C:\>$filter2.Value = "us-west-2a"
+
+PS C:\>(Get-EC2Instance -Filter @( $filter1, $filter2 )).Instances | Start-EC2Instance
+    </code>
+    <description>This example shows how to retrieve the set of instances in availability zone us-west-2a that are currently stopped and start them when using PowerShell v2.</description>
+  </example>
+</examples>

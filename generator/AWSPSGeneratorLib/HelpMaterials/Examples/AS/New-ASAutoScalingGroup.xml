@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -LaunchConfigurationName my-launch-cfg -MinSize 2 -MaxSize 4 -AvailabilityZone @("us-west-2a", "us-west-2b")</code>
+    <description>Creates a new Auto Scaling group with the specified name and other attributes.</description>
+  </example>
+  <example>
+    <code>New-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -LaunchConfigurationName my-launch-cfg -MinSize 2 -MaxSize 4 -AvailabilityZone @("us-west-2a", "us-west-2b") -Tag @( @{ Name="Key"; Value="singleValueKey" }, @{ Name="Key"; Value=@("multiValue1", "multiValue2") })</code>
+    <description>Creates a new Auto Scaling group with the specified name and other attributes.</description>
+  </example>
+</examples>

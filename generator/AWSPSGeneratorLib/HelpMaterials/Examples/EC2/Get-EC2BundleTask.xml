@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-EC2BundleTask -BundleId "bun-57a5403e"</code>
+    <description>This example describes the status of the bun-57a5403e bundle task.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>$filter1 = New-Object Amazon.EC2.Model.Filter
+PS C:\>$filter1.Name = "s3-bucket"
+PS C:\>$filter1.Values = "myawsbucket"
+
+PS C:\>$filter2 = New-Object Amazon.EC2.Model.Filter
+PS C:\>$filter2.Name = "state"
+PS C:\>$filter2.Values = @( "complete", "failed" )
+
+PS C:\>Get-EC2BundleTask -Filter @( $filter1, $filter2 )
+    </code>
+    <description>This example filters the response to include only bundle tasks whose state is either complete or failed, and in addition are targeted for the Amazon S3 bucket named "myawsbucket". </description>
+  </example>
+</examples>

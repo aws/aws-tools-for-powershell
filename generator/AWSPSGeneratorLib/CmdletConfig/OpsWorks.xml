@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>OPS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonOpsWorks</ServiceClientInterface>
+  <ServiceClient>AmazonOpsWorksClient</ServiceClient>
+  <ServiceNamespace>Amazon.OpsWorks</ServiceNamespace>
+
+  <DefaultRegion>us-east-1</DefaultRegion>
+
+  <CustomAliases>
+    <AliasSet Cmdlet="Restart-OPSInstance">Reboot-OPSInstance</AliasSet>
+    <AliasSet Cmdlet="Copy-OPSStack">Clone-OPSStack</AliasSet>
+  </CustomAliases>
+
+  <VerbMappings>
+    <Map From="Reboot" To="Restart" />
+    <Map From="Clone" To="Copy" />
+    <Map From="Deregister" To="Unregister" />
+  </VerbMappings>
+
+  <PositionalParameters>StackId</PositionalParameters>
+  <PipelineParameter>StackId</PipelineParameter>
+
+  <ServiceOperations>	
+	<ServiceOperation MethodName="AttachElasticLoadBalancer" Output="Void" 
+                    PositionalParameters="LayerId" PipelineParameter="ElasticLoadBalancerName"/>
+    <ServiceOperation MethodName="CloneStack"
+                    PipelineParameter="SourceStackId" PositionalParameters="Name;Region">
+      <Params>
+        <!-- suppress auto-alias generation so we don't collide with Region parameter -->
+        <Param Name="Region" NewName="StackRegion" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateApp" PositionalParameters="Name;Shortname;Description;Type"/>
+    <ServiceOperation MethodName="CreateDeployment" PositionalParameters="AppId;InstanceIds;Comment;CustomJson"/>
+    <ServiceOperation MethodName="CreateInstance" PositionalParameters="LayerIds;InstanceType;"/>
+    <ServiceOperation MethodName="CreateLayer" PositionalParameters="Type;Name;ShortName"/>
+    <ServiceOperation MethodName="CreateStack"
+                    PipelineParameter="Name" PositionalParameters="Region">
+      <Params>
+        <!-- suppress auto-alias generation so we don't collide with Region parameter -->
+        <Param Name="Region" NewName="StackRegion" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateUserProfile" PositionalParameters="SshUsername;SshPublicKey" PipelineParameter="IamUserArn"/>
+    <ServiceOperation MethodName="DeleteApp" Output="Void"/>
+    <ServiceOperation MethodName="DeleteInstance" Output="Void" ShouldProcessTarget="InstanceId"
+                      PositionalParameters="DeleteElasticIp;DeleteVolumes" PipelineParameter="InstanceId"/>
+    <ServiceOperation MethodName="DeleteLayer" Output="Void" />
+    <ServiceOperation MethodName="DeleteStack" Output="Void"/>
+    <ServiceOperation MethodName="DeleteUserProfile" Output="Void" />    					
+    <ServiceOperation MethodName="DescribeApps" PositionalParameters="AppIds"/>
+    <ServiceOperation MethodName="DescribeCommands" PositionalParameters="InstanceId;CommandIds" PipelineParameter="DeploymentId"/>
+    <ServiceOperation MethodName="DescribeDeployments" PositionalParameters="AppId;DeploymentIds"/>
+    <ServiceOperation MethodName="DescribeElasticIps" PositionalParameters="Ips" PipelineParameter="InstanceId"/>
+	  <ServiceOperation MethodName="DescribeElasticLoadBalancers" PositionalParameters="LayerIds"/>
+    <ServiceOperation MethodName="DescribeInstances" PositionalParameters="LayerId;InstanceIds"/>
+    <ServiceOperation MethodName="DescribeLayers" PositionalParameters="LayerIds"/>
+  	<ServiceOperation MethodName="DescribeMyUserProfile" />
+    <ServiceOperation MethodName="DescribeLoadBasedAutoScaling" />
+    <ServiceOperation MethodName="DescribePermissions" PositionalParameters="IamUserArn"/>
+    <ServiceOperation MethodName="DescribeRaidArrays" PositionalParameters="RaidArrayIds" PipelineParameter="InstanceId"/>
+    <ServiceOperation MethodName="DescribeServiceErrors" PositionalParameters="InstanceId;ServiceErrorIds"/>	
+    <ServiceOperation MethodName="DescribeStacks" />
+	  <ServiceOperation MethodName="DescribeStackSummary" />
+    <ServiceOperation MethodName="DescribeTimeBasedAutoScaling" />
+    <ServiceOperation MethodName="DescribeUserProfiles" />
+    <ServiceOperation MethodName="DescribeVolumes" PositionalParameters="RaidArrayId;VolumeIds" PipelineParameter="InstanceId"/>
+    <ServiceOperation MethodName="DetachElasticLoadBalancer" Output="Void" 
+                      PositionalParameters="LayerId" PipelineParameter="ElasticLoadBalancerName"/>
+    <ServiceOperation MethodName="GetHostnameSuggestion" Output="Response" />
+    <ServiceOperation MethodName="RebootInstance" Output="Void" />
+    <ServiceOperation MethodName="SetLoadBasedAutoScaling" Output="Void"
+                      PositionalParameters="Enable" PipelineParameter="LayerId"/>
+    <ServiceOperation MethodName="SetPermission" Output="Void" PositionalParameters="IamUserArn;AllowSsh;AllowSudo"/>
+    <ServiceOperation MethodName="SetTimeBasedAutoScaling" Output="Void" PipelineParameter="InstanceId"/>
+    <ServiceOperation MethodName="StartInstance" Output="Void" />
+    <ServiceOperation MethodName="StartStack" Output="Void"/>
+    <ServiceOperation MethodName="StopInstance" Output="Void" />
+    <ServiceOperation MethodName="StopStack" Output="Void"/>
+    <ServiceOperation MethodName="UpdateApp" Output="Void" PipelineParameter="AppId"/>
+    <ServiceOperation MethodName="UpdateInstance" Output="Void" PipelineParameter="InstanceId"/>
+    <ServiceOperation MethodName="UpdateLayer" Output="Void" PipelineParameter="LayerId"/>
+	  <ServiceOperation MethodName="UpdateMyUserProfile" Output="Void" />
+    <ServiceOperation MethodName="UpdateStack" Output="Void"/>
+    <ServiceOperation MethodName="UpdateUserProfile" Output="Void" PipelineParameter="IamUserArn"/>
+  
+    <ServiceOperation MethodName="AssignVolume" Verb="Add" Output="Void" PipelineParameter="InstanceId" ShouldProcessTarget="VolumeId"/>
+    <ServiceOperation MethodName="DeregisterVolume" Output="Void" />
+    <ServiceOperation MethodName="UnassignVolume" Output="Void" Verb="Remove" />	
+    <ServiceOperation MethodName="RegisterVolume" />	
+    <ServiceOperation MethodName="UpdateVolume" Output="Void" PipelineParameter="VolumeId"/>
+
+    <ServiceOperation MethodName="AssociateElasticIp" Verb="Add" Output="Void" PipelineParameter="InstanceId"/>
+    <ServiceOperation MethodName="DeregisterElasticIp" Output="Void" />
+    <ServiceOperation MethodName="DisassociateElasticIp" Verb="Remove" Output="Void" />
+    <ServiceOperation MethodName="RegisterElasticIp" />
+    <ServiceOperation MethodName="UpdateElasticIp" Output="Void"/>
+	
+	<ServiceOperation MethodName="RegisterRdsDbInstance" Output="Void" PositionalParameters="RdsDbInstanceArn"/>
+    <ServiceOperation MethodName="UpdateRdsDbInstance" Output="Void" PipelineParameter="RdsDbInstanceArn"/>
+    <ServiceOperation MethodName="DeregisterRdsDbInstance" Output="Void" />
+    <ServiceOperation MethodName="DescribeRdsDbInstances" />
+	
+	<ServiceOperation MethodName="AssignInstance" Verb="Register" Noun="InstanceAssignment" Output="Void" PipelineParameter="InstanceId"/>
+	<ServiceOperation MethodName="DeregisterInstance" Verb="Unregister" Output="Void" />
+	<ServiceOperation MethodName="DescribeStackProvisioningParameters" Output="Response"/>
+	<ServiceOperation MethodName="RegisterInstance" />
+	<ServiceOperation MethodName="UnassignInstance" Verb="Unregister" Noun="InstanceAssignment" Output="Void" />
+	
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>StackId</Property>
+    <Property>AppId</Property>
+    <Property>InstanceId</Property>
+    <Property>LayerId</Property>
+    <Property>IamUserArn</Property>
+    <Property>DeploymentId</Property>
+    <Property>RaidArrayId</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

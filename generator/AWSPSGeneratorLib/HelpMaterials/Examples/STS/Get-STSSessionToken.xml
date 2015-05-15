@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>Get-STSSessionToken
+
+AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
+-----------                             ----------                              ---------------                        ------------
+EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
+    </code>
+    <description>Returns an Amazon.RuntimeAWSCredentials instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile
+
+AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
+-----------                             ----------                              ---------------                        ------------
+EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
+    </code>
+    <description>Returns an Amazon.RuntimeAWSCredentials instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456
+
+AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
+-----------                             ----------                              ---------------                        ------------
+EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....
+    </code>
+    <description>Returns an Amazon.RuntimeAWSCredentials instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.</description>
+  </example>
+</examples>

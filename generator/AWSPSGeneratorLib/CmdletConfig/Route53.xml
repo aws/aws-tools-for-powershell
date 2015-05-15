@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>R53</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonRoute53</ServiceClientInterface>
+  <ServiceClient>AmazonRoute53Client</ServiceClient>
+  <ServiceNamespace>Amazon.Route53</ServiceNamespace>
+
+  <DefaultRegion>us-east-1</DefaultRegion>
+
+  <NounMappings>
+    <Map From="ResourceRecordSets" To="ResourceRecordSet" />
+  </NounMappings>
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+    <Map From="Change" To="Edit" />
+  </VerbMappings>
+
+  <AutoIterate EmitLimit="MaxItems"
+               Start="Marker"
+               Next="NextMarker"
+               TruncatedFlag="IsTruncated"
+               Exclusions="ListResourceRecordSets;ListGeoLocationsResult"
+               ServicePageSize="100"
+               />
+
+  <MetadataProperties>
+    <Property>Marker</Property>
+    <Property>NextMarker</Property>
+    <Property>IsTruncated</Property>
+    <Property>MaxItems</Property>
+  </MetadataProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="ChangeResourceRecordSets" PipelineParameter="HostedZoneId" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes"/>
+    <ServiceOperation MethodName="ChangeTagsForResource" Output="Void" PipelineParameter="ResourceId"/>
+    <ServiceOperation MethodName="CreateHealthCheck" Output="Response" PipelineParameter="CallerReference" PositionalParameters="HealthCheckConfig_IPAddress"/>
+    <ServiceOperation MethodName="CreateHostedZone" Output="Response" PipelineParameter="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment"/>
+    <ServiceOperation MethodName="DeleteHealthCheck" Output="Void" />
+    <ServiceOperation MethodName="DeleteHostedZone" />
+    <ServiceOperation MethodName="GetChange" />
+    <ServiceOperation MethodName="GetCheckerIpRanges"/>
+    <ServiceOperation MethodName="GetGeoLocation" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="GetHealthCheck" />
+    <ServiceOperation MethodName="GetHealthCheckCount" />
+    <ServiceOperation MethodName="GetHostedZone" Output="Response" />
+    <ServiceOperation MethodName="ListGeoLocations" Output="Response" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="ListResourceRecordSets" Output="Response" PipelineParameter="HostedZoneId" PositionalParameters="StartRecordName;StartRecordType"/>
+    <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceId"/>
+    <ServiceOperation MethodName="ListTagsForResources" PipelineParameter="ResourceId"/>
+    <ServiceOperation MethodName="UpdateHealthCheck" PipelineParameter="HealthCheckId"/>
+    <ServiceOperation MethodName="UpdateHostedZoneComment" PipelineParameter="Id"/>
+
+    <ServiceOperation MethodName="CreateReusableDelegationSet" Output="Response" PipelineParameter="HostedZoneId" />
+    <ServiceOperation MethodName="DeleteReusableDelegationSet" Output="Void" />
+    <ServiceOperation MethodName="GetHealthCheckStatus" />
+    <ServiceOperation MethodName="GetHealthCheckLastFailureReason" />
+    <ServiceOperation MethodName="GetReusableDelegationSet" />
+    <ServiceOperation MethodName="ListReusableDelegationSets" />
+
+    <ServiceOperation MethodName="AssociateVPCWithHostedZone" Verb="Register" PipelineParameter="HostedZoneId" />
+    <ServiceOperation MethodName="DisassociateVPCFromHostedZone" Verb="Unregister" PipelineParameter="HostedZoneId" />
+
+    <ServiceOperation MethodName="GetHostedZoneCount" />
+    <ServiceOperation MethodName="ListHealthChecks" />
+    <ServiceOperation MethodName="ListHostedZones" />
+
+    <ServiceOperation MethodName="ListHostedZonesByName" Exclude="true" />
+
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>HostedZoneId</Property>
+    <Property>HealthCheckId</Property>
+    <Property>Id</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

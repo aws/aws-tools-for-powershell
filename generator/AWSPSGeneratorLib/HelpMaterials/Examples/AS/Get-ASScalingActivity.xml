@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASScalingActivity</code>
+    <description>Returns the scaling activities for the last six weeks for all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>Get-ASScalingActivity -AutoScalingGroupName my-test-asg</code>
+    <description>Returns the scaling activities for the last six weeks for the Auto Scaling group named 'my-test-asg'.</description>
+  </example>
+  <example>
+    <code>Get-ASScalingActivity -ActivityId "063308ae-aa22-4a9b-94f4-9faeEXAMPLE"</code>
+    <description>Returns details of the scaling activity with ID '063308ae-aa22-4a9b-94f4-9faeEXAMPLE' for all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>Get-ASScalingActivity -AutoScalingGroupName my-test-asg -ActivityId @("063308ae-aa22-4a9b-94f4-9faeEXAMPLE", "063908be-aa22-4a9b-94f4-8faeEXAMPLE")</code>
+    <description>Returns details of the scaling activities with IDs '063308ae-aa22-4a9b-94f4-9faeEXAMPLE' and '063908be-aa22-4a9b-94f4-8faeEXAMPLE' for the Auto Scaling group named 'my-test-asg'.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-ASScalingActivity -NextToken $nextToken -MaxRecord 10
+  $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns details of all scaling activities across all Auto Scaling groups using manual paging. The activity details are retrieved in batches of 10.</description>
+  </example>
+</examples>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Update-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -DefaultCooldown 10 -DesiredCapacity 5</code>
+    <description>Updates the default cooldown period (in seconds) and size of the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>Update-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -AvailabilityZone @("us-west-2a", "us-west-2b")</code>
+    <description>Updates the availability zones of the specified Auto Scaling group.</description>
+  </example>
+</examples>

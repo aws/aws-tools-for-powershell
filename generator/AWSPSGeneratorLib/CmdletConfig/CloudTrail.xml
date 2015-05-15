@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<ServiceNounPrefix>CT</ServiceNounPrefix>
+	<ServiceClientInterface>IAmazonCloudTrail</ServiceClientInterface>
+	<ServiceClient>AmazonCloudTrailClient</ServiceClient>
+	<ServiceNamespace>Amazon.CloudTrail</ServiceNamespace>
+
+  <PipelineParameter>Name</PipelineParameter>
+  
+	<NounMappings>
+		<Map From="Trails" To="Trail" />		
+	</NounMappings>
+
+  <Params>
+    <Param Name="Trail_" Exclude="true" />
+  </Params>
+
+  <PipelineByValueProperties>		
+		<Property>Name</Property>		
+		<Property>S3BucketName</Property>
+		<Property>S3KeyPrefix</Property>
+		<Property>SnsTopicName</Property>
+	</PipelineByValueProperties>
+	
+	<ServiceOperations>
+		<ServiceOperation MethodName="CreateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
+		<ServiceOperation MethodName="DeleteTrail" Output="Void" />
+		<ServiceOperation MethodName="DescribeTrails" >
+      <Params>
+        <Param Name="TrailNameList" Alias="Name" />
+      </Params>
+		</ServiceOperation>
+		<ServiceOperation MethodName="GetTrailStatus" Output="Response" />
+    <ServiceOperation MethodName="LookupEvents" Verb="Find" />
+    <ServiceOperation MethodName="StartLogging" Output="Void" />
+		<ServiceOperation MethodName="StopLogging" Output="Void" />
+		<ServiceOperation MethodName="UpdateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
+  </ServiceOperations>
+  
+</ConfigModel>

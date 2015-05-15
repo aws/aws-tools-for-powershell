@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Write-S3Object -BucketName test-files -Key "sample.txt" -File .\local-sample.txt</code>
+    <description>This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files".</description>
+  </example>
+  <example>
+    <code>Write-S3Object -BucketName test-files -File .\sample.txt</code>
+    <description>This command uploads the single file "sample.txt" to Amazon S3, creating an object with key "sample.txt" in bucket "test-files". If the -Key parameter is not supplied, the filename is used as the S3 object key.</description>
+  </example>
+  <example>
+    <code>Write-S3Object -BucketName test-files -Key "prefix/to/sample.txt" -File .\local-sample.txt</code>
+    <description>This command uploads the single file "local-sample.txt" to Amazon S3, creating an object with key "prefix/to/sample.txt" in bucket "test-files".</description>
+  </example>
+  <example>
+    <code>Write-S3Object -BucketName test-files -Folder .\Scripts -KeyPrefix SampleScripts\</code>
+    <description>This command uploads all files in the subdirectory "Scripts" to the bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename" where 'filename' varies.</description>
+  </example>
+  <example>
+    <code>Write-S3Object -BucketName test-files -Folder .\Scripts -KeyPrefix SampleScripts\ -SearchPattern *.ps1</code>
+    <description>This command uploads all *.ps1 files in the local director "Scripts" to bucket "test-files" and applies the common key prefix "SampleScripts" to each object. Each uploaded file will have a key of "SampleScripts/filename.ps1" where 'filename' varies.</description>
+  </example>
+  <example>
+    <code>Write-S3Object -BucketName test-files -Key "sample.txt" -Content "object contents"</code>
+    <description>This command creates a new S3 object containing the specified content string with key 'sample.txt'.</description>
+  </example>
+</examples>

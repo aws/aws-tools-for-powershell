@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASScalingProcessType</code>
+    <description>Returns the collection of scaling process types used with the Resume-ASProcess and Suspend-ASProcess cmdlets.</description>
+  </example>
+</examples>

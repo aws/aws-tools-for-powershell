@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>DC</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonDirectConnect</ServiceClientInterface>
+  <ServiceClient>AmazonDirectConnectClient</ServiceClient>
+  <ServiceNamespace>Amazon.DirectConnect</ServiceNamespace>
+
+  <NounMappings>
+    <Map From="Connections" To="Connection" />
+    <Map From="Interconnects" To="Interconnect" />
+    <Map From="VirtualGateways" To="VirtualGateway" />
+    <Map From="VirtualInterfaces" To="VirtualInterface" />
+  </NounMappings>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AllocateConnectionOnInterconnect" Verb="Enable" Output="Response" PipelineParameter="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan"/>
+    <ServiceOperation MethodName="AllocatePrivateVirtualInterface" Verb="Enable" Output="Response" PipelineParameter="ConnectionId" PositionalParameters="OwnerAccount"/>
+    <ServiceOperation MethodName="AllocatePublicVirtualInterface" Verb="Enable" Output="Response" PipelineParameter="ConnectionId" PositionalParameters="OwnerAccount"/>
+    <ServiceOperation MethodName="ConfirmConnection" />
+    <ServiceOperation MethodName="ConfirmPrivateVirtualInterface" PipelineParameter="VirtualInterfaceId" PositionalParameters="VirtualGatewayId"/>
+    <ServiceOperation MethodName="ConfirmPublicVirtualInterface" />
+    <ServiceOperation MethodName="CreateConnection" Output="Response" PipelineParameter="ConnectionName" PositionalParameters="Bandwidth;Location"/>
+    <ServiceOperation MethodName="CreateInterconnect" Output="Response" PipelineParameter="InterconnectName" PositionalParameters="Bandwidth;Location"/>
+    <ServiceOperation MethodName="CreatePrivateVirtualInterface" Output="Response" PipelineParameter="ConnectionId" />
+    <ServiceOperation MethodName="CreatePublicVirtualInterface" Output="Response" PipelineParameter="ConnectionId"/>
+    <ServiceOperation MethodName="DeleteConnection" Output="Response" />
+    <ServiceOperation MethodName="DeleteInterconnect" />
+    <ServiceOperation MethodName="DeleteVirtualInterface" />
+    <ServiceOperation MethodName="DescribeConnections" />
+    <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" />
+    <ServiceOperation MethodName="DescribeInterconnects" />
+    <ServiceOperation MethodName="DescribeLocations"/>
+    <ServiceOperation MethodName="DescribeVirtualGateways"/>
+    <ServiceOperation MethodName="DescribeVirtualInterfaces" PipelineParameter="ConnectionId" PositionalParameters="VirtualInterfaceId"/>
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>ConnectionId</Property>
+    <Property>InterconnectId</Property>
+    <Property>VirtualInterfaceId</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

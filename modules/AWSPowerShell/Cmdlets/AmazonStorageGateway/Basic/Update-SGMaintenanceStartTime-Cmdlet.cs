@@ -1,0 +1,183 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.StorageGateway;
+using Amazon.StorageGateway.Model;
+
+namespace Amazon.PowerShell.Cmdlets.SG
+{
+    /// <summary>
+    /// This operation updates a gateway's weekly maintenance start time information, including
+    /// day and time of the week. The maintenance time is the time in your gateway's time
+    /// zone.
+    /// </summary>
+    [Cmdlet("Update", "SGMaintenanceStartTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the UpdateMaintenanceStartTime operation against AWS Storage Gateway.", Operation = new[] {"UpdateMaintenanceStartTime"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type UpdateMaintenanceStartTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class UpdateSGMaintenanceStartTimeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The maintenance start time day of the week.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 3)]
+        public Int32 DayOfWeek { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String GatewayARN { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The hour component of the maintenance start time represented as <emphasis>hh</emphasis>,
+        /// where <i>hh</i> is the hour (00 to 23). The hour of the day is in the time zone of
+        /// the gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public Int32 HourOfDay { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The minute component of the maintenance start time represented as <i>mm</i>, where
+        /// <i>mm</i> is the minute (00 to 59). The minute of the hour is in the time zone of
+        /// the gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        public Int32 MinuteOfHour { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GatewayARN", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SGMaintenanceStartTime (UpdateMaintenanceStartTime)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (ParameterWasBound("DayOfWeek"))
+                context.DayOfWeek = this.DayOfWeek;
+            context.GatewayARN = this.GatewayARN;
+            if (ParameterWasBound("HourOfDay"))
+                context.HourOfDay = this.HourOfDay;
+            if (ParameterWasBound("MinuteOfHour"))
+                context.MinuteOfHour = this.MinuteOfHour;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new UpdateMaintenanceStartTimeRequest();
+            
+            if (cmdletContext.DayOfWeek != null)
+            {
+                request.DayOfWeek = cmdletContext.DayOfWeek.Value;
+            }
+            if (cmdletContext.GatewayARN != null)
+            {
+                request.GatewayARN = cmdletContext.GatewayARN;
+            }
+            if (cmdletContext.HourOfDay != null)
+            {
+                request.HourOfDay = cmdletContext.HourOfDay.Value;
+            }
+            if (cmdletContext.MinuteOfHour != null)
+            {
+                request.MinuteOfHour = cmdletContext.MinuteOfHour.Value;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.UpdateMaintenanceStartTime(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.GatewayARN;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public Int32? DayOfWeek { get; set; }
+            public String GatewayARN { get; set; }
+            public Int32? HourOfDay { get; set; }
+            public Int32? MinuteOfHour { get; set; }
+        }
+        
+    }
+}

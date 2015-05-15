@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>New-ELBLoadBalancerListener -LoadBalancerName my-test-loadbalancer `
+                            -Listener @{ LoadBalancerPort=443;InstancePort=443;Protocol="https";InstanceProtocol="https";`
+                                         SSLCertificateId="arn:aws:iam::123456789012:server-certificate/servercert" }
+    </code>
+    <description>Adds a listener to the specified load balancer.</description>
+  </example>
+</examples>

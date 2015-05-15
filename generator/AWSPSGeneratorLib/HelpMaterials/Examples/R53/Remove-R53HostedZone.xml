@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Remove-R53HostedZone -Id Z1PA6795UKMFR9</code>
+        <description>Deletes the hosted zone with the specified ID. You will be prompted for confirmation before the command proceeds unless you add the -Force switch parameter.</description>
+    </example>
+</examples>

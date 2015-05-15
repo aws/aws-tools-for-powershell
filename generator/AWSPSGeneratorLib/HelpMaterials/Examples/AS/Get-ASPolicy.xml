@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ASPolicy</code>
+    <description>Returns all policies across all Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>Get-ASPolicy -AutoScalingGroupName my-test-asg</code>
+    <description>Returns all policies for the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>Get-ASPolicy -AutoScalingGroupName my-test-asg -PolicyName @("my-scaleout-policy", "my-cooldown-policy")</code>
+    <description>Returns details of the policies named 'my-scaleout-policy' and 'my-cooldown-policy' for the Auto Scaling group named 'my-test-asg'.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-ASPolicy -NextToken $nextToken -MaxRecord 10
+  $nextToken = $AWSHistory.LastServiceResponse.NextToken
+} while ($nextToken -ne $null)
+    </code>
+    <description>Returns all policies across all Auto Scaling groups using manual paging. The policy details are retrieved in batches of 10.</description>
+  </example>
+</examples>

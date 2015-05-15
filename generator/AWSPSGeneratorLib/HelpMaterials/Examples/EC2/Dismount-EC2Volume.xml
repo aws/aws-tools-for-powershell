@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Dismount-EC2Volume -VolumeId "vol-1a2b3c4d"</code>
+    <description>Detaches the volume with ID "vol-1a2b3c4d".</description>
+  </example>
+  <example>
+    <code>Dismount-EC2Volume -VolumeId "vol-1a2b3c4d" -InstanceId "i-1a2b3c4d"</code>
+    <description>Detaches the volume with ID "vol-1a2b3c4d" from the specified instance. The instance ID can be specified to ensure the specified volume really is the one you mean to detach.</description>
+  </example>
+  <example>
+    <code>Dismount-EC2Volume -VolumeId "vol-1a2b3c4d" -InstanceId "i-1a2b3c4d" -Device "/dev/sda2"</code>
+    <description>Detaches the volume from the specified instance that has the volume attached as device "/dev/sda2". The instance ID and Device can be specified to ensure the specified volume really is the one you mean to detach.</description>
+  </example>
+  <example>
+    <code>Dismount-EC2Volume -VolumeId "vol-1a2b3c4d" -Force</code>
+    <description>Forcibly detaches the volume with ID "vol-1a2b3c4d" if the previous detachment attempt did not occur cleanly (logging into an instance, unmounting the volume, and detaching normally). This option can lead to data loss or a corrupted file system. Use this option only as a last resort to detach a volume from a failed instance. The instance won't have an opportunity to flush file system caches or file system metadata. If you use this option, you must perform file system check and repair procedures.</description>
+  </example>
+</examples>

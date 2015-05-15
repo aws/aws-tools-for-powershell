@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Suspend-ASProcess -AutoScalingGroupName my-test-asg</code>
+    <description>Suspends all processes for the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>Suspend-ASProcess -AutoScalingGroupName my-test-asg -ScalingProcesses "Launch"</code>
+    <description>Suspends the 'Launch' process for the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>Suspend-ASProcess -AutoScalingGroupName my-test-asg -ScalingProcesses @("Launch", "HealthCheck")</code>
+    <description>Suspends the 'Launch' and 'HealthCheck' processes for the specified Auto Scaling group.</description>
+  </example>
+</examples>

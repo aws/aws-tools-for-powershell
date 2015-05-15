@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMMFADevice -UserName David
+
+EnableDate                  SerialNumber                           UserName
+----------                  ------------                           --------
+4/8/2015 9:41:10 AM         arn:aws:iam::123456789012:mfa/David    David</code>
+    <description>This example returns details about the MFA device assigned to the IAM user <code>David</code>. In this example you can tell that it is a virtual device because the <code>SerialNumber</code> is an ARN instead of a physical device's actual serial number.</description>
+  </example>
+</examples>

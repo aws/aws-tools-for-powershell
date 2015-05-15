@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CFN</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonCloudFormation</ServiceClientInterface>
+  <ServiceClient>AmazonCloudFormationClient</ServiceClient>
+  <ServiceNamespace>Amazon.CloudFormation</ServiceNamespace>
+
+  <VerbMappings>
+    <Map From="Estimate" To="Measure" />
+    <Map From="Validate" To="Test" />
+  </VerbMappings>
+
+  <CustomAliases>
+    <AliasSet Cmdlet="Measure-CFNTemplateCost">Estimate-CFNTemplateCost</AliasSet>
+    <AliasSet Cmdlet="Test-CFNTemplate">Validate-CFNTemplate</AliasSet>
+    <AliasSet Cmdlet="Get-CFNStackSummaries">List-CFNStacks</AliasSet>
+    <AliasSet Cmdlet="Get-CFNStackResourceSummaries">List-CFNStackResources</AliasSet>
+  </CustomAliases>
+
+  <AutoIterate Start="NextToken" Next="NextToken" />
+
+  <PositionalParameters>StackName</PositionalParameters>
+  <PipelineParameter>StackName</PipelineParameter>
+
+  <NounMappings>
+    <Map From="StackEvents" To="StackEvent" />
+    <Map From="StackResourceSummaries" To="StackResourceSummary" />
+    <Map From="Stacks" To="Stack" />
+    <Map From="StackSummaries" To="StackSummary" />
+  </NounMappings>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CancelUpdateStack" Output="Void"/>
+    <ServiceOperation MethodName="CreateStack">
+      <Params>
+        <Param Name="TimeoutInMinutes" AutoRename="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeleteStack" Output="Void"/>
+    <ServiceOperation MethodName="DescribeStackEvents"/>
+    <ServiceOperation MethodName="DescribeStackResource" PositionalParameters="LogicalResourceId"/>
+    <ServiceOperation MethodName="DescribeStackResources"/>
+    <ServiceOperation MethodName="DescribeStacks"/>
+    <ServiceOperation MethodName="EstimateTemplateCost" PipelineParameter="TemplateBody"/>
+    <ServiceOperation MethodName="GetStackPolicy"/>
+    <ServiceOperation MethodName="GetTemplate"/>
+    <ServiceOperation MethodName="GetTemplateSummary" Output="Response"/>
+    <ServiceOperation MethodName="ListStackResources" Verb="Get" Noun="StackResourceSummaries"/>
+    <ServiceOperation MethodName="ListStacks" Verb="Get" Noun="StackSummaries" PipelineParameter="StackStatusFilter"/>
+    <ServiceOperation MethodName="SetStackPolicy" Output="Void"/>
+    <ServiceOperation MethodName="UpdateStack"/>
+    <ServiceOperation MethodName="ValidateTemplate" Output="Response" PipelineParameter="TemplateBody"/>
+    <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" Output="Void"/>
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>StackName</Property>
+    <Property>LogicalResourceId</Property>
+    <Property>PhysicalResourceId</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

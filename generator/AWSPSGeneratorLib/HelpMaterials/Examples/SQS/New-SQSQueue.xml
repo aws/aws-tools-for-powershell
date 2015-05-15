@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-SQSQueue -QueueName ps-queue-1</code>
+    <description>This command creates a new SQS queue with the name "ps-queue-1".</description>
+  </example>
+</examples>

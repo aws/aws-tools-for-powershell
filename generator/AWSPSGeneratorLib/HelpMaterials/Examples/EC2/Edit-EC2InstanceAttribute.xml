@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "instanceType" -Value "m1.small"</code>
+    <description>Changes the instance type to the specified value. Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "disableApiTermination" -Value "true"</code>
+    <description>Disables termination of the instance using the Amazon EC2 console, CLI, or API. A value of "false" re-enables instance termination by these mechanisms. Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "kernel" -Value "k12345"</code>
+    <description>Changes the instance's kernel to the specified value. Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "ramdisk" -Value "rd12345"</code>
+    <description>Changes the instance's RAM disk to the specified value. Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "userData" -Value "new user data value"</code>
+    <description>Changes the instance's user data to the specified value. Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "instanceInitiatedShutdownBehavior" -Value "stop"</code>
+    <description>Changes the instance so that it stops when shutdown is initiated from the instance (using the operating system command for system shutdown). To have the instance terminate, use a value of "terminate". Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "sourceDestCheck" -Value "true"</code>
+    <description>Changes source/destination checking for the instance. A value of "true" enables checking, "false" disables checking. For a NAT instance to perform NAT, the value must be "false". Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -Attribute "ebsOptimized" -Value "true"</code>
+    <description>Enables EBS I/O optimization for the instance. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance. Note that the value passed for the Attribute parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -GroupId "sg-1a2b3c4d"</code>
+    <description>Changes the instance's security group. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.</description>
+  </example>
+  <example>
+    <code>Edit-EC2InstanceAttribute -InstanceId "i-1a2b3c4d" -GroupId @("sg-1a2b3c4d", "sg-4d3c2b1a")</code>
+    <description>Changes the instance's security groups. You must specify at least one security group, even if it's just the default security group for the VPC. You must specify the security group ID, not the security group name.</description>
+  </example>
+</examples>

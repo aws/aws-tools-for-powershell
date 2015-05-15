@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>DS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonDirectoryService</ServiceClientInterface>
+  <ServiceClient>AmazonDirectoryServiceClient</ServiceClient>
+  <ServiceNamespace>Amazon.DirectoryService</ServiceNamespace>
+
+  <AdditionalNamespaces />
+
+  <RetainFullTypeNames>
+    <TypeName>Amazon.DirectoryService.Model.Attribute</TypeName>
+  </RetainFullTypeNames>
+  
+  <ServiceOperations>
+
+	<ServiceOperation MethodName="ConnectDirectory" 
+		PositionalParameters="Name;Password" 
+		ShouldProcessTarget="Name"
+		PipelineParameter="Name"/>
+		
+	<ServiceOperation MethodName="CreateAlias" 
+		PipelineParameter="DirectoryId" 
+		Output="Response"
+		ShouldProcessTarget="DirectoryId"/>
+		
+	<ServiceOperation MethodName="CreateComputer" 
+		PipelineParameter="DirectoryId" />
+		
+	<ServiceOperation MethodName="CreateDirectory"
+		PositionalParameters="Name;Password"
+		PipelineParameter="Name" 
+		ShouldProcessTarget="Name" />
+		
+	<ServiceOperation MethodName="CreateSnapshot"
+		PipelineParameter="DirectoryId"/>
+		
+	<ServiceOperation MethodName="DeleteDirectory" />
+		
+	<ServiceOperation MethodName="DeleteSnapshot" />
+		
+	<ServiceOperation MethodName="DescribeDirectories"
+		Noun="Directory"
+		PipelineParameter="DirectoryIds"/>
+	
+	<ServiceOperation MethodName="DescribeSnapshots" 
+		Noun="Snapshot"
+		PipelineParameter="DirectoryId"/>
+		
+	<ServiceOperation MethodName="DisableRadius" 
+		Output="Void" />
+			
+	<ServiceOperation MethodName="DisableSso" 
+		PipelineParameter="DirectoryId"
+		ShouldProcessTarget="DirectoryId"
+		Output="Void" />
+		
+	<ServiceOperation MethodName="EnableRadius" 
+		Output="Void" 
+		PipelineParameter="DirectoryId" />
+		
+	<ServiceOperation MethodName="EnableSso" 
+		Output="Void" 
+		PipelineParameter="DirectoryId" />
+		
+	<ServiceOperation MethodName="GetDirectoryLimits"
+		Noun="DirectoryLimit" />
+	
+	<ServiceOperation MethodName="GetSnapshotLimits"
+		Noun="SnapshotLimit"/>
+		
+	<ServiceOperation MethodName="RestoreFromSnapshot" 
+		Output="Void" 
+		PositionalParameters="SnapshotId"/>
+		
+	<ServiceOperation MethodName="UpdateRadius" 
+		Output="Void" 
+		PipelineParameter="DirectoryId" />
+
+  </ServiceOperations>
+
+</ConfigModel>

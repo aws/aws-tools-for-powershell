@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ASLaunchConfiguration -LaunchConfigurationName my-test-lc</code>
+    <description>Deletes the launch configuration named 'my-test-lc'. The specified launch configuration must not be attached to an Auto Scaling group. You are prompted for confirmation before deletion proceeds.</description>
+  </example>
+  <example>
+    <code>Remove-ASLaunchConfiguration -LaunchConfigurationName my-test-lc -Force</code>
+    <description>Deletes the launch configuration named 'my-test-lc'. The specified launch configuration must not be attached to an Auto Scaling group. You are not prompted for confirmation before deletion proceeds.</description>
+  </example>
+</examples>

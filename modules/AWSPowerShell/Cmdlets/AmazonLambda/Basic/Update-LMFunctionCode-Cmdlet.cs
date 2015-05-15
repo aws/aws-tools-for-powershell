@@ -1,0 +1,156 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Lambda;
+using Amazon.Lambda.Model;
+
+namespace Amazon.PowerShell.Cmdlets.LM
+{
+    /// <summary>
+    /// Updates the code for the specified Lambda function. This operation must only be used
+    /// on an existing Lambda function and cannot be used to update the function configuration.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permision for the <code>lambda:UpdateFunctionCode</code> action.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResult")]
+    [AWSCmdlet("Invokes the UpdateFunctionCode operation against Amazon Lambda.", Operation = new[] {"UpdateFunctionCode"})]
+    [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResult",
+        "This cmdlet returns a UpdateFunctionCodeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The existing Lambda function name whose code you want to replace.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
+        /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
+        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
+        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
+        /// If you specify only the function name, it is limited to 64 character in length. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String FunctionName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Based64-encoded .zip file containing your packaged source code.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.IO.MemoryStream ZipFile { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FunctionName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-LMFunctionCode (UpdateFunctionCode)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.FunctionName = this.FunctionName;
+            context.ZipFile = this.ZipFile;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new UpdateFunctionCodeRequest();
+            
+            if (cmdletContext.FunctionName != null)
+            {
+                request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.ZipFile != null)
+            {
+                request.ZipFile = cmdletContext.ZipFile;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.UpdateFunctionCode(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String FunctionName { get; set; }
+            public System.IO.MemoryStream ZipFile { get; set; }
+        }
+        
+    }
+}

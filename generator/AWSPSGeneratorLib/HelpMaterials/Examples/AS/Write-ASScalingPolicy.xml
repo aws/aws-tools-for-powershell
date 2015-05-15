@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Write-ASScalingPolicy -AutoScalingGroupName my-test-asg -AdjustmentType "ChangeInCapacity" -PolicyName "myPolicy" -ScalingAdjustment 4 -Cooldown 10</code>
+    <description>Updates the specified policy for the Auto Scaling group 'my-test-asg'. To create a new policy, specify a PolicyName that does not currently exist. The selected AdjustmentType determines how the ScalingAdjustment parameter is interpreted.</description>
+  </example>
+</examples>

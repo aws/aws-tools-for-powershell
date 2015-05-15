@@ -1,0 +1,173 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.SimpleNotificationService;
+using Amazon.SimpleNotificationService.Model;
+
+namespace Amazon.PowerShell.Cmdlets.SNS
+{
+    /// <summary>
+    /// Sets the attributes for an endpoint for a device on one of the supported push notification
+    /// services, such as GCM and APNS.      For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+    /// Amazon SNS Mobile Push Notifications</a>.
+    /// </summary>
+    [Cmdlet("Set", "SNSEndpointAttributes", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the SetEndpointAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"SetEndpointAttributes"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EndpointArn parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type SetEndpointAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class SetSNSEndpointAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A map of the endpoint attributes. Attributes in this map include the following:</para><ul><li><code>CustomUserData</code> -- arbitrary user data to associate
+        /// with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format
+        /// and less than 2KB.</li><li><code>Enabled</code> -- flag that enables/disables
+        /// delivery to the endpoint.         Amazon SNS will set this to false when a notification
+        /// service indicates to Amazon SNS that the endpoint is invalid.         Users can set
+        /// it back to true, typically after updating Token.</li><li><code>Token</code>
+        /// -- device token, also referred to as a registration id, for an app and mobile device.
+        ///         This is returned from the notification service when an app and mobile device
+        /// are registered with the notification service.</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        [Alias("Attributes")]
+        public System.Collections.Hashtable Attribute { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>EndpointArn used for SetEndpointAttributes action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String EndpointArn { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the EndpointArn parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EndpointArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SNSEndpointAttributes (SetEndpointAttributes)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (this.Attribute != null)
+            {
+                context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Attribute.Keys)
+                {
+                    context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
+                }
+            }
+            context.EndpointArn = this.EndpointArn;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new SetEndpointAttributesRequest();
+            
+            if (cmdletContext.Attributes != null)
+            {
+                request.Attributes = cmdletContext.Attributes;
+            }
+            if (cmdletContext.EndpointArn != null)
+            {
+                request.EndpointArn = cmdletContext.EndpointArn;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.SetEndpointAttributes(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.EndpointArn;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public Dictionary<String, String> Attributes { get; set; }
+            public String EndpointArn { get; set; }
+        }
+        
+    }
+}

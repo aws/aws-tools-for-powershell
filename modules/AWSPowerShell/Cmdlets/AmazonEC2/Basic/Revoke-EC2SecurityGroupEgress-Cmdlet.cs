@@ -1,0 +1,172 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.EC2;
+using Amazon.EC2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC2
+{
+    /// <summary>
+    /// Removes one or more egress rules from a security group for EC2-VPC. The values that
+    /// you specify in the revoke request (for example, ports) must match the existing rule's
+    /// values for the rule to be revoked.
+    /// 
+    ///  
+    /// <para>
+    /// Each rule consists of the protocol and the CIDR range or source security group. For
+    /// the TCP and UDP protocols, you must also specify the destination port or range of
+    /// ports. For the ICMP protocol, you must also specify the ICMP type and code.
+    /// </para><para>
+    /// Rule changes are propagated to instances within the security group as quickly as possible.
+    /// However, a small delay might occur.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Revoke", "EC2SecurityGroupEgress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the RevokeSecurityGroupEgress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RevokeSecurityGroupEgress"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type RevokeSecurityGroupEgressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RevokeEC2SecurityGroupEgressCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the security group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String GroupId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A set of IP permissions. You can't specify a destination security group and a CIDR
+        /// IP address range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        [Alias("IpPermissions")]
+        public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the GroupId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GroupId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Revoke-EC2SecurityGroupEgress (RevokeSecurityGroupEgress)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.GroupId = this.GroupId;
+            if (this.IpPermission != null)
+            {
+                context.IpPermissions = new List<IpPermission>(this.IpPermission);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new RevokeSecurityGroupEgressRequest();
+            
+            if (cmdletContext.GroupId != null)
+            {
+                request.GroupId = cmdletContext.GroupId;
+            }
+            if (cmdletContext.IpPermissions != null)
+            {
+                request.IpPermissions = cmdletContext.IpPermissions;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.RevokeSecurityGroupEgress(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.GroupId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String GroupId { get; set; }
+            public List<IpPermission> IpPermissions { get; set; }
+        }
+        
+    }
+}

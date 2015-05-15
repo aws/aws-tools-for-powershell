@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Unregister-IAMRolePolicy -RoleName FedTesterRole -PolicyArn arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy</code>
+    <description>This example detaches the managed group policy whose ARN is <code>arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy</code> from the role named <code>FedTesterRole</code>.</description>
+  </example>
+  <example>
+    <code>PS C:\>Get-IAMAttachedRolePolicies -RoleName FedTesterRole | Unregister-IAMRolePolicy -Rolename FedTesterRole</code>
+    <description>This example finds all of the managed policies that are attached to the role named <code>FedTesterRole</code> and detaches them from the role.</description>
+  </example>
+</examples>

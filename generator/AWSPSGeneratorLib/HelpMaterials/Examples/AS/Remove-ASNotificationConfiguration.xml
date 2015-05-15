@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ASNotificationConfiguration -AutoScalingGroupName my-test-asg -TopicARN "arn:aws:sns:us-west-2:598714583985:MyTopic2879176326"</code>
+    <description>Deletes notifications sent to the specified topic for the Auto Scaling group named 'my-test-asg'. You are prompted for confirmation before the operation proceeds.</description>
+  </example>
+  <example>
+    <code>Remove-ASNotificationConfiguration -AutoScalingGroupName my-test-asg -TopicARN "arn:aws:sns:us-west-2:598714583985:MyTopic2879176326" -Force</code>
+    <description>Deletes notifications sent to the specified topic for the Auto Scaling group named 'my-test-asg'. You are not prompted for confirmation before the operation proceeds.</description>
+  </example>
+</examples>

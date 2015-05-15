@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Update-IAMGroup -GroupName Testers -NewGroupName AppTesters</code>
+    <description>This example renames the IAM group <code>Testers</code> to <code>AppTesters</code>.</description>
+  </example>
+  <example>
+    <code>PS C:\>Update-IAMGroup -GroupName AppTesters -NewPath /Org1/Org2/</code>
+    <description>This example changes the path of the IAM group <code>AppTesters</code> to <code>/Org1/Org2/</code>. This changes the ARN for the group to <code>arn:aws:iam::123456789012:group<b>/Org1/Org2/</b>AppTesters</code>.</description>
+  </example>
+</examples>

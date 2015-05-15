@@ -1,0 +1,226 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Redshift;
+using Amazon.Redshift.Model;
+
+namespace Amazon.PowerShell.Cmdlets.RS
+{
+    /// <summary>
+    /// Returns a list of the available reserved node offerings by Amazon Redshift with their
+    /// descriptions including the node type, the fixed and recurring costs of reserving the
+    /// node and duration the node will be reserved for you. These descriptions help you determine
+    /// which reserve node offering you want to purchase. You then use the unique offering
+    /// ID in you call to <a>PurchaseReservedNodeOffering</a> to reserve one or more nodes
+    /// for your Amazon Redshift cluster. 
+    /// 
+    ///  
+    /// <para>
+    ///  For more information about managing parameter groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing
+    /// Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
+    /// </para>
+    /// </summary>
+    [Cmdlet("Get", "RSReservedNodeOfferings")]
+    [OutputType("Amazon.Redshift.Model.ReservedNodeOffering")]
+    [AWSCmdlet("Invokes the DescribeReservedNodeOfferings operation against Amazon Redshift.", Operation = new[] {"DescribeReservedNodeOfferings"})]
+    [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNodeOffering",
+        "This cmdlet returns a collection of ReservedNodeOffering objects.",
+        "The service call response (type DescribeReservedNodeOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+    )]
+    public class GetRSReservedNodeOfferingsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the offering.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String ReservedNodeOfferingId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> An optional parameter that specifies the starting point to return a set of response
+        /// records. When the results of a <a>DescribeReservedNodeOfferings</a> request exceed
+        /// the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
+        /// field of the response. You can retrieve the next set of response records by providing
+        /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public String Marker { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of response records to return in each call. If the number of remaining
+        /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
+        /// in a <code>marker</code> field of the response. You can retrieve the next set of records
+        /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems","MaxRecords")]
+        public int MaxRecord { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.Marker = this.Marker;
+            if (ParameterWasBound("MaxRecord"))
+                context.MaxRecords = this.MaxRecord;
+            context.ReservedNodeOfferingId = this.ReservedNodeOfferingId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            
+            // create request and set iteration invariants
+            var request = new DescribeReservedNodeOfferingsRequest();
+            if (cmdletContext.ReservedNodeOfferingId != null)
+            {
+                request.ReservedNodeOfferingId = cmdletContext.ReservedNodeOfferingId;
+            }
+            
+            // Initialize loop variants and commence piping
+            String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            {
+                _nextMarker = cmdletContext.Marker;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecords))
+            {
+                // The service has a maximum page size of 100. If the user has
+                // asked for more items than page max, we rely on the service
+                // ignoring the set maximum and giving us 100 items back. We'll
+                // make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.MaxRecords;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxRecords);
+            bool _continueIteration = true;
+            
+            try
+            {
+                do
+                {
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = client.DescribeReservedNodeOfferings(request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.ReservedNodeOfferings;
+                        notes = new Dictionary<string, object>();
+                        notes["Marker"] = response.Marker;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.ReservedNodeOfferings.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.Marker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < 100)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
+            }
+            finally
+            {
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
+            }
+            
+            return null;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String Marker { get; set; }
+            public int? MaxRecords { get; set; }
+            public String ReservedNodeOfferingId { get; set; }
+        }
+        
+    }
+}

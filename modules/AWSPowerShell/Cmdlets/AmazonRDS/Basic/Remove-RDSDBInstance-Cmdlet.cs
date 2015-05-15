@@ -1,0 +1,182 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.RDS;
+using Amazon.RDS.Model;
+
+namespace Amazon.PowerShell.Cmdlets.RDS
+{
+    /// <summary>
+    /// The DeleteDBInstance action deletes a previously provisioned DB instance. A successful
+    /// response from the web service indicates the request was received correctly. When you
+    /// delete a DB instance, all automated backups for that instance are deleted and cannot
+    /// be recovered. Manual DB snapshots of the DB instance to be deleted are not deleted.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    ///  If a final DB snapshot is requested the status of the RDS instance will be "deleting"
+    /// until the DB snapshot is created. The API action <code>DescribeDBInstance</code> is
+    /// used to monitor the status of this operation. The action cannot be canceled or reverted
+    /// once submitted. 
+    /// </para>
+    /// </summary>
+    [Cmdlet("Remove", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.RDS.Model.DBInstance")]
+    [AWSCmdlet("Invokes the DeleteDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBInstance"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
+        "This cmdlet returns a DBInstance object.",
+        "The service call response (type DeleteDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RemoveRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para> The DB instance identifier for the DB instance to be deleted. This parameter isn't
+        /// case sensitive. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
+        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
+        /// hyphens</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String DBInstanceIdentifier { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
+        /// set to <code>false</code>. </para><note> Specifying this parameter and also setting the SkipFinalShapshot parameter
+        /// to true results in an error. </note><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
+        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li><li>Cannot be specified when deleting a Read Replica.</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String FinalDBSnapshotIdentifier { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> Determines whether a final DB snapshot is created before the DB instance is deleted.
+        /// If <code>true</code> is specified, no DBSnapshot is created. If <code>false</code>
+        /// is specified, a DB snapshot is created before the DB instance is deleted. </para><para>Specify <code>true</code> when deleting a Read Replica.</para><note>The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot
+        /// is <code>false</code>.</note><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean SkipFinalSnapshot { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBInstanceIdentifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSDBInstance (DeleteDBInstance)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.DBInstanceIdentifier = this.DBInstanceIdentifier;
+            context.FinalDBSnapshotIdentifier = this.FinalDBSnapshotIdentifier;
+            if (ParameterWasBound("SkipFinalSnapshot"))
+                context.SkipFinalSnapshot = this.SkipFinalSnapshot;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new DeleteDBInstanceRequest();
+            
+            if (cmdletContext.DBInstanceIdentifier != null)
+            {
+                request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
+            }
+            if (cmdletContext.FinalDBSnapshotIdentifier != null)
+            {
+                request.FinalDBSnapshotIdentifier = cmdletContext.FinalDBSnapshotIdentifier;
+            }
+            if (cmdletContext.SkipFinalSnapshot != null)
+            {
+                request.SkipFinalSnapshot = cmdletContext.SkipFinalSnapshot.Value;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DeleteDBInstance(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.DBInstance;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String DBInstanceIdentifier { get; set; }
+            public String FinalDBSnapshotIdentifier { get; set; }
+            public Boolean? SkipFinalSnapshot { get; set; }
+        }
+        
+    }
+}

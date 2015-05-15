@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>New-ELBLoadBalancerPolicy -LoadBalancerName my-test-loadbalancer `
+                          -PolicyAttribute @{ AttributeName="ProxyProtocol";AttributeValue="true"} `
+                          -PolicyName EnableProxyProtocol -PolicyTypeName ProxyProtocolPolicyType
+    </code>
+    <description>Configures the proxy policy for the specified load balancer.</description>
+  </example>
+  <example>
+    <code>
+PS C:\>New-ELBLoadBalancerPolicy -LoadBalancerName MyHTTPSLoadBalancer -PolicyName MySSLLoadBalancerPolicy `
+                          -PolicyTypeName SSLNegotiationPolicyType `
+                          -PolicyAttribute @{AttributeName= "Protocol-TLSv1.1";AttributeValue= "true"}
+    </code>
+    <description>Configures the SSL negotiation policy for the specified load balancer.</description>
+  </example>
+</examples>

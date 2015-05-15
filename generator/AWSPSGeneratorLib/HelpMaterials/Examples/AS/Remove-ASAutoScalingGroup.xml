@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ASAutoScalingGroup -AutoScalingGroupName my-test-asg</code>
+    <description>Deletes the Auto Scaling group named 'my-test-asg' if the group has no running instances. You are prompted for confirmation before deletion occurs.</description>
+  </example>
+  <example>
+    <code>Remove-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -Force</code>
+    <description>Deletes the Auto Scaling group named 'my-test-asg' if the group has no running instances. You are not prompted for confirmation before deletion occurs.</description>
+  </example>
+  <example>
+    <code>Remove-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -ForceDelete $true</code>
+    <description>Deletes the Auto Scaling group named 'my-test-asg', terminating any running instances it contains. You are prompted for confirmation before deletion occurs. The operation does not wait for all instances to terminate before deleting the group.</description>
+  </example>
+</examples>

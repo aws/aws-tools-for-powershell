@@ -1,0 +1,380 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.S3;
+using Amazon.S3.Model;
+
+namespace Amazon.PowerShell.Cmdlets.S3
+{
+    /// <summary>
+    /// Create a signed URL allowing access to a resource that would 
+    /// usually require authentication.
+    /// </summary>
+    [Cmdlet("Get", "S3PreSignedURL")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the GetPreSignedURL operation against Amazon Simple Storage Service.", Operation = new[] {"GetPreSignedURL"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetS3PreSignedURLCmdlet : AmazonS3ClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// The name of the bucket to create a pre-signed url to, or containing the object.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String BucketName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// CacheControl header value.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ResponseHeaderOverrides_CacheControl { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The ContentDisposition header value.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ResponseHeaderOverrides_ContentDisposition { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The ContentEncoding header value.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ResponseHeaderOverrides_ContentEncoding { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// ContentLanguage header value.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ResponseHeaderOverrides_ContentLanguage { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// A standard MIME type describing the format of the object data.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ContentType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// A standard MIME type describing the format of the object data.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ResponseHeaderOverrides_ContentType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The expiry date and time for the pre-signed url.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Expires")]
+        public DateTime Expire { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Expiry header value.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResponseHeaderOverrides_Expires")]
+        public String ResponseHeaderOverrides_Expire { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The key to the object for which a pre-signed url should be created.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        public String Key { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The requested protocol (http/https) for the pre-signed url.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Protocol Protocol { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The Server-side encryption algorithm to be used with the customer provided key.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The id of the AWS Key Management Service key that Amazon S3 should use to encrypt and decrypt the object.
+        /// If a key id is not specified, the default key will be used for encryption and decryption.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Specifies the encryption used on the server to store the content.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The verb for the pre-signed url. 
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public HttpVerb Verb { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Version id for the object that the pre-signed url will reference. If not set,
+        /// the url will reference the latest version of the object.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String VersionId { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.BucketName = this.BucketName;
+            context.Key = this.Key;
+            context.ContentType = this.ContentType;
+            if (ParameterWasBound("Expire"))
+                context.Expires = this.Expire;
+            if (ParameterWasBound("Protocol"))
+                context.Protocol = this.Protocol;
+            if (ParameterWasBound("Verb"))
+                context.Verb = this.Verb;
+            context.VersionId = this.VersionId;
+            context.ServerSideEncryptionMethod = this.ServerSideEncryptionMethod;
+            context.ServerSideEncryptionKeyManagementServiceKeyId = this.ServerSideEncryptionKeyManagementServiceKeyId;
+            context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
+            context.ResponseHeaderOverrides_ContentType = this.ResponseHeaderOverrides_ContentType;
+            context.ResponseHeaderOverrides_ContentLanguage = this.ResponseHeaderOverrides_ContentLanguage;
+            context.ResponseHeaderOverrides_Expires = this.ResponseHeaderOverrides_Expire;
+            context.ResponseHeaderOverrides_CacheControl = this.ResponseHeaderOverrides_CacheControl;
+            context.ResponseHeaderOverrides_ContentDisposition = this.ResponseHeaderOverrides_ContentDisposition;
+            context.ResponseHeaderOverrides_ContentEncoding = this.ResponseHeaderOverrides_ContentEncoding;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new GetPreSignedUrlRequest();
+            
+            if (cmdletContext.BucketName != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
+            }
+            if (cmdletContext.Key != null)
+            {
+                request.Key = cmdletContext.Key;
+            }
+            if (cmdletContext.ContentType != null)
+            {
+                request.ContentType = cmdletContext.ContentType;
+            }
+            if (cmdletContext.Expires != null)
+            {
+                request.Expires = cmdletContext.Expires.Value;
+            }
+            if (cmdletContext.Protocol != null)
+            {
+                request.Protocol = cmdletContext.Protocol.Value;
+            }
+            if (cmdletContext.Verb != null)
+            {
+                request.Verb = cmdletContext.Verb.Value;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
+            }
+            if (cmdletContext.ServerSideEncryptionMethod != null)
+            {
+                request.ServerSideEncryptionMethod = cmdletContext.ServerSideEncryptionMethod;
+            }
+            if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
+            {
+                request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
+            }
+            if (cmdletContext.ServerSideEncryptionCustomerMethod != null)
+            {
+                request.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
+            }
+            
+             // populate ResponseHeaderOverrides
+            bool requestResponseHeaderOverridesIsNull = true;
+            request.ResponseHeaderOverrides = new ResponseHeaderOverrides();
+            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentType = null;
+            if (cmdletContext.ResponseHeaderOverrides_ContentType != null)
+            {
+                requestResponseHeaderOverrides_responseHeaderOverrides_ContentType = cmdletContext.ResponseHeaderOverrides_ContentType;
+            }
+            if (requestResponseHeaderOverrides_responseHeaderOverrides_ContentType != null)
+            {
+                request.ResponseHeaderOverrides.ContentType = requestResponseHeaderOverrides_responseHeaderOverrides_ContentType;
+                requestResponseHeaderOverridesIsNull = false;
+            }
+            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage = null;
+            if (cmdletContext.ResponseHeaderOverrides_ContentLanguage != null)
+            {
+                requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage = cmdletContext.ResponseHeaderOverrides_ContentLanguage;
+            }
+            if (requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage != null)
+            {
+                request.ResponseHeaderOverrides.ContentLanguage = requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage;
+                requestResponseHeaderOverridesIsNull = false;
+            }
+            String requestResponseHeaderOverrides_responseHeaderOverrides_Expire = null;
+            if (cmdletContext.ResponseHeaderOverrides_Expires != null)
+            {
+                requestResponseHeaderOverrides_responseHeaderOverrides_Expire = cmdletContext.ResponseHeaderOverrides_Expires;
+            }
+            if (requestResponseHeaderOverrides_responseHeaderOverrides_Expire != null)
+            {
+                request.ResponseHeaderOverrides.Expires = requestResponseHeaderOverrides_responseHeaderOverrides_Expire;
+                requestResponseHeaderOverridesIsNull = false;
+            }
+            String requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl = null;
+            if (cmdletContext.ResponseHeaderOverrides_CacheControl != null)
+            {
+                requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl = cmdletContext.ResponseHeaderOverrides_CacheControl;
+            }
+            if (requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl != null)
+            {
+                request.ResponseHeaderOverrides.CacheControl = requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl;
+                requestResponseHeaderOverridesIsNull = false;
+            }
+            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition = null;
+            if (cmdletContext.ResponseHeaderOverrides_ContentDisposition != null)
+            {
+                requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition = cmdletContext.ResponseHeaderOverrides_ContentDisposition;
+            }
+            if (requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition != null)
+            {
+                request.ResponseHeaderOverrides.ContentDisposition = requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition;
+                requestResponseHeaderOverridesIsNull = false;
+            }
+            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentEncoding = null;
+            if (cmdletContext.ResponseHeaderOverrides_ContentEncoding != null)
+            {
+                requestResponseHeaderOverrides_responseHeaderOverrides_ContentEncoding = cmdletContext.ResponseHeaderOverrides_ContentEncoding;
+            }
+            if (requestResponseHeaderOverrides_responseHeaderOverrides_ContentEncoding != null)
+            {
+                request.ResponseHeaderOverrides.ContentEncoding = requestResponseHeaderOverrides_responseHeaderOverrides_ContentEncoding;
+                requestResponseHeaderOverridesIsNull = false;
+            }
+             // determine if request.ResponseHeaderOverrides should be set to null
+            if (requestResponseHeaderOverridesIsNull)
+            {
+                request.ResponseHeaderOverrides = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.GetPreSignedURL(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String BucketName { get; set; }
+            public String Key { get; set; }
+            public String ContentType { get; set; }
+            public DateTime? Expires { get; set; }
+            public Protocol? Protocol { get; set; }
+            public HttpVerb? Verb { get; set; }
+            public String VersionId { get; set; }
+            public ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
+            public String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+            public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+            public String ResponseHeaderOverrides_ContentType { get; set; }
+            public String ResponseHeaderOverrides_ContentLanguage { get; set; }
+            public String ResponseHeaderOverrides_Expires { get; set; }
+            public String ResponseHeaderOverrides_CacheControl { get; set; }
+            public String ResponseHeaderOverrides_ContentDisposition { get; set; }
+            public String ResponseHeaderOverrides_ContentEncoding { get; set; }
+        }
+        
+    }
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Edit-EC2ImageAttribute -ImageId "ami-1a2b3c4d" -Description "new description"</code>
+    <description>Sets the specified description for the AMI with ID "ami-1a2b3c4d".</description>
+  </example>
+  <example>
+    <code>Edit-EC2ImageAttribute -ImageId "ami-1a2b3c4d" -Attribute "productCodes" -ProductCode "774F4FF8"</code>
+    <description>This example adds the "774F4FF8" product code to the AMI with ID "ami-1a2b3c4d". The -Attribute parameter and "productCodes" value can be omitted but if specified, the value for the parameter is case sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2ImageAttribute -ImageId "ami-1a2b3c4d" -Attribute "launchPermission" -OperationType "add" -UserGroup "all"</code>
+    <description>This example makes the AMI public (for example, so any AWS account can use it). Note that the value for the -Attribute parameter is case-sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2ImageAttribute -ImageId "ami-1a2b3c4d" -Attribute "launchPermission" -OperationType "remove" -UserGroup "all"</code>
+    <description>This example makes the AMI private (for example, so that only you as the owner can use it). Note that the value for the -Attribute parameter is case-sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2ImageAttribute -ImageId "ami-1a2b3c4d" -Attribute "launchPermission" -OperationType "add" -UserId "111122223333"</code>
+    <description>This example grants launch permission to the AWS account with ID 111122223333. Note that the value for the -Attribute parameter is case-sensitive.</description>
+  </example>
+  <example>
+    <code>Edit-EC2ImageAttribute -ImageId "ami-1a2b3c4d" -Attribute "launchPermission" -OperationType "remove" -UserId "111122223333"</code>
+    <description>This example removes launch permission from the AWS account with ID 111122223333. Note that the value for the -Attribute parameter is case-sensitive.</description>
+  </example>
+</examples>

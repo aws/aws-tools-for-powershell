@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -Key sample.txt -DestinationKey sample-copy.txt</code>
+    <description>This command copies the item "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".</description>
+  </example>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket backup-files</code>
+    <description>This command copies the item "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".</description>
+  </example>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -Key sample.txt -LocalFile local-sample.txt</code>
+    <description>This command copies the item "sample.txt" from bucket "test-files" to the local file "local-sample.txt". The file "local-sample.txt" does not have to exist before this command is called.</description>
+  </example>
+</examples>

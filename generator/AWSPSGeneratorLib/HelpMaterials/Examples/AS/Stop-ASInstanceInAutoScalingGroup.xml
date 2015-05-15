@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Stop-ASInstanceInAutoScalingGroup -InstanceId i-123456 -ShouldDecrementDesiredCapacity $false</code>
+    <description>Terminates the specified instance without affecting the size of the Auto Scaling group to which the instance belongs.</description>
+  </example>
+</examples>

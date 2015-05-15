@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>New-WKSWorkspace -Workspace @{"BundleID" = "wsb-ID"; "DirectoryId" = "d-ID"; "UserName" = "USERNAME"}</code>
+        <description>Create a WorkSpace for the supplied bundle, directory, and user.</description>
+    </example>
+  <example>
+    <code>New-WKSWorkspace -Workspace @{"BundleID" = "wsb-ID"; "DirectoryId" = "d-ID"; "UserName" = "USERNAME_1"},@{"BundleID" = "wsb-ID"; "DirectoryId" = "d-ID"; "UserName" = "USERNAME_2"}</code>
+    <description>Create multiple workspaces</description>
+  </example>
+</examples>

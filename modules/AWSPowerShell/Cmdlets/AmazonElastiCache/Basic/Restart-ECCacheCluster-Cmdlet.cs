@@ -1,0 +1,162 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ElastiCache;
+using Amazon.ElastiCache.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC
+{
+    /// <summary>
+    /// The <i>RebootCacheCluster</i> action reboots some, or all, of the cache nodes within
+    /// a provisioned cache cluster. This API will apply any modified cache parameter groups
+    /// to the cache cluster. The reboot action takes place as soon as possible, and results
+    /// in a momentary outage to the cache cluster. During the reboot, the cache cluster status
+    /// is set to REBOOTING.
+    /// 
+    ///  
+    /// <para>
+    /// The reboot causes the contents of the cache (for each cache node being rebooted) to
+    /// be lost.
+    /// </para><para>
+    /// When the reboot is complete, a cache cluster event is created.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Restart", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElastiCache.Model.CacheCluster")]
+    [AWSCmdlet("Invokes the RebootCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"RebootCacheCluster"})]
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
+        "This cmdlet returns a CacheCluster object.",
+        "The service call response (type RebootCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RestartECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The cache cluster identifier. This parameter is stored as a lowercase string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String CacheClusterId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002,
+        /// etc.). To reboot an entire cache cluster, specify all of the cache node IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        public System.String[] CacheNodeIdsToReboot { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CacheClusterId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-ECCacheCluster (RebootCacheCluster)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.CacheClusterId = this.CacheClusterId;
+            if (this.CacheNodeIdsToReboot != null)
+            {
+                context.CacheNodeIdsToReboot = new List<String>(this.CacheNodeIdsToReboot);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new RebootCacheClusterRequest();
+            
+            if (cmdletContext.CacheClusterId != null)
+            {
+                request.CacheClusterId = cmdletContext.CacheClusterId;
+            }
+            if (cmdletContext.CacheNodeIdsToReboot != null)
+            {
+                request.CacheNodeIdsToReboot = cmdletContext.CacheNodeIdsToReboot;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.RebootCacheCluster(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.CacheCluster;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String CacheClusterId { get; set; }
+            public List<String> CacheNodeIdsToReboot { get; set; }
+        }
+        
+    }
+}

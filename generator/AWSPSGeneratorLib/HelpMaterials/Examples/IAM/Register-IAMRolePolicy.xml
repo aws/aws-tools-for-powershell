@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Register-IAMRolePolicy -RoleName CoSecurityAuditors -PolicyArn arn:aws:iam::aws:policy/SecurityAudit</code>
+    <description>This example attaches the AWS managed policy named <code>SecurityAudit</code> to the IAM role <code>CoSecurityAuditors</code>. The users who assume that role are immediately affected by the permissions defined in the latest version of that policy.</description>
+  </example>
+</examples>

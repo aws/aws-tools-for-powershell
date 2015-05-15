@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CD</ServiceNounPrefix>
+  <ServiceNamespace>Amazon.CodeDeploy</ServiceNamespace>
+  <ServiceClientInterface>IAmazonCodeDeploy</ServiceClientInterface>
+  <ServiceClient>AmazonCodeDeployClient</ServiceClient>
+
+  <PipelineParameter>ApplicationName</PipelineParameter>
+
+  <VerbMappings>
+    <Map From="Deregister" To="Unregister" />
+  </VerbMappings>
+  
+  <RetainFullTypeNames>
+    <TypeName>Amazon.CodeDeploy.Model.IllegalOperationException</TypeName>
+  </RetainFullTypeNames>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="BatchGetApplications" Verb="Get" Noun="Applications"/>
+    <ServiceOperation MethodName="BatchGetDeployments"  Verb="Get" Noun="Deployments"/>
+    <ServiceOperation MethodName="CreateApplication" />
+    <ServiceOperation MethodName="CreateDeployment"/>
+    <ServiceOperation MethodName="CreateDeploymentConfig" />
+    <ServiceOperation MethodName="CreateDeploymentGroup" />
+    <ServiceOperation MethodName="DeleteApplication"      Output="Void" />
+    <ServiceOperation MethodName="DeleteDeploymentConfig" Output="Void" />
+    <ServiceOperation MethodName="DeleteDeploymentGroup"  ShouldProcessTarget="DeploymentGroupName" />
+    <ServiceOperation MethodName="GetApplication" />
+    <ServiceOperation MethodName="GetApplicationRevision" Output="Response" />
+    <ServiceOperation MethodName="GetDeployment" />
+    <ServiceOperation MethodName="GetDeploymentConfig" />
+    <ServiceOperation MethodName="GetDeploymentGroup" />
+    <ServiceOperation MethodName="GetDeploymentInstance" />
+    <ServiceOperation MethodName="ListApplicationRevisions" Verb="Get" Noun="ApplicationRevisionList"/>
+    <ServiceOperation MethodName="ListApplications"         Verb="Get" Noun="ApplicationList" />
+    <ServiceOperation MethodName="ListDeploymentConfigs"    Verb="Get" Noun="DeploymentConfigList"/>
+    <ServiceOperation MethodName="ListDeploymentGroups"     Verb="Get" Noun="DeploymentGroupList" Output="Response"/>
+    <ServiceOperation MethodName="ListDeploymentInstances"  Verb="Get" Noun="DeploymentInstanceList"/>
+    <ServiceOperation MethodName="ListDeployments"          Verb="Get" Noun="DeploymentList"/>
+    <ServiceOperation MethodName="RegisterApplicationRevision" Output="Void"/>
+    <ServiceOperation MethodName="StopDeployment" Output="Response" />
+    <ServiceOperation MethodName="UpdateApplication" Output="Void" />
+    <ServiceOperation MethodName="UpdateDeploymentGroup" />
+
+    <!-- On Premises operations -->
+    
+    <ServiceOperation 
+      MethodName="AddTagsToOnPremisesInstances" 
+      Verb="Add" 
+      Noun="OnPremiseInstanceTag"
+      Output="Void" />
+    <ServiceOperation 
+      MethodName="BatchGetOnPremisesInstances"  
+      Verb="Get" 
+      Noun="OnPremiseInstanceBatch"/>
+    <ServiceOperation 
+      MethodName="DeregisterOnPremisesInstance"            
+      Noun="OnPremiseInstance"
+      Output="Void" />
+    <ServiceOperation 
+      MethodName="GetOnPremisesInstance"                   
+      Noun="OnPremiseInstance" />
+    <ServiceOperation 
+      MethodName="ListOnPremisesInstances"      
+      Verb="Get" 
+      Noun="OnPremiseInstanceList"/>
+    <ServiceOperation 
+      MethodName="RegisterOnPremisesInstance"              
+      Noun="OnPremiseInstance"
+      Output="Void"
+      ShouldProcessTarget="InstanceName" />
+    <ServiceOperation 
+      MethodName="RemoveTagsFromOnPremisesInstances"       
+      Noun="OnPremiseInstanceTag" 
+      Output="Void"
+      ShouldProcessTarget="InstanceNames"/>
+    
+  </ServiceOperations>
+  
+</ConfigModel>

@@ -1,0 +1,152 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.EC2;
+using Amazon.EC2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC2
+{
+    /// <summary>
+    /// Deletes the specified VPN connection.
+    /// 
+    ///  
+    /// <para>
+    /// If you're deleting the VPC and its associated components, we recommend that you detach
+    /// the virtual private gateway from the VPC and delete the VPC before deleting the VPN
+    /// connection. If you believe that the tunnel credentials for your VPN connection have
+    /// been compromised, you can delete the VPN connection and create a new one that has
+    /// new keys, without needing to delete the VPC or virtual private gateway. If you create
+    /// a new VPN connection, you must reconfigure the customer gateway using the new configuration
+    /// information returned with the new VPN connection ID.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Remove", "EC2VpnConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteVpnConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteVpnConnection"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpnConnectionId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type DeleteVpnConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RemoveEC2VpnConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPN connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String VpnConnectionId { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the VpnConnectionId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VpnConnectionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2VpnConnection (DeleteVpnConnection)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.VpnConnectionId = this.VpnConnectionId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new DeleteVpnConnectionRequest();
+            
+            if (cmdletContext.VpnConnectionId != null)
+            {
+                request.VpnConnectionId = cmdletContext.VpnConnectionId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DeleteVpnConnection(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.VpnConnectionId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String VpnConnectionId { get; set; }
+        }
+        
+    }
+}

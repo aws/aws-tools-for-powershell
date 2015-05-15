@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>LM</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonLambda</ServiceClientInterface>
+  <ServiceClient>AmazonLambdaClient</ServiceClient>
+  <ServiceNamespace>Amazon.Lambda</ServiceNamespace>
+
+  <PipelineParameter>FunctionName</PipelineParameter>
+  
+  <RetainFullTypeNames>
+    <!-- avoid collision with Amazon.Runtime -->
+    <TypeName>Amazon.Lambda.Runtime</TypeName>
+  </RetainFullTypeNames>  
+
+    <VerbMappings>
+    <Map From="List" To="Get" />
+    <Map From="Upload" To="Publish" />
+  </VerbMappings>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AddPermission" />
+    <ServiceOperation MethodName="CreateEventSourceMapping" Output="Response" PositionalParameters="EventSource;Role"/>
+    <ServiceOperation MethodName="CreateFunction" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteFunction" Output="Void" />
+    <ServiceOperation MethodName="DeleteEventSourceMapping" Output="Response" />
+    <ServiceOperation MethodName="GetEventSourceMapping" Output="Response" />
+	  <ServiceOperation MethodName="GetFunction" Output="Response" />
+	  <ServiceOperation MethodName="GetFunctionConfiguration" Output="Response" />
+    <ServiceOperation MethodName="GetPolicy" />
+    <ServiceOperation MethodName="Invoke" Exclude="true"/>
+    <ServiceOperation MethodName="InvokeAsync" Exclude="true"/>
+    <ServiceOperation MethodName="ListEventSourceMappings" />
+	  <ServiceOperation MethodName="ListFunctions" />
+    <ServiceOperation MethodName="RemovePermission" Output="Void" />
+    <ServiceOperation MethodName="UpdateFunctionCode" Output="Response" />
+    <ServiceOperation MethodName="UpdateFunctionConfiguration" Output="Response" />
+    <ServiceOperation MethodName="UpdateEventSourceMapping" Output="Response" />
+  </ServiceOperations>
+  
+  <PipelineByValueProperties>
+    <Property>FunctionName</Property>
+	  <Property>UUID</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>

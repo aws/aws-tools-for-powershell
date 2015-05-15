@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Unregister-EC2Address -PublicIp 192.0.2.1</code>
+    <description>Disassociates an Elastic IP Address from an instance in the current default region.</description>
+  </example>
+</examples>

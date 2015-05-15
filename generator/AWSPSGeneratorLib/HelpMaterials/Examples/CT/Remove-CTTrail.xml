@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>Remove-CTTrail -Name "awscloudtrail-example"</code>
+      <description>Deletes the specified trail. You will be prompted for confirmation before the command is run. To suppress confirmation, add the -Force switch parameter.</description>
+    </example>
+</examples>

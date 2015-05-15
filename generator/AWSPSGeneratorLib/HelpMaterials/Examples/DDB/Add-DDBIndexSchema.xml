@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+	<example>
+        <code>
+PS C:\>$schema = New-DDBTableSchema
+PS C:\>$schema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
+
+AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
+---------------                             ---------                                   -------------------------
+{LastPostDateTime}                          {}                                          {LastPostIndex}      
+        </code>
+        <description>Creates an empty TableSchema object and adds a new local secondary index definition to it before writing the TableSchema object to the pipeline.</description>
+    </example>
+	<example>
+        <code>
+PS C:\>New-DDBTableSchema | Add-DDBIndexSchema -IndexName "LastPostIndex" -RangeKeyName "LastPostDateTime" -RangeKeyDataType "S" -ProjectionType "keys_only"
+
+AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
+---------------                             ---------                                   -------------------------
+{LastPostDateTime}                          {}                                          {LastPostIndex}      
+        </code>
+        <description>Adds a new local secondary index definition to the supplied TableSchema object before writing the TableSchema object back to the pipeline. The TableSchema object can also be supplied using the -Schema parameter.</description>
+    </example>
+</examples>

@@ -1,0 +1,153 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.MachineLearning;
+using Amazon.MachineLearning.Model;
+
+namespace Amazon.PowerShell.Cmdlets.ML
+{
+    /// <summary>
+    /// Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.
+    /// 
+    ///  
+    /// <para>
+    /// You can use the <a>GetBatchPrediction</a> operation to view the contents of the updated
+    /// data element.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Update", "MLBatchPrediction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the UpdateBatchPrediction operation against Amazon Machine Learning.", Operation = new[] {"UpdateBatchPrediction"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type UpdateBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class UpdateMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The ID assigned to the <code>BatchPrediction</code> during creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String BatchPredictionId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A new user-supplied name or description of the <code>BatchPrediction</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Name")]
+        public String BatchPredictionName { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BatchPredictionName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-MLBatchPrediction (UpdateBatchPrediction)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.BatchPredictionId = this.BatchPredictionId;
+            context.BatchPredictionName = this.BatchPredictionName;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new UpdateBatchPredictionRequest();
+            
+            if (cmdletContext.BatchPredictionId != null)
+            {
+                request.BatchPredictionId = cmdletContext.BatchPredictionId;
+            }
+            if (cmdletContext.BatchPredictionName != null)
+            {
+                request.BatchPredictionName = cmdletContext.BatchPredictionName;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.UpdateBatchPrediction(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.BatchPredictionId;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String BatchPredictionId { get; set; }
+            public String BatchPredictionName { get; set; }
+        }
+        
+    }
+}

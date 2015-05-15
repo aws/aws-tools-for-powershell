@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Remove-ELBLoadBalancerListener -LoadBalancerName my-test-loadbalancer -LoadBalancerPort 80</code>
+    <description>Deletes the listener on port 80 for the specified load balancer. You are prompted for confirmation, unless the -Force switch parameter is also specified.</description>
+  </example>
+  <example>
+    <code>Remove-ELBLoadBalancerListener -LoadBalancerName my-test-loadbalancer -LoadBalancerPort @(80, 443)</code>
+    <description>Deletes the listeners on the specified ports for the load balancer with name 'my-test-loadbalancer'. You are prompted for confirmation, unless the -Force switch parameter is also specified.</description>
+  </example>
+</examples>

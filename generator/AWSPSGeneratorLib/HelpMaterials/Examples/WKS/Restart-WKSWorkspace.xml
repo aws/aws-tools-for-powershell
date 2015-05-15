@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Restart-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID"}</code>
+        <description>Reboot a workpace.</description>
+    </example>
+  <example>
+    <code>Restart-WKSWorkspace -Request @{"WorkspaceId" = "ws-ID1"},@{"WorkspaceId" = "ws-ID2"}</code>
+    <description>Reboot multiple workspaces.</description>
+  </example>
+</examples>

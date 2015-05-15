@@ -1,0 +1,31 @@
+######################################
+# Visual Studio per-user settings data
+######################################
+*.suo
+*.user
+
+####################
+# Build/Test folders
+####################
+
+**/bin/
+**/obj/
+**/TestResults/
+**/Temp/
+**/NuGet.exe
+**/buildlogs/
+
+**/.vs/
+
+./AWSPowerShell.Src_*.zip
+./AWSPowerShell.WebHelp_*.zip
+./Deployment/
+./Include/
+./WebHelpDeployment/
+./Tests/Results/
+./Tests/bar/
+./Tests/basic.txt
+./Tests/basic2.txt
+./Tests/blah.blah
+./Tests/new-bar/
+

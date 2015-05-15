@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -PrivateIpAddress 172.31.0.4</code>
+    <description>Registers a private IP address to a network interface in the current default region.</description>
+  </example>
+  <example>
+    <code>Register-EC2PrivateIpAddress -NetworkInterfaceId eni-1a2b3c4d -SecondaryPrivateIpAddressCount 5</code>
+    <description>Generates 5 private IP addresses and registers them to a network interface in the current default region.</description>
+  </example>
+</examples>
