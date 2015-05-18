@@ -1,0 +1,62 @@
+    <Project ToolsVersion="4.0" 
+	DefaultTargets="full-build"
+	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
+	<Import Project="common.targets" />
+	
+    <PropertyGroup>
+        <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
+        <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
+
+        <!-- the relative location (to the project file) of the generator executable -->
+        <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\Release</GeneratorPath>
+        <Generator>AWSPSGenerator.exe</Generator>
+        
+        <!-- default expected location of SDK assemblies root if not specified -->
+        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies</SDKAssembliesFolder>
+        
+        <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
+        <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
+        
+        <!-- build log containing results of generator analysis of service operations -->
+        <CmdletAnalysisLog Condition="'$(CmdletAnalysisLog)'==''">$(RootPath)\buildlogs\CmdletAnalysis.log</CmdletAnalysisLog>
+        
+        <!-- default to build break if analysis of cmdlet output does not match service operation configuration -->
+        <BreakOnOutputMismatchError Condition="'$(BreakOnOutputMismatchError)'==''">true</BreakOnOutputMismatchError>
+    </PropertyGroup>
+    
+	<Target Name="full-build" DependsOnTargets="build-generator;create-cmdlets;build-modules;create-formats;create-pshelp;create-webhelp">
+		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
+	</Target>
+
+    <Target Name="build-generator">
+		<Message Text="Building AWS PowerShell generator"/>
+		<Exec Command="$(devenv2013) /Rebuild Release ..\AWSPowerShellGenerator.sln"/>
+    </Target>
+    
+	<Target Name="create-cmdlets" DependsOnTargets="build-generator">
+		<Message Text="Generating cmdlets for all services"/>
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
+	</Target>
+
+	<Target Name="build-modules">
+		<Message Text="Building generated modules"/>
+		<Exec Command="$(devenv2013) /Rebuild Release ..\AWSPowerShell.sln"/>
+	</Target>
+    
+	<Target Name="create-formats" DependsOnTargets="build-modules">
+		<Message Text="Generating formats ps1xml file"/>
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t formats" />
+	</Target>
+    
+	<Target Name="create-pshelp" DependsOnTargets="build-modules">
+		<Message Text="Generating native PowerShell help file"/>
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t pshelp" />
+	</Target>
+    
+	<Target Name="create-webhelp" DependsOnTargets="build-modules">
+		<Message Text="Generating web cmdlet reference"/>
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp" />
+	</Target>
+    
+</Project>

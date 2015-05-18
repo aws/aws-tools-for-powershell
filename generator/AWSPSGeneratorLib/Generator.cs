@@ -141,7 +141,7 @@ namespace AWSPowerShellGenerator
                     AssemblyDocumentation = cmdletDocumentation,
                     Name = AWSPowerShellModuleName,
                     OutputFolder = Path.Combine(fqRootPath, WebHelpBuildOutputSubFolder),
-                    BJSDocsDomain = options.BJSDocsDomain,
+                    CNNorth1RegionDocsDomain = options.CNNorth1RegionDocsDomain,
                     Options = options
                 };
                 webhelpGenerator.Generate();

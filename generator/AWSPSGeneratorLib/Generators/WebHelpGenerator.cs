@@ -20,10 +20,10 @@ namespace AWSPowerShellGenerator.Generators
         // the root path of the AWS .Net sdk docs; eg http://docs.aws.amazon.com/sdkfornet/latest/apidocs
         public string SDKHelpRoot { get; set; }
 
-        // the root path of the docs domain for BJS region
-        public string BJSDocsDomain { get; set; }
+        // the root path of the docs domain for cn-north-1 region
+        public string CNNorth1RegionDocsDomain { get; set; }
 
-        public static string BJSDisclaimerTemplate
+        public static string CNNorth1RegionDisclaimerTemplate
                     = "AWS services or capabilities described in AWS Documentation may vary by region/location. "
                     + "Click <a href=\"https://{0}/en_us/aws/latest/userguide/services.html\">Getting Started with Amazon AWS</a> to see specific differences applicable to the China (Beijing) Region.";
 
@@ -31,7 +31,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             get
             {
-                return string.Format(BJSDisclaimerTemplate, BJSDocsDomain);
+                return string.Format(CNNorth1RegionDisclaimerTemplate, CNNorth1RegionDocsDomain);
             }
         }
 

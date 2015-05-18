@@ -79,7 +79,7 @@ namespace AWSPowerShellGenerator
         /// The base domain for BJS documentation, injected into the web x-reference
         /// help files.
         /// </summary>
-        public string BJSDocsDomain { get; set; }
+        public string CNNorth1RegionDocsDomain { get; set; }
 
         /// <summary>
         /// Internal helper used by the generator to determine if a given
@@ -115,7 +115,7 @@ namespace AWSPowerShellGenerator
             RootPath = @"..\..\..\.."; // relative to bin/debug folder of the generator assembly
             SDKAssembliesFolder = Path.Combine(RootPath,  @"include\sdk\dotnet35");
 
-            BJSDocsDomain = "docs.amazonaws.cn";   // can use bjs-docs-aws.integ.amazon.com for internal tests
+            CNNorth1RegionDocsDomain = "docs.amazonaws.cn"; 
         }
 
         public GeneratorOptions(GeneratorOptions rhs)
@@ -128,7 +128,7 @@ namespace AWSPowerShellGenerator
             Tasks = rhs.Tasks;
             SDKAssembliesFolder = rhs.SDKAssembliesFolder;
             RootPath = rhs.RootPath;
-            BJSDocsDomain = rhs.BJSDocsDomain;
+            CNNorth1RegionDocsDomain = rhs.CNNorth1RegionDocsDomain;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace AWSPowerShellGenerator
                 var generator = new Generator();
                 generator.Execute(commandArguments.ParsedOptions);
                 Console.WriteLine("AWSPowerShell generation completed in {0} minute {1} seconds", generator.Duration.Minutes, generator.Duration.Seconds);
+                returnCode = 0;
             }
             catch (Exception e)
             {

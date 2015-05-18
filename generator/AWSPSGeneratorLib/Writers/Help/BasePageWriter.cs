@@ -111,7 +111,7 @@ namespace AWSPowerShellGenerator.Writers.Help
             // deploy to dca.
             writer.WriteLine("<!-- BEGIN-SECTION -->");
 			writer.WriteLine("<div id=\"regionDisclaimer\">");
-            writer.WriteLine("<p>{0}</p>", string.Format(WebHelpGenerator.BJSDisclaimerTemplate, Options.BJSDocsDomain));
+            writer.WriteLine("<p>{0}</p>", string.Format(WebHelpGenerator.CNNorth1RegionDisclaimerTemplate, Options.CNNorth1RegionDocsDomain));
             writer.WriteLine("</div>");
             writer.WriteLine("<!-- END-SECTION -->");
         }
