@@ -132,12 +132,15 @@ namespace AWSPowerShellGenerator.Generators
 
         private string TempOutputDir { get; set; }
 
+        private string CmdletsSubFolder { get; set; }
+
         #endregion
 
         #region Public methods
 
         protected override void GenerateHelper()
         {
+            CmdletsSubFolder = Path.Combine(OutputFolder, "Cmdlets");
             ModelCollection = ConfigModelCollection.LoadAllConfigs("AWSPowerShellGenerator.CmdletConfig.Configs.xml");
             foreach (var configModel in ModelCollection.ConfigModels)
             {
@@ -170,6 +173,13 @@ namespace AWSPowerShellGenerator.Generators
                 }
                 Logger.Log(new string('<', 20));
                 Logger.Log();
+            }
+
+            Console.WriteLine("...updating aliases.ps1 file");
+            var aliasSourceFile = Path.Combine(OutputFolder, "AWSAliases.ps1");
+            using (var sw = new StreamWriter(aliasSourceFile, false, new System.Text.UTF8Encoding(false)))
+            {
+                sw.WriteLine(Aliases);
             }
         }
 
@@ -224,7 +234,7 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             CopyGeneratedCmdlets(Path.Combine(TempOutputDir, configModel.SourceGenerationFolder),
-                                 Path.Combine(OutputFolder, configModel.SourceGenerationFolder));
+                                 Path.Combine(CmdletsSubFolder, configModel.SourceGenerationFolder));
         }
 
         // the set of subfolders in the final output directory for a service that will

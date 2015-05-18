@@ -109,14 +109,8 @@ namespace AWSPowerShellGenerator
             Services = null; // process all
 
             // to support F5-and-go (to test generator changes), set cmdlet gen to be the 
-            // default task in debug builds. In release builds, which we assume to be
-            // triggered externally from a build script, we do nothing if no tasks are
-            // specified.
-#if DEBUG
+            // default task in debug builds.
             Tasks = new HashSet<string> { GeneratorTasknames.GenerateCmdlets };
-#else
-            Tasks = null;
-#endif
 
             RootPath = @"..\..\..\.."; // relative to bin/debug folder of the generator assembly
             SDKAssembliesFolder = Path.Combine(RootPath,  @"include\sdk\dotnet35");

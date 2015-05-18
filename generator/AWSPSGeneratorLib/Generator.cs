@@ -52,10 +52,8 @@ namespace AWSPowerShellGenerator
             // build-time perf
             _startTimeTicks = DateTime.Now.Ticks;
 
-#if RELEASE
             if (options.Tasks == null || options.Tasks.Count == 0)
                 throw new Exception("No tasks specified for the generator to run");
-#endif
 
             if (options.Verbose)
             {
@@ -80,19 +78,16 @@ namespace AWSPowerShellGenerator
                 var cmdletGenerator = new CmdletGenerator
                 {
                     TargetAssembly = Assembly.LoadFrom(sdkAssembly),
-                    OutputFolder = Path.Combine(awsPowerShellSourcePath, CmdletsSubFolder),
+                    OutputFolder = awsPowerShellSourcePath,
                     AssemblyDocumentation = sdkDocumentation,
                     Options = options
                 };
                 cmdletGenerator.Generate();
 
-                var aliases = cmdletGenerator.Aliases;
-                Console.WriteLine("aliases");
-                Console.WriteLine(aliases);
-
                 // Note: the remaining tasks rely on having a built copy of the AWSPowerShell module,
                 // so we exit so that a build can take place and the generator then re-run with the
                 // new tasks
+                Console.WriteLine("Task 'GenerateCmdlets' complete, exiting...");
                 return;
             }
 
@@ -128,7 +123,7 @@ namespace AWSPowerShellGenerator
                     CmdletAssembly = Assembly.LoadFrom(awsPsDllPath),
                     AssemblyDocumentation = cmdletDocumentation,
                     Name = AWSPowerShellModuleName,
-                    OutputFolder = awsPowerShellSourcePath,
+                    OutputFolder = deploymentArtifactsPath,
                     Options = options
                 };
                 pshelpGenerator.Generate();

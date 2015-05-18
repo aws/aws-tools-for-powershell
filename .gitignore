@@ -17,15 +17,15 @@
 
 **/.vs/
 
-./AWSPowerShell.Src_*.zip
-./AWSPowerShell.WebHelp_*.zip
-./Deployment/
-./Include/
-./WebHelpDeployment/
-./Tests/Results/
-./Tests/bar/
-./Tests/basic.txt
-./Tests/basic2.txt
-./Tests/blah.blah
-./Tests/new-bar/
+AWSPowerShell.Src_*.zip
+AWSPowerShell.WebHelp_*.zip
+Deployment/**
+Include/**
+WebHelpDeployment/**
+Tests/Results/
+Tests/bar/
+Tests/new-bar/
+Tests/basic.txt
+Tests/basic2.txt
+Tests/blah.blah
 

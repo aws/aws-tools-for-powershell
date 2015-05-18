@@ -87,7 +87,7 @@ namespace AWSPowerShellGenerator.Generators
 
         private void LoadExamplesCache()
         {
-            var examplesPath = Path.Combine(Options.RootPath, @"AWSPSGeneratorLib\HelpMaterials\Examples");
+            var examplesPath = Path.Combine(Options.RootPath, "generator", @"AWSPSGeneratorLib\HelpMaterials\Examples");
             Console.WriteLine("Loading example files from {0}", Path.GetFullPath(examplesPath));
             
             ExamplesCache = new Dictionary<string, XmlDocument>();
@@ -110,7 +110,7 @@ namespace AWSPowerShellGenerator.Generators
 
         private void LoadLinksCache()
         {
-            var linkLibrariesPath = Path.Combine(Options.RootPath, @"AWSPSGeneratorLib\HelpMaterials\LinkLibraries");
+            var linkLibrariesPath = Path.Combine(Options.RootPath, "generator", @"AWSPSGeneratorLib\HelpMaterials\LinkLibraries");
             Console.WriteLine("Loading link files from {0}", Path.GetFullPath(linkLibrariesPath));
 
             LinksCache = new Dictionary<string, XmlDocument>();
