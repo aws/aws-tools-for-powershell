@@ -3,6 +3,14 @@
 	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	
 	<Import Project="common.targets" />
+
+    <!--
+    NOTE
+    Full build consumes the AWSPowerShell project and generates helps and formats files.
+    Full build DOES NOT generate cmdlets.
+    To generate cmdlets, run target 'create-cmdlets', add the new/generated cmdlets to the
+    AWSPowerShell project, then run full-build to create the format and help files.
+    -->
 	
     <PropertyGroup>
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
@@ -23,9 +31,18 @@
         
         <!-- default to build break if analysis of cmdlet output does not match service operation configuration -->
         <BreakOnOutputMismatchError Condition="'$(BreakOnOutputMismatchError)'==''">true</BreakOnOutputMismatchError>
+        
+        <!-- default location for artifact consolidation -->
+        <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
+   
+        <AWSPowerShellVersion Condition="'$(AWSPowerShellVersion)'==''">3.0.0.0</AWSPowerShellVersion>
+        
+        <RunTests Condition="'$(RunTests)'==''">false</RunTests>
+        
     </PropertyGroup>
     
-	<Target Name="full-build" DependsOnTargets="build-generator;create-cmdlets;build-modules;create-formats;create-pshelp;create-webhelp">
+	<Target Name="full-build" 
+            DependsOnTargets="build-generator;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
@@ -49,6 +66,8 @@
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t formats" />
 	</Target>
     
+    <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
+    
 	<Target Name="create-pshelp" DependsOnTargets="build-modules">
 		<Message Text="Generating native PowerShell help file"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t pshelp" />
@@ -57,6 +76,51 @@
 	<Target Name="create-webhelp" DependsOnTargets="build-modules">
 		<Message Text="Generating web cmdlet reference"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp" />
-	</Target>
+
+        <!-- todo
+        <CreateSitemap
+            Source="./WebHelpDeployment"
+            BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/"
+            Output="./WebHelpDeployment/sitemap.xml"
+            Extensions=".html .htm"
+            />
+        -->
+        
+		<ItemGroup>
+			<FilesToZip Include="$(RootPath)\WebHelpDeployment\**" />
+		</ItemGroup>
+		<Zip
+			InputDirectory="$(RootPath)\WebHelpDeployment"
+			OutputFileName="$(Deployment)\AWSPowerShell.WebHelp_$(AWSPowerShellVersion).zip" />
+    </Target>
     
+    <Target Name="run-tests" DependsOnTargets="build-modules" Condition="'$(RunTests)'">
+        <Message Text="Running tests"/>
+        
+        <RemoveDir Directories="$(RootPath)\Tests\Results" />
+        <MakeDir Directories="$(RootPath)\Tests\Results" />
+        <Exec Command="powershell -NoProfile $(RootPath)\Tests\RunTests.ps1" WorkingDirectory="$(RootPath)\Tests" />
+        
+        <ItemGroup>
+            <TestResults Include="$(RootPath)\Tests\Results\*.*"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(TestResults)" DestinationFolder="$(Deployment)" />
+    </Target>
+    
+    <Target Name="deploy-artifacts" DependsOnTargets="copy-artifacts;consolidate-artifacts" />
+    
+    <Target Name="copy-artifacts" DependsOnTargets="build-modules;create-formats;create-pshelp">
+		<Message Text="Consolidating build artifacts"/>
+
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
+            DestinationFolder="$(Deployment)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
+            DestinationFolder="$(Deployment)"/>
+        <Copy SourceFiles="$(SDKAssembliesFolder)\AWSSDK.dll"
+            DestinationFolder="$(Deployment)"/>
+        <Copy SourceFiles="$(RootPath)\buildtools\ThirdParty\log4net.dll"
+            DestinationFolder="$(Deployment)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
+            DestinationFolder="$(Deployment)"/>
+    </Target>
 </Project>
