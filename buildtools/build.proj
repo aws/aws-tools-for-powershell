@@ -20,7 +20,10 @@
         <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\Release</GeneratorPath>
         <Generator>AWSPSGenerator.exe</Generator>
         
-        <!-- default expected location of SDK assemblies root if not specified -->
+        <!-- location to fetch SDK assemblies from (default is the public repo, expected to be a sibling folder) - we place into SDKAssembliesFolder for the generator to consume -->
+        <SDKArtifactsLocation Condition="'$(SDKArtifactsLocation)'==''">$(RootPath)\..\AWSDotNetPublic\Deployment\sdk\assemblies\net35</SDKArtifactsLocation>
+        
+        <!-- expected location of SDK assemblies to be consumed by generator -->
         <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies</SDKAssembliesFolder>
         
         <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
@@ -42,7 +45,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="build-generator;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
+            DependsOnTargets="build-generator;get-sdk;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
@@ -51,7 +54,16 @@
 		<Exec Command="$(devenv2013) /Rebuild Release ..\AWSPowerShellGenerator.sln"/>
     </Target>
     
-	<Target Name="create-cmdlets" DependsOnTargets="build-generator">
+    <Target Name="get-sdk">
+        <Message Text="Fetching pre-built SDK artifacts" />
+        
+        <ItemGroup>
+            <SDKArtifacts Include="$(SDKArtifactsLocation)\*.*"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(SDKArtifacts)" DestinationFolder="$(SDKAssembliesFolder)" />
+    </Target>
+    
+	<Target Name="create-cmdlets" DependsOnTargets="build-generator;get-sdk">
 		<Message Text="Generating cmdlets for all services"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
 	</Target>
