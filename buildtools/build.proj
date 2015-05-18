@@ -58,7 +58,8 @@
         <Message Text="Fetching pre-built SDK artifacts" />
         
         <ItemGroup>
-            <SDKArtifacts Include="$(SDKArtifactsLocation)\*.*"/>
+            <SDKArtifacts Include="$(SDKArtifactsLocation)\*.*"
+                          Exclude="$(SDKArtifactsLocation)\AWSSDK.Glacier.*;$(SDKArtifactsLocation)\AWSSDK.Cognito*.*;$(SDKArtifactsLocation)\AWSSDK.SimpleDB.*"/>
         </ItemGroup>
         <Copy SourceFiles="@(SDKArtifacts)" DestinationFolder="$(SDKAssembliesFolder)" />
     </Target>
@@ -124,11 +125,17 @@
     <Target Name="copy-artifacts" DependsOnTargets="build-modules;create-formats;create-pshelp">
 		<Message Text="Consolidating build artifacts"/>
 
+        <ItemGroup>
+            <SDKAssemblies Include="$(SDKAssembliesFolder)\*.dll" />
+        </ItemGroup>
+        
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
+            DestinationFolder="$(Deployment)"/>
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.dll"
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
             DestinationFolder="$(Deployment)"/>
-        <Copy SourceFiles="$(SDKAssembliesFolder)\AWSSDK.dll"
+        <Copy SourceFiles="@(SDKAssemblies)"
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="$(RootPath)\buildtools\ThirdParty\log4net.dll"
             DestinationFolder="$(Deployment)"/>

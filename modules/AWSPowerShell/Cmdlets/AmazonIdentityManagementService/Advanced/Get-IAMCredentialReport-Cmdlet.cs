@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// use the -AsTextArray switch.
     /// </summary>
     [Cmdlet("Get", "IAMCredentialReport")]
-    [OutputType(new Type[] { typeof(Amazon.IdentityManagement.Model.GetCredentialReportResult), typeof(string[]), typeof(string)})]
+    [OutputType(new Type[] { typeof(Amazon.IdentityManagement.Model.GetCredentialReportResponse), typeof(string[]), typeof(string)})]
     [AWSCmdlet("Invokes the GetCredentialReport operation against AWS Identity and Access Management.", Operation = new[] {"GetCredentialReport"})]
-    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetCredentialReportResult",
-        "This cmdlet returns a GetCredentialReportResult object containing multiple properties and a memory stream with the report contents or the contents of the report as an array of strings or one consolidated string. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetCredentialReportResponse",
+        "This cmdlet returns a GetCredentialReportResponse object containing multiple properties and a memory stream with the report contents or the contents of the report as an array of strings or one consolidated string. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMCredentialReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

@@ -81,13 +81,13 @@ namespace Amazon.PowerShell.Common
             
             AWSConfigs.AddTraceListener(Source ?? "Amazon", listener);
 
-            AWSConfigs.Logging |= LoggingOptions.SystemDiagnostics;
+            AWSConfigs.LoggingConfig.LogTo |= LoggingOptions.SystemDiagnostics;
             
             Trace.AutoFlush = true;
 
             // bump the logging level up to OnError at least. Might already be configured higher.
-            if (AWSConfigs.ResponseLogging == ResponseLoggingOption.Never)
-                AWSConfigs.ResponseLogging = ResponseLoggingOption.OnError;
+            if (AWSConfigs.LoggingConfig.LogResponses == ResponseLoggingOption.Never)
+                AWSConfigs.LoggingConfig.LogResponses = ResponseLoggingOption.OnError;
         }
     }
 
@@ -147,11 +147,11 @@ namespace Amazon.PowerShell.Common
         protected override void ProcessRecord()
         {
             if (Level.Equals(ResponseLogging_All, StringComparison.OrdinalIgnoreCase))
-                AWSConfigs.ResponseLogging = ResponseLoggingOption.Always;
+                AWSConfigs.LoggingConfig.LogResponses = ResponseLoggingOption.Always;
             else if (Level.Equals(ResponseLogging_Error, StringComparison.OrdinalIgnoreCase))
-                AWSConfigs.ResponseLogging = ResponseLoggingOption.OnError;
+                AWSConfigs.LoggingConfig.LogResponses = ResponseLoggingOption.OnError;
             else if (Level.Equals(ResponseLogging_Never, StringComparison.OrdinalIgnoreCase))
-                AWSConfigs.ResponseLogging = ResponseLoggingOption.Never;
+                AWSConfigs.LoggingConfig.LogResponses = ResponseLoggingOption.Never;
             else
                 ThrowTerminatingError(new ErrorRecord(
                     new ArgumentException("Level must be one of 'Always', 'OnError', or 'Never'"),
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Common
     {
         protected override void ProcessRecord()
         {
-            AWSConfigs.LogMetrics = true;
+            AWSConfigs.LoggingConfig.LogMetrics = true;
         }
     }
 
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Common
     {
         protected override void ProcessRecord()
         {
-            AWSConfigs.LogMetrics = false;
+            AWSConfigs.LoggingConfig.LogMetrics = false;
         }
     }
 }

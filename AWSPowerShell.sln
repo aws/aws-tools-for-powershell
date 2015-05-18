@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSPSGeneratorLib", "generator\AWSPSGeneratorLib\AWSPSGeneratorLib.csproj", "{242938AA-9D24-4BCF-9589-AAEA20658B58}"
-EndProject
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSPowerShell", "modules\AWSPowerShell\AWSPowerShell.csproj", "{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSPSGenerator", "generator\AWSPSGenerator\AWSPSGenerator.csproj", "{A24528BA-C34C-4D97-A1DD-86395EE68239}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,16 +15,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|x86.ActiveCfg = Release|Any CPU
 		{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -37,18 +25,6 @@ Global
 		{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{241136F3-DE04-4AFD-A7F3-31E26B9D5C00}.Release|x86.ActiveCfg = Release|Any CPU
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Any CPU.Build.0 = Debug|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|x86.ActiveCfg = Debug|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|x86.Build.0 = Debug|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Any CPU.ActiveCfg = Release|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Any CPU.Build.0 = Release|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Mixed Platforms.Build.0 = Release|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|x86.ActiveCfg = Release|x86
-		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

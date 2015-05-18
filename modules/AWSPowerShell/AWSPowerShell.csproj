@@ -43,8 +43,137 @@
     <AssemblyOriginatorKeyFile>aws-powershell.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AWSSDK">
-      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.dll</HintPath>
+    <Reference Include="AWSSDK.AutoScaling">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.AutoScaling.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AWSSupport">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.AWSSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudFormation">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudFormation.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudFront">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudFront.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudHSM">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudHSM.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudSearch">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudSearchDomain">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudSearchDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudTrail">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudTrail.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudWatch">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudWatch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudWatchLogs">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CloudWatchLogs.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodeDeploy">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.CodeDeploy.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ConfigService">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ConfigService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DataPipeline">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.DataPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DirectConnect">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.DirectConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DirectoryService">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.DirectoryService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DynamoDBv2">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.DynamoDBv2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.EC2">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.EC2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ECS">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ECS.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ElastiCache">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ElastiCache.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ElasticBeanstalk">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ElasticBeanstalk.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ElasticLoadBalancing">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ElasticLoadBalancing.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ElasticMapReduce">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ElasticMapReduce.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ElasticTranscoder">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ElasticTranscoder.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IdentityManagement">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.IdentityManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ImportExport">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ImportExport.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KeyManagementService">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.KeyManagementService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Kinesis">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.Kinesis.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Lambda">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.Lambda.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MachineLearning">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.OpsWorks">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.OpsWorks.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.RDS">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.RDS.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Redshift">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.Redshift.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Route53">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.Route53.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Route53Domains">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.Route53Domains.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SecurityToken">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.SecurityToken.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleEmail">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.SimpleEmail.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleNotificationService">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.SimpleNotificationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleSystemsManagement">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleWorkflow">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.SimpleWorkflow.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SQS">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.SQS.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.StorageGateway">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.StorageGateway.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WorkSpaces">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
