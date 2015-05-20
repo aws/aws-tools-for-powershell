@@ -8,7 +8,7 @@
 ModuleToProcess = 'AWSPowerShell.dll'
 
 # Version number of this module.
-ModuleVersion = '2.0.0.0'
+ModuleVersion = '3.0.0.0'
 
 # ID used to uniquely identify this module
 GUID = '21f083f2-4c41-4b5d-88ec-7d24c9e88769'
@@ -23,7 +23,7 @@ CompanyName = 'Amazon.com, Inc'
 Copyright = 'Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
 # Description of the functionality provided by this module
-Description = 'AWS Tools for Windows PowerShell'
+Description = 'The AWS Tools for Windows PowerShell lets developers and administrators manage their AWS services from the Windows PowerShell scripting environment.'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '2.0'
