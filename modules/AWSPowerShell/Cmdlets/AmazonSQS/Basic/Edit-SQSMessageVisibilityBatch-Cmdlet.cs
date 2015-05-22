@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// like this: </note><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para>
     /// </summary>
     [Cmdlet("Edit", "SQSMessageVisibilityBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SQS.Model.ChangeMessageVisibilityBatchResult")]
+    [OutputType("Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse")]
     [AWSCmdlet("Invokes the ChangeMessageVisibilityBatch operation against Amazon Simple Queue Service.", Operation = new[] {"ChangeMessageVisibilityBatch"})]
-    [AWSCmdletOutput("Amazon.SQS.Model.ChangeMessageVisibilityBatchResult",
-        "This cmdlet returns a ChangeMessageVisibilityBatchResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse",
+        "This cmdlet returns a ChangeMessageVisibilityBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditSQSMessageVisibilityBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

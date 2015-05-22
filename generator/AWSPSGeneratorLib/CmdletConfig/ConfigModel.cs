@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using AWSPowerShellGenerator.Utils;
 using System.IO;
@@ -143,13 +145,13 @@ namespace AWSPowerShellGenerator.CmdletConfig
             }
         }
 
-        public static ConfigModelCollection LoadAllConfigs(string rootResource)
+        public static ConfigModelCollection LoadAllConfigs(string rootNamespace)
         {
-            ConfigModelCollection allConfigs = Deserialize<ConfigModelCollection>(rootResource);
-            foreach (string configPath in allConfigs.Configs.OrderBy(c => c))
+            var allConfigs = Deserialize<ConfigModelCollection>(string.Concat(rootNamespace, ".CmdletConfig.Configs.xml"));
+            foreach (var configFile in allConfigs.Configs.OrderBy(c => c))
             {
                 //allConfigs.ConfigModels.Add(ConfigModel.DeserializeFrom(configPath));
-                var configModel = Deserialize<ConfigModel>(configPath);
+                var configModel = Deserialize<ConfigModel>(string.Concat(rootNamespace, ".", configFile));
                 //string t1 = configModel.XmlSerialize();
                 //Console.Write(t1);
                 allConfigs.ConfigModels.Add(configModel);
@@ -162,7 +164,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
 
         private static T Deserialize<T>(string resourceName)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            var serializer = new XmlSerializer(typeof(T));
             Stream configsXml = ResourceHelper.GetResourceStream(resourceName);
             if (configsXml == null) throw new InvalidDataException("Unable to retrieve stream for resource " + resourceName);
             using (configsXml)

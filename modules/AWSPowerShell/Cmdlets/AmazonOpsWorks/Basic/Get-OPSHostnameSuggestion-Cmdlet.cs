@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OPSHostnameSuggestion")]
-    [OutputType("Amazon.OpsWorks.Model.GetHostnameSuggestionResult")]
+    [OutputType("Amazon.OpsWorks.Model.GetHostnameSuggestionResponse")]
     [AWSCmdlet("Invokes the GetHostnameSuggestion operation against AWS OpsWorks.", Operation = new[] {"GetHostnameSuggestion"})]
-    [AWSCmdletOutput("Amazon.OpsWorks.Model.GetHostnameSuggestionResult",
-        "This cmdlet returns a GetHostnameSuggestionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.OpsWorks.Model.GetHostnameSuggestionResponse",
+        "This cmdlet returns a GetHostnameSuggestionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSHostnameSuggestionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

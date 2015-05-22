@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// </para>
     /// </summary>
     [Cmdlet("Get", "MLDataSource")]
-    [OutputType("Amazon.MachineLearning.Model.GetDataSourceResult")]
+    [OutputType("Amazon.MachineLearning.Model.GetDataSourceResponse")]
     [AWSCmdlet("Invokes the GetDataSource operation against Amazon Machine Learning.", Operation = new[] {"GetDataSource"})]
-    [AWSCmdletOutput("Amazon.MachineLearning.Model.GetDataSourceResult",
-        "This cmdlet returns a GetDataSourceResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.MachineLearning.Model.GetDataSourceResponse",
+        "This cmdlet returns a GetDataSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

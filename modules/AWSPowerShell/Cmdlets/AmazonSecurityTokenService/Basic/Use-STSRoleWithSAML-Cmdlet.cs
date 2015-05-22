@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// a Role for SAML-Based Federation</a> in <i>Using IAM</i>. </li></ul><member name="RoleArn" target="arnType"></member><member name="SAMLAssertion" target="SAMLAssertionType"></member><member name="Policy" target="sessionPolicyDocumentType"></member><member name="DurationSeconds" target="roleDurationSecondsType"></member>
     /// </summary>
     [Cmdlet("Use", "STSRoleWithSAML", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResult")]
+    [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse")]
     [AWSCmdlet("Invokes the AssumeRoleWithSAML operation against AWS Security Token Service.", Operation = new[] {"AssumeRoleWithSAML"})]
-    [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResult",
-        "This cmdlet returns a AssumeRoleWithSAMLResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse",
+        "This cmdlet returns a AssumeRoleWithSAMLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UseSTSRoleWithSAMLCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {

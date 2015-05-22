@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// with the job. You can only return information about jobs you own.
     /// </summary>
     [Cmdlet("Get", "IEShippingLabel")]
-    [OutputType("Amazon.ImportExport.Model.GetShippingLabelResult")]
+    [OutputType("Amazon.ImportExport.Model.GetShippingLabelResponse")]
     [AWSCmdlet("Invokes the GetShippingLabel operation against AWS Import/Export.", Operation = new[] {"GetShippingLabel"})]
-    [AWSCmdletOutput("Amazon.ImportExport.Model.GetShippingLabelResult",
-        "This cmdlet returns a GetShippingLabelResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ImportExport.Model.GetShippingLabelResponse",
+        "This cmdlet returns a GetShippingLabelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIEShippingLabelCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {

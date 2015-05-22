@@ -58,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWMetricStatistics")]
-    [OutputType("Amazon.CloudWatch.Model.GetMetricStatisticsResult")]
+    [OutputType("Amazon.CloudWatch.Model.GetMetricStatisticsResponse")]
     [AWSCmdlet("Invokes the GetMetricStatistics operation against Amazon CloudWatch.", Operation = new[] {"GetMetricStatistics"})]
-    [AWSCmdletOutput("Amazon.CloudWatch.Model.GetMetricStatisticsResult",
-        "This cmdlet returns a GetMetricStatisticsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.GetMetricStatisticsResponse",
+        "This cmdlet returns a GetMetricStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCWMetricStatisticsCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {

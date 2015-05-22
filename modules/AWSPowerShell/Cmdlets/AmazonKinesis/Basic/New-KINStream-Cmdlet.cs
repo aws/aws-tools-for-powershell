@@ -56,13 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// request if you try to do one of the following:
     /// </para><ul><li>Have more than five streams in the <code>CREATING</code> state at any point
     /// in time.</li><li>Create more shards than are authorized for your account.</li></ul><para>
-    /// The default limit for an AWS account is 10 shards per stream. If you need to create
-    /// a stream with more than 10 shards, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
-    /// AWS Support</a> to increase the limit on your account.
-    /// </para><para>
+    /// For the default shard limit for an AWS account, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
+    /// Kinesis Limits</a>. If you need to increase this limit, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
+    /// AWS Support</a></para><para>
     /// You can use <code>DescribeStream</code> to check the stream status, which is returned
     /// in <code>StreamStatus</code>.
-    /// </para><para><code>CreateStream</code> has a limit of 5 transactions per second per account.
+    /// </para><para><a>CreateStream</a> has a limit of 5 transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KINStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,9 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The number of shards that the stream will use. The throughput of the stream is a function
-        /// of the number of shards; more shards are required for greater provisioned throughput.</para><para><b>Note:</b> The default limit for an AWS account is 10 shards per stream. If you
-        /// need to create a stream with more than 10 shards, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
-        /// AWS Support</a> to increase the limit on your account.</para>
+        /// of the number of shards; more shards are required for greater provisioned throughput.</para><para>DefaultShardLimit;</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

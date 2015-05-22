@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// created it.
     /// </summary>
     [Cmdlet("Get", "R53HostedZone")]
-    [OutputType("Amazon.Route53.Model.GetHostedZoneResult")]
+    [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]
     [AWSCmdlet("Invokes the GetHostedZone operation against AWS Route 53.", Operation = new[] {"GetHostedZone"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.GetHostedZoneResult",
-        "This cmdlet returns a GetHostedZoneResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Route53.Model.GetHostedZoneResponse",
+        "This cmdlet returns a GetHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

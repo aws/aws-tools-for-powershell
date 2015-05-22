@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </para>
     /// </summary>
     [Cmdlet("New", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.CreateConnectionResult")]
+    [OutputType("Amazon.DirectConnect.Model.CreateConnectionResponse")]
     [AWSCmdlet("Invokes the CreateConnection operation against AWS Direct Connect.", Operation = new[] {"CreateConnection"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateConnectionResult",
-        "This cmdlet returns a CreateConnectionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateConnectionResponse",
+        "This cmdlet returns a CreateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

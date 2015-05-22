@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMAccountAuthorizationDetails")]
-    [OutputType("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResult")]
+    [OutputType("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse")]
     [AWSCmdlet("Invokes the GetAccountAuthorizationDetails operation against AWS Identity and Access Management.", Operation = new[] {"GetAccountAuthorizationDetails"})]
-    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResult",
-        "This cmdlet returns a GetAccountAuthorizationDetailsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse",
+        "This cmdlet returns a GetAccountAuthorizationDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMAccountAuthorizationDetailsCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

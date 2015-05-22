@@ -1299,7 +1299,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             string k = ConstructCustomParamEmitterKey(property);
             if (ServiceConfig.ParamEmitters.ContainsKey(k))
             {
-                var obj = Activator.CreateInstance(null, ServiceConfig.ParamEmitters[k]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[k]);
                 return (IParamEmitter)obj.Unwrap();
             }
 
@@ -1307,14 +1307,14 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             // for specific type smoothing, eg replace enums with strings etc)
             if (ServiceConfig.ParamEmitters.ContainsKey(property.PropertyType.FullName))
             {
-                var obj = Activator.CreateInstance(null, ServiceConfig.ParamEmitters[property.PropertyType.FullName]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[property.PropertyType.FullName]);
                 return (IParamEmitter)obj.Unwrap();
             }
 
             // third stage lookup, useful with List<T> types
             if (ServiceConfig.ParamEmitters.ContainsKey(property.PropertyTypeName))
             {
-                var obj = Activator.CreateInstance(null, ServiceConfig.ParamEmitters[property.PropertyTypeName]);
+                var obj = Activator.CreateInstance(null, "AWSPowerShellGenerator." + ServiceConfig.ParamEmitters[property.PropertyTypeName]);
                 return (IParamEmitter)obj.Unwrap();
             }
 

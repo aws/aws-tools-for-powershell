@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// Launches an environment for the specified application using the specified configuration.
     /// </summary>
     [Cmdlet("New", "EBEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticBeanstalk.Model.CreateEnvironmentResult")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.CreateEnvironmentResponse")]
     [AWSCmdlet("Invokes the CreateEnvironment operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateEnvironment"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CreateEnvironmentResult",
-        "This cmdlet returns a CreateEnvironmentResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CreateEnvironmentResponse",
+        "This cmdlet returns a CreateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

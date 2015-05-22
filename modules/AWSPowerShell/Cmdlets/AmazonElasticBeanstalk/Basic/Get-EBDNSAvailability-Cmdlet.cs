@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// Checks if the specified CNAME is available.
     /// </summary>
     [Cmdlet("Get", "EBDNSAvailability")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResult")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse")]
     [AWSCmdlet("Invokes the CheckDNSAvailability operation against AWS Elastic Beanstalk.", Operation = new[] {"CheckDNSAvailability"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResult",
-        "This cmdlet returns a CheckDNSAvailabilityResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse",
+        "This cmdlet returns a CheckDNSAvailabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBDNSAvailabilityCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

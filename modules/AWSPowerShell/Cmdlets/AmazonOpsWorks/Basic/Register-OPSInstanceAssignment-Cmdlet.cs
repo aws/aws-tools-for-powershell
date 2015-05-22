@@ -28,11 +28,10 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Assign a registered instance to a custom layer. You cannot use this action with instances
-    /// that were created with AWS OpsWorks.
+    /// Assign a registered instance to a layer.
     /// 
-    ///  
-    /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+    ///  <ul><li>You can assign registered on-premises instances to any layer type.</li><li>You can assign registered Amazon EC2 instances only to custom layers.</li><li>You
+    /// cannot use this action with instances that were created with AWS OpsWorks.</li></ul><para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
     /// level for the stack or an attached policy that explicitly grants permissions. For
     /// more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
     /// User Permissions</a>.

@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Lambda.Model.UpdateEventSourceMappingResult")]
+    [OutputType("Amazon.Lambda.Model.UpdateEventSourceMappingResponse")]
     [AWSCmdlet("Invokes the UpdateEventSourceMapping operation against Amazon Lambda.", Operation = new[] {"UpdateEventSourceMapping"})]
-    [AWSCmdletOutput("Amazon.Lambda.Model.UpdateEventSourceMappingResult",
-        "This cmdlet returns a UpdateEventSourceMappingResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Lambda.Model.UpdateEventSourceMappingResponse",
+        "This cmdlet returns a UpdateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

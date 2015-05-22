@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2VolumeAttribute")]
-    [OutputType("Amazon.EC2.Model.DescribeVolumeAttributeResult")]
+    [OutputType("Amazon.EC2.Model.DescribeVolumeAttributeResponse")]
     [AWSCmdlet("Invokes the DescribeVolumeAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVolumeAttribute"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.DescribeVolumeAttributeResult",
-        "This cmdlet returns a DescribeVolumeAttributeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.DescribeVolumeAttributeResponse",
+        "This cmdlet returns a DescribeVolumeAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2VolumeAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

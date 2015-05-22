@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// Create a new distribution.
     /// </summary>
     [Cmdlet("New", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudFront.Model.CreateDistributionResult")]
+    [OutputType("Amazon.CloudFront.Model.CreateDistributionResponse")]
     [AWSCmdlet("Invokes the CreateDistribution operation against Amazon CloudFront.", Operation = new[] {"CreateDistribution"})]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.CreateDistributionResult",
-        "This cmdlet returns a CreateDistributionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudFront.Model.CreateDistributionResponse",
+        "This cmdlet returns a CreateDistributionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {

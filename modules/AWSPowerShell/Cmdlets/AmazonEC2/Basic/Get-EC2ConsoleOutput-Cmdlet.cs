@@ -51,10 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2ConsoleOutput")]
-    [OutputType("Amazon.EC2.Model.GetConsoleOutputResult")]
+    [OutputType("Amazon.EC2.Model.GetConsoleOutputResponse")]
     [AWSCmdlet("Invokes the GetConsoleOutput operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetConsoleOutput"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleOutputResult",
-        "This cmdlet returns a GetConsoleOutputResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleOutputResponse",
+        "This cmdlet returns a GetConsoleOutputResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2ConsoleOutputCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

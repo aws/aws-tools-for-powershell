@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>A string that contains user-defined, custom JSON. It is used to override the corresponding
         /// default stack configuration JSON values. The string should be in the following format
         /// and must escape characters such as '"'.:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
-        /// Custom JSON to Modify the Stack Configuration JSON</a>.</para>
+        /// Custom JSON to Modify the Stack Configuration Attributes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -109,8 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// of recipes to be executed. For example, to execute <code>phpapp::appsetup</code>,
         /// set <code>Args</code> to <code>{"recipes":["phpapp::appsetup"]}</code>.</li><li><code>install_dependencies</code>: Install the stack's dependencies.</li><li><code>update_custom_cookbooks</code>:
         /// Update the stack's custom cookbooks.</li><li><code>update_dependencies</code>: Update
-        /// the stack's dependencies.</li></ul><para>For apps, the following commands are available:</para><ul><li><code>deploy</code>: Deploy an app. Rails apps have an optional <code>Args</code>
-        /// parameter named <code>migrate</code>. Set <code>Args</code> to {"migrate":["true"]}
+        /// the stack's dependencies.</li></ul><note>The update_dependencies and install_dependencies
+        /// commands are supported only for Linux instances. You can run the commands successfully
+        /// on Windows instances, but they do nothing.</note><para>For apps, the following commands are available:</para><ul><li><code>deploy</code>: Deploy an app. Ruby on Rails apps have an optional
+        /// <code>Args</code> parameter named <code>migrate</code>. Set <code>Args</code> to {"migrate":["true"]}
         /// to migrate the database. The default setting is {"migrate":["false"]}.</li><li><code>rollback</code>
         /// Roll the app back to the previous version. When you update an app, AWS OpsWorks stores
         /// the previous version, up to a maximum of five versions. You can use this command to

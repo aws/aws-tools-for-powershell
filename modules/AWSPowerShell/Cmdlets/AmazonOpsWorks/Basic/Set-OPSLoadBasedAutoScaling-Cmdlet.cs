@@ -53,6 +53,34 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     {
         /// <summary>
         /// <para>
+        /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
+        /// a list of up to five alarm names, which are case sensitive and must be in the same
+        /// region as the stack.</para><note>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
+        /// You can either have AWS OpsWorks update the role for you when you first use this feature
+        /// or you can edit the role manually. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing
+        /// AWS OpsWorks to Act on Your Behalf</a>.</note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DownScaling_Alarms")]
+        public System.String[] DownScaling_Alarm { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
+        /// a list of up to five alarm names, which are case sensitive and must be in the same
+        /// region as the stack.</para><note>To use custom alarms, you must update your service role to allow <code>cloudwatch:DescribeAlarms</code>.
+        /// You can either have AWS OpsWorks update the role for you when you first use this feature
+        /// or you can edit the role manually. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html">Allowing
+        /// AWS OpsWorks to Act on Your Behalf</a>.</note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("UpScaling_Alarms")]
+        public System.String[] UpScaling_Alarm { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The CPU utilization threshold, as a percent of the available CPU.</para>
         /// </para>
         /// </summary>
@@ -78,12 +106,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should
-        /// ignore metrics and not raise any additional scaling events. For example, AWS OpsWorks
-        /// adds new instances following an upscaling event but the instances won't start reducing
+        /// ignore metrics and suppress additional scaling events. For example, AWS OpsWorks adds
+        /// new instances following an upscaling event but the instances won't start reducing
         /// the load until they have been booted and configured. There is no point in raising
         /// additional scaling events during that operation, which typically takes several minutes.
-        /// <code>IgnoreMetricsTime</code> allows you to direct AWS OpsWorks to not raise any
-        /// scaling events long enough to get the new instances online.</para>
+        /// <code>IgnoreMetricsTime</code> allows you to direct AWS OpsWorks to suppress scaling
+        /// events long enough to get the new instances online.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,12 +120,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should
-        /// ignore metrics and not raise any additional scaling events. For example, AWS OpsWorks
-        /// adds new instances following an upscaling event but the instances won't start reducing
+        /// ignore metrics and suppress additional scaling events. For example, AWS OpsWorks adds
+        /// new instances following an upscaling event but the instances won't start reducing
         /// the load until they have been booted and configured. There is no point in raising
         /// additional scaling events during that operation, which typically takes several minutes.
-        /// <code>IgnoreMetricsTime</code> allows you to direct AWS OpsWorks to not raise any
-        /// scaling events long enough to get the new instances online.</para>
+        /// <code>IgnoreMetricsTime</code> allows you to direct AWS OpsWorks to suppress scaling
+        /// events long enough to get the new instances online.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -211,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.DownScaling_Alarm != null)
+            {
+                context.DownScaling_Alarms = new List<String>(this.DownScaling_Alarm);
+            }
             if (ParameterWasBound("DownScaling_CpuThreshold"))
                 context.DownScaling_CpuThreshold = this.DownScaling_CpuThreshold;
             if (ParameterWasBound("DownScaling_IgnoreMetricsTime"))
@@ -226,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             if (ParameterWasBound("Enable"))
                 context.Enable = this.Enable;
             context.LayerId = this.LayerId;
+            if (this.UpScaling_Alarm != null)
+            {
+                context.UpScaling_Alarms = new List<String>(this.UpScaling_Alarm);
+            }
             if (ParameterWasBound("UpScaling_CpuThreshold"))
                 context.UpScaling_CpuThreshold = this.UpScaling_CpuThreshold;
             if (ParameterWasBound("UpScaling_IgnoreMetricsTime"))
@@ -255,6 +291,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
              // populate DownScaling
             bool requestDownScalingIsNull = true;
             request.DownScaling = new AutoScalingThresholds();
+            List<String> requestDownScaling_downScaling_Alarm = null;
+            if (cmdletContext.DownScaling_Alarms != null)
+            {
+                requestDownScaling_downScaling_Alarm = cmdletContext.DownScaling_Alarms;
+            }
+            if (requestDownScaling_downScaling_Alarm != null)
+            {
+                request.DownScaling.Alarms = requestDownScaling_downScaling_Alarm;
+                requestDownScalingIsNull = false;
+            }
             Double? requestDownScaling_downScaling_CpuThreshold = null;
             if (cmdletContext.DownScaling_CpuThreshold != null)
             {
@@ -332,6 +378,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
              // populate UpScaling
             bool requestUpScalingIsNull = true;
             request.UpScaling = new AutoScalingThresholds();
+            List<String> requestUpScaling_upScaling_Alarm = null;
+            if (cmdletContext.UpScaling_Alarms != null)
+            {
+                requestUpScaling_upScaling_Alarm = cmdletContext.UpScaling_Alarms;
+            }
+            if (requestUpScaling_upScaling_Alarm != null)
+            {
+                request.UpScaling.Alarms = requestUpScaling_upScaling_Alarm;
+                requestUpScalingIsNull = false;
+            }
             Double? requestUpScaling_upScaling_CpuThreshold = null;
             if (cmdletContext.UpScaling_CpuThreshold != null)
             {
@@ -434,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<String> DownScaling_Alarms { get; set; }
             public Double? DownScaling_CpuThreshold { get; set; }
             public Int32? DownScaling_IgnoreMetricsTime { get; set; }
             public Int32? DownScaling_InstanceCount { get; set; }
@@ -442,6 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             public Int32? DownScaling_ThresholdsWaitTime { get; set; }
             public Boolean? Enable { get; set; }
             public String LayerId { get; set; }
+            public List<String> UpScaling_Alarms { get; set; }
             public Double? UpScaling_CpuThreshold { get; set; }
             public Int32? UpScaling_IgnoreMetricsTime { get; set; }
             public Int32? UpScaling_InstanceCount { get; set; }

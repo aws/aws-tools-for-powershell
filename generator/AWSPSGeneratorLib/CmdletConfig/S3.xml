@@ -40,9 +40,9 @@
   </PipelineByValueProperties>
 
   <ParamEmitters>
-    <ParamEmitter ParamType="Amazon.S3.Model.S3StorageClass" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3.S3StorageClassParamEmitter" />
-    <ParamEmitter ParamType="Amazon.S3.Model.HttpVerb" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3.HttpVerbParamEmitter" />
-    <ParamEmitter ParamType="Amazon.S3.Model.Protocol" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3.ProtocolParamEmitter" />
+    <ParamEmitter ParamType="Amazon.S3.Model.S3StorageClass" EmitterType="Generators.ParamEmitters.AmazonS3.S3StorageClassParamEmitter" />
+    <ParamEmitter ParamType="Amazon.S3.Model.HttpVerb" EmitterType="Generators.ParamEmitters.AmazonS3.HttpVerbParamEmitter" />
+    <ParamEmitter ParamType="Amazon.S3.Model.Protocol" EmitterType="Generators.ParamEmitters.AmazonS3.ProtocolParamEmitter" />
   </ParamEmitters>
 
   <ExcludeProperties>

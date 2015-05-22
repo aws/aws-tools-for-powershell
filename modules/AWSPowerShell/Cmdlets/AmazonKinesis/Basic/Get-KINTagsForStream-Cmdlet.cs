@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Lists the tags for the specified Amazon Kinesis stream.
     /// </summary>
     [Cmdlet("Get", "KINTagsForStream")]
-    [OutputType("Amazon.Kinesis.Model.ListTagsForStreamResult")]
+    [OutputType("Amazon.Kinesis.Model.ListTagsForStreamResponse")]
     [AWSCmdlet("Invokes the ListTagsForStream operation against AWS Kinesis.", Operation = new[] {"ListTagsForStream"})]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.ListTagsForStreamResult",
-        "This cmdlet returns a ListTagsForStreamResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Kinesis.Model.ListTagsForStreamResponse",
+        "This cmdlet returns a ListTagsForStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINTagsForStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

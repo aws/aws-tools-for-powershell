@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// from 1. For example, a parameter list with two elements looks like this: </note><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para>
     /// </summary>
     [Cmdlet("Remove", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.SQS.Model.DeleteMessageBatchResult")]
+    [OutputType("Amazon.SQS.Model.DeleteMessageBatchResponse")]
     [AWSCmdlet("Invokes the DeleteMessageBatch operation against Amazon Simple Queue Service.", Operation = new[] {"DeleteMessageBatch"})]
-    [AWSCmdletOutput("Amazon.SQS.Model.DeleteMessageBatchResult",
-        "This cmdlet returns a DeleteMessageBatchResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SQS.Model.DeleteMessageBatchResponse",
+        "This cmdlet returns a DeleteMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

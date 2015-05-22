@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// to take effect you must reboot any associated clusters.
     /// </summary>
     [Cmdlet("Reset", "RSClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Redshift.Model.ResetClusterParameterGroupResult")]
+    [OutputType("Amazon.Redshift.Model.ResetClusterParameterGroupResponse")]
     [AWSCmdlet("Invokes the ResetClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"ResetClusterParameterGroup"})]
-    [AWSCmdletOutput("Amazon.Redshift.Model.ResetClusterParameterGroupResult",
-        "This cmdlet returns a ResetClusterParameterGroupResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Redshift.Model.ResetClusterParameterGroupResponse",
+        "This cmdlet returns a ResetClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

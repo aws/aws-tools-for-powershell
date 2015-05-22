@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// you can request them using the shard ID of the last shard returned. Specify this ID
     /// in the <code>ExclusiveStartShardId</code> parameter in a subsequent request to <code>DescribeStream</code>.
     /// 
-    /// </para><para><code>DescribeStream</code> has a limit of 10 transactions per second per account.
+    /// </para><para><a>DescribeStream</a> has a limit of 10 transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINStream")]

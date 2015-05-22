@@ -50,10 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Route", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.CreateRouteResult")]
+    [OutputType("Amazon.EC2.Model.CreateRouteResponse")]
     [AWSCmdlet("Invokes the CreateRoute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateRoute"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.CreateRouteResult",
-        "This cmdlet returns a CreateRouteResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.CreateRouteResponse",
+        "This cmdlet returns a CreateRouteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2RouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

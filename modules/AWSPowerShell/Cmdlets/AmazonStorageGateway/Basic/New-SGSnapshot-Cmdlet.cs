@@ -49,10 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// .</note>
     /// </summary>
     [Cmdlet("New", "SGSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.StorageGateway.Model.CreateSnapshotResult")]
+    [OutputType("Amazon.StorageGateway.Model.CreateSnapshotResponse")]
     [AWSCmdlet("Invokes the CreateSnapshot operation against AWS Storage Gateway.", Operation = new[] {"CreateSnapshot"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateSnapshotResult",
-        "This cmdlet returns a CreateSnapshotResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateSnapshotResponse",
+        "This cmdlet returns a CreateSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSGSnapshotCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

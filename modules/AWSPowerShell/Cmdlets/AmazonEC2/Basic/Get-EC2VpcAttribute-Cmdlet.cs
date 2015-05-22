@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// at a time.
     /// </summary>
     [Cmdlet("Get", "EC2VpcAttribute")]
-    [OutputType("Amazon.EC2.Model.DescribeVpcAttributeResult")]
+    [OutputType("Amazon.EC2.Model.DescribeVpcAttributeResponse")]
     [AWSCmdlet("Invokes the DescribeVpcAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVpcAttribute"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.DescribeVpcAttributeResult",
-        "This cmdlet returns a DescribeVpcAttributeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.DescribeVpcAttributeResponse",
+        "This cmdlet returns a DescribeVpcAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2VpcAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

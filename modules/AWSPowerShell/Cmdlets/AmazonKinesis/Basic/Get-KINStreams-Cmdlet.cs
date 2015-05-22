@@ -44,14 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// to <code>ListStreams</code>. The group of stream names returned by the subsequent
     /// request is then added to the list. You can continue this process until all the stream
     /// names have been collected in the list. 
-    /// </para><para><code>ListStreams</code> has a limit of 5 transactions per second per account.
+    /// </para><para><a>ListStreams</a> has a limit of 5 transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINStreams")]
-    [OutputType("Amazon.Kinesis.Model.ListStreamsResult")]
+    [OutputType("Amazon.Kinesis.Model.ListStreamsResponse")]
     [AWSCmdlet("Invokes the ListStreams operation against AWS Kinesis.", Operation = new[] {"ListStreams"})]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.ListStreamsResult",
-        "This cmdlet returns a ListStreamsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Kinesis.Model.ListStreamsResponse",
+        "This cmdlet returns a ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINStreamsCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {

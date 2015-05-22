@@ -39,12 +39,11 @@ namespace Amazon.PowerShell.Utils
             }
         }
 
-        public static string GetUserAgent(System.Version hostVersion)
+        public static void SetAWSPowerShellUserAgent(System.Version hostVersion)
         {
-            Util.AWSSDKUtils.SetUserAgent("AWSPowerShell", 
+            Util.Internal.InternalSDKUtils.SetUserAgent("AWSPowerShell", 
                                           Assembly.GetExecutingAssembly().GetName().Version.ToString(),
                                           string.Format("WindowsPowerShell/{0}.{1}", hostVersion.Major, hostVersion.MajorRevision));
-            return Util.AWSSDKUtils.SDKUserAgent;
         }
 
         public static ServerSideEncryptionMethod Convert(string serverSideEncryption)

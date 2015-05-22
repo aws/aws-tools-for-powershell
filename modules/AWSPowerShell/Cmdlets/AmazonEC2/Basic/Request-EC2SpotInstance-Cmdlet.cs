@@ -110,6 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ClientToken { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>Indicates whether the instance is optimized for EBS I/O. This optimization provides
         /// dedicated throughput to Amazon EBS and an optimized configuration stack to provide
         /// optimal EBS I/O performance. This optimization isn't available with all instance types.
@@ -300,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             };
             
             context.AvailabilityZoneGroup = this.AvailabilityZoneGroup;
+            context.ClientToken = this.ClientToken;
             if (ParameterWasBound("InstanceCount"))
                 context.InstanceCount = this.InstanceCount;
             context.LaunchGroup = this.LaunchGroup;
@@ -357,6 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZoneGroup != null)
             {
                 request.AvailabilityZoneGroup = cmdletContext.AvailabilityZoneGroup;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.InstanceCount != null)
             {
@@ -637,6 +652,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public String AvailabilityZoneGroup { get; set; }
+            public String ClientToken { get; set; }
             public Int32? InstanceCount { get; set; }
             public String LaunchGroup { get; set; }
             public String LaunchSpecification_AddressingType { get; set; }

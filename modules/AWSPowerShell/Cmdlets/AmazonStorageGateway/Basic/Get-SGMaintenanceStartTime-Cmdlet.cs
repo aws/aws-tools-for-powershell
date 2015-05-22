@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// day and time of the week. Note that values are in terms of the gateway's time zone.
     /// </summary>
     [Cmdlet("Get", "SGMaintenanceStartTime")]
-    [OutputType("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResult")]
+    [OutputType("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse")]
     [AWSCmdlet("Invokes the DescribeMaintenanceStartTime operation against AWS Storage Gateway.", Operation = new[] {"DescribeMaintenanceStartTime"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResult",
-        "This cmdlet returns a DescribeMaintenanceStartTimeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse",
+        "This cmdlet returns a DescribeMaintenanceStartTimeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGMaintenanceStartTimeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

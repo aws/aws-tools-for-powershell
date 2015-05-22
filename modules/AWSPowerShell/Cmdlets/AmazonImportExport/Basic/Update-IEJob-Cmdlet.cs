@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// request but before the data transfer starts and you can only use it on jobs you own.
     /// </summary>
     [Cmdlet("Update", "IEJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ImportExport.Model.UpdateJobResult")]
+    [OutputType("Amazon.ImportExport.Model.UpdateJobResponse")]
     [AWSCmdlet("Invokes the UpdateJob operation against AWS Import/Export.", Operation = new[] {"UpdateJob"})]
-    [AWSCmdletOutput("Amazon.ImportExport.Model.UpdateJobResult",
-        "This cmdlet returns a UpdateJobResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ImportExport.Model.UpdateJobResponse",
+        "This cmdlet returns a UpdateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {

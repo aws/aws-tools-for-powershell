@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// Retrieves information about a high-availability partition group.
     /// </summary>
     [Cmdlet("Get", "HSMPartitionGroup")]
-    [OutputType("Amazon.CloudHSM.Model.DescribeHapgResult")]
+    [OutputType("Amazon.CloudHSM.Model.DescribeHapgResponse")]
     [AWSCmdlet("Invokes the DescribeHapg operation against AWS Cloud HSM.", Operation = new[] {"DescribeHapg"})]
-    [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHapgResult",
-        "This cmdlet returns a DescribeHapgResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHapgResponse",
+        "This cmdlet returns a DescribeHapgResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {

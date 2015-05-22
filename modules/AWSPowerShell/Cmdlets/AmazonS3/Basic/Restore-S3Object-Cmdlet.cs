@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.RestoreObjectRequest.Key
+        /// This key indicates the S3 object to restore.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

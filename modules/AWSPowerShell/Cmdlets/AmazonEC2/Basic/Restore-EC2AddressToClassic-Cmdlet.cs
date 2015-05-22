@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// instance or network interface.
     /// </summary>
     [Cmdlet("Restore", "EC2AddressToClassic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.RestoreAddressToClassicResult")]
+    [OutputType("Amazon.EC2.Model.RestoreAddressToClassicResponse")]
     [AWSCmdlet("Invokes the RestoreAddressToClassic operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RestoreAddressToClassic"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.RestoreAddressToClassicResult",
-        "This cmdlet returns a RestoreAddressToClassicResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.RestoreAddressToClassicResponse",
+        "This cmdlet returns a RestoreAddressToClassicResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreEC2AddressToClassicCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

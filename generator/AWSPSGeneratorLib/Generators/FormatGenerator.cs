@@ -20,7 +20,6 @@ namespace AWSPowerShellGenerator.Generators
 
         #endregion
 
-
         #region Private properties
 
         private ConfigModelCollection ConfigCollection { get; set; }
@@ -32,7 +31,7 @@ namespace AWSPowerShellGenerator.Generators
 
         protected override void GenerateHelper()
         {
-            ConfigCollection = ConfigModelCollection.LoadAllConfigs("AWSPowerShellGenerator.FormatConfig.Configs.xml");
+            ConfigCollection = ConfigModelCollection.LoadAllConfigs(RootGeneratorNamespace + ".FormatConfig.Configs.xml");
             LoadCustomFormatDocuments();            
 
             var types = new List<Type>();

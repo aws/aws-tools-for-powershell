@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SGVolumeRecoveryPoint")]
-    [OutputType("Amazon.StorageGateway.Model.ListVolumeRecoveryPointsResult")]
+    [OutputType("Amazon.StorageGateway.Model.ListVolumeRecoveryPointsResponse")]
     [AWSCmdlet("Invokes the ListVolumeRecoveryPoints operation against AWS Storage Gateway.", Operation = new[] {"ListVolumeRecoveryPoints"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.ListVolumeRecoveryPointsResult",
-        "This cmdlet returns a ListVolumeRecoveryPointsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.ListVolumeRecoveryPointsResponse",
+        "This cmdlet returns a ListVolumeRecoveryPointsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGVolumeRecoveryPointCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

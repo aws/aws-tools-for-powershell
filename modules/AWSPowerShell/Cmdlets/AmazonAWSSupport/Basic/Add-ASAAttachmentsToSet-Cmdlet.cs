@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ASAAttachmentsToSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AWSSupport.Model.AddAttachmentsToSetResult")]
+    [OutputType("Amazon.AWSSupport.Model.AddAttachmentsToSetResponse")]
     [AWSCmdlet("Invokes the AddAttachmentsToSet operation against AWS Support API.", Operation = new[] {"AddAttachmentsToSet"})]
-    [AWSCmdletOutput("Amazon.AWSSupport.Model.AddAttachmentsToSetResult",
-        "This cmdlet returns a AddAttachmentsToSetResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.AWSSupport.Model.AddAttachmentsToSetResponse",
+        "This cmdlet returns a AddAttachmentsToSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddASAAttachmentsToSetCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

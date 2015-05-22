@@ -18,10 +18,11 @@
     <ServiceOperation MethodName="CreateAlias" Output="Void" PipelineParameter="TargetKeyId"/>
     <ServiceOperation MethodName="DeleteAlias" Output="Void" />
     <ServiceOperation MethodName="ListAliases" />
+    <ServiceOperation MethodName="UpdateAlias" Output="Void"  PipelineParameter="TargetKeyId"/>
 
     <ServiceOperation MethodName="CreateGrant" Output="Response" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="ListGrants" />
-    <ServiceOperation MethodName="RetireGrant" Output="Void" Verb="Disable" />
+    <ServiceOperation MethodName="RetireGrant" Output="Void" Verb="Disable" NoPipelineParameter="true" ShouldProcessTarget="GrantToken"/>
     <ServiceOperation MethodName="RevokeGrant" Output="Void" PipelineParameter="KeyId" ShouldProcessTarget="GrantToken" />
     
     <ServiceOperation MethodName="CreateKey" AnonymousShouldProcessTarget="true" NoPipelineParameter="true"/>

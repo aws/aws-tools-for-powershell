@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("Import", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ImportKeyPairResult")]
+    [OutputType("Amazon.EC2.Model.ImportKeyPairResponse")]
     [AWSCmdlet("Invokes the ImportKeyPair operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ImportKeyPair"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResult",
-        "This cmdlet returns a ImportKeyPairResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
+        "This cmdlet returns a ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

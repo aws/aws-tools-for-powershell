@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SGUploadBuffer")]
-    [OutputType("Amazon.StorageGateway.Model.DescribeUploadBufferResult")]
+    [OutputType("Amazon.StorageGateway.Model.DescribeUploadBufferResponse")]
     [AWSCmdlet("Invokes the DescribeUploadBuffer operation against AWS Storage Gateway.", Operation = new[] {"DescribeUploadBuffer"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeUploadBufferResult",
-        "This cmdlet returns a DescribeUploadBufferResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeUploadBufferResponse",
+        "This cmdlet returns a DescribeUploadBufferResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGUploadBufferCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

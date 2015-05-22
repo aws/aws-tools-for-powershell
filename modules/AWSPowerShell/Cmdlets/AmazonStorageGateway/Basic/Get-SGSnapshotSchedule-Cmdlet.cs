@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// initiated on the volume.
     /// </summary>
     [Cmdlet("Get", "SGSnapshotSchedule")]
-    [OutputType("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResult")]
+    [OutputType("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse")]
     [AWSCmdlet("Invokes the DescribeSnapshotSchedule operation against AWS Storage Gateway.", Operation = new[] {"DescribeSnapshotSchedule"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResult",
-        "This cmdlet returns a DescribeSnapshotScheduleResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse",
+        "This cmdlet returns a DescribeSnapshotScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

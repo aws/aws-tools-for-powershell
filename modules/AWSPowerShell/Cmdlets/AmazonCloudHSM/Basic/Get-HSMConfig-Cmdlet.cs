@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// groups the client is associated with.
     /// </summary>
     [Cmdlet("Get", "HSMConfig")]
-    [OutputType("Amazon.CloudHSM.Model.GetConfigResult")]
+    [OutputType("Amazon.CloudHSM.Model.GetConfigResponse")]
     [AWSCmdlet("Invokes the GetConfig operation against AWS Cloud HSM.", Operation = new[] {"GetConfig"})]
-    [AWSCmdletOutput("Amazon.CloudHSM.Model.GetConfigResult",
-        "This cmdlet returns a GetConfigResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudHSM.Model.GetConfigResponse",
+        "This cmdlet returns a GetConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetHSMConfigCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {

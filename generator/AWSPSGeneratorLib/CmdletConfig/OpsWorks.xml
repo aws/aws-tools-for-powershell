@@ -70,6 +70,7 @@
     <ServiceOperation MethodName="DetachElasticLoadBalancer" Output="Void" 
                       PositionalParameters="LayerId" PipelineParameter="ElasticLoadBalancerName"/>
     <ServiceOperation MethodName="GetHostnameSuggestion" Output="Response" />
+    <ServiceOperation MethodName="GrantAccess" />
     <ServiceOperation MethodName="RebootInstance" Output="Void" />
     <ServiceOperation MethodName="SetLoadBasedAutoScaling" Output="Void"
                       PositionalParameters="Enable" PipelineParameter="LayerId"/>

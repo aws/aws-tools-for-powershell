@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53.Model.CreateReusableDelegationSetResult")]
+    [OutputType("Amazon.Route53.Model.CreateReusableDelegationSetResponse")]
     [AWSCmdlet("Invokes the CreateReusableDelegationSet operation against AWS Route 53.", Operation = new[] {"CreateReusableDelegationSet"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.CreateReusableDelegationSetResult",
-        "This cmdlet returns a CreateReusableDelegationSetResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Route53.Model.CreateReusableDelegationSetResponse",
+        "This cmdlet returns a CreateReusableDelegationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

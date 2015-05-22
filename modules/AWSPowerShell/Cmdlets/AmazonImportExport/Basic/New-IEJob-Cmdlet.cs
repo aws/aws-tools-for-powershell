@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// should ship your storage device.
     /// </summary>
     [Cmdlet("New", "IEJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ImportExport.Model.CreateJobResult")]
+    [OutputType("Amazon.ImportExport.Model.CreateJobResponse")]
     [AWSCmdlet("Invokes the CreateJob operation against AWS Import/Export.", Operation = new[] {"CreateJob"})]
-    [AWSCmdletOutput("Amazon.ImportExport.Model.CreateJobResult",
-        "This cmdlet returns a CreateJobResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ImportExport.Model.CreateJobResponse",
+        "This cmdlet returns a CreateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {

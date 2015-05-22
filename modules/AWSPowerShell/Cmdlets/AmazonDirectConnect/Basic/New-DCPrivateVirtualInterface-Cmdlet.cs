@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// a single virtual private cloud (VPC).
     /// </summary>
     [Cmdlet("New", "DCPrivateVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResult")]
+    [OutputType("Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResponse")]
     [AWSCmdlet("Invokes the CreatePrivateVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"CreatePrivateVirtualInterface"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResult",
-        "This cmdlet returns a CreatePrivateVirtualInterfaceResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreatePrivateVirtualInterfaceResponse",
+        "This cmdlet returns a CreatePrivateVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

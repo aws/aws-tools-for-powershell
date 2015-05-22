@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>For load-based or time-based instances, the type.</para>
+        /// <para>For load-based or time-based instances, the type. Windows stacks can use only time-based
+        /// instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,11 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li>Standard operating systems: An Amazon Linux version such as <code>Amazon
-        /// Linux 2014.09</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li>Custom AMIs: <code>Custom</code></li></ul><para>The default option is the current Amazon Linux version, such as <code>Amazon Linux
-        /// 2014.09</code>. If you set this parameter to <code>Custom</code>, you must use the
-        /// <a>CreateInstance</a> action's AmiId parameter to specify the custom AMI that you
-        /// want to use. For more information on the standard operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
+        /// <para>The instance's operating system, which must be set to one of the following.</para><para>For Windows stacks: Microsoft Windows Server 2012 R2.</para><para>For Linux stacks:</para><ul><li>Standard operating systems: an Amazon Linux version such as <code>Amazon
+        /// Linux 2014.09</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li>Custom AMIs: <code>Custom</code></li></ul><para>The default option is the current Amazon Linux version. If you set this parameter
+        /// to <code>Custom</code>, you must use the <a>CreateInstance</a> action's AmiId parameter
+        /// to specify the custom AMI that you want to use. For more information on the standard
+        /// operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
         /// Systems</a>For more information on how to use custom AMIs with OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</para>
         /// </para>

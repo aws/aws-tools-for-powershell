@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.AllocateAddressResult")]
+    [OutputType("Amazon.EC2.Model.AllocateAddressResponse")]
     [AWSCmdlet("Invokes the AllocateAddress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AllocateAddress"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.AllocateAddressResult",
-        "This cmdlet returns a AllocateAddressResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.AllocateAddressResponse",
+        "This cmdlet returns a AllocateAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

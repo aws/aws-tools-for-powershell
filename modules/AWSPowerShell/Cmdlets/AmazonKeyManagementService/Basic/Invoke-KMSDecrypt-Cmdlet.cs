@@ -29,19 +29,28 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by
-    /// using the <a>Encrypt</a> function.
+    /// using any of the following functions: <ul><li><a>GenerateDataKey</a></li><li><a>GenerateDataKeyWithoutPlaintext</a></li><li><a>Encrypt</a></li></ul><para>
+    /// Note that if a caller has been granted access permissions to all keys (through, for
+    /// example, IAM user policies that grant <code>Decrypt</code> permission on all resources),
+    /// then ciphertext encrypted by using keys in other accounts where the key grants access
+    /// to the caller can be decrypted. To remedy this, we recommend that you do not grant
+    /// <code>Decrypt</code> access in an IAM user policy. Instead grant <code>Decrypt</code>
+    /// access only in key policies. If you must grant <code>Decrypt</code> access in an IAM
+    /// user policy, you should scope the resource to specific keys or to specific trusted
+    /// accounts. 
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSDecrypt")]
-    [OutputType("Amazon.KeyManagementService.Model.DecryptResult")]
+    [OutputType("Amazon.KeyManagementService.Model.DecryptResponse")]
     [AWSCmdlet("Invokes the Decrypt operation against AWS Key Management Service.", Operation = new[] {"Decrypt"})]
-    [AWSCmdletOutput("Amazon.KeyManagementService.Model.DecryptResult",
-        "This cmdlet returns a DecryptResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.DecryptResponse",
+        "This cmdlet returns a DecryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeKMSDecryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Ciphertext including metadata.</para>
+        /// <para>Ciphertext to be decrypted. The blob includes metadata.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens that represent grants which can be used to provide long term
-        /// permissions to perform decryption.</para>
+        /// <para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

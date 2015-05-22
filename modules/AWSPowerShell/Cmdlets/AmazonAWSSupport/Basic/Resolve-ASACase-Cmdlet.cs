@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// state of the case after the call to <a>ResolveCase</a> completed.
     /// </summary>
     [Cmdlet("Resolve", "ASACase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AWSSupport.Model.ResolveCaseResult")]
+    [OutputType("Amazon.AWSSupport.Model.ResolveCaseResponse")]
     [AWSCmdlet("Invokes the ResolveCase operation against AWS Support API.", Operation = new[] {"ResolveCase"})]
-    [AWSCmdletOutput("Amazon.AWSSupport.Model.ResolveCaseResult",
-        "This cmdlet returns a ResolveCaseResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.AWSSupport.Model.ResolveCaseResponse",
+        "This cmdlet returns a ResolveCaseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResolveASACaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {

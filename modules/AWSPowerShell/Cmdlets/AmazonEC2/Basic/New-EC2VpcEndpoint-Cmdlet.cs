@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.CreateVpcEndpointResult")]
+    [OutputType("Amazon.EC2.Model.CreateVpcEndpointResponse")]
     [AWSCmdlet("Invokes the CreateVpcEndpoint operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpcEndpoint"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.CreateVpcEndpointResult",
-        "This cmdlet returns a CreateVpcEndpointResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.CreateVpcEndpointResponse",
+        "This cmdlet returns a CreateVpcEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// The AWS service name, in the form com.amazonaws.<i>REGION</i>.<i>SERVICE</i>.
+        /// The AWS service name, in the form com.amazonaws.&lt;region&gt;.&lt;service&gt;.
         /// To get a list of available services, use the DescribeVpcEndpointServices request.
         /// </para>
         /// </summary>

@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// AddInstanceGroups adds an instance group to a running cluster.
     /// </summary>
     [Cmdlet("Add", "EMRInstanceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResult")]
+    [OutputType("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse")]
     [AWSCmdlet("Invokes the AddInstanceGroups operation against Amazon Elastic MapReduce.", Operation = new[] {"AddInstanceGroups"})]
-    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResult",
-        "This cmdlet returns a AddInstanceGroupsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse",
+        "This cmdlet returns a AddInstanceGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {

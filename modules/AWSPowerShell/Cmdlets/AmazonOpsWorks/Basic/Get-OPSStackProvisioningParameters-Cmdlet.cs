@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OPSStackProvisioningParameters")]
-    [OutputType("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResult")]
+    [OutputType("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse")]
     [AWSCmdlet("Invokes the DescribeStackProvisioningParameters operation against AWS OpsWorks.", Operation = new[] {"DescribeStackProvisioningParameters"})]
-    [AWSCmdletOutput("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResult",
-        "This cmdlet returns a DescribeStackProvisioningParametersResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse",
+        "This cmdlet returns a DescribeStackProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSStackProvisioningParametersCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {

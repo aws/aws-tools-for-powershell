@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ECS.Model.RunTaskResult")]
+    [OutputType("Amazon.ECS.Model.RunTaskResponse")]
     [AWSCmdlet("Invokes the RunTask operation against Amazon EC2 Container Service.", Operation = new[] {"RunTask"})]
-    [AWSCmdletOutput("Amazon.ECS.Model.RunTaskResult",
-        "This cmdlet returns a RunTaskResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ECS.Model.RunTaskResponse",
+        "This cmdlet returns a RunTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {

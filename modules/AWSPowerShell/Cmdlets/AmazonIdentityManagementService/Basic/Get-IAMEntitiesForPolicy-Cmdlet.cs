@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMEntitiesForPolicy")]
-    [OutputType("Amazon.IdentityManagement.Model.ListEntitiesForPolicyResult")]
+    [OutputType("Amazon.IdentityManagement.Model.ListEntitiesForPolicyResponse")]
     [AWSCmdlet("Invokes the ListEntitiesForPolicy operation against AWS Identity and Access Management.", Operation = new[] {"ListEntitiesForPolicy"})]
-    [AWSCmdletOutput("Amazon.IdentityManagement.Model.ListEntitiesForPolicyResult",
-        "This cmdlet returns a ListEntitiesForPolicyResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.ListEntitiesForPolicyResponse",
+        "This cmdlet returns a ListEntitiesForPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMEntitiesForPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

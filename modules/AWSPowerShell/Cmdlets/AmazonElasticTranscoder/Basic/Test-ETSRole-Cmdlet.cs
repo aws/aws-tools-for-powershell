@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </para>
     /// </summary>
     [Cmdlet("Test", "ETSRole")]
-    [OutputType("Amazon.ElasticTranscoder.Model.TestRoleResult")]
+    [OutputType("Amazon.ElasticTranscoder.Model.TestRoleResponse")]
     [AWSCmdlet("Invokes the TestRole operation against Amazon Elastic Transcoder.", Operation = new[] {"TestRole"})]
-    [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.TestRoleResult",
-        "This cmdlet returns a TestRoleResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.TestRoleResponse",
+        "This cmdlet returns a TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {

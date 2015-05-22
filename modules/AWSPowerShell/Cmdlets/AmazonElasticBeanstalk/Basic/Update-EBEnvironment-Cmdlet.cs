@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </para>
     /// </summary>
     [Cmdlet("Update", "EBEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResult")]
+    [OutputType("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse")]
     [AWSCmdlet("Invokes the UpdateEnvironment operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateEnvironment"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResult",
-        "This cmdlet returns a UpdateEnvironmentResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse",
+        "This cmdlet returns a UpdateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {

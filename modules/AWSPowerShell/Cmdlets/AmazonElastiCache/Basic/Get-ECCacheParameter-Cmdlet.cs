@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// a particular cache parameter group.
     /// </summary>
     [Cmdlet("Get", "ECCacheParameter")]
-    [OutputType("Amazon.ElastiCache.Model.DescribeCacheParametersResult")]
+    [OutputType("Amazon.ElastiCache.Model.DescribeCacheParametersResponse")]
     [AWSCmdlet("Invokes the DescribeCacheParameters operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheParameters"})]
-    [AWSCmdletOutput("Amazon.ElastiCache.Model.DescribeCacheParametersResult",
-        "This cmdlet returns a DescribeCacheParametersResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ElastiCache.Model.DescribeCacheParametersResponse",
+        "This cmdlet returns a DescribeCacheParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECCacheParameterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {

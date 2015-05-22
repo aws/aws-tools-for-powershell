@@ -31,12 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Encrypts data on the server side with a new customer master key without exposing the
     /// plaintext of the data on the client side. The data is first decrypted and then encrypted.
     /// This operation can also be used to change the encryption context of a ciphertext.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// Unlike other actions, <code>ReEncrypt</code> is authorized twice - once as <code>ReEncryptFrom</code>
+    /// on the source key and once as <code>ReEncryptTo</code> on the destination key. We
+    /// therefore recommend that you include the <code>"action":"kms:ReEncrypt*"</code> statement
+    /// in your key policies to permit re-encryption from or to the key. The statement is
+    /// included automatically when you authorize use of the key through the console but must
+    /// be included manually when you set a policy by using the <a>PutKeyPolicy</a> function.
+    /// 
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSReEncrypt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.KeyManagementService.Model.ReEncryptResult")]
+    [OutputType("Amazon.KeyManagementService.Model.ReEncryptResponse")]
     [AWSCmdlet("Invokes the ReEncrypt operation against AWS Key Management Service.", Operation = new[] {"ReEncrypt"})]
-    [AWSCmdletOutput("Amazon.KeyManagementService.Model.ReEncryptResult",
-        "This cmdlet returns a ReEncryptResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.ReEncryptResponse",
+        "This cmdlet returns a ReEncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeKMSReEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -58,7 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Key identifier of the key used to re-encrypt the data.</para>
+        /// <para>A unique identifier for the customer master key used to re-encrypt the data. This
+        /// value can be a globally unique identifier, a fully specified ARN to either an alias
+        /// or a key, or an alias name prefixed by "alias/". <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li><li>Alias
+        /// Name Example - alias/MyAliasName</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para> Grant tokens that identify the grants that have permissions for the encryption and
-        /// decryption process.</para>
+        /// <para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

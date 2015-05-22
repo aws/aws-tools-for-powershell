@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// logging times for each trail.
     /// </summary>
     [Cmdlet("Get", "CTTrailStatus")]
-    [OutputType("Amazon.CloudTrail.Model.GetTrailStatusResult")]
+    [OutputType("Amazon.CloudTrail.Model.GetTrailStatusResponse")]
     [AWSCmdlet("Invokes the GetTrailStatus operation against AWS CloudTrail.", Operation = new[] {"GetTrailStatus"})]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.GetTrailStatusResult",
-        "This cmdlet returns a GetTrailStatusResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.GetTrailStatusResponse",
+        "This cmdlet returns a GetTrailStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCTTrailStatusCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {

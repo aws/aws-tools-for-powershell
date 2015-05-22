@@ -1,0 +1,153 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.OpsWorks;
+using Amazon.OpsWorks.Model;
+
+namespace Amazon.PowerShell.Cmdlets.OPS
+{
+    /// <summary>
+    /// <note>This API can be used only with Windows stacks.</note><para>
+    /// Grants RDP access to a Windows instance for a specified time period.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Grant", "OPSAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.OpsWorks.Model.TemporaryCredential")]
+    [AWSCmdlet("Invokes the GrantAccess operation against AWS OpsWorks.", Operation = new[] {"GrantAccess"})]
+    [AWSCmdletOutput("Amazon.OpsWorks.Model.TemporaryCredential",
+        "This cmdlet returns a TemporaryCredential object.",
+        "The service call response (type GrantAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GrantOPSAccessCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The instance's AWS OpsWorks ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String InstanceId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The length of time (in minutes) that the grant is valid. When the grant expires at
+        /// the end of this period, the user will no longer be able to use the credentials to
+        /// log in. If the user is logged in at the time, he or she automatically will be logged
+        /// out.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ValidForInMinutes")]
+        public Int32 ValidForInMinute { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Grant-OPSAccess (GrantAccess)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.InstanceId = this.InstanceId;
+            if (ParameterWasBound("ValidForInMinute"))
+                context.ValidForInMinutes = this.ValidForInMinute;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new GrantAccessRequest();
+            
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.ValidForInMinutes != null)
+            {
+                request.ValidForInMinutes = cmdletContext.ValidForInMinutes.Value;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.GrantAccess(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.TemporaryCredential;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String InstanceId { get; set; }
+            public Int32? ValidForInMinutes { get; set; }
+        }
+        
+    }
+}

@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// request.
     /// </summary>
     [Cmdlet("Get", "SGGatewayInformation")]
-    [OutputType("Amazon.StorageGateway.Model.DescribeGatewayInformationResult")]
+    [OutputType("Amazon.StorageGateway.Model.DescribeGatewayInformationResponse")]
     [AWSCmdlet("Invokes the DescribeGatewayInformation operation against AWS Storage Gateway.", Operation = new[] {"DescribeGatewayInformation"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeGatewayInformationResult",
-        "This cmdlet returns a DescribeGatewayInformationResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeGatewayInformationResponse",
+        "This cmdlet returns a DescribeGatewayInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGGatewayInformationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

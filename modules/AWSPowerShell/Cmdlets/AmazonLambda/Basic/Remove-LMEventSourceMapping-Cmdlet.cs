@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.Lambda.Model.DeleteEventSourceMappingResult")]
+    [OutputType("Amazon.Lambda.Model.DeleteEventSourceMappingResponse")]
     [AWSCmdlet("Invokes the DeleteEventSourceMapping operation against Amazon Lambda.", Operation = new[] {"DeleteEventSourceMapping"})]
-    [AWSCmdletOutput("Amazon.Lambda.Model.DeleteEventSourceMappingResult",
-        "This cmdlet returns a DeleteEventSourceMappingResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Lambda.Model.DeleteEventSourceMappingResponse",
+        "This cmdlet returns a DeleteEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

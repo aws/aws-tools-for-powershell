@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The date and time, up to the current date, from which to stop retrieving the price
-        /// history data.</para>
+        /// history data, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// returned.</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>m1.small</code>).</para></li><li><para><code>product-description</code> - The product description for the Spot Price (<code>Linux/UNIX</code>
         /// | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code>
         /// | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</para></li><li><para><code>spot-price</code> - The Spot Price. The value must match exactly (or use wildcards;
-        /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The timestamp of the Spot Price history (for example, 2010-08-16T05:06:11.000Z).
-        /// You can use wildcards (* and ?). Greater than or less than comparison is not supported.</para></li></ul>
+        /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The timestamp of the Spot Price history, in UTC format (for
+        /// example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z). You can
+        /// use wildcards (* and ?). Greater than or less than comparison is not supported.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The date and time, up to the past 90 days, from which to start retrieving the price
-        /// history data.</para>
+        /// history data, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,10 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for the request in a single page. The remaining
-        /// results of the initial request can be seen by sending another request with the returned
-        /// <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code>
-        /// is given a value larger than 1000, only 1000 results are returned.</para>
+        /// <para>The maximum number of results to return in a single call. Specify a value between
+        /// 1 and 1000. The default value is 1000. To retrieve the remaining results, make another
+        /// call with the returned <code>NextToken</code> value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next page of results.</para>
+        /// <para>The token for the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

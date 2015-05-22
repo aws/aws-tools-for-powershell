@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// This operation returns the current status of an operation that is not completed.
     /// </summary>
     [Cmdlet("Get", "R53DOperationDetail")]
-    [OutputType("Amazon.Route53Domains.Model.GetOperationDetailResult")]
+    [OutputType("Amazon.Route53Domains.Model.GetOperationDetailResponse")]
     [AWSCmdlet("Invokes the GetOperationDetail operation against AWS Route 53 Domains.", Operation = new[] {"GetOperationDetail"})]
-    [AWSCmdletOutput("Amazon.Route53Domains.Model.GetOperationDetailResult",
-        "This cmdlet returns a GetOperationDetailResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Route53Domains.Model.GetOperationDetailResponse",
+        "This cmdlet returns a GetOperationDetailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53DOperationDetailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {

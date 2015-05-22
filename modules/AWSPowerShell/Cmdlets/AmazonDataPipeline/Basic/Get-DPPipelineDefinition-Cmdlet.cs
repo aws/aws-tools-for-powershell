@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// to retrieve the pipeline definition that you provided using <a>PutPipelineDefinition</a>.
     /// </summary>
     [Cmdlet("Get", "DPPipelineDefinition")]
-    [OutputType("Amazon.DataPipeline.Model.GetPipelineDefinitionResult")]
+    [OutputType("Amazon.DataPipeline.Model.GetPipelineDefinitionResponse")]
     [AWSCmdlet("Invokes the GetPipelineDefinition operation against AWS Data Pipeline.", Operation = new[] {"GetPipelineDefinition"})]
-    [AWSCmdletOutput("Amazon.DataPipeline.Model.GetPipelineDefinitionResult",
-        "This cmdlet returns a GetPipelineDefinitionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DataPipeline.Model.GetPipelineDefinitionResponse",
+        "This cmdlet returns a GetPipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

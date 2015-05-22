@@ -48,10 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </para>
     /// </summary>
     [Cmdlet("New", "DCInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.CreateInterconnectResult")]
+    [OutputType("Amazon.DirectConnect.Model.CreateInterconnectResponse")]
     [AWSCmdlet("Invokes the CreateInterconnect operation against AWS Direct Connect.", Operation = new[] {"CreateInterconnect"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateInterconnectResult",
-        "This cmdlet returns a CreateInterconnectResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateInterconnectResponse",
+        "This cmdlet returns a CreateInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Describes a specified task or tasks.
     /// </summary>
     [Cmdlet("Get", "ECSTaskDetail")]
-    [OutputType("Amazon.ECS.Model.DescribeTasksResult")]
+    [OutputType("Amazon.ECS.Model.DescribeTasksResponse")]
     [AWSCmdlet("Invokes the DescribeTasks operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeTasks"})]
-    [AWSCmdletOutput("Amazon.ECS.Model.DescribeTasksResult",
-        "This cmdlet returns a DescribeTasksResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ECS.Model.DescribeTasksResponse",
+        "This cmdlet returns a DescribeTasksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSTaskDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {

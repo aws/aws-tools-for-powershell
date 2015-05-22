@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// public services of AWS such as Amazon Simple Storage Service (Amazon S3).
     /// </summary>
     [Cmdlet("New", "DCPublicVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResult")]
+    [OutputType("Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResponse")]
     [AWSCmdlet("Invokes the CreatePublicVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"CreatePublicVirtualInterface"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResult",
-        "This cmdlet returns a CreatePublicVirtualInterfaceResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResponse",
+        "This cmdlet returns a CreatePublicVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

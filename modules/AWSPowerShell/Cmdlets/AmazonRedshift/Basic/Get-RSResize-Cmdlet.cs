@@ -40,10 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </para>
     /// </summary>
     [Cmdlet("Get", "RSResize")]
-    [OutputType("Amazon.Redshift.Model.DescribeResizeResult")]
+    [OutputType("Amazon.Redshift.Model.DescribeResizeResponse")]
     [AWSCmdlet("Invokes the DescribeResize operation against Amazon Redshift.", Operation = new[] {"DescribeResize"})]
-    [AWSCmdletOutput("Amazon.Redshift.Model.DescribeResizeResult",
-        "This cmdlet returns a DescribeResizeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Redshift.Model.DescribeResizeResponse",
+        "This cmdlet returns a DescribeResizeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRSResizeCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

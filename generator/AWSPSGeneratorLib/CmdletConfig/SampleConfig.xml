@@ -172,7 +172,7 @@
   <!-- TODO
   -->
   <ParamEmitters>
-    <ParamEmitter ParamType="List&lt;Amazon.SQS.Model.Attribute&gt;" EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonSQS.ListAttributesParamEmitter" />
+    <ParamEmitter ParamType="List&lt;Amazon.SQS.Model.Attribute&gt;" EmitterType="Generators.ParamEmitters.AmazonSQS.ListAttributesParamEmitter" />
   </ParamEmitters>
 
   <!-- ServiceOperations contains the set of api operations for the service, each

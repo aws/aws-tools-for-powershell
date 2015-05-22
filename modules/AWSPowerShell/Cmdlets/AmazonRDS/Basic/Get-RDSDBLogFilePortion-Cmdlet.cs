@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Downloads all or a portion of the specified log file.
     /// </summary>
     [Cmdlet("Get", "RDSDBLogFilePortion")]
-    [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResult")]
+    [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResponse")]
     [AWSCmdlet("Invokes the DownloadDBLogFilePortion operation against Amazon Relational Database Service.", Operation = new[] {"DownloadDBLogFilePortion"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.DownloadDBLogFilePortionResult",
-        "This cmdlet returns a DownloadDBLogFilePortionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.RDS.Model.DownloadDBLogFilePortionResponse",
+        "This cmdlet returns a DownloadDBLogFilePortionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRDSDBLogFilePortionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {

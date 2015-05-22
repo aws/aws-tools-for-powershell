@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// for the specified Amazon Redshift cluster.
     /// </summary>
     [Cmdlet("Get", "RSLoggingStatus")]
-    [OutputType("Amazon.Redshift.Model.DescribeLoggingStatusResult")]
+    [OutputType("Amazon.Redshift.Model.DescribeLoggingStatusResponse")]
     [AWSCmdlet("Invokes the DescribeLoggingStatus operation against Amazon Redshift.", Operation = new[] {"DescribeLoggingStatus"})]
-    [AWSCmdletOutput("Amazon.Redshift.Model.DescribeLoggingStatusResult",
-        "This cmdlet returns a DescribeLoggingStatusResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Redshift.Model.DescribeLoggingStatusResponse",
+        "This cmdlet returns a DescribeLoggingStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRSLoggingStatusCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {

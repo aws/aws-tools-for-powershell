@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Returns information about the specified OpenID Connect provider.
     /// </summary>
     [Cmdlet("Get", "IAMOpenIDConnectProvider")]
-    [OutputType("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResult")]
+    [OutputType("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse")]
     [AWSCmdlet("Invokes the GetOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"GetOpenIDConnectProvider"})]
-    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResult",
-        "This cmdlet returns a GetOpenIDConnectProviderResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse",
+        "This cmdlet returns a GetOpenIDConnectProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

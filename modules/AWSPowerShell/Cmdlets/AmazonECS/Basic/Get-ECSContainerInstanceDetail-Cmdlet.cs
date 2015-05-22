@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// registered and remaining resources on each container instance requested.
     /// </summary>
     [Cmdlet("Get", "ECSContainerInstanceDetail")]
-    [OutputType("Amazon.ECS.Model.DescribeContainerInstancesResult")]
+    [OutputType("Amazon.ECS.Model.DescribeContainerInstancesResponse")]
     [AWSCmdlet("Invokes the DescribeContainerInstances operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeContainerInstances"})]
-    [AWSCmdletOutput("Amazon.ECS.Model.DescribeContainerInstancesResult",
-        "This cmdlet returns a DescribeContainerInstancesResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ECS.Model.DescribeContainerInstancesResponse",
+        "This cmdlet returns a DescribeContainerInstancesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSContainerInstanceDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {

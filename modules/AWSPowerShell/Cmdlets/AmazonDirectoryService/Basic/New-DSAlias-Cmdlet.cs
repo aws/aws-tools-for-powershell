@@ -1,5 +1,5 @@
 /*******************************************************************************
- *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
  *
@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "DSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectoryService.Model.CreateAliasResult")]
+    [OutputType("Amazon.DirectoryService.Model.CreateAliasResponse")]
     [AWSCmdlet("Invokes the CreateAlias operation against AWS Directory Service.", Operation = new[] {"CreateAlias"})]
-    [AWSCmdletOutput("Amazon.DirectoryService.Model.CreateAliasResult",
-        "This cmdlet returns a CreateAliasResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.CreateAliasResponse",
+        "This cmdlet returns a CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDSAliasCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {

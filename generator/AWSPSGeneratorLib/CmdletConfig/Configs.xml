@@ -1,50 +1,52 @@
 <?xml version="1.0"?>
 <ConfigModelCollection>
 	<Configs>
-		<Path>AWSPowerShellGenerator.CmdletConfig.AutoScaling.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.AWSSupport.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.Beanstalk.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.CloudFormation.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.CloudFront.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.CloudSearch.xml</Path>
+    <!-- root namespace path will be set automatically -->
+		<Path>CmdletConfig.AutoScaling.xml</Path>
+		<Path>CmdletConfig.AWSSupport.xml</Path>
+		<Path>CmdletConfig.Beanstalk.xml</Path>
+		<Path>CmdletConfig.CloudFormation.xml</Path>
+    <Path>CmdletConfig.CloudFront.xml</Path>
+		<Path>CmdletConfig.CloudSearch.xml</Path>
 
 		<!--Cmdlets for this service are fully handwritten, as the client has non standard constructors.--> 
-		<!--<Path>AWSPowerShellGenerator.CmdletConfig.CloudSearchDomain.xml</Path>-->
+		<!--<Path>CmdletConfig.CloudSearchDomain.xml</Path>-->
 
-    <Path>AWSPowerShellGenerator.CmdletConfig.CloudTrail.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.CodeDeploy.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.ConfigService.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.CloudWatch.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.CloudWatchLogs.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.DataPipeline.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.DirectConnect.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.DynamoDB.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.EC2.xml</Path>
-  	<Path>AWSPowerShellGenerator.CmdletConfig.ECS.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.ElastiCache.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.ELB.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.EMR.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.ETS.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.HSM.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.IAM.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.ImportExport.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.KMS.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.Kinesis.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.Lambda.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.ML.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.OpsWorks.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.RDS.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.Redshift.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.Route53.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.Route53Domains.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.S3.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.SES.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.SNS.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.SSM.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.SQS.xml</Path>
-		<Path>AWSPowerShellGenerator.CmdletConfig.StorageGateway.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.STS.xml</Path>
-    <Path>AWSPowerShellGenerator.CmdletConfig.WKS.xml</Path>
+    <Path>CmdletConfig.CloudTrail.xml</Path>
+    <Path>CmdletConfig.CodeDeploy.xml</Path>
+    <Path>CmdletConfig.ConfigService.xml</Path>
+    <Path>CmdletConfig.CloudWatch.xml</Path>
+		<Path>CmdletConfig.CloudWatchLogs.xml</Path>
+		<Path>CmdletConfig.DataPipeline.xml</Path>
+		<Path>CmdletConfig.DirectConnect.xml</Path>
+		<Path>CmdletConfig.DirectoryService.xml</Path>
+		<Path>CmdletConfig.DynamoDB.xml</Path>
+		<Path>CmdletConfig.EC2.xml</Path>
+  	<Path>CmdletConfig.ECS.xml</Path>
+		<Path>CmdletConfig.ElastiCache.xml</Path>
+		<Path>CmdletConfig.ELB.xml</Path>
+		<Path>CmdletConfig.EMR.xml</Path>
+		<Path>CmdletConfig.ETS.xml</Path>
+    <Path>CmdletConfig.HSM.xml</Path>
+    <Path>CmdletConfig.IAM.xml</Path>
+		<Path>CmdletConfig.ImportExport.xml</Path>
+		<Path>CmdletConfig.KMS.xml</Path>
+		<Path>CmdletConfig.Kinesis.xml</Path>
+    <Path>CmdletConfig.Lambda.xml</Path>
+    <Path>CmdletConfig.ML.xml</Path>
+		<Path>CmdletConfig.OpsWorks.xml</Path>
+		<Path>CmdletConfig.RDS.xml</Path>
+		<Path>CmdletConfig.Redshift.xml</Path>
+		<Path>CmdletConfig.Route53.xml</Path>
+		<Path>CmdletConfig.Route53Domains.xml</Path>
+		<Path>CmdletConfig.S3.xml</Path>
+		<Path>CmdletConfig.SES.xml</Path>
+		<Path>CmdletConfig.SNS.xml</Path>
+    <Path>CmdletConfig.SSM.xml</Path>
+    <Path>CmdletConfig.SQS.xml</Path>
+		<Path>CmdletConfig.StorageGateway.xml</Path>
+    <Path>CmdletConfig.STS.xml</Path>
+    <Path>CmdletConfig.WKS.xml</Path>
 	</Configs>
 
 	<ClientNames>
@@ -62,6 +64,7 @@
 		<Map From="DC" To="AWS Direct Connect" />
 		<Map From="DDB" To="Amazon DynamoDB" />
 		<Map From="DP" To="AWS Data Pipeline" />
+		<Map From="DS" To="AWS Directory Service" />
 		<Map From="EC2" To="Amazon Elastic Compute Cloud" />
     <Map From="ECS" To="Amazon EC2 Container Service" />
 		<Map From="EC" To="Amazon ElastiCache" />

@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Describes a network interface attribute. You can specify only one attribute at a time.
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInterfaceAttribute")]
-    [OutputType("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResult")]
+    [OutputType("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse")]
     [AWSCmdlet("Invokes the DescribeNetworkInterfaceAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeNetworkInterfaceAttribute"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResult",
-        "This cmdlet returns a DescribeNetworkInterfaceAttributeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse",
+        "This cmdlet returns a DescribeNetworkInterfaceAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

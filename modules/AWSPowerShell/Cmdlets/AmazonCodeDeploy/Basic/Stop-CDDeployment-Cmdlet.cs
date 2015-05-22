@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// Attempts to stop an ongoing deployment.
     /// </summary>
     [Cmdlet("Stop", "CDDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeDeploy.Model.StopDeploymentResult")]
+    [OutputType("Amazon.CodeDeploy.Model.StopDeploymentResponse")]
     [AWSCmdlet("Invokes the StopDeployment operation against Amazon CodeDeploy.", Operation = new[] {"StopDeployment"})]
-    [AWSCmdletOutput("Amazon.CodeDeploy.Model.StopDeploymentResult",
-        "This cmdlet returns a StopDeploymentResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CodeDeploy.Model.StopDeploymentResponse",
+        "This cmdlet returns a StopDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

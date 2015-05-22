@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.GetBucketNotificationRequest.BucketName
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

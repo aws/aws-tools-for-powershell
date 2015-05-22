@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SGCache")]
-    [OutputType("Amazon.StorageGateway.Model.DescribeCacheResult")]
+    [OutputType("Amazon.StorageGateway.Model.DescribeCacheResponse")]
     [AWSCmdlet("Invokes the DescribeCache operation against AWS Storage Gateway.", Operation = new[] {"DescribeCache"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeCacheResult",
-        "This cmdlet returns a DescribeCacheResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeCacheResponse",
+        "This cmdlet returns a DescribeCacheResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGCacheCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

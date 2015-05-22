@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.DirectConnect.Model.DeleteConnectionResult")]
+    [OutputType("Amazon.DirectConnect.Model.DeleteConnectionResponse")]
     [AWSCmdlet("Invokes the DeleteConnection operation against AWS Direct Connect.", Operation = new[] {"DeleteConnection"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.DeleteConnectionResult",
-        "This cmdlet returns a DeleteConnectionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.DeleteConnectionResponse",
+        "This cmdlet returns a DeleteConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {

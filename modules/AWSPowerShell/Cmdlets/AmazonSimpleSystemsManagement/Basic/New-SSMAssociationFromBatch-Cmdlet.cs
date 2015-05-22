@@ -42,10 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMAssociationFromBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResult")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse")]
     [AWSCmdlet("Invokes the CreateAssociationBatch operation against Amazon Simple Systems Management.", Operation = new[] {"CreateAssociationBatch"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResult",
-        "This cmdlet returns a CreateAssociationBatchResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse",
+        "This cmdlet returns a CreateAssociationBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSSMAssociationFromBatchCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

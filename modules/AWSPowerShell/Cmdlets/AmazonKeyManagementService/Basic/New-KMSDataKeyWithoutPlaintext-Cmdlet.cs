@@ -28,14 +28,16 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Returns a key wrapped by a customer master key without the plaintext copy of that
-    /// key. To retrieve the plaintext, see <a>GenerateDataKey</a>.
+    /// Returns a data key encrypted by a customer master key without the plaintext copy of
+    /// that key. Otherwise, this API functions exactly like <a>GenerateDataKey</a>. You can
+    /// use this API to, for example, satisfy an audit requirement that an encrypted key be
+    /// made available without exposing the plaintext copy of that key.
     /// </summary>
     [Cmdlet("New", "KMSDataKeyWithoutPlaintext", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResult")]
+    [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse")]
     [AWSCmdlet("Invokes the GenerateDataKeyWithoutPlaintext operation against AWS Key Management Service.", Operation = new[] {"GenerateDataKeyWithoutPlaintext"})]
-    [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResult",
-        "This cmdlet returns a GenerateDataKeyWithoutPlaintextResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse",
+        "This cmdlet returns a GenerateDataKeyWithoutPlaintextResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSDataKeyWithoutPlaintextCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -50,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens that represent grants which can be used to provide long term
-        /// permissions to generate a key.</para>
+        /// <para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,7 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the key. This can be an ARN, an alias, or a globally unique identifier.</para>
+        /// <para>A unique identifier for the customer master key. This value can be a globally unique
+        /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
+        /// by "alias/". <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li><li>Alias
+        /// Name Example - alias/MyAliasName</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -78,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Integer that contains the number of bytes to generate. Common values are 128, 256,
-        /// 512, 1024 and so on. </para>
+        /// 512, 1024 and so on. We recommend that you use the <code>KeySpec</code> parameter
+        /// instead. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2SnapshotAttribute")]
-    [OutputType("Amazon.EC2.Model.DescribeSnapshotAttributeResult")]
+    [OutputType("Amazon.EC2.Model.DescribeSnapshotAttributeResponse")]
     [AWSCmdlet("Invokes the DescribeSnapshotAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSnapshotAttribute"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.DescribeSnapshotAttributeResult",
-        "This cmdlet returns a DescribeSnapshotAttributeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.DescribeSnapshotAttributeResponse",
+        "This cmdlet returns a DescribeSnapshotAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2SnapshotAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {

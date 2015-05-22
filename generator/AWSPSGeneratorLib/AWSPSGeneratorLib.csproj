@@ -69,6 +69,7 @@
     <Compile Include="Utils\Loggers.cs" />
     <Compile Include="Analysis\OperationAnalyzer.cs" />
     <Compile Include="Analysis\SupportsShouldProcessInspection.cs" />
+    <Compile Include="Utils\GenerationSources.cs" />
     <Compile Include="Writers\SourceCode\BaseSourceCodeWriter.cs" />
     <Compile Include="Writers\Help\BasePageWriter.cs" />
     <Compile Include="Writers\Help\BaseTemplateWriter.cs" />
@@ -95,15 +96,23 @@
     <Compile Include="Writers\StringConstants.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CmdletConfig\Configs.xml" />
+    <EmbeddedResource Include="CmdletConfig\Configs.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="CmdletConfig\DataPipeline.xml" />
     <EmbeddedResource Include="CmdletConfig\DynamoDB.xml" />
-    <EmbeddedResource Include="FormatConfig\Configs.xml" />
-    <EmbeddedResource Include="CmdletConfig\EC2.xml" />
+    <EmbeddedResource Include="FormatConfig\Configs.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CmdletConfig\EC2.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="CmdletConfig\ECS.xml" />
     <EmbeddedResource Include="CmdletConfig\Beanstalk.xml" />
     <EmbeddedResource Include="CmdletConfig\RDS.xml" />
-    <EmbeddedResource Include="CmdletConfig\S3.xml" />
+    <EmbeddedResource Include="CmdletConfig\S3.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="CmdletConfig\STS.xml" />
     <EmbeddedResource Include="CmdletConfig\AutoScaling.xml" />
     <EmbeddedResource Include="CmdletConfig\CloudFormation.xml" />
@@ -137,7 +146,10 @@
     <EmbeddedResource Include="CmdletConfig\KMS.xml" />
     <EmbeddedResource Include="CmdletConfig\HSM.xml" />
     <EmbeddedResource Include="CmdletConfig\ML.xml" />
-    <Content Include="CmdletConfig\SampleConfig.xml" />
+    <EmbeddedResource Include="CmdletConfig\DirectoryService.xml" />
+    <Content Include="CmdletConfig\SampleConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <EmbeddedResource Include="CmdletConfig\WKS.xml" />
   </ItemGroup>
   <ItemGroup>

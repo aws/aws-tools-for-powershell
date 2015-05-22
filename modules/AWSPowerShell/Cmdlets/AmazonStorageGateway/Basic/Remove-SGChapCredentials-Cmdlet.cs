@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// for a specified iSCSI target and initiator pair.
     /// </summary>
     [Cmdlet("Remove", "SGChapCredentials", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.StorageGateway.Model.DeleteChapCredentialsResult")]
+    [OutputType("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse")]
     [AWSCmdlet("Invokes the DeleteChapCredentials operation against AWS Storage Gateway.", Operation = new[] {"DeleteChapCredentials"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.DeleteChapCredentialsResult",
-        "This cmdlet returns a DeleteChapCredentialsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse",
+        "This cmdlet returns a DeleteChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {

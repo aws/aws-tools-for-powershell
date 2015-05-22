@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// Gets information about an application revision.
     /// </summary>
     [Cmdlet("Get", "CDApplicationRevision")]
-    [OutputType("Amazon.CodeDeploy.Model.GetApplicationRevisionResult")]
+    [OutputType("Amazon.CodeDeploy.Model.GetApplicationRevisionResponse")]
     [AWSCmdlet("Invokes the GetApplicationRevision operation against Amazon CodeDeploy.", Operation = new[] {"GetApplicationRevision"})]
-    [AWSCmdletOutput("Amazon.CodeDeploy.Model.GetApplicationRevisionResult",
-        "This cmdlet returns a GetApplicationRevisionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CodeDeploy.Model.GetApplicationRevisionResponse",
+        "This cmdlet returns a GetApplicationRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDApplicationRevisionCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {

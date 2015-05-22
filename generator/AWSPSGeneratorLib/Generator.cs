@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using System.IO;
 
@@ -26,7 +27,6 @@ namespace AWSPowerShellGenerator
         const string WebHelpBuildOutputSubFolder = "WebHelpDeployment";
 
         const string AWSPowerShellModuleName = "AWSPowerShell";
-        const string CmdletsSubFolder = "Cmdlets";
 
         /// <summary>
         /// How long the generation tasks took.
@@ -62,12 +62,7 @@ namespace AWSPowerShellGenerator
 
             var fqRootPath = Path.GetFullPath(options.RootPath);
 
-            var sdkAssembly = Path.GetFullPath(Path.Combine(options.SDKAssembliesFolder, "AWSSDK.dll"));
-            var sdkDocFile = Path.GetFullPath(Path.Combine(options.SDKAssembliesFolder, "AWSSDK.xml"));
-
-            var sdkDocumentation = new XmlDocument();
-            sdkDocumentation.Load(sdkDocFile);
-
+            var sdkAssembliesFolder = Path.GetFullPath(options.SDKAssembliesFolder);
             var awsPowerShellSourcePath = Path.Combine(fqRootPath, ModulesSubFolder, AWSPowerShellModuleName);
             var deploymentArtifactsPath = Path.Combine(fqRootPath, DeploymentArtifactsSubFolder);
 
@@ -77,9 +72,8 @@ namespace AWSPowerShellGenerator
 
                 var cmdletGenerator = new CmdletGenerator
                 {
-                    TargetAssembly = Assembly.LoadFrom(sdkAssembly),
+                    SdkAssembliesFolder = sdkAssembliesFolder,
                     OutputFolder = awsPowerShellSourcePath,
-                    AssemblyDocumentation = sdkDocumentation,
                     Options = options
                 };
                 cmdletGenerator.Generate();
@@ -91,22 +85,24 @@ namespace AWSPowerShellGenerator
                 return;
             }
 
-            string awsPsXmlPath = Path.Combine(awsPowerShellSourcePath, Path.Combine(BinSubFolder, AWSPowerShellModuleName + ".xml"));
-            string awsPsDllPath = Path.Combine(awsPowerShellSourcePath, Path.Combine(BinSubFolder, AWSPowerShellModuleName + ".dll"));
+            var awsPsXmlPath = Path.Combine(awsPowerShellSourcePath, Path.Combine(BinSubFolder, AWSPowerShellModuleName + ".xml"));
+            var awsPsDllPath = Path.Combine(awsPowerShellSourcePath, Path.Combine(BinSubFolder, AWSPowerShellModuleName + ".dll"));
+
+            var awsPowerShellAssembly = Assembly.LoadFrom(awsPsDllPath);
 
             if (options.ShouldRunTask(GeneratorTasknames.GenerateFormats))
             {
                 Console.WriteLine("Executing task 'GenerateFormats'");
 
+                var targetAssemblies = new List<Assembly> { awsPowerShellAssembly };
+                var sdkAssemblyFiles = Directory.GetFiles(sdkAssembliesFolder, "*.dll");
+                targetAssemblies.AddRange(sdkAssemblyFiles.Select(Assembly.LoadFrom));
+
                 var formatsGenerator = new FormatGenerator
                 {
                     OutputFolder = deploymentArtifactsPath,
                     Name = AWSPowerShellModuleName,
-                    TargetAssemblies = new List<Assembly>
-                {
-                    Assembly.LoadFrom(awsPsDllPath),
-                    Assembly.LoadFrom(sdkAssembly)
-                },
+                    TargetAssemblies = targetAssemblies,
                     Options = options
                 };
                 formatsGenerator.Generate();
@@ -120,7 +116,7 @@ namespace AWSPowerShellGenerator
                 cmdletDocumentation.Load(awsPsXmlPath);
                 var pshelpGenerator = new PsHelpGenerator
                 {
-                    CmdletAssembly = Assembly.LoadFrom(awsPsDllPath),
+                    CmdletAssembly = awsPowerShellAssembly,
                     AssemblyDocumentation = cmdletDocumentation,
                     Name = AWSPowerShellModuleName,
                     OutputFolder = deploymentArtifactsPath,
@@ -137,7 +133,7 @@ namespace AWSPowerShellGenerator
                 cmdletDocumentation.Load(awsPsXmlPath);
                 var webhelpGenerator = new WebHelpGenerator
                 {
-                    CmdletAssembly = Assembly.LoadFrom(awsPsDllPath),
+                    CmdletAssembly = awsPowerShellAssembly,
                     AssemblyDocumentation = cmdletDocumentation,
                     Name = AWSPowerShellModuleName,
                     OutputFolder = Path.Combine(fqRootPath, WebHelpBuildOutputSubFolder),

@@ -28,21 +28,38 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Encrypts plaintext into ciphertext by using a customer master key.
+    /// Encrypts plaintext into ciphertext by using a customer master key. The <code>Encrypt</code>
+    /// function has two primary use cases: <ul><li>You can encrypt up to 4 KB of arbitrary
+    /// data such as an RSA key, a database password, or other sensitive customer information.</li><li>If you are moving encrypted data from one region to another, you can use this
+    /// API to encrypt in the new region the plaintext data key that was used to encrypt the
+    /// data in the original region. This provides you with an encrypted copy of the data
+    /// key that can be decrypted in the new region and used there to decrypt the encrypted
+    /// data. </li></ul><para>
+    /// Unless you are moving encrypted data from one region to another, you don't use this
+    /// function to encrypt a generated data key within a region. You retrieve data keys already
+    /// encrypted by calling the <a>GenerateDataKey</a> or <a>GenerateDataKeyWithoutPlaintext</a>
+    /// function. Data keys don't need to be encrypted again by calling <code>Encrypt</code>.
+    /// 
+    /// </para><para>
+    /// If you want to encrypt data locally in your application, you can use the <code>GenerateDataKey</code>
+    /// function to return a plaintext data encryption key and a copy of the key encrypted
+    /// under the customer master key (CMK) of your choosing. 
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSEncrypt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.KeyManagementService.Model.EncryptResult")]
+    [OutputType("Amazon.KeyManagementService.Model.EncryptResponse")]
     [AWSCmdlet("Invokes the Encrypt operation against AWS Key Management Service.", Operation = new[] {"Encrypt"})]
-    [AWSCmdletOutput("Amazon.KeyManagementService.Model.EncryptResult",
-        "This cmdlet returns a EncryptResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.EncryptResponse",
+        "This cmdlet returns a EncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeKMSEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Name:value pair that specifies the encryption context to be used for authenticated
-        /// encryption. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/crypto_authen.html">Authenticated
-        /// Encryption</a>. </para>
+        /// <para>Name/value pair that specifies the encryption context to be used for authenticated
+        /// encryption. If used here, the same value must be supplied to the <code>Decrypt</code>
+        /// API or decryption will fail. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html">Encryption
+        /// Context</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -50,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>A list of grant tokens that represent grants which can be used to provide long term
-        /// permissions to perform encryption.</para>
+        /// <para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,8 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the customer master. This can be an ARN, an alias, or the Key
-        /// ID. </para>
+        /// <para>A unique identifier for the customer master key. This value can be a globally unique
+        /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
+        /// by "alias/". <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li><li>Alias
+        /// Name Example - alias/MyAliasName</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

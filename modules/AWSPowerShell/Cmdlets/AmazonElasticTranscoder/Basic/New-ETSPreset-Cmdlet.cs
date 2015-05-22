@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </para>
     /// </summary>
     [Cmdlet("New", "ETSPreset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticTranscoder.Model.CreatePresetResult")]
+    [OutputType("Amazon.ElasticTranscoder.Model.CreatePresetResponse")]
     [AWSCmdlet("Invokes the CreatePreset operation against Amazon Elastic Transcoder.", Operation = new[] {"CreatePreset"})]
-    [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.CreatePresetResult",
-        "This cmdlet returns a CreatePresetResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.CreatePresetResponse",
+        "This cmdlet returns a CreatePresetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
@@ -82,6 +82,77 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         /// <summary>
         /// <para>
+        /// <para>The method of organizing audio channels and tracks. Use <code>Audio:Channels</code>
+        /// to specify the number of channels in your output, and <code>Audio:AudioPackingMode</code>
+        /// to specify the number of tracks and their relation to the channels. If you do not
+        /// specify an <code>Audio:AudioPackingMode</code>, Elastic Transcoder uses <code>SingleTrack</code>.</para><para>The following values are valid:</para><para><code>SingleTrack</code>, <code>OneChannelPerTrack</code>, and <code>OneChannelPerTrackWithMosTo8Tracks</code></para><para>When you specify <code>SingleTrack</code>, Elastic Transcoder creates a single track
+        /// for your output. The track can have up to eight channels. Use <code>SingleTrack</code>
+        /// for all non-<code>mxf</code> containers.</para><para>The outputs of <code>SingleTrack</code> for a specific channel value and inputs are
+        /// as follows:</para><ul><li><code>0</code><b> channels with any input:</b> Audio omitted from the
+        /// output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b>
+        /// Audio omitted from the output</li><li><code>1 </code><b>channel with any input
+        /// with audio:</b> One track with one channel, downmixed if necessary</li><li><code>2
+        /// </code><b>channels with one track with one channel:</b> One track with two identical
+        /// channels</li><li><code>2 or auto </code><b>channels with two tracks with one channel
+        /// each:</b> One track with two channels</li><li><code>2 or auto </code><b>channels
+        /// with one track with two channels:</b> One track with two channels</li><li><code>2
+        /// </code><b>channels with one track with multiple channels:</b> One track with two
+        /// channels</li><li><code>auto </code><b>channels with one track with one channel:</b>
+        /// One track with one channel</li><li><code>auto </code><b>channels with one track
+        /// with multiple channels:</b> One track with multiple channels</li></ul><para>When you specify <code>OneChannelPerTrack</code>, Elastic Transcoder creates a new
+        /// track for every channel in your output. Your output can have up to eight single-channel
+        /// tracks.</para><para>The outputs of <code>OneChannelPerTrack</code> for a specific channel value and inputs
+        /// are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the
+        /// output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b>
+        /// Audio omitted from the output</li><li><code>1 </code><b>channel with any input
+        /// with audio:</b> One track with one channel, downmixed if necessary</li><li><code>2
+        /// </code><b>channels with one track with one channel:</b> Two tracks with one identical
+        /// channel each</li><li><code>2 or auto </code><b>channels with two tracks with one
+        /// channel each:</b> Two tracks with one channel each</li><li><code>2 or auto </code><b>channels with one track with two channels:</b> Two tracks with one channel each</li><li><code>2 </code><b>channels with one track with multiple channels:</b> Two tracks
+        /// with one channel each</li><li><code>auto </code><b>channels with one track with
+        /// one channel:</b> One track with one channel</li><li><code>auto </code><b>channels
+        /// with one track with multiple channels:</b> Up to eight tracks with one channel each</li></ul><para>When you specify <code>OneChannelPerTrackWithMosTo8Tracks</code>, Elastic Transcoder
+        /// creates eight single-channel tracks for your output. All tracks that do not contain
+        /// audio data from an input channel are MOS, or Mit Out Sound, tracks.</para><para>The outputs of <code>OneChannelPerTrackWithMosTo8Tracks</code> for a specific channel
+        /// value and inputs are as follows:</para><ul><li><code>0 </code><b>channels with any input:</b> Audio omitted from the
+        /// output</li><li><code>1, 2, or auto </code><b>channels with no audio input:</b>
+        /// Audio omitted from the output</li><li><code>1 </code><b>channel with any input
+        /// with audio:</b> One track with one channel, downmixed if necessary, plus six MOS tracks</li><li><code>2 </code><b>channels with one track with one channel:</b> Two tracks with
+        /// one identical channel each, plus six MOS tracks</li><li><code>2 or auto </code><b>channels with two tracks with one channel each:</b> Two tracks with one channel
+        /// each, plus six MOS tracks</li><li><code>2 or auto </code><b>channels with one track
+        /// with two channels:</b> Two tracks with one channel each, plus six MOS tracks</li><li><code>2 </code><b>channels with one track with multiple channels:</b> Two tracks
+        /// with one channel each, plus six MOS tracks</li><li><code>auto </code><b>channels
+        /// with one track with one channel:</b> One track with one channel, plus seven MOS tracks</li><li><code>auto </code><b>channels with one track with multiple channels:</b> Up
+        /// to eight tracks with one channel each, plus MOS tracks until there are eight tracks
+        /// in all</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String Audio_AudioPackingMode { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>You can only choose an audio bit depth when you specify <code>flac</code> or <code>pcm</code>
+        /// for the value of Audio:Codec.</para><para>The bit depth of a sample is how many bits of information are included in the audio
+        /// samples. The higher the bit depth, the better the audio, but the larger the file.</para><para>Valid values are <code>16</code> and <code>24</code>.</para><para>The most common bit depth is <code>24</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Audio_CodecOptions_BitDepth")]
+        public String CodecOptions_BitDepth { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>You can only choose an audio bit order when you specify <code>pcm</code> for the value
+        /// of Audio:Codec.</para><para>The order the bits of a PCM sample are stored in.</para><para>The supported value is <code>LittleEndian</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Audio_CodecOptions_BitOrder")]
+        public String CodecOptions_BitOrder { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The bit rate of the audio stream in the output file, in kilobits/second. Enter an
         /// integer between 64 and 320, inclusive.</para>
         /// </para>
@@ -108,8 +179,17 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         /// <summary>
         /// <para>
-        /// <para>The number of audio channels in the output file. Valid values include:</para><para><code>auto</code>, <code>0</code>, <code>1</code>, <code>2</code></para><para>If you specify <code>auto</code>, Elastic Transcoder automatically detects the number
-        /// of channels in the input file.</para>
+        /// <para>The number of audio channels in the output file. The following values are valid:</para><para><code>auto</code>, <code>0</code>, <code>1</code>, <code>2</code></para><para>One channel carries the information played by a single speaker. For example, a stereo
+        /// track with two channels sends one channel to the left speaker, and the other channel
+        /// to the right speaker. The output channels are organized into tracks. If you want Elastic
+        /// Transcoder to automatically detect the number of audio channels in the input file
+        /// and use that value for the output file, select <code>auto</code>.</para><para>The output of a specific channel value and inputs are as follows:</para><ul><li><code>auto</code><b> channel specified, with any input:</b> Pass through
+        /// up to eight input channels.</li><li><code>0</code><b> channels specified, with any
+        /// input:</b> Audio omitted from the output.</li><li><code>1</code><b> channel specified,
+        /// with at least one input channel:</b> Mono sound.</li><li><code>2</code><b> channels
+        /// specified, with any input:</b> Two identical mono channels or stereo. For more information
+        /// about tracks, see <code>Audio:AudioPackingMode.</code></li></ul><para> For more information about how Elastic Transcoder organizes channels and tracks,
+        /// see <code>Audio:AudioPackingMode</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         /// <summary>
         /// <para>
-        /// <para>The audio codec for the output file. Valid values include <code>aac</code>, <code>mp2</code>,
-        /// <code>mp3</code>, and <code>vorbis</code>.</para>
+        /// <para>The audio codec for the output file. Valid values include <code>aac</code>, <code>flac</code>,
+        /// <code>mp2</code>, <code>mp3</code>, <code>pcm</code>, and <code>vorbis</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -196,9 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         /// <summary>
         /// <para>
-        /// <para>The container type for the output file. Valid values include <code>flv</code>, <code>fmp4</code>,
-        /// <code>gif</code>, <code>mp3</code>, <code>mp4</code>, <code>mpg</code>, <code>ogg</code>,
-        /// <code>ts</code>, and <code>webm</code>.</para>
+        /// <para>The container type for the output file. Valid values include <code>flac</code>, <code>flv</code>,
+        /// <code>fmp4</code>, <code>gif</code>, <code>mp3</code>, <code>mp4</code>, <code>mpg</code>,
+        /// <code>mxf</code>, <code>oga</code>, <code>ogg</code>, <code>ts</code>, and <code>webm</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -431,6 +511,17 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         /// <summary>
         /// <para>
+        /// <para>You can only choose whether an audio sample is signed when you specify <code>pcm</code>
+        /// for the value of Audio:Codec.</para><para>Whether audio samples are represented with negative and positive numbers (signed)
+        /// or only positive numbers (unsigned).</para><para>The supported value is <code>Signed</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Audio_CodecOptions_Signed")]
+        public String CodecOptions_Signed { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>Specify one of the following values to control scaling of thumbnails:</para><para><ul><li><code>Fit</code>: Elastic Transcoder scales thumbnails so they match the
         /// value that you specified in thumbnail MaxWidth or MaxHeight settings without exceeding
         /// the other value. </li><li><code>Fill</code>: Elastic Transcoder scales thumbnails
@@ -525,10 +616,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 Credentials = this.CurrentCredentials
             };
             
+            context.Audio_AudioPackingMode = this.Audio_AudioPackingMode;
             context.Audio_BitRate = this.Audio_BitRate;
             context.Audio_Channels = this.Audio_Channel;
             context.Audio_Codec = this.Audio_Codec;
+            context.Audio_CodecOptions_BitDepth = this.CodecOptions_BitDepth;
+            context.Audio_CodecOptions_BitOrder = this.CodecOptions_BitOrder;
             context.Audio_CodecOptions_Profile = this.CodecOptions_Profile;
+            context.Audio_CodecOptions_Signed = this.CodecOptions_Signed;
             context.Audio_SampleRate = this.Audio_SampleRate;
             context.Container = this.Container;
             context.Description = this.Description;
@@ -583,6 +678,16 @@ namespace Amazon.PowerShell.Cmdlets.ETS
              // populate Audio
             bool requestAudioIsNull = true;
             request.Audio = new AudioParameters();
+            String requestAudio_audio_AudioPackingMode = null;
+            if (cmdletContext.Audio_AudioPackingMode != null)
+            {
+                requestAudio_audio_AudioPackingMode = cmdletContext.Audio_AudioPackingMode;
+            }
+            if (requestAudio_audio_AudioPackingMode != null)
+            {
+                request.Audio.AudioPackingMode = requestAudio_audio_AudioPackingMode;
+                requestAudioIsNull = false;
+            }
             String requestAudio_audio_BitRate = null;
             if (cmdletContext.Audio_BitRate != null)
             {
@@ -628,6 +733,26 @@ namespace Amazon.PowerShell.Cmdlets.ETS
              // populate CodecOptions
             bool requestAudio_audio_CodecOptionsIsNull = true;
             requestAudio_audio_CodecOptions = new AudioCodecOptions();
+            String requestAudio_audio_CodecOptions_codecOptions_BitDepth = null;
+            if (cmdletContext.Audio_CodecOptions_BitDepth != null)
+            {
+                requestAudio_audio_CodecOptions_codecOptions_BitDepth = cmdletContext.Audio_CodecOptions_BitDepth;
+            }
+            if (requestAudio_audio_CodecOptions_codecOptions_BitDepth != null)
+            {
+                requestAudio_audio_CodecOptions.BitDepth = requestAudio_audio_CodecOptions_codecOptions_BitDepth;
+                requestAudio_audio_CodecOptionsIsNull = false;
+            }
+            String requestAudio_audio_CodecOptions_codecOptions_BitOrder = null;
+            if (cmdletContext.Audio_CodecOptions_BitOrder != null)
+            {
+                requestAudio_audio_CodecOptions_codecOptions_BitOrder = cmdletContext.Audio_CodecOptions_BitOrder;
+            }
+            if (requestAudio_audio_CodecOptions_codecOptions_BitOrder != null)
+            {
+                requestAudio_audio_CodecOptions.BitOrder = requestAudio_audio_CodecOptions_codecOptions_BitOrder;
+                requestAudio_audio_CodecOptionsIsNull = false;
+            }
             String requestAudio_audio_CodecOptions_codecOptions_Profile = null;
             if (cmdletContext.Audio_CodecOptions_Profile != null)
             {
@@ -636,6 +761,16 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             if (requestAudio_audio_CodecOptions_codecOptions_Profile != null)
             {
                 requestAudio_audio_CodecOptions.Profile = requestAudio_audio_CodecOptions_codecOptions_Profile;
+                requestAudio_audio_CodecOptionsIsNull = false;
+            }
+            String requestAudio_audio_CodecOptions_codecOptions_Signed = null;
+            if (cmdletContext.Audio_CodecOptions_Signed != null)
+            {
+                requestAudio_audio_CodecOptions_codecOptions_Signed = cmdletContext.Audio_CodecOptions_Signed;
+            }
+            if (requestAudio_audio_CodecOptions_codecOptions_Signed != null)
+            {
+                requestAudio_audio_CodecOptions.Signed = requestAudio_audio_CodecOptions_codecOptions_Signed;
                 requestAudio_audio_CodecOptionsIsNull = false;
             }
              // determine if requestAudio_audio_CodecOptions should be set to null
@@ -948,10 +1083,14 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
+            public String Audio_AudioPackingMode { get; set; }
             public String Audio_BitRate { get; set; }
             public String Audio_Channels { get; set; }
             public String Audio_Codec { get; set; }
+            public String Audio_CodecOptions_BitDepth { get; set; }
+            public String Audio_CodecOptions_BitOrder { get; set; }
             public String Audio_CodecOptions_Profile { get; set; }
+            public String Audio_CodecOptions_Signed { get; set; }
             public String Audio_SampleRate { get; set; }
             public String Container { get; set; }
             public String Description { get; set; }

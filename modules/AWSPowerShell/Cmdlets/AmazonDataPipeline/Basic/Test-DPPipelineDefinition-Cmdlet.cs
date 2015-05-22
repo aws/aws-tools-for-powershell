@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// be run without error.
     /// </summary>
     [Cmdlet("Test", "DPPipelineDefinition")]
-    [OutputType("Amazon.DataPipeline.Model.ValidatePipelineDefinitionResult")]
+    [OutputType("Amazon.DataPipeline.Model.ValidatePipelineDefinitionResponse")]
     [AWSCmdlet("Invokes the ValidatePipelineDefinition operation against AWS Data Pipeline.", Operation = new[] {"ValidatePipelineDefinition"})]
-    [AWSCmdletOutput("Amazon.DataPipeline.Model.ValidatePipelineDefinitionResult",
-        "This cmdlet returns a ValidatePipelineDefinitionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.DataPipeline.Model.ValidatePipelineDefinitionResponse",
+        "This cmdlet returns a ValidatePipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class TestDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Common
         protected const string AWSPowerShellAppDataSubPath = @"AWSPowerShell";
 
         // update user agent string for current process
-        internal static string CurrentUserAgentValue = null;
+        internal static bool AWSPowerShellUserAgentSet;
 
         // the max number of items to use in a confirmation prompt, to avoid
         // a wall of text
@@ -285,8 +285,11 @@ namespace Amazon.PowerShell.Common
         {
             base.BeginProcessing();
 
-            if (CurrentUserAgentValue == null)
-                CurrentUserAgentValue = Utils.Common.GetUserAgent(Host.Version);
+            if (!AWSPowerShellUserAgentSet)
+            {
+                Utils.Common.SetAWSPowerShellUserAgent(Host.Version);
+                AWSPowerShellUserAgentSet = true;
+            }
 
             // wanted to emit just the stack, or copy of it (to prevent modification) but if we do that,
             // we see only the Count of entries, not the actual content - need to figure out

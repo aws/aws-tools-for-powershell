@@ -1,0 +1,309 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.EC2;
+using Amazon.EC2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC2
+{
+    /// <summary>
+    /// Creates a Spot fleet request.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html">Spot
+    /// Fleets</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Request", "EC2SpotFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Invokes the RequestSpotFleet operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RequestSpotFleet"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type RequestSpotFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class RequestEC2SpotFleetCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier you provide to ensure idempotency of your listings.
+        /// This helps avoid duplicate listings. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String SpotFleetRequestConfig_ClientToken { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Grants the Spot fleet service permission to terminate instances on your behalf when
+        /// you cancel a Spot fleet request using <a>CancelSpotFleetRequests</a> or when the Spot
+        /// fleet request expires, if you set <code>terminateInstancesWithExpiration</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String SpotFleetRequestConfig_IamFleetRole { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Information about the launch specifications for the instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SpotFleetRequestConfig_LaunchSpecifications")]
+        public Amazon.EC2.Model.LaunchSpecification[] SpotFleetRequestConfig_LaunchSpecification { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The maximum hourly price (bid) for any Spot Instance launched to fulfill the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String SpotFleetRequestConfig_SpotPrice { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of Spot Instances to launch.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 SpotFleetRequestConfig_TargetCapacity { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether running instances should be terminated when the Spot fleet request
+        /// expires.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// The default is to start fulfilling the request immediately.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public DateTime SpotFleetRequestConfig_ValidFrom { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// At this point, no new Spot Instance requests are placed or enabled to fulfill the
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public DateTime SpotFleetRequestConfig_ValidUntil { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SpotFleetRequestConfig_SpotPrice", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-EC2SpotFleet (RequestSpotFleet)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.SpotFleetRequestConfig_ClientToken = this.SpotFleetRequestConfig_ClientToken;
+            context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
+            if (this.SpotFleetRequestConfig_LaunchSpecification != null)
+            {
+                context.SpotFleetRequestConfig_LaunchSpecifications = new List<LaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
+            }
+            context.SpotFleetRequestConfig_SpotPrice = this.SpotFleetRequestConfig_SpotPrice;
+            if (ParameterWasBound("SpotFleetRequestConfig_TargetCapacity"))
+                context.SpotFleetRequestConfig_TargetCapacity = this.SpotFleetRequestConfig_TargetCapacity;
+            if (ParameterWasBound("SpotFleetRequestConfig_TerminateInstancesWithExpiration"))
+                context.SpotFleetRequestConfig_TerminateInstancesWithExpiration = this.SpotFleetRequestConfig_TerminateInstancesWithExpiration;
+            if (ParameterWasBound("SpotFleetRequestConfig_ValidFrom"))
+                context.SpotFleetRequestConfig_ValidFrom = this.SpotFleetRequestConfig_ValidFrom;
+            if (ParameterWasBound("SpotFleetRequestConfig_ValidUntil"))
+                context.SpotFleetRequestConfig_ValidUntil = this.SpotFleetRequestConfig_ValidUntil;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new RequestSpotFleetRequest();
+            
+            
+             // populate SpotFleetRequestConfig
+            bool requestSpotFleetRequestConfigIsNull = true;
+            request.SpotFleetRequestConfig = new SpotFleetRequestConfigData();
+            String requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken = null;
+            if (cmdletContext.SpotFleetRequestConfig_ClientToken != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken = cmdletContext.SpotFleetRequestConfig_ClientToken;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken != null)
+            {
+                request.SpotFleetRequestConfig.ClientToken = requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            String requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole = null;
+            if (cmdletContext.SpotFleetRequestConfig_IamFleetRole != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole = cmdletContext.SpotFleetRequestConfig_IamFleetRole;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole != null)
+            {
+                request.SpotFleetRequestConfig.IamFleetRole = requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            List<LaunchSpecification> requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification = null;
+            if (cmdletContext.SpotFleetRequestConfig_LaunchSpecifications != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification = cmdletContext.SpotFleetRequestConfig_LaunchSpecifications;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification != null)
+            {
+                request.SpotFleetRequestConfig.LaunchSpecifications = requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            String requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotPrice = null;
+            if (cmdletContext.SpotFleetRequestConfig_SpotPrice != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotPrice = cmdletContext.SpotFleetRequestConfig_SpotPrice;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotPrice != null)
+            {
+                request.SpotFleetRequestConfig.SpotPrice = requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotPrice;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            Int32? requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacity = null;
+            if (cmdletContext.SpotFleetRequestConfig_TargetCapacity != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacity = cmdletContext.SpotFleetRequestConfig_TargetCapacity.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacity != null)
+            {
+                request.SpotFleetRequestConfig.TargetCapacity = requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacity.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            Boolean? requestSpotFleetRequestConfig_spotFleetRequestConfig_TerminateInstancesWithExpiration = null;
+            if (cmdletContext.SpotFleetRequestConfig_TerminateInstancesWithExpiration != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_TerminateInstancesWithExpiration = cmdletContext.SpotFleetRequestConfig_TerminateInstancesWithExpiration.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_TerminateInstancesWithExpiration != null)
+            {
+                request.SpotFleetRequestConfig.TerminateInstancesWithExpiration = requestSpotFleetRequestConfig_spotFleetRequestConfig_TerminateInstancesWithExpiration.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            DateTime? requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom = null;
+            if (cmdletContext.SpotFleetRequestConfig_ValidFrom != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom = cmdletContext.SpotFleetRequestConfig_ValidFrom.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom != null)
+            {
+                request.SpotFleetRequestConfig.ValidFrom = requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidFrom.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            DateTime? requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil = null;
+            if (cmdletContext.SpotFleetRequestConfig_ValidUntil != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil = cmdletContext.SpotFleetRequestConfig_ValidUntil.Value;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil != null)
+            {
+                request.SpotFleetRequestConfig.ValidUntil = requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil.Value;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+             // determine if request.SpotFleetRequestConfig should be set to null
+            if (requestSpotFleetRequestConfigIsNull)
+            {
+                request.SpotFleetRequestConfig = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.RequestSpotFleet(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String SpotFleetRequestConfig_ClientToken { get; set; }
+            public String SpotFleetRequestConfig_IamFleetRole { get; set; }
+            public List<LaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
+            public String SpotFleetRequestConfig_SpotPrice { get; set; }
+            public Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }
+            public Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
+            public DateTime? SpotFleetRequestConfig_ValidFrom { get; set; }
+            public DateTime? SpotFleetRequestConfig_ValidUntil { get; set; }
+        }
+        
+    }
+}

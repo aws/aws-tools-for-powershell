@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// You can use the <a>DescribeStream</a> operation to check the state of the stream,
     /// which is returned in <code>StreamStatus</code>.
-    /// </para><para><code>DeleteStream</code> has a limit of 5 transactions per second per account.
+    /// </para><para><a>DeleteStream</a> has a limit of 5 transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KINStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

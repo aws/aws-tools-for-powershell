@@ -13,14 +13,19 @@
     -->
 	
     <PropertyGroup>
+        <!-- perform a release build by default -->
+        <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+        
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
 
         <!-- the relative location (to the project file) of the generator executable -->
-        <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\Release</GeneratorPath>
+        <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\$(Configuration)</GeneratorPath>
         <Generator>AWSPSGenerator.exe</Generator>
         
-        <!-- location to fetch SDK assemblies from (default is the public repo, expected to be a sibling folder) - we place into SDKAssembliesFolder for the generator to consume -->
+        <!-- location to fetch SDK assemblies from (default is the public repo, expected to be a sibling folder) - we place into
+             local SDKAssembliesFolder for the generator to consume 
+        -->
         <SDKArtifactsLocation Condition="'$(SDKArtifactsLocation)'==''">$(RootPath)\..\AWSDotNetPublic\Deployment\sdk\assemblies\net35</SDKArtifactsLocation>
         
         <!-- expected location of SDK assemblies to be consumed by generator -->
@@ -30,7 +35,7 @@
         <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
         
         <!-- build log containing results of generator analysis of service operations -->
-        <CmdletAnalysisLog Condition="'$(CmdletAnalysisLog)'==''">$(RootPath)\buildlogs\CmdletAnalysis.log</CmdletAnalysisLog>
+        <CmdletAnalysisLog Condition="'$(CmdletAnalysisLog)'==''">$(RootPath)\logs\CmdletAnalysis.log</CmdletAnalysisLog>
         
         <!-- default to build break if analysis of cmdlet output does not match service operation configuration -->
         <BreakOnOutputMismatchError Condition="'$(BreakOnOutputMismatchError)'==''">true</BreakOnOutputMismatchError>
@@ -45,13 +50,17 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="build-generator;get-sdk;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
+            DependsOnTargets="clean-deployment;build-generator;get-sdk;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
+    <Target Name="clean-deployment">
+        <RemoveDir Directories="$(Deployment)" />
+    </Target>
+    
     <Target Name="build-generator">
 		<Message Text="Building AWS PowerShell generator"/>
-		<Exec Command="$(devenv2013) /Rebuild Release ..\AWSPowerShellGenerator.sln"/>
+		<Exec Command="$(devenv2013) /Rebuild $(Configuration) ..\AWSPowerShellGenerator.sln"/>
     </Target>
     
     <Target Name="get-sdk">
@@ -126,12 +135,13 @@
 		<Message Text="Consolidating build artifacts"/>
 
         <ItemGroup>
-            <SDKAssemblies Include="$(SDKAssembliesFolder)\*.dll" />
+            <SDKAssemblies Include="$(SDKAssembliesFolder)\*.dll" 
+                           Exclude="$(SDKAssembliesFolder)\*.Glacier.dll"/>
         </ItemGroup>
         
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
             DestinationFolder="$(Deployment)"/>
-        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.dll"
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\bin\$(Configuration)\AWSPowerShell.dll"
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
             DestinationFolder="$(Deployment)"/>

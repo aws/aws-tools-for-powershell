@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// Deletes a real time endpoint of an <code>MLModel</code>.
     /// </summary>
     [Cmdlet("Remove", "MLRealtimeEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.MachineLearning.Model.DeleteRealtimeEndpointResult")]
+    [OutputType("Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse")]
     [AWSCmdlet("Invokes the DeleteRealtimeEndpoint operation against Amazon Machine Learning.", Operation = new[] {"DeleteRealtimeEndpoint"})]
-    [AWSCmdletOutput("Amazon.MachineLearning.Model.DeleteRealtimeEndpointResult",
-        "This cmdlet returns a DeleteRealtimeEndpointResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse",
+        "This cmdlet returns a DeleteRealtimeEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveMLRealtimeEndpointCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {

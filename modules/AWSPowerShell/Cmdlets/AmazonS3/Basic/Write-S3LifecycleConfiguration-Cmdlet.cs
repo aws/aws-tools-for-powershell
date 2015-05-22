@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.LifecycleConfiguration.Rules
+        /// These rules defined the lifecycle configuration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

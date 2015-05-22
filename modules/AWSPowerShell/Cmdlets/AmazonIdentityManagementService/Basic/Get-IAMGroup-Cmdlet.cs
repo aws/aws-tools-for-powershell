@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// using the <code>MaxItems</code> and <code>Marker</code> parameters.
     /// </summary>
     [Cmdlet("Get", "IAMGroup")]
-    [OutputType("Amazon.IdentityManagement.Model.GetGroupResult")]
+    [OutputType("Amazon.IdentityManagement.Model.GetGroupResponse")]
     [AWSCmdlet("Invokes the GetGroup operation against AWS Identity and Access Management.", Operation = new[] {"GetGroup"})]
-    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetGroupResult",
-        "This cmdlet returns a GetGroupResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetGroupResponse",
+        "This cmdlet returns a GetGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {

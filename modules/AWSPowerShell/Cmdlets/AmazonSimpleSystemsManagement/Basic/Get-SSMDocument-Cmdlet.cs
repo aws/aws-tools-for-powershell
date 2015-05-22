@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Gets the contents of the specified configuration document.
     /// </summary>
     [Cmdlet("Get", "SSMDocument")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.GetDocumentResult")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.GetDocumentResponse")]
     [AWSCmdlet("Invokes the GetDocument operation against Amazon Simple Systems Management.", Operation = new[] {"GetDocument"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDocumentResult",
-        "This cmdlet returns a GetDocumentResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDocumentResponse",
+        "This cmdlet returns a GetDocumentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {

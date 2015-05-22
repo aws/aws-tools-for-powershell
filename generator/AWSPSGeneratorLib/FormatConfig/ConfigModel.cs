@@ -118,7 +118,7 @@ namespace AWSPowerShellGenerator.FormatConfig
                     _customFormatDocuments = new List<XmlDocument>();
                     foreach (var customFormatResource in CustomFormats)
                     {
-                        using (var s = ResourceHelper.GetResourceStream(customFormatResource))
+                        using (var s = ResourceHelper.GetResourceStream("AWSPowerShellGenerator." + customFormatResource))
                         {
 
                             var doc = new XmlDocument();

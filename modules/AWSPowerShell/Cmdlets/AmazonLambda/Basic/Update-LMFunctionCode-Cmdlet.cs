@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResult")]
+    [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResponse")]
     [AWSCmdlet("Invokes the UpdateFunctionCode operation against Amazon Lambda.", Operation = new[] {"UpdateFunctionCode"})]
-    [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResult",
-        "This cmdlet returns a UpdateFunctionCodeResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResponse",
+        "This cmdlet returns a UpdateFunctionCodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {

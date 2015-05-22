@@ -29,18 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Adds a grant to a key to specify who can access the key and under what conditions.
-    /// Grants are alternate permission mechanisms to key policies. If absent, access to the
-    /// key is evaluated based on IAM policies attached to the user. By default, grants do
-    /// not expire. Grants can be listed, retired, or revoked as indicated by the following
-    /// APIs. Typically, when you are finished using a grant, you retire it. When you want
-    /// to end a grant immediately, revoke it. For more information about grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>.
-    /// <ol><li><a>ListGrants</a></li><li><a>RetireGrant</a></li><li><a>RevokeGrant</a></li></ol>
+    /// Grants are alternate permission mechanisms to key policies. For more information about
+    /// grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
+    /// in the developer guide. If a grant is absent, access to the key is evaluated based
+    /// on IAM policies attached to the user. <ol><li><a>ListGrants</a></li><li><a>RetireGrant</a></li><li><a>RevokeGrant</a></li></ol>
     /// </summary>
     [Cmdlet("New", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.KeyManagementService.Model.CreateGrantResult")]
+    [OutputType("Amazon.KeyManagementService.Model.CreateGrantResponse")]
     [AWSCmdlet("Invokes the CreateGrant operation against AWS Key Management Service.", Operation = new[] {"CreateGrant"})]
-    [AWSCmdletOutput("Amazon.KeyManagementService.Model.CreateGrantResult",
-        "This cmdlet returns a CreateGrantResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.KeyManagementService.Model.CreateGrantResponse",
+        "This cmdlet returns a CreateGrantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -74,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>List of grant tokens.</para>
+        /// <para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>A unique key identifier for a customer master key. This value can be a globally unique
-        /// identifier, an ARN, or an alias. </para>
+        /// <para>A unique identifier for the customer master key. This value can be a globally unique
+        /// identifier or the fully specified ARN to a key. <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>List of operations permitted by the grant. This can be any combination of one or more
-        /// of the following values: <ol><li>Decrypt</li><li>Encrypt</li><li>GenerateDataKey</li><li>GenerateDataKeyWithoutPlaintext</li><li>ReEncryptFrom</li><li>ReEncryptTo</li><li>CreateGrant</li></ol></para>
+        /// of the following values: <ol><li>Decrypt</li><li>Encrypt</li><li>GenerateDataKey</li><li>GenerateDataKeyWithoutPlaintext</li><li>ReEncryptFrom</li><li>ReEncryptTo</li><li>CreateGrant</li><li>RetireGrant</li></ol></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

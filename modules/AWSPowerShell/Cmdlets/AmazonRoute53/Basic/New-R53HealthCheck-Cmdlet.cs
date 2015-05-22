@@ -39,10 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53.Model.CreateHealthCheckResult")]
+    [OutputType("Amazon.Route53.Model.CreateHealthCheckResponse")]
     [AWSCmdlet("Invokes the CreateHealthCheck operation against AWS Route 53.", Operation = new[] {"CreateHealthCheck"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.CreateHealthCheckResult",
-        "This cmdlet returns a CreateHealthCheckResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Route53.Model.CreateHealthCheckResponse",
+        "This cmdlet returns a CreateHealthCheckResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {

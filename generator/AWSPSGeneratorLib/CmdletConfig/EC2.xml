@@ -16,7 +16,7 @@
   <ParamEmitters>
     <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" 
                   ParamName="InstanceIds" 
-                  EmitterType="AWSPowerShellGenerator.Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
+                  EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
   </ParamEmitters>
 
   <ServiceOperations>
@@ -227,6 +227,24 @@
     <ServiceOperation MethodName="DescribeImportSnapshotTasks" Exclude="true"/>
     <ServiceOperation MethodName="ImportImage" Exclude="true"/>
     <ServiceOperation MethodName="ImportSnapshot" Exclude="true"/>
+
+	<!-- Spot Fleet -->
+	<ServiceOperation MethodName="CancelSpotFleetRequests" 
+		Noun="SpotFleetRequest"
+		Output="Response"
+		PipelineParameter="SpotFleetRequestIds" />
+	<ServiceOperation MethodName="DescribeSpotFleetInstances"
+		Noun="SpotFleetInstance"
+		PipelineParameter="SpotFleetRequestId" />
+	<ServiceOperation MethodName="DescribeSpotFleetRequestHistory"
+		Output="Response"
+		PipelineParameter="SpotFleetRequestId" />
+	<ServiceOperation MethodName="DescribeSpotFleetRequests"
+		Noun="SpotFleetRequest"
+		PipelineParameter="SpotFleetRequestId" />
+	<ServiceOperation MethodName="RequestSpotFleet"
+		ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice"
+		Output="Void"/>		
     
     <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" PipelineParameter="ImageId"/>
     <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void">
@@ -334,7 +352,11 @@
     <Map From="Run" To="New" />
   </VerbMappings>
 
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+  <MetadataProperties>
+    <Property>SpotFleetRequestId</Property>
+  </MetadataProperties>
+  
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory" />
 
   <!-- noun mappings contains service-specific noun remaps, augmenting the global map
   -->

@@ -26,7 +26,7 @@ namespace AWSPowerShellGenerator.Generators
             Console.WriteLine("Generating Native PowerShell help (Get-Help) documentation file");
             base.GenerateHelper();
 
-            var buildLogsPath = Path.Combine(this.Options.RootPath, "buildlogs");
+            var buildLogsPath = Path.Combine(this.Options.RootPath, "logs");
             if (!Directory.Exists(buildLogsPath))
                 Directory.CreateDirectory(buildLogsPath);
 

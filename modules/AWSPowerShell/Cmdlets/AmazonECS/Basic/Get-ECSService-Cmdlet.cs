@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Describes the specified services running in your cluster.
     /// </summary>
     [Cmdlet("Get", "ECSService")]
-    [OutputType("Amazon.ECS.Model.DescribeServicesResult")]
+    [OutputType("Amazon.ECS.Model.DescribeServicesResponse")]
     [AWSCmdlet("Invokes the DescribeServices operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeServices"})]
-    [AWSCmdletOutput("Amazon.ECS.Model.DescribeServicesResult",
-        "This cmdlet returns a DescribeServicesResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ECS.Model.DescribeServicesResponse",
+        "This cmdlet returns a DescribeServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {

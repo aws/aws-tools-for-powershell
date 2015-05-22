@@ -134,9 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>This parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
+        /// <para>When included in a request, the parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
         /// secret access key.</li><li>For HTTP bundles and Subversion repositories, set <code>Password</code>
-        /// to the password.</li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html"></a>.</para>
+        /// to the password.</li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html"></a>.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
+        /// actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -170,7 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The repository's SSH key.</para>
+        /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
+        /// actual value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -196,7 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The app type. Each supported type is associated with a particular layer. For example,
         /// PHP applications are associated with a PHP layer. AWS OpsWorks deploys an application
-        /// to those instances that are members of the corresponding layer.</para>
+        /// to those instances that are members of the corresponding layer. If your app isn't
+        /// one of the standard types, or you prefer to implement your own Deploy recipes, specify
+        /// <code>other</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

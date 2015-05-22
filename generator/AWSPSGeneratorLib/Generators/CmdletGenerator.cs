@@ -26,6 +26,16 @@ namespace AWSPowerShellGenerator.Generators
             set { _options = value; }
         }
 
+        internal string RootGeneratorNamespace
+        {
+            get
+            {
+                // compute so we don't have an embedded magic string we might fail
+                // to update
+                return GetType().Namespace.Split('.')[0];
+            }
+        }
+
         public void Generate()
         {
             try
@@ -80,18 +90,13 @@ namespace AWSPowerShellGenerator.Generators
     {
         #region Public properties
 
-        public Assembly TargetAssembly { get; set; }
-        public XmlDocument AssemblyDocumentation { get; set; }
+        /// <summary>
+        /// The location of the SDK assemblies to generate against; we also expect to
+        /// find the assembly ndoc files here too
+        /// </summary>
+        public string SdkAssembliesFolder { get; set; }
 
-        private Type _sdkBaseRequestType;
-        public Type SDKBaseRequestType
-        {
-            get 
-            {
-                return _sdkBaseRequestType ??
-                       (_sdkBaseRequestType = TargetAssembly.GetType("Amazon.Runtime.AmazonWebServiceRequest"));
-            }
-        }
+        public Type SdkBaseRequestType { get; set; }
 
         public string CmdletsCsprojFragment
         {
@@ -100,6 +105,10 @@ namespace AWSPowerShellGenerator.Generators
                 return ProjectFileFragmentStore.Instance.Serialize();
             }
         }
+
+        public const string CmdletsOutputSubFoldername = "Cmdlets";
+
+        public const string AliasesFilename = "AWSAliases.ps1";
 
         public string Aliases
         {
@@ -122,12 +131,38 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
+        /// <summary>
+        /// Contains the loaded sdk assemblies and ndoc files as the generator
+        /// progresses.
+        /// </summary>
+        public GenerationSources SourceArtifacts { get; private set; }
+
+        /// <summary>
+        /// The assembly for the service currently being generated
+        /// </summary>
+        public Assembly CurrentServiceAssembly { get; private set; }
+
+        /// <summary>
+        /// The NDoc file corresponding to CurrentServiceAssembly
+        /// </summary>
+        public XmlDocument CurrentServiceNDoc { get; private set; }
+
+        /// <summary>
+        /// The configuration model being applied to CurrentServiceAssembly
+        /// </summary>
+        public ConfigModel CurrentModel { get; private set; }
+
+        /// <summary>
+        /// The operation being generated from CurrentModel
+        /// </summary>
+        public ServiceOperation CurrentOperation { get; private set; }
+
         #endregion
 
         #region Private properties
 
-        private ServiceOperation CurrentOperation { get; set; }
-        private ConfigModel CurrentModel { get; set; }
+        const string CoreSDKRuntimeAssemblyName = "AWSSDK.Core";
+
         private ConfigModelCollection ModelCollection { get; set; }
 
         private string TempOutputDir { get; set; }
@@ -140,8 +175,11 @@ namespace AWSPowerShellGenerator.Generators
 
         protected override void GenerateHelper()
         {
-            CmdletsSubFolder = Path.Combine(OutputFolder, "Cmdlets");
-            ModelCollection = ConfigModelCollection.LoadAllConfigs("AWSPowerShellGenerator.CmdletConfig.Configs.xml");
+            SourceArtifacts = new GenerationSources { SdkAssembliesFolder = this.SdkAssembliesFolder };
+            LoadCoreSDKRuntimeMaterials();
+
+            CmdletsSubFolder = Path.Combine(OutputFolder, CmdletsOutputSubFoldername);
+            ModelCollection = ConfigModelCollection.LoadAllConfigs(RootGeneratorNamespace);
             foreach (var configModel in ModelCollection.ConfigModels)
             {
                 Logger.Log();
@@ -175,8 +213,8 @@ namespace AWSPowerShellGenerator.Generators
                 Logger.Log();
             }
 
-            Console.WriteLine("...updating aliases.ps1 file");
-            var aliasSourceFile = Path.Combine(OutputFolder, "AWSAliases.ps1");
+            Console.WriteLine("...updating aliases file");
+            var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);
             using (var sw = new StreamWriter(aliasSourceFile, false, new System.Text.UTF8Encoding(false)))
             {
                 sw.WriteLine(Aliases);
@@ -189,8 +227,19 @@ namespace AWSPowerShellGenerator.Generators
 
         private void GenerateClientAndCmdlets(ConfigModel configModel)
         {
+            // infer sdk service assembly name from the namespace and load the artifacts into the store
+            // and in-progress properties
+            var svcNamespaceParts = configModel.ServiceNamespace.Split('.');
+            var svcAssemblyBasename = string.Concat("AWSSDK.", svcNamespaceParts[1]);
+
+            Assembly svcAssembly;
+            XmlDocument svcNdoc;
+            SourceArtifacts.Load(svcAssemblyBasename, out svcAssembly, out svcNdoc);
+            CurrentServiceAssembly = svcAssembly;
+            CurrentServiceNDoc = svcNdoc;
+
             var clientInterfaceTypeName = string.Format("{0}.{1}", configModel.ServiceNamespace, configModel.ServiceClientInterface);
-            var clientInterfaceType = TargetAssembly.GetType(clientInterfaceTypeName);
+            var clientInterfaceType = CurrentServiceAssembly.GetType(clientInterfaceTypeName);
             if (clientInterfaceType == null)
             {
                 Logger.LogError("Cannot find target client " + clientInterfaceTypeName);
@@ -323,7 +372,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             string version = null;
             var configClassPrefix = clientName.EndsWith("Client", StringComparison.Ordinal) ? clientName.Substring(0, clientName.Length - 6) : clientName;
-            var configType = TargetAssembly.GetType(string.Format("{0}.{1}Config", clientNamespace, configClassPrefix));
+            var configType = CurrentServiceAssembly.GetType(string.Format("{0}.{1}Config", clientNamespace, configClassPrefix));
             if (configType != null && configType.GetConstructor(System.Type.EmptyTypes) != null)
             {
                 var config = Activator.CreateInstance(configType, null);
@@ -366,7 +415,7 @@ namespace AWSPowerShellGenerator.Generators
                 CurrentModel = CurrentModel,
                 CurrentOperation = CurrentOperation,
                 Logger = Logger,
-                AssemblyDocumentation = AssemblyDocumentation
+                AssemblyDocumentation = CurrentServiceNDoc
             };
 
             analyzer.Analyze(this, method);
@@ -456,7 +505,7 @@ namespace AWSPowerShellGenerator.Generators
                 // derived from the AmazonWebServiceRequest type -- all other methods
                 // are convenience overloads
                 var parameters = method.GetParameters();
-                return (parameters.Count() == 1 && parameters[0].ParameterType.IsSubclassOf(SDKBaseRequestType));
+                return (parameters.Count() == 1 && parameters[0].ParameterType.IsSubclassOf(SdkBaseRequestType));
             }
 
             Logger.LogError("Method name {0} has no corresponding ServiceOperation definition in the current model {1}, INVESTIGATE", method.Name, CurrentModel.ServiceNamespace);
@@ -504,6 +553,18 @@ namespace AWSPowerShellGenerator.Generators
             if (CurrentModel.CreatedFiles.Contains(filePath, StringComparer.OrdinalIgnoreCase))
                 Logger.LogError("Same file created twice: " + filePath);
             CurrentModel.CreatedFiles.Add(filePath);
+        }
+
+        /// <summary>
+        /// Loads the core runtime sdk assembly and ndoc
+        /// </summary>
+        private void LoadCoreSDKRuntimeMaterials()
+        {
+            Assembly coreRuntimeAssembly;
+            XmlDocument coreRuntimeNDoc;
+
+            SourceArtifacts.Load(CoreSDKRuntimeAssemblyName, out coreRuntimeAssembly, out coreRuntimeNDoc);
+            SdkBaseRequestType = coreRuntimeAssembly.GetType("Amazon.Runtime.AmazonWebServiceRequest");
         }
 
         #endregion

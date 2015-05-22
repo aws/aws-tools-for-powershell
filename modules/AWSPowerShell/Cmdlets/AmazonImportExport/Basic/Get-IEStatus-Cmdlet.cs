@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// with the job. You can only return information about jobs you own.
     /// </summary>
     [Cmdlet("Get", "IEStatus")]
-    [OutputType("Amazon.ImportExport.Model.GetStatusResult")]
+    [OutputType("Amazon.ImportExport.Model.GetStatusResponse")]
     [AWSCmdlet("Invokes the GetStatus operation against AWS Import/Export.", Operation = new[] {"GetStatus"})]
-    [AWSCmdletOutput("Amazon.ImportExport.Model.GetStatusResult",
-        "This cmdlet returns a GetStatusResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ImportExport.Model.GetStatusResponse",
+        "This cmdlet returns a GetStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIEStatusCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {

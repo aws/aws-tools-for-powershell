@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// like this: </note><para><code>&amp;Attribute.1=this</code></para><para><code>&amp;Attribute.2=that</code></para>
     /// </summary>
     [Cmdlet("Get", "SQSQueueAttribute")]
-    [OutputType("Amazon.SQS.Model.GetQueueAttributesResult")]
+    [OutputType("Amazon.SQS.Model.GetQueueAttributesResponse")]
     [AWSCmdlet("Invokes the GetQueueAttributes operation against Amazon Simple Queue Service.", Operation = new[] {"GetQueueAttributes"})]
-    [AWSCmdletOutput("Amazon.SQS.Model.GetQueueAttributesResult",
-        "This cmdlet returns a GetQueueAttributesResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SQS.Model.GetQueueAttributesResponse",
+        "This cmdlet returns a GetQueueAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
     {

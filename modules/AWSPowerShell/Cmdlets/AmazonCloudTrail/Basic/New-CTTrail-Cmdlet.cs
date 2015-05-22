@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </para>
     /// </summary>
     [Cmdlet("New", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudTrail.Model.CreateTrailResult")]
+    [OutputType("Amazon.CloudTrail.Model.CreateTrailResponse")]
     [AWSCmdlet("Invokes the CreateTrail operation against AWS CloudTrail.", Operation = new[] {"CreateTrail"})]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.CreateTrailResult",
-        "This cmdlet returns a CreateTrailResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.CreateTrailResponse",
+        "This cmdlet returns a CreateTrailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
