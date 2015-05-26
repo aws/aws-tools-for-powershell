@@ -101,7 +101,7 @@ namespace AWSPowerShellGenerator.Generators
 
                             var typeDocumentation = DocumentationUtils.GetTypeDocumentation(cmdletType,
                                                                                             AssemblyDocumentation);
-                            typeDocumentation = DocumentationUtils.FormatXMLForPowershell(typeDocumentation);
+                            typeDocumentation = DocumentationUtils.FormatXMLForPowershell(typeDocumentation, true);
                             Console.WriteLine("Cmdlet = {0}", cmdletType.FullName);
                             if (hasDynamicParams)
                                 Console.WriteLine("This cmdlet has dynamic parameters!");
