@@ -43,6 +43,20 @@
     <AssemblyOriginatorKeyFile>aws-powershell.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\buildtools\ThirdParty\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\buildtools\ThirdParty\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>..\..\Include\sdk\assemblies\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
@@ -175,221 +189,21 @@
     <Reference Include="AWSSDK.WorkSpaces">
       <HintPath>..\..\Include\sdk\assemblies\AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\buildtools\ThirdParty\log4net.dll</HintPath>
+    <Reference Include="AWSSDK.ElasticFileSystem">
+      <HintPath>..\..\Include\sdk\assemblies\AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\buildtools\ThirdParty\System.Management.Automation.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cmdlets\AmazonMachineLearning\Basic\*" />
-    <Compile Include="Cmdlets\AmazonMachineLearning\ClientCmdlet.cs" />
+    <Compile Include="Cmdlets\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cmdlets\AmazonSQS\Basic\*" />
-    <Compile Include="Cmdlets\AmazonSQS\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonDynamoDB\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonDynamoDB\Basic\*" />
-    <Compile Include="Cmdlets\AmazonDynamoDB\ClientCmdlet.cs" />
-    <Compile Include="Cmdlets\AmazonDynamoDB\Model\TableSchema.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonAutoscaling\Basic\*" />
-    <Compile Include="Cmdlets\AmazonAutoscaling\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonAWSSupport\Basic\*" />
-    <Compile Include="Cmdlets\AmazonAWSSupport\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudFormation\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCloudFormation\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonConfigService\Basic\*" />
-    <Compile Include="Cmdlets\AmazonConfigService\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudFront\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCloudFront\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudHSM\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCloudHSM\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudSearch\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCloudSearch\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudSearchDomain\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonCloudSearchDomain\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudTrail\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCloudTrail\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudWatch\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonCloudWatch\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCloudWatch\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCloudWatchLogs\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCloudWatchLogs\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonCodeDeploy\Basic\*" />
-    <Compile Include="Cmdlets\AmazonCodeDeploy\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonDataPipeline\Basic\*" />
-    <Compile Include="Cmdlets\AmazonDataPipeline\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonDirectConnect\Basic\*" />
-    <Compile Include="Cmdlets\AmazonDirectConnect\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonEC2\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonEC2\Basic\*" />
-    <Compile Include="Cmdlets\AmazonEC2\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonECS\Basic\*" />
-    <Compile Include="Cmdlets\AmazonECS\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonElastiCache\Basic\*" />
-    <Compile Include="Cmdlets\AmazonElastiCache\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonElasticBeanstalk\Basic\*" />
-    <Compile Include="Cmdlets\AmazonElasticBeanstalk\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonElasticLoadBalancing\Basic\*" />
-    <Compile Include="Cmdlets\AmazonElasticLoadBalancing\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonElasticMapReduce\Basic\*" />
-    <Compile Include="Cmdlets\AmazonElasticMapReduce\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonElasticTranscoder\Basic\*" />
-    <Compile Include="Cmdlets\AmazonElasticTranscoder\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonIdentityManagementService\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonIdentityManagementService\Basic\*" />
-    <Compile Include="Cmdlets\AmazonIdentityManagementService\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonImportExport\Basic\*" />
-    <Compile Include="Cmdlets\AmazonImportExport\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonKeyManagementService\Basic\*" />
-    <Compile Include="Cmdlets\AmazonKeyManagementService\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonKinesis\Basic\*" />
-    <Compile Include="Cmdlets\AmazonKinesis\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonLambda\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonLambda\Basic\*" />
-    <Compile Include="Cmdlets\AmazonLambda\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonOpsWorks\Basic\*" />
-    <Compile Include="Cmdlets\AmazonOpsWorks\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonRDS\Basic\*" />
-    <Compile Include="Cmdlets\AmazonRDS\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonRedshift\Basic\*" />
-    <Compile Include="Cmdlets\AmazonRedshift\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonRoute53\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonRoute53\Basic\*" />
-    <Compile Include="Cmdlets\AmazonRoute53\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonRoute53Domains\Basic\*" />
-    <Compile Include="Cmdlets\AmazonRoute53Domains\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonS3\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonS3\Basic\*" />
-    <Compile Include="Cmdlets\AmazonS3\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonSecurityTokenService\Advanced\*" />
-    <Compile Include="Cmdlets\AmazonSecurityTokenService\Basic\*" />
-    <Compile Include="Cmdlets\AmazonSecurityTokenService\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonSimpleEmailService\Basic\*" />
-    <Compile Include="Cmdlets\AmazonSimpleEmailService\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonSimpleNotificationService\Basic\*" />
-    <Compile Include="Cmdlets\AmazonSimpleNotificationService\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonStorageGateway\Basic\*" />
-    <Compile Include="Cmdlets\AmazonStorageGateway\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonSimpleSystemsManagement\Basic\*" />
-    <Compile Include="Cmdlets\AmazonSimpleSystemsManagement\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Cmdlets\AmazonWorkSpaces\Basic\*" />
-    <Compile Include="Cmdlets\AmazonWorkSpaces\ClientCmdlet.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Common\AWSCmdletHistory.cs" />
-    <Compile Include="Common\AWSHistoryCmdlets.cs" />
-    <Compile Include="Common\AWSWebIdentityCredentials.cs" />
-    <Compile Include="Common\BaseAttributes.cs" />
-    <Compile Include="Common\BaseCmdlets.cs" />
-    <Compile Include="Common\CommonCmdlets.cs" />
-    <Compile Include="Common\CredentialsArguments.cs" />
-    <Compile Include="Common\CredentialsCmdlet.cs" />
-    <Compile Include="Common\DiscoveryCmdlets.cs" />
-    <Compile Include="Common\LoggingCmdlet.cs" />
-    <Compile Include="Common\ProxyCmdlets.cs" />
-    <Compile Include="Common\PSHelpers.cs" />
-    <Compile Include="Common\PublicIpRangesCmdlet.cs" />
-    <Compile Include="Common\RegionCmdlets.cs" />
-    <Compile Include="Common\AutoIterationHelpers.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\*.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utils\Extensions.cs" />
-    <Compile Include="Utils\Lazy2.cs" />
-    <Compile Include="Utils\ProgressRunner.cs" />
-    <Compile Include="Utils\PSUtils.cs" />
-    <Compile Include="Utils\Utils.cs" />
+    <Compile Include="Utils\*" />
   </ItemGroup>
   <ItemGroup>
     <None Include="aws-powershell.snk" />

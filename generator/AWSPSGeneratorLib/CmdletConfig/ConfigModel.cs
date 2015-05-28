@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Xml;
 using System.Xml.Serialization;
 using AWSPowerShellGenerator.Utils;
 using System.IO;
@@ -145,39 +146,54 @@ namespace AWSPowerShellGenerator.CmdletConfig
             }
         }
 
-        public static ConfigModelCollection LoadAllConfigs(string rootNamespace)
+        /// <summary>
+        /// Loads the core config.xml file and the indicated service configuration files it contains.
+        /// </summary>
+        /// <param name="configurationsFolder"></param>
+        /// <param name="verbose"></param>
+        /// <returns></returns>
+        public static ConfigModelCollection LoadAllConfigs(string configurationsFolder, bool verbose = false)
         {
-            var allConfigs = Deserialize<ConfigModelCollection>(string.Concat(rootNamespace, ".CmdletConfig.Configs.xml"));
-            foreach (var configFile in allConfigs.Configs.OrderBy(c => c))
+            var manifestConfigFile = Path.GetFullPath(Path.Combine(configurationsFolder, "Configs.xml"));
+            if (verbose)
+                Console.WriteLine("...loading configuration manifest {0}", manifestConfigFile);
+
+            var manifestConfig = Deserialize<ConfigModelCollection>(manifestConfigFile);
+            foreach (var c in manifestConfig.Configs.OrderBy(c => c))
             {
-                //allConfigs.ConfigModels.Add(ConfigModel.DeserializeFrom(configPath));
-                var configModel = Deserialize<ConfigModel>(string.Concat(rootNamespace, ".", configFile));
-                //string t1 = configModel.XmlSerialize();
-                //Console.Write(t1);
-                allConfigs.ConfigModels.Add(configModel);
-                //string t2 = allConfigs.XmlSerialize();
-                //Console.Write(t2);
+                var configFile = Path.GetFullPath(Path.Combine(configurationsFolder, c));
+                
+                if (verbose)
+                    Console.WriteLine("...loading service configuration {0}", configFile);
+    
+                var configModel = Deserialize<ConfigModel>(configFile);
+                manifestConfig.ConfigModels.Add(configModel);
             }
 
-            return allConfigs;
+            return manifestConfig;
         }
 
-        private static T Deserialize<T>(string resourceName)
+        private static T Deserialize<T>(string fileName)
         {
-            var serializer = new XmlSerializer(typeof(T));
-            Stream configsXml = ResourceHelper.GetResourceStream(resourceName);
-            if (configsXml == null) throw new InvalidDataException("Unable to retrieve stream for resource " + resourceName);
-            using (configsXml)
+            try
             {
-                return (T)serializer.Deserialize(configsXml);
+                var serializer = new XmlSerializer(typeof(T));
+                using (var fs = new FileStream(fileName, FileMode.Open))
+                {
+                    using (var reader = new StreamReader(fs))
+                    {
+                        return (T)serializer.Deserialize(reader);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new InvalidDataException("Unable to retrieve content for file " + fileName, e);
             }
         }
 
         private ConfigModelCollection()
         {
-            //NounMappings = new SerializableDictionary<string, string>();
-            //VerbMappings = new SerializableDictionary<string, string>();
-
             TypesNotToFlatten = new List<string>();
             Configs = new List<string>();
             ConfigModels = new List<ConfigModel>();

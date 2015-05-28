@@ -1,0 +1,243 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ElasticFileSystem;
+using Amazon.ElasticFileSystem.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EFS
+{
+    /// <summary>
+    /// Returns the description of a specific Amazon EFS file system if either the file system
+    /// <code>CreationToken</code> or the <code>FileSystemId</code> is provided; otherwise,
+    /// returns descriptions of all file systems owned by the caller's AWS account in the
+    /// AWS region of the endpoint that you're calling.
+    /// 
+    ///  
+    /// <para>
+    ///  When retrieving all file system descriptions, you can optionally specify the <code>MaxItems</code>
+    /// parameter to limit the number of descriptions in a response. If more file system descriptions
+    /// remain, Amazon EFS returns a <code>NextMarker</code>, an opaque token, in the response.
+    /// In this case, you should send a subsequent request with the <code>Marker</code> request
+    /// parameter set to the value of <code>NextMarker</code>. 
+    /// </para><para>
+    ///  So to retrieve a list of your file system descriptions, the expected usage of this
+    /// API is an iterative process of first calling <code>DescribeFileSystems</code> without
+    /// the <code>Marker</code> and then continuing to call it with the <code>Marker</code>
+    /// parameter set to the value of the <code>NextMarker</code> from the previous response
+    /// until the response has no <code>NextMarker</code>. 
+    /// </para><para>
+    ///  Note that the implementation may return fewer than <code>MaxItems</code> file system
+    /// descriptions while still including a <code>NextMarker</code> value. 
+    /// </para><para>
+    ///  The order of file systems returned in the response of one <code>DescribeFileSystems</code>
+    /// call, and the order of file systems returned across the responses of a multi-call
+    /// iteration, is unspecified. 
+    /// </para><para>
+    ///  This operation requires permission for the <code>elasticfilesystem:DescribeFileSystems</code>
+    /// action. 
+    /// </para>
+    /// </summary>
+    [Cmdlet("Get", "EFSFileSystem")]
+    [OutputType("Amazon.ElasticFileSystem.Model.FileSystemDescription")]
+    [AWSCmdlet("Invokes the DescribeFileSystems operation against Amazon Elastic File System.", Operation = new[] {"DescribeFileSystems"})]
+    [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.FileSystemDescription",
+        "This cmdlet returns a collection of FileSystemDescription objects.",
+        "The service call response (type DescribeFileSystemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), NextMarker (type String)"
+    )]
+    public class GetEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para> Optional string. Restricts the list to the file system with this creation token (you
+        /// specify a creation token at the time of creating an Amazon EFS file system). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String CreationToken { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Optional string. File system ID whose description you want to retrieve. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String FileSystemId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> Optional string. Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
+        /// operation. If present, specifies to continue the list from where the returning call
+        /// had left off. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public String Marker { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Optional integer. Specifies the maximum number of file systems to return in the response.
+        /// This parameter value must be greater than 0. The number of items Amazon EFS returns
+        /// will be the minimum of the <code>MaxItems</code> parameter specified in the request
+        /// and the service's internal maximum number of items per page. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int MaxItem { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.CreationToken = this.CreationToken;
+            context.FileSystemId = this.FileSystemId;
+            context.Marker = this.Marker;
+            if (ParameterWasBound("MaxItem"))
+                context.MaxItems = this.MaxItem;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            
+            // create request and set iteration invariants
+            var request = new DescribeFileSystemsRequest();
+            if (cmdletContext.CreationToken != null)
+            {
+                request.CreationToken = cmdletContext.CreationToken;
+            }
+            if (cmdletContext.FileSystemId != null)
+            {
+                request.FileSystemId = cmdletContext.FileSystemId;
+            }
+            
+            // Initialize loop variants and commence piping
+            String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            {
+                _nextMarker = cmdletContext.Marker;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
+            {
+                _emitLimit = cmdletContext.MaxItems;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _continueIteration = true;
+            
+            try
+            {
+                do
+                {
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = client.DescribeFileSystems(request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.FileSystems;
+                        notes = new Dictionary<string, object>();
+                        notes["Marker"] = response.Marker;
+                        notes["NextMarker"] = response.NextMarker;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.FileSystems.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.NextMarker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
+            }
+            finally
+            {
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
+            }
+            
+            return null;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String CreationToken { get; set; }
+            public String FileSystemId { get; set; }
+            public String Marker { get; set; }
+            public int? MaxItems { get; set; }
+        }
+        
+    }
+}

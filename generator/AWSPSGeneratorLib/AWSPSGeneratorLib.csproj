@@ -96,66 +96,56 @@
     <Compile Include="Writers\StringConstants.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CmdletConfig\Configs.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CmdletConfig\DataPipeline.xml" />
-    <EmbeddedResource Include="CmdletConfig\DynamoDB.xml" />
-    <EmbeddedResource Include="FormatConfig\Configs.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CmdletConfig\EC2.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CmdletConfig\ECS.xml" />
-    <EmbeddedResource Include="CmdletConfig\Beanstalk.xml" />
-    <EmbeddedResource Include="CmdletConfig\RDS.xml" />
-    <EmbeddedResource Include="CmdletConfig\S3.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CmdletConfig\STS.xml" />
-    <EmbeddedResource Include="CmdletConfig\AutoScaling.xml" />
-    <EmbeddedResource Include="CmdletConfig\CloudFormation.xml" />
-    <EmbeddedResource Include="CmdletConfig\IAM.xml" />
-    <EmbeddedResource Include="CmdletConfig\SNS.xml" />
-    <EmbeddedResource Include="CmdletConfig\SES.xml" />
-    <EmbeddedResource Include="CmdletConfig\SQS.xml" />
-    <EmbeddedResource Include="CmdletConfig\CloudWatch.xml" />
-    <EmbeddedResource Include="CmdletConfig\Route53.xml" />
-    <EmbeddedResource Include="CmdletConfig\ELB.xml" />
-    <EmbeddedResource Include="CmdletConfig\EMR.xml" />
-    <EmbeddedResource Include="CmdletConfig\StorageGateway.xml" />
-    <EmbeddedResource Include="CmdletConfig\CloudFront.xml" />
-    <EmbeddedResource Include="CmdletConfig\ElastiCache.xml" />
-    <EmbeddedResource Include="CmdletConfig\CloudSearch.xml" />
-    <EmbeddedResource Include="CmdletConfig\DirectConnect.xml" />
-    <EmbeddedResource Include="CmdletConfig\ETS.xml" />
-    <EmbeddedResource Include="CmdletConfig\Redshift.xml" />
-    <EmbeddedResource Include="CmdletConfig\OpsWorks.xml" />
-    <EmbeddedResource Include="CmdletConfig\AWSSupport.xml" />
-    <EmbeddedResource Include="CmdletConfig\ImportExport.xml" />
-    <EmbeddedResource Include="CmdletConfig\SSM.xml" />
-    <EmbeddedResource Include="CmdletConfig\CloudTrail.xml" />
-    <EmbeddedResource Include="CmdletConfig\Kinesis.xml" />
-    <EmbeddedResource Include="CmdletConfig\Lambda.xml" />
-    <EmbeddedResource Include="CmdletConfig\CloudSearchDomain.xml" />
-    <EmbeddedResource Include="CmdletConfig\CloudWatchLogs.xml" />
-    <EmbeddedResource Include="CmdletConfig\Route53Domains.xml" />
-    <EmbeddedResource Include="CmdletConfig\CodeDeploy.xml" />
-    <EmbeddedResource Include="CmdletConfig\ConfigService.xml" />
-    <EmbeddedResource Include="CmdletConfig\KMS.xml" />
-    <EmbeddedResource Include="CmdletConfig\HSM.xml" />
-    <EmbeddedResource Include="CmdletConfig\ML.xml" />
-    <EmbeddedResource Include="CmdletConfig\DirectoryService.xml" />
-    <Content Include="CmdletConfig\SampleConfig.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <EmbeddedResource Include="CmdletConfig\WKS.xml" />
+    <None Include="CmdletConfig\Configs.xml" />
+    <None Include="CmdletConfig\DataPipeline.xml" />
+    <None Include="CmdletConfig\DynamoDB.xml" />
+    <None Include="FormatConfig\Configs.xml" />
+    <None Include="CmdletConfig\EC2.xml" />
+    <None Include="CmdletConfig\ECS.xml" />
+    <None Include="CmdletConfig\Beanstalk.xml" />
+    <None Include="CmdletConfig\RDS.xml" />
+    <None Include="CmdletConfig\S3.xml" />
+    <None Include="CmdletConfig\STS.xml" />
+    <None Include="CmdletConfig\AutoScaling.xml" />
+    <None Include="CmdletConfig\CloudFormation.xml" />
+    <None Include="CmdletConfig\IAM.xml" />
+    <None Include="CmdletConfig\SNS.xml" />
+    <None Include="CmdletConfig\SES.xml" />
+    <None Include="CmdletConfig\SQS.xml" />
+    <None Include="CmdletConfig\CloudWatch.xml" />
+    <None Include="CmdletConfig\Route53.xml" />
+    <None Include="CmdletConfig\ELB.xml" />
+    <None Include="CmdletConfig\EMR.xml" />
+    <None Include="CmdletConfig\StorageGateway.xml" />
+    <None Include="CmdletConfig\CloudFront.xml" />
+    <None Include="CmdletConfig\ElastiCache.xml" />
+    <None Include="CmdletConfig\CloudSearch.xml" />
+    <None Include="CmdletConfig\DirectConnect.xml" />
+    <None Include="CmdletConfig\ETS.xml" />
+    <None Include="CmdletConfig\Redshift.xml" />
+    <None Include="CmdletConfig\OpsWorks.xml" />
+    <None Include="CmdletConfig\AWSSupport.xml" />
+    <None Include="CmdletConfig\ImportExport.xml" />
+    <None Include="CmdletConfig\SSM.xml" />
+    <None Include="CmdletConfig\CloudTrail.xml" />
+    <None Include="CmdletConfig\Kinesis.xml" />
+    <None Include="CmdletConfig\Lambda.xml" />
+    <None Include="CmdletConfig\CloudSearchDomain.xml" />
+    <None Include="CmdletConfig\CloudWatchLogs.xml" />
+    <None Include="CmdletConfig\Route53Domains.xml" />
+    <None Include="CmdletConfig\CodeDeploy.xml" />
+    <None Include="CmdletConfig\ConfigService.xml" />
+    <None Include="CmdletConfig\KMS.xml" />
+    <None Include="CmdletConfig\HSM.xml" />
+    <None Include="CmdletConfig\ML.xml" />
+    <None Include="CmdletConfig\DirectoryService.xml" />
+    <None Include="CmdletConfig\EFS.xml" />
+    <None Include="CmdletConfig\WKS.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ServiceResources\TypeExtensions\AmazonEC2\Image.xml" />
     <EmbeddedResource Include="ServiceResources\TypeExtensions\AmazonEC2\RunningInstance.xml" />
-    <EmbeddedResource Include="FormatConfig\CustomFormats\Amazon.SimpleSystemsManagement.Model.AssociationDescription.ps1xml" />
+    <None Include="FormatConfig\CustomFormats\Amazon.SimpleSystemsManagement.Model.AssociationDescription.ps1xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HelpMaterials\WebHelp\StaticContent\favicon.ico">

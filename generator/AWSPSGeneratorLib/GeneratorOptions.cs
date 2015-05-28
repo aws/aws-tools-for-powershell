@@ -56,8 +56,9 @@ namespace AWSPowerShellGenerator
         public string[] Services { get; set; }
 
         /// <summary>
-        /// The root folder location containing the generator and artifacts. Subpaths to the various components and
-        /// deployment artifacts will be inferred from this location.
+        /// The root folder location containing the generator and artifacts. Subpaths to the various 
+        /// components, service generation configurations and deployment artifacts will be inferred 
+        /// from this location.
         /// </summary>
         public string RootPath { get; set; }
 

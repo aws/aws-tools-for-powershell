@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>EFS</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonElasticFileSystem</ServiceClientInterface>
+  <ServiceClient>AmazonElasticFileSystemClient</ServiceClient>
+  <ServiceNamespace>Amazon.ElasticFileSystem</ServiceNamespace>
+
+  <PipelineParameter>FileSystemId</PipelineParameter>
+
+  <AutoIterate EmitLimit="MaxItems" Start="Marker" Next="NextMarker" />
+
+  <NounMappings>
+    <Map From="Tags" To="Tag" />
+    <Map From="FileSystems" To="FileSystem" />
+    <Map From="MountTargets" To="MountTarget" />
+    <Map From="MountTargetSecurityGroups" To="MountTargetSecurityGroup" />
+  </NounMappings>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateFileSystem" Output="Response"/>
+    <ServiceOperation MethodName="CreateMountTarget" Output="Response"/>
+    <ServiceOperation MethodName="CreateTags" PipelineParameter="Tags" Output="Void"/>
+
+    <ServiceOperation MethodName="DeleteFileSystem" Output="Void"/>
+    <ServiceOperation MethodName="DeleteMountTarget" Output="Void"/>
+    <ServiceOperation MethodName="DeleteTags" PipelineParameter="Tags" Output="Void" />
+
+    <ServiceOperation MethodName="DescribeFileSystems" />
+    <ServiceOperation MethodName="DescribeMountTargets" />
+    <ServiceOperation MethodName="DescribeMountTargetSecurityGroups" />
+    <ServiceOperation MethodName="DescribeTags" />
+    <ServiceOperation MethodName="ModifyMountTargetSecurityGroups" PipelineParameter="SecurityGroups" Output="Void"/>
+  </ServiceOperations>
+
+  <VerbMappings />
+  
+</ConfigModel>

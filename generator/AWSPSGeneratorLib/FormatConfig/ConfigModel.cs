@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
@@ -111,36 +113,55 @@ namespace AWSPowerShellGenerator.FormatConfig
         private List<XmlDocument> _customFormatDocuments; 
         internal IEnumerable<XmlDocument> CustomFormatDocuments
         {
-            get
+            get { return _customFormatDocuments; }
+        }
+
+        internal IEnumerable<XmlDocument> LoadCustomFormatDocuments(string configurationsFolderRoot)
+        {
+            if (_customFormatDocuments == null)
             {
-                if (_customFormatDocuments == null)
+                _customFormatDocuments = new List<XmlDocument>();
+                foreach (var customFormatResource in CustomFormats)
                 {
-                    _customFormatDocuments = new List<XmlDocument>();
-                    foreach (var customFormatResource in CustomFormats)
-                    {
-                        using (var s = ResourceHelper.GetResourceStream("AWSPowerShellGenerator." + customFormatResource))
-                        {
-
-                            var doc = new XmlDocument();
-                            doc.Load(s);
-                            _customFormatDocuments.Add(doc);
-                        }
-                    }
+                    var filename = Path.Combine(configurationsFolderRoot, "CustomFormats", customFormatResource);
+                    var doc = new XmlDocument();
+                    doc.Load(filename);
+                    _customFormatDocuments.Add(doc);
                 }
-
-                return _customFormatDocuments;
             }
+
+            return CustomFormatDocuments;
         }
 
         [XmlElement]
         public List<ConfigModel> Configs { get; set; }
 
-        public static ConfigModelCollection LoadAllConfigs(string resourceRoot)
+        /// <summary>
+        /// Deserialize the configuration data for custom formats.
+        /// </summary>
+        /// <param name="configurationsFolder"></param>
+        /// <param name="verbose"></param>
+        /// <returns></returns>
+        public static ConfigModelCollection LoadAllConfigs(string configurationsFolder, bool verbose = false)
         {
-            var serializer = new XmlSerializer(typeof(ConfigModelCollection));
-            using (var configsXml = ResourceHelper.GetResourceStream(resourceRoot))
+            var formatConfigsFile = Path.GetFullPath(Path.Combine(configurationsFolder, "Configs.xml"));
+            if (verbose)
+                Console.WriteLine("...loading formats configuration manifest {0}", formatConfigsFile);
+
+            try
             {
-                return serializer.Deserialize(configsXml) as ConfigModelCollection;
+                var serializer = new XmlSerializer(typeof(ConfigModelCollection));
+                using (var fs = new FileStream(formatConfigsFile, FileMode.Open))
+                {
+                    using (var reader = new StreamReader(fs))
+                    {
+                        return serializer.Deserialize(reader) as ConfigModelCollection;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new InvalidDataException("Unable to retrieve content for formats manifest file " + formatConfigsFile, e);
             }
         }
 

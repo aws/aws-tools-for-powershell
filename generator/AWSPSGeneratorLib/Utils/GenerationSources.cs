@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Xml;
 
@@ -52,6 +53,63 @@ namespace AWSPowerShellGenerator.Utils
         {
             Assemblies.Add(baseName, assembly);
             NDocs.Add(baseName, ndoc);
+        }
+
+        /// <summary>
+        /// Ensures that a reference is present in the specified project file 
+        /// for every SDK assembly that we inspected during generation. 
+        /// </summary>
+        /// <param name="projectFile"></param>
+        public void UpdateProjectReferences(string projectFile)
+        {
+            var project = new XmlDocument();
+            project.Load(projectFile);
+
+            var processedAssemblies = new HashSet<string>(Assemblies.Keys);
+
+            var assemblyReferences = project.GetElementsByTagName("Reference");
+            foreach (var assemblyReference in assemblyReferences)
+            {
+                var xn = assemblyReference as XmlNode;
+                var include = xn.Attributes["Include"];
+                if (include == null)
+                    continue;
+
+                var assemblyName = include.InnerText;
+                if (processedAssemblies.Contains(assemblyName))
+                {
+                    processedAssemblies.Remove(assemblyName);
+                }
+            }
+
+            if (processedAssemblies.Any())
+            {
+                Console.WriteLine("...updating project file for new service(s)");
+
+                // project file needs updating with one or more new service assemblies
+                var parentGroup = assemblyReferences[0].ParentNode;
+
+                foreach (var a in processedAssemblies)
+                {
+                    Console.WriteLine("......adding {0}", a);
+
+                    var xa = project.CreateAttribute("Include");
+                    xa.Value = a;
+
+                    // pass doc namespace to avoid empty xmlns attributing on the elements
+                    var referenceNode = project.CreateElement("Reference", project.DocumentElement.NamespaceURI);
+                    referenceNode.Attributes.Append(xa);
+                    
+                    var hintNode = project.CreateElement("HintPath", project.DocumentElement.NamespaceURI);
+                    hintNode.InnerText = string.Concat(@"..\..\Include\sdk\assemblies\", a, ".dll");
+
+                    referenceNode.AppendChild(hintNode);
+
+                    parentGroup.AppendChild(referenceNode);
+                }
+
+                project.Save(projectFile);
+            }
         }
     }
 }

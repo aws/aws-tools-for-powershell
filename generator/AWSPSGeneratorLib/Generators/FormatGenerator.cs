@@ -22,6 +22,12 @@ namespace AWSPowerShellGenerator.Generators
 
         #region Private properties
 
+        /// <summary>
+        /// The subfolder hierarchy beneath GeneratorOptions.RootPath that holds the
+        /// service xml configuration files and generator manifest to process.
+        /// </summary>
+        public const string FormatGeneratorConfigurationsFoldername = @"generator\AWSPSGeneratorLib\FormatConfig";
+
         private ConfigModelCollection ConfigCollection { get; set; }
 
         #endregion
@@ -31,8 +37,10 @@ namespace AWSPowerShellGenerator.Generators
 
         protected override void GenerateHelper()
         {
-            ConfigCollection = ConfigModelCollection.LoadAllConfigs(RootGeneratorNamespace + ".FormatConfig.Configs.xml");
-            LoadCustomFormatDocuments();            
+            var configurationsFolder = Path.Combine(Options.RootPath, FormatGeneratorConfigurationsFoldername);
+            ConfigCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
+
+            LoadCustomFormatDocuments(configurationsFolder);            
 
             var types = new List<Type>();
             foreach (var assembly in TargetAssemblies)
@@ -115,9 +123,9 @@ namespace AWSPowerShellGenerator.Generators
 
         #endregion
 
-        private void LoadCustomFormatDocuments()
+        private void LoadCustomFormatDocuments(string configurationsFolderRoot)
         {
-            var customFormatDocs = ConfigCollection.CustomFormatDocuments;
+            var customFormatDocs = ConfigCollection.LoadCustomFormatDocuments(configurationsFolderRoot);
             foreach (var cfd in customFormatDocs)
             {
                 var typeNameNodes = cfd.SelectNodes("descendant::TypeName");

@@ -1,52 +1,52 @@
 <?xml version="1.0"?>
 <ConfigModelCollection>
 	<Configs>
-    <!-- root namespace path will be set automatically -->
-		<Path>CmdletConfig.AutoScaling.xml</Path>
-		<Path>CmdletConfig.AWSSupport.xml</Path>
-		<Path>CmdletConfig.Beanstalk.xml</Path>
-		<Path>CmdletConfig.CloudFormation.xml</Path>
-    <Path>CmdletConfig.CloudFront.xml</Path>
-		<Path>CmdletConfig.CloudSearch.xml</Path>
+		<Path>AutoScaling.xml</Path>
+		<Path>AWSSupport.xml</Path>
+		<Path>Beanstalk.xml</Path>
+		<Path>CloudFormation.xml</Path>
+    <Path>CloudFront.xml</Path>
+		<Path>CloudSearch.xml</Path>
 
 		<!--Cmdlets for this service are fully handwritten, as the client has non standard constructors.--> 
-		<!--<Path>CmdletConfig.CloudSearchDomain.xml</Path>-->
+		<!--<Path>CloudSearchDomain.xml</Path>-->
 
-    <Path>CmdletConfig.CloudTrail.xml</Path>
-    <Path>CmdletConfig.CodeDeploy.xml</Path>
-    <Path>CmdletConfig.ConfigService.xml</Path>
-    <Path>CmdletConfig.CloudWatch.xml</Path>
-		<Path>CmdletConfig.CloudWatchLogs.xml</Path>
-		<Path>CmdletConfig.DataPipeline.xml</Path>
-		<Path>CmdletConfig.DirectConnect.xml</Path>
-		<Path>CmdletConfig.DirectoryService.xml</Path>
-		<Path>CmdletConfig.DynamoDB.xml</Path>
-		<Path>CmdletConfig.EC2.xml</Path>
-  	<Path>CmdletConfig.ECS.xml</Path>
-		<Path>CmdletConfig.ElastiCache.xml</Path>
-		<Path>CmdletConfig.ELB.xml</Path>
-		<Path>CmdletConfig.EMR.xml</Path>
-		<Path>CmdletConfig.ETS.xml</Path>
-    <Path>CmdletConfig.HSM.xml</Path>
-    <Path>CmdletConfig.IAM.xml</Path>
-		<Path>CmdletConfig.ImportExport.xml</Path>
-		<Path>CmdletConfig.KMS.xml</Path>
-		<Path>CmdletConfig.Kinesis.xml</Path>
-    <Path>CmdletConfig.Lambda.xml</Path>
-    <Path>CmdletConfig.ML.xml</Path>
-		<Path>CmdletConfig.OpsWorks.xml</Path>
-		<Path>CmdletConfig.RDS.xml</Path>
-		<Path>CmdletConfig.Redshift.xml</Path>
-		<Path>CmdletConfig.Route53.xml</Path>
-		<Path>CmdletConfig.Route53Domains.xml</Path>
-		<Path>CmdletConfig.S3.xml</Path>
-		<Path>CmdletConfig.SES.xml</Path>
-		<Path>CmdletConfig.SNS.xml</Path>
-    <Path>CmdletConfig.SSM.xml</Path>
-    <Path>CmdletConfig.SQS.xml</Path>
-		<Path>CmdletConfig.StorageGateway.xml</Path>
-    <Path>CmdletConfig.STS.xml</Path>
-    <Path>CmdletConfig.WKS.xml</Path>
+    <Path>CloudTrail.xml</Path>
+    <Path>CodeDeploy.xml</Path>
+    <Path>ConfigService.xml</Path>
+    <Path>CloudWatch.xml</Path>
+		<Path>CloudWatchLogs.xml</Path>
+		<Path>DataPipeline.xml</Path>
+		<Path>DirectConnect.xml</Path>
+		<Path>DirectoryService.xml</Path>
+		<Path>DynamoDB.xml</Path>
+		<Path>EC2.xml</Path>
+  	<Path>ECS.xml</Path>
+    <Path>EFS.xml</Path>
+    <Path>ElastiCache.xml</Path>
+		<Path>ELB.xml</Path>
+		<Path>EMR.xml</Path>
+		<Path>ETS.xml</Path>
+    <Path>HSM.xml</Path>
+    <Path>IAM.xml</Path>
+		<Path>ImportExport.xml</Path>
+		<Path>KMS.xml</Path>
+		<Path>Kinesis.xml</Path>
+    <Path>Lambda.xml</Path>
+    <Path>ML.xml</Path>
+		<Path>OpsWorks.xml</Path>
+		<Path>RDS.xml</Path>
+		<Path>Redshift.xml</Path>
+		<Path>Route53.xml</Path>
+		<Path>Route53Domains.xml</Path>
+		<Path>S3.xml</Path>
+		<Path>SES.xml</Path>
+		<Path>SNS.xml</Path>
+    <Path>SSM.xml</Path>
+    <Path>SQS.xml</Path>
+		<Path>StorageGateway.xml</Path>
+    <Path>STS.xml</Path>
+    <Path>WKS.xml</Path>
 	</Configs>
 
 	<ClientNames>
@@ -67,7 +67,8 @@
 		<Map From="DS" To="AWS Directory Service" />
 		<Map From="EC2" To="Amazon Elastic Compute Cloud" />
     <Map From="ECS" To="Amazon EC2 Container Service" />
-		<Map From="EC" To="Amazon ElastiCache" />
+    <Map From="EFS" To="Amazon Elastic File System" />
+    <Map From="EC" To="Amazon ElastiCache" />
 		<Map From="ELB" To="Elastic Load Balancing" />
 		<Map From="EMR" To="Amazon Elastic MapReduce" />
     <Map From="HSM" To="AWS Cloud HSM" />

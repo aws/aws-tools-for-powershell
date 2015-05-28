@@ -2,6 +2,12 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
+  <!-- Once completed, this file should be placed into the CmdletConfigs folder
+       beneath the generator source code (typically named using the service noun 
+       prefix) and a reference to it made in the manifest file (Configs.xml) in 
+       that same folder. You do not need to add it to any project file.
+  -->
+  
   <!-- This is the 2-4 letter prefix identifying the service; cmdlets will
        all be of the form Verb-{ABCD}Noun.
   -->

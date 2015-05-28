@@ -106,8 +106,16 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        public const string CmdletsOutputSubFoldername = "Cmdlets";
+        /// <summary>
+        /// The subfolder hierarchy beneath GeneratorOptions.RootPath that holds the
+        /// service xml configuration files and generator manifest to process.
+        /// </summary>
+        public const string CmdletGeneratorConfigurationsFoldername = @"generator\AWSPSGeneratorLib\CmdletConfig";
 
+        public const string CmdletsOutputSubFoldername = "Cmdlets";
+        public const string GeneratedCmdletsFoldername = "Basic";
+
+        public const string AWSPowerShellProjectFilename = "AWSPowerShell.csproj";
         public const string AliasesFilename = "AWSAliases.ps1";
 
         public string Aliases
@@ -167,7 +175,11 @@ namespace AWSPowerShellGenerator.Generators
 
         private string TempOutputDir { get; set; }
 
-        private string CmdletsSubFolder { get; set; }
+        /// <summary>
+        /// The path to the folder that will contain the generated cmdlets,
+        /// organized into per-service subfolders.
+        /// </summary>
+        private string CmdletsOutputPath { get; set; }
 
         #endregion
 
@@ -178,8 +190,11 @@ namespace AWSPowerShellGenerator.Generators
             SourceArtifacts = new GenerationSources { SdkAssembliesFolder = this.SdkAssembliesFolder };
             LoadCoreSDKRuntimeMaterials();
 
-            CmdletsSubFolder = Path.Combine(OutputFolder, CmdletsOutputSubFoldername);
-            ModelCollection = ConfigModelCollection.LoadAllConfigs(RootGeneratorNamespace);
+            CmdletsOutputPath = Path.Combine(OutputFolder, CmdletsOutputSubFoldername);
+            var configurationsFolder = Path.Combine(Options.RootPath, CmdletGeneratorConfigurationsFoldername);
+
+            ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
+
             foreach (var configModel in ModelCollection.ConfigModels)
             {
                 Logger.Log();
@@ -212,6 +227,8 @@ namespace AWSPowerShellGenerator.Generators
                 Logger.Log(new string('<', 20));
                 Logger.Log();
             }
+
+            SourceArtifacts.UpdateProjectReferences(Path.Combine(OutputFolder, AWSPowerShellProjectFilename));
 
             Console.WriteLine("...updating aliases file");
             var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);
@@ -283,7 +300,7 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             CopyGeneratedCmdlets(Path.Combine(TempOutputDir, configModel.SourceGenerationFolder),
-                                 Path.Combine(CmdletsSubFolder, configModel.SourceGenerationFolder));
+                                 Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder));
         }
 
         // the set of subfolders in the final output directory for a service that will
@@ -297,6 +314,18 @@ namespace AWSPowerShellGenerator.Generators
         {
             fromDir = EnsureTrailingSlash(Path.GetFullPath(fromDir));
             toDir = EnsureTrailingSlash(Path.GetFullPath(toDir));
+
+            // as a helper to devs, if the target folder doesn't exist, create it and the 
+            // 'basic' subfolder where generated cmdlets are placed (note that devs are 
+            // responsible for cleanup if they get the service name wrong!)
+            if (!Directory.Exists(toDir))
+            {
+                Console.WriteLine("...creating folder hierarchy for service output at {0}", toDir);
+
+                Directory.CreateDirectory(toDir);
+                Directory.CreateDirectory(Path.Combine(toDir, GeneratedCmdletsFoldername));
+            }
+
             var fromFiles = Directory.EnumerateFiles(fromDir, "*", SearchOption.AllDirectories)
                 .Select(Path.GetFullPath)
                 .ToList();
