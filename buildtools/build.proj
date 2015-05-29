@@ -154,8 +154,16 @@
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
             DestinationFolder="$(Deployment)"/>
     </Target>
-	
+
+	<Target Name="save-build">		
+		<SaveBuildArtifactTask
+			RepositoryRoot="$(MSBuildProjectDirectory)\.."
+			BuildArtifactType="powershell"
+			LocalArchiveRootFolder="$(LocalArchiveRootFolder)"
+			/>
+	</Target>
+
 	<Target Name="get-references">		
-		<MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="get-reference-sdk" Properties="ReferenceTarget=$(MSBuildProjectDirectory)\.."/>
+		<MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="get-reference-sdk" Properties="TargetRepository=$(MSBuildProjectDirectory)\.."/>
 	</Target>
 </Project>
