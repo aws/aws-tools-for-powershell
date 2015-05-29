@@ -1,6 +1,8 @@
     <Project ToolsVersion="4.0" 
 	DefaultTargets="full-build"
 	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<Import Project="..\..\AWSDotNetBuildTools\references.targets" Condition="Exists('..\..\AWSDotNetBuildTools\references.targets')" />
 	
 	<Import Project="common.targets" />
 
@@ -152,4 +154,8 @@
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
             DestinationFolder="$(Deployment)"/>
     </Target>
+	
+	<Target Name="get-references">		
+		<MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="get-reference-sdk" Properties="ReferenceTarget=$(MSBuildProjectDirectory)\.."/>
+	</Target>
 </Project>
