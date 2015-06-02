@@ -24,7 +24,7 @@ namespace AWSPowerShellGenerator
 
         const string ModulesSubFolder = "modules";
         const string DeploymentArtifactsSubFolder = "Deployment";
-        const string WebHelpBuildOutputSubFolder = "WebHelpDeployment";
+        const string DocBuildOutputSubFolder = @"DocDeployment\docs";
 
         const string AWSPowerShellModuleName = "AWSPowerShell";
 
@@ -136,7 +136,7 @@ namespace AWSPowerShellGenerator
                     CmdletAssembly = awsPowerShellAssembly,
                     AssemblyDocumentation = cmdletDocumentation,
                     Name = AWSPowerShellModuleName,
-                    OutputFolder = Path.Combine(fqRootPath, WebHelpBuildOutputSubFolder),
+                    OutputFolder = Path.Combine(fqRootPath, DocBuildOutputSubFolder),
                     CNNorth1RegionDocsDomain = options.CNNorth1RegionDocsDomain,
                     Options = options
                 };

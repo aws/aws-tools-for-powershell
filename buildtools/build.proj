@@ -37,8 +37,9 @@
         <!-- default to build break if analysis of cmdlet output does not match service operation configuration -->
         <BreakOnOutputMismatchError Condition="'$(BreakOnOutputMismatchError)'==''">true</BreakOnOutputMismatchError>
         
-        <!-- default location for artifact consolidation -->
+        <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
+        <DocDeployment Condition="'$(DocDeployment)'==''">$(RootPath)\DocDeployment</DocDeployment>
            
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
         
@@ -87,19 +88,19 @@
 
         <!-- todo
         <CreateSitemap
-            Source="./WebHelpDeployment"
+            Source="$(DocDeployment)\docs"
             BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/"
-            Output="./WebHelpDeployment/sitemap.xml"
+            Output="$(DocDeployment)\docs\sitemap.xml"
             Extensions=".html .htm"
             />
         -->
         
 		<ItemGroup>
-			<FilesToZip Include="$(RootPath)\WebHelpDeployment\**" />
+			<FilesToZip Include="$(DocDeployment)\docs\**" />
 		</ItemGroup>
 		<Zip
-			InputDirectory="$(RootPath)\WebHelpDeployment"
-			OutputFileName="$(Deployment)\AWSPowerShell.WebHelp_$(AWSPowerShellVersion).zip" />
+			InputDirectory="$(DocDeployment)\docs"
+			OutputFileName="$(DocDeployment)\help.zip" />
     </Target>
     
     <Target Name="run-tests" DependsOnTargets="build-modules" Condition="'$(RunTests)'">

@@ -18,10 +18,9 @@
 **/.vs/
 
 AWSPowerShell.Src_*.zip
-AWSPowerShell.WebHelp_*.zip
 Deployment/**
+DocDeployment/**
 Include/**
-WebHelpDeployment/**
 Tests/Results/
 Tests/bar/
 Tests/new-bar/
