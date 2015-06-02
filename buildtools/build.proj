@@ -39,11 +39,10 @@
         
         <!-- default location for artifact consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
-   
-        <AWSPowerShellVersion Condition="'$(AWSPowerShellVersion)'==''">3.0.0.0</AWSPowerShellVersion>
-        
+           
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
         
+		<VersionNumber></VersionNumber>
     </PropertyGroup>
     
 	<Target Name="full-build" 
@@ -140,15 +139,23 @@
             DestinationFolder="$(Deployment)"/>
     </Target>
 
-	<Target Name="save-build">		
+	<Target Name="update-version" DependsOnTargets="build-tools">		
+		<UpdatePowerShellVersionTask
+			RepositoryRoot="$(MSBuildProjectDirectory)\.."
+			VersionNumber="$(VersionNumber)"
+			WaitForDebugger="false"
+			/>
+	</Target>
+
+	<Target Name="save-build"  DependsOnTargets="build-tools">		
 		<SaveBuildArtifactTask
 			RepositoryRoot="$(MSBuildProjectDirectory)\.."
 			BuildArtifactType="powershell"
 			LocalArchiveRootFolder="$(LocalArchiveRootFolder)"
 			/>
 	</Target>
-
-	<Target Name="get-references">		
+	
+	<Target Name="get-references"  DependsOnTargets="build-tools">		
 		<MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="get-reference-sdk" Properties="TargetRepository=$(MSBuildProjectDirectory)\.."/>
 	</Target>
 </Project>
