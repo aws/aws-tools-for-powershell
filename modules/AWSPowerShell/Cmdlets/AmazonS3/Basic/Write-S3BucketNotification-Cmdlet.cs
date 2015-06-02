@@ -49,16 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         /// <summary>
         /// <para>
-        /// CloudFunctionConfigurations are configuration for 
-        /// Amazon S3 events to be sent to an Amazon Lambda cloud function.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("CloudFunctionConfigurations")]
-        public Amazon.S3.Model.CloudFunctionConfiguration[] CloudFunctionConfiguration { get; set; }
-        
-        /// <summary>
-        /// <para>
         /// LambdaFunctionConfigurations are configuration for 
         /// Amazon S3 events to be sent to an Amazon Lambda cloud function.
         /// </para>
@@ -128,10 +118,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.QueueConfigurations = new List<QueueConfiguration>(this.QueueConfiguration);
             }
-            if (this.CloudFunctionConfiguration != null)
-            {
-                context.CloudFunctionConfigurations = new List<CloudFunctionConfiguration>(this.CloudFunctionConfiguration);
-            }
             if (this.LambdaFunctionConfiguration != null)
             {
                 context.LambdaFunctionConfigurations = new List<LambdaFunctionConfiguration>(this.LambdaFunctionConfiguration);
@@ -160,10 +146,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.QueueConfigurations != null)
             {
                 request.QueueConfigurations = cmdletContext.QueueConfigurations;
-            }
-            if (cmdletContext.CloudFunctionConfigurations != null)
-            {
-                request.CloudFunctionConfigurations = cmdletContext.CloudFunctionConfigurations;
             }
             if (cmdletContext.LambdaFunctionConfigurations != null)
             {
@@ -209,7 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String BucketName { get; set; }
             public List<TopicConfiguration> TopicConfigurations { get; set; }
             public List<QueueConfiguration> QueueConfigurations { get; set; }
-            public List<CloudFunctionConfiguration> CloudFunctionConfigurations { get; set; }
             public List<LambdaFunctionConfiguration> LambdaFunctionConfigurations { get; set; }
         }
         
