@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSPSGeneratorLib", "generator\AWSPSGeneratorLib\AWSPSGeneratorLib.csproj", "{242938AA-9D24-4BCF-9589-AAEA20658B58}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSPSGeneratorLib", "..\generator\AWSPSGeneratorLib\AWSPSGeneratorLib.csproj", "{242938AA-9D24-4BCF-9589-AAEA20658B58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSPSGenerator", "generator\AWSPSGenerator\AWSPSGenerator.csproj", "{A24528BA-C34C-4D97-A1DD-86395EE68239}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSPSGenerator", "..\generator\AWSPSGenerator\AWSPSGenerator.csproj", "{A24528BA-C34C-4D97-A1DD-86395EE68239}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

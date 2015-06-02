@@ -3,15 +3,13 @@
 	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
 	<Import Project="..\..\AWSDotNetBuildTools\references.targets" Condition="Exists('..\..\AWSDotNetBuildTools\references.targets')" />
-	
-	<Import Project="common.targets" />
+	<Import Project="..\..\AWSDotNetBuildTools\common.targets" Condition="Exists('..\..\AWSDotNetBuildTools\common.targets')" />
 
     <!--
-    NOTE
-    Full build consumes the AWSPowerShell project and generates helps and formats files.
-    Full build DOES NOT generate cmdlets.
-    To generate cmdlets, run target 'create-cmdlets', add the new/generated cmdlets to the
-    AWSPowerShell project, then run full-build to create the format and help files.
+    NOTE: Full build consumes the AWSPowerShell project and generates helps and formats files.
+          Full build DOES NOT generate cmdlets.
+          To generate cmdlets, run target 'create-cmdlets', add the new/generated cmdlets to the
+          AWSPowerShell project, then run full-build to create the format and help files.
     -->
 	
     <PropertyGroup>
@@ -25,13 +23,10 @@
         <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\$(Configuration)</GeneratorPath>
         <Generator>AWSPSGenerator.exe</Generator>
         
-        <!-- location to fetch SDK assemblies from (default is the public repo, expected to be a sibling folder) - we place into
-             local SDKAssembliesFolder for the generator to consume 
+        <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
+             the get-references (=> get-reference-sdk) target
         -->
-        <SDKArtifactsLocation Condition="'$(SDKArtifactsLocation)'==''">$(RootPath)\..\AWSDotNetPublic\Deployment\sdk\assemblies\net35</SDKArtifactsLocation>
-        
-        <!-- expected location of SDK assemblies to be consumed by generator -->
-        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies</SDKAssembliesFolder>
+        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\sdk\assemblies\net35</SDKAssembliesFolder>
         
         <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
         <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
@@ -52,37 +47,23 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean-deployment;build-generator;get-sdk;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
+            DependsOnTargets="clean;build-generator;get-references;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
-    <Target Name="clean-deployment">
-        <RemoveDir Directories="$(Deployment)" />
-    </Target>
-    
     <Target Name="build-generator">
 		<Message Text="Building AWS PowerShell generator"/>
-		<Exec Command="$(devenv2013) /Rebuild $(Configuration) ..\AWSPowerShellGenerator.sln"/>
+		<Exec Command="$(devenv2013) /Rebuild $(Configuration) ..\solutions\AWSPowerShellGenerator.sln"/>
     </Target>
     
-    <Target Name="get-sdk">
-        <Message Text="Fetching pre-built SDK artifacts" />
-        
-        <ItemGroup>
-            <SDKArtifacts Include="$(SDKArtifactsLocation)\*.*"
-                          Exclude="$(SDKArtifactsLocation)\AWSSDK.Glacier.*;$(SDKArtifactsLocation)\AWSSDK.Cognito*.*;$(SDKArtifactsLocation)\AWSSDK.SimpleDB.*"/>
-        </ItemGroup>
-        <Copy SourceFiles="@(SDKArtifacts)" DestinationFolder="$(SDKAssembliesFolder)" />
-    </Target>
-    
-	<Target Name="create-cmdlets" DependsOnTargets="build-generator;get-sdk">
+	<Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
 		<Message Text="Generating cmdlets for all services"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
 	</Target>
 
 	<Target Name="build-modules">
 		<Message Text="Building generated modules"/>
-		<Exec Command="$(devenv2013) /Rebuild Release ..\AWSPowerShell.sln"/>
+		<Exec Command="$(devenv2013) /Rebuild Release ..\solutions\AWSPowerShell.sln"/>
 	</Target>
     
 	<Target Name="create-formats" DependsOnTargets="build-modules">
@@ -138,7 +119,7 @@
 
         <ItemGroup>
             <SDKAssemblies Include="$(SDKAssembliesFolder)\*.dll" 
-                           Exclude="$(SDKAssembliesFolder)\*.Glacier.dll"/>
+                           Exclude="$(SDKAssembliesFolder)\*.Glacier.*;$(SDKAssembliesFolder)\*.Cognito*.*;$(SDKAssembliesFolder)\*.SimpleDB.*"/>
         </ItemGroup>
         
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
@@ -149,7 +130,7 @@
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="@(SDKAssemblies)"
             DestinationFolder="$(Deployment)"/>
-        <Copy SourceFiles="$(RootPath)\buildtools\ThirdParty\log4net.dll"
+        <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll"
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
             DestinationFolder="$(Deployment)"/>
