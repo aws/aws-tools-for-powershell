@@ -47,7 +47,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;update-version-numbers;build-modules;run-tests;create-formats;create-help;deploy-artifacts">
+            DependsOnTargets="clean;build-generator;get-references;update-version-numbers;build-modules;run-tests;create-formats;create-help;copy-artifacts">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
@@ -115,8 +115,6 @@
         </ItemGroup>
         <Copy SourceFiles="@(TestResults)" DestinationFolder="$(Deployment)" />
     </Target>
-    
-    <Target Name="deploy-artifacts" DependsOnTargets="copy-artifacts;consolidate-artifacts" />
     
     <Target Name="copy-artifacts" DependsOnTargets="build-modules;create-formats;create-pshelp">
 		<Message Text="Consolidating build artifacts"/>
