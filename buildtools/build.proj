@@ -47,14 +47,10 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;update-version-numbers;build-modules;run-tests;create-formats;create-help;copy-artifacts">
+            DependsOnTargets="clean;build-generator;get-references;build-modules;run-tests;create-formats;create-help;copy-artifacts">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
-    <Target Name="update-version-numbers">
-        <!-- TODO -->
-    </Target>
-    
     <Target Name="build-generator">
 		<Message Text="Building AWS PowerShell generator"/>
 		<Exec Command="$(devenv2013) /Rebuild $(Configuration) ..\solutions\AWSPowerShellGenerator.sln"/>

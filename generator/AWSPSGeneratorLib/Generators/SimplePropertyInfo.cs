@@ -6,7 +6,6 @@ using System.Text;
 using System.Reflection;
 using System.Xml;
 using System.IO;
-using NAnt.Core.Attributes;
 using AWSPowerShellGenerator.CmdletConfig;
 
 namespace AWSPowerShellGenerator.Generators
