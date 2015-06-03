@@ -43,11 +43,11 @@
            
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
         
-		<VersionNumber></VersionNumber>
+		<AWSPowerShellVersionNumber></AWSPowerShellVersionNumber>
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;build-modules;run-tests;create-formats;create-help;copy-artifacts">
+            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;run-tests;create-formats;create-help;copy-artifacts">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
@@ -137,7 +137,7 @@
 	<Target Name="update-version" DependsOnTargets="build-tools">		
 		<UpdatePowerShellVersionTask
 			RepositoryRoot="$(MSBuildProjectDirectory)\.."
-			VersionNumber="$(VersionNumber)"
+			VersionNumber="$(AWSPowerShellVersionNumber)"
 			WaitForDebugger="false"
 			/>
 	</Target>
@@ -145,6 +145,7 @@
 	<Target Name="save-build"  DependsOnTargets="build-tools">		
 		<SaveBuildArtifactTask
 			RepositoryRoot="$(MSBuildProjectDirectory)\.."
+            AssemblyInfoPaths="modules\AWSPowerShell"
 			BuildArtifactType="powershell"
 			LocalArchiveRootFolder="$(LocalArchiveRootFolder)"
 			/>
