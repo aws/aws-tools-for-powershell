@@ -2,8 +2,12 @@
 	DefaultTargets="full-build"
 	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-	<Import Project="..\..\AWSDotNetBuildTools\references.targets" Condition="Exists('..\..\AWSDotNetBuildTools\references.targets')" />
-	<Import Project="..\..\AWSDotNetBuildTools\common.targets" Condition="Exists('..\..\AWSDotNetBuildTools\common.targets')" />
+    <PropertyGroup>
+        <InternalBuildTools Condition="'$(InternalBuildTools)'==''">..\..\AWSDotNetBuildTools</InternalBuildTools>
+    </PropertyGroup>
+    
+	<Import Project="$(InternalBuildTools)\references.targets" Condition="Exists('$(InternalBuildTools)\references.targets')" />
+	<Import Project="$(InternalBuildTools)\common.targets" Condition="Exists('$(InternalBuildTools)\common.targets')" />
 
     <!--
     NOTE: Full build consumes the AWSPowerShell project and generates helps and formats files.
@@ -47,7 +51,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;run-tests;create-formats;create-help;copy-artifacts">
+            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;run-tests;create-formats;create-help;copy-artifacts;save-build">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
@@ -137,6 +141,7 @@
 	<Target Name="update-version" DependsOnTargets="build-tools">		
 		<UpdatePowerShellVersionTask
 			RepositoryRoot="$(MSBuildProjectDirectory)\.."
+            AssemblyInfoPaths="modules\AWSPowerShell"
 			VersionNumber="$(AWSPowerShellVersionNumber)"
 			WaitForDebugger="false"
 			/>
@@ -145,7 +150,6 @@
 	<Target Name="save-build"  DependsOnTargets="build-tools">		
 		<SaveBuildArtifactTask
 			RepositoryRoot="$(MSBuildProjectDirectory)\.."
-            AssemblyInfoPaths="modules\AWSPowerShell"
 			BuildArtifactType="powershell"
 			LocalArchiveRootFolder="$(LocalArchiveRootFolder)"
 			/>
