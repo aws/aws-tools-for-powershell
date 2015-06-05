@@ -108,12 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
             var instanceIds = AmazonEC2Helper.InstanceParamToIDs(this.Instance);
 
-            if (this.Terminate.IsPresent)
-            {
-                var resourceIdentifiersText = string.Join(",", instanceIds.ToArray<string>());
-                if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EC2Instance (TerminateInstances)"))
-                    return;
-            }
+            var resourceIdentifiersText = string.Join(",", instanceIds.ToArray<string>());
+            var operation = string.Format("Stop-EC2Instance ({0})", Terminate.IsPresent ? "TerminateInstances" : "StopInstances");
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, operation))
+                return;
 
             var context = new CmdletContext
                               {
