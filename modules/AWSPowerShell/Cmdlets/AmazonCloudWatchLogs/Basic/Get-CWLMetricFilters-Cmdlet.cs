@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     {
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Will only return metric filters that match the provided filterNamePrefix. If you don't
+        /// specify a value, no prefix filter is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The log group name for which metric filters are to be listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the log group to query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the log stream to query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -76,9 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// If set to true, the earliest log events
-        /// would be returned first. The default is false (the latest log events are returned
-        /// first).
+        /// <para>If set to true, the earliest log events would be returned first. The default is false
+        /// (the latest log events are returned first).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -305,12 +305,16 @@ Set-Alias -Name Delete-CWLMetricFilter -Value Remove-CWLMetricFilter
 Set-Alias -Name CWL-DeleteMetricFilter -Value Remove-CWLMetricFilter
 Set-Alias -Name Delete-CWLRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name CWL-DeleteRetentionPolicy -Value Remove-CWLRetentionPolicy
+Set-Alias -Name Delete-CWLSubscriptionFilter -Value Remove-CWLSubscriptionFilter
+Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name Describe-CWLLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name CWL-DescribeLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name Describe-CWLLogStreams -Value Get-CWLLogStreams
 Set-Alias -Name CWL-DescribeLogStreams -Value Get-CWLLogStreams
 Set-Alias -Name Describe-CWLMetricFilters -Value Get-CWLMetricFilters
 Set-Alias -Name CWL-DescribeMetricFilters -Value Get-CWLMetricFilters
+Set-Alias -Name Describe-CWLSubscriptionFilters -Value Get-CWLSubscriptionFilters
+Set-Alias -Name CWL-DescribeSubscriptionFilters -Value Get-CWLSubscriptionFilters
 Set-Alias -Name CWL-FilterLogEvents -Value Get-CWLFilteredLogEvent
 Set-Alias -Name CWL-GetLogEvents -Value Get-CWLLogEvents
 Set-Alias -Name Put-CWLLogEvents -Value Write-CWLLogEvents
@@ -319,6 +323,8 @@ Set-Alias -Name Put-CWLMetricFilter -Value Write-CWLMetricFilter
 Set-Alias -Name CWL-PutMetricFilter -Value Write-CWLMetricFilter
 Set-Alias -Name Put-CWLRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name CWL-PutRetentionPolicy -Value Write-CWLRetentionPolicy
+Set-Alias -Name Put-CWLSubscriptionFilter -Value Write-CWLSubscriptionFilter
+Set-Alias -Name CWL-PutSubscriptionFilter -Value Write-CWLSubscriptionFilter
 Set-Alias -Name CWL-TestMetricFilter -Value Test-CWLMetricFilter
 Set-Alias -Name CD-RemoveTagsFromOnPremisesInstances -Value Remove-CDOnPremiseInstanceTag
 Set-Alias -Name CD-StopDeployment -Value Stop-CDDeployment
@@ -1891,6 +1897,8 @@ Set-Alias -Name List-SGGateways -Value Get-SGGateway
 Set-Alias -Name SG-ListGateways -Value Get-SGGateway
 Set-Alias -Name List-SGLocalDisks -Value Get-SGLocalDisk
 Set-Alias -Name SG-ListLocalDisks -Value Get-SGLocalDisk
+Set-Alias -Name List-SGVolumeInitiators -Value Get-SGVolumeInitiators
+Set-Alias -Name SG-ListVolumeInitiators -Value Get-SGVolumeInitiators
 Set-Alias -Name List-SGVolumeRecoveryPoints -Value Get-SGVolumeRecoveryPoint
 Set-Alias -Name SG-ListVolumeRecoveryPoints -Value Get-SGVolumeRecoveryPoint
 Set-Alias -Name List-SGVolumes -Value Get-SGVolume

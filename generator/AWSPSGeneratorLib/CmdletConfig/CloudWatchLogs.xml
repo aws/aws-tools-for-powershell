@@ -17,10 +17,16 @@
     <ServiceOperation MethodName="DeleteLogStream" Output="Void" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
     <ServiceOperation MethodName="DeleteMetricFilter" Output="Void" PipelineParameter="FilterName" PositionalParameters="LogGroupName" />
     <ServiceOperation MethodName="DeleteRetentionPolicy" Output="Void" />
+	
+	<ServiceOperation MethodName="DeleteSubscriptionFilter" 
+		Output="Void" 
+		PipelineParameter="FilterName" 
+		PositionalParameters="LogGroupName"/>
+		
     <ServiceOperation MethodName="DescribeLogGroups" PipelineParameter="LogGroupNamePrefix"/>
     <ServiceOperation MethodName="DescribeLogStreams" PipelineParameter="LogGroupName"/>
     <ServiceOperation MethodName="DescribeMetricFilters" PipelineParameter="LogGroupName"/>
-
+    <ServiceOperation MethodName="DescribeSubscriptionFilters" PipelineParameter="LogGroupName" />
     <ServiceOperation MethodName="FilterLogEvents" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" Output="Response" />
     
     <ServiceOperation MethodName="GetLogEvents" Output="Response" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
@@ -32,6 +38,12 @@
         <Param Name="RetentionInDays" AutoRename="false" />
       </Params>
     </ServiceOperation>
+	
+	<ServiceOperation MethodName="PutSubscriptionFilter" 
+		Output="Void" 
+		PipelineParameter="LogGroupName" 
+		PositionalParameters="FilterName;FilterPattern" />
+	
     <ServiceOperation MethodName="SetRetention" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="RetentionInDays">
       <Params>
         <Param Name="RetentionInDays" AutoRename="false" />

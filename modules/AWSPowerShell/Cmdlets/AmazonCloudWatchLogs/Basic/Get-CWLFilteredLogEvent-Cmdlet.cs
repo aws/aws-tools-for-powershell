@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     {
         /// <summary>
         /// <para>
-        /// <para> A unix timestamp indicating the end time of the range for the request. If provided,
-        /// events with a timestamp later than this time will not be returned. </para>
+        /// <para>A unix timestamp indicating the end time of the range for the request. If provided,
+        /// events with a timestamp later than this time will not be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para> If provided, the API will make a best effort to provide responses that contain events
+        /// <para>If provided, the API will make a best effort to provide responses that contain events
         /// from multiple log streams within the log group interleaved in a single response. If
         /// not provided, all the matched log events in the first log stream will be searched
-        /// first, then those in the next log stream, etc. </para>
+        /// first, then those in the next log stream, etc.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para> The name of the log group to query </para>
+        /// <para> The name of the log group to query. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para> A unix timestamp indicating the start time of the range for the request. If provided,
-        /// events with a timestamp prior to this time will not be returned. </para>
+        /// <para>A unix timestamp indicating the start time of the range for the request. If provided,
+        /// events with a timestamp prior to this time will not be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -112,8 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para> The maximum number of events to return in a page of results. Default is 10,000 events.
-        /// </para>
+        /// <para>The maximum number of events to return in a page of results. Default is 10,000 events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -121,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para> A pagination token obtained from a <code class="code">FilterLogEvents</code> response
-        /// to continue paginating the FilterLogEvents results. </para>
+        /// <para>A pagination token obtained from a <code class="code">FilterLogEvents</code> response
+        /// to continue paginating the FilterLogEvents results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

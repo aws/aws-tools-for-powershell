@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     {
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Will only return log groups that match the provided logGroupNamePrefix. If you don't
+        /// specify a value, no prefix filter is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

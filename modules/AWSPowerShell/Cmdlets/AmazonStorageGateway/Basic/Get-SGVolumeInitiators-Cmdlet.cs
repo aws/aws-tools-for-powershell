@@ -22,57 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.StorageGateway;
+using Amazon.StorageGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Deletes the retention policy of the specified log group. Log events would not expire
-    /// if they belong to log groups without a retention policy.
+    /// This operation lists iSCSI initiators that are connected to a volume. You can use
+    /// this operation to determine whether a volume is being used or not.
     /// </summary>
-    [Cmdlet("Remove", "CWLRetentionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteRetentionPolicy operation against Amazon CloudWatch Logs.", Operation = new[] {"DeleteRetentionPolicy"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteRetentionPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SGVolumeInitiators")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ListVolumeInitiators operation against AWS Storage Gateway.", Operation = new[] {"ListVolumeInitiators"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type ListVolumeInitiatorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCWLRetentionPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public class GetSGVolumeInitiatorsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the log group that is associated with the retention policy to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation
+        /// to return a list of gateway volumes for the gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the LogGroupName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public String VolumeARN { get; set; }
         
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LogGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWLRetentionPolicy (DeleteRetentionPolicy)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -80,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
-            context.LogGroupName = this.LogGroupName;
+            context.VolumeARN = this.VolumeARN;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -92,11 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteRetentionPolicyRequest();
+            var request = new ListVolumeInitiatorsRequest();
             
-            if (cmdletContext.LogGroupName != null)
+            if (cmdletContext.VolumeARN != null)
             {
-                request.LogGroupName = cmdletContext.LogGroupName;
+                request.VolumeARN = cmdletContext.VolumeARN;
             }
             
             CmdletOutput output;
@@ -105,11 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteRetentionPolicy(request);
+                var response = client.ListVolumeInitiators(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.LogGroupName;
+                object pipelineOutput = response.Initiators;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -135,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LogGroupName { get; set; }
+            public String VolumeARN { get; set; }
         }
         
     }

@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         /// <summary>
         /// <para>
-        /// <para>The secret key that the initiator (e.g. Windows client) must provide to participate
-        /// in mutual CHAP with the target.</para>
+        /// <para>The secret key that the initiator (for example, the Windows client) must provide to
+        /// participate in mutual CHAP with the target.</para><note>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The secret key that the target must provide to participate in mutual CHAP with the
-        /// initiator (e.g. Windows client).</para>
+        /// initiator (e.g. Windows client).</para><para>Byte constraints: Minimum bytes of 12. Maximum bytes of 16.</para><note>The secret key must be between 12 and 16 bytes when encoded in UTF-8.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a>
-        /// operation to return to retrieve the TargetARN for specified VolumeARN.</para>
+        /// operation to return the TargetARN for specified VolumeARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

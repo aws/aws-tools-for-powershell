@@ -28,25 +28,68 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Deletes the retention policy of the specified log group. Log events would not expire
-    /// if they belong to log groups without a retention policy.
+    /// Creates or updates a subscription filter and associates it with the specified log
+    /// group. Subscription filters allow you to subscribe to a real-time stream of log events
+    /// ingested through <code class="code">PutLogEvents</code> requests and have them delivered
+    /// to a specific destination. Currently the only supported destination is an Amazon Kinesis
+    /// stream belonging to the same account as the subscription filter. 
+    /// 
+    ///  
+    /// <para>
+    ///  Currently there can only be one subscription filter associated with a log group.
+    /// 
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CWLRetentionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Write", "CWLSubscriptionFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteRetentionPolicy operation against Amazon CloudWatch Logs.", Operation = new[] {"DeleteRetentionPolicy"})]
+    [AWSCmdlet("Invokes the PutSubscriptionFilter operation against Amazon CloudWatch Logs.", Operation = new[] {"PutSubscriptionFilter"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteRetentionPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type PutSubscriptionFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCWLRetentionPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public class WriteCWLSubscriptionFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the log group that is associated with the retention policy to delete.</para>
+        /// <para>The ARN of an Amazon Kinesis stream to deliver matching log events to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String DestinationArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A name for the subscription filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        public String FilterName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log
+        /// events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        public String FilterPattern { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the log group to associate the subscription filter with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public String LogGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to do Amazon
+        /// Kinesis PutRecord requests on the desitnation stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String RoleArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LogGroupName parameter.
@@ -69,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LogGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWLRetentionPolicy (DeleteRetentionPolicy)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CWLSubscriptionFilter (PutSubscriptionFilter)"))
             {
                 return;
             }
@@ -80,7 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
+            context.DestinationArn = this.DestinationArn;
+            context.FilterName = this.FilterName;
+            context.FilterPattern = this.FilterPattern;
             context.LogGroupName = this.LogGroupName;
+            context.RoleArn = this.RoleArn;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -92,11 +139,27 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteRetentionPolicyRequest();
+            var request = new PutSubscriptionFilterRequest();
             
+            if (cmdletContext.DestinationArn != null)
+            {
+                request.DestinationArn = cmdletContext.DestinationArn;
+            }
+            if (cmdletContext.FilterName != null)
+            {
+                request.FilterName = cmdletContext.FilterName;
+            }
+            if (cmdletContext.FilterPattern != null)
+            {
+                request.FilterPattern = cmdletContext.FilterPattern;
+            }
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
             }
             
             CmdletOutput output;
@@ -105,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteRetentionPolicy(request);
+                var response = client.PutSubscriptionFilter(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -135,7 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
+            public String DestinationArn { get; set; }
+            public String FilterName { get; set; }
+            public String FilterPattern { get; set; }
             public String LogGroupName { get; set; }
+            public String RoleArn { get; set; }
         }
         
     }

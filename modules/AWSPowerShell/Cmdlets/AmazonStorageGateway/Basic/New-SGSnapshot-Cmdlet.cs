@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// ID. You can use this snapshot ID to check the snapshot progress or later use it when
     /// you want to create a volume from a snapshot.
     /// </para><note>To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
-    /// .</note>
+    /// see DescribeSnapshots or DeleteSnapshot in the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html">EC2
+    /// API reference</a>.</note>
     /// </summary>
     [Cmdlet("New", "SGSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StorageGateway.Model.CreateSnapshotResponse")]

@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates or updates a metric filter and associates it with the specified log group.
     /// Metric filters allow you to configure rules to extract metric data from log events
-    /// ingested through <code class="code">PutLogEvents</code> requests.
+    /// ingested through <code class="code">PutLogEvents</code> requests. 
+    /// 
+    ///  
+    /// <para>
+    ///  The maximum number of metric filters that can be associated with a log group is 100.
+    /// 
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLMetricFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     {
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A name for the metric filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -51,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A valid CloudWatch Logs filter pattern for extracting metric data out of ingested
+        /// log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -59,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the log group to associate the metric filter with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A collection of information needed to define how metric data gets emitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

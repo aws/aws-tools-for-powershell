@@ -66,6 +66,7 @@
     <ServiceOperation MethodName="DescribeWorkingStorage" Output="Response"/>
     <ServiceOperation MethodName="ListGateways"/>
     <ServiceOperation MethodName="ListLocalDisks" Output="Response"/>
+	<ServiceOperation MethodName="ListVolumeInitiators"  PositionalParameters="VolumeARN"/>
     <ServiceOperation MethodName="ListVolumeRecoveryPoints" Output="Response"/>
     <ServiceOperation MethodName="ListVolumes" MetadataProperties="GatewayARN" />
     <ServiceOperation MethodName="ShutdownGateway"/>

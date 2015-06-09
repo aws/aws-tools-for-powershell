@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// This operation requires permision for the <code>lambda:UpdateFunctionCode</code> action.
+    /// This operation requires permission for the <code>lambda:UpdateFunctionCode</code>
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,6 +57,31 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public String FunctionName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Amazon S3 bucket name where the .zip file containing your deployment package is stored.
+        /// This bucket must reside in the same AWS region where you are creating the Lambda function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String S3Bucket { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 object (the deployment package) key name you want to upload. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String S3Key { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 object (the deployment package) version you want to upload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String S3ObjectVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,6 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            context.S3Bucket = this.S3Bucket;
+            context.S3Key = this.S3Key;
+            context.S3ObjectVersion = this.S3ObjectVersion;
             context.ZipFile = this.ZipFile;
             
             var output = Execute(context) as CmdletOutput;
@@ -108,6 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.S3Bucket != null)
+            {
+                request.S3Bucket = cmdletContext.S3Bucket;
+            }
+            if (cmdletContext.S3Key != null)
+            {
+                request.S3Key = cmdletContext.S3Key;
+            }
+            if (cmdletContext.S3ObjectVersion != null)
+            {
+                request.S3ObjectVersion = cmdletContext.S3ObjectVersion;
             }
             if (cmdletContext.ZipFile != null)
             {
@@ -149,6 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }
+            public String S3Bucket { get; set; }
+            public String S3Key { get; set; }
+            public String S3ObjectVersion { get; set; }
             public System.IO.MemoryStream ZipFile { get; set; }
         }
         
