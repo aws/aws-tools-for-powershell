@@ -84,14 +84,12 @@
 		<Message Text="Generating web cmdlet reference"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp" />
 
-        <!-- todo
-        <CreateSitemap
-            Source="$(DocDeployment)\docs"
+        <CreateSitemapTask
+            SourceFolder="$(DocDeployment)\docs"
             BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/"
-            Output="$(DocDeployment)\docs\sitemap.xml"
-            Extensions=".html .htm"
+            OutputFile="$(DocDeployment)\docs\sitemap.xml"
+            WaitForDebugger="false"
             />
-        -->
         
 		<ItemGroup>
 			<FilesToZip Include="$(DocDeployment)\docs\**" />
