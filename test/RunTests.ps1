@@ -21,8 +21,8 @@ else
     Write-Output "Setting test credentials from environment variables"
     
     $testCreds = New-Object PSObject
-    $testCreds.AccessKey = (Get-Item env:AWS_ACCESS_KEY_ID).Value
-    $testCreds.SecretKey = (Get-Item env:AWS_SECRET_ACCESS_KEY).Value
+    $testCreds | Add-Member -NotePropertyName AccessKey -NotePropertyValue (Get-Item env:AWS_ACCESS_KEY_ID).Value
+    $testCreds | Add-Member -NotePropertyName SecretKey -NotePropertyValue (Get-Item env:AWS_SECRET_ACCESS_KEY).Value
 }
 
 Set-AWSCredentials -AccessKey $testCreds.AccessKey -SecretKey $testCreds.SecretKey
