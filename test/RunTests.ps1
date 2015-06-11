@@ -8,15 +8,14 @@ $PSUnitPath = Resolve-Path ..\thirdparty\PSUnit
 
 # build server uses environment variables, dev machines use profiles - try
 # and handle both scenarios
-$profileCreds = Get-AWSCredentials default
-
-if ($profileCreds -ne $null)
+try
 {
+    $profileCreds =  Get-AWSCredentials default
     Write-Output "Setting test credentials from local profile 'default'"
     
     $testCreds = $profileCreds.GetCredentials()
 }
-else
+catch
 {
     Write-Output "Setting test credentials from environment variables"
     
