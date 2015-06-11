@@ -27,6 +27,8 @@ catch
 Set-AWSCredentials -AccessKey $testCreds.AccessKey -SecretKey $testCreds.SecretKey
 Set-DefaultAWSRegion -Region us-east-1
 
+New-Item -Path ..\test\temp -ItemType directory
+
 $original_creds_file = '..\test\test-credentials'
 $creds_file = '..\test\temp\test-credentials-correct'
 (Get-Content $original_creds_file) | Foreach-Object {
