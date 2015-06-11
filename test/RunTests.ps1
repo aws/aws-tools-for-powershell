@@ -6,10 +6,27 @@ $PSUnitPath = Resolve-Path ..\thirdparty\PSUnit
 . ..\thirdparty\PSUnit\PSUnit.Assert.ps1
 . ..\thirdparty\PSUnit\PSUnit.Assert.Advanced.ps1
 
-Set-AWSCredentials default
-Set-DefaultAWSRegion -Region us-east-1
+# build server uses environment variables, dev machines use profiles - try
+# and handle both scenarios
+$profileCreds = Get-AWSCredentials default
 
-$testCreds = (Get-AWSCredentials default).GetCredentials()
+if ($profileCreds -ne $null)
+{
+    Write-Output "Setting test credentials from local profile 'default'"
+    
+    $testCreds = $profileCreds.GetCredentials()
+}
+else
+{
+    Write-Output "Setting test credentials from environment variables"
+    
+    $testCreds = New-Object PSObject
+    $testCreds.AccessKey = (Get-Item env:AWS_ACCESS_KEY_ID).Value
+    $testCreds.SecretKey = (Get-Item env:AWS_SECRET_ACCESS_KEY).Value
+}
+
+Set-AWSCredentials -AccessKey $testCreds.AccessKey -SecretKey $testCreds.SecretKey
+Set-DefaultAWSRegion -Region us-east-1
 
 $original_creds_file = '..\test\test-credentials'
 $creds_file = '..\test\temp\test-credentials-correct'
