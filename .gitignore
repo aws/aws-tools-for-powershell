@@ -21,10 +21,6 @@ AWSPowerShell.Src_*.zip
 Deployment/**
 DocDeployment/**
 Include/**
-Tests/Results/
-Tests/bar/
-Tests/new-bar/
-Tests/basic.txt
-Tests/basic2.txt
-Tests/blah.blah
+test/results/
+test/temp/**
 

@@ -51,6 +51,8 @@ function Test.CredentialsFile
 
 function Test.SDKUserAgent
 {
+    # make a call so the static user agent field gets set in the relevant
+    # service config
     try
     {
         Get-S3Bucket
@@ -59,7 +61,10 @@ function Test.SDKUserAgent
     {
     }
     
-    $userAgent = [Amazon.Util.AWSSDKUtils]::SDKUserAgent
+    # new up a config for the service, read back the user agent and test that
+    # our expected data is present
+    $s3Config = new-object Amazon.S3.AmazonS3Config
+    $userAgent = $s3Config.UserAgent
     #Write-Host "User agent = [$userAgent]"
     $containsAWSPS = $userAgent.Contains("AWSPowerShell")
     #Write-Host "Contains = [$containsAWSPS]"

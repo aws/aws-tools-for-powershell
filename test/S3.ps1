@@ -132,34 +132,34 @@ Function Init.S3.ProgressOps()
     $context.BucketName = "PSTest-" + [DateTime]::Now.ToFileTime()
     $b = New-S3Bucket $context.BucketName
    
-    $void = New-Item -Path bar -Type directory -Force
-    $void = New-Item -Path bar\baz -Type directory -Force
+    $void = New-Item -Path temp\bar -Type directory -Force
+    $void = New-Item -Path temp\bar\baz -Type directory -Force
 	
-    "sample text" | Out-File -FilePath ".\bar\test.txt" -Force
-    "more sample text" | Out-File -FilePath ".\bar\test2.txt" -Force
-    "another file" | Out-File -FilePath ".\bar\baz\blah.txt" -Force
-    "basic file" | Out-File -FilePath "basic.txt" -Force
+    "sample text" | Out-File -FilePath ".\temp\bar\test.txt" -Force
+    "more sample text" | Out-File -FilePath ".\temp\bar\test2.txt" -Force
+    "another file" | Out-File -FilePath ".\temp\bar\baz\blah.txt" -Force
+    "basic file" | Out-File -FilePath "temp\basic.txt" -Force
 }
 Function Test.S3.ProgressOps([switch] $Category_Smoke)
 {
     $bucket = $context.BucketName
 
-    Write-S3Object -BucketName $bucket -KeyPrefix bar2\ -Folder .\bar -Recurse
+    Write-S3Object -BucketName $bucket -KeyPrefix bar2\ -Folder .\temp\bar -Recurse
     Write-S3Object -BucketName $bucket -Key bar2\foo.txt -Content "foo"
-    Write-S3Object -BucketName $bucket -Key basic.txt -File "basic.txt"
+    Write-S3Object -BucketName $bucket -Key basic.txt -File "temp\basic.txt"
 
-    Read-S3Object -BucketName $bucket -KeyPrefix bar2\ -Folder new-bar
+    Read-S3Object -BucketName $bucket -KeyPrefix bar2\ -Folder temp\new-bar
 
-    Assert ((Get-Content ".\new-bar\foo.txt").Length) -ne 0
-    Assert ((Get-Content ".\new-bar\test.txt").Length) -ne 0
-    Assert ((Get-Content ".\new-bar\test2.txt").Length) -ne 0
-    Assert ((Get-Content ".\new-bar\baz\blah.txt").Length) -ne 0
+    Assert ((Get-Content ".\temp\new-bar\foo.txt").Length) -ne 0
+    Assert ((Get-Content ".\temp\new-bar\test.txt").Length) -ne 0
+    Assert ((Get-Content ".\temp\new-bar\test2.txt").Length) -ne 0
+    Assert ((Get-Content ".\temp\new-bar\baz\blah.txt").Length) -ne 0
 
-    Copy-S3Object -BucketName $bucket -Key "basic.txt" -LocalFile "$pwd\blah.blah"
-    Assert ((Get-Content "blah.blah").Length) -ne 0
+    Copy-S3Object -BucketName $bucket -Key "basic.txt" -LocalFile "$pwd\temp\blah.blah"
+    Assert ((Get-Content "$pwd\temp\blah.blah").Length) -ne 0
 
-    Read-S3Object -BucketName $bucket -Key "basic.txt" -File "basic2.txt"
-    Assert ((Get-Content "basic2.txt").Length) -ne 0
+    Read-S3Object -BucketName $bucket -Key "basic.txt" -File "temp\basic2.txt"
+    Assert ((Get-Content "temp\basic2.txt").Length) -ne 0
 }
 Function Term.S3.ProgressOps()
 {

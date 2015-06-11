@@ -51,7 +51,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;run-tests;create-formats;create-help;copy-artifacts;save-build">
+            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;copy-artifacts;run-tests;create-help;save-build">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
@@ -68,10 +68,8 @@
 	<Target Name="build-modules">
 		<Message Text="Building generated modules"/>
 		<Exec Command="$(devenv2013) /Rebuild Release ..\solutions\AWSPowerShell.sln"/>
-	</Target>
-    
-	<Target Name="create-formats" DependsOnTargets="build-modules">
-		<Message Text="Generating formats ps1xml file"/>
+
+		<Message Text="Generating custom view formats ps1xml file"/>
 		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t formats" />
 	</Target>
     
@@ -103,20 +101,20 @@
 			OutputFileName="$(DocDeployment)\help.zip" />
     </Target>
     
-    <Target Name="run-tests" DependsOnTargets="build-modules" Condition="'$(RunTests)'">
+    <Target Name="run-tests" DependsOnTargets="copy-artifacts" Condition="'$(RunTests)'">
         <Message Text="Running tests"/>
         
-        <RemoveDir Directories="$(RootPath)\Tests\Results" />
-        <MakeDir Directories="$(RootPath)\Tests\Results" />
-        <Exec Command="powershell -NoProfile $(RootPath)\Tests\RunTests.ps1" WorkingDirectory="$(RootPath)\Tests" />
+        <RemoveDir Directories="$(RootPath)\test\results" />
+        <MakeDir Directories="$(RootPath)\test\results" />
+        <Exec Command="powershell -NoProfile $(RootPath)\test\RunTests.ps1" WorkingDirectory="$(RootPath)\test" />
         
         <ItemGroup>
-            <TestResults Include="$(RootPath)\Tests\Results\*.*"/>
+            <TestResults Include="$(RootPath)\test\results\*.*"/>
         </ItemGroup>
         <Copy SourceFiles="@(TestResults)" DestinationFolder="$(Deployment)" />
     </Target>
     
-    <Target Name="copy-artifacts" DependsOnTargets="build-modules;create-formats;create-pshelp">
+    <Target Name="copy-artifacts" DependsOnTargets="build-modules">
 		<Message Text="Consolidating build artifacts"/>
 
         <ItemGroup>
