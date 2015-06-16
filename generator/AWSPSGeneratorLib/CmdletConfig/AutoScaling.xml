@@ -35,6 +35,7 @@
   </NounMappings>
 
   <ServiceOperations>
+    <ServiceOperation MethodName="AttachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
     <ServiceOperation MethodName="AttachInstances" Output="Void" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName">
       <PassThru>
         <Expression>cmdletContext.InstanceIds</Expression>
@@ -49,7 +50,8 @@
         <Expression>cmdletContext.Tags</Expression>
         <Documentation>Returns the collection of Tag objects that were created or updated</Documentation>
       </PassThru>
-    </ServiceOperation>  
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeLoadBalancers" Noun="LoadBalancer" />
     <ServiceOperation MethodName="DeleteAutoScalingGroup" Output="Void" ShouldProcessTarget="AutoScalingGroupName"/>
     <ServiceOperation MethodName="DeleteLaunchConfiguration" Output="Void" />
     <ServiceOperation MethodName="DeleteLifecycleHook" ShouldProcessTarget="LifecycleHookName" Output="Void"/>
@@ -77,6 +79,7 @@
     <ServiceOperation MethodName="DescribeScheduledActions"/>
     <ServiceOperation MethodName="DescribeTags" />
     <ServiceOperation MethodName="DescribeTerminationPolicyTypes"/>
+    <ServiceOperation MethodName="DetachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
     <ServiceOperation MethodName="DetachInstances" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName"/>
     <ServiceOperation MethodName="DisableMetricsCollection" Output="Void" PositionalParameters="Metrics"/>
     <ServiceOperation MethodName="EnterStandby" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName;ShouldDecrementDesiredCapacity"/>

@@ -1,3 +1,7 @@
+Set-Alias -Name Describe-ASScalingActivities -Value Get-ASScalingActivity
+Set-Alias -Name AS-DescribeScalingActivities -Value Get-ASScalingActivity
+Set-Alias -Name Describe-ASScalingProcessTypes -Value Get-ASScalingProcessType
+Set-Alias -Name AS-DescribeScalingProcessTypes -Value Get-ASScalingProcessType
 Set-Alias -Name Describe-ASScheduledActions -Value Get-ASScheduledAction
 Set-Alias -Name AS-DescribeScheduledActions -Value Get-ASScheduledAction
 Set-Alias -Name Describe-ASTags -Value Get-ASTag
@@ -6,6 +10,8 @@ Set-Alias -Name Describe-ASTerminationPolicyTypes -Value Get-ASTerminationPolicy
 Set-Alias -Name AS-DescribeTerminationPolicyTypes -Value Get-ASTerminationPolicyType
 Set-Alias -Name Detach-ASInstances -Value Dismount-ASInstances
 Set-Alias -Name AS-DetachInstances -Value Dismount-ASInstances
+Set-Alias -Name Detach-ASLoadBalancer -Value Dismount-ASLoadBalancer
+Set-Alias -Name AS-DetachLoadBalancers -Value Dismount-ASLoadBalancer
 Set-Alias -Name AS-DisableMetricsCollection -Value Disable-ASMetricsCollection
 Set-Alias -Name AS-EnableMetricsCollection -Value Enable-ASMetricsCollection
 Set-Alias -Name AS-EnterStandby -Value Enter-ASStandby
@@ -33,6 +39,8 @@ Set-Alias -Name AS-TerminateInstanceInAutoScalingGroup -Value Stop-ASInstanceInA
 Set-Alias -Name AS-UpdateAutoScalingGroup -Value Update-ASAutoScalingGroup
 Set-Alias -Name Attach-ASInstances -Value Add-ASInstances
 Set-Alias -Name AS-AttachInstances -Value Add-ASInstances
+Set-Alias -Name Attach-ASLoadBalancer -Value Add-ASLoadBalancer
+Set-Alias -Name AS-AttachLoadBalancers -Value Add-ASLoadBalancer
 Set-Alias -Name AS-CompleteLifecycleAction -Value Complete-ASLifecycleAction
 Set-Alias -Name Create-ASAutoScalingGroup -Value New-ASAutoScalingGroup
 Set-Alias -Name AS-CreateAutoScalingGroup -Value New-ASAutoScalingGroup
@@ -69,16 +77,14 @@ Set-Alias -Name Describe-ASLifecycleHooks -Value Get-ASLifecycleHooks
 Set-Alias -Name AS-DescribeLifecycleHooks -Value Get-ASLifecycleHooks
 Set-Alias -Name Describe-ASLifecycleHookTypes -Value Get-ASLifecycleHookTypes
 Set-Alias -Name AS-DescribeLifecycleHookTypes -Value Get-ASLifecycleHookTypes
+Set-Alias -Name Describe-ASLoadBalancer -Value Get-ASLoadBalancer
+Set-Alias -Name AS-DescribeLoadBalancers -Value Get-ASLoadBalancer
 Set-Alias -Name Describe-ASMetricCollectionTypes -Value Get-ASMetricCollectionType
 Set-Alias -Name AS-DescribeMetricCollectionTypes -Value Get-ASMetricCollectionType
 Set-Alias -Name Describe-ASNotificationConfigurations -Value Get-ASNotificationConfiguration
 Set-Alias -Name AS-DescribeNotificationConfigurations -Value Get-ASNotificationConfiguration
 Set-Alias -Name Describe-ASPolicies -Value Get-ASPolicy
 Set-Alias -Name AS-DescribePolicies -Value Get-ASPolicy
-Set-Alias -Name Describe-ASScalingActivities -Value Get-ASScalingActivity
-Set-Alias -Name AS-DescribeScalingActivities -Value Get-ASScalingActivity
-Set-Alias -Name Describe-ASScalingProcessTypes -Value Get-ASScalingProcessType
-Set-Alias -Name AS-DescribeScalingProcessTypes -Value Get-ASScalingProcessType
 Set-Alias -Name ASA-AddAttachmentsToSet -Value Add-ASAAttachmentsToSet
 Set-Alias -Name ASA-AddCommunicationToCase -Value Add-ASACommunicationToCase
 Set-Alias -Name Create-ASACase -Value New-ASACase

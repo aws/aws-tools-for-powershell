@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// If you exceed your maximum limit of launch configurations, which by default is 100
     /// per region, the call fails. For information about viewing and updating these limits,
     /// see <a>DescribeAccountLimits</a>.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html">Launch
+    /// Configurations</a> in the <i>Auto Scaling Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
