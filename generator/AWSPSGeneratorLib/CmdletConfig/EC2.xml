@@ -221,31 +221,36 @@
     <ServiceOperation MethodName="ImportKeyPair" Output="Response" PipelineParameter="KeyName" PositionalParameters="PublicKeyMaterial"/>
     <ServiceOperation MethodName="ImportVolume" Exclude="true"/>
 
-    <!-- Import V2 excluded for now -->
-    <ServiceOperation MethodName="CancelImportTask" Exclude="true"/>
-    <ServiceOperation MethodName="DescribeImportImageTasks" Exclude="true"/>
-    <ServiceOperation MethodName="DescribeImportSnapshotTasks" Exclude="true"/>
-    <ServiceOperation MethodName="ImportImage" Exclude="true"/>
-    <ServiceOperation MethodName="ImportSnapshot" Exclude="true"/>
+    <!-- Import V2 (these replace the V1 Import-EC2Instance and Import-EC2Volume, which are documented as deprecated) -->
+    <ServiceOperation MethodName="CancelImportTask" PipelineParameter="ImportTaskId" Output="Response" />
+    <ServiceOperation MethodName="DescribeImportImageTasks" Noun="ImportImageTask" PipelineParameter="ImportTaskIds" />
+    <ServiceOperation MethodName="DescribeImportSnapshotTasks" Noun="ImportSnapshotTask" PipelineParameter="ImportTaskIds" />
+    <ServiceOperation MethodName="ImportImage" NoPipelineParameter="true" Output="Response"/>
+    <ServiceOperation MethodName="ImportSnapshot" NoPipelineParameter="true" Output="Response">
+      <Params>
+        <Param Name="DiskContainer_UserBucket_S3Bucket" NewName="DiskContainer_S3Bucket" />
+        <Param Name="DiskContainer_UserBucket_S3Key" NewName="DiskContainer_S3Key" />
+      </Params>
+    </ServiceOperation>
 
-	<!-- Spot Fleet -->
-	<ServiceOperation MethodName="CancelSpotFleetRequests" 
-		Noun="SpotFleetRequest"
-		Output="Response"
-		PipelineParameter="SpotFleetRequestIds" />
-	<ServiceOperation MethodName="DescribeSpotFleetInstances"
-		Noun="SpotFleetInstance"
-		PipelineParameter="SpotFleetRequestId" />
-	<ServiceOperation MethodName="DescribeSpotFleetRequestHistory"
-		Output="Response"
-		PipelineParameter="SpotFleetRequestId" />
-	<ServiceOperation MethodName="DescribeSpotFleetRequests"
-		Noun="SpotFleetRequest"
-		PipelineParameter="SpotFleetRequestId" />
-	<ServiceOperation MethodName="RequestSpotFleet"
-		ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice"
-		Output="Void"/>		
-    
+    <!-- Spot Fleet -->
+    <ServiceOperation MethodName="CancelSpotFleetRequests"
+                      Noun="SpotFleetRequest"
+                      Output="Response"
+                      PipelineParameter="SpotFleetRequestIds" />
+    <ServiceOperation MethodName="DescribeSpotFleetInstances"
+                      Noun="SpotFleetInstance"
+                      PipelineParameter="SpotFleetRequestId" />
+    <ServiceOperation MethodName="DescribeSpotFleetRequestHistory"
+                      Output="Response"
+                      PipelineParameter="SpotFleetRequestId" />
+    <ServiceOperation MethodName="DescribeSpotFleetRequests"
+                      Noun="SpotFleetRequest"
+                      PipelineParameter="SpotFleetRequestId" />
+    <ServiceOperation MethodName="RequestSpotFleet"
+                      ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice"
+                      Output="Void"/>
+
     <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" PipelineParameter="ImageId"/>
     <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void">
       <Params>
@@ -429,6 +434,7 @@
     <Property>ConversionTaskId</Property>
     <Property>SpotInstanceRequestId</Property>
     <Property>KeyName</Property>
+    <Property>ImportTaskId</Property>
   </PipelineByValueProperties>
 
 </ConfigModel>

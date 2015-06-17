@@ -28,6 +28,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// <para>
+    /// <b>NOTE: This cmdlet has been deprecated and will be removed in a future release. Please use the replacement <i>Import-EC2Snapshot</i>
+    /// cmdlet instead.</b><br/>
+    /// </para>
+    /// <para>
     /// Uploads and converts a virtual machine disk image, creating a new Amazon Elastic Block Store (EBS) volume or uploads the 
     /// disk image artifacts and generated import manifest, pending a request to begin import conversion at a later time.
     /// </para>

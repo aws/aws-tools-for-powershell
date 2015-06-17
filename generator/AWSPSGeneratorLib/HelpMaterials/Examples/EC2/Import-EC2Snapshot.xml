@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+	<example>
+		<code>
+PS C:\> $parms = @{
+    "ClientToken"="idempotencyToken"
+    "Description"="Disk Image Import"
+    "DiskContainer_Description" = "Data disk"
+    "DiskContainer_Format" = "VMDK"
+    "DiskContainer_S3Bucket" = "myVirtualMachineImages"
+    "DiskContainer_S3Key" = "datadiskimage.vmdk"
+}
+
+PS C:\> Import-EC2Snapshot @parms 
+
+Description            ImportTaskId               SnapshotTaskDetail                                                          
+-----------------      --------------------       ------------------                                                          
+Disk Image Import      import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTaskDetail 
+		</code>
+		<description>This example imports a Virtual Machine disk image of format 'VMDK' to an Amazon EC2 EBS snapshot. The example shown requires that a VM Import Service Role with the default name 'vmimport' exists, with a policy allowing EC2 access to the specified bucket, as explained in the <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/VMImportPrerequisites.html">VM Import Prequisites</a> topic. To use a custom role specify the role name using the <code>-RoleName</code> parameter.</description>
+	</example>
+</examples>

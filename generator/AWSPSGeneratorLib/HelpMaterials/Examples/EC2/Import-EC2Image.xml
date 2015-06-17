@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+	<example>
+		<code>
+PS C:\> $container = New-Object Amazon.EC2.Model.ImageDiskContainer
+PS C:\> $container.Format="VMDK"
+PS C:\> $container.UserBucket = New-Object Amazon.EC2.Model.UserBucket
+PS C:\> $container.UserBucket.S3Bucket = "myVirtualMachineImages"
+PS C:\> $container.UserBucket.S3Key = "Win_2008_Server_Standard_SP2_64-bit-disk1.vmdk"
+
+PS C:\> $parms = @{
+    "ClientToken"="idempotencyToken"
+    "Description"="Windows 2008 Standard Image Import"
+    "Platform"="Windows"
+    "LicenseType"="AWS"
+}
+
+PS C:\> Import-EC2Image -DiskContainer $container @parms 
+
+Architecture    : 
+Description     : Windows 2008 Standard Image
+Hypervisor      : 
+ImageId         : 
+ImportTaskId    : import-ami-abcdefgh
+LicenseType     : AWS
+Platform        : Windows
+Progress        : 2
+SnapshotDetails : {}
+Status          : active
+StatusMessage   : pending
+        
+		</code>
+		<description>This example imports a single-disk virtual machine image from the specified Amazon S3 bucket to Amazon EC2 with an idempotency token.<br/>The example shown requires that a VM Import Service Role with the default name 'vmimport' exists, with a policy allowing EC2 access to the specified bucket, as explained in the <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/VMImportPrerequisites.html">VM Import Prequisites</a> topic. To use a custom role specify the role name using the <code>-RoleName</code> parameter.</description>
+	</example>
+</examples>

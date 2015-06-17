@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+	<example>
+		<code>
+PS C:\>  Get-EC2ImportSnapshotTask
+
+Description             ImportTaskId               SnapshotTaskDetail                                                          
+-----------------       --------------------       ------------------                                                          
+Disk Image Import 1     import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTaskDetail 
+Disk Image Import 2     import-snap-hgfedcba       Amazon.EC2.Model.SnapshotTaskDetail 
+		</code>
+		<description>This example shows how to obtain details of all current snapshot import tasks and their status.</description>
+	</example>
+	<example>
+		<code>
+PS C:\>  Get-EC2ImportSnapshotTask -ImportTaskId import-snap-abcdefgh
+
+Description             ImportTaskId               SnapshotTaskDetail                                                          
+-----------------       --------------------       ------------------                                                          
+Disk Image Import 1     import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTaskDetail 
+		</code>
+		<description>This example shows how to obtain details of a specified snapshot import task.</description>
+	</example>
+</examples>

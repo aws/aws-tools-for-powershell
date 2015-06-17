@@ -516,7 +516,9 @@ Set-Alias -Name EC2-EnableVgwRoutePropagation -Value Enable-EC2VgwRoutePropagati
 Set-Alias -Name EC2-EnableVolumeIO -Value Enable-EC2VolumeIO
 Set-Alias -Name EC2-EnableVpcClassicLink -Value Enable-EC2VpcClassicLink
 Set-Alias -Name EC2-GetConsoleOutput -Value Get-EC2ConsoleOutput
+Set-Alias -Name EC2-ImportImage -Value Import-EC2Image
 Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
+Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
 Set-Alias -Name Modify-EC2ImageAttribute -Value Edit-EC2ImageAttribute
 Set-Alias -Name EC2-ModifyImageAttribute -Value Edit-EC2ImageAttribute
 Set-Alias -Name Modify-EC2InstanceAttribute -Value Edit-EC2InstanceAttribute
@@ -590,6 +592,10 @@ Set-Alias -Name Detach-EC2VpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DetachVpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name Describe-EC2Images -Value Get-EC2Image
 Set-Alias -Name EC2-DescribeImages -Value Get-EC2Image
+Set-Alias -Name Describe-EC2ImportImageTask -Value Get-EC2ImportImageTask
+Set-Alias -Name EC2-DescribeImportImageTasks -Value Get-EC2ImportImageTask
+Set-Alias -Name Describe-EC2ImportSnapshotTask -Value Get-EC2ImportSnapshotTask
+Set-Alias -Name EC2-DescribeImportSnapshotTasks -Value Get-EC2ImportSnapshotTask
 Set-Alias -Name Describe-EC2InstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name EC2-DescribeInstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name Describe-EC2InstanceStatus -Value Get-EC2InstanceStatus
@@ -768,6 +774,8 @@ Set-Alias -Name Cancel-EC2ConversionTask -Value Stop-EC2ConversionTask
 Set-Alias -Name EC2-CancelConversionTask -Value Stop-EC2ConversionTask
 Set-Alias -Name Cancel-EC2ExportTask -Value Stop-EC2ExportTask
 Set-Alias -Name EC2-CancelExportTask -Value Stop-EC2ExportTask
+Set-Alias -Name Cancel-EC2ImportTask -Value Stop-EC2ImportTask
+Set-Alias -Name EC2-CancelImportTask -Value Stop-EC2ImportTask
 Set-Alias -Name Cancel-EC2ReservedInstancesListing -Value Stop-EC2ReservedInstancesListing
 Set-Alias -Name EC2-CancelReservedInstancesListing -Value Stop-EC2ReservedInstancesListing
 Set-Alias -Name Cancel-EC2SpotFleetRequest -Value Stop-EC2SpotFleetRequest
