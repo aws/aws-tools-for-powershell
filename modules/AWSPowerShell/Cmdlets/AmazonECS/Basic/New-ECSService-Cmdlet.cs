@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// Up to 64 ASCII characters are allowed.</para>
+        /// Up to 32 ASCII characters are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

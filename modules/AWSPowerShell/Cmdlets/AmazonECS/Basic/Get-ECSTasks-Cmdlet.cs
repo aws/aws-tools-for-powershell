@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Returns a list of tasks for a specified cluster. You can filter the results by family
-    /// name or by a particular container instance with the <code>family</code> and <code>containerInstance</code>
+    /// name, by a particular container instance, or by the desired status of the task with
+    /// the <code>family</code>, <code>containerInstance</code>, and <code>desiredStatus</code>
     /// parameters.
     /// </summary>
     [Cmdlet("Get", "ECSTasks")]
@@ -63,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
+        /// <para>The task status that you want to filter the <code>ListTasks</code> results with. Specifying
+        /// a <code>desiredStatus</code> of <code>STOPPED</code> will limit the results to tasks
+        /// that are in the <code>STOPPED</code> status, which can be useful for debugging tasks
+        /// that are not starting properly or have died or finished. The default status filter
+        /// is <code>RUNNING</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public DesiredStatus DesiredStatus { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The name of the family that you want to filter the <code>ListTasks</code> results
         /// with. Specifying a <code>family</code> will limit the results to tasks that belong
         /// to that family.</para>
@@ -83,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The <code>startedBy</code> value that you want to filter the task results with. Specifying
+        /// a <code>startedBy</code> value will limit the results to tasks that were started with
+        /// that value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
             context.Cluster = this.Cluster;
             context.ContainerInstance = this.ContainerInstance;
+            context.DesiredStatus = this.DesiredStatus;
             context.Family = this.Family;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -155,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ContainerInstance != null)
             {
                 request.ContainerInstance = cmdletContext.ContainerInstance;
+            }
+            if (cmdletContext.DesiredStatus != null)
+            {
+                request.DesiredStatus = cmdletContext.DesiredStatus;
             }
             if (cmdletContext.Family != null)
             {
@@ -257,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public String Cluster { get; set; }
             public String ContainerInstance { get; set; }
+            public DesiredStatus DesiredStatus { get; set; }
             public String Family { get; set; }
             public int? MaxResults { get; set; }
             public String NextToken { get; set; }

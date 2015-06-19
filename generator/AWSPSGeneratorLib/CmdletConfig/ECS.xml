@@ -39,6 +39,7 @@
     <ServiceOperation MethodName="StartTask" Output="Response"/>
     <ServiceOperation MethodName="StopTask"/>
 
+    <ServiceOperation MethodName="UpdateContainerAgent" />
     <ServiceOperation MethodName="UpdateService" ShouldProcessTarget="Service"/>
   </ServiceOperations>
 
