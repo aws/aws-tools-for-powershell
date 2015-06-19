@@ -28,52 +28,45 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Sets the size of the specified Auto Scaling group.
+    /// Attaches one or more load balancers to the specified Auto Scaling group.
     /// 
     ///  
     /// <para>
-    /// For more information about desired capacity, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html">What
-    /// Is Auto Scaling?</a> in the <i>Auto Scaling Developer Guide</i>.
+    /// To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>.
+    /// To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-load-balancer-asg.html">Attach
+    /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Set", "ASDesiredCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "ASLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetDesiredCapacity operation against Auto Scaling.", Operation = new[] {"SetDesiredCapacity"})]
+    [AWSCmdlet("Invokes the AttachLoadBalancers operation against Auto Scaling.", Operation = new[] {"AttachLoadBalancers"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetDesiredCapacityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type AttachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetASDesiredCapacityCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public class AddASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
+        /// <para>The name of the group.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances that should be running in the Auto Scaling group.</para>
+        /// <para>One or more load balancer names.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 DesiredCapacity { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("LoadBalancerNames")]
+        public System.String[] LoadBalancerName { get; set; }
         
         /// <summary>
-        /// <para>
-        /// <para>By default, <code>SetDesiredCapacity</code> overrides any cooldown period associated
-        /// with the Auto Scaling group. Specify <code>True</code> to make Auto Scaling to wait
-        /// for the cool-down period associated with the Auto Scaling group to complete before
-        /// initiating a scaling activity to set your Auto Scaling group to its new capacity.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean HonorCooldown { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the AutoScalingGroupName parameter.
+        /// Returns the value passed to the LoadBalancerName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AutoScalingGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-ASDesiredCapacity (SetDesiredCapacity)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ASLoadBalancer (AttachLoadBalancers)"))
             {
                 return;
             }
@@ -105,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             };
             
             context.AutoScalingGroupName = this.AutoScalingGroupName;
-            if (ParameterWasBound("DesiredCapacity"))
-                context.DesiredCapacity = this.DesiredCapacity;
-            if (ParameterWasBound("HonorCooldown"))
-                context.HonorCooldown = this.HonorCooldown;
+            if (this.LoadBalancerName != null)
+            {
+                context.LoadBalancerNames = new List<String>(this.LoadBalancerName);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -120,19 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetDesiredCapacityRequest();
+            var request = new AttachLoadBalancersRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
             }
-            if (cmdletContext.DesiredCapacity != null)
+            if (cmdletContext.LoadBalancerNames != null)
             {
-                request.DesiredCapacity = cmdletContext.DesiredCapacity.Value;
-            }
-            if (cmdletContext.HonorCooldown != null)
-            {
-                request.HonorCooldown = cmdletContext.HonorCooldown.Value;
+                request.LoadBalancerNames = cmdletContext.LoadBalancerNames;
             }
             
             CmdletOutput output;
@@ -141,11 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.SetDesiredCapacity(request);
+                var response = client.AttachLoadBalancers(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.AutoScalingGroupName;
+                    pipelineOutput = this.LoadBalancerName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -172,8 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal class CmdletContext : ExecutorContext
         {
             public String AutoScalingGroupName { get; set; }
-            public Int32? DesiredCapacity { get; set; }
-            public Boolean? HonorCooldown { get; set; }
+            public List<String> LoadBalancerNames { get; set; }
         }
         
     }

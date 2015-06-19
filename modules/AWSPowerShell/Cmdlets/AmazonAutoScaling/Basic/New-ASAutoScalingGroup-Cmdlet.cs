@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// If you exceed your maximum limit of Auto Scaling groups, which by default is 20 per
     /// region, the call fails. For information about viewing and updating these limits, see
     /// <a>DescribeAccountLimits</a>.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html">Auto
+    /// Scaling Groups</a> in the <i>Auto Scaling Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
