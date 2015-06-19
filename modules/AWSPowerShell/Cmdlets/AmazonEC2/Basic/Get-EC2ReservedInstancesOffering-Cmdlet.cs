@@ -65,9 +65,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type on which the Reserved Instance can
         /// be used.</para></li><li><para><code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance
         /// Marketplace offerings. When this filter is not used, which is the default behavior,
-        /// all offerings from AWS and Reserved Instance Marketplace are listed.</para></li><li><para><code>product-description</code> - The description of the Reserved Instance (<code>Linux/UNIX</code>
-        /// | <code>Linux/UNIX (Amazon VPC)</code> | <code>Windows</code> | <code>Windows (Amazon
-        /// VPC)</code>).</para></li><li><para><code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
+        /// all offerings from AWS and Reserved Instance Marketplace are listed.</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
+        /// Instances that include <code>(Amazon VPC)</code> in the product platform description
+        /// will only be displayed to EC2-Classic account holders and are for use with Amazon
+        /// VPC. (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
+        /// Linux</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise Linux</code>
+        /// | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
+        /// (Amazon VPC)</code>) | <code>Windows with SQL Server Standard</code> | <code>Windows
+        /// with SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code>
+        /// | <code> Windows with SQL Server Web (Amazon VPC))</code></para></li><li><para><code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
         /// example, 0.84).</para></li></ul>
         /// </para>
         /// </summary>
@@ -138,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The Reserved Instance description. Instances that include <code>(Amazon VPC)</code>
-        /// in the description are for use with Amazon VPC.</para>
+        /// <para>The Reserved Instance product platform description. Instances that include <code>(Amazon
+        /// VPC)</code> in the description are for use with Amazon VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

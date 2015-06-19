@@ -52,6 +52,7 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateDhcpOptions" />
+	<ServiceOperation MethodName="CreateFlowLogs" Output="Response" PipelineParameter="LogGroupName"/>
     <ServiceOperation MethodName="CreateImage" PositionalParameters="Name;Description;NoReboot;BlockDeviceMappings"/>
     <ServiceOperation MethodName="CreateInstanceExportTask" PositionalParameters="TargetEnvironment;Description"/>
     <ServiceOperation MethodName="CreateInternetGateway"/>
@@ -104,6 +105,7 @@
     <ServiceOperation MethodName="DeactivateLicense" Output="Void"/>
     <ServiceOperation MethodName="DeleteCustomerGateway" Output="Void" ShouldProcessMsgNoun="Customer Gateway" />
     <ServiceOperation MethodName="DeleteDhcpOptions" Output="Void" />
+	<ServiceOperation MethodName="DeleteFlowLogs" />
     <ServiceOperation MethodName="DeleteInternetGateway" Output="Void" ShouldProcessMsgNoun="Internet Gateway" />
     <ServiceOperation MethodName="DeleteKeyPair" Output="Void" />
     <ServiceOperation MethodName="DeleteNetworkAcl" Output="Void" ShouldProcessMsgNoun="Network ACL" />
@@ -152,6 +154,7 @@
     <ServiceOperation MethodName="DescribeCustomerGateways" PipelineParameter="CustomerGatewayIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeDhcpOptions" PipelineParameter="DhcpOptionsIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeExportTasks" />
+	<ServiceOperation MethodName="DescribeFlowLogs" PipelineParameter="FlowLogIds"/>
     <ServiceOperation MethodName="DescribeImageAttribute" PipelineParameter="ImageId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeImages" PipelineParameter="ImageIds" PositionalParameters="Owners;ExecutableUsers;Filters">
       <Params>
