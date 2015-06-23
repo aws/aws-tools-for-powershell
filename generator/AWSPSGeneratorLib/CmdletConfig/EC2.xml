@@ -35,11 +35,7 @@
     <ServiceOperation MethodName="AuthorizeSecurityGroupIngress" Output="Void" PipelineParameter="GroupId"/>
     <ServiceOperation MethodName="BundleInstance" Verb="New" Noun="InstanceBundle" PositionalParameters="Storage_S3_Bucket;Storage_S3_Prefix"/>
     <ServiceOperation MethodName="CancelBundleTask" />
-    <ServiceOperation MethodName="CancelConversionTask" Output="Void" PipelineParameter="ConversionTaskId">
-      <Params>
-        <Param Name="ConversionTaskId" Alias="TaskId" />
-      </Params>
-    </ServiceOperation>
+    <ServiceOperation MethodName="CancelConversionTask" Exclude="true" />
     <ServiceOperation MethodName="CancelExportTask" Output="Void" />
     <ServiceOperation MethodName="CancelReservedInstancesListing" />
     <ServiceOperation MethodName="CancelSpotInstanceRequests" />
@@ -146,11 +142,7 @@
     <ServiceOperation MethodName="DescribeAddresses" PipelineParameter="PublicIps" PositionalParameters="AllocationIds;Filters"/>
     <ServiceOperation MethodName="DescribeAvailabilityZones" PipelineParameter="ZoneNames" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeBundleTasks" PipelineParameter="BundleIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeConversionTasks" PipelineParameter="ConversionTaskIds">
-      <Params>
-        <Param Name="ConversionTaskIds" Alias="TaskId" />
-      </Params>
-    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeConversionTasks" Exclude="true" />
     <ServiceOperation MethodName="DescribeCustomerGateways" PipelineParameter="CustomerGatewayIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeDhcpOptions" PipelineParameter="DhcpOptionsIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeExportTasks" />
@@ -372,7 +364,6 @@
     <Map From="Addresses" To="Address" />
     <Map From="AvailabilityZones" To="AvailabilityZone" />
     <Map From="BundleTasks" To="BundleTask" />
-    <Map From="ConversionTasks" To="ConversionTask" />
     <Map From="CustomerGateways" To="CustomerGateway" />
     <Map From="DhcpOptions" To="DhcpOption" />
     <Map From="Images" To="Image" />
