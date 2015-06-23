@@ -47,7 +47,7 @@
            
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
         
-		<AWSPowerShellVersionNumber></AWSPowerShellVersionNumber>
+		<AWSPowerShellVersionNumber Condition="'$(AWSPowerShellVersionNumber)'==''">3.0.0.0</AWSPowerShellVersionNumber>
     </PropertyGroup>
     
 	<Target Name="full-build" 
