@@ -227,8 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para> The node type to be provisioned for the cluster. For information about node types,
         /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-        /// </para><para> Valid Values: <code>dw1.xlarge</code> | <code>dw1.8xlarge</code> | <code>dw2.large</code>
-        /// | <code>dw2.8xlarge</code>. </para>
+        /// </para><para> Valid Values: <code>ds1.xlarge</code> | <code>ds1.8xlarge</code> | <code>ds2.xlarge</code>
+        /// | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

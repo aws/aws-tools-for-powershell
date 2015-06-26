@@ -28,12 +28,13 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates a new cluster from a snapshot. Amazon Redshift creates the resulting cluster
-    /// with the same configuration as the original cluster from which the snapshot was created,
-    /// except that the new cluster is created with the default cluster security and parameter
-    /// group. After Amazon Redshift creates the cluster you can use the <a>ModifyCluster</a>
+    /// Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting
+    /// cluster with the same configuration as the original cluster from which the snapshot
+    /// was created, except that the new cluster is created with the default cluster security
+    /// and parameter groups. After Amazon Redshift creates the cluster, you can use the <a>ModifyCluster</a>
     /// API to associate a different security group and different parameter group with the
-    /// restored cluster. 
+    /// restored cluster. If you are using a DS node type, you can also choose to change to
+    /// another DS node type of the same size during restore.
     /// 
     ///  
     /// <para>
@@ -157,6 +158,21 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         /// <summary>
         /// <para>
+        /// <para> The node type that the restored cluster will be provisioned with.</para><para> Default: The node type of the cluster from which the snapshot was taken. You can
+        /// modify this if you are using any DS node type. In that case, you can choose to restore
+        /// into another DS node type of the same size. For example, you can restore ds1.8xlarge
+        /// into ds2.8xlarge, or ds2.xlarge into ds1.xlarge. If you have a DC instance type, you
+        /// must restore into that same instance type and size. In other words, you can only restore
+        /// a dc1.large instance type into another dc1.large instance type. For more information
+        /// about node types, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+        /// About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String NodeType { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> The AWS customer account used to create or copy the snapshot. Required if you are
         /// restoring a snapshot you do not own, optional if you own the snapshot. </para>
         /// </para>
@@ -261,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.HsmClientCertificateIdentifier = this.HsmClientCertificateIdentifier;
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             context.KmsKeyId = this.KmsKeyId;
+            context.NodeType = this.NodeType;
             context.OwnerAccount = this.OwnerAccount;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
@@ -329,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.NodeType != null)
+            {
+                request.NodeType = cmdletContext.NodeType;
             }
             if (cmdletContext.OwnerAccount != null)
             {
@@ -404,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public String HsmClientCertificateIdentifier { get; set; }
             public String HsmConfigurationIdentifier { get; set; }
             public String KmsKeyId { get; set; }
+            public String NodeType { get; set; }
             public String OwnerAccount { get; set; }
             public Int32? Port { get; set; }
             public String PreferredMaintenanceWindow { get; set; }

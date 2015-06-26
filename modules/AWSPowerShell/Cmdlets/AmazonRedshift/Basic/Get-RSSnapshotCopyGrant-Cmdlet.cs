@@ -28,58 +28,69 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Returns a detailed list of parameters contained within the specified Amazon Redshift
-    /// parameter group. For each parameter the response includes information such as parameter
-    /// name, description, data type, value, whether the parameter value is modifiable, and
-    /// so on. 
+    /// Returns a list of snapshot copy grants owned by the AWS account in the destination
+    /// region.
     /// 
     ///  
     /// <para>
-    /// You can specify <i>source</i> filter to retrieve parameters of only specific type.
-    /// For example, to retrieve parameters that were modified by a user action such as from
-    /// <a>ModifyClusterParameterGroup</a>, you can specify <i>source</i> equal to <i>user</i>.
-    /// </para><para>
-    ///  For more information about parameters and parameter groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
-    /// Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
+    ///  For more information about managing snapshot copy grants, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon
+    /// Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// 
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "RSClusterParameters")]
-    [OutputType("Amazon.Redshift.Model.Parameter")]
-    [AWSCmdlet("Invokes the DescribeClusterParameters operation against Amazon Redshift.", Operation = new[] {"DescribeClusterParameters"})]
-    [AWSCmdletOutput("Amazon.Redshift.Model.Parameter",
-        "This cmdlet returns a collection of Parameter objects.",
-        "The service call response (type DescribeClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "RSSnapshotCopyGrant")]
+    [OutputType("Amazon.Redshift.Model.SnapshotCopyGrant")]
+    [AWSCmdlet("Invokes the DescribeSnapshotCopyGrants operation against Amazon Redshift.", Operation = new[] {"DescribeSnapshotCopyGrants"})]
+    [AWSCmdletOutput("Amazon.Redshift.Model.SnapshotCopyGrant",
+        "This cmdlet returns a collection of SnapshotCopyGrant objects.",
+        "The service call response (type DescribeSnapshotCopyGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
     )]
-    public class GetRSClusterParametersCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public class GetRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The name of a cluster parameter group for which to return details. </para>
+        /// <para>The name of the snapshot copy grant.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        [System.Management.Automation.Parameter]
+        public String SnapshotCopyGrantName { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para> The parameter types to return. Specify <code>user</code> to show parameters that
-        /// are different form the default. Similarly, specify <code>engine-default</code> to
-        /// show parameters that are the same as the default parameter group. </para><para>Default: All parameter types returned.</para><para>Valid Values: <code>user</code> | <code>engine-default</code></para>
+        /// <para>A tag key or keys for which you want to return all matching resources that are associated
+        /// with the specified key or keys. For example, suppose that you have resources tagged
+        /// with keys called <code>owner</code> and <code>environment</code>. If you specify both
+        /// of these tag keys in the request, Amazon Redshift returns a response with all resources
+        /// that have either or both of these tag keys associated with them.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public String Source { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A tag value or values for which you want to return all matching resources that are
+        /// associated with the specified value or values. For example, suppose that you have
+        /// resources tagged with values called <code>admin</code> and <code>test</code>. If you
+        /// specify both of these tag values in the request, Amazon Redshift returns a response
+        /// with all resources that have either or both of these tag values associated with them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagValues")]
+        public System.String[] TagValue { get; set; }
         
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
-        /// records. When the results of a <a>DescribeClusterParameters</a> request exceed the
-        /// value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
+        /// records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed
+        /// the value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
         /// field of the response. You can retrieve the next set of response records by providing
         /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
-        /// </para>
+        /// </para><para> Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or
+        /// the <b>Marker</b> parameter, but not both. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -112,8 +123,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
-            context.ParameterGroupName = this.ParameterGroupName;
-            context.Source = this.Source;
+            context.SnapshotCopyGrantName = this.SnapshotCopyGrantName;
+            if (this.TagKey != null)
+            {
+                context.TagKeys = new List<String>(this.TagKey);
+            }
+            if (this.TagValue != null)
+            {
+                context.TagValues = new List<String>(this.TagValue);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -126,14 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeClusterParametersRequest();
-            if (cmdletContext.ParameterGroupName != null)
+            var request = new DescribeSnapshotCopyGrantsRequest();
+            if (cmdletContext.SnapshotCopyGrantName != null)
             {
-                request.ParameterGroupName = cmdletContext.ParameterGroupName;
+                request.SnapshotCopyGrantName = cmdletContext.SnapshotCopyGrantName;
             }
-            if (cmdletContext.Source != null)
+            if (cmdletContext.TagKeys != null)
             {
-                request.Source = cmdletContext.Source;
+                request.TagKeys = cmdletContext.TagKeys;
+            }
+            if (cmdletContext.TagValues != null)
+            {
+                request.TagValues = cmdletContext.TagValues;
             }
             
             // Initialize loop variants and commence piping
@@ -171,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
                     try
                     {
                         
-                        var response = client.DescribeClusterParameters(request);
+                        var response = client.DescribeSnapshotCopyGrants(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Parameters;
+                        object pipelineOutput = response.SnapshotCopyGrants;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -182,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Parameters.Count;
+                        int _receivedThisCall = response.SnapshotCopyGrants.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -237,8 +259,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String ParameterGroupName { get; set; }
-            public String Source { get; set; }
+            public String SnapshotCopyGrantName { get; set; }
+            public List<String> TagKeys { get; set; }
+            public List<String> TagValues { get; set; }
         }
         
     }

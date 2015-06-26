@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Returns a list of task definitions that are registered to your account. You can filter
-    /// the results by family name with the <code>familyPrefix</code> parameter.
+    /// the results by family name with the <code>familyPrefix</code> parameter or by status
+    /// with the <code>status</code> parameter.
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitions")]
     [OutputType("System.String")]
@@ -48,8 +49,34 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// to task definition revisions that belong to that family.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public String FamilyPrefix { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The order in which to sort the results. Valid values are <code>ASC</code> and <code>DESC</code>.
+        /// By default (<code>ASC</code>), task definitions are listed lexicographically by family
+        /// name and in ascending numerical order by revision so that the newest task definitions
+        /// in a family are listed last. Setting this parameter to <code>DESC</code> reverses
+        /// the sort order on family name and revision so that the newest task definitions in
+        /// a family are listed first.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SortOrder Sort { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The task definition status that you want to filter the <code>ListTaskDefinitions</code>
+        /// results with. By default, only <code>ACTIVE</code> task definitions are listed. By
+        /// setting this parameter to <code>INACTIVE</code>, you can view task definitions that
+        /// are <code>INACTIVE</code> as long as an active task or service still references them.
+        /// If you paginate the resulting output, be sure to keep the <code>status</code> value
+        /// constant in each subsequent request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public TaskDefinitionStatus Status { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,6 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Sort = this.Sort;
+            context.Status = this.Status;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -109,6 +138,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.FamilyPrefix != null)
             {
                 request.FamilyPrefix = cmdletContext.FamilyPrefix;
+            }
+            if (cmdletContext.Sort != null)
+            {
+                request.Sort = cmdletContext.Sort;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variants and commence piping
@@ -200,6 +237,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public String FamilyPrefix { get; set; }
             public int? MaxResults { get; set; }
             public String NextToken { get; set; }
+            public SortOrder Sort { get; set; }
+            public TaskDefinitionStatus Status { get; set; }
         }
         
     }

@@ -27,7 +27,7 @@ using Amazon.CloudFront.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CF
 {
-    [AWSClientCmdlet("Amazon CloudFront", "CF", "2014-11-06")]
+    [AWSClientCmdlet("Amazon CloudFront", "CF", "2015-04-17")]
     public abstract class AmazonCloudFrontClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudFront Client { get; private set; }

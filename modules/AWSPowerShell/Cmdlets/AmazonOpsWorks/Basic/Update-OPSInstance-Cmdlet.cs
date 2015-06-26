@@ -48,9 +48,21 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     {
         /// <summary>
         /// <para>
-        /// <para>A custom AMI ID to be used to create the instance. The AMI should be based on one
-        /// of the standard AWS OpsWorks AMIs: Amazon Linux, Ubuntu 12.04 LTS, or Ubuntu 14.04
-        /// LTS. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html">Instances</a></para><note>If you specify a custom AMI, you must set <code>Os</code> to <code>Custom</code>.</note>
+        /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li><code>INHERIT</code> - Use the stack's default agent version setting.</li><li><i>version_number</i> - Use the specified agent version. This value overrides
+        /// the stack's default setting. To update the agent version, you must edit the instance
+        /// configuration and specify a new version. AWS OpsWorks then automatically installs
+        /// that version on the instance.</li></ul><para>The default setting is <code>INHERIT</code>. To specify an agent version, you must
+        /// use the complete version number, not the abbreviated number shown on the console.
+        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String AgentVersion { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A custom AMI ID to be used to create the instance. The AMI must be based on one of
+        /// the supported operating systems. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Instances</a></para><note>If you specify a custom AMI, you must set <code>Os</code> to <code>Custom</code>.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>Whether this is an Amazon EBS-optimized instance.</para>
+        /// <para>This property cannot be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// default value is <code>true</code>. To control when updates are installed, set this
         /// value to <code>false</code>. You must then update your instances manually by using
         /// <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command
-        /// or manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu)
+        /// or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu)
         /// on the instances. </para><note><para>We strongly recommend using the default value of <code>true</code>, to ensure that
         /// your instances have the latest security updates.</para></note>
         /// </para>
@@ -116,10 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The instance type. AWS OpsWorks supports all instance types except Cluster Compute,
-        /// Cluster GPU, and High Memory Cluster. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
+        /// <para>The instance type, such as <code>t2.micro</code>. For a list of supported instance
+        /// types, open the stack in the console, choose <b>Instances</b>, and choose <b>+ Instance</b>.
+        /// The <b>Size</b> list contains the currently supported types. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
         /// Families and Types</a>. The parameter values that you use to specify the various types
-        /// are in the API Name column of the Available Instance Types table.</para>
+        /// are in the <b>API Name</b> column of the <b>Available Instance Types</b> table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,13 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The instance's operating system, which must be set to one of the following.</para><para>For Windows stacks: Microsoft Windows Server 2012 R2.</para><para>For Linux stacks:</para><ul><li>Standard operating systems: an Amazon Linux version such as <code>Amazon
-        /// Linux 2014.09</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li>Custom AMIs: <code>Custom</code></li></ul><para>The default option is the current Amazon Linux version. If you set this parameter
-        /// to <code>Custom</code>, you must use the <a>CreateInstance</a> action's AmiId parameter
-        /// to specify the custom AMI that you want to use. For more information on the standard
-        /// operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
-        /// Systems</a>For more information on how to use custom AMIs with OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
-        /// Custom AMIs</a>.</para>
+        /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
+        /// Linux 2015.03</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li><code>Microsoft Windows Server 2012 R2 Base</code>.</li><li>A custom AMI: <code>Custom</code>.</li></ul><para>For more information on the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
+        /// OpsWorks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
+        /// to <code>Custom</code>, you must use the AmiId parameter to specify the custom AMI
+        /// that you want to use. For more information on the supported operating systems, see
+        /// <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
+        /// Systems</a>. For more information on how to use custom AMIs with OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
+        /// Custom AMIs</a>.</para><note>You can specify a different Linux operating system for the updated stack, but
+        /// you cannot change from Linux to Windows or Windows to Linux.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -188,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            context.AgentVersion = this.AgentVersion;
             context.AmiId = this.AmiId;
             context.Architecture = this.Architecture;
             context.AutoScalingType = this.AutoScalingType;
@@ -217,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // create request
             var request = new UpdateInstanceRequest();
             
+            if (cmdletContext.AgentVersion != null)
+            {
+                request.AgentVersion = cmdletContext.AgentVersion;
+            }
             if (cmdletContext.AmiId != null)
             {
                 request.AmiId = cmdletContext.AmiId;
@@ -298,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
+            public String AgentVersion { get; set; }
             public String AmiId { get; set; }
             public Architecture Architecture { get; set; }
             public AutoScalingType AutoScalingType { get; set; }

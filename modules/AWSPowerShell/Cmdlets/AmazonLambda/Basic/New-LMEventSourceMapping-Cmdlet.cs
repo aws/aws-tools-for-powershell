@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         /// <summary>
         /// <para>
-        /// <para>Indicates whether AWS Lambda should begin polling the event source. </para>
+        /// <para>Indicates whether AWS Lambda should begin polling the event source, the default is
+        /// not enabled. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

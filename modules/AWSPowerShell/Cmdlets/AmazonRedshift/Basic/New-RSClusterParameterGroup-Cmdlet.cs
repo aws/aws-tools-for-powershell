@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// 
     /// </para><para>
     ///  Parameters in the parameter group define specific behavior that applies to the databases
-    /// you create on the cluster. For more information about managing parameter groups, go
-    /// to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
+    /// you create on the cluster. For more information about parameters and parameter groups,
+    /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
     /// Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// 
     /// </para>

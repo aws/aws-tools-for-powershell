@@ -28,43 +28,50 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Adds one or more tags to a specified resource. 
+    /// Creates a snapshot copy grant that permits Amazon Redshift to use a customer master
+    /// key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in
+    /// a destination region.
     /// 
     ///  
     /// <para>
-    ///  A resource can have up to 10 tags. If you try to create more than 10 tags for a resource,
-    /// you will receive an error and the attempt will fail. 
-    /// </para><para>
-    ///  If you specify a key that already exists for the resource, the value for that key
-    /// will be updated with the new value. 
+    ///  For more information about managing snapshot copy grants, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon
+    /// Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
+    /// 
     /// </para>
     /// </summary>
-    [Cmdlet("New", "RSTags", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the CreateTags operation against Amazon Redshift.", Operation = new[] {"CreateTags"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "RSSnapshotCopyGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Redshift.Model.SnapshotCopyGrant")]
+    [AWSCmdlet("Invokes the CreateSnapshotCopyGrant operation against Amazon Redshift.", Operation = new[] {"CreateSnapshotCopyGrant"})]
+    [AWSCmdletOutput("Amazon.Redshift.Model.SnapshotCopyGrant",
+        "This cmdlet returns a SnapshotCopyGrant object.",
+        "The service call response (type CreateSnapshotCopyGrantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewRSTagsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public class NewRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example,
-        /// <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>. </para>
+        /// <para>The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift
+        /// permission. If no key is specified, the default key is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceName { get; set; }
+        public String KmsKeyId { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para> One or more name/value pairs to add as tags to the specified resource. Each tag name
-        /// is passed in with the parameter <code>Key</code> and the corresponding value is passed
-        /// in with the parameter <code>Value</code>. The <code>Key</code> and <code>Value</code>
-        /// parameters are separated by a comma (,). Separate multiple tags with a space. For
-        /// example, <code>--tags "Key"="owner","Value"="admin" "Key"="environment","Value"="test"
-        /// "Key"="version","Value"="1.0"</code>. </para>
+        /// <para>The name of the snapshot copy grant. This name must be unique in the region for the
+        /// AWS account.</para><para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>Alphabetic
+        /// characters must be lowercase.</li><li>First character must be a letter.</li><li>Cannot
+        /// end with a hyphen or contain two consecutive hyphens.</li><li>Must be unique for
+        /// all clusters within an AWS account.</li></ul></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String SnapshotCopyGrantName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of tag instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RSTags (CreateTags)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SnapshotCopyGrantName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RSSnapshotCopyGrant (CreateSnapshotCopyGrant)"))
             {
                 return;
             }
@@ -96,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
-            context.ResourceName = this.ResourceName;
+            context.KmsKeyId = this.KmsKeyId;
+            context.SnapshotCopyGrantName = this.SnapshotCopyGrantName;
             if (this.Tag != null)
             {
                 context.Tags = new List<Tag>(this.Tag);
@@ -112,11 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateTagsRequest();
+            var request = new CreateSnapshotCopyGrantRequest();
             
-            if (cmdletContext.ResourceName != null)
+            if (cmdletContext.KmsKeyId != null)
             {
-                request.ResourceName = cmdletContext.ResourceName;
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.SnapshotCopyGrantName != null)
+            {
+                request.SnapshotCopyGrantName = cmdletContext.SnapshotCopyGrantName;
             }
             if (cmdletContext.Tags != null)
             {
@@ -129,9 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateTags(request);
+                var response = client.CreateSnapshotCopyGrant(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.SnapshotCopyGrant;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -157,7 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
+            public String KmsKeyId { get; set; }
+            public String SnapshotCopyGrantName { get; set; }
             public List<Tag> Tags { get; set; }
         }
         

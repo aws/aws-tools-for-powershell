@@ -104,6 +104,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         /// <summary>
         /// <para>
+        /// If you don't configure your origin to add a
+        /// Cache-Control max-age directive or an Expires header, DefaultTTL is the default amount
+        /// of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards
+        /// another request to your origin to determine whether the object has been updated. The
+        /// value that you specify applies only when your origin does not add HTTP headers such
+        /// as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects. You can
+        /// specify a value from 0 to 3,153,600,000 seconds (100 years).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_DefaultCacheBehavior_DefaultTTL")]
+        public Int64 DefaultCacheBehavior_DefaultTTL { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// Specifies whether you want to require end users
         /// to use signed URLs to access the files specified by PathPattern and TargetOriginId.
         /// </para>
@@ -296,6 +311,20 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Restrictions_GeoRestriction_Items")]
         public System.String[] GeoRestriction_Item { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The maximum amount of time (in seconds) that an
+        /// object is in a CloudFront cache before CloudFront forwards another request to your
+        /// origin to determine whether the object has been updated. The value that you specify
+        /// applies only when your origin adds HTTP headers such as Cache-Control max-age, Cache-Control
+        /// s-maxage, and Expires to objects. You can specify a value from 0 to 3,153,600,000
+        /// seconds (100 years).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_DefaultCacheBehavior_MaxTTL")]
+        public Int64 DefaultCacheBehavior_MaxTTL { get; set; }
         
         /// <summary>
         /// <para>
@@ -589,6 +618,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             if (ParameterWasBound("AllowedMethods_Quantity"))
                 context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity = this.AllowedMethods_Quantity;
+            if (ParameterWasBound("DefaultCacheBehavior_DefaultTTL"))
+                context.DistributionConfig_DefaultCacheBehavior_DefaultTTL = this.DefaultCacheBehavior_DefaultTTL;
             context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward = this.Cookies_Forward;
             if (this.WhitelistedNames_Item != null)
             {
@@ -604,6 +635,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity = this.Headers_Quantity;
             if (ParameterWasBound("ForwardedValues_QueryString"))
                 context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString = this.ForwardedValues_QueryString;
+            if (ParameterWasBound("DefaultCacheBehavior_MaxTTL"))
+                context.DistributionConfig_DefaultCacheBehavior_MaxTTL = this.DefaultCacheBehavior_MaxTTL;
             if (ParameterWasBound("DefaultCacheBehavior_MinTTL"))
                 context.DistributionConfig_DefaultCacheBehavior_MinTTL = this.DefaultCacheBehavior_MinTTL;
             if (ParameterWasBound("DefaultCacheBehavior_SmoothStreaming"))
@@ -1030,6 +1063,26 @@ namespace Amazon.PowerShell.Cmdlets.CF
              // populate DefaultCacheBehavior
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = true;
             requestDistributionConfig_distributionConfig_DefaultCacheBehavior = new DefaultCacheBehavior();
+            Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = null;
+            if (cmdletContext.DistributionConfig_DefaultCacheBehavior_DefaultTTL != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = cmdletContext.DistributionConfig_DefaultCacheBehavior_DefaultTTL.Value;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.DefaultTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL.Value;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
+            Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = null;
+            if (cmdletContext.DistributionConfig_DefaultCacheBehavior_MaxTTL != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = cmdletContext.DistributionConfig_DefaultCacheBehavior_MaxTTL.Value;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.MaxTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL.Value;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_MinTTL != null)
             {
@@ -1377,12 +1430,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity { get; set; }
             public List<String> DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items { get; set; }
             public Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity { get; set; }
+            public Int64? DistributionConfig_DefaultCacheBehavior_DefaultTTL { get; set; }
             public ItemSelection DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward { get; set; }
             public List<String> DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items { get; set; }
             public Int32? DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity { get; set; }
             public List<String> DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items { get; set; }
             public Int32? DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity { get; set; }
             public Boolean? DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString { get; set; }
+            public Int64? DistributionConfig_DefaultCacheBehavior_MaxTTL { get; set; }
             public Int64? DistributionConfig_DefaultCacheBehavior_MinTTL { get; set; }
             public Boolean? DistributionConfig_DefaultCacheBehavior_SmoothStreaming { get; set; }
             public String DistributionConfig_DefaultCacheBehavior_TargetOriginId { get; set; }

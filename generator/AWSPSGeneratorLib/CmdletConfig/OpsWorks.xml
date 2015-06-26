@@ -49,7 +49,8 @@
                       PositionalParameters="DeleteElasticIp;DeleteVolumes" PipelineParameter="InstanceId"/>
     <ServiceOperation MethodName="DeleteLayer" Output="Void" />
     <ServiceOperation MethodName="DeleteStack" Output="Void"/>
-    <ServiceOperation MethodName="DeleteUserProfile" Output="Void" />    					
+    <ServiceOperation MethodName="DeleteUserProfile" Output="Void" />
+    <ServiceOperation MethodName="DescribeAgentVersions" Noun="AgentVersion" />
     <ServiceOperation MethodName="DescribeApps" PositionalParameters="AppIds"/>
     <ServiceOperation MethodName="DescribeCommands" PositionalParameters="InstanceId;CommandIds" PipelineParameter="DeploymentId"/>
     <ServiceOperation MethodName="DescribeDeployments" PositionalParameters="AppId;DeploymentIds"/>

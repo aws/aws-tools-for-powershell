@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
     /// Creates a clone of a specified stack. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html">Clone
-    /// a Stack</a>.
+    /// a Stack</a>. By default, all parameters are set to the values used by the parent stack.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have an attached
@@ -47,6 +47,20 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class CopyOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        /// <summary>
+        /// <para>
+        /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks automatically
+        /// installs new agent versions on the stack's instances as soon as they are available.</li><li>Fixed version - Set this parameter to your preferred agent version. To update
+        /// the agent version, you must edit the stack configuration and specify a new version.
+        /// AWS OpsWorks then automatically installs that version on the stack's instances.</li></ul><para>The default setting is <code>LATEST</code>. To specify an agent version, you must
+        /// use the complete version number, not the abbreviated number shown on the console.
+        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</para><note>You can also specify an agent version when you create or update an instance,
+        /// which overrides the stack's default setting.</note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String AgentVersion { get; set; }
+        
         /// <summary>
         /// <para>
         /// <para>A list of stack attributes and values as key/value pairs to be added to the cloned
@@ -86,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It is used to override the corresponding
         /// default stack configuration JSON values. The string should be in the following format
-        /// and must escape characters such as '"'.:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+        /// and must escape characters such as '"':</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
         /// Custom JSON to Modify the Stack Configuration Attributes</a></para>
         /// </para>
         /// </summary>
@@ -117,9 +131,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The stack's operating system, which must be set to one of the following.</para><ul><li>Standard Linux operating systems: an Amazon Linux version such as <code>Amazon
-        /// Linux 2014.09</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li>Custom Linux AMIs: <code>Custom</code>. You specify the custom AMI you want to
-        /// use when you create instances.</li><li>Microsoft Windows Server 2012 R2.</li></ul><para> The default option is the current Amazon Linux version.</para>
+        /// <para>The stack's operating system, which must be set to one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
+        /// Linux 2015.03</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li><code>Microsoft Windows Server 2012 R2 Base</code>.</li><li>A custom AMI: <code>Custom</code>.
+        /// You specify the custom AMI you want to use when you create instances. For more information
+        /// on how to use custom AMIs with OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
+        /// Custom AMIs</a>.</li></ul><para>The default option is the parent stack's operating system. For more information on
+        /// the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
+        /// OpsWorks Operating Systems</a>.</para><note>You can specify a different Linux operating system for the cloned stack, but
+        /// you cannot change from Linux to Windows or Windows to Linux.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -368,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            context.AgentVersion = this.AgentVersion;
             if (this.Attribute != null)
             {
                 context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
@@ -423,6 +443,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // create request
             var request = new CloneStackRequest();
             
+            if (cmdletContext.AgentVersion != null)
+            {
+                request.AgentVersion = cmdletContext.AgentVersion;
+            }
             if (cmdletContext.Attributes != null)
             {
                 request.Attributes = cmdletContext.Attributes;
@@ -657,6 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
+            public String AgentVersion { get; set; }
             public Dictionary<String, String> Attributes { get; set; }
             public String ChefConfiguration_BerkshelfVersion { get; set; }
             public Boolean? ChefConfiguration_ManageBerkshelf { get; set; }

@@ -28,7 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Starts recording configurations of all the resources associated with the account.
+    /// Starts recording configurations of the AWS resources you have selected to record in
+    /// your AWS account.
     /// 
     ///  
     /// <para>

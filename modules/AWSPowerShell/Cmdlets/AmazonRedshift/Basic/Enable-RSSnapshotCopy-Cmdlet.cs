@@ -68,6 +68,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public Int32 RetentionPeriod { get; set; }
         
         /// <summary>
+        /// <para>
+        /// <para>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
+        /// cluster are copied to the destination region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String SnapshotCopyGrantName { get; set; }
+        
+        /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
         /// be used with caution.
@@ -80,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClusterIdentifier", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SnapshotCopyGrantName", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-RSSnapshotCopy (EnableSnapshotCopy)"))
             {
                 return;
@@ -96,6 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.DestinationRegion = this.DestinationRegion;
             if (ParameterWasBound("RetentionPeriod"))
                 context.RetentionPeriod = this.RetentionPeriod;
+            context.SnapshotCopyGrantName = this.SnapshotCopyGrantName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -120,6 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.RetentionPeriod != null)
             {
                 request.RetentionPeriod = cmdletContext.RetentionPeriod.Value;
+            }
+            if (cmdletContext.SnapshotCopyGrantName != null)
+            {
+                request.SnapshotCopyGrantName = cmdletContext.SnapshotCopyGrantName;
             }
             
             CmdletOutput output;
@@ -159,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public String ClusterIdentifier { get; set; }
             public String DestinationRegion { get; set; }
             public Int32? RetentionPeriod { get; set; }
+            public String SnapshotCopyGrantName { get; set; }
         }
         
     }

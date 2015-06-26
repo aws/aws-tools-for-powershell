@@ -28,42 +28,31 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
-    /// reserved node offerings. You can purchase one or more of the offerings. You can call
-    /// the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
-    /// offerings. You can call this API by providing a specific reserved node offering and
-    /// the number of nodes you want to reserve. 
-    /// 
-    ///  
-    /// <para>
-    ///  For more information about reserved node offerings, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing
-    /// Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
-    /// </para>
+    /// Deletes the specified snapshot copy grant.
     /// </summary>
-    [Cmdlet("Request", "RSReservedNodeOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Redshift.Model.ReservedNode")]
-    [AWSCmdlet("Invokes the PurchaseReservedNodeOffering operation against Amazon Redshift.", Operation = new[] {"PurchaseReservedNodeOffering"})]
-    [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNode",
-        "This cmdlet returns a ReservedNode object.",
-        "The service call response (type PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "RSSnapshotCopyGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteSnapshotCopyGrant operation against Amazon Redshift.", Operation = new[] {"DeleteSnapshotCopyGrant"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotCopyGrantName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type DeleteSnapshotCopyGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public class RemoveRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The number of reserved nodes you want to purchase.</para><para>Default: <code>1</code></para>
+        /// <para>The name of the snapshot copy grant to delete.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 NodeCount { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String SnapshotCopyGrantName { get; set; }
         
         /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the reserved node offering you want to purchase.</para>
-        /// </para>
+        /// Returns the value passed to the SnapshotCopyGrantName parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedNodeOfferingId { get; set; }
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -78,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedNodeOfferingId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-RSReservedNodeOffering (PurchaseReservedNodeOffering)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SnapshotCopyGrantName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RSSnapshotCopyGrant (DeleteSnapshotCopyGrant)"))
             {
                 return;
             }
@@ -90,9 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("NodeCount"))
-                context.NodeCount = this.NodeCount;
-            context.ReservedNodeOfferingId = this.ReservedNodeOfferingId;
+            context.SnapshotCopyGrantName = this.SnapshotCopyGrantName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -104,15 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedNodeOfferingRequest();
+            var request = new DeleteSnapshotCopyGrantRequest();
             
-            if (cmdletContext.NodeCount != null)
+            if (cmdletContext.SnapshotCopyGrantName != null)
             {
-                request.NodeCount = cmdletContext.NodeCount.Value;
-            }
-            if (cmdletContext.ReservedNodeOfferingId != null)
-            {
-                request.ReservedNodeOfferingId = cmdletContext.ReservedNodeOfferingId;
+                request.SnapshotCopyGrantName = cmdletContext.SnapshotCopyGrantName;
             }
             
             CmdletOutput output;
@@ -121,9 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PurchaseReservedNodeOffering(request);
+                var response = client.DeleteSnapshotCopyGrant(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedNode;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.SnapshotCopyGrantName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -149,8 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? NodeCount { get; set; }
-            public String ReservedNodeOfferingId { get; set; }
+            public String SnapshotCopyGrantName { get; set; }
         }
         
     }

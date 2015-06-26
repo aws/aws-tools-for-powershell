@@ -87,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition that you want to run.</para>
+        /// full Amazon Resource Name (ARN) of the task definition that you want to run. If a
+        /// <code>revision</code> is not specified, the latest <code>ACTIVE</code> revision is
+        /// used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,8 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Stops recording configurations of all the resources associated with the account.
+    /// Stops recording configurations of the AWS resources you have selected to record in
+    /// your AWS account.
     /// </summary>
     [Cmdlet("Stop", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

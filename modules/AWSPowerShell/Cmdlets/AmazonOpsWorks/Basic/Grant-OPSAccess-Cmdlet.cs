@@ -28,7 +28,7 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// <note>This API can be used only with Windows stacks.</note><para>
+    /// <note>This action can be used only with Windows stacks.</note><para>
     /// Grants RDP access to a Windows instance for a specified time period.
     /// </para>
     /// </summary>

@@ -49,7 +49,21 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     {
         /// <summary>
         /// <para>
-        /// <para>One or more user-defined key/value pairs to be added to the stack attributes.</para>
+        /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks automatically
+        /// installs new agent versions on the stack's instances as soon as they are available.</li><li>Fixed version - Set this parameter to your preferred agent version. To update
+        /// the agent version, you must edit the stack configuration and specify a new version.
+        /// AWS OpsWorks then automatically installs that version on the stack's instances.</li></ul><para>The default setting is <code>LATEST</code>. To specify an agent version, you must
+        /// use the complete version number, not the abbreviated number shown on the console.
+        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</para><note>You can also specify an agent version when you create or update an instance,
+        /// which overrides the stack's default setting.</note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String AgentVersion { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>One or more user-defined key-value pairs to be added to the stack attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It can be used to override the corresponding
-        /// default stack configuration attribute values, or to pass data to recipes. The string
-        /// should be in the following format and must escape characters such as '"'.:</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
+        /// default stack configuration attribute values or to pass data to recipes. The string
+        /// should be in the following escape characters such as '"':</para><para><code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code></para><para>For more information on custom JSON, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
         /// Custom JSON to Modify the Stack Configuration Attributes</a>.</para>
         /// </para>
         /// </summary>
@@ -89,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances.
-        /// For more information about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+        /// <para>The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all
+        /// of the stack's EC2 instances. For more information about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
         /// Identifiers</a>.</para>
         /// </para>
         /// </summary>
@@ -99,9 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The stack's operating system, which must be set to one of the following.</para><ul><li>Standard Linux operating systems: an Amazon Linux version such as <code>Amazon
-        /// Linux 2014.09</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li>Custom Linux AMIs: <code>Custom</code>. You specify the custom AMI you want to
-        /// use when you create instances.</li><li>Microsoft Windows Server 2012 R2.</li></ul><para> The default option is the current Amazon Linux version.</para>
+        /// <para>The stack's default operating system, which is installed on every instance unless
+        /// you specify a different operating system when you create the instance. You can specify
+        /// one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
+        /// Linux 2015.03</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li><code>Microsoft Windows Server 2012 R2 Base</code>.</li><li>A custom AMI: <code>Custom</code>.
+        /// You specify the custom AMI you want to use when you create instances. For more information,
+        /// see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">
+        /// Using Custom AMIs</a>.</li></ul><para>The default option is the current Amazon Linux version. For more information on the
+        /// supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
+        /// OpsWorks Operating Systems</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -109,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The default root device type. This value is used by default for all instances in the
-        /// stack, but you can override it when you create an instance. The default option is
-        /// <code>instance-store</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage
+        /// <para>The default root device type. This value is the default for all instances in the stack,
+        /// but you can override it when you create an instance. The default option is <code>instance-store</code>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage
         /// for the Root Device</a>.</para>
         /// </para>
         /// </summary>
@@ -148,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The stack's host name theme, with spaces are replaced by underscores. The theme is
-        /// used to generate host names for the stack's instances. By default, <code>HostnameTheme</code>
+        /// <para>The stack's host name theme, with spaces replaced by underscores. The theme is used
+        /// to generate host names for the stack's instances. By default, <code>HostnameTheme</code>
         /// is set to <code>Layer_Dependent</code>, which creates host names by appending integers
         /// to the layer's short name. The other themes are:</para><ul><li><code>Baked_Goods</code></li><li><code>Clouds</code></li><li><code>Europe_Cities</code></li><li><code>Fruits</code></li><li><code>Greek_Deities</code></li><li><code>Legendary_creatures_from_Japan</code></li><li><code>Planets_and_Moons</code></li><li><code>Roman_Deities</code></li><li><code>Scottish_Islands</code></li><li><code>US_Cities</code></li><li><code>Wild_Cats</code></li></ul><para>To obtain a generated host name, call <code>GetHostNameSuggestion</code>, which returns
         /// a host name based on the current theme.</para>
@@ -195,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The stack AWS region, such as "us-east-1". For more information about Amazon regions,
+        /// <para>The stack's AWS region, such as "us-east-1". For more information about Amazon regions,
         /// see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
         /// Endpoints</a>.</para>
         /// </para>
@@ -215,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks
+        /// <para>The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks
         /// to work with AWS resources on your behalf. You must set this parameter to the Amazon
         /// Resource Name (ARN) for an existing IAM role. For more information about IAM ARNs,
         /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
@@ -265,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// you can instead provide your own custom security groups. <code>UseOpsworksSecurityGroups</code>
         /// has the following settings: </para><ul><li>True - AWS OpsWorks automatically associates the appropriate built-in security
         /// group with each layer (default setting). You can associate additional security groups
-        /// with a layer after you create it but you cannot delete the built-in security group.
+        /// with a layer after you create it, but you cannot delete the built-in security group.
         /// </li><li>False - AWS OpsWorks does not associate built-in security groups with layers.
         /// You must create appropriate EC2 security groups and associate a security group with
         /// each layer that you create. However, you can still manually associate a built-in security
@@ -298,14 +318,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC that the stack is to be launched into. It must be in the specified
-        /// region. All instances are launched into this VPC, and you cannot change the ID later.</para><ul><li>If your account supports EC2 Classic, the default value is no VPC.</li><li>If your account does not support EC2 Classic, the default value is the default
+        /// <para>The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's
+        /// region. All instances are launched into this VPC. You cannot change the ID later.</para><ul><li>If your account supports EC2-Classic, the default value is <code>no VPC</code>.</li><li>If your account does not support EC2-Classic, the default value is the default
         /// VPC for the specified region.</li></ul><para>If the VPC ID corresponds to a default VPC and you have specified either the <code>DefaultAvailabilityZone</code>
         /// or the <code>DefaultSubnetId</code> parameter only, AWS OpsWorks infers the value
         /// of the other parameter. If you specify neither parameter, AWS OpsWorks sets these
         /// parameters to the first valid Availability Zone for the specified region and the corresponding
         /// default VPC subnet ID, respectively.</para><para>If you specify a nondefault VPC ID, note the following:</para><ul><li>It must belong to a VPC in your account that is in the specified region.</li><li>You must specify a value for <code>DefaultSubnetId</code>.</li></ul><para>For more information on how to use AWS OpsWorks with a VPC, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html">Running
-        /// a Stack in a VPC</a>. For more information on default VPC and EC2 Classic, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// a Stack in a VPC</a>. For more information on default VPC and EC2-Classic, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a>. </para>
         /// </para>
         /// </summary>
@@ -337,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
+            context.AgentVersion = this.AgentVersion;
             if (this.Attribute != null)
             {
                 context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
@@ -385,6 +406,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // create request
             var request = new CreateStackRequest();
             
+            if (cmdletContext.AgentVersion != null)
+            {
+                request.AgentVersion = cmdletContext.AgentVersion;
+            }
             if (cmdletContext.Attributes != null)
             {
                 request.Attributes = cmdletContext.Attributes;
@@ -607,6 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
+            public String AgentVersion { get; set; }
             public Dictionary<String, String> Attributes { get; set; }
             public String ChefConfiguration_BerkshelfVersion { get; set; }
             public Boolean? ChefConfiguration_ManageBerkshelf { get; set; }

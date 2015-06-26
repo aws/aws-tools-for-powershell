@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <summary>
     /// Disables the automatic copying of snapshots from one region to another region for
     /// a specified cluster.
+    /// 
+    ///  
+    /// <para>
+    /// If your cluster and its snapshots are encrypted using a customer master key (CMK)
+    /// from AWS KMS, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that grants Amazon
+    /// Redshift permission to the CMK in the destination region. 
+    /// </para>
     /// </summary>
     [Cmdlet("Disable", "RSSnapshotCopy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]

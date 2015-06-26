@@ -22,48 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Redshift;
-using Amazon.Redshift.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RS
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of
-    /// reserved node offerings. You can purchase one or more of the offerings. You can call
-    /// the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
-    /// offerings. You can call this API by providing a specific reserved node offering and
-    /// the number of nodes you want to reserve. 
-    /// 
-    ///  
-    /// <para>
-    ///  For more information about reserved node offerings, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing
-    /// Reserved Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>. 
-    /// </para>
+    /// Cancels an in-process import virtual machine or import snapshot task.
     /// </summary>
-    [Cmdlet("Request", "RSReservedNodeOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Redshift.Model.ReservedNode")]
-    [AWSCmdlet("Invokes the PurchaseReservedNodeOffering operation against Amazon Redshift.", Operation = new[] {"PurchaseReservedNodeOffering"})]
-    [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNode",
-        "This cmdlet returns a ReservedNode object.",
-        "The service call response (type PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "EC2ImportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.CancelImportTaskResponse")]
+    [AWSCmdlet("Invokes the CancelImportTask operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelImportTask"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.CancelImportTaskResponse",
+        "This cmdlet returns a CancelImportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public class StopEC2ImportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The number of reserved nodes you want to purchase.</para><para>Default: <code>1</code></para>
+        /// <para>The reason for canceling the task.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 NodeCount { get; set; }
+        [System.Management.Automation.Parameter]
+        public String CancelReason { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the reserved node offering you want to purchase.</para>
+        /// <para>The ID of the import image or import snapshot task to be canceled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedNodeOfferingId { get; set; }
+        public String ImportTaskId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -78,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedNodeOfferingId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-RSReservedNodeOffering (PurchaseReservedNodeOffering)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ImportTaskId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EC2ImportTask (CancelImportTask)"))
             {
                 return;
             }
@@ -90,9 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("NodeCount"))
-                context.NodeCount = this.NodeCount;
-            context.ReservedNodeOfferingId = this.ReservedNodeOfferingId;
+            context.CancelReason = this.CancelReason;
+            context.ImportTaskId = this.ImportTaskId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -104,15 +92,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedNodeOfferingRequest();
+            var request = new CancelImportTaskRequest();
             
-            if (cmdletContext.NodeCount != null)
+            if (cmdletContext.CancelReason != null)
             {
-                request.NodeCount = cmdletContext.NodeCount.Value;
+                request.CancelReason = cmdletContext.CancelReason;
             }
-            if (cmdletContext.ReservedNodeOfferingId != null)
+            if (cmdletContext.ImportTaskId != null)
             {
-                request.ReservedNodeOfferingId = cmdletContext.ReservedNodeOfferingId;
+                request.ImportTaskId = cmdletContext.ImportTaskId;
             }
             
             CmdletOutput output;
@@ -121,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PurchaseReservedNodeOffering(request);
+                var response = client.CancelImportTask(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedNode;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -149,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? NodeCount { get; set; }
-            public String ReservedNodeOfferingId { get; set; }
+            public String CancelReason { get; set; }
+            public String ImportTaskId { get; set; }
         }
         
     }

@@ -28,8 +28,9 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Returns a list of task definition families that are registered to your account. You
-    /// can filter the results with the <code>familyPrefix</code> parameter.
+    /// Returns a list of task definition families that are registered to your account (which
+    /// may include task definition families that no longer have any <code>ACTIVE</code> task
+    /// definitions). You can filter the results with the <code>familyPrefix</code> parameter.
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitionFamilies")]
     [OutputType("System.String")]

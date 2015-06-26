@@ -86,9 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
         /// full Amazon Resource Name (ARN) of the task definition that you want to run in your
-        /// service. If you modify the task definition with <code>UpdateService</code>, Amazon
-        /// ECS spawns a task with the new version of the task definition and then stops an old
-        /// task after the new version is running.</para>
+        /// service. If a <code>revision</code> is not specified, the latest <code>ACTIVE</code>
+        /// revision is used. If you modify the task definition with <code>UpdateService</code>,
+        /// Amazon ECS spawns a task with the new version of the task definition and then stops
+        /// an old task after the new version is running.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

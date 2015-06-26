@@ -1,0 +1,170 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.OpsWorks;
+using Amazon.OpsWorks.Model;
+
+namespace Amazon.PowerShell.Cmdlets.OPS
+{
+    /// <summary>
+    /// Describes the available AWS OpsWorks agent versions. You must specify a stack ID or
+    /// a configuration manager. <code>DescribeAgentVersions</code> returns a list of available
+    /// agent versions for the specified stack or configuration manager.
+    /// </summary>
+    [Cmdlet("Get", "OPSAgentVersion")]
+    [OutputType("Amazon.OpsWorks.Model.AgentVersion")]
+    [AWSCmdlet("Invokes the DescribeAgentVersions operation against AWS OpsWorks.", Operation = new[] {"DescribeAgentVersions"})]
+    [AWSCmdletOutput("Amazon.OpsWorks.Model.AgentVersion",
+        "This cmdlet returns a collection of AgentVersion objects.",
+        "The service call response (type DescribeAgentVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetOPSAgentVersionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The name. This parameter must be set to "Chef".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ConfigurationManager_Name { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The stack ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public String StackId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
+        /// is 11.4.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ConfigurationManager_Version { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.ConfigurationManager_Name = this.ConfigurationManager_Name;
+            context.ConfigurationManager_Version = this.ConfigurationManager_Version;
+            context.StackId = this.StackId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new DescribeAgentVersionsRequest();
+            
+            
+             // populate ConfigurationManager
+            bool requestConfigurationManagerIsNull = true;
+            request.ConfigurationManager = new StackConfigurationManager();
+            String requestConfigurationManager_configurationManager_Name = null;
+            if (cmdletContext.ConfigurationManager_Name != null)
+            {
+                requestConfigurationManager_configurationManager_Name = cmdletContext.ConfigurationManager_Name;
+            }
+            if (requestConfigurationManager_configurationManager_Name != null)
+            {
+                request.ConfigurationManager.Name = requestConfigurationManager_configurationManager_Name;
+                requestConfigurationManagerIsNull = false;
+            }
+            String requestConfigurationManager_configurationManager_Version = null;
+            if (cmdletContext.ConfigurationManager_Version != null)
+            {
+                requestConfigurationManager_configurationManager_Version = cmdletContext.ConfigurationManager_Version;
+            }
+            if (requestConfigurationManager_configurationManager_Version != null)
+            {
+                request.ConfigurationManager.Version = requestConfigurationManager_configurationManager_Version;
+                requestConfigurationManagerIsNull = false;
+            }
+             // determine if request.ConfigurationManager should be set to null
+            if (requestConfigurationManagerIsNull)
+            {
+                request.ConfigurationManager = null;
+            }
+            if (cmdletContext.StackId != null)
+            {
+                request.StackId = cmdletContext.StackId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DescribeAgentVersions(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.AgentVersions;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String ConfigurationManager_Name { get; set; }
+            public String ConfigurationManager_Version { get; set; }
+            public String StackId { get; set; }
+        }
+        
+    }
+}

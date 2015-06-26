@@ -692,8 +692,6 @@ Set-Alias -Name Describe-EC2BundleTasks -Value Get-EC2BundleTask
 Set-Alias -Name EC2-DescribeBundleTasks -Value Get-EC2BundleTask
 Set-Alias -Name Describe-EC2ClassicLinkInstance -Value Get-EC2ClassicLinkInstance
 Set-Alias -Name EC2-DescribeClassicLinkInstances -Value Get-EC2ClassicLinkInstance
-Set-Alias -Name Describe-EC2ConversionTasks -Value Get-EC2ConversionTask
-Set-Alias -Name EC2-DescribeConversionTasks -Value Get-EC2ConversionTask
 Set-Alias -Name Describe-EC2CustomerGateways -Value Get-EC2CustomerGateway
 Set-Alias -Name EC2-DescribeCustomerGateways -Value Get-EC2CustomerGateway
 Set-Alias -Name Describe-EC2DhcpOptions -Value Get-EC2DhcpOption
@@ -782,8 +780,6 @@ Set-Alias -Name EC2-AuthorizeSecurityGroupIngress -Value Grant-EC2SecurityGroupI
 Set-Alias -Name EC2-BundleInstance -Value New-EC2InstanceBundle
 Set-Alias -Name Cancel-EC2BundleTask -Value Stop-EC2BundleTask
 Set-Alias -Name EC2-CancelBundleTask -Value Stop-EC2BundleTask
-Set-Alias -Name Cancel-EC2ConversionTask -Value Stop-EC2ConversionTask
-Set-Alias -Name EC2-CancelConversionTask -Value Stop-EC2ConversionTask
 Set-Alias -Name Cancel-EC2ExportTask -Value Stop-EC2ExportTask
 Set-Alias -Name EC2-CancelExportTask -Value Stop-EC2ExportTask
 Set-Alias -Name Cancel-EC2ImportTask -Value Stop-EC2ImportTask
@@ -1367,6 +1363,7 @@ Set-Alias -Name ML-GetMLModel -Value Get-MLModel
 Set-Alias -Name ML-Predict -Value Get-MLPrediction
 Set-Alias -Name ML-UpdateBatchPrediction -Value Update-MLBatchPrediction
 Set-Alias -Name ML-UpdateDataSource -Value Update-MLDataSource
+Set-Alias -Name OPS-StopStack -Value Stop-OPSStack
 Set-Alias -Name OPS-UnassignInstance -Value Unregister-OPSInstanceAssignment
 Set-Alias -Name OPS-UnassignVolume -Value Remove-OPSVolume
 Set-Alias -Name OPS-UpdateApp -Value Update-OPSApp
@@ -1378,6 +1375,8 @@ Set-Alias -Name OPS-UpdateRdsDbInstance -Value Update-OPSRdsDbInstance
 Set-Alias -Name OPS-UpdateStack -Value Update-OPSStack
 Set-Alias -Name OPS-UpdateUserProfile -Value Update-OPSUserProfile
 Set-Alias -Name OPS-UpdateVolume -Value Update-OPSVolume
+Set-Alias -Name Describe-OPSLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScaling
+Set-Alias -Name OPS-DescribeLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScaling
 Set-Alias -Name Describe-OPSMyUserProfile -Value Get-OPSMyUserProfile
 Set-Alias -Name OPS-DescribeMyUserProfile -Value Get-OPSMyUserProfile
 Set-Alias -Name Describe-OPSPermissions -Value Get-OPSPermissions
@@ -1417,7 +1416,6 @@ Set-Alias -Name OPS-SetTimeBasedAutoScaling -Value Set-OPSTimeBasedAutoScaling
 Set-Alias -Name OPS-StartInstance -Value Start-OPSInstance
 Set-Alias -Name OPS-StartStack -Value Start-OPSStack
 Set-Alias -Name OPS-StopInstance -Value Stop-OPSInstance
-Set-Alias -Name OPS-StopStack -Value Stop-OPSStack
 Set-Alias -Name OPS-AssignInstance -Value Register-OPSInstanceAssignment
 Set-Alias -Name OPS-AssignVolume -Value Add-OPSVolume
 Set-Alias -Name OPS-AssociateElasticIp -Value Add-OPSElasticIp
@@ -1454,6 +1452,8 @@ Set-Alias -Name Deregister-OPSRdsDbInstance -Value Unregister-OPSRdsDbInstance
 Set-Alias -Name OPS-DeregisterRdsDbInstance -Value Unregister-OPSRdsDbInstance
 Set-Alias -Name Deregister-OPSVolume -Value Unregister-OPSVolume
 Set-Alias -Name OPS-DeregisterVolume -Value Unregister-OPSVolume
+Set-Alias -Name Describe-OPSAgentVersion -Value Get-OPSAgentVersion
+Set-Alias -Name OPS-DescribeAgentVersions -Value Get-OPSAgentVersion
 Set-Alias -Name Describe-OPSApps -Value Get-OPSApps
 Set-Alias -Name OPS-DescribeApps -Value Get-OPSApps
 Set-Alias -Name Describe-OPSCommands -Value Get-OPSCommands
@@ -1468,8 +1468,6 @@ Set-Alias -Name Describe-OPSInstances -Value Get-OPSInstances
 Set-Alias -Name OPS-DescribeInstances -Value Get-OPSInstances
 Set-Alias -Name Describe-OPSLayers -Value Get-OPSLayers
 Set-Alias -Name OPS-DescribeLayers -Value Get-OPSLayers
-Set-Alias -Name Describe-OPSLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScaling
-Set-Alias -Name OPS-DescribeLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScaling
 Set-Alias -Name Remove-RDSTagsFromResource -Value Remove-RDSTagFromResource
 Set-Alias -Name RDS-RemoveTagsFromResource -Value Remove-RDSTagFromResource
 Set-Alias -Name RDS-ResetDBParameterGroup -Value Reset-RDSDBParameterGroup
@@ -1572,10 +1570,19 @@ Set-Alias -Name Describe-RDSDBInstances -Value Get-RDSDBInstance
 Set-Alias -Name RDS-DescribeDBInstances -Value Get-RDSDBInstance
 Set-Alias -Name Describe-RDSDBLogFiles -Value Get-RDSDBLogFiles
 Set-Alias -Name RDS-DescribeDBLogFiles -Value Get-RDSDBLogFiles
+Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-RSReservedNodeOffering
+Set-Alias -Name RS-PurchaseReservedNodeOffering -Value Request-RSReservedNodeOffering
+Set-Alias -Name Reboot-RSCluster -Value Restart-RSCluster
+Set-Alias -Name RS-RebootCluster -Value Restart-RSCluster
+Set-Alias -Name RS-ResetClusterParameterGroup -Value Reset-RSClusterParameterGroup
 Set-Alias -Name RS-RestoreFromClusterSnapshot -Value Restore-RSFromClusterSnapshot
 Set-Alias -Name RS-RevokeClusterSecurityGroupIngress -Value Revoke-RSClusterSecurityGroupIngress
 Set-Alias -Name RS-RevokeSnapshotAccess -Value Revoke-RSSnapshotAccess
 Set-Alias -Name RS-RotateEncryptionKey -Value Switch-RSEncryptionKey
+Set-Alias -Name Describe-RSClusterSnapshots -Value Get-RSClusterSnapshots
+Set-Alias -Name RS-DescribeClusterSnapshots -Value Get-RSClusterSnapshots
+Set-Alias -Name Describe-RSClusterSubnetGroups -Value Get-RSClusterSubnetGroups
+Set-Alias -Name RS-DescribeClusterSubnetGroups -Value Get-RSClusterSubnetGroups
 Set-Alias -Name Describe-RSClusterVersions -Value Get-RSClusterVersions
 Set-Alias -Name RS-DescribeClusterVersions -Value Get-RSClusterVersions
 Set-Alias -Name Describe-RSDefaultClusterParameters -Value Get-RSDefaultClusterParameters
@@ -1600,6 +1607,8 @@ Set-Alias -Name Describe-RSReservedNodes -Value Get-RSReservedNodes
 Set-Alias -Name RS-DescribeReservedNodes -Value Get-RSReservedNodes
 Set-Alias -Name Describe-RSResize -Value Get-RSResize
 Set-Alias -Name RS-DescribeResize -Value Get-RSResize
+Set-Alias -Name Describe-RSSnapshotCopyGrant -Value Get-RSSnapshotCopyGrant
+Set-Alias -Name RS-DescribeSnapshotCopyGrants -Value Get-RSSnapshotCopyGrant
 Set-Alias -Name Describe-RSTags -Value Get-RSTags
 Set-Alias -Name RS-DescribeTags -Value Get-RSTags
 Set-Alias -Name RS-DisableLogging -Value Disable-RSLogging
@@ -1616,11 +1625,6 @@ Set-Alias -Name Modify-RSEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name RS-ModifyEventSubscription -Value Edit-RSEventSubscription
 Set-Alias -Name Modify-RSSnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
 Set-Alias -Name RS-ModifySnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
-Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-RSReservedNodeOffering
-Set-Alias -Name RS-PurchaseReservedNodeOffering -Value Request-RSReservedNodeOffering
-Set-Alias -Name Reboot-RSCluster -Value Restart-RSCluster
-Set-Alias -Name RS-RebootCluster -Value Restart-RSCluster
-Set-Alias -Name RS-ResetClusterParameterGroup -Value Reset-RSClusterParameterGroup
 Set-Alias -Name Authorize-RSClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
 Set-Alias -Name RS-AuthorizeClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
 Set-Alias -Name Authorize-RSSnapshotAccess -Value Approve-RSSnapshotAccess
@@ -1642,6 +1646,8 @@ Set-Alias -Name Create-RSHsmClientCertificate -Value New-RSHsmClientCertificate
 Set-Alias -Name RS-CreateHsmClientCertificate -Value New-RSHsmClientCertificate
 Set-Alias -Name Create-RSHsmConfiguration -Value New-RSHsmConfiguration
 Set-Alias -Name RS-CreateHsmConfiguration -Value New-RSHsmConfiguration
+Set-Alias -Name Create-RSSnapshotCopyGrant -Value New-RSSnapshotCopyGrant
+Set-Alias -Name RS-CreateSnapshotCopyGrant -Value New-RSSnapshotCopyGrant
 Set-Alias -Name Create-RSTags -Value New-RSTags
 Set-Alias -Name RS-CreateTags -Value New-RSTags
 Set-Alias -Name Delete-RSCluster -Value Remove-RSCluster
@@ -1660,6 +1666,8 @@ Set-Alias -Name Delete-RSHsmClientCertificate -Value Remove-RSHsmClientCertifica
 Set-Alias -Name RS-DeleteHsmClientCertificate -Value Remove-RSHsmClientCertificate
 Set-Alias -Name Delete-RSHsmConfiguration -Value Remove-RSHsmConfiguration
 Set-Alias -Name RS-DeleteHsmConfiguration -Value Remove-RSHsmConfiguration
+Set-Alias -Name Delete-RSSnapshotCopyGrant -Value Remove-RSSnapshotCopyGrant
+Set-Alias -Name RS-DeleteSnapshotCopyGrant -Value Remove-RSSnapshotCopyGrant
 Set-Alias -Name Delete-RSTags -Value Remove-RSTags
 Set-Alias -Name RS-DeleteTags -Value Remove-RSTags
 Set-Alias -Name Describe-RSClusterParameterGroups -Value Get-RSClusterParameterGroups
@@ -1670,10 +1678,6 @@ Set-Alias -Name Describe-RSClusters -Value Get-RSClusters
 Set-Alias -Name RS-DescribeClusters -Value Get-RSClusters
 Set-Alias -Name Describe-RSClusterSecurityGroups -Value Get-RSClusterSecurityGroups
 Set-Alias -Name RS-DescribeClusterSecurityGroups -Value Get-RSClusterSecurityGroups
-Set-Alias -Name Describe-RSClusterSnapshots -Value Get-RSClusterSnapshots
-Set-Alias -Name RS-DescribeClusterSnapshots -Value Get-RSClusterSnapshots
-Set-Alias -Name Describe-RSClusterSubnetGroups -Value Get-RSClusterSubnetGroups
-Set-Alias -Name RS-DescribeClusterSubnetGroups -Value Get-RSClusterSubnetGroups
 Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-ECReservedNodeOffering
 Set-Alias -Name List-R53TagsForResources -Value Get-R53TagsForResources
 Set-Alias -Name R53-ListTagsForResources -Value Get-R53TagsForResources
