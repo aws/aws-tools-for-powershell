@@ -51,7 +51,7 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;copy-artifacts;run-tests;create-help;save-build">
+            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;copy-artifacts;run-tests;create-help;keyscan;save-build">
 		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
 	</Target>
 
@@ -143,6 +143,32 @@
 			/>
 	</Target>
 
+    <Target Name="keyscan" DependsOnTargets="build-tools">
+        <ItemGroup>
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\EC2\New-EC2KeyPair.xml" />
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMServerCertificate.xml" />
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMSigningCertificate.xml" />
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Publish-IAMSigningCertificate.xml" />
+            <PrivateKeyException Include="Deployment\AWSPowerShell.dll-Help.xml" />
+            <PrivateKeyException Include="DocDeployment\docs\items\New-EC2KeyPair.html" />
+            <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMServerCertificate.html" />
+            <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMSigningCertificate.html" />
+            <PrivateKeyException Include="DocDeployment\docs\items\Publish-IAMSigningCertificate.html" />
+        </ItemGroup>
+        
+        <ItemGroup>
+            <FileException Include="test\temp\test-credentials-correct" />
+        </ItemGroup>
+        
+        <KeyScannerTask 
+            Folder="$(MSBuildProjectDirectory)\.."
+            FilePattern="**"
+            PrivateKeyExceptions="@(PrivateKeyException)"
+            FileExceptions="@(FileException)"
+            ParallelScan="true"
+            />
+    </Target>
+    
 	<Target Name="save-build"  DependsOnTargets="build-tools">		
 		<SaveBuildArtifactTask
 			RepositoryRoot="$(MSBuildProjectDirectory)\.."
