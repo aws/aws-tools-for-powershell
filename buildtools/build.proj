@@ -46,6 +46,7 @@
         <DocDeployment Condition="'$(DocDeployment)'==''">$(RootPath)\DocDeployment</DocDeployment>
            
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
+        <RunKeyScan Condition="'$(RunKeyScan)'==''">false</RunKeyScan>
         
 		<AWSPowerShellVersionNumber Condition="'$(AWSPowerShellVersionNumber)'==''">3.0.0.0</AWSPowerShellVersionNumber>
     </PropertyGroup>
@@ -143,7 +144,7 @@
 			/>
 	</Target>
 
-    <Target Name="keyscan" DependsOnTargets="build-tools">
+    <Target Name="keyscan" Condition="$(RunKeyScan)" DependsOnTargets="build-tools">
         <ItemGroup>
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\EC2\New-EC2KeyPair.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMServerCertificate.xml" />
