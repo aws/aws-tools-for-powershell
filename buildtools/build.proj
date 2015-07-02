@@ -48,6 +48,7 @@
         <RunTests Condition="'$(RunTests)'==''">false</RunTests>
         <RunKeyScan Condition="'$(RunKeyScan)'==''">false</RunKeyScan>
         
+        <UpdateVersions Condition="'$(UpdateVersions)'==''">false</UpdateVersions>
 		<AWSPowerShellPatchNumber Condition="'$(AWSPowerShellVersionNumber)'==''">0</AWSPowerShellPatchNumber>
     </PropertyGroup>
     
@@ -135,7 +136,7 @@
             DestinationFolder="$(Deployment)"/>
     </Target>
 
-	<Target Name="update-version" DependsOnTargets="build-tools">	
+	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	
         <!-- grab the logical SDK product version and use the first 3 components,
              appending our own patch number to make the final PowerShell version
         -->
