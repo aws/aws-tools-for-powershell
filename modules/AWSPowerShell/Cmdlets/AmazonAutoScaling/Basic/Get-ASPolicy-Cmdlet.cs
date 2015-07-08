@@ -62,6 +62,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         /// <summary>
         /// <para>
+        /// <para>One or more policy types. Valid values are <code>SimpleScaling</code> and <code>StepScaling</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PolicyTypes")]
+        public System.String[] PolicyType { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The maximum number of items to be returned with each call.</para>
         /// </para>
         /// </summary>
@@ -97,6 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.PolicyNames = new List<String>(this.PolicyName);
             }
+            if (this.PolicyType != null)
+            {
+                context.PolicyTypes = new List<String>(this.PolicyType);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -117,6 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.PolicyNames != null)
             {
                 request.PolicyNames = cmdletContext.PolicyNames;
+            }
+            if (cmdletContext.PolicyTypes != null)
+            {
+                request.PolicyTypes = cmdletContext.PolicyTypes;
             }
             
             // Initialize loop variants and commence piping
@@ -209,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public int? MaxRecords { get; set; }
             public String NextToken { get; set; }
             public List<String> PolicyNames { get; set; }
+            public List<String> PolicyTypes { get; set; }
         }
         
     }

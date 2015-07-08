@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>Red Hat Enterprise Linux (Amazon VPC)</code> | <code>Windows</code> | <code>Windows
         /// (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows
         /// with SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code>
-        /// | <code>Windows with SQL Server Web (Amazon VPC)</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instance.</para></li><li><para><code>start</code> - The time at which the Reserved Instance purchase request was
+        /// | <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
+        /// Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instance.</para></li><li><para><code>start</code> - The time at which the Reserved Instance purchase request was
         /// placed (for example, 2014-08-07T11:54:42.000Z).</para></li><li><para><code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
         /// | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent

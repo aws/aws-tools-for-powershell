@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>The attribute to reset (currently only the attribute for permission to create volumes
-        /// can be reset).</para>
+        /// <para>The attribute to reset. Currently, only the attribute for permission to create volumes
+        /// can be reset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

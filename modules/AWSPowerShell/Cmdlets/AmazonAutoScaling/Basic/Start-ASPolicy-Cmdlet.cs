@@ -49,15 +49,36 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         /// <summary>
         /// <para>
-        /// <para>Set to <code>True</code> if you want Auto Scaling to wait for the cooldown period
-        /// associated with the Auto Scaling group to complete before executing the policy.</para><para>Set to <code>False</code> if you want Auto Scaling to circumvent the cooldown period
-        /// associated with the Auto Scaling group and execute the policy before the cooldown
-        /// period ends.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
+        /// <para>The breach threshold for the alarm.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
+        /// supported otherwise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Double BreachThreshold { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is true, Auto Scaling waits for the cooldown period to complete
+        /// before executing the policy. Otherwise, Auto Scaling executes the policy without waiting
+        /// for the cooldown period to complete.</para><para>This parameter is not supported if the policy type is <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
         /// Auto Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public Boolean HonorCooldown { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The metric value to compare to <code>BreachThreshold</code>. This enables you to execute
+        /// a policy of type <code>StepScaling</code> and determine which step adjustment to use.
+        /// For example, if the breach threshold is 50 and you want to use a step adjustment with
+        /// a lower bound of 0 and an upper bound of 10, you can set the metric value to 59.</para><para>If you specify a metric value that doesn't correspond to a step adjustment for the
+        /// policy, the call returns an error.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
+        /// supported otherwise.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Double MetricValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,8 +121,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
             };
             
             context.AutoScalingGroupName = this.AutoScalingGroupName;
+            if (ParameterWasBound("BreachThreshold"))
+                context.BreachThreshold = this.BreachThreshold;
             if (ParameterWasBound("HonorCooldown"))
                 context.HonorCooldown = this.HonorCooldown;
+            if (ParameterWasBound("MetricValue"))
+                context.MetricValue = this.MetricValue;
             context.PolicyName = this.PolicyName;
             
             var output = Execute(context) as CmdletOutput;
@@ -120,9 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
             }
+            if (cmdletContext.BreachThreshold != null)
+            {
+                request.BreachThreshold = cmdletContext.BreachThreshold.Value;
+            }
             if (cmdletContext.HonorCooldown != null)
             {
                 request.HonorCooldown = cmdletContext.HonorCooldown.Value;
+            }
+            if (cmdletContext.MetricValue != null)
+            {
+                request.MetricValue = cmdletContext.MetricValue.Value;
             }
             if (cmdletContext.PolicyName != null)
             {
@@ -166,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal class CmdletContext : ExecutorContext
         {
             public String AutoScalingGroupName { get; set; }
+            public Double? BreachThreshold { get; set; }
             public Boolean? HonorCooldown { get; set; }
+            public Double? MetricValue { get; set; }
             public String PolicyName { get; set; }
         }
         

@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// Copies of encrypted EBS snapshots remain encrypted. Copies of unencrypted snapshots
-    /// remain unencrypted.
-    /// </para><note><para>
-    /// Copying snapshots that were encrypted with non-default AWS Key Management Service
-    /// (KMS) master keys is not supported at this time. 
-    /// </para></note><para>
+    /// remain unencrypted, unless the <code>Encrypted</code> flag is specified during the
+    /// snapshot copy operation. By default, encrypted snapshot copies use the default AWS
+    /// Key Management Service (KMS) master key; however, you can specify a non-default master
+    /// key with the <code>KmsKeyId</code> parameter.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
     /// an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
@@ -74,6 +74,35 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public String DestinationRegion { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the destination snapshot should be encrypted. There is no way to
+        /// create an unencrypted snapshot copy from an encrypted snapshot; however, you can encrypt
+        /// a copy of an unencrypted snapshot with this flag. The default master key is used unless
+        /// a non-default AWS Key Management Service (KMS) master key is specified with <code>KmsKeyId</code>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean Encrypted { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN of the AWS Key Management Service (KMS) master key to use when creating
+        /// the snapshot copy. This parameter is only required if you want to use a non-default
+        /// master key; if this parameter is not specified, the default master key is used. The
+        /// ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the
+        /// master key, the AWS account ID of the master key owner, the <code>key</code> namespace,
+        /// and then the master key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
+        /// The specified key must exist in the region that the snapshot is being copied to. If
+        /// a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be
+        /// set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String KmsKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -118,6 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             context.Description = this.Description;
             context.DestinationRegion = this.DestinationRegion;
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
+            context.KmsKeyId = this.KmsKeyId;
             context.SourceRegion = this.SourceRegion;
             context.SourceSnapshotId = this.SourceSnapshotId;
             
@@ -140,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationRegion != null)
             {
                 request.DestinationRegion = cmdletContext.DestinationRegion;
+            }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.SourceRegion != null)
             {
@@ -186,6 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public String Description { get; set; }
             public String DestinationRegion { get; set; }
+            public Boolean? Encrypted { get; set; }
+            public String KmsKeyId { get; set; }
             public String SourceRegion { get; set; }
             public String SourceSnapshotId { get; set; }
         }

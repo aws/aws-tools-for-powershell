@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// If you exceed your maximum limit of launch configurations, which by default is 100
-    /// per region, the call fails. For information about viewing and updating these limits,
+    /// per region, the call fails. For information about viewing and updating this limit,
     /// see <a>DescribeAccountLimits</a>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html">Launch
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter
-        /// can only be used if you are launching EC2-Classic instances. For more information,
+        /// is supported only if you are launching EC2-Classic instances. For more information,
         /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>.
-        /// This parameter is required if <code>ClassicLinkVPCId</code> is specified, and cannot
-        /// be used otherwise. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+        /// This parameter is required if <code>ClassicLinkVPCId</code> is specified, and is not
+        /// supported otherwise. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

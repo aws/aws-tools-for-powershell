@@ -28,10 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your route tables.
+    /// Describes one or more of your route tables. 
     /// 
     ///  
     /// <para>
+    /// Each subnet in your VPC must be associated with a route table. If a subnet is not
+    /// explicitly associated with any route table, it is implicitly associated with the main
+    /// route table. This command does not return the subnet ID for implicit associations.
+    /// </para><para>
     /// For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
     /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>

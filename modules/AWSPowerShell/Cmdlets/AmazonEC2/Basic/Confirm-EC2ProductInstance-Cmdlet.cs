@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// needs to verify whether another user's instance is eligible for support.
     /// </summary>
     [Cmdlet("Confirm", "EC2ProductInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
+    [OutputType("Amazon.EC2.Model.ConfirmProductInstanceResponse")]
     [AWSCmdlet("Invokes the ConfirmProductInstance operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ConfirmProductInstance"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type ConfirmProductInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.ConfirmProductInstanceResponse",
+        "This cmdlet returns a ConfirmProductInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmEC2ProductInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -114,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = client.ConfirmProductInstance(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.OwnerId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

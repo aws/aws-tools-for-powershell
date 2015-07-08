@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// If you exceed your maximum limit of Auto Scaling groups, which by default is 20 per
-    /// region, the call fails. For information about viewing and updating these limits, see
+    /// region, the call fails. For information about viewing and updating this limit, see
     /// <a>DescribeAccountLimits</a>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html">Auto
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
-        /// scaling activity can start.</para><para>If <code>DefaultCooldown</code> is not specified, the default value is 300. For more
-        /// information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
+        /// scaling activity can start.</para><para>If this parameter is not specified, the default value is 300. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
         /// Auto Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -80,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances that should be running in the group. This value must be
-        /// greater than or equal to the minimum size of the group and less than or equal to the
-        /// maximum size of the group.</para>
+        /// <para>The number of EC2 instances that should be running in the group. This number must
+        /// be greater than or equal to the minimum size of the group and less than or equal to
+        /// the maximum size of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

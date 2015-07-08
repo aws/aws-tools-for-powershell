@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         /// <summary>
         /// <para>
-        /// <para><code>Time</code> is deprecated; use <code>StartTime</code> instead.</para><para>The time for this action to start. If both <code>Time</code> and <code>StartTime</code>
+        /// <para>This parameter is deprecated; use <code>StartTime</code> instead.</para><para>The time for this action to start. If both <code>Time</code> and <code>StartTime</code>
         /// are specified, their values must be identical.</para>
         /// </para>
         /// </summary>
