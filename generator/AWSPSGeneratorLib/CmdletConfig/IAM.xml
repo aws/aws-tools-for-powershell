@@ -67,6 +67,9 @@
     <ServiceOperation MethodName="DeleteRolePolicy" Output="Void" ShouldProcessTarget="PolicyName" PipelineParameter="RoleName" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="DeleteServerCertificate" Output="Void" />
     <ServiceOperation MethodName="DeleteSigningCertificate" Output="Void" ShouldProcessTarget="CertificateId" PositionalParameters="CertificateId"/>
+    
+    <ServiceOperation MethodName="DeleteSSHPublicKey" PipelineParameter="SSHPublicKeyId" Output="Void" />
+    
     <ServiceOperation MethodName="DeleteUser" Output="Void"/>
     <ServiceOperation MethodName="DeleteUserPolicy" Output="Void" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="DeleteVirtualMFADevice" Output="Void" />
@@ -88,6 +91,9 @@
     <ServiceOperation MethodName="GetRole" />
     <ServiceOperation MethodName="GetRolePolicy" Output="Response" PipelineParameter="RoleName" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="GetServerCertificate" />
+    
+    <ServiceOperation MethodName="GetSSHPublicKey" PipelineParameter="SSHPublicKeyId" />
+    
     <ServiceOperation MethodName="GetUser"/>
     <ServiceOperation MethodName="GetUserPolicy" Output="Response" PositionalParameters="PolicyName"/>
     <ServiceOperation MethodName="ListAccessKeys"/>
@@ -109,6 +115,7 @@
     <ServiceOperation MethodName="ListRoles" PipelineParameter="PathPrefix"/>
     <ServiceOperation MethodName="ListServerCertificates" PipelineParameter="PathPrefix"/>
     <ServiceOperation MethodName="ListSigningCertificates"/>
+    <ServiceOperation MethodName="ListSSHPublicKeys" Noun="SSHPublicKeyList" />
     <ServiceOperation MethodName="ListUserPolicies"/>
     <ServiceOperation MethodName="ListUsers" PipelineParameter="PathPrefix"/>
     <ServiceOperation MethodName="ListVirtualMFADevices" />
@@ -132,9 +139,11 @@
     <ServiceOperation MethodName="UpdateServerCertificate" Output="Void" PipelineParameter="ServerCertificateName" 
                       PositionalParameters="NewPath;NewServerCertificateName"/>
     <ServiceOperation MethodName="UpdateSigningCertificate" Output="Void" PositionalParameters="CertificateId;Status"/>
+    <ServiceOperation MethodName="UpdateSSHPublicKey" PipelineParameter="SSHPublicKeyId" Output="Void" />
     <ServiceOperation MethodName="UpdateUser" Output="Void" PositionalParameters="NewPath;NewUserName"/>
     <ServiceOperation MethodName="UploadServerCertificate" PipelineParameter="Path" PositionalParameters="ServerCertificateName;CertificateBody;PrivateKey;CertificateChain"/>
     <ServiceOperation MethodName="UploadSigningCertificate" PositionalParameters="CertificateBody"/>
+    <ServiceOperation MethodName="UploadSSHPublicKey" PipelineParameter="SSHPublicKeyBody" />
   
     <ServiceOperation MethodName="ListSAMLProviders" />
     <ServiceOperation MethodName="UpdateSAMLProvider" ShouldProcessTarget="SAMLProviderArn" />

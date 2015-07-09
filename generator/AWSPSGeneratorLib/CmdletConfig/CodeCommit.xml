@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>CC</ServiceNounPrefix>
+  <ServiceNamespace>Amazon.CodeCommit</ServiceNamespace>
+  <ServiceClientInterface>IAmazonCodeCommit</ServiceClientInterface>
+  <ServiceClient>AmazonCodeCommitClient</ServiceClient>
+
+  <PipelineParameter>RepositoryName</PipelineParameter>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="BatchGetRepositories" Verb="Get" Noun="RepositoryBatch" Output="Response"/>
+    <ServiceOperation MethodName="CreateBranch" Output="Void" />
+    <ServiceOperation MethodName="CreateRepository"/>
+    <ServiceOperation MethodName="DeleteRepository" ShouldProcessTarget="RepositoryName"/>
+	<ServiceOperation MethodName="GetBranch"/>
+    <ServiceOperation MethodName="GetRepository"/>
+    <ServiceOperation MethodName="ListBranches" Verb="Get" Noun="BranchList"/>
+    <ServiceOperation MethodName="ListRepositories" Verb="Get" Noun="RepositoryList"/>
+    <ServiceOperation MethodName="UpdateDefaultBranch" Output="Void"/>
+    <ServiceOperation MethodName="UpdateRepositoryDescription" Output="Void"/>
+    <ServiceOperation MethodName="UpdateRepositoryName" Output="Void" ShouldProcessTarget="OldName"/>
+  </ServiceOperations>
+  
+</ConfigModel>

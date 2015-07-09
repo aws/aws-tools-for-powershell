@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// This action is throttled at one request per second and can only get verification attributes
+    /// for up to 100 identities at a time.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SESIdentityVerificationAttribute")]

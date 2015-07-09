@@ -101,7 +101,7 @@ namespace AWSPowerShellGenerator.Utils
                     referenceNode.Attributes.Append(xa);
                     
                     var hintNode = project.CreateElement("HintPath", project.DocumentElement.NamespaceURI);
-                    hintNode.InnerText = string.Concat(@"..\..\Include\sdk\assemblies\", a, ".dll");
+                    hintNode.InnerText = string.Concat(@"..\..\Include\sdk\assemblies\net35\", a, ".dll");
 
                     referenceNode.AppendChild(hintNode);
 

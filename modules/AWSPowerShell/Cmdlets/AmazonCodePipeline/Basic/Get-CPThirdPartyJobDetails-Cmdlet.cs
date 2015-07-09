@@ -1,0 +1,140 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.CodePipeline;
+using Amazon.CodePipeline.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CP
+{
+    /// <summary>
+    /// Requests the details of a job for a third party action. Only used for partner actions.
+    /// 
+    ///  <important><para>
+    /// When this API is called, AWS CodePipeline returns temporary credentials for the Amazon
+    /// S3 bucket used to store artifacts for the pipeline, if the action requires access
+    /// to that Amazon S3 bucket for input or output artifacts. Additionally, this API returns
+    /// any secret values defined for the action.
+    /// </para></important>
+    /// </summary>
+    [Cmdlet("Get", "CPThirdPartyJobDetails")]
+    [OutputType("Amazon.CodePipeline.Model.ThirdPartyJobDetails")]
+    [AWSCmdlet("Invokes the GetThirdPartyJobDetails operation against AWS CodePipeline.", Operation = new[] {"GetThirdPartyJobDetails"})]
+    [AWSCmdletOutput("Amazon.CodePipeline.Model.ThirdPartyJobDetails",
+        "This cmdlet returns a ThirdPartyJobDetails object.",
+        "The service call response (type GetThirdPartyJobDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetCPThirdPartyJobDetailsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The clientToken portion of the clientId and clientToken pair used to verify that the
+        /// calling entity is allowed access to the job and its details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ClientToken { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The unique system-generated ID used for identifying the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String JobId { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.ClientToken = this.ClientToken;
+            context.JobId = this.JobId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new GetThirdPartyJobDetailsRequest();
+            
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.JobId != null)
+            {
+                request.JobId = cmdletContext.JobId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.GetThirdPartyJobDetails(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.JobDetails;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String ClientToken { get; set; }
+            public String JobId { get; set; }
+        }
+        
+    }
+}

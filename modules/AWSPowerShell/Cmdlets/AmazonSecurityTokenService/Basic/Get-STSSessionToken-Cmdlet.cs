@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// temporary credentials have the same permissions as the IAM user. 
     /// </para><para>
     /// For more information about using <code>GetSessionToken</code> to create temporary
-    /// credentials, go to <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSessionTokens.html" target="_blank">Creating Temporary Credentials to Enable Access for IAM Users</a>
-    /// in <i>Using Temporary Security Credentials</i>. 
+    /// credentials, go to <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSessionTokens.html" target="_blank">Creating Temporary Credentials to Enable Access for IAM Users</a>.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "STSSessionToken")]

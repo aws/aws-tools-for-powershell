@@ -92,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, hyphens,
-        /// and underscores are allowed.</para>
+        /// and underscores are allowed. Service names must be unique within a cluster, but you
+        /// can have similarly named services in multiple clusters within a region or across multiple
+        /// regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

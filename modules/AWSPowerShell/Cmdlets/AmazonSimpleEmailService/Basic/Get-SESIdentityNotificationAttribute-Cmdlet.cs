@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// This action is throttled at one request per second and can only get notification attributes
+    /// for up to 100 identities at a time.
     /// </para><para>
     /// For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
     /// SES Developer Guide</a>.
@@ -50,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     {
         /// <summary>
         /// <para>
-        /// <para>A list of one or more identities.</para>
+        /// <para>A list of one or more identities. You can specify an identity by using its name or
+        /// by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
+        /// <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

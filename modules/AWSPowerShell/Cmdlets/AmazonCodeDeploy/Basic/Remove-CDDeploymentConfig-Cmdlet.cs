@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Remove", "CDDeploymentConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDeploymentConfig operation against Amazon CodeDeploy.", Operation = new[] {"DeleteDeploymentConfig"})]
+    [AWSCmdlet("Invokes the DeleteDeploymentConfig operation against AWS CodeDeploy.", Operation = new[] {"DeleteDeploymentConfig"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeploymentConfigName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type DeleteDeploymentConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

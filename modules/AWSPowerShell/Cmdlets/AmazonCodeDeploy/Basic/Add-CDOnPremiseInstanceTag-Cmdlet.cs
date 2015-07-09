@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Add", "CDOnPremiseInstanceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the AddTagsToOnPremisesInstances operation against Amazon CodeDeploy.", Operation = new[] {"AddTagsToOnPremisesInstances"})]
+    [AWSCmdlet("Invokes the AddTagsToOnPremisesInstances operation against AWS CodeDeploy.", Operation = new[] {"AddTagsToOnPremisesInstances"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type AddTagsToOnPremisesInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

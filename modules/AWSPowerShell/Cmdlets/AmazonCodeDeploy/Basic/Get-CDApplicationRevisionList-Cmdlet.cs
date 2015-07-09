@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Get", "CDApplicationRevisionList")]
     [OutputType("Amazon.CodeDeploy.Model.RevisionLocation")]
-    [AWSCmdlet("Invokes the ListApplicationRevisions operation against Amazon CodeDeploy.", Operation = new[] {"ListApplicationRevisions"})]
+    [AWSCmdlet("Invokes the ListApplicationRevisions operation against AWS CodeDeploy.", Operation = new[] {"ListApplicationRevisions"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.RevisionLocation",
         "This cmdlet returns a collection of RevisionLocation objects.",
         "The service call response (type ListApplicationRevisionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

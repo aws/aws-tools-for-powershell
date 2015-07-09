@@ -192,6 +192,12 @@
     <Reference Include="AWSSDK.ElasticFileSystem">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeCommit">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CodeCommit.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodePipeline">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CodePipeline.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\**" />

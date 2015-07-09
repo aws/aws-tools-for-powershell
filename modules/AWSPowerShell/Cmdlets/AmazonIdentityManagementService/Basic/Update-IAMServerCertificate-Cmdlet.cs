@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para> The new name for the server certificate. Include this only if you are updating the
-        /// server certificate's name. </para>
+        /// server certificate's name. The name of the certificate cannot contain any spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

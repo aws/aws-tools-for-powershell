@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         /// <summary>
         /// <para>
-        /// <para> Use this only when paginating results, and only in a subsequent request after you've
-        /// received a response where the results are truncated. Set it to the value of the <code>Marker</code>
-        /// element in the response you just received. </para>
+        /// <para>Use this parameter only when paginating results and only after you have received a
+        /// response where the results are truncated. Set it to the value of the <code>Marker</code>
+        /// element in the response you just received.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,10 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         /// <summary>
         /// <para>
-        /// <para> Use this only when paginating results to indicate the maximum number of server certificates
-        /// you want in the response. If there are additional server certificates beyond the maximum
-        /// you specify, the <code>IsTruncated</code> response element will be set to <code>true</code>.
-        /// This parameter is optional. If you do not include it, it defaults to 100. </para>
+        /// <para>Use this only when paginating results to indicate the maximum number of items you
+        /// want in the response. If there are additional items beyond the maximum you specify,
+        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

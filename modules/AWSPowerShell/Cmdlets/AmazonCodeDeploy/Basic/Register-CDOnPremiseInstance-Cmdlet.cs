@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Register", "CDOnPremiseInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the RegisterOnPremisesInstance operation against Amazon CodeDeploy.", Operation = new[] {"RegisterOnPremisesInstance"})]
+    [AWSCmdlet("Invokes the RegisterOnPremisesInstance operation against AWS CodeDeploy.", Operation = new[] {"RegisterOnPremisesInstance"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type RegisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

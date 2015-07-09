@@ -28,7 +28,19 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Updates the Amazon ECS container agent on a specified container instance.
+    /// Updates the Amazon ECS container agent on a specified container instance. Updating
+    /// the Amazon ECS container agent does not interrupt running tasks or services on the
+    /// container instance. The process for updating the agent differs depending on whether
+    /// your container instance was launched with the Amazon ECS-optimized AMI or another
+    /// operating system.
+    /// 
+    ///  
+    /// <para><code>UpdateContainerAgent</code> requires the Amazon ECS-optimized AMI or Amazon
+    /// Linux with the <code>ecs-init</code> service installed and running. For help updating
+    /// the Amazon ECS container agent on other operating systems, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
+    /// Updating the Amazon ECS Container Agent</a> in the <i>Amazon EC2 Container Service
+    /// Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "ECSContainerAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.ContainerInstance")]

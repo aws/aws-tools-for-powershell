@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CP</ServiceNounPrefix>
+  <ServiceNamespace>Amazon.CodePipeline</ServiceNamespace>
+  <ServiceClientInterface>IAmazonCodePipeline</ServiceClientInterface>
+  <ServiceClient>AmazonCodePipelineClient</ServiceClient>
+  
+  <!-- The Amazon.CodePipeline.Model.PipelineDeclaration type is not flattened. See the TypesNotToFlatten
+       Section in Configs.xml  -->
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="AcknowledgeJob" Verb="Confirm" PipelineParameter="JobId"/>
+	<ServiceOperation MethodName="AcknowledgeThirdPartyJob" Verb="Confirm" PipelineParameter="JobId" />
+	<ServiceOperation MethodName="CreateCustomActionType" NoPipelineParameter="true" ShouldProcessTarget="Category" />
+	<ServiceOperation MethodName="CreatePipeline" />
+	<ServiceOperation MethodName="DeleteCustomActionType" Output="Void" ShouldProcessTarget="Category" NoPipelineParameter="true" />
+	<ServiceOperation MethodName="DeletePipeline" ShouldProcessTarget="Name" Output="Void"/>
+	<ServiceOperation MethodName="DisableStageTransition" NoPipelineParameter="true" Output="Void" ShouldProcessTarget="PipelineName" />
+	<ServiceOperation MethodName="EnableStageTransition" NoPipelineParameter="true" Output="Void" ShouldProcessTarget="PipelineName"/>
+	<ServiceOperation MethodName="GetJobDetails" />
+	<ServiceOperation MethodName="GetPipeline" PipelineParameter="Name" />
+	<ServiceOperation MethodName="GetPipelineState" Output="Response" />
+	<ServiceOperation MethodName="GetThirdPartyJobDetails" PipelineParameter="JobId"/>
+	<ServiceOperation MethodName="ListActionTypes" Verb="Get" Noun="ActionType" NoPipelineParameter="true"/>
+	<ServiceOperation MethodName="ListPipelines" Verb="Get" Noun="PipelineList" />
+	<ServiceOperation MethodName="PollForJobs" Verb="Get" Noun="ActionableJobs" NoPipelineParameter="true" />
+	<ServiceOperation MethodName="PollForThirdPartyJobs" Verb="Get" Noun="ActionableThirdPartyJobs" NoPipelineParameter="true" />
+	<ServiceOperation MethodName="PutActionRevision" Output="Response" PipelineParameter="PipelineName" ShouldProcessTarget="ActionName"/>
+	<ServiceOperation MethodName="PutJobFailureResult" Output="Void" PipelineParameter="JobId"/>
+	<ServiceOperation MethodName="PutJobSuccessResult" Output="Void" PipelineParameter="JobId"/>
+	<ServiceOperation MethodName="PutThirdPartyJobFailureResult" Output="Void" PipelineParameter="JobId"/>
+	<ServiceOperation MethodName="PutThirdPartyJobSuccessResult" Output="Void" PipelineParameter="JobId" />
+	<ServiceOperation MethodName="StartPipelineExecution" />
+	<ServiceOperation MethodName="UpdatePipeline" />
+  </ServiceOperations>
+  
+</ConfigModel>

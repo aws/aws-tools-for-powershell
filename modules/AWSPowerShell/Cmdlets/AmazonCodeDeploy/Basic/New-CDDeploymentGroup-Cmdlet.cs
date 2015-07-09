@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("New", "CDDeploymentGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateDeploymentGroup operation against Amazon CodeDeploy.", Operation = new[] {"CreateDeploymentGroup"})]
+    [AWSCmdlet("Invokes the CreateDeploymentGroup operation against AWS CodeDeploy.", Operation = new[] {"CreateDeploymentGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type CreateDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -27,7 +27,7 @@ using Amazon.CodeDeploy.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CD
 {
-    [AWSClientCmdlet("Amazon CodeDeploy", "CD", "2014-10-06")]
+    [AWSClientCmdlet("AWS CodeDeploy", "CD", "2014-10-06")]
     public abstract class AmazonCodeDeployClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeDeploy Client { get; private set; }

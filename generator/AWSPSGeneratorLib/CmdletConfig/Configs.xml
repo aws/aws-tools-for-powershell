@@ -5,35 +5,37 @@
 		<Path>AWSSupport.xml</Path>
 		<Path>Beanstalk.xml</Path>
 		<Path>CloudFormation.xml</Path>
-    <Path>CloudFront.xml</Path>
+        <Path>CloudFront.xml</Path>
 		<Path>CloudSearch.xml</Path>
 
 		<!--Cmdlets for this service are fully handwritten, as the client has non standard constructors.--> 
 		<!--<Path>CloudSearchDomain.xml</Path>-->
 
-    <Path>CloudTrail.xml</Path>
-    <Path>CodeDeploy.xml</Path>
-    <Path>ConfigService.xml</Path>
-    <Path>CloudWatch.xml</Path>
+        <Path>CloudTrail.xml</Path>
+        <Path>CodeCommit.xml</Path>
+        <Path>CodeDeploy.xml</Path>
+        <Path>CodePipeline.xml</Path>
+        <Path>ConfigService.xml</Path>
+        <Path>CloudWatch.xml</Path>
 		<Path>CloudWatchLogs.xml</Path>
 		<Path>DataPipeline.xml</Path>
 		<Path>DirectConnect.xml</Path>
 		<Path>DirectoryService.xml</Path>
 		<Path>DynamoDB.xml</Path>
 		<Path>EC2.xml</Path>
-  	<Path>ECS.xml</Path>
-    <Path>EFS.xml</Path>
-    <Path>ElastiCache.xml</Path>
+        <Path>ECS.xml</Path>
+        <Path>EFS.xml</Path>
+        <Path>ElastiCache.xml</Path>
 		<Path>ELB.xml</Path>
 		<Path>EMR.xml</Path>
 		<Path>ETS.xml</Path>
-    <Path>HSM.xml</Path>
-    <Path>IAM.xml</Path>
+        <Path>HSM.xml</Path>
+        <Path>IAM.xml</Path>
 		<Path>ImportExport.xml</Path>
 		<Path>KMS.xml</Path>
 		<Path>Kinesis.xml</Path>
-    <Path>Lambda.xml</Path>
-    <Path>ML.xml</Path>
+        <Path>Lambda.xml</Path>
+        <Path>ML.xml</Path>
 		<Path>OpsWorks.xml</Path>
 		<Path>RDS.xml</Path>
 		<Path>Redshift.xml</Path>
@@ -42,18 +44,20 @@
 		<Path>S3.xml</Path>
 		<Path>SES.xml</Path>
 		<Path>SNS.xml</Path>
-    <Path>SSM.xml</Path>
-    <Path>SQS.xml</Path>
+        <Path>SSM.xml</Path>
+        <Path>SQS.xml</Path>
 		<Path>StorageGateway.xml</Path>
-    <Path>STS.xml</Path>
-    <Path>WKS.xml</Path>
+        <Path>STS.xml</Path>
+        <Path>WKS.xml</Path>
 	</Configs>
 
 	<ClientNames>
 		<Map From="AS" To="Auto Scaling" />
 		<Map From="EB" To="AWS Elastic Beanstalk" />
 		<Map From="CFN" To="AWS CloudFormation" />
-		<Map From="CD" To="Amazon CodeDeploy" />
+		<Map From="CC" To="AWS CodeCommit" />
+		<Map From="CD" To="AWS CodeDeploy" />
+		<Map From="CP" To="AWS CodePipeline" />
 		<Map From="CFG" To="Amazon Config" />
 		<Map From="CF" To="Amazon CloudFront" />
 		<Map From="CS" To="Amazon CloudSearch" />
@@ -66,18 +70,18 @@
 		<Map From="DP" To="AWS Data Pipeline" />
 		<Map From="DS" To="AWS Directory Service" />
 		<Map From="EC2" To="Amazon Elastic Compute Cloud" />
-    <Map From="ECS" To="Amazon EC2 Container Service" />
-    <Map From="EFS" To="Amazon Elastic File System" />
-    <Map From="EC" To="Amazon ElastiCache" />
+        <Map From="ECS" To="Amazon EC2 Container Service" />
+        <Map From="EFS" To="Amazon Elastic File System" />
+        <Map From="EC" To="Amazon ElastiCache" />
 		<Map From="ELB" To="Elastic Load Balancing" />
 		<Map From="EMR" To="Amazon Elastic MapReduce" />
-    <Map From="HSM" To="AWS Cloud HSM" />
-    <Map From="IAM" To="AWS Identity and Access Management" />
+        <Map From="HSM" To="AWS Cloud HSM" />
+        <Map From="IAM" To="AWS Identity and Access Management" />
 		<Map From="IE" To="AWS Import/Export" />
 		<Map From="KMS" To="AWS Key Management Service" />
 		<Map From="KIN" To="AWS Kinesis" />
-    <Map From="LM" To="Amazon Lambda" />
-    <Map From="ML" To="Amazon Machine Learning" />
+        <Map From="LM" To="Amazon Lambda" />
+        <Map From="ML" To="Amazon Machine Learning" />
 		<Map From="RDS" To="Amazon Relational Database Service" />
 		<Map From="R53" To="AWS Route 53" />
 		<Map From="R53D" To="AWS Route 53 Domains" />
@@ -85,14 +89,14 @@
 		<Map From="SES" To="Amazon Simple Email Service" />
 		<Map From="SNS" To="Amazon Simple Notification Service" />
 		<Map From="SQS" To="Amazon Simple Queue Service" />
-    <Map From="SSM" To="Amazon Simple Systems Management" />
+        <Map From="SSM" To="Amazon Simple Systems Management" />
 		<Map From="SG" To="AWS Storage Gateway" />
 		<Map From="STS" To="AWS Security Token Service" />
 		<Map From="ETS" To="Amazon Elastic Transcoder" />
 		<Map From="RS" To="Amazon Redshift" />
 		<Map From="OPS" To="AWS OpsWorks" />
-    <Map From="ASA" To="AWS Support API" />
-    <Map From="WKS" To="Amazon WorkSpaces" />
+        <Map From="ASA" To="AWS Support API" />
+        <Map From="WKS" To="Amazon WorkSpaces" />
 	</ClientNames>
 
 	<VerbMappings>
@@ -114,6 +118,7 @@
 		<Type>System.IO.MemoryStream</Type>
 		<Type>System.Collections.Generic.List`1</Type>
 		<Type>System.Collections.Generic.Dictionary`2</Type>
+		<Type>Amazon.CodePipeline.Model.PipelineDeclaration</Type>
 	</TypesNotToFlatten>
 
 	<MetadataProperties>

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// which one can access which account can be time consuming. Instead, you can create
     /// one set of long-term credentials in one account and then use temporary security credentials
     /// to access all the other accounts by assuming roles in those accounts. For more information
-    /// about roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Roles</a>
-    /// in <i>Using IAM</i>. 
+    /// about roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM
+    /// Roles (Delegation and Federation)</a> in <i>Using IAM</i>. 
     /// </para><para>
     /// For federation, you can, for example, grant single sign-on access to the AWS Management
     /// Console. If you already have an identity and authentication system in your corporate
@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// temporary security credentials. You cannot use the passed policy to grant permissions
     /// that are in excess of those allowed by the access policy of the role that is being
     /// assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions
-    /// for AssumeRole</a> in <i>Using Temporary Security Credentials</i>.
+    /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in <i>Using
+    /// Temporary Security Credentials</i>.
     /// </para><para>
     /// To assume a role, your AWS account must be trusted by the role. The trust relationship
     /// is defined in the role's trust policy when the role is created. You must also have
@@ -85,9 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// includes a condition that tests for MFA authentication; if the caller does not include
     /// valid MFA information, the request to assume the role is denied. The condition in
     /// a trust policy that tests for MFA authentication might look like the following example.
-    /// </para><para><code>"Condition": {"Null": {"aws:MultiFactorAuthAge": false}}</code></para><para>
+    /// </para><para><code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code></para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring
-    /// MFA-Protected API Access</a> in the <i>Using IAM</i> guide. 
+    /// MFA-Protected API Access</a> in <i>Using IAM</i> guide.
     /// </para><para>
     /// To use MFA with <code>AssumeRole</code>, you pass values for the <code>SerialNumber</code>
     /// and <code>TokenCode</code> parameters. The <code>SerialNumber</code> value identifies
@@ -116,12 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         /// <summary>
         /// <para>
-        /// <para>A unique identifier that is used by third parties to assume a role in their customers'
+        /// <para>A unique identifier that is used by third parties when assuming roles in their customers'
         /// accounts. For each role that the third party can assume, they should instruct their
-        /// customers to create a role with the external ID that the third party generated. Each
-        /// time the third party assumes the role, they must pass the customer's external ID.
-        /// The external ID is useful in order to help third parties bind a role to the customer
-        /// who created it. For more information about the external ID, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html" target="_blank">About the External ID</a> in <i>Using Temporary Security Credentials</i>.</para>
+        /// customers to ensure the role's trust policy checks for the external ID that the third
+        /// party generated. Each time the third party assumes the role, they should pass the
+        /// customer's external ID. The external ID is useful in order to help third parties bind
+        /// a role to the customer who created it. For more information about the external ID,
+        /// see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html">How
+        /// to Use External ID When Granting Access to Your AWS Resources</a> in <i>Using Temporary
+        /// Security Credentials</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -129,14 +133,18 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         /// <summary>
         /// <para>
-        /// <para>An IAM policy in JSON format.</para><para>The policy parameter is optional. If you pass a policy, the temporary security credentials
-        /// that are returned by the operation have the permissions that are allowed by both the
-        /// access policy of the role that is being assumed, <i><b>and</b></i> the policy that
-        /// you pass. This gives you a way to further restrict the permissions for the resulting
-        /// temporary security credentials. You cannot use the passed policy to grant permissions
-        /// that are in excess of those allowed by the access policy of the role that is being
-        /// assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions
-        /// for AssumeRole</a> in <i>Using Temporary Security Credentials</i>. </para>
+        /// <para>An IAM policy in JSON format.</para><para>This parameter is optional. If you pass a policy, the temporary security credentials
+        /// that are returned by the operation have the permissions that are allowed by both (the
+        /// intersection of) the access policy of the role that is being assumed, <i>and</i> the
+        /// policy that you pass. This gives you a way to further restrict the permissions for
+        /// the resulting temporary security credentials. You cannot use the passed policy to
+        /// grant permissions that are in excess of those allowed by the access policy of the
+        /// role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions
+        /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in <i>Using
+        /// Temporary Security Credentials</i>. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
+        /// compresses it into a packed binary format with a separate limit. The PackedPolicySize
+        /// response element indicates by percentage how close to the upper size limit the policy
+        /// is, with 100% equaling the maximum allowed size. </note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -144,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the role that the caller is assuming.</para>
+        /// <para>The Amazon Resource Name (ARN) of the role to assume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -152,8 +160,12 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         /// <summary>
         /// <para>
-        /// <para>An identifier for the assumed role session. The session name is included as part of
-        /// the <code>AssumedRoleUser</code>. </para>
+        /// <para>An identifier for the assumed role session. </para><para>Use the role session name to uniquely identity a session when the same role is assumed
+        /// by different principals or for different reasons. In cross-account scenarios, the
+        /// role session name is visible to, and can be logged by the account that owns the role.
+        /// The role session name is also used in the ARN of the assumed role principal. This
+        /// means that subsequent cross-account API requests using the temporary security credentials
+        /// will expose the role session name to the external account in their CloudTrail logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

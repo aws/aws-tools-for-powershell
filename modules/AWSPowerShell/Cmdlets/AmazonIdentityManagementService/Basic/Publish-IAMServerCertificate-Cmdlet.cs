@@ -92,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         /// <summary>
         /// <para>
-        /// <para>The name for the server certificate. Do not include the path in this value.</para>
+        /// <para>The name for the server certificate. Do not include the path in this value. The name
+        /// of the certificate cannot contain any spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

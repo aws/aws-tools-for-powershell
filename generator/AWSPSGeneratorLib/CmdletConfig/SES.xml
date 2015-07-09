@@ -25,16 +25,26 @@
 
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteIdentity" Output="Void" />
+    <ServiceOperation MethodName="DeleteIdentityPolicy" Output="Void" PipelineParameter="PolicyName" />
     <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Output="Void" />
     <ServiceOperation MethodName="GetIdentityDkimAttributes" />
     <ServiceOperation MethodName="GetIdentityNotificationAttributes" />
+    <ServiceOperation MethodName="GetIdentityPolicies" Noun="IdentityPolicy" PipelineParameter="PolicyNames" />
     <ServiceOperation MethodName="GetIdentityVerificationAttributes" />
     <ServiceOperation MethodName="GetSendQuota" Output="Response"/>
     <ServiceOperation MethodName="GetSendStatistics"/>
     <ServiceOperation MethodName="ListIdentities" />
+    <ServiceOperation MethodName="ListIdentityPolicies" Noun="IdentityPolicyList" />
     <ServiceOperation MethodName="ListVerifiedEmailAddresses"/>
-    <ServiceOperation MethodName="SendEmail" PipelineParameter="Source" PositionalParameters="Destination_ToAddresses"/>
-    <ServiceOperation MethodName="SendRawEmail" PipelineParameter="Source" PositionalParameters="Destinations"/>
+    <ServiceOperation MethodName="PutIdentityPolicy" Output="Void" PipelineParameter="Policy" />
+    <ServiceOperation MethodName="SendEmail" 
+                      PipelineParameter="Source" 
+                      ShouldProcessTarget="Source"
+                      PositionalParameters="Destination_ToAddresses"/>
+    <ServiceOperation MethodName="SendRawEmail" 
+                      PipelineParameter="Source" 
+                      ShouldProcessTarget="Source"
+                      PositionalParameters="Destinations"/>
     <ServiceOperation MethodName="SetIdentityDkimEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="DkimEnabled"/>
     <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="ForwardingEnabled"/>
     <ServiceOperation MethodName="SetIdentityNotificationTopic" Output="Void" PipelineParameter="Identity" PositionalParameters="NotificationType;SnsTopic"/>

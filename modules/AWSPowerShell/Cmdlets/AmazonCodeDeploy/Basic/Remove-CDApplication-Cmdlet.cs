@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Remove", "CDApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteApplication operation against Amazon CodeDeploy.", Operation = new[] {"DeleteApplication"})]
+    [AWSCmdlet("Invokes the DeleteApplication operation against AWS CodeDeploy.", Operation = new[] {"DeleteApplication"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

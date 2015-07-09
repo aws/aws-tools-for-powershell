@@ -52,8 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     {
         /// <summary>
         /// <para>
-        /// <para>The identity for which the Amazon SNS topic will be set. Examples: <code>user@example.com</code>,
-        /// <code>example.com</code>.</para>
+        /// <para>The identity for which the Amazon SNS topic will be set. You can specify an identity
+        /// by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
+        /// <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
