@@ -23,6 +23,7 @@ Function Test.Asserts()
 
 . .\General.ps1
 . .\CommonCmdlets.ps1
+. .\AS.ps1
 . .\CFN.ps1
 . .\CS.ps1
 . .\CF.ps1

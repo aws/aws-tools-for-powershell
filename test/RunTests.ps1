@@ -27,6 +27,11 @@ catch
 Set-AWSCredentials -AccessKey $testCreds.AccessKey -SecretKey $testCreds.SecretKey
 Set-DefaultAWSRegion -Region us-east-1
 
+if (Test-Path -Path ..\test\temp)
+{
+    Remove-Item -Path ..\test\temp -Recurse -Force
+}
+
 New-Item -Path ..\test\temp -ItemType directory
 
 $original_creds_file = '..\test\test-credentials'
