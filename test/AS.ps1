@@ -1,7 +1,7 @@
-﻿function Test.AS
+﻿function Test.AS.LaunchConfiguration
 {
     $launchConfig = $null
-    $launchConfigName = "PShellLaunchConfigPSTest" + (Get-Date).Ticks
+    $launchConfigName = "PShellLaunchConfigTest" + (Get-Date).Ticks
 
     try
     {
@@ -25,6 +25,3 @@
     }
 
 }
-
-Test.AS
-

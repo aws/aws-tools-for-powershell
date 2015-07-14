@@ -24,18 +24,26 @@ Function Test.Asserts()
 . .\General.ps1
 . .\CommonCmdlets.ps1
 . .\AS.ps1
-. .\CFN.ps1
-. .\CS.ps1
+. .\ASA.ps1
+. .\CC.ps1
+. .\CD.ps1
 . .\CF.ps1
+. .\CFG.ps1
+. .\CFN.ps1
+. .\CP.ps1
+. .\CS.ps1
 . .\CT.ps1
 . .\CW.ps1
+. .\CWL.ps1
 . .\DC.ps1
 # . .\DDB.ps1
 # . .\DP.ps1
+. .\DS.ps1
 . .\EB.ps1
 . .\EC.ps1
 . .\ELB.ps1
 . .\EMR.ps1
+. .\HSM.ps1
 . .\IAM.ps1
 . .\R53.ps1
 . .\RS.ps1
