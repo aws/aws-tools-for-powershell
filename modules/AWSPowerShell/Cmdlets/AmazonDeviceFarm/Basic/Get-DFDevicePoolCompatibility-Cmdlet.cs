@@ -1,0 +1,146 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.DeviceFarm;
+using Amazon.DeviceFarm.Model;
+
+namespace Amazon.PowerShell.Cmdlets.DF
+{
+    /// <summary>
+    /// Gets information about compatibility with a device pool.
+    /// </summary>
+    [Cmdlet("Get", "DFDevicePoolCompatibility")]
+    [OutputType("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse")]
+    [AWSCmdlet("Invokes the GetDevicePoolCompatibility operation against AWS Device Farm.", Operation = new[] {"GetDevicePoolCompatibility"})]
+    [AWSCmdletOutput("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse",
+        "This cmdlet returns a GetDevicePoolCompatibilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetDFDevicePoolCompatibilityCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the app that is associated with the specified device pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String AppArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The device pool's ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String DevicePoolArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The test type for the specified device pool.</para><para>Allowed values include the following:</para><ul><li><para>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</para></li><li><para>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</para></li><li><para>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app,
+        /// interacting with it and capturing screenshots at the same time.</para></li><li><para>BUILTIN_FUZZ: The built-in fuzz type.</para></li><li><para>CALABASH: The Calabash type.</para></li><li><para>INSTRUMENTATION: The Instrumentation type.</para></li><li><para>UIAUTOMATION: The UI Automation type.</para></li><li><para>UIAUTOMATOR: The uiautomator type.</para></li><li><para>XCTEST: The XCTest type.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public TestType TestType { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.AppArn = this.AppArn;
+            context.DevicePoolArn = this.DevicePoolArn;
+            context.TestType = this.TestType;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new GetDevicePoolCompatibilityRequest();
+            
+            if (cmdletContext.AppArn != null)
+            {
+                request.AppArn = cmdletContext.AppArn;
+            }
+            if (cmdletContext.DevicePoolArn != null)
+            {
+                request.DevicePoolArn = cmdletContext.DevicePoolArn;
+            }
+            if (cmdletContext.TestType != null)
+            {
+                request.TestType = cmdletContext.TestType;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.GetDevicePoolCompatibility(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String AppArn { get; set; }
+            public String DevicePoolArn { get; set; }
+            public TestType TestType { get; set; }
+        }
+        
+    }
+}

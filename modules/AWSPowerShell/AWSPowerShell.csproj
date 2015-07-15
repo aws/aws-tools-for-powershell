@@ -198,6 +198,9 @@
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DeviceFarm">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.DeviceFarm.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\**" />

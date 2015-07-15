@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <ServiceNounPrefix>DF</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonDeviceFarm</ServiceClientInterface>
+  <ServiceClient>AmazonDeviceFarmClient</ServiceClient>
+  <ServiceNamespace>Amazon.DeviceFarm</ServiceNamespace>
+
+
+  <AutoIterate Start="NextToken" Next="NextToken" />
+
+  <PipelineParameter>Arn</PipelineParameter>
+
+  <NounMappings>
+
+  </NounMappings>
+  
+  <VerbMappings>
+    <Map From="List" To="Get" />
+    <Map From="Schedule" To="Invoke" />
+  </VerbMappings>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateDevicePool" PipelineParameter="Rules" ShouldProcessTarget="Name"/>
+    <ServiceOperation MethodName="CreateProject"/>    
+    <ServiceOperation MethodName="CreateUpload" PipelineParameter="Name" PositionalParameters="ProjectArn;Type;ContentType"/>
+    <ServiceOperation MethodName="GetDevice"/>
+    <ServiceOperation MethodName="GetDevicePool"/>
+    <ServiceOperation MethodName="GetDevicePoolCompatibility" Output="Response"/>
+    <ServiceOperation MethodName="GetJob"/>
+    <ServiceOperation MethodName="GetProject"/>
+    <ServiceOperation MethodName="GetRun"/>
+    <ServiceOperation MethodName="GetSuite"/>
+    <ServiceOperation MethodName="GetTest"/>
+    <ServiceOperation MethodName="GetUpload"/>
+    <ServiceOperation MethodName="ListArtifacts" Noun="ArtifactList"/>
+    <ServiceOperation MethodName="ListDevicePools" Noun="DevicePoolList"/>
+    <ServiceOperation MethodName="ListDevices" Noun="DeviceList"/>
+    <ServiceOperation MethodName="ListJobs" Noun="JobList"/>
+    <ServiceOperation MethodName="ListProjects" Noun="ProjectList"/>
+    <ServiceOperation MethodName="ListRuns" Noun="RunList"/>
+    <ServiceOperation MethodName="ListSamples" Noun="SampleList"/>
+    <ServiceOperation MethodName="ListSuites" Noun="SuiteList"/>
+    <ServiceOperation MethodName="ListTests" Noun="TestList"/>
+    <ServiceOperation MethodName="ListUniqueProblems" Noun="UniqueProblemList"/>
+    <ServiceOperation MethodName="ListUploads" Noun="UploadList"/>
+    <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />
+  </ServiceOperations>
+  
+</ConfigModel>

@@ -19,6 +19,7 @@
         <Path>CloudWatch.xml</Path>
 		<Path>CloudWatchLogs.xml</Path>
 		<Path>DataPipeline.xml</Path>
+		<Path>DeviceFarm.xml</Path>
 		<Path>DirectConnect.xml</Path>
 		<Path>DirectoryService.xml</Path>
 		<Path>DynamoDB.xml</Path>
@@ -67,6 +68,7 @@
 		<Map From="CW" To="Amazon CloudWatch" />
 		<Map From="CWL" To="Amazon CloudWatch Logs" />
 		<Map From="DC" To="AWS Direct Connect" />
+		<Map From="DF" To="AWS Device Farm" />
 		<Map From="DDB" To="Amazon DynamoDB" />
 		<Map From="DP" To="AWS Data Pipeline" />
 		<Map From="DS" To="AWS Directory Service" />
