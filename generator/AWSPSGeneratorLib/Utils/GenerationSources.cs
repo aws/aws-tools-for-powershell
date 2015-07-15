@@ -51,6 +51,14 @@ namespace AWSPowerShellGenerator.Utils
         /// <param name="ndoc"></param>
         public void Add(string baseName, Assembly assembly, XmlDocument ndoc)
         {
+            // DynamoDBv2 has two separate PowerShell models but collapses
+            // to one namespace and assembly
+            if (Assemblies.ContainsKey(baseName))
+            {
+                Console.WriteLine("...ignoring additional attempt to register ndocs for assembly basename {0}, already recognized.", baseName);
+                return;
+            }
+
             Assemblies.Add(baseName, assembly);
             NDocs.Add(baseName, ndoc);
         }

@@ -22,6 +22,7 @@
 		<Path>DirectConnect.xml</Path>
 		<Path>DirectoryService.xml</Path>
 		<Path>DynamoDB.xml</Path>
+		<Path>DynamoDBStreams.xml</Path>
 		<Path>EC2.xml</Path>
         <Path>ECS.xml</Path>
         <Path>EFS.xml</Path>

@@ -28,25 +28,25 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Updates the provisioned throughput for the given table, or manages the global secondary
-    /// indexes on the table.
+    /// Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
+    /// Streams settings for a given table.
     /// 
     ///  
     /// <para>
-    /// You can increase or decrease the table's provisioned throughput values within the
-    /// maximums and minimums listed in the <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a>
-    /// section in the <i>Amazon DynamoDB Developer Guide</i>.
-    /// </para><para>
-    /// In addition, you can use <i>UpdateTable</i> to add, modify or delete global secondary
-    /// indexes on the table. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
-    /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. 
-    /// </para><para>
-    /// The table must be in the <code>ACTIVE</code> state for <i>UpdateTable</i> to succeed.
-    /// <i>UpdateTable</i> is an asynchronous operation; while executing the operation, the
-    /// table is in the <code>UPDATING</code> state. While the table is in the <code>UPDATING</code>
-    /// state, the table still has the provisioned throughput from before the call. The table's
-    /// new provisioned throughput settings go into effect when the table returns to the <code>ACTIVE</code>
-    /// state; at that point, the <i>UpdateTable</i> operation is complete. 
+    /// You can only perform one of the following operations at once:
+    /// </para><ul><li><para>
+    /// Modify the provisioned throughput settings of the table.
+    /// </para></li><li><para>
+    /// Enable or disable Streams on the table.
+    /// </para></li><li><para>
+    /// Remove a global secondary index from the table.
+    /// </para></li><li><para>
+    /// Create a new global secondary index on the table. Once the index begins backfilling,
+    /// you can use <i>UpdateTable</i> to perform other operations.
+    /// </para></li></ul><para><i>UpdateTable</i> is an asynchronous operation; while it is executing, the table
+    /// status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is <code>UPDATING</code>,
+    /// you cannot issue another <i>UpdateTable</i> request. When the table returns to the
+    /// <code>ACTIVE</code> state, the <i>UpdateTable</i> operation is complete.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>An array of one or more global secondary indexes for the table. For each index in
         /// the array, you can request one action:</para><ul><li><para><i>Create</i> - add a new global secondary index to the table.</para></li><li><para><i>Update</i> - modify the provisioned throughput settings of an existing global secondary
-        /// index.</para></li><li><para><i>Delete</i> - remove a global secondary index from the table.</para></li></ul>
+        /// index.</para></li><li><para><i>Delete</i> - remove a global secondary index from the table.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+        /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,6 +91,29 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("ProvisionedThroughput_ReadCapacityUnits")]
         public Int64 ReadCapacity { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean StreamSpecification_StreamEnabled { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The DynamoDB Streams settings for the table. These settings consist of:</para><ul><li><para><i>StreamEnabled</i> - Indicates whether DynamoDB Streams is enabled (true) or disabled
+        /// (false) on the table.</para></li><li><para><i>StreamViewType</i> - When an item in the table is modified, <i>StreamViewType</i>
+        /// determines what information is written to the stream for this table. Valid values
+        /// for <i>StreamViewType</i> are:</para><ul><li><para><i>KEYS_ONLY</i> - Only the key attributes of the modified item are written to the
+        /// stream.</para></li><li><para><i>NEW_IMAGE</i> - The entire item, as it appears after it was modified, is written
+        /// to the stream.</para></li><li><para><i>OLD_IMAGE</i> - The entire item, as it appeared before it was modified, is written
+        /// to the stream.</para></li><li><para><i>NEW_AND_OLD_IMAGES</i> - Both the new and the old item images of the item are written
+        /// to the stream.</para></li></ul></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public StreamViewType StreamSpecification_StreamViewType { get; set; }
         
         /// <summary>
         /// <para>
@@ -147,6 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ReadCapacity = this.ReadCapacity;
             if (ParameterWasBound("WriteCapacity"))
                 context.WriteCapacity = this.WriteCapacity;
+            if (ParameterWasBound("StreamSpecification_StreamEnabled"))
+                context.StreamSpecification_StreamEnabled = this.StreamSpecification_StreamEnabled;
+            context.StreamSpecification_StreamViewType = this.StreamSpecification_StreamViewType;
             context.TableName = this.TableName;
             
             var output = Execute(context) as CmdletOutput;
@@ -198,6 +225,35 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.ProvisionedThroughput = null;
             }
+            
+             // populate StreamSpecification
+            bool requestStreamSpecificationIsNull = true;
+            request.StreamSpecification = new StreamSpecification();
+            Boolean? requestStreamSpecification_streamSpecification_StreamEnabled = null;
+            if (cmdletContext.StreamSpecification_StreamEnabled != null)
+            {
+                requestStreamSpecification_streamSpecification_StreamEnabled = cmdletContext.StreamSpecification_StreamEnabled.Value;
+            }
+            if (requestStreamSpecification_streamSpecification_StreamEnabled != null)
+            {
+                request.StreamSpecification.StreamEnabled = requestStreamSpecification_streamSpecification_StreamEnabled.Value;
+                requestStreamSpecificationIsNull = false;
+            }
+            StreamViewType requestStreamSpecification_streamSpecification_StreamViewType = null;
+            if (cmdletContext.StreamSpecification_StreamViewType != null)
+            {
+                requestStreamSpecification_streamSpecification_StreamViewType = cmdletContext.StreamSpecification_StreamViewType;
+            }
+            if (requestStreamSpecification_streamSpecification_StreamViewType != null)
+            {
+                request.StreamSpecification.StreamViewType = requestStreamSpecification_streamSpecification_StreamViewType;
+                requestStreamSpecificationIsNull = false;
+            }
+             // determine if request.StreamSpecification should be set to null
+            if (requestStreamSpecificationIsNull)
+            {
+                request.StreamSpecification = null;
+            }
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
@@ -241,6 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public List<GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdates { get; set; }
             public Int64? ReadCapacity { get; set; }
             public Int64? WriteCapacity { get; set; }
+            public Boolean? StreamSpecification_StreamEnabled { get; set; }
+            public StreamViewType StreamSpecification_StreamViewType { get; set; }
             public String TableName { get; set; }
         }
         

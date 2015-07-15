@@ -28,63 +28,53 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// The <i>DeleteTable</i> operation deletes a table and all of its items. After a <i>DeleteTable</i>
-    /// request, the specified table is in the <code>DELETING</code> state until DynamoDB
-    /// completes the deletion. If the table is in the <code>ACTIVE</code> state, you can
-    /// delete it. If a table is in <code>CREATING</code> or <code>UPDATING</code> states,
-    /// then DynamoDB returns a <i>ResourceInUseException</i>. If the specified table does
-    /// not exist, DynamoDB returns a <i>ResourceNotFoundException</i>. If table is already
-    /// in the <code>DELETING</code> state, no error is returned. 
+    /// Returns an array of stream ARNs associated with the current account and endpoint.
+    /// If the <code>TableName</code> parameter is present, then <i>ListStreams</i> will return
+    /// only the streams ARNs for that table.
     /// 
     ///  <note><para>
-    /// DynamoDB might continue to accept data read and write operations, such as <i>GetItem</i>
-    /// and <i>PutItem</i>, on a table in the <code>DELETING</code> state until the table
-    /// deletion is complete.
-    /// </para></note><para>
-    /// When you delete a table, any indexes on that table are also deleted.
-    /// </para><para>
-    /// If you have DynamoDB Streams enabled on the table, then the corresponding stream on
-    /// that table goes into the <code>DISABLED</code> state, and the stream is automatically
-    /// deleted after 24 hours.
-    /// </para><para>
-    /// Use the <i>DescribeTable</i> API to check the status of the table. 
-    /// </para>
+    /// You can call <i>ListStreams</i> at a maximum rate of 5 times per second.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Remove", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Invokes the DeleteTable operation against Amazon DynamoDB.", Operation = new[] {"DeleteTable"})]
-    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
-        "This cmdlet returns a TableDescription object.",
-        "The service call response (type DeleteTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DDBStreamList")]
+    [OutputType("Amazon.DynamoDBv2.Model.ListStreamsResponse")]
+    [AWSCmdlet("Invokes the ListStreams operation against Amazon DynamoDB.", Operation = new[] {"ListStreams"})]
+    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ListStreamsResponse",
+        "This cmdlet returns a ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public class GetDDBStreamListCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The name of the table to delete.</para>
+        /// <para>The ARN (Amazon Resource Name) of the first item that this operation will evaluate.
+        /// Use the value that was returned for <code>LastEvaluatedStreamArn</code> in the previous
+        /// operation. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
+        public String ExclusiveStartStreamArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is provided, then only the streams associated with this table name
+        /// are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public String TableName { get; set; }
         
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>The maximum number of streams to return. The upper limit is 100.</para>
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 1)]
+        public Int32 Limit { get; set; }
         
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TableName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DDBTable (DeleteTable)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -92,6 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 Credentials = this.CurrentCredentials
             };
             
+            context.ExclusiveStartStreamArn = this.ExclusiveStartStreamArn;
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
             context.TableName = this.TableName;
             
             var output = Execute(context) as CmdletOutput;
@@ -104,8 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTableRequest();
+            var request = new ListStreamsRequest();
             
+            if (cmdletContext.ExclusiveStartStreamArn != null)
+            {
+                request.ExclusiveStartStreamArn = cmdletContext.ExclusiveStartStreamArn;
+            }
+            if (cmdletContext.Limit != null)
+            {
+                request.Limit = cmdletContext.Limit.Value;
+            }
             if (cmdletContext.TableName != null)
             {
                 request.TableName = cmdletContext.TableName;
@@ -117,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteTable(request);
+                var response = client.ListStreams(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TableDescription;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -145,6 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal class CmdletContext : ExecutorContext
         {
+            public String ExclusiveStartStreamArn { get; set; }
+            public Int32? Limit { get; set; }
             public String TableName { get; set; }
         }
         

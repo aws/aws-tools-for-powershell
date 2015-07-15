@@ -531,6 +531,9 @@ Set-Alias -Name Describe-DDBTable -Value Get-DDBTable
 Set-Alias -Name DDB-DescribeTable -Value Get-DDBTable
 Set-Alias -Name DDB-ListTables -Value Get-DDBTables
 Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
+Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
+Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
+Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
 Set-Alias -Name Reboot-EC2Instances -Value Restart-EC2Instance
 Set-Alias -Name EC2-RebootInstances -Value Restart-EC2Instance
 Set-Alias -Name EC2-RegisterImage -Value Register-EC2Image

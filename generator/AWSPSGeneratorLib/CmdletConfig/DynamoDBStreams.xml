@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>DDB</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonDynamoDBStreams</ServiceClientInterface>
+  <ServiceClient>AmazonDynamoDBStreamsClient</ServiceClient>
+  <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
+
+  <PositionalParameters>TableName</PositionalParameters>
+  <PipelineParameter>TableName</PipelineParameter>
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="DescribeStream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamArn"/>
+	<ServiceOperation MethodName="GetRecords" Exclude="true"/>
+	<ServiceOperation MethodName="GetShardIterator" Exclude="true"/>
+	<ServiceOperation MethodName="ListStreams" Output="Response" Verb="Get" Noun="StreamList" PositionalParameters="Limit;ExclusiveStartStreamName"/>	
+  </ServiceOperations>
+</ConfigModel>
