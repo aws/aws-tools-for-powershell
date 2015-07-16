@@ -1,6 +1,6 @@
 ﻿function Test.CC.ListRepositories
 {
-    $repos = Get-CCRepositoryList -region us-east-1
+    $repos = Get-CCRepositoryList
     if ($repos)
     {
         Assert $repos.Count -ge 0

@@ -1,6 +1,6 @@
 ﻿function Test.CP.Pipelines
 {
-    $pipelines = Get-CPPipelineList -region us-east-1
+    $pipelines = Get-CPPipelineList
     if ($pipelines)
     {
         Assert $pipelines.Count -ge 0
@@ -18,7 +18,7 @@
                 $pipelineName = $pipelines[0].Name
             }
 
-            $pipeline = Get-CPPipeline -Name $pipelineName -region us-east-1
+            $pipeline = Get-CPPipeline -Name $pipelineName
             
             Assert $pipeline -IsNotNull 
         }
@@ -27,7 +27,7 @@
 
 function Test.CP.ListActionTypes
 {
-    $actionTypes = Get-CPActionType -region us-east-1 -ActionOwnerFilter AWS
+    $actionTypes = Get-CPActionType -ActionOwnerFilter AWS
     Assert $actionTypes -IsNotNull
     Assert $actionTypes.Count -gt 0
 	Assert $awshistory.LastCommand.EmittedObjectsCount -eq $actionTypes.Count

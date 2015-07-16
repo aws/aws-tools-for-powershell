@@ -1,11 +1,19 @@
 
-# Get-DPTask
-# Invoke-DPExpression
-# Set-DPStatus
-# Set-DPTaskStatus
-# Update-DPTaskProgress
-# Update-DPTaskRunnerHeartbeat
+function Test.DP.ListPipelines
+{
+    $pipelines = Get-DPPipeline
+    if ($pipelines)
+    {
+        Assert $pipelines.Count -ge 0
+        if ($pipelines.Count -gt 0)
+        {
+		    Assert $awshistory.LastCommand.EmittedObjectsCount -eq $pipelines.Count
+        }
+    }
+}
 
+# test currently disabled due to eventual consistency issues
+$disabled = @"
 function Test.DP
 {
 	$count = 0
@@ -83,3 +91,4 @@ function Test.DP
 	Assert $awshistory.LastCommand.EmittedObjectsCount -Eq 0
 	Assert $awshistory.LastServiceResponse -IsNotNull
 }
+"@

@@ -36,22 +36,38 @@ Function Test.Asserts()
 . .\CW.ps1
 . .\CWL.ps1
 . .\DC.ps1
-# . .\DDB.ps1
-# . .\DP.ps1
+. .\DDB.ps1
+. .\DF.ps1
+. .\DP.ps1
 . .\DS.ps1
 . .\EB.ps1
 . .\EC.ps1
+. .\EC2.ps1
+. .\ECS.ps1
+. .\EFS.ps1
 . .\ELB.ps1
 . .\EMR.ps1
+. .\ETS.ps1
 . .\HSM.ps1
 . .\IAM.ps1
+. .\IE.ps1
+. .\KMS.ps1
+. .\KIN.ps1
+. .\LM.ps1
+. .\ML.ps1
+. .\OPS.ps1
+. .\RDS.ps1
 . .\R53.ps1
+. .\R53D.ps1
 . .\RS.ps1
 . .\S3.ps1
 . .\SES.ps1
+. .\SG.ps1
 . .\SNS.ps1
 . .\SQS.ps1
-. .\StorageGateway.ps1
+. .\SSM.ps1
+. .\STS.ps1
+. .\WKS.ps1
 
 # provider removed currently
 #. .\Providers.ps1

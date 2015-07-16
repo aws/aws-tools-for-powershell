@@ -1,6 +1,6 @@
 ﻿function Test.CFG
 {
-    $recorders = Get-CFGConfigurationRecorders -Region us-east-1
+    $recorders = Get-CFGConfigurationRecorders
     if ($recorders)
     {
         Assert $recorders.Count -ge 0
@@ -17,7 +17,7 @@
                 $recorderName = $recorders[0].Name
             }
 
-            $recorder = Get-CFGConfigurationRecorderStatus -ConfigurationRecorderName $recorderName -region us-east-1
+            $recorder = Get-CFGConfigurationRecorderStatus -ConfigurationRecorderName $recorderName
             
             Assert $recorder -IsNotNull 
         }

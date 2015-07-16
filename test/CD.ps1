@@ -1,6 +1,6 @@
 ﻿function Test.CD.Applications
 {
-    $apps = Get-CDApplicationList -region us-east-1
+    $apps = Get-CDApplicationList
     if ($apps)
     {
         Assert $apps.Count -ge 0
@@ -17,7 +17,7 @@
                 $appName = $apps[0]
             }
 
-            $app = Get-CDApplication -ApplicationName $appName -region us-east-1
+            $app = Get-CDApplication -ApplicationName $appName
 
             Assert $app -IsNotNull
         }
@@ -26,7 +26,7 @@
 
 function Test.CD.DeploymentConfigs
 {
-    $configs = Get-CDDeploymentConfigList -region us-east-1
+    $configs = Get-CDDeploymentConfigList
     if ($configs)
     {
         Assert $configs.Count -ge 0
@@ -43,7 +43,7 @@ function Test.CD.DeploymentConfigs
                 $configName = $configs[0]
             }
 
-            $config = Get-CDDeploymentConfig -DeploymentConfigName $configName -region us-east-1
+            $config = Get-CDDeploymentConfig -DeploymentConfigName $configName
             
             Assert $config -IsNotNull 
         }
