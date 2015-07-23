@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Xml;
 
 namespace AWSPowerShellGenerator.Utils
@@ -20,6 +21,8 @@ namespace AWSPowerShellGenerator.Utils
         /// The default location that assemblies and ndoc files will be loaded from
         /// </summary>
         public string SdkAssembliesFolder { get; set; }
+
+        public const string SDKAssemblyNamePrefix = "AWSSDK.";
 
         /// <summary>
         /// Loads the assembly and ndoc data for the given assembly basename using the
@@ -70,10 +73,12 @@ namespace AWSPowerShellGenerator.Utils
         /// <param name="projectFile"></param>
         public void UpdateProjectReferences(string projectFile)
         {
+            Console.WriteLine("...checking AWSPowerShell.csproj file for new SDK assembly references");
             var project = new XmlDocument();
             project.Load(projectFile);
 
-            var processedAssemblies = new HashSet<string>(Assemblies.Keys);
+            // helps to keep references in some defined order in the project file
+            var processedAssemblies = new SortedSet<string>(Assemblies.Keys);
 
             var assemblyReferences = project.GetElementsByTagName("Reference");
             foreach (var assemblyReference in assemblyReferences)
@@ -84,6 +89,9 @@ namespace AWSPowerShellGenerator.Utils
                     continue;
 
                 var assemblyName = include.InnerText;
+                if (!assemblyName.StartsWith(SDKAssemblyNamePrefix, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
                 if (processedAssemblies.Contains(assemblyName))
                 {
                     processedAssemblies.Remove(assemblyName);
@@ -92,14 +100,14 @@ namespace AWSPowerShellGenerator.Utils
 
             if (processedAssemblies.Any())
             {
-                Console.WriteLine("...updating project file for new service(s)");
+                Console.WriteLine("......missing references detected, updating project file");
 
                 // project file needs updating with one or more new service assemblies
                 var parentGroup = assemblyReferences[0].ParentNode;
 
                 foreach (var a in processedAssemblies)
                 {
-                    Console.WriteLine("......adding {0}", a);
+                    Console.WriteLine(".........adding {0}", a);
 
                     var xa = project.CreateAttribute("Include");
                     xa.Value = a;
@@ -118,6 +126,66 @@ namespace AWSPowerShellGenerator.Utils
 
                 project.Save(projectFile);
             }
+        }
+
+        /// <summary>
+        /// Updates the psd1 file so that all SDK assemblies are listed in the RequiredAssemblies
+        /// member. This is done for PowerShell v2 users who want to work with generic types
+        /// when the type parameter is in an external assembly.
+        /// See https://connect.microsoft.com/PowerShell/feedback/details/583922/powershell-doesnt-always-recognise-a-generic-type-if-the-type-parameter-is-in-the-external-assembly.
+        /// </summary>
+        /// <param name="projectFile"></param>
+        /// <param name="moduleManifestFile"></param>
+        /// <remarks>
+        /// This should be called after we have updated the module project file to add any new
+        /// assembly dependencies. That way we can handle partial (-services command line
+        /// parameter) as well as full generation passes but still arrive at a consistent
+        /// set of assemblies.
+        /// </remarks>
+        public void UpdateManifestRequiredAssemblies(string projectFile, string moduleManifestFile)
+        {
+            Console.WriteLine("...updating AWSPowerShell.psd1 file for new SDK assemblies");
+            var project = new XmlDocument();
+            project.Load(projectFile);
+
+            var sdkAssemblies = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
+            var assemblyReferences = project.GetElementsByTagName("Reference");
+            foreach (var assemblyReference in assemblyReferences)
+            {
+                var xn = assemblyReference as XmlNode;
+                var include = xn.Attributes["Include"];
+                if (include == null)
+                    continue;
+
+                var assemblyName = include.InnerText;
+                if (assemblyName.StartsWith(SDKAssemblyNamePrefix, StringComparison.OrdinalIgnoreCase))
+                    sdkAssemblies.Add(assemblyName + ".dll");
+            }
+
+            const string RequiredAssembliesKey = "RequiredAssemblies = @(";
+
+            // easier to just blat the set into the psd1 file each time - with consistent formatting
+            // we won't change the file if the assembly set is unchanged
+            var manifestContent = File.ReadAllText(moduleManifestFile);
+            var requiredAssembliesStart = manifestContent.IndexOf(RequiredAssembliesKey, StringComparison.Ordinal);
+            if (requiredAssembliesStart < 0)
+                throw new Exception("Unable to locate 'RequiredAssemblies' key in psd1 manifest.");
+
+            var requiredAssembliesEnd = manifestContent.IndexOf(")", requiredAssembliesStart, StringComparison.OrdinalIgnoreCase);
+
+            var replacementContent = new StringBuilder();
+            foreach (var assembly in sdkAssemblies)
+            {
+                replacementContent.AppendLine();
+                replacementContent.AppendFormat("  \"{0}\",", assembly); // we'll trim the last ,
+            }
+
+            var newManifest = manifestContent.Substring(0, requiredAssembliesStart + RequiredAssembliesKey.Length)
+                                + replacementContent.ToString().TrimEnd(',')
+                                + "\n"
+                                + manifestContent.Substring(requiredAssembliesEnd);
+
+            File.WriteAllText(moduleManifestFile, newManifest);
         }
     }
 }

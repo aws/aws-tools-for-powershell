@@ -116,6 +116,7 @@ namespace AWSPowerShellGenerator.Generators
         public const string GeneratedCmdletsFoldername = "Basic";
 
         public const string AWSPowerShellProjectFilename = "AWSPowerShell.csproj";
+        public const string AWSPowerShellModuleManifestFilename = "AWSPowerShell.psd1";
         public const string AliasesFilename = "AWSAliases.ps1";
 
         public string Aliases
@@ -228,7 +229,11 @@ namespace AWSPowerShellGenerator.Generators
                 Logger.Log();
             }
 
-            SourceArtifacts.UpdateProjectReferences(Path.Combine(OutputFolder, AWSPowerShellProjectFilename));
+            var awspowershellProjectFile = Path.Combine(OutputFolder, AWSPowerShellProjectFilename);
+            var awspowershellModuleManifestFile = Path.Combine(OutputFolder, AWSPowerShellModuleManifestFilename);
+
+            SourceArtifacts.UpdateProjectReferences(awspowershellProjectFile);
+            SourceArtifacts.UpdateManifestRequiredAssemblies(awspowershellProjectFile, awspowershellModuleManifestFile);
 
             Console.WriteLine("...updating aliases file");
             var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);

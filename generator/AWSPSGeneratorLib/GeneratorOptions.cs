@@ -114,7 +114,7 @@ namespace AWSPowerShellGenerator
             Tasks = new HashSet<string> { GeneratorTasknames.GenerateCmdlets };
 
             RootPath = @"..\..\..\.."; // relative to bin/debug folder of the generator assembly
-            SDKAssembliesFolder = Path.Combine(RootPath,  @"include\sdk\assemblies");
+            SDKAssembliesFolder = Path.Combine(RootPath,  @"include\sdk\assemblies\net35");
 
             CNNorth1RegionDocsDomain = "docs.amazonaws.cn"; 
         }

@@ -46,8 +46,60 @@ ProcessorArchitecture = ''
 # Modules that must be imported into the global environment prior to importing this module
 RequiredModules = @()
 
-# Assemblies that must be loaded prior to importing this module
-RequiredAssemblies = @()
+# Assemblies that must be loaded prior to importing this module.
+# We list the SDK assemblies for the convenience of PowerShell v2 users 
+# who want to work with generic types when the type parameter is in an 
+# external SDK assembly.
+RequiredAssemblies = @(
+  "AWSSDK.AutoScaling.dll",
+  "AWSSDK.AWSSupport.dll",
+  "AWSSDK.CloudFormation.dll",
+  "AWSSDK.CloudFront.dll",
+  "AWSSDK.CloudHSM.dll",
+  "AWSSDK.CloudSearch.dll",
+  "AWSSDK.CloudSearchDomain.dll",
+  "AWSSDK.CloudTrail.dll",
+  "AWSSDK.CloudWatch.dll",
+  "AWSSDK.CloudWatchLogs.dll",
+  "AWSSDK.CodeCommit.dll",
+  "AWSSDK.CodeDeploy.dll",
+  "AWSSDK.CodePipeline.dll",
+  "AWSSDK.ConfigService.dll",
+  "AWSSDK.Core.dll",
+  "AWSSDK.DataPipeline.dll",
+  "AWSSDK.DeviceFarm.dll",
+  "AWSSDK.DirectConnect.dll",
+  "AWSSDK.DirectoryService.dll",
+  "AWSSDK.DynamoDBv2.dll",
+  "AWSSDK.EC2.dll",
+  "AWSSDK.ECS.dll",
+  "AWSSDK.ElastiCache.dll",
+  "AWSSDK.ElasticBeanstalk.dll",
+  "AWSSDK.ElasticFileSystem.dll",
+  "AWSSDK.ElasticLoadBalancing.dll",
+  "AWSSDK.ElasticMapReduce.dll",
+  "AWSSDK.ElasticTranscoder.dll",
+  "AWSSDK.IdentityManagement.dll",
+  "AWSSDK.ImportExport.dll",
+  "AWSSDK.KeyManagementService.dll",
+  "AWSSDK.Kinesis.dll",
+  "AWSSDK.Lambda.dll",
+  "AWSSDK.MachineLearning.dll",
+  "AWSSDK.OpsWorks.dll",
+  "AWSSDK.RDS.dll",
+  "AWSSDK.Redshift.dll",
+  "AWSSDK.Route53.dll",
+  "AWSSDK.Route53Domains.dll",
+  "AWSSDK.S3.dll",
+  "AWSSDK.SecurityToken.dll",
+  "AWSSDK.SimpleEmail.dll",
+  "AWSSDK.SimpleNotificationService.dll",
+  "AWSSDK.SimpleSystemsManagement.dll",
+  "AWSSDK.SimpleWorkflow.dll",
+  "AWSSDK.SQS.dll",
+  "AWSSDK.StorageGateway.dll",
+  "AWSSDK.WorkSpaces.dll"
+)
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module
 ScriptsToProcess = @()
@@ -83,6 +135,7 @@ FileList =	'.\AWSPowerShell.dll-Help.xml'
 PrivateData = @{
 
     PSData = @{
+		Tags = 'AWS'
         LicenseUri = 'http://docs.aws.amazon.com/powershell/latest/reference/License.html'
         ProjectUri = 'http://aws.amazon.com/powershell/'
     }
