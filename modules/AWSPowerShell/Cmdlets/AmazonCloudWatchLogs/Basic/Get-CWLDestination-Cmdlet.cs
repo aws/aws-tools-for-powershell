@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// by specifying the <code class="code">limit</code> parameter in the request. 
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "CWLDestinations")]
+    [Cmdlet("Get", "CWLDestination")]
     [OutputType("Amazon.CloudWatchLogs.Model.Destination")]
     [AWSCmdlet("Invokes the DescribeDestinations operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeDestinations"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Destination",
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         "The service call response (type DescribeDestinationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
     )]
-    public class GetCWLDestinationsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public class GetCWLDestinationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>

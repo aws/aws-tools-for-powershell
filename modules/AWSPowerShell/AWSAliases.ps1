@@ -315,8 +315,8 @@ Set-Alias -Name Delete-CWLRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name CWL-DeleteRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name Delete-CWLSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
-Set-Alias -Name Describe-CWLDestinations -Value Get-CWLDestinations
-Set-Alias -Name CWL-DescribeDestinations -Value Get-CWLDestinations
+Set-Alias -Name Describe-CWLDestination -Value Get-CWLDestination
+Set-Alias -Name CWL-DescribeDestinations -Value Get-CWLDestination
 Set-Alias -Name Describe-CWLLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name CWL-DescribeLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name Describe-CWLLogStreams -Value Get-CWLLogStreams

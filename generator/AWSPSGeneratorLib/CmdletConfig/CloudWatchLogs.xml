@@ -26,7 +26,7 @@
 		PipelineParameter="FilterName" 
 		PositionalParameters="LogGroupName"/>
 		
-	<ServiceOperation MethodName="DescribeDestinations" />	
+	<ServiceOperation MethodName="DescribeDestinations" Noun="Destination"/>	
     <ServiceOperation MethodName="DescribeLogGroups" PipelineParameter="LogGroupNamePrefix"/>
     <ServiceOperation MethodName="DescribeLogStreams" PipelineParameter="LogGroupName"/>
     <ServiceOperation MethodName="DescribeMetricFilters" PipelineParameter="LogGroupName"/>
