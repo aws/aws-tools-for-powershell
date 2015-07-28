@@ -31,11 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Creates or updates a subscription filter and associates it with the specified log
     /// group. Subscription filters allow you to subscribe to a real-time stream of log events
     /// ingested through <code class="code">PutLogEvents</code> requests and have them delivered
-    /// to a specific destination. Currently the only supported destination is an Amazon Kinesis
-    /// stream belonging to the same account as the subscription filter. 
-    /// 
-    ///  
-    /// <para>
+    /// to a specific destination. Currently, the supported destinations are: <ul><li> A
+    /// Amazon Kinesis stream belonging to the same account as the subscription filter, for
+    /// same-account delivery. </li><li> A logical destination (used via an ARN of <code>Destination</code>)
+    /// belonging to a different account, for cross-account delivery. </li></ul><para>
     ///  Currently there can only be one subscription filter associated with a log group.
     /// 
     /// </para>
@@ -51,7 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     {
         /// <summary>
         /// <para>
-        /// <para>The ARN of an Amazon Kinesis stream to deliver matching log events to.</para>
+        /// <para>The ARN of the destination to deliver matching log events to. Currently, the supported
+        /// destinations are: <ul><li> A Amazon Kinesis stream belonging to the same account
+        /// as the subscription filter, for same-account delivery. </li><li> A logical destination
+        /// (used via an ARN of <code>Destination</code>) belonging to a different account, for
+        /// cross-account delivery. </li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,8 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to do Amazon
-        /// Kinesis PutRecord requests on the desitnation stream.</para>
+        /// <para>The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested
+        /// log events to the destination stream. You don't need to provide the ARN when you are
+        /// working with a logical destination (used via an ARN of <code>Destination</code>) for
+        /// cross-account delivery.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,44 +28,35 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns all the subscription filters associated with the specified log group. The
-    /// list returned in the response is ASCII-sorted by filter name. 
+    /// Returns all the destinations that are associated with the AWS account making the
+    /// request. The list returned in the response is ASCII-sorted by destination name. 
     /// 
     ///  
     /// <para>
-    ///  By default, this operation returns up to 50 subscription filters. If there are more
-    /// subscription filters to list, the response would contain a <code class="code">nextToken</code>
-    /// value in the response body. You can also limit the number of subscription filters
-    /// returned in the response by specifying the <code class="code">limit</code> parameter
-    /// in the request. 
+    ///  By default, this operation returns up to 50 destinations. If there are more destinations
+    /// to list, the response would contain a <code class="code">nextToken</code> value in
+    /// the response body. You can also limit the number of destinations returned in the response
+    /// by specifying the <code class="code">limit</code> parameter in the request. 
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "CWLSubscriptionFilters")]
-    [OutputType("Amazon.CloudWatchLogs.Model.SubscriptionFilter")]
-    [AWSCmdlet("Invokes the DescribeSubscriptionFilters operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeSubscriptionFilters"})]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.SubscriptionFilter",
-        "This cmdlet returns a collection of SubscriptionFilter objects.",
-        "The service call response (type DescribeSubscriptionFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CWLDestinations")]
+    [OutputType("Amazon.CloudWatchLogs.Model.Destination")]
+    [AWSCmdlet("Invokes the DescribeDestinations operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeDestinations"})]
+    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Destination",
+        "This cmdlet returns a collection of Destination objects.",
+        "The service call response (type DescribeDestinationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
     )]
-    public class GetCWLSubscriptionFiltersCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public class GetCWLDestinationsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Will only return subscription filters that match the provided filterNamePrefix. If
-        /// you don't specify a value, no prefix filter is applied.</para>
+        /// <para>Will only return destinations that match the provided destinationNamePrefix. If you
+        /// don't specify a value, no prefix is applied.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public String FilterNamePrefix { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>The log group name for which subscription filters are to be listed.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String DestinationNamePrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -95,10 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 Credentials = this.CurrentCredentials
             };
             
-            context.FilterNamePrefix = this.FilterNamePrefix;
+            context.DestinationNamePrefix = this.DestinationNamePrefix;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
-            context.LogGroupName = this.LogGroupName;
             context.NextToken = this.NextToken;
             
             var output = Execute(context) as CmdletOutput;
@@ -111,19 +101,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeSubscriptionFiltersRequest();
+            var request = new DescribeDestinationsRequest();
             
-            if (cmdletContext.FilterNamePrefix != null)
+            if (cmdletContext.DestinationNamePrefix != null)
             {
-                request.FilterNamePrefix = cmdletContext.FilterNamePrefix;
+                request.DestinationNamePrefix = cmdletContext.DestinationNamePrefix;
             }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
-            }
-            if (cmdletContext.LogGroupName != null)
-            {
-                request.LogGroupName = cmdletContext.LogGroupName;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -136,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeSubscriptionFilters(request);
+                var response = client.DescribeDestinations(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.SubscriptionFilters;
+                object pipelineOutput = response.Destinations;
                 notes = new Dictionary<string, object>();
                 notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
@@ -166,9 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FilterNamePrefix { get; set; }
+            public String DestinationNamePrefix { get; set; }
             public int? Limit { get; set; }
-            public String LogGroupName { get; set; }
             public String NextToken { get; set; }
         }
         

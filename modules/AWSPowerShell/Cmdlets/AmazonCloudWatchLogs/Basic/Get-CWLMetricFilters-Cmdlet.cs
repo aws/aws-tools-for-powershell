@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        [Alias("MaxItems")]
+        public int Limit { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
+                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -169,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal class CmdletContext : ExecutorContext
         {
             public String FilterNamePrefix { get; set; }
-            public Int32? Limit { get; set; }
+            public int? Limit { get; set; }
             public String LogGroupName { get; set; }
             public String NextToken { get; set; }
         }
