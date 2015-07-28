@@ -134,6 +134,8 @@
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1"
             DestinationFolder="$(Deployment)"/>
+        <Copy SourceFiles="$(RootPath)\CHANGELOG.md"
+            DestinationFolder="$(Deployment)"/>
     </Target>
 
 	<Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">	

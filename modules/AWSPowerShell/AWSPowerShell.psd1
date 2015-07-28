@@ -129,7 +129,10 @@ AliasesToExport = '*'
 ModuleList = @()
 
 # List of all files packaged with this module
-FileList =	'.\AWSPowerShell.dll-Help.xml'
+FileList = @(
+  'AWSPowerShell.dll-Help.xml',
+  'CHANGELOG.md'
+)  
 
 # Private data to pass to the module specified in ModuleToProcess
 PrivateData = @{
