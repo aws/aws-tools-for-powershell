@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         /// <summary>
         /// <para>
-        /// <para>The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances
-        /// in the job flow. The following values are valid: </para><ul><li>"latest" (uses the latest AMI)</li><li>The version number of the AMI to
-        /// use, for example, "2.0"</li></ul><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
+        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
+        /// ReleaseLabel.</para></note><para>The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances
+        /// in the job flow. The following values are valid: </para><ul><li>The version number of the AMI to use, for example, "2.0."</li></ul><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
         /// Hadoop 0.18 and 0.20) you can use the <a>JobFlowInstancesConfig</a><code>HadoopVersion</code>
         /// parameter to modify the version of Hadoop from the defaults shown above.</para><para>For details about the AMI versions currently supported by Amazon Elastic MapReduce,
         /// go to <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported">AMI
@@ -103,6 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public String AmiVersion { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout",
+        /// "Pig", and "Spark." They are case insensitive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Applications")]
+        public Amazon.ElasticMapReduce.Model.Application[] Application { get; set; }
         
         /// <summary>
         /// <para>
@@ -122,6 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("BootstrapActions")]
         public Amazon.ElasticMapReduce.Model.BootstrapActionConfig[] BootstrapAction { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The list of configurations supplied for the EMR cluster you are creating.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Configurations")]
+        public Amazon.ElasticMapReduce.Model.Configuration[] Configuration { get; set; }
         
         /// <summary>
         /// <para>
@@ -165,10 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         /// <summary>
         /// <para>
-        /// <para>The Hadoop version for the job flow. Valid inputs are "0.18", "0.20", "0.20.205",
-        /// "1.0.3", "2.2.0", or "2.4.0". If you do not set this value, the default of 0.18 is
-        /// used, unless the AmiVersion parameter is set in the RunJobFlow call, in which case
-        /// the default version of Hadoop for that AMI version is used.</para>
+        /// <para>The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20"
+        /// (deprecated), "0.20.205" (deprecated), "1.0.3", "2.2.0", or "2.4.0". If you do not
+        /// set this value, the default of 0.18 is used, unless the AmiVersion parameter is set
+        /// in the RunJobFlow call, in which case the default version of Hadoop for that AMI version
+        /// is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -203,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the job flow should terminate after completing all steps.</para>
+        /// <para>Specifies whether the job flow should be kept alive after completing all steps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -236,18 +256,31 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         /// <summary>
         /// <para>
-        /// <para>A list of strings that indicates third-party software to use with the job flow that
+        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
+        /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
         /// accepts a user argument list. EMR accepts and forwards the argument list to the corresponding
         /// installation script as bootstrap action arguments. For more information, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html">Launch
-        /// a Job Flow on the MapR Distribution for Hadoop</a>. Currently supported values are:</para><ul><li>"mapr-m3" - launch the job flow using MapR M3 Edition.</li><li>"mapr-m5"
-        /// - launch the job flow using MapR M5 Edition.</li><li>"mapr" with the user arguments
+        /// a Job Flow on the MapR Distribution for Hadoop</a>. Currently supported values are:</para><ul><li>"mapr-m3" - launch the cluster using MapR M3 Edition.</li><li>"mapr-m5"
+        /// - launch the cluster using MapR M5 Edition.</li><li>"mapr" with the user arguments
         /// specifying "--edition,m3" or "--edition,m5" - launch the job flow using MapR M3 or
-        /// M5 Edition respectively.</li></ul>
+        /// M5 Edition respectively.</li><li>"mapr-m7" - launch the cluster using MapR M7 Edition.</li><li>"hunk" - launch the cluster with the Hunk Big Data Analtics Platform.</li><li>"hue"-
+        /// launch the cluster with Hue installed.</li><li>"spark" - launch the cluster with
+        /// Apache Spark installed.</li><li>"ganglia" - launch the cluster with the Ganglia Monitoring
+        /// System installed.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NewSupportedProducts")]
         public Amazon.ElasticMapReduce.Model.SupportedProductConfig[] NewSupportedProduct { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use
+        /// amiVersion instead instead of ReleaseLabel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ReleaseLabel { get; set; }
         
         /// <summary>
         /// <para>
@@ -277,7 +310,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         /// <summary>
         /// <para>
-        /// <para>A list of strings that indicates third-party software to use with the job flow. For
+        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
+        /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow. For
         /// more information, go to <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
         /// Third Party Applications with Amazon EMR</a>. Currently supported values are:</para><ul><li>"mapr-m3" - launch the job flow using MapR M3 Edition.</li><li>"mapr-m5"
         /// - launch the job flow using MapR M5 Edition.</li></ul>
@@ -344,9 +378,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             context.AdditionalInfo = this.AdditionalInfo;
             context.AmiVersion = this.AmiVersion;
+            if (this.Application != null)
+            {
+                context.Applications = new List<Application>(this.Application);
+            }
             if (this.BootstrapAction != null)
             {
                 context.BootstrapActions = new List<BootstrapActionConfig>(this.BootstrapAction);
+            }
+            if (this.Configuration != null)
+            {
+                context.Configurations = new List<Configuration>(this.Configuration);
             }
             if (this.Instances_AdditionalMasterSecurityGroup != null)
             {
@@ -381,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 context.NewSupportedProducts = new List<SupportedProductConfig>(this.NewSupportedProduct);
             }
+            context.ReleaseLabel = this.ReleaseLabel;
             context.ServiceRole = this.ServiceRole;
             if (this.Step != null)
             {
@@ -417,9 +460,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.AmiVersion = cmdletContext.AmiVersion;
             }
+            if (cmdletContext.Applications != null)
+            {
+                request.Applications = cmdletContext.Applications;
+            }
             if (cmdletContext.BootstrapActions != null)
             {
                 request.BootstrapActions = cmdletContext.BootstrapActions;
+            }
+            if (cmdletContext.Configurations != null)
+            {
+                request.Configurations = cmdletContext.Configurations;
             }
             
              // populate Instances
@@ -601,6 +652,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.NewSupportedProducts = cmdletContext.NewSupportedProducts;
             }
+            if (cmdletContext.ReleaseLabel != null)
+            {
+                request.ReleaseLabel = cmdletContext.ReleaseLabel;
+            }
             if (cmdletContext.ServiceRole != null)
             {
                 request.ServiceRole = cmdletContext.ServiceRole;
@@ -658,7 +713,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             public String AdditionalInfo { get; set; }
             public String AmiVersion { get; set; }
+            public List<Application> Applications { get; set; }
             public List<BootstrapActionConfig> BootstrapActions { get; set; }
+            public List<Configuration> Configurations { get; set; }
             public List<String> Instances_AdditionalMasterSecurityGroups { get; set; }
             public List<String> Instances_AdditionalSlaveSecurityGroups { get; set; }
             public String Instances_Ec2KeyName { get; set; }
@@ -677,6 +734,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public String LogUri { get; set; }
             public String Name { get; set; }
             public List<SupportedProductConfig> NewSupportedProducts { get; set; }
+            public String ReleaseLabel { get; set; }
             public String ServiceRole { get; set; }
             public List<StepConfig> Steps { get; set; }
             public List<String> SupportedProducts { get; set; }

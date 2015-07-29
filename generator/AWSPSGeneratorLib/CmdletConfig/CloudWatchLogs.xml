@@ -10,10 +10,13 @@
     <Property>RejectedLogEventsInfo</Property>
   </MetadataProperties>
 
+  <AutoIterate EmitLimit="Limit" Start="NextToken" />
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateLogGroup" Output="Void" PositionalParameters="LogGroupName"/>
     <ServiceOperation MethodName="CreateLogStream" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="LogStreamName" ShouldProcessTarget="LogStreamName"/>
-    <ServiceOperation MethodName="DeleteLogGroup" Output="Void" />
+    <ServiceOperation MethodName="DeleteDestination" Output="Void" />
+	<ServiceOperation MethodName="DeleteLogGroup" Output="Void" />
     <ServiceOperation MethodName="DeleteLogStream" Output="Void" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
     <ServiceOperation MethodName="DeleteMetricFilter" Output="Void" PipelineParameter="FilterName" PositionalParameters="LogGroupName" />
     <ServiceOperation MethodName="DeleteRetentionPolicy" Output="Void" />
@@ -23,14 +26,20 @@
 		PipelineParameter="FilterName" 
 		PositionalParameters="LogGroupName"/>
 		
+	<ServiceOperation MethodName="DescribeDestinations" Noun="Destination"/>	
     <ServiceOperation MethodName="DescribeLogGroups" PipelineParameter="LogGroupNamePrefix"/>
     <ServiceOperation MethodName="DescribeLogStreams" PipelineParameter="LogGroupName"/>
     <ServiceOperation MethodName="DescribeMetricFilters" PipelineParameter="LogGroupName"/>
     <ServiceOperation MethodName="DescribeSubscriptionFilters" PipelineParameter="LogGroupName" />
     <ServiceOperation MethodName="FilterLogEvents" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" Output="Response" />
     
+	<ServiceOperation MethodName="PutDestinationPolicy" 
+		Output="Void"
+		ShouldProcessTarget="DestinationName" 
+		PipelineParameter="DestinationName" />
+	
     <ServiceOperation MethodName="GetLogEvents" Output="Response" PipelineParameter="LogStreamName" PositionalParameters="LogGroupName" />
-    
+    <ServiceOperation MethodName="PutDestination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName"/>
     <ServiceOperation MethodName="PutLogEvents" PipelineParameter="SequenceToken" PositionalParameters="LogGroupName;LogStreamName" ShouldProcessTarget="LogStreamName" />
     <ServiceOperation MethodName="PutMetricFilter" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="FilterName;FilterPattern"/>
     <ServiceOperation MethodName="PutRetentionPolicy" Output="Void" PipelineParameter="LogGroupName" PositionalParameters="RetentionInDays">

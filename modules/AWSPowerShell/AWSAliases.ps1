@@ -303,6 +303,8 @@ Set-Alias -Name Create-CWLLogGroup -Value New-CWLLogGroup
 Set-Alias -Name CWL-CreateLogGroup -Value New-CWLLogGroup
 Set-Alias -Name Create-CWLLogStream -Value New-CWLLogStream
 Set-Alias -Name CWL-CreateLogStream -Value New-CWLLogStream
+Set-Alias -Name Delete-CWLDestination -Value Remove-CWLDestination
+Set-Alias -Name CWL-DeleteDestination -Value Remove-CWLDestination
 Set-Alias -Name Delete-CWLLogGroup -Value Remove-CWLLogGroup
 Set-Alias -Name CWL-DeleteLogGroup -Value Remove-CWLLogGroup
 Set-Alias -Name Delete-CWLLogStream -Value Remove-CWLLogStream
@@ -313,6 +315,8 @@ Set-Alias -Name Delete-CWLRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name CWL-DeleteRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name Delete-CWLSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
+Set-Alias -Name Describe-CWLDestination -Value Get-CWLDestination
+Set-Alias -Name CWL-DescribeDestinations -Value Get-CWLDestination
 Set-Alias -Name Describe-CWLLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name CWL-DescribeLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name Describe-CWLLogStreams -Value Get-CWLLogStreams
@@ -323,6 +327,10 @@ Set-Alias -Name Describe-CWLSubscriptionFilters -Value Get-CWLSubscriptionFilter
 Set-Alias -Name CWL-DescribeSubscriptionFilters -Value Get-CWLSubscriptionFilters
 Set-Alias -Name CWL-FilterLogEvents -Value Get-CWLFilteredLogEvent
 Set-Alias -Name CWL-GetLogEvents -Value Get-CWLLogEvents
+Set-Alias -Name Put-CWLDestination -Value Write-CWLDestination
+Set-Alias -Name CWL-PutDestination -Value Write-CWLDestination
+Set-Alias -Name Put-CWLDestinationPolicy -Value Write-CWLDestinationPolicy
+Set-Alias -Name CWL-PutDestinationPolicy -Value Write-CWLDestinationPolicy
 Set-Alias -Name Put-CWLLogEvents -Value Write-CWLLogEvents
 Set-Alias -Name CWL-PutLogEvents -Value Write-CWLLogEvents
 Set-Alias -Name Put-CWLMetricFilter -Value Write-CWLMetricFilter
