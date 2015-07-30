@@ -112,9 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The stack's operating system, which must be set to one of the following:</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
-        /// Linux 2015.03</code>, <code>Ubuntu 12.04 LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li><code>Microsoft Windows Server 2012 R2 Base</code>.</li><li>A custom AMI: <code>Custom</code>.
-        /// You specify the custom AMI you want to use when you create instances. For more information
-        /// on how to use custom AMIs with OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
+        /// Linux 2015.03</code>, <code>Red Hat Enterprise Linux 7</code>, <code>Ubuntu 12.04
+        /// LTS</code>, or <code>Ubuntu 14.04 LTS</code>.</li><li><code>Microsoft Windows Server
+        /// 2012 R2 Base</code>.</li><li>A custom AMI: <code>Custom</code>. You specify the custom
+        /// AMI you want to use when you create instances. For more information on how to use
+        /// custom AMIs with OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</li></ul><para>The default option is the stack's current operating system. For more information on
         /// the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Operating Systems</a>.</para>
@@ -221,12 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The stack IAM role, which allows AWS OpsWorks to work with AWS resources on your behalf.
-        /// You must set this parameter to the ARN for an existing IAM role. For more information
-        /// about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
-        /// Identifiers</a>.</para><note><para>There is no default value. You must set this parameter to a valid service role ARN
-        /// or the action will fail. You can specify the stack's current service role ARN, if
-        /// you prefer, but you must do so explicitly.</para></note>
+        /// <para>Do not use this parameter. You cannot update a stack's service role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

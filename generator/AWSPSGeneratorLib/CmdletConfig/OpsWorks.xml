@@ -110,6 +110,11 @@
 	<ServiceOperation MethodName="DescribeStackProvisioningParameters" Output="Response"/>
 	<ServiceOperation MethodName="RegisterInstance" />
 	<ServiceOperation MethodName="UnassignInstance" Verb="Unregister" Noun="InstanceAssignment" Output="Void" />
+
+	<ServiceOperation MethodName="RegisterEcsCluster" />
+	<ServiceOperation MethodName="DeregisterEcsCluster" Output="Void" />
+	<ServiceOperation MethodName="DescribeEcsClusters" Noun="EcsCluster" />
+
 	
   </ServiceOperations>
 

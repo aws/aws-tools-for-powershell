@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     {
         /// <summary>
         /// <para>
-        /// <para>One or more user-defined key/value pairs to be added to the stack attributes.</para>
+        /// <para>One or more user-defined key-value pairs to be added to the stack attributes.</para><para>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's
+        /// ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,13 +92,23 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM profile that to be used for the layer's EC2 instances. For more
-        /// information about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+        /// <para>The ARN of an IAM profile to be used for the layer's EC2 instances. For more information
+        /// about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
         /// Identifiers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public String CustomInstanceProfileArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A JSON-formatted string containing custom stack configuration and deployment attributes
+        /// to be installed on the layer's instances. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">
+        /// Using Custom JSON</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String CustomJson { get; set; }
         
         /// <summary>
         /// <para>
@@ -151,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// default value is <code>true</code>. To control when updates are installed, set this
         /// value to <code>false</code>. You must then update your instances manually by using
         /// <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack command
-        /// or manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu)
-        /// on the instances. </para><note><para>We strongly recommend using the default value of <code>true</code>, to ensure that
-        /// your instances have the latest security updates.</para></note>
+        /// or by manually running <code>yum</code> (Amazon Linux) or <code>apt-get</code> (Ubuntu)
+        /// on the instances. </para><note><para>To ensure that your instances have the latest security updates, we strongly recommend
+        /// using the default value of <code>true</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
-        /// <para>An array of <code>Package</code> objects that describe the layer packages.</para>
+        /// <para>An array of <code>Package</code> objects that describes the layer packages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -192,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// of 200 characters, which are limited to the alphanumeric characters, '-', '_', and
         /// '.'.</para><para>The built-in layers' short names are defined by AWS OpsWorks. For more information,
         /// see the <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html">Layer
-        /// Reference</a></para>
+        /// Reference</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -286,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             if (ParameterWasBound("AutoAssignPublicIps"))
                 context.AutoAssignPublicIps = this.AutoAssignPublicIps;
             context.CustomInstanceProfileArn = this.CustomInstanceProfileArn;
+            context.CustomJson = this.CustomJson;
             if (this.CustomRecipes_Configure != null)
             {
                 context.CustomRecipes_Configure = new List<String>(this.CustomRecipes_Configure);
@@ -360,6 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             if (cmdletContext.CustomInstanceProfileArn != null)
             {
                 request.CustomInstanceProfileArn = cmdletContext.CustomInstanceProfileArn;
+            }
+            if (cmdletContext.CustomJson != null)
+            {
+                request.CustomJson = cmdletContext.CustomJson;
             }
             
              // populate CustomRecipes
@@ -543,6 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             public Boolean? AutoAssignElasticIps { get; set; }
             public Boolean? AutoAssignPublicIps { get; set; }
             public String CustomInstanceProfileArn { get; set; }
+            public String CustomJson { get; set; }
             public List<String> CustomRecipes_Configure { get; set; }
             public List<String> CustomRecipes_Deploy { get; set; }
             public List<String> CustomRecipes_Setup { get; set; }

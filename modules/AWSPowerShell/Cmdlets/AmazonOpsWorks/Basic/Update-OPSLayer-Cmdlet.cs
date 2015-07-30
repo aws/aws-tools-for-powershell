@@ -95,6 +95,16 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         /// <summary>
         /// <para>
+        /// <para>A JSON-formatted string containing custom stack configuration and deployment attributes
+        /// to be installed on the layer's instances. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">
+        /// Using Custom JSON</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String CustomJson { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>An array containing the layer's custom security group IDs.</para>
         /// </para>
         /// </summary>
@@ -277,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             if (ParameterWasBound("AutoAssignPublicIps"))
                 context.AutoAssignPublicIps = this.AutoAssignPublicIps;
             context.CustomInstanceProfileArn = this.CustomInstanceProfileArn;
+            context.CustomJson = this.CustomJson;
             if (this.CustomRecipes_Configure != null)
             {
                 context.CustomRecipes_Configure = new List<String>(this.CustomRecipes_Configure);
@@ -350,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             if (cmdletContext.CustomInstanceProfileArn != null)
             {
                 request.CustomInstanceProfileArn = cmdletContext.CustomInstanceProfileArn;
+            }
+            if (cmdletContext.CustomJson != null)
+            {
+                request.CustomJson = cmdletContext.CustomJson;
             }
             
              // populate CustomRecipes
@@ -531,6 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             public Boolean? AutoAssignElasticIps { get; set; }
             public Boolean? AutoAssignPublicIps { get; set; }
             public String CustomInstanceProfileArn { get; set; }
+            public String CustomJson { get; set; }
             public List<String> CustomRecipes_Configure { get; set; }
             public List<String> CustomRecipes_Deploy { get; set; }
             public List<String> CustomRecipes_Setup { get; set; }

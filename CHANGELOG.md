@@ -1,3 +1,8 @@
+### 3.1.2.0 (2015-07-30)
+* RDS
+	* Add support for Amazon Aurora.
+* OpsWorks
+	* Add support for ECS clusters.
 ### 3.1.1.0 (2015-07-28)
 * CloudWatch Logs
 	* Added cmdlets for 4 new APIs to support cross-account subscriptions. These allow you to collaborate with an owner of a different AWS account and receive their log events on your Amazon Kinesis stream (cross-account data sharing). The new cmdlets are Write-CWLDestination (PutDestination), Write-CWLDestinationPolicy (PutDestinationPolicy), Get-CWLDestination (DescribeDestinations) and Remove-CWLDestination (DeleteDestination).

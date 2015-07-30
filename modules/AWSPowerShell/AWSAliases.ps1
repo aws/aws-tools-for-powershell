@@ -1466,6 +1466,9 @@ Set-Alias -Name ML-GetMLModel -Value Get-MLModel
 Set-Alias -Name ML-Predict -Value Get-MLPrediction
 Set-Alias -Name ML-UpdateBatchPrediction -Value Update-MLBatchPrediction
 Set-Alias -Name ML-UpdateDataSource -Value Update-MLDataSource
+Set-Alias -Name OPS-StartInstance -Value Start-OPSInstance
+Set-Alias -Name OPS-StartStack -Value Start-OPSStack
+Set-Alias -Name OPS-StopInstance -Value Stop-OPSInstance
 Set-Alias -Name OPS-StopStack -Value Stop-OPSStack
 Set-Alias -Name OPS-UnassignInstance -Value Unregister-OPSInstanceAssignment
 Set-Alias -Name OPS-UnassignVolume -Value Remove-OPSVolume
@@ -1478,6 +1481,10 @@ Set-Alias -Name OPS-UpdateRdsDbInstance -Value Update-OPSRdsDbInstance
 Set-Alias -Name OPS-UpdateStack -Value Update-OPSStack
 Set-Alias -Name OPS-UpdateUserProfile -Value Update-OPSUserProfile
 Set-Alias -Name OPS-UpdateVolume -Value Update-OPSVolume
+Set-Alias -Name Describe-OPSInstances -Value Get-OPSInstances
+Set-Alias -Name OPS-DescribeInstances -Value Get-OPSInstances
+Set-Alias -Name Describe-OPSLayers -Value Get-OPSLayers
+Set-Alias -Name OPS-DescribeLayers -Value Get-OPSLayers
 Set-Alias -Name Describe-OPSLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScaling
 Set-Alias -Name OPS-DescribeLoadBasedAutoScaling -Value Get-OPSLoadBasedAutoScaling
 Set-Alias -Name Describe-OPSMyUserProfile -Value Get-OPSMyUserProfile
@@ -1509,6 +1516,7 @@ Set-Alias -Name OPS-GetHostnameSuggestion -Value Get-OPSHostnameSuggestion
 Set-Alias -Name OPS-GrantAccess -Value Grant-OPSAccess
 Set-Alias -Name Reboot-OPSInstance -Value Restart-OPSInstance
 Set-Alias -Name OPS-RebootInstance -Value Restart-OPSInstance
+Set-Alias -Name OPS-RegisterEcsCluster -Value Register-OPSEcsCluster
 Set-Alias -Name OPS-RegisterElasticIp -Value Register-OPSElasticIp
 Set-Alias -Name OPS-RegisterInstance -Value Register-OPSInstance
 Set-Alias -Name OPS-RegisterRdsDbInstance -Value Register-OPSRdsDbInstance
@@ -1516,9 +1524,6 @@ Set-Alias -Name OPS-RegisterVolume -Value Register-OPSVolume
 Set-Alias -Name OPS-SetLoadBasedAutoScaling -Value Set-OPSLoadBasedAutoScaling
 Set-Alias -Name OPS-SetPermission -Value Set-OPSPermission
 Set-Alias -Name OPS-SetTimeBasedAutoScaling -Value Set-OPSTimeBasedAutoScaling
-Set-Alias -Name OPS-StartInstance -Value Start-OPSInstance
-Set-Alias -Name OPS-StartStack -Value Start-OPSStack
-Set-Alias -Name OPS-StopInstance -Value Stop-OPSInstance
 Set-Alias -Name OPS-AssignInstance -Value Register-OPSInstanceAssignment
 Set-Alias -Name OPS-AssignVolume -Value Add-OPSVolume
 Set-Alias -Name OPS-AssociateElasticIp -Value Add-OPSElasticIp
@@ -1548,6 +1553,8 @@ Set-Alias -Name Delete-OPSStack -Value Remove-OPSStack
 Set-Alias -Name OPS-DeleteStack -Value Remove-OPSStack
 Set-Alias -Name Delete-OPSUserProfile -Value Remove-OPSUserProfile
 Set-Alias -Name OPS-DeleteUserProfile -Value Remove-OPSUserProfile
+Set-Alias -Name Deregister-OPSEcsCluster -Value Unregister-OPSEcsCluster
+Set-Alias -Name OPS-DeregisterEcsCluster -Value Unregister-OPSEcsCluster
 Set-Alias -Name Deregister-OPSElasticIp -Value Unregister-OPSElasticIp
 Set-Alias -Name OPS-DeregisterElasticIp -Value Unregister-OPSElasticIp
 Set-Alias -Name OPS-DeregisterInstance -Value Unregister-OPSInstance
@@ -1563,14 +1570,12 @@ Set-Alias -Name Describe-OPSCommands -Value Get-OPSCommands
 Set-Alias -Name OPS-DescribeCommands -Value Get-OPSCommands
 Set-Alias -Name Describe-OPSDeployments -Value Get-OPSDeployments
 Set-Alias -Name OPS-DescribeDeployments -Value Get-OPSDeployments
+Set-Alias -Name Describe-OPSEcsCluster -Value Get-OPSEcsCluster
+Set-Alias -Name OPS-DescribeEcsClusters -Value Get-OPSEcsCluster
 Set-Alias -Name Describe-OPSElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name OPS-DescribeElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name Describe-OPSElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
 Set-Alias -Name OPS-DescribeElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
-Set-Alias -Name Describe-OPSInstances -Value Get-OPSInstances
-Set-Alias -Name OPS-DescribeInstances -Value Get-OPSInstances
-Set-Alias -Name Describe-OPSLayers -Value Get-OPSLayers
-Set-Alias -Name OPS-DescribeLayers -Value Get-OPSLayers
 Set-Alias -Name Describe-RDSReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
 Set-Alias -Name RDS-DescribeReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
 Set-Alias -Name Download-RDSDBLogFilePortion -Value Get-RDSDBLogFilePortion

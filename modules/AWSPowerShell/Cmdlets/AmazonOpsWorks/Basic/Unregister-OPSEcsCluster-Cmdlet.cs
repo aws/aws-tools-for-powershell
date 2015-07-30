@@ -28,45 +28,35 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Assign a registered instance to a layer.
+    /// Deregisters a specified Amazon ECS cluster from a stack. For more information, see
+    /// <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-ecscluster.html#workinglayers-ecscluster-delete">
+    /// Resource Management</a>.
     /// 
-    ///  <ul><li>You can assign registered on-premises instances to any layer type.</li><li>You can assign registered Amazon EC2 instances only to custom layers.</li><li>You
-    /// cannot use this action with instances that were created with AWS OpsWorks.</li></ul><para><b>Required Permissions</b>: To use this action, an AWS Identity and Access Management
-    /// (IAM) user must have a Manage permissions level for the stack or an attached policy
-    /// that explicitly grants permissions. For more information on user permissions, see
-    /// <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
-    /// User Permissions</a>.
+    ///  
+    /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+    /// level for the stack or an attached policy that explicitly grants permissions. For
+    /// more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html"></a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Register", "OPSInstanceAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Unregister", "OPSEcsCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssignInstance operation against AWS OpsWorks.", Operation = new[] {"AssignInstance"})]
+    [AWSCmdlet("Invokes the DeregisterEcsCluster operation against AWS OpsWorks.", Operation = new[] {"DeregisterEcsCluster"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AssignInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EcsClusterArn parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type DeregisterEcsClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RegisterOPSInstanceAssignmentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public class UnregisterOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>The cluster's ARN.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String EcsClusterArn { get; set; }
         
         /// <summary>
-        /// <para>
-        /// <para>The layer ID, which must correspond to a custom layer. You cannot assign a registered
-        /// instance to a built-in layer.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("LayerIds")]
-        public System.String[] LayerId { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the InstanceId parameter.
+        /// Returns the value passed to the EcsClusterArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-OPSInstanceAssignment (AssignInstance)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("EcsClusterArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-OPSEcsCluster (DeregisterEcsCluster)"))
             {
                 return;
             }
@@ -97,11 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Credentials = this.CurrentCredentials
             };
             
-            context.InstanceId = this.InstanceId;
-            if (this.LayerId != null)
-            {
-                context.LayerIds = new List<String>(this.LayerId);
-            }
+            context.EcsClusterArn = this.EcsClusterArn;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -113,15 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssignInstanceRequest();
+            var request = new DeregisterEcsClusterRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.EcsClusterArn != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.LayerIds != null)
-            {
-                request.LayerIds = cmdletContext.LayerIds;
+                request.EcsClusterArn = cmdletContext.EcsClusterArn;
             }
             
             CmdletOutput output;
@@ -130,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.AssignInstance(request);
+                var response = client.DeregisterEcsCluster(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.InstanceId;
+                    pipelineOutput = this.EcsClusterArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -160,8 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public List<String> LayerIds { get; set; }
+            public String EcsClusterArn { get; set; }
         }
         
     }
