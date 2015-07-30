@@ -80,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The offering type filter value. Specify this parameter to show only the available
-        /// offerings matching the specified offering type. </para><para>Valid Values: <code>"Light Utilization" | "Medium Utilization" | "Heavy Utilization"
-        /// </code></para>
+        /// offerings matching the specified offering type. </para><para>Valid Values: <code>"Partial Upfront" | "All Upfront" | "No Upfront" </code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The maximum number of records to include in the response. If more than the <code>MaxRecords</code>
         /// value is available, a pagination token called a marker is included in the response
-        /// so that the following results can be retrieved. </para><para>Default: 100</para><para>Constraints: minimum 20, maximum 100</para>
+        /// so that the following results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

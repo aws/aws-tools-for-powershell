@@ -28,37 +28,43 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new DB security group. DB security groups control access to a DB instance.
+    /// Creates a snapshot of a DB cluster. For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i>
     /// </summary>
-    [Cmdlet("New", "RDSDBSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RDS.Model.DBSecurityGroup")]
-    [AWSCmdlet("Invokes the CreateDBSecurityGroup operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBSecurityGroup"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.DBSecurityGroup",
-        "This cmdlet returns a DBSecurityGroup object.",
-        "The service call response (type CreateDBSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "RDSDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.DBClusterSnapshot")]
+    [AWSCmdlet("Invokes the CreateDBClusterSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBClusterSnapshot"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
+        "This cmdlet returns a DBClusterSnapshot object.",
+        "The service call response (type CreateDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewRDSDBSecurityGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class NewRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The description for the DB security group. </para>
+        /// <para>The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive.
+        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>First
+        /// character must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive
+        /// hyphens.</li></ul><para>Example: <code>my-cluster1</code></para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public String DBSecurityGroupDescription { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para> The name for the DB security group. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li><li>Must not be "Default"</li><li>Cannot contain spaces</li></ul><para>Example: <code>mysecuritygroup</code></para>
+        /// <para>The identifier of the DB cluster snapshot. This parameter is stored as a lowercase
+        /// string. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>First
+        /// character must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive
+        /// hyphens.</li></ul><para>Example: <code>my-cluster1-snapshot1</code></para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
+        [System.Management.Automation.Parameter]
+        public String DBClusterSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The tags to be assigned to the DB cluster snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBSecurityGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RDSDBSecurityGroup (CreateDBSecurityGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterIdentifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RDSDBClusterSnapshot (CreateDBClusterSnapshot)"))
             {
                 return;
             }
@@ -90,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
-            context.DBSecurityGroupDescription = this.DBSecurityGroupDescription;
-            context.DBSecurityGroupName = this.DBSecurityGroupName;
+            context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             if (this.Tag != null)
             {
                 context.Tags = new List<Tag>(this.Tag);
@@ -107,15 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBSecurityGroupRequest();
+            var request = new CreateDBClusterSnapshotRequest();
             
-            if (cmdletContext.DBSecurityGroupDescription != null)
+            if (cmdletContext.DBClusterIdentifier != null)
             {
-                request.DBSecurityGroupDescription = cmdletContext.DBSecurityGroupDescription;
+                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
             }
-            if (cmdletContext.DBSecurityGroupName != null)
+            if (cmdletContext.DBClusterSnapshotIdentifier != null)
             {
-                request.DBSecurityGroupName = cmdletContext.DBSecurityGroupName;
+                request.DBClusterSnapshotIdentifier = cmdletContext.DBClusterSnapshotIdentifier;
             }
             if (cmdletContext.Tags != null)
             {
@@ -128,9 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateDBSecurityGroup(request);
+                var response = client.CreateDBClusterSnapshot(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DBSecurityGroup;
+                object pipelineOutput = response.DBClusterSnapshot;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -156,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSecurityGroupDescription { get; set; }
-            public String DBSecurityGroupName { get; set; }
+            public String DBClusterIdentifier { get; set; }
+            public String DBClusterSnapshotIdentifier { get; set; }
             public List<Tag> Tags { get; set; }
         }
         

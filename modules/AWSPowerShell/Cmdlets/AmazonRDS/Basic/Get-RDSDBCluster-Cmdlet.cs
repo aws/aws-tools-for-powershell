@@ -28,25 +28,36 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Lists all the subscription descriptions for a customer account. The description for
-    /// a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
-    /// CreationTime, and Status. 
+    /// Returns information about provisioned Aurora DB clusters. This API supports pagination.
+    /// 
     /// 
     ///  
     /// <para>
-    /// If you specify a SubscriptionName, lists the description for that subscription.
-    /// </para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
-    [Cmdlet("Get", "RDSEventSubscriptions")]
-    [OutputType("Amazon.RDS.Model.EventSubscription")]
-    [AWSCmdlet("Invokes the DescribeEventSubscriptions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeEventSubscriptions"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
-        "This cmdlet returns a collection of EventSubscription objects.",
-        "The service call response (type DescribeEventSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "RDSDBCluster")]
+    [OutputType("Amazon.RDS.Model.DBCluster")]
+    [AWSCmdlet("Invokes the DescribeDBClusters operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBClusters"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
+        "This cmdlet returns a collection of DBCluster objects.",
+        "The service call response (type DescribeDBClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
     )]
-    public class GetRDSEventSubscriptionsCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class GetRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        /// <summary>
+        /// <para>
+        /// <para>The user-supplied DB cluster identifier. If this parameter is specified, information
+        /// from only the specific DB cluster is returned. This parameter isn't case-sensitive.
+        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
+        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
+        /// hyphens</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String DBClusterIdentifier { get; set; }
+        
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -58,17 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para>The name of the RDS event notification subscription you want to describe.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
-        /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code> . </para>
+        /// <para> An optional pagination token provided by a previous <a>DescribeDBClusters</a> request.
+        /// If this parameter is specified, the response includes only records beyond the marker,
+        /// up to the value specified by <code>MaxRecords</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The maximum number of records to include in the response. If more records exist than
+        /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
         /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
@@ -97,6 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            context.DBClusterIdentifier = this.DBClusterIdentifier;
             if (this.Filter != null)
             {
                 context.Filters = new List<Filter>(this.Filter);
@@ -104,7 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
-            context.SubscriptionName = this.SubscriptionName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -117,14 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeEventSubscriptionsRequest();
+            var request = new DescribeDBClustersRequest();
+            if (cmdletContext.DBClusterIdentifier != null)
+            {
+                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
-            }
-            if (cmdletContext.SubscriptionName != null)
-            {
-                request.SubscriptionName = cmdletContext.SubscriptionName;
             }
             
             // Initialize loop variants and commence piping
@@ -158,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     try
                     {
                         
-                        var response = client.DescribeEventSubscriptions(request);
+                        var response = client.DescribeDBClusters(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.EventSubscriptionsList;
+                        object pipelineOutput = response.DBClusters;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -169,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.EventSubscriptionsList.Count;
+                        int _receivedThisCall = response.DBClusters.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -213,10 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
+            public String DBClusterIdentifier { get; set; }
             public List<Filter> Filters { get; set; }
             public String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String SubscriptionName { get; set; }
         }
         
     }

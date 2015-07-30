@@ -28,50 +28,57 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Modifies the parameters of a DB parameter group to the engine/system default value.
-    /// To reset specific parameters submit a list of the following: <code>ParameterName</code>
-    /// and <code>ApplyMethod</code>. To reset the entire DB parameter group, specify the
-    /// <code>DBParameterGroup</code> name and <code>ResetAllParameters</code> parameters.
-    /// When resetting the entire group, dynamic parameters are updated immediately and static
+    /// Modifies the parameters of a DB cluster parameter group to the default value. To
+    /// reset specific parameters submit a list of the following: <code>ParameterName</code>
+    /// and <code>ApplyMethod</code>. To reset the entire DB cluster parameter group, specify
+    /// the <code>DBClusterParameterGroupName</code> and <code>ResetAllParameters</code> parameters.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    ///  When resetting the entire group, dynamic parameters are updated immediately and static
     /// parameters are set to <code>pending-reboot</code> to take effect on the next DB instance
-    /// restart or <code>RebootDBInstance</code> request.
+    /// restart or <a>RebootDBInstance</a> request. You must call <a>RebootDBInstance</a>
+    /// for every DB instance in your DB cluster that you want the updated static parameter
+    /// to apply to.
+    /// </para><para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
-    [Cmdlet("Reset", "RDSDBParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Reset", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ResetDBParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"ResetDBParameterGroup"})]
+    [AWSCmdlet("Invokes the ResetDBClusterParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"ResetDBClusterParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ResetDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type ResetDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class ResetRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class ResetRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The name of the DB parameter group. </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBParameterGroupName { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para> An array of parameter names, values, and the apply method for the parameter update.
-        /// At least one parameter name, value, and apply method must be supplied; subsequent
-        /// arguments are optional. A maximum of 20 parameters can be modified in a single request.
-        /// </para><para><b>MySQL</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
-        /// value for both dynamic and static parameters, and changes are applied when DB instance
-        /// reboots.</para><para><b>Oracle</b></para><para>Valid Values (for Apply method): <code>pending-reboot</code></para>
+        /// <para>The name of the DB cluster parameter group to reset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        public String DBClusterParameterGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of parameter names in the DB cluster parameter group to reset to the default
+        /// values. You cannot use this parameter if the <code>ResetAllParameters</code> parameter
+        /// is set to <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Parameters")]
         public Amazon.RDS.Model.Parameter[] Parameter { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para> Specifies whether (<code>true</code>) or not (<code>false</code>) to reset all parameters
-        /// in the DB parameter group to default values. </para><para>Default: <code>true</code></para>
+        /// <para>A value that is set to <code>true</code> to reset all parameters in the DB cluster
+        /// parameter group to their default values, and <code>false</code> otherwise. You cannot
+        /// use this parameter if there is a list of parameter names specified for the <code>Parameters</code>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBParameterGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-RDSDBParameterGroup (ResetDBParameterGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterParameterGroupName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-RDSDBClusterParameterGroup (ResetDBClusterParameterGroup)"))
             {
                 return;
             }
@@ -102,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
-            context.DBParameterGroupName = this.DBParameterGroupName;
+            context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (this.Parameter != null)
             {
                 context.Parameters = new List<Parameter>(this.Parameter);
@@ -120,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetDBParameterGroupRequest();
+            var request = new ResetDBClusterParameterGroupRequest();
             
-            if (cmdletContext.DBParameterGroupName != null)
+            if (cmdletContext.DBClusterParameterGroupName != null)
             {
-                request.DBParameterGroupName = cmdletContext.DBParameterGroupName;
+                request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
             }
             if (cmdletContext.Parameters != null)
             {
@@ -141,9 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ResetDBParameterGroup(request);
+                var response = client.ResetDBClusterParameterGroup(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DBParameterGroupName;
+                object pipelineOutput = response.DBClusterParameterGroupName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -169,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBParameterGroupName { get; set; }
+            public String DBClusterParameterGroupName { get; set; }
             public List<Parameter> Parameters { get; set; }
             public Boolean? ResetAllParameters { get; set; }
         }

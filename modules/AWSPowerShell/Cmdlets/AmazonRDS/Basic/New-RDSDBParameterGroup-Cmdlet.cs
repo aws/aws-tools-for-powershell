@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The name of the DB parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><note>This value is stored as a lower-case string.</note>
+        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><note>This value is stored as a lowercase string.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

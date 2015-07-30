@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The user-supplied instance identifier. If this parameter is specified, information
-        /// from only the specific DB instance is returned. This parameter isn't case sensitive.
+        /// from only the specific DB instance is returned. This parameter isn't case-sensitive.
         /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
         /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
         /// hyphens</li></ul>
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous DescribeDBInstances request.
-        /// If this parameter is specified, the response includes only records beyond the marker,
-        /// up to the value specified by <code>MaxRecords</code> . </para>
+        /// <para> An optional pagination token provided by a previous <code>DescribeDBInstances</code>
+        /// request. If this parameter is specified, the response includes only records beyond
+        /// the marker, up to the value specified by <code>MaxRecords</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results may be retrieved. </para><para>Default: 100</para><para>Constraints: minimum 20, maximum 100</para>
+        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

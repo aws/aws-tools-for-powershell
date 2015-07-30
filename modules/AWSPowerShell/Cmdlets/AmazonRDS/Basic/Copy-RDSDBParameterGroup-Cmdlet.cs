@@ -41,7 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     {
         /// <summary>
         /// <para>
-        /// <para> The identifier or ARN for the source DB parameter group. </para><para>Constraints:</para><ul><li>Must specify a valid DB parameter group.</li><li>If the source DB parameter
+        /// <para> The identifier or ARN for the source DB parameter group. For information about creating
+        /// an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN">
+        /// Constructing an RDS Amazon Resource Name (ARN)</a>. </para><para>Constraints:</para><ul><li>Must specify a valid DB parameter group.</li><li>If the source DB parameter
         /// group is in the same region as the copy, specify a valid DB parameter group identifier,
         /// for example <code>my-db-param-group</code>, or a valid ARN.</li><li>If the source
         /// DB parameter group is in a different region than the copy, specify a valid DB parameter

@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Downloads all or a portion of the specified log file.
+    /// Downloads all or a portion of the specified log file, up to 1 MB in size.
     /// </summary>
     [Cmdlet("Get", "RDSDBLogFilePortion")]
     [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResponse")]
@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The number of lines to download. </para><para>If the NumberOfLines parameter is specified, then the block of lines returned can
+        /// <para> The number of lines to download. If the number of lines specified results in a file
+        /// over 1 MB in size, the file will be truncated at 1 MB in size. </para><para>If the NumberOfLines parameter is specified, then the block of lines returned can
         /// be from the beginning or the end of the log file, depending on the value of the Marker
         /// parameter. <ul><li><para>If neither Marker or NumberOfLines are specified, the entire log file is returned.</para></li><li><para>If NumberOfLines is specified and Marker is not specified, then the most recent lines
         /// from the end of the log file are returned.</para></li><li><para>If Marker is specified as "0", then the specified number of lines from the beginning

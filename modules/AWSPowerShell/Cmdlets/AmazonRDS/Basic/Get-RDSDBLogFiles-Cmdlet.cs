@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> Filters the available log files for files written since the specified date, in POSIX
-        /// timestamp format. </para>
+        /// timestamp format with milliseconds. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

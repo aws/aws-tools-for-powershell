@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     {
         /// <summary>
         /// <para>
-        /// <para> A required parameter. Options available for the given Engine name will be described.
+        /// <para> A required parameter. Options available for the given engine name will be described.
         /// </para>
         /// </para>
         /// </summary>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: minimum 20, maximum 100</para>
+        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

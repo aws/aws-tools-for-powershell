@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// for this API are one of CIDR range, EC2SecurityGroupId for VPC, or (EC2SecurityGroupOwnerId
     /// and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC). 
     /// 
-    ///  <note> You cannot authorize ingress from an EC2 security group in one Region to an
+    ///  <note> You cannot authorize ingress from an EC2 security group in one region to an
     /// Amazon RDS DB instance in another. You cannot authorize ingress from a VPC security
     /// group in one VPC to an Amazon RDS DB instance in another. </note><para>
     /// For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> Id of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
-        /// must be provided. Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code>
+        /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
         /// or <code>EC2SecurityGroupId</code> must be provided. </para>
         /// </para>
         /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> Name of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
-        /// must be provided. Otherwise, EC2SecurityGroupOwnerId and either <code>EC2SecurityGroupName</code>
+        /// must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either <code>EC2SecurityGroupName</code>
         /// or <code>EC2SecurityGroupId</code> must be provided. </para>
         /// </para>
         /// </summary>
@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> AWS Account Number of the owner of the EC2 security group specified in the EC2SecurityGroupName
+        /// <para> AWS account number of the owner of the EC2 security group specified in the <code>EC2SecurityGroupName</code>
         /// parameter. The AWS Access Key ID is not an acceptable value. For VPC DB security groups,
-        /// <code>EC2SecurityGroupId</code> must be provided. Otherwise, EC2SecurityGroupOwnerId
+        /// <code>EC2SecurityGroupId</code> must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code>
         /// and either <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must
         /// be provided. </para>
         /// </para>

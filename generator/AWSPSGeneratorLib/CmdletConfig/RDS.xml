@@ -31,7 +31,7 @@
   </NounMappings>
 
   <AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker" />
-  
+
   <PositionalParameters>DBInstanceIdentifier</PositionalParameters>
   <PipelineParameter>DBInstanceIdentifier</PipelineParameter>
 
@@ -42,8 +42,8 @@
         <Expression>cmdletContext.Tags</Expression>
         <Documentation>Returns the collection of tags that were added</Documentation>
       </PassThru>
-    </ServiceOperation>  
-	  <ServiceOperation MethodName="ApplyPendingMaintenanceAction" PipelineParameter="ResourceIdentifier" Verb="Submit"/>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ApplyPendingMaintenanceAction" PipelineParameter="ResourceIdentifier" Verb="Submit"/>
     <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" Verb="Enable" Noun="DBSecurityGroupIngress"
                        PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
     <ServiceOperation MethodName="CopyDBParameterGroup" PipelineParameter="SourceDBParameterGroupIdentifier" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription"/>
@@ -121,7 +121,7 @@
         <Expression>cmdletContext.TagKeys</Expression>
         <Documentation>Returns the collection of tag keys that were removed</Documentation>
       </PassThru>
-    </ServiceOperation>  
+    </ServiceOperation>
     <ServiceOperation MethodName="ResetDBParameterGroup"
                       PipelineParameter="DBParameterGroupName"/>
     <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot"
@@ -131,7 +131,64 @@
     <ServiceOperation MethodName="RevokeDBSecurityGroupIngress"
                       PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
 
+    <!-- Aurora APIs -->
+
+    <ServiceOperation MethodName="FailoverDBCluster" Verb="Start" Noun="DBClusterFailover" />
+    <ServiceOperation MethodName="ModifyDBCluster" ShouldProcessTarget="DBClusterIdentifier"	/>
+
+    <ServiceOperation MethodName="ModifyDBClusterParameterGroup"
+      PipelineParamater="DBClusterParameterGroupName"
+      PositionalParameters="Parameters"/>
+
+    <ServiceOperation MethodName="ResetDBClusterParameterGroup"
+      PipelineParamater="DBClusterParameterGroupName"
+      PositionalParameters="Parameters"/> />
+
+    <ServiceOperation MethodName="RestoreDBClusterFromSnapshot"
+      PipelineParameter="DBClusterIdentifier"
+      ShouldProcessTarget="DBClusterIdentifier" />
+
+    <ServiceOperation MethodName="RestoreDBClusterToPointInTime"
+      PipelineParameter="DBClusterIdentifier"
+      ShouldProcessTarget="DBClusterIdentifier" />
+
+    <ServiceOperation MethodName="DescribeDBClusterParameterGroups" PipelineParameter="DBClusterParameterGroupName"/>
+    <ServiceOperation MethodName="DescribeDBClusterParameters" PipelineParameter="DBClusterParameterGroupName" />
+    <ServiceOperation MethodName="DescribeDBClusters" />
+    <ServiceOperation MethodName="DescribeDBClusterSnapshots" />
+    <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" />
+
+    <ServiceOperation MethodName="CopyDBClusterSnapshot"
+      PipelineParameter="SourceDBClusterSnapshotIdentifier"
+      PositionalParameters="TargetDBClusterSnapshotIdentifier" />
+
+    <ServiceOperation MethodName="CreateDBCluster"
+      PipelineParameter="DBClusterIdentifier"
+      ShouldProcessTarget="DBClusterIdentifier"/>
+
+    <ServiceOperation MethodName="CreateDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" />
+
+    <ServiceOperation MethodName="CreateDBClusterSnapshot"
+      PipelineParameter="DBClusterIdentifier"
+      PositionalParameter="DBClusterSnapshotIdentifier"/>
+
+    <ServiceOperation MethodName="DeleteDBCluster" ShouldProcessTarget="DBClusterIdentifier"/>
+    <ServiceOperation MethodName="DeleteDBClusterParameterGroup"
+      Output="Void"
+      ShouldProcessTarget="DBClusterParameterGroupName"/>
+
+    <ServiceOperation MethodName="DeleteDBClusterSnapshot" ShouldProcessTarget="DBClusterSnapshotIdentifier"/>
+
+
   </ServiceOperations>
+
+  <NounMappings>
+    <Map From="DBClusterParameterGroups" To="DBClusterParameterGroup" />
+    <Map From="DBClusterParameters" To="DBClusterParameter" />
+    <Map From="DBClusters" To="DBCluster" />
+    <Map From="DBClusterSnapshots" To="DBClusterSnapshot" />
+    <Map From="EngineDefaultClusterParameters" To="EngineDefaultClusterParameter" />
+  </NounMappings>
 
   <PipelineByValueProperties>
     <Property>DBSecurityGroupName</Property>
@@ -155,5 +212,5 @@
     <Property>SourceIdentifier</Property>
     <Property>CIDRIP</Property>
   </PipelineByValueProperties>
-  
+
 </ConfigModel>

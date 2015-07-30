@@ -29,9 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB instance from a DB snapshot. The target database is created from
-    /// the source database restore point with the same configuration as the original source
-    /// database, except that the new RDS instance is created with the default security group.
-    /// 
+    /// the source database restore point with the most of original configuration, but in
+    /// a system chosen availability zone with the default security group, the default subnet
+    /// group, and the default DB parameter group. By default, the new DB instance is created
+    /// as a single-AZ deployment except when the instance is a SQL Server instance that has
+    /// an option group that is associated with mirroring; in this case, the instance becomes
+    /// a mirrored AZ deployment and not a single-AZ deployment. 
     /// 
     ///  
     /// <para>
@@ -84,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> Name of the DB instance to create from the DB snapshot. This parameter isn't case
-        /// sensitive. </para><para>Constraints:</para><ul><li>Must contain from 1 to 255 alphanumeric characters or hyphens</li><li>First
+        /// <para> Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.
+        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 255 alphanumeric characters or hyphens</li><li>First
         /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
         /// hyphens</li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>

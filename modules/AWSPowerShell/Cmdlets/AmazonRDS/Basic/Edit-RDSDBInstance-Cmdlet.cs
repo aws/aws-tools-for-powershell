@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The new storage capacity of the RDS instance. Changing this setting does not result
         /// in an outage and the change is applied during the next maintenance window unless <code>ApplyImmediately</code>
-        /// is set to <code>true</code> for this request. </para><para><b>MySQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-3072</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
+        /// is set to <code>true</code> for this request. </para><para><b>MySQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>PostgreSQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-3072</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
+        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>PostgreSQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>Oracle</b></para><para>Default: Uses existing setting</para><para>Valid Values: 10-3072</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
+        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>Oracle</b></para><para>Default: Uses existing setting</para><para>Valid Values: 10-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
         /// are 10% greater than the current value.</para><para><b>SQL Server</b></para><para>Cannot be modified.</para><para> If you choose to migrate your DB instance from using standard storage to using Provisioned
         /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
         /// (if any), and the number of prior scale storage operations. Typical migration times
         /// are under 24 hours, but the process can take up to several days in some cases. During
-        /// the migration, the DB instance will be available for use, but may experience performance
+        /// the migration, the DB instance will be available for use, but might experience performance
         /// degradation. While the migration takes place, nightly backups for the instance will
         /// be suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> Indicates the certificate which needs to be associated with the instance. </para>
+        /// <para> Indicates the certificate that needs to be associated with the instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
         /// (if any), and the number of prior scale storage operations. Typical migration times
         /// are under 24 hours, but the process can take up to several days in some cases. During
-        /// the migration, the DB instance will be available for use, but may experience performance
+        /// the migration, the DB instance will be available for use, but might experience performance
         /// degradation. While the migration takes place, nightly backups for the instance will
         /// be suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30 alphanumeric
         /// characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).</para><note> Amazon RDS API actions never return the password, so this action provides
         /// a way to regain access to a primary instance user if the password is lost. This includes
-        /// restoring privileges that may have been accidentally revoked. </note>
+        /// restoring privileges that might have been accidentally revoked. </note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -239,7 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does
         /// not result in an outage and the change is applied during the next maintenance window
         /// unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for
-        /// this request. </para><para>Constraints: Cannot be specified if the DB instance is a Read Replica.</para>
+        /// this request. </para><para>Constraints: Cannot be specified if the DB instance is a Read Replica. This parameter
+        /// cannot be used with SQL Server DB instances. Multi-AZ for SQL Server DB instances
+        /// is set using the Mirroring option in an option group associated with the DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -278,9 +280,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
-        /// are enabled, as determined by the <code>BackupRetentionPeriod</code>. Changing this
-        /// parameter does not result in an outage and the change is asynchronously applied as
-        /// soon as possible. </para><para>Constraints:</para><ul><li>Must be in the format hh24:mi-hh24:mi</li><li>Times should be Universal
+        /// are enabled, as determined by the <code>BackupRetentionPeriod</code> parameter. Changing
+        /// this parameter does not result in an outage and the change is asynchronously applied
+        /// as soon as possible. </para><para>Constraints:</para><ul><li>Must be in the format hh24:mi-hh24:mi</li><li>Times should be in Universal
         /// Time Coordinated (UTC)</li><li>Must not conflict with the preferred maintenance window</li><li>Must be at least 30 minutes</li></ul>
         /// </para>
         /// </summary>
@@ -289,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The weekly time range (in UTC) during which system maintenance can occur, which may
+        /// <para> The weekly time range (in UTC) during which system maintenance can occur, which might
         /// result in an outage. Changing this parameter does not result in an outage, except
         /// in the following situation, and the change is asynchronously applied as soon as possible.
         /// If there are pending actions that cause a reboot, and the maintenance window is changed

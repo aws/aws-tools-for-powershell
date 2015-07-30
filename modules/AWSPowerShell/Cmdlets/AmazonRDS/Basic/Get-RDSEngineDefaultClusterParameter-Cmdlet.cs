@@ -28,29 +28,35 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns the default engine and system parameter information for the specified database
-    /// engine.
+    /// Returns the default engine and system parameter information for the cluster database
+    /// engine. 
+    /// 
+    ///  
+    /// <para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
-    [Cmdlet("Get", "RDSEngineDefaultParameter")]
+    [Cmdlet("Get", "RDSEngineDefaultClusterParameter")]
     [OutputType("Amazon.RDS.Model.EngineDefaults")]
-    [AWSCmdlet("Invokes the DescribeEngineDefaultParameters operation against Amazon Relational Database Service.", Operation = new[] {"DescribeEngineDefaultParameters"})]
+    [AWSCmdlet("Invokes the DescribeEngineDefaultClusterParameters operation against Amazon Relational Database Service.", Operation = new[] {"DescribeEngineDefaultClusterParameters"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EngineDefaults",
         "This cmdlet returns a EngineDefaults object.",
-        "The service call response (type DescribeEngineDefaultParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type DescribeEngineDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetRDSEngineDefaultParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class GetRDSEngineDefaultClusterParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The name of the DB parameter group family. </para>
+        /// <para> The name of the DB cluster parameter group family to return engine parameter information
+        /// for. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public String DBParameterGroupFamily { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para> Not currently supported. </para>
+        /// <para>This parameter is not currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -59,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous <code>DescribeEngineDefaultParameters</code>
+        /// <para> An optional pagination token provided by a previous <code>DescribeEngineDefaultClusterParameters</code>
         /// request. If this parameter is specified, the response includes only records beyond
         /// the marker, up to the value specified by <code>MaxRecords</code>. </para>
         /// </para>
@@ -109,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEngineDefaultParametersRequest();
+            var request = new DescribeEngineDefaultClusterParametersRequest();
             
             if (cmdletContext.DBParameterGroupFamily != null)
             {
@@ -134,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeEngineDefaultParameters(request);
+                var response = client.DescribeEngineDefaultClusterParameters(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.EngineDefaults;
                 output = new CmdletOutput

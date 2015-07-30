@@ -28,7 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a DB instance that acts as a Read Replica of a source DB instance. 
+    /// Creates a DB instance for a DB instance running MySQL or PostgreSQL that acts as
+    /// a Read Replica of a source DB instance. 
     /// 
     ///  
     /// <para>
@@ -78,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The DB instance identifier of the Read Replica. This is the unique key that identifies
-        /// a DB instance. This parameter is stored as a lowercase string. </para>
+        /// <para> The DB instance identifier of the Read Replica. This identifier is the unique key
+        /// that identifies a DB instance. This parameter is stored as a lowercase string. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

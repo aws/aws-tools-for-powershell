@@ -28,34 +28,30 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes a DB security group. 
+    /// Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation
+    /// is terminated. 
     /// 
-    ///  <note>The specified DB security group must not be associated with any DB instances.</note>
+    ///  <note>The DB cluster snapshot must be in the <code>available</code> state to be deleted.</note><para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
-    [Cmdlet("Remove", "RDSDBSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDBSecurityGroup operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBSecurityGroup"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBSecurityGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDBSecurityGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "RDSDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.RDS.Model.DBClusterSnapshot")]
+    [AWSCmdlet("Invokes the DeleteDBClusterSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBClusterSnapshot"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
+        "This cmdlet returns a DBClusterSnapshot object.",
+        "The service call response (type DeleteDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRDSDBSecurityGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class RemoveRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The name of the DB security group to delete. </para><note>You cannot delete the default DB security group.</note><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li><li>Must not be "Default"</li><li>Cannot contain spaces</li></ul>
+        /// <para>The identifier of the DB cluster snapshot to delete. </para><para>Constraints: Must be the name of an existing DB cluster snapshot in the <code>available</code>
+        /// state.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the DBSecurityGroupName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String DBClusterSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -70,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBSecurityGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSDBSecurityGroup (DeleteDBSecurityGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterSnapshotIdentifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSDBClusterSnapshot (DeleteDBClusterSnapshot)"))
             {
                 return;
             }
@@ -82,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
-            context.DBSecurityGroupName = this.DBSecurityGroupName;
+            context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -94,11 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBSecurityGroupRequest();
+            var request = new DeleteDBClusterSnapshotRequest();
             
-            if (cmdletContext.DBSecurityGroupName != null)
+            if (cmdletContext.DBClusterSnapshotIdentifier != null)
             {
-                request.DBSecurityGroupName = cmdletContext.DBSecurityGroupName;
+                request.DBClusterSnapshotIdentifier = cmdletContext.DBClusterSnapshotIdentifier;
             }
             
             CmdletOutput output;
@@ -107,11 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteDBSecurityGroup(request);
+                var response = client.DeleteDBClusterSnapshot(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.DBSecurityGroupName;
+                object pipelineOutput = response.DBClusterSnapshot;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -137,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSecurityGroupName { get; set; }
+            public String DBClusterSnapshotIdentifier { get; set; }
         }
         
     }

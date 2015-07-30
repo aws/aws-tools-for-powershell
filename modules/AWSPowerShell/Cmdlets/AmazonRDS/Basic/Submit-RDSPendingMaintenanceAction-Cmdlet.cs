@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Applies a pending maintenance action to a resource (for example, a DB instance).
+    /// Applies a pending maintenance action to a resource (for example, to a DB instance).
     /// </summary>
     [Cmdlet("Submit", "RDSPendingMaintenanceAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.ResourcePendingMaintenanceActions")]
@@ -60,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource that the pending maintenance action applies to.</para>
+        /// <para>The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action
+        /// applies to. For information about creating an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN">
+        /// Constructing an RDS Amazon Resource Name (ARN)</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

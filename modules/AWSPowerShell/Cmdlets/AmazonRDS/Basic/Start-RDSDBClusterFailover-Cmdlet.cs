@@ -28,34 +28,41 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes a DB security group. 
+    /// Forces a failover for a DB cluster.
     /// 
-    ///  <note>The specified DB security group must not be associated with any DB instances.</note>
+    ///  
+    /// <para>
+    /// A failover for a DB cluster promotes one of the read-only instances in the DB cluster
+    /// to the master DB instance (the cluster writer) and deletes the current primary instance.
+    /// </para><para>
+    /// Amazon Aurora will automatically fail over to a read-only instance, if one exists,
+    /// when the primary instance fails. You can force a failover when you want to simulate
+    /// a failure of a DB instance for testing. Because each instance in a DB cluster has
+    /// its own endpoint address, you will need to clean up and re-establish any existing
+    /// connections that use those endpoint addresses when the failover is complete.
+    /// </para><para>
+    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
-    [Cmdlet("Remove", "RDSDBSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDBSecurityGroup operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBSecurityGroup"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBSecurityGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDBSecurityGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "RDSDBClusterFailover", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.DBCluster")]
+    [AWSCmdlet("Invokes the FailoverDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"FailoverDBCluster"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
+        "This cmdlet returns a DBCluster object.",
+        "The service call response (type FailoverDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveRDSDBSecurityGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public class StartRDSDBClusterFailoverCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para> The name of the DB security group to delete. </para><note>You cannot delete the default DB security group.</note><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
-        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li><li>Must not be "Default"</li><li>Cannot contain spaces</li></ul>
+        /// <para>A DB cluster identifier to force a failover for. This parameter is not case-sensitive.
+        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
+        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
+        /// hyphens</li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the DBSecurityGroupName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -70,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBSecurityGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSDBSecurityGroup (DeleteDBSecurityGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterIdentifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-RDSDBClusterFailover (FailoverDBCluster)"))
             {
                 return;
             }
@@ -82,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
-            context.DBSecurityGroupName = this.DBSecurityGroupName;
+            context.DBClusterIdentifier = this.DBClusterIdentifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -94,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBSecurityGroupRequest();
+            var request = new FailoverDBClusterRequest();
             
-            if (cmdletContext.DBSecurityGroupName != null)
+            if (cmdletContext.DBClusterIdentifier != null)
             {
-                request.DBSecurityGroupName = cmdletContext.DBSecurityGroupName;
+                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
             }
             
             CmdletOutput output;
@@ -107,11 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteDBSecurityGroup(request);
+                var response = client.FailoverDBCluster(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.DBSecurityGroupName;
+                object pipelineOutput = response.DBCluster;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -137,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSecurityGroupName { get; set; }
+            public String DBClusterIdentifier { get; set; }
         }
         
     }

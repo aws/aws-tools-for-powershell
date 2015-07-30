@@ -1,0 +1,395 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.RDS;
+using Amazon.RDS.Model;
+
+namespace Amazon.PowerShell.Cmdlets.RDS
+{
+    /// <summary>
+    /// Creates a new Amazon Aurora DB cluster. For more information on Amazon Aurora, see
+    /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
+    /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i>
+    /// </summary>
+    [Cmdlet("New", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.DBCluster")]
+    [AWSCmdlet("Invokes the CreateDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBCluster"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
+        "This cmdlet returns a DBCluster object.",
+        "The service call response (type CreateDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class NewRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A list of EC2 Availability Zones that instances in the DB cluster can be created in.
+        /// For information on regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+        /// and Availability Zones</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AvailabilityZones")]
+        public System.String[] AvailabilityZone { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The number of days for which automated backups are retained. Setting this parameter
+        /// to a positive number enables backups. Setting this parameter to 0 disables automated
+        /// backups. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 0 to 35</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 BackupRetentionPeriod { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates that the DB cluster should be associated with the specified
+        /// CharacterSet. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String CharacterSetName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name for your database of up to 8 alpha-numeric characters. If you do not provide
+        /// a name, Amazon RDS will not create a database in the DB cluster you are creating.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String DatabaseName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>First
+        /// character must be a letter.</li><li>Cannot end with a hyphen or contain two consecutive
+        /// hyphens.</li></ul><para>Example: <code>my-cluster1</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String DBClusterIdentifier { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The name of the DB cluster parameter group to associate with this DB cluster. If
+        /// this argument is omitted, <code>default.aurora5.6</code> for the specified engine
+        /// will be used. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
+        /// a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String DBClusterParameterGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A DB subnet group to associate with this DB cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String DBSubnetGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database engine to be used for this DB cluster. </para><para>Valid Values: <code>MySQL</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String Engine { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The version number of the database engine to use. </para><para><b>Aurora</b></para><para>Example: <code>5.6.0</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String EngineVersion { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The name of the master user for the client DB cluster. </para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>First character must be
+        /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String MasterUsername { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The password for the master database user. This password can contain any printable
+        /// ASCII character except "/", """, or "@". </para><para>Constraints: Must contain from 8 to 41 characters. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String MasterUserPassword { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates that the DB cluster should be associated with the specified
+        /// option group. </para><para>Permanent options cannot be removed from an option group. The option group cannot
+        /// be removed from a DB cluster once it is associated with a DB cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String OptionGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The port number on which the instances in the DB cluster accept connections. </para><para> Default: <code>3306</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 Port { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The daily time range during which automated backups are created if automated backups
+        /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>Default: A 30-minute window selected at random from an 8-hour block of time per region.
+        /// To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li>Must be in the format <code>hh24:mi-hh24:mi</code>.</li><li>Times should
+        /// be in Universal Coordinated Time (UTC).</li><li>Must not conflict with the preferred
+        /// maintenance window.</li><li>Must be at least 30 minutes.</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String PreferredBackupWindow { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
+        /// Time (UTC). </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per region,
+        /// occurring on a random day of the week. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String PreferredMaintenanceWindow { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of EC2 VPC security groups to associate with this DB cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcSecurityGroupIds")]
+        public System.String[] VpcSecurityGroupId { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterIdentifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RDSDBCluster (CreateDBCluster)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (this.AvailabilityZone != null)
+            {
+                context.AvailabilityZones = new List<String>(this.AvailabilityZone);
+            }
+            if (ParameterWasBound("BackupRetentionPeriod"))
+                context.BackupRetentionPeriod = this.BackupRetentionPeriod;
+            context.CharacterSetName = this.CharacterSetName;
+            context.DatabaseName = this.DatabaseName;
+            context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
+            context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.Engine = this.Engine;
+            context.EngineVersion = this.EngineVersion;
+            context.MasterUsername = this.MasterUsername;
+            context.MasterUserPassword = this.MasterUserPassword;
+            context.OptionGroupName = this.OptionGroupName;
+            if (ParameterWasBound("Port"))
+                context.Port = this.Port;
+            context.PreferredBackupWindow = this.PreferredBackupWindow;
+            context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Tag>(this.Tag);
+            }
+            if (this.VpcSecurityGroupId != null)
+            {
+                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new CreateDBClusterRequest();
+            
+            if (cmdletContext.AvailabilityZones != null)
+            {
+                request.AvailabilityZones = cmdletContext.AvailabilityZones;
+            }
+            if (cmdletContext.BackupRetentionPeriod != null)
+            {
+                request.BackupRetentionPeriod = cmdletContext.BackupRetentionPeriod.Value;
+            }
+            if (cmdletContext.CharacterSetName != null)
+            {
+                request.CharacterSetName = cmdletContext.CharacterSetName;
+            }
+            if (cmdletContext.DatabaseName != null)
+            {
+                request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.DBClusterIdentifier != null)
+            {
+                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.DBClusterParameterGroupName != null)
+            {
+                request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+            }
+            if (cmdletContext.DBSubnetGroupName != null)
+            {
+                request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
+            }
+            if (cmdletContext.EngineVersion != null)
+            {
+                request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.MasterUsername != null)
+            {
+                request.MasterUsername = cmdletContext.MasterUsername;
+            }
+            if (cmdletContext.MasterUserPassword != null)
+            {
+                request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.OptionGroupName != null)
+            {
+                request.OptionGroupName = cmdletContext.OptionGroupName;
+            }
+            if (cmdletContext.Port != null)
+            {
+                request.Port = cmdletContext.Port.Value;
+            }
+            if (cmdletContext.PreferredBackupWindow != null)
+            {
+                request.PreferredBackupWindow = cmdletContext.PreferredBackupWindow;
+            }
+            if (cmdletContext.PreferredMaintenanceWindow != null)
+            {
+                request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.VpcSecurityGroupIds != null)
+            {
+                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.CreateDBCluster(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.DBCluster;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public List<String> AvailabilityZones { get; set; }
+            public Int32? BackupRetentionPeriod { get; set; }
+            public String CharacterSetName { get; set; }
+            public String DatabaseName { get; set; }
+            public String DBClusterIdentifier { get; set; }
+            public String DBClusterParameterGroupName { get; set; }
+            public String DBSubnetGroupName { get; set; }
+            public String Engine { get; set; }
+            public String EngineVersion { get; set; }
+            public String MasterUsername { get; set; }
+            public String MasterUserPassword { get; set; }
+            public String OptionGroupName { get; set; }
+            public Int32? Port { get; set; }
+            public String PreferredBackupWindow { get; set; }
+            public String PreferredMaintenanceWindow { get; set; }
+            public List<Tag> Tags { get; set; }
+            public List<String> VpcSecurityGroupIds { get; set; }
+        }
+        
+    }
+}
