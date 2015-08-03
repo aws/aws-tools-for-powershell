@@ -29,12 +29,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates a new cloud function or updates an existing function. The function metadata
-    /// is created from the request parameters and the code for the function is provided by
-    /// a .zip file in the request body. If the function name already exists, the existing
-    /// cloud function is updated with the new code and metadata. 
-    /// 
-    ///  
+    /// Creates a new Lambda function. If the function name already exists, the operation will fail. 
+	/// Note that the function name is case-sensitive. 
     /// <para>
     /// This operation requires permission for the <code>lambda:CreateFunction</code> action.
     /// </para>
@@ -48,102 +44,72 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public class PublishLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Description. 
-        /// <para>
         /// A short user-defined function description. Lambda does not use this value. Assign
         /// a meaningful description as you see fit.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
         public String Description { get; set; }
         
         /// <summary>
-        /// <para>
-        /// Gets and sets the property FunctionName. 
-        /// <para>
-        /// The name you want to assign to the function you are uploading. The function names
-        /// appear in the console, and are returned in the <a>ListFunctions</a> API. Function
-        /// names are used to specify cloud functions to other Lambda APIs, such as <a>InvokeAsync</a>.
-        /// 
-        /// </para>
-        /// </para>
+        /// The name you want to assign to the function you are uploading. You can specify an
+        /// unqualified function name (for example, "Thumbnail") or you can specify Amazon Resource
+        /// Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
+        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
+        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
+        /// If you specify only the function name, it is limited to 64 character in length. The
+        /// function names appear in the console and are returned in the <a>ListFunctions</a>
+        /// API. Function names are used to specify functions to other AWS Lambda APIs, such as
+        /// <a>Invoke</a>. 
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public String FunctionName { get; set; }
         
         /// <summary>
-        /// <para>
-        /// Gets and sets the property FunctionZip. 
-        /// <para>
         /// A file path to the zip file containing your packaged source code.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Position = 1)]
         public string FunctionZip { get; set; }
         
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Handler. 
-        /// <para>
-        /// The function that Lambda calls to begin executing your cloud function. For Node.js,
-        /// it is the <i>module-name</i>.<i>export</i> value in your function. 
-        /// </para>
-        /// </para>
+        /// The function within your code that Lambda calls to begin execution. For Node.js, it
+        /// is the <i>module-name</i>.<i>export</i> value in your function. For Java, it can be
+        /// <code>package.class-name::handler</code> or <code>package.class-name</code>. For more
+        /// information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html">Lambda
+        /// Function Handler (Java)</a>. 
         /// </summary>
         [Parameter(Position = 2)]
         public String Handler { get; set; }
         
         /// <summary>
-        /// <para>
-        /// Gets and sets the property MemorySize. 
-        /// <para>
-        /// The amount of memory, in MB, your cloud function is given. Lambda uses this memory
-        /// size to infer the amount of CPU allocated to your function. Your function use-case
-        /// determines your CPU and memory requirements. For example, database operation might
-        /// need less memory compared to image processing function. The default value is 128 MB.
-        /// The value must be a multiple of 64 MB.
-        /// </para>
-        /// </para>
+        /// The amount of memory, in MB, your Lambda function is given. Lambda uses this memory
+        /// size to infer the amount of CPU and memory allocated to your function. Your function
+        /// use-case determines your CPU and memory requirements. For example, a database operation
+        /// might need less memory compared to an image processing function. The default value
+        /// is 128 MB. The value must be a multiple of 64 MB.
         /// </summary>
         [Parameter]
         public Int32? MemorySize { get; set; }
         
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Role. 
-        /// <para>
         /// The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes
-        /// your cloud function to access any other Amazon Web Services (AWS) resources. 
-        /// </para>
-        /// </para>
+        /// your function to access any other Amazon Web Services (AWS) resources. For more information,
+        /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS
+        /// Lambda: How it Works</a> 
         /// </summary>
         [Parameter(Position = 4)]
         public String Role { get; set; }
         
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Runtime. 
-        /// <para>
-        /// The runtime environment for the cloud function you are uploading. Currently, Lambda
-        /// supports only "nodejs" as the runtime.
-        /// </para>
-        /// </para>
+        /// The runtime environment for the Lambda function you are uploading. Currently, Lambda
+        /// supports "java" and "nodejs" as the runtime.
         /// </summary>
         [Parameter(Position = 3)]
         public Amazon.Lambda.Runtime Runtime { get; set; }
         
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Timeout. 
-        /// <para>
         /// The function execution time at which Lambda should terminate the function. Because
         /// the execution time has cost implications, we recommend you set this value based on
         /// your expected execution time. The default is 3 seconds. 
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
         public Int32? Timeout { get; set; }
