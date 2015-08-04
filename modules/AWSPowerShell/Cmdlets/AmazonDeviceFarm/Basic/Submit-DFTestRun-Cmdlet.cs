@@ -58,6 +58,15 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         /// <summary>
         /// <para>
+        /// <para>Specifies the billing method for a test run: <code>metered</code> or <code>unmetered</code>.
+        /// If the parameter is not specified, the default value is <code>unmetered</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public BillingMethod Configuration_BillingMethod { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>True if Bluetooth is enabled at the beginning of the test; otherwise, false.</para>
         /// </para>
         /// </summary>
@@ -135,8 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         /// <summary>
         /// <para>
-        /// <para>The ARN of the network profile for the run. A network profile describes network shaping
-        /// parameters that are used to shape a Wi-Fi signal and to simulate various network environments.</para>
+        /// <para>Reserved for internal use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -178,7 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         /// <summary>
         /// <para>
-        /// <para>The test's type.</para><para>Must be one of the following values:</para><ul><li><para>ANDROID_APP: An Android app.</para></li><li><para>APPIUM_JAVA_TEST_PACKAGE: An Appium Java test package.</para></li><li><para>CALABASH_TEST_PACKAGE: A Calabash test package.</para></li><li><para>EXTERNAL_DATA: External data.</para></li><li><para>INSTRUMENTATION_TEST_PACKAGE: An instrumentation test package.</para></li><li><para>IOS_APP: An iOS app.</para></li><li><para>UIAUTOMATION_TEST_PACKAGE: A UI Automation test package.</para></li><li><para>UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package.</para></li><li><para>XCTEST_TEST_PACKAGE: An XCTest test package.</para></li></ul>
+        /// <para>The test's type.</para><para>Must be one of the following values:</para><ul><li><para>BUILTIN_FUZZ: The built-in fuzz type.</para></li><li><para>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app,
+        /// interacting with it and capturing screenshots at the same time.</para></li><li><para>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</para></li><li><para>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</para></li><li><para>CALABASH: The Calabash type.</para></li><li><para>INSTRUMENTATION: The Instrumentation type.</para></li><li><para>UIAUTOMATION: The uiautomation type.</para></li><li><para>UIAUTOMATOR: The uiautomator type.</para></li><li><para>XCTEST: The XCode test type.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -223,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 context.Configuration_AuxiliaryApps = new List<String>(this.Configuration_AuxiliaryApp);
             }
+            context.Configuration_BillingMethod = this.Configuration_BillingMethod;
             context.Configuration_ExtraDataPackageArn = this.Configuration_ExtraDataPackageArn;
             context.Configuration_Locale = this.Configuration_Locale;
             if (ParameterWasBound("Location_Latitude"))
@@ -281,6 +291,16 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (requestConfiguration_configuration_AuxiliaryApp != null)
             {
                 request.Configuration.AuxiliaryApps = requestConfiguration_configuration_AuxiliaryApp;
+                requestConfigurationIsNull = false;
+            }
+            BillingMethod requestConfiguration_configuration_BillingMethod = null;
+            if (cmdletContext.Configuration_BillingMethod != null)
+            {
+                requestConfiguration_configuration_BillingMethod = cmdletContext.Configuration_BillingMethod;
+            }
+            if (requestConfiguration_configuration_BillingMethod != null)
+            {
+                request.Configuration.BillingMethod = requestConfiguration_configuration_BillingMethod;
                 requestConfigurationIsNull = false;
             }
             String requestConfiguration_configuration_ExtraDataPackageArn = null;
@@ -506,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             public String AppArn { get; set; }
             public List<String> Configuration_AuxiliaryApps { get; set; }
+            public BillingMethod Configuration_BillingMethod { get; set; }
             public String Configuration_ExtraDataPackageArn { get; set; }
             public String Configuration_Locale { get; set; }
             public Double? Configuration_Location_Latitude { get; set; }

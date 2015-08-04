@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     {
         /// <summary>
         /// <para>
-        /// <para>The device pools' ARNs.</para>
+        /// <para>The project ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
