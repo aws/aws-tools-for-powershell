@@ -34,6 +34,7 @@
     <ServiceOperation MethodName="GetSuite"/>
     <ServiceOperation MethodName="GetTest"/>
     <ServiceOperation MethodName="GetUpload"/>
+    <ServiceOperation MethodName="GetAccountSettings" Noun="AccountSettingList"/>
     <ServiceOperation MethodName="ListArtifacts" Noun="ArtifactList"/>
     <ServiceOperation MethodName="ListDevicePools" Noun="DevicePoolList"/>
     <ServiceOperation MethodName="ListDevices" Noun="DeviceList"/>

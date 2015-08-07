@@ -482,6 +482,7 @@ Set-Alias -Name Create-DFProject -Value New-DFProject
 Set-Alias -Name DF-CreateProject -Value New-DFProject
 Set-Alias -Name Create-DFUpload -Value New-DFUpload
 Set-Alias -Name DF-CreateUpload -Value New-DFUpload
+Set-Alias -Name DF-GetAccountSettings -Value Get-DFAccountSettingList
 Set-Alias -Name DF-GetDevice -Value Get-DFDevice
 Set-Alias -Name DF-GetDevicePool -Value Get-DFDevicePool
 Set-Alias -Name DF-GetDevicePoolCompatibility -Value Get-DFDevicePoolCompatibility
