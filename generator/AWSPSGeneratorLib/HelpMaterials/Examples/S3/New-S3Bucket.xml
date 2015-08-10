@@ -6,10 +6,10 @@
   </example>
   <example>
     <code>Get-S3Bucket -BucketName sample-bucket -PublicReadWrite</code>
-    <description>This command creates a new bucket named "sample-bucket" with read-only permissions.</description>
+    <description>This command creates a new bucket named "sample-bucket" with read-write permissions.</description>
   </example>
   <example>
     <code>Get-S3Bucket -BucketName sample-bucket -PublicReadOnly</code>
-    <description>This command creates a new bucket named "sample-bucket" with read-write permissions.</description>
+    <description>This command creates a new bucket named "sample-bucket" with read-only permissions.</description>
   </example>
 </examples>
