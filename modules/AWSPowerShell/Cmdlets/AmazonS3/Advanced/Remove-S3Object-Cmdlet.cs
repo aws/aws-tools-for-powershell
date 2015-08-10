@@ -85,12 +85,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public string[] KeyCollection { get; set; }
 
         /// <summary>
-        /// If set, the service response includes only those keys for objects on which
-        /// the delete operation failed. By default this switch is not set and keys for 
-        /// both successful deletes and failures are returned in the response.
+        /// <para>
+        /// If set when deleting multiple objects the service response will include only those 
+        /// keys for objects on which the delete operation failed. By default this switch is not 
+        /// set and keys for both successful multi-object deletes and failures are returned in the 
+        /// response.
+        /// </para>
+        /// <para>
+        /// This parameter is used only when deleting multiple objects using the <code>-KeyCollection</code>
+        /// parameter.
+        /// </para>
         /// </summary>
+        [Alias("Quiet")]
         [Parameter(ParameterSetName = Paramset_MultipleObject)]
-        public SwitchParameter Quiet { get; set; }
+        public SwitchParameter ReportErrorsOnly { get; set; }
 
         #endregion
 
@@ -168,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (this.InputObject != null && this.InputObject.Length > 0)
                     context.InputObjects = new List<S3Object>(this.InputObject);
 
-                if (this.Quiet.IsPresent)
+                if (this.ReportErrorsOnly.IsPresent)
                     context.Quiet = true;
             }
 

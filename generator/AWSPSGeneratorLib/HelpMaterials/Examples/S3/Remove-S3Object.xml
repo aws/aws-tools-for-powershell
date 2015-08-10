@@ -2,10 +2,14 @@
 <examples>
   <example>
     <code>Remove-S3Object -BucketName test-files -Key sample.txt</code>
-    <description>This command removes item "sample.txt" from bucket "test-files".</description>
+    <description>This command removes item "sample.txt" from bucket "test-files". You are prompted for confirmation before the command executes; to suppress the prompt use the <i>-Force</i> switch.</description>
   </example>
   <example>
-    <code>Remove-S3Object -BucketName test-files -Keys @( "sample1.txt", "sample2.txt", "sample3.txt" )</code>
-    <description>This command removes items "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files".</description>
+    <code>Remove-S3Object -BucketName test-files -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" )</code>
+    <description>This command removes items "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files". The service response will list all keys processed, regardless of the success or error status of the deletion. You are prompted for confirmation before the command executes; to suppress the prompt use the <i>-Force</i> switch.</description>
+  </example>
+  <example>
+    <code>Remove-S3Object -BucketName test-files -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" ) -ReportErrorsOnly</code>
+    <description>This command removes items "sample1.txt", "sample2.txt" and "sample3.txt" from bucket "test-files". If errors occur deleting one or more of the objects identified by the keys the service response will detail only the keys in error. You are prompted for confirmation before the command executes; to suppress the prompt use the <i>-Force</i> switch. The alias <i>-Quiet</i> can be used for the <i>-ReportErrorsOnly</i> parameter.</description>
   </example>
 </examples>
