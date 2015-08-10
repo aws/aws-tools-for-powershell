@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline=true)]
         public object[] Instance { get; set; }
-        
+
         /// <summary>
         /// <para>
         /// A set of filters used to match system-defined properties and user-defined tags associated with
@@ -64,6 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Available filters: 
         /// <ul>
         /// <li><c>architecture</c> - The instance architecture (<c>i386</c> | <c>x86_64</c>).</li> 
+        /// <li><c>association.public-ip</c> - The address of the Elastic IP address bound to the network interface.</li> 
+        /// <li><c>association.ip-owner-id</c> - The owner of the Elastic IP address associated with the network interface.</li> 
+        /// <li><c>association.allocation-id</c> - The allocation ID returned when you allocated the Elastic IP address for your network interface.</li> 
+        /// <li><c>association.association-id</c> - The association ID returned when the network interface was associated with an IP address.</li> 
         /// <li><c>availability-zone</c> - The Availability Zone of the instance.</li>
         /// <li><c>block-device-mapping.attach-time</c> - The attach time for an Amazon EBS volume mapped to the instance.</li> 
         /// <li><c>block-device-mapping.delete-on-termination</c> - A Boolean that indicates whether the Amazon EBS volume is deleted on instance termination.</li> 
@@ -88,6 +92,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <li><c>launch-index</c> - When launching multiple instances, this is the index for the instance in the launch group (for example, 0, 1, 2, and so on).</li> 
         /// <li><c>launch-time</c> - The time when the instance was launched.</li> 
         /// <li><c>monitoring-state</c> - Indicates whether monitoring is enabled for the instance (<c>disabled</c> | <c>enabled</c>).</li> 
+        /// <li><c>network-interface.description</c> - The description of the network interface.</li> 
+        /// <li><c>network-interface.subnet-id</c> - The ID of the subnet for the network interface.</li> 
+        /// <li><c>network-interface.vpc-id</c> - The ID of the VPC for the network interface.</li> 
+        /// <li><c>network-interface.network-interface-id</c> - The ID of the network interface.</li> 
+        /// <li><c>network-interface.owner-id</c> - The ID of the owner of the network interface.</li> 
+        /// <li><c>network-interface.availability-zone</c> - The Availability Zone for the network interface.</li> 
+        /// <li><c>network-interface.requester-id</c> - The requester ID for the network interface.</li> 
+        /// <li><c>network-interface.requester-managed</c> - Indicates whether the network interface is being managed by AWS.</li>
+        /// <li><c>network-interface.status</c> - The status of the network interface (<c>available</c>) | <c>in-use</c>).</li> 
+        /// <li><c>network-interface.mac-address</c> - The MAC address of the network interface.</li> 
+        /// <li><c>network-interface-private-dns-name</c> - The private DNS name of the network interface.</li> 
+        /// <li><c>network-interface.source-destination-check</c> - Whether the network interface performs source/destination checking. A value of <c>true</c> means checking is enabled, and <c>false</c> means checking is disabled. The
+        /// value must be <c>false</c> for the network interface to perform network address translation (NAT) in your VPC.</li> 
+        /// <li><c>network-interface.group-id</c> - The ID of a security group associated with the network interface.</li> 
+        /// <li><c>network-interface.group-name</c> - The name of a security group associated with the network interface.</li> 
+        /// <li><c>network-interface.attachment.attachment-id</c> - The ID of the interface attachment.</li> 
+        /// <li><c>network-interface.attachment.instance-id</c> - The ID of the instance to which the network interface is attached.</li> 
+        /// <li><c>network-interface.attachment.instance-owner-id</c> - The owner ID of the instance to which the network interface is attached.</li> 
+        /// <li><c>network-interface.addresses.private-ip-address</c> - The private IP address associated with the network interface.</li> 
+        /// <li><c>network-interface.attachment.device-index</c> - The device index to which the network interface is attached.</li> 
+        /// <li><c>network-interface.attachment.status</c> - The status of the attachment (<c>attaching</c> | <c>attached</c> | <c>detaching</c> |
+        /// <c>detached</c>). </li> <li> <c>network-interface.attachment.attach-time</c> - The time that the network interface was attached to an
+        /// instance.</li>
+        /// <li><c>network-interface.attachment.delete-on-termination</c> - Specifies whether the attachment is deleted when an instance is terminated.</li> 
+        /// <li><c>network-interface.addresses.primary</c> - Specifies whether the IP address of the network interface is the primary private IP address.</li> 
+        /// <li><c>network-interface.addresses.association.public-ip</c> - The ID of the association of an Elastic IP address with a network interface.</li> 
+        /// <li><c>network-interface.addresses.association.ip-owner-id</c> - The owner ID of the private IP address associated with the network interface.</li> 
         /// <li><c>owner-id</c> - The AWS account ID of the instance owner.</li>
         /// <li><c>placement-group-name</c> - The name of the placement group for the instance.</li> 
         /// <li><c>platform</c> - The platform. Use <c>windows</c> if you have Windows instances; otherwise, leave blank.</li> 
@@ -115,37 +146,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <li><c>tag-value</c> - The value of a tag assigned to the resource. This filter is independent of the <c>tag-key</c> filter.</li> 
         /// <li><c>virtualization-type</c> - The virtualization type of the instance (<c>paravirtual</c> | <c>hvm</c>).</li> 
         /// <li><c>vpc-id</c> - The ID of the VPC that the instance is running in.</li> 
-        /// <li><c>network-interface.description</c> - The description of the network interface.</li> 
-        /// <li><c>network-interface.subnet-id</c> - The ID of the subnet for the network interface.</li> 
-        /// <li><c>network-interface.vpc-id</c> - The ID of the VPC for the network interface.</li> 
-        /// <li><c>network-interface.network-interface.id</c> - The ID of the network interface.</li> 
-        /// <li><c>network-interface.owner-id</c> - The ID of the owner of the network interface.</li> 
-        /// <li><c>network-interface.availability-zone</c> - The Availability Zone for the network interface.</li> 
-        /// <li><c>network-interface.requester-id</c> - The requester ID for the network interface.</li> 
-        /// <li><c>network-interface.requester-managed</c> - Indicates whether the network interface is being managed by AWS.</li>
-        /// <li><c>network-interface.status</c> - The status of the network interface (<c>available</c>) | <c>in-use</c>).</li> 
-        /// <li><c>network-interface.mac-address</c> - The MAC address of the network interface.</li> 
-        /// <li><c>network-interface-private-dns-name</c> - The private DNS name of the network interface.</li> 
-        /// <li><c>network-interface.source-destination-check</c> - Whether the network interface performs source/destination checking. A value of <c>true</c> means checking is enabled, and <c>false</c> means checking is disabled. The
-        /// value must be <c>false</c> for the network interface to perform network address translation (NAT) in your VPC.</li> 
-        /// <li><c>network-interface.group-id</c> - The ID of a security group associated with the network interface.</li> 
-        /// <li><c>network-interface.group-name</c> - The name of a security group associated with the network interface.</li> 
-        /// <li><c>network-interface.attachment.attachment-id</c> - The ID of the interface attachment.</li> 
-        /// <li><c>network-interface.attachment.instance-id</c> - The ID of the instance to which the network interface is attached.</li> 
-        /// <li><c>network-interface.attachment.instance-owner-id</c> - The owner ID of the instance to which the network interface is attached.</li> 
-        /// <li><c>network-interface.addresses.private-ip-address</c> - The private IP address associated with the network interface.</li> 
-        /// <li><c>network-interface.attachment.device-index</c> - The device index to which the network interface is attached.</li> 
-        /// <li><c>network-interface.attachment.status</c> - The status of the attachment (<c>attaching</c> | <c>attached</c> | <c>detaching</c> |
-        /// <c>detached</c>). </li> <li> <c>network-interface.attachment.attach-time</c> - The time that the network interface was attached to an
-        /// instance.</li>
-        /// <li><c>network-interface.attachment.delete-on-termination</c> - Specifies whether the attachment is deleted when an instance is terminated.</li> 
-        /// <li><c>network-interface.addresses.primary</c> - Specifies whether the IP address of the network interface is the primary private IP address.</li> 
-        /// <li><c>network-interface.addresses.association.public-ip</c> - The ID of the association of an Elastic IP address with a network interface.</li> 
-        /// <li><c>network-interface.addresses.association.ip-owner-id</c> - The owner ID of the private IP address associated with the network interface.</li> 
-        /// <li><c>association.public-ip</c> - The address of the Elastic IP address bound to the network interface.</li> 
-        /// <li><c>association.ip-owner-id</c> - The owner of the Elastic IP address associated with the network interface.</li> 
-        /// <li><c>association.allocation-id</c> - The allocation ID returned when you allocated the Elastic IP address for your network interface.</li> 
-        /// <li><c>association.association-id</c> - The association ID returned when the network interface was associated with an IP address.</li> 
         /// </ul>
         /// </para>
         /// </summary>
