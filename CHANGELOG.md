@@ -1,3 +1,6 @@
+### 3.1.4.0 (2015-08-06)
+  * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
+  
 ### 3.1.3.0 (2015-08-04)
   * DeviceFarm
 	  - Updated DeviceFarm cmdlets with latest service features, adding support for iOS and retrieving account settings.
