@@ -149,13 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             string decryptedPassword = null;
             try
             {
-                this.Host.UI.WriteLine(string.Format("Retrieving keyname from running instance {0}", instanceId));
+                WriteVerbose(string.Format("Retrieving keyname from running instance {0}", instanceId));
                 var request = new DescribeInstancesRequest();
                 request.InstanceIds.Add(instanceId);
                 var response = Client.DescribeInstances(request);
                 string keyName = response.Reservations[0].Instances[0].KeyName;
 
-                this.Host.UI.WriteLine(string.Format("Retrieved keyname {0}, decrypting password data", keyName));
+                WriteVerbose(string.Format("Retrieved keyname {0}, decrypting password data", keyName));
                 string accountSettingsKey = LookupAccountSettingsKey(this.CurrentCredentials.GetCredentials().AccessKey);
                 if (string.IsNullOrEmpty(accountSettingsKey))
                     throw new InvalidOperationException("Unable to determine stored account settings from access key");

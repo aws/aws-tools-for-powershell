@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Common
         public const string SecretKeyFieldName = "AWS Secret Key";
         public const string RegionFieldName = "Region System Name";
 
-        const string CredentialsSourceMsg = "INFO: Credentials loaded from {0}.";
+        const string CredentialsSourceMsg = "Credentials loaded from {0}.";
 
         internal static string CredentialsSourceMessage(AWSPSCredentials creds)
         {
@@ -67,18 +67,18 @@ namespace Amazon.PowerShell.Common
             {
                 if (commonArguments.TryGetCredentials(out passedCredentials))
                 {
-                    Host.UI.WriteLine(string.Format("{0}: Credentials for this shell were set using {1}",
-                                                    MyInvocation.MyCommand.Name,
-                                                    ServiceCmdlet.FormatCredentialSourceForDisplay(passedCredentials)));
+                    WriteVerbose(string.Format("{0}: Credentials for this shell were set using {1}",
+                                               MyInvocation.MyCommand.Name,
+                                               ServiceCmdlet.FormatCredentialSourceForDisplay(passedCredentials)));
                 }
 
                 RegionSource regionSource;
                 if (commonArguments.TryGetRegion(out passedRegion, out regionSource))
                 {
-                    Host.UI.WriteLine(string.Format("{0}: Region '{1}' was set for this shell using {2}",
-                                                    MyInvocation.MyCommand.Name, 
-                                                    passedRegion.SystemName,
-                                                    ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
+                    WriteVerbose(string.Format("{0}: Region '{1}' was set for this shell using {2}",
+                                               MyInvocation.MyCommand.Name, 
+                                               passedRegion.SystemName,
+                                               ServiceCmdlet.FormatRegionSourceForDisplay(regionSource)));
                 }
             }
 
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Common
             if (shouldSaveCredentials || shouldSaveRegion)
             {
                 SettingsStore.Save(SettingsStore.PSDefaultSettingName, defaultCredentials.Credentials, region);
-                Host.UI.WriteLine(string.Format("Default credentials and/or region have been stored to credentials profile '{0}' and set active for this shell.", SettingsStore.PSDefaultSettingName));
+                WriteVerbose(string.Format("Default credentials and/or region have been stored to credentials profile '{0}' and set active for this shell.", SettingsStore.PSDefaultSettingName));
             }
 
             this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, defaultCredentials);
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Common
         {
             if (region != null && passedRegion == null)
             {
-                Host.UI.WriteLine("Default region already set, skipping");
+                WriteVerbose("Default region already set, skipping");
                 return false;
             }
 
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Common
             // If default is already set and no credentials are passed in, exit
             if (credentialsToUse != null && passedCredentials == null)
             {
-                Host.UI.WriteLine("Default credentials already set, skipping.");
+                WriteVerbose("Default credentials already set, skipping.");
                 return false;
             }
 

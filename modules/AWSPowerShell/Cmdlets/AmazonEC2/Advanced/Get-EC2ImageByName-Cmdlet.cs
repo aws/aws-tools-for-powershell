@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         var msg = string.Format("'{0}' may be deprecated at some future time.\r\nUse the version-independent replacement '{1}' to ensure your script always works.", 
                                                 name,
                                                 imageDescriptor.DefinitionKey);
-                        this.Host.UI.WriteWarningLine(msg);
+                        WriteWarning(msg);
 
                         patterns.Add(imageDescriptor.NamePrefix);
                         continue;
@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                                 name,
                                 imageDescriptor.NamePrefix,
                                 DeprecatedNameSet[name]);
-                        this.Host.UI.WriteWarningLine(msg);
+                        WriteWarning(msg);
 
                         patterns.Add(imageDescriptor.NamePrefix);
                     }

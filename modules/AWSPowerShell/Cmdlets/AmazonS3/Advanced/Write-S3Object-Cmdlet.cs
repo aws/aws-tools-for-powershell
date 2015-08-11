@@ -510,11 +510,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var tracker = new UploadFolderProgressTracker(runner, handler => request.UploadDirectoryProgressEvent += handler, cmdletContext.Folder);
                 output = runner.SafeRun(() => tu.UploadDirectory(request), tracker);
 
-                this.Host.UI.WriteLine(string.Format("Uploaded {0} object(s) to bucket '{1}' from '{2}' with keyprefix '{3}'",
-                                                     tracker.UploadedCount,
-                                                     cmdletContext.BucketName,
-                                                     cmdletContext.Folder,
-                                                     cmdletContext.OriginalKeyPrefix));
+                WriteVerbose(string.Format("Uploaded {0} object(s) to bucket '{1}' from '{2}' with keyprefix '{3}'",
+                                           tracker.UploadedCount,
+                                           cmdletContext.BucketName,
+                                           cmdletContext.Folder,
+                                           cmdletContext.OriginalKeyPrefix));
             }
 
             return output;

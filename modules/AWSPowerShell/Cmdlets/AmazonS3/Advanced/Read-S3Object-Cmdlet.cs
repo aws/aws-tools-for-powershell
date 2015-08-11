@@ -252,11 +252,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (output.ErrorResponse == null)
                     output.PipelineOutput = new DirectoryInfo(cmdletContext.Folder);
 
-                this.Host.UI.WriteLine(string.Format("Downloaded {0} object(s) from bucket '{1}' with keyprefix '{2}' to '{3}'",
-                                                     tracker.DownloadedCount,
-                                                     cmdletContext.BucketName,
-                                                     cmdletContext.OriginalKeyPrefix,
-                                                     cmdletContext.Folder));
+                WriteVerbose(string.Format("Downloaded {0} object(s) from bucket '{1}' with keyprefix '{2}' to '{3}'",
+                                           tracker.DownloadedCount,
+                                           cmdletContext.BucketName,
+                                           cmdletContext.OriginalKeyPrefix,
+                                           cmdletContext.Folder));
             }
 
             return output;

@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Common
                                                                 this));
                 }
                 else
-                    Host.UI.WriteLine(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
+                {
+                    // used to be equivalent of write-host but got customer feedback that the inability to
+                    // suppress it interfered with console output (https://forums.aws.amazon.com/thread.jspa?threadID=211600&tstart=0).
+                    WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
+                }
             }
             else
             {
@@ -109,7 +113,7 @@ namespace Amazon.PowerShell.Common
                                                                 this));
                 }
                 else
-                    Host.UI.WriteLine(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
+                    WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
             }
             else
             {
