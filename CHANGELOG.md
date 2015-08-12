@@ -1,3 +1,7 @@
+### 3.1.5.0 (2015-08-12)
+  * AWS Elastic Beanstalk
+	  - Added new cmdlets for getting environment and instance health. The new cmdlets are Get-EBEnvironmentHealth (DescribeEnvironmentHealth) and Get-EBInstanceHealth (DescribeInstancesHealth).
+
 ### 3.1.4.0 (2015-08-06)
   * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
   
