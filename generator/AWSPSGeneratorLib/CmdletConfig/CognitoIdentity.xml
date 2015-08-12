@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CGI</ServiceNounPrefix>
+  <ServiceNamespace>Amazon.CognitoIdentity</ServiceNamespace>
+  <ServiceClientInterface>IAmazonCognitoIdentity</ServiceClientInterface>
+  <ServiceClient>AmazonCognitoIdentityClient</ServiceClient>
+
+  <PipelineParameter>IdentityPoolId</PipelineParameter>
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="60" />
+
+  <NounMappings>
+    <Map From="IdentityPoolRoles" To="IdentityPoolRole" />
+  </NounMappings>
+
+  <ServiceOperations>
+
+    <!-- Identity Pool CRUD operations -->
+    <ServiceOperation MethodName="ListIdentityPools" Verb="Get" Noun="IdentityPoolList" />
+    <ServiceOperation MethodName="DescribeIdentityPool" Output="Response" Verb="Get" />
+    <ServiceOperation MethodName="CreateIdentityPool" PipelineParameter="IdentityPoolName" Output="Response" />
+    <ServiceOperation MethodName="DeleteIdentityPool" Output="Void" />
+    <ServiceOperation MethodName="UpdateIdentityPool" Output="Response" />
+
+    <!-- Identity Pool Role operations -->
+    <ServiceOperation MethodName="GetIdentityPoolRoles" Output="Response" />
+    <ServiceOperation MethodName="SetIdentityPoolRoles" Output="Void" />
+
+    <!-- Excluded operations -->
+    <ServiceOperation MethodName="DeleteIdentities" Exclude="true"/>
+    <ServiceOperation MethodName="DescribeIdentity" Exclude="true"/>
+    <ServiceOperation MethodName="GetCredentialsForIdentity" Exclude="true"/>
+    <ServiceOperation MethodName="GetId" Exclude="true"/>
+    <ServiceOperation MethodName="GetOpenIdToken" Exclude="true"/>
+    <ServiceOperation MethodName="GetOpenIdTokenForDeveloperIdentity" Exclude="true"/>
+    <ServiceOperation MethodName="ListIdentities" Exclude="true"/>
+    <ServiceOperation MethodName="LookupDeveloperIdentity" Exclude="true"/>
+    <ServiceOperation MethodName="MergeDeveloperIdentities" Exclude="true"/>
+    <ServiceOperation MethodName="UnlinkDeveloperIdentity" Exclude="true"/>
+    <ServiceOperation MethodName="UnlinkIdentity" Exclude="true"/>
+
+  </ServiceOperations>
+  
+</ConfigModel>

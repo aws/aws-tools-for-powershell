@@ -101,6 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
                 _nextMarker = cmdletContext.Marker;
@@ -108,9 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
             {
                 // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, we rely on the service
-                // ignoring the set maximum and giving us 100 items back. We'll
-                // make further calls to satisfy the user's request.
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 100 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxItems;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
@@ -124,6 +127,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
                         request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxItems))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxItems);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -171,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     // what's left to match the user's request.
                     
                     var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < 100)
+                    if (_remainingItems < _pageSize)
                     {
                         _emitLimit = _remainingItems;
                     }

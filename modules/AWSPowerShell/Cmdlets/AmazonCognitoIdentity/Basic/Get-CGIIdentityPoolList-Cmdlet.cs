@@ -22,60 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53;
-using Amazon.Route53.Model;
+using Amazon.CognitoIdentity;
+using Amazon.CognitoIdentity.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53
+namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// To retrieve a list of your hosted zones, send a <code>GET</code> request to the <code>2013-04-01/hostedzone</code>
-    /// resource. The response to this request includes a <code>HostedZones</code> element
-    /// with zero, one, or multiple <code>HostedZone</code> child elements. By default, the
-    /// list of hosted zones is displayed on a single page. You can control the length of
-    /// the page that is displayed by using the <code>MaxItems</code> parameter. You can use
-    /// the <code>Marker</code> parameter to control the hosted zone that the list begins
-    /// with. 
+    /// Lists all of the Cognito identity pools registered for your account.
     /// 
-    ///  <note> Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value
-    /// greater than 100, Amazon Route 53 returns only the first 100.</note>
+    ///  
+    /// <para>
+    /// This is a public API. You do not need any credentials to call this API.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "R53HostedZones")]
-    [OutputType("Amazon.Route53.Model.HostedZone")]
-    [AWSCmdlet("Invokes the ListHostedZones operation against AWS Route 53.", Operation = new[] {"ListHostedZones"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.HostedZone",
-        "This cmdlet returns a collection of HostedZone objects.",
-        "The service call response (type ListHostedZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), IsTruncated (type Boolean), NextMarker (type String), MaxItems (type String)"
+    [Cmdlet("Get", "CGIIdentityPoolList")]
+    [OutputType("Amazon.CognitoIdentity.Model.IdentityPoolShortDescription")]
+    [AWSCmdlet("Invokes the ListIdentityPools operation against Amazon Cognito Identity.", Operation = new[] {"ListIdentityPools"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentity.Model.IdentityPoolShortDescription",
+        "This cmdlet returns a collection of IdentityPoolShortDescription objects.",
+        "The service call response (type ListIdentityPoolsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
     )]
-    public class GetR53HostedZonesCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class GetCGIIdentityPoolListCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public String DelegationSetId { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>If the request returned more than one page of results, submit another request and
-        /// specify the value of <code>NextMarker</code> from the last response in the <code>marker</code>
-        /// parameter to get the next page of results.</para>
+        /// The maximum number of identities to return.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("NextToken")]
-        public String Marker { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>Specify the maximum number of hosted zones to return per page of results.</para>
+        /// A pagination token.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int MaxItem { get; set; }
+        public String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -88,10 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
-            context.Marker = this.Marker;
-            if (ParameterWasBound("MaxItem"))
-                context.MaxItems = this.MaxItem;
-            context.DelegationSetId = this.DelegationSetId;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -104,56 +88,52 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListHostedZonesRequest();
-            if (cmdletContext.DelegationSetId != null)
-            {
-                request.DelegationSetId = cmdletContext.DelegationSetId;
-            }
+            var request = new ListIdentityPoolsRequest();
             
             // Initialize loop variants and commence piping
             String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
-            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            int? _pageSize = 60;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
-                _nextMarker = cmdletContext.Marker;
+                _nextMarker = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                // The service has a maximum page size of 100. If the user has
+                // The service has a maximum page size of 60. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
+                // and giving us 60 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxItems;
+                _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
             bool _continueIteration = true;
             
             try
             {
                 do
                 {
-                    request.Marker = _nextMarker;
+                    request.NextToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     if (AutoIterationHelpers.HasValue(_pageSize))
                     {
                         int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxItems))
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
                         {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxItems);
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
                         }
                         else
                         {
                             correctPageSize = _pageSize.Value;
                         }
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -162,27 +142,24 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     try
                     {
                         
-                        var response = client.ListHostedZones(request);
+                        var response = client.ListIdentityPools(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.HostedZones;
+                        object pipelineOutput = response.IdentityPools;
                         notes = new Dictionary<string, object>();
-                        notes["Marker"] = response.Marker;
-                        notes["IsTruncated"] = response.IsTruncated;
-                        notes["NextMarker"] = response.NextMarker;
-                        notes["MaxItems"] = response.MaxItems;
+                        notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.HostedZones.Count;
+                        int _receivedThisCall = response.IdentityPools.Count;
                         if (_userControllingPaging)
                         {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
-                        _nextMarker = response.NextMarker;
+                        _nextMarker = response.NextToken;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -196,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // The service has a maximum page size of 60 and the user has set a retrieval limit.
                     // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
                     // what's left to match the user's request.
                     
@@ -229,9 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public int? MaxItems { get; set; }
-            public String DelegationSetId { get; set; }
+            public int? MaxResults { get; set; }
+            public String NextToken { get; set; }
         }
         
     }

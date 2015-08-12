@@ -99,12 +99,18 @@
     <None Include="FormatConfig\Configs.xml" />
     <None Include="CmdletConfig\EC2.xml" />
     <None Include="CmdletConfig\ECS.xml" />
-    <None Include="CmdletConfig\Beanstalk.xml" />
+    <None Include="CmdletConfig\Beanstalk.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\RDS.xml" />
     <None Include="CmdletConfig\S3.xml" />
     <None Include="CmdletConfig\STS.xml" />
-    <None Include="CmdletConfig\AutoScaling.xml" />
-    <None Include="CmdletConfig\CloudFormation.xml" />
+    <None Include="CmdletConfig\AutoScaling.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CmdletConfig\CloudFormation.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\IAM.xml" />
     <None Include="CmdletConfig\SNS.xml" />
     <None Include="CmdletConfig\SES.xml" />
@@ -116,7 +122,9 @@
     <None Include="CmdletConfig\StorageGateway.xml" />
     <None Include="CmdletConfig\CloudFront.xml" />
     <None Include="CmdletConfig\ElastiCache.xml" />
-    <None Include="CmdletConfig\CloudSearch.xml" />
+    <None Include="CmdletConfig\CloudSearch.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\DirectConnect.xml" />
     <None Include="CmdletConfig\ETS.xml" />
     <None Include="CmdletConfig\Redshift.xml" />
@@ -145,6 +153,9 @@
     <None Include="FormatConfig\CustomFormats\Amazon.SimpleSystemsManagement.Model.AssociationDescription.ps1xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CmdletConfig\CognitoIdentity.xml">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="HelpMaterials\WebHelp\StaticContent\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

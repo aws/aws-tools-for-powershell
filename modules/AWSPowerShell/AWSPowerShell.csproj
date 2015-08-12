@@ -201,6 +201,9 @@
     <Reference Include="AWSSDK.DeviceFarm">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.DeviceFarm.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CognitoIdentity">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CognitoIdentity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\**" />

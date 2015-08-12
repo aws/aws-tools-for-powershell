@@ -29,6 +29,31 @@ namespace Amazon.PowerShell.Common
 {
     internal static class AutoIterationHelpers
     {
+        public static bool IsSet(string s)
+        {
+            return !string.IsNullOrEmpty(s);
+        }
+        public static bool IsSet(int i)
+        {
+            return (i != 0);
+        }
+
+        public static int Min(int i, string s)
+        {
+            int si;
+            if (!int.TryParse(s, out si))
+                throw new InvalidOperationException(string.Format(CultureInfo.InvariantCulture,
+                    "Unable to parse value [{0}] as integer", s));
+
+            //var result = Min(i, si);
+            //return result.ToString(CultureInfo.InvariantCulture);
+            return Min(i, si);
+        }
+        public static int Min(int a, int b)
+        {
+            return Math.Min(a, b);
+        }
+
         public static bool HasValue(string s)
         {
             return !string.IsNullOrEmpty(s);

@@ -426,6 +426,17 @@ Set-Alias -Name Put-CPThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuc
 Set-Alias -Name CP-PutThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
 Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
 Set-Alias -Name CP-UpdatePipeline -Value Update-CPPipeline
+Set-Alias -Name Create-CGIIdentityPool -Value New-CGIIdentityPool
+Set-Alias -Name CGI-CreateIdentityPool -Value New-CGIIdentityPool
+Set-Alias -Name Delete-CGIIdentityPool -Value Remove-CGIIdentityPool
+Set-Alias -Name CGI-DeleteIdentityPool -Value Remove-CGIIdentityPool
+Set-Alias -Name CGI-DescribeIdentityPool -Value Get-CGIIdentityPool
+Set-Alias -Name Get-CGIIdentityPoolRoles -Value Get-CGIIdentityPoolRole
+Set-Alias -Name CGI-GetIdentityPoolRoles -Value Get-CGIIdentityPoolRole
+Set-Alias -Name CGI-ListIdentityPools -Value Get-CGIIdentityPoolList
+Set-Alias -Name Set-CGIIdentityPoolRoles -Value Set-CGIIdentityPoolRole
+Set-Alias -Name CGI-SetIdentityPoolRoles -Value Set-CGIIdentityPoolRole
+Set-Alias -Name CGI-UpdateIdentityPool -Value Update-CGIIdentityPool
 Set-Alias -Name Delete-CFGDeliveryChannel -Value Remove-CFGDeliveryChannel
 Set-Alias -Name CFG-DeleteDeliveryChannel -Value Remove-CFGDeliveryChannel
 Set-Alias -Name CFG-DeliverConfigSnapshot -Value Submit-CFGConfigSnapshotDelivery

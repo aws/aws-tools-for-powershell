@@ -54,7 +54,7 @@
     
 	<Target Name="full-build" 
             DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;copy-artifacts;run-tests;create-help;keyscan;save-build">
-		<Message Text="Generates all cmdlets and builds PowerShell deployment artifacts"/>
+		<Message Text="Builds all cmdlets and PowerShell deployment artifacts"/>
 	</Target>
 
     <Target Name="build-generator">
@@ -119,7 +119,7 @@
 
         <ItemGroup>
             <SDKAssemblies Include="$(SDKAssembliesFolder)\*.dll" 
-                           Exclude="$(SDKAssembliesFolder)\*.Glacier.*;$(SDKAssembliesFolder)\*.Cognito*.*;$(SDKAssembliesFolder)\*.SimpleDB.*"/>
+                           Exclude="$(SDKAssembliesFolder)\*.Glacier.*;$(SDKAssembliesFolder)\*.CognitoSync.*;$(SDKAssembliesFolder)\*.SimpleDB.*"/>
         </ItemGroup>
         
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1"
