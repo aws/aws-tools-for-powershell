@@ -109,6 +109,9 @@ Set-Alias -Name Describe-ASATrustedAdvisorCheckSummaries -Value Get-ASATrustedAd
 Set-Alias -Name ASA-DescribeTrustedAdvisorCheckSummaries -Value Get-ASATrustedAdvisorCheckSummaries
 Set-Alias -Name ASA-RefreshTrustedAdvisorCheck -Value Request-ASATrustedAdvisorCheckRefresh
 Set-Alias -Name ASA-ResolveCase -Value Resolve-ASACase
+Set-Alias -Name Terminate-EBEnvironment -Value Stop-EBEnvironment
+Set-Alias -Name EB-TerminateEnvironment -Value Stop-EBEnvironment
+Set-Alias -Name EB-UpdateApplication -Value Update-EBApplication
 Set-Alias -Name EB-UpdateApplicationVersion -Value Update-EBApplicationVersion
 Set-Alias -Name EB-UpdateConfigurationTemplate -Value Update-EBConfigurationTemplate
 Set-Alias -Name EB-UpdateEnvironment -Value Update-EBEnvironment
@@ -143,12 +146,16 @@ Set-Alias -Name Describe-EBConfigurationOptions -Value Get-EBConfigurationOption
 Set-Alias -Name EB-DescribeConfigurationOptions -Value Get-EBConfigurationOption
 Set-Alias -Name Describe-EBConfigurationSettings -Value Get-EBConfigurationSetting
 Set-Alias -Name EB-DescribeConfigurationSettings -Value Get-EBConfigurationSetting
+Set-Alias -Name Describe-EBEnvironmentHealth -Value Get-EBEnvironmentHealth
+Set-Alias -Name EB-DescribeEnvironmentHealth -Value Get-EBEnvironmentHealth
 Set-Alias -Name Describe-EBEnvironmentResources -Value Get-EBEnvironmentResource
 Set-Alias -Name EB-DescribeEnvironmentResources -Value Get-EBEnvironmentResource
 Set-Alias -Name Describe-EBEnvironments -Value Get-EBEnvironment
 Set-Alias -Name EB-DescribeEnvironments -Value Get-EBEnvironment
 Set-Alias -Name Describe-EBEvents -Value Get-EBEvent
 Set-Alias -Name EB-DescribeEvents -Value Get-EBEvent
+Set-Alias -Name Describe-EBInstanceHealth -Value Get-EBInstanceHealth
+Set-Alias -Name EB-DescribeInstancesHealth -Value Get-EBInstanceHealth
 Set-Alias -Name List-EBAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
 Set-Alias -Name EB-ListAvailableSolutionStacks -Value Get-EBAvailableSolutionStack
 Set-Alias -Name EB-RebuildEnvironment -Value Start-EBEnvironmentRebuild
@@ -158,9 +165,6 @@ Set-Alias -Name Retrieve-EBEnvironmentInfo -Value Get-EBEnvironmentInfo
 Set-Alias -Name EB-RetrieveEnvironmentInfo -Value Get-EBEnvironmentInfo
 Set-Alias -Name Swap-EBEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
 Set-Alias -Name EB-SwapEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
-Set-Alias -Name Terminate-EBEnvironment -Value Stop-EBEnvironment
-Set-Alias -Name EB-TerminateEnvironment -Value Stop-EBEnvironment
-Set-Alias -Name EB-UpdateApplication -Value Update-EBApplication
 Set-Alias -Name Cancel-CFNUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name CFN-CancelUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name Create-CFNStack -Value New-CFNStack
