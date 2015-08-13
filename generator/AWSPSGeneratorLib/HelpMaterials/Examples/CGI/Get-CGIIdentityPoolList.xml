@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\code\dotnet\v3\ps.master> Get-CGIIdentityPoolList
+
+IdentityPoolId                                                     IdentityPoolName
+--------------                                                     ----------------
+us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1                     CommonTests1
+us-east-1:118d242d-204e-4b88-b803-EXAMPLEGUID2                     Tests2
+us-east-1:15d49393-ab16-431a-b26e-EXAMPLEGUID3                     CommonTests13
+</code>
+        <description>Retrieves a list of existing Identity Pools.</description>
+    </example>
+</examples>

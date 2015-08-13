@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Get-CGIIdentityPool -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
+
+LoggedAt                       : 8/12/2015 4:29:40 PM
+AllowUnauthenticatedIdentities : True
+DeveloperProviderName          :
+IdentityPoolId                 : us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
+IdentityPoolName               : CommonTests1
+OpenIdConnectProviderARNs      : {}
+SupportedLoginProviders        : {}
+ResponseMetadata               : Amazon.Runtime.ResponseMetadata
+ContentLength                  : 142
+HttpStatusCode                 : OK
+</code>
+        <description>Retrieves information about a specific Identity Pool by its id.</description>
+    </example>
+</examples>
