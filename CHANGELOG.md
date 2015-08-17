@@ -1,3 +1,7 @@
+### 3.1.5.1 (2015-08-17)
+  * Amazon Cognito Identity
+    - Added cmdlets for the control plane APIs. These new cmdlets have the noun prefix 'CGI'.
+	
 ### 3.1.5.0 (2015-08-12)
   * Elastic Beanstalk
     - Added new cmdlets to support the new instance health APIs: Get-EBEnvironmentHealth (DescribeEnvironmentHealth API) and Get-EBInstanceHealth (DescribeInstancesHealth API).
