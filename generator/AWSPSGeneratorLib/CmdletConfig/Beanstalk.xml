@@ -34,6 +34,7 @@
   
   <MetadataProperties>
     <Property>SolutionStackName</Property>
+	<Property>RefreshedAt</Property>
   </MetadataProperties>
 
   <PipelineByValueProperties>
@@ -68,9 +69,11 @@
     <ServiceOperation MethodName="DescribeApplicationVersions" PositionalParameters="VersionLabels"/>
     <ServiceOperation MethodName="DescribeConfigurationOptions" />
     <ServiceOperation MethodName="DescribeConfigurationSettings" />
+	<ServiceOperation MethodName="DescribeEnvironmentHealth" PipelineParameter="EnvironmentId" Output="Response" />
     <ServiceOperation MethodName="DescribeEnvironmentResources" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName"/>
     <ServiceOperation MethodName="DescribeEnvironments" PositionalParameters="EnvironmentIds;VersionLabel"/>
     <ServiceOperation MethodName="DescribeEvents"/>
+	<ServiceOperation MethodName="DescribeInstancesHealth" PipelineParameter="EnvironmentId" Noun="InstanceHealth" />
     <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response"/>
     <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
       <PassThru>

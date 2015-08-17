@@ -1,6 +1,6 @@
 ### 3.1.5.0 (2015-08-12)
   * Elastic Beanstalk
-    - Added a new cmdlet, Get-EBInstanceHealth, to support the new instance health service api.
+    - Added new cmdlets to support the new instance health APIs: Get-EBEnvironmentHealth (DescribeEnvironmentHealth API) and Get-EBInstanceHealth (DescribeInstancesHealth API).
   * Fixes
     - The Set-AWSCredentials and Initialize-AWSDefaults cmdlets have been updated to use the WriteVerbose api instead of directly writing to the console, allowing their output to be suppressed.
   
