@@ -58,7 +58,7 @@ namespace AWSPowerShellGenerator.Utils
             // to one namespace and assembly
             if (Assemblies.ContainsKey(baseName))
             {
-                Console.WriteLine("...ignoring additional attempt to register ndocs for assembly basename {0}, already recognized.", baseName);
+                Console.WriteLine("...ignoring additional attempt to register ndocs for assembly basename {0}, already present.", baseName);
                 return;
             }
 
@@ -144,7 +144,7 @@ namespace AWSPowerShellGenerator.Utils
         /// </remarks>
         public void UpdateManifestRequiredAssemblies(string projectFile, string moduleManifestFile)
         {
-            Console.WriteLine("...updating AWSPowerShell.psd1 file for new SDK assemblies");
+            Console.WriteLine("...checking AWSPowerShell.psd1 file for any new SDK assemblies");
             var project = new XmlDocument();
             project.Load(projectFile);
 
@@ -185,7 +185,16 @@ namespace AWSPowerShellGenerator.Utils
                                 + "\n"
                                 + manifestContent.Substring(requiredAssembliesEnd);
 
-            File.WriteAllText(moduleManifestFile, newManifest);
+            // if the file didn't change, don't write it (otherwise Git shows it as changed but no hunks)
+            if (manifestContent.Equals(newManifest, StringComparison.Ordinal))
+            {
+                Console.WriteLine("......new SDK assemblies required, updating AWSPowerShell.psd1");
+                File.WriteAllText(moduleManifestFile, newManifest);
+            }
+            else
+            {
+                Console.WriteLine("......no new SDK assemblies required, skipping AWSPowerShell.psd1 update");
+            }
         }
     }
 }
