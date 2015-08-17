@@ -337,7 +337,7 @@ namespace Amazon.PowerShell.Common
         /// Location of the credentials file to use.
         /// </summary>
         [Parameter(Position = 201)]
-        [Alias("AWSProfilesLocation")]
+        [Alias("AWSProfilesLocation", "ProfileLocation")]
         public string ProfilesLocation { get; set; }
 
         /// <summary>
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Common
         /// Location of the credentials file to use.
         /// </summary>
         [Parameter]
-        [Alias("AWSProfilesLocation")]
+        [Alias("AWSProfilesLocation", "ProfileLocation")]
         public string ProfilesLocation { get; set; }
 
         /// <summary>
