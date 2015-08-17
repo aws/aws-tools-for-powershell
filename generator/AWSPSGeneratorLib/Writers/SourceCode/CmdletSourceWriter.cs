@@ -913,6 +913,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var methodName = operationAnalysis.MethodName;
             var analyzedResult = operationAnalysis.AnalyzedResult;
             var requestType = operationAnalysis.RequestType;
+            var pageSizeSet = (ServiceConfig.AutoIterate.ServicePageSize != -1);
 
             writer.WriteLine("public object Execute(ExecutorContext context)");
             writer.OpenRegion();
@@ -951,6 +952,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine("{0} _nextMarker = null;", iteratorType);
                 writer.WriteLine("int? _emitLimit = null;");
                 writer.WriteLine("int _retrievedSoFar = 0;");
+                if (pageSizeSet)
+                    writer.WriteLine("int? _pageSize = {0};", ServiceConfig.AutoIterate.ServicePageSize.ToString());
+
                 //writer.WriteLine("{0}{1} _emitLimit = null;", iteratorLimitType, iteratorLimitType.EndsWith("?") ? string.Empty : "?");
                 //writer.WriteLine("{0} _retrievedSoFar = 0;", iteratorLimitType);
                 writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", ServiceConfig.AutoIterate.Start);
@@ -962,12 +966,14 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", ServiceConfig.AutoIterate.EmitLimit);
                 writer.OpenRegion();
                 {
-                    if (ServiceConfig.AutoIterate.ServicePageSize != -1)
+                    if (pageSizeSet)
                     {
                         writer.WriteLine("// The service has a maximum page size of {0}. If the user has", ServiceConfig.AutoIterate.ServicePageSize);
-                        writer.WriteLine("// asked for more items than page max, we rely on the service");
-                        writer.WriteLine("// ignoring the set maximum and giving us {0} items back. We'll", ServiceConfig.AutoIterate.ServicePageSize);
-                        writer.WriteLine("// make further calls to satisfy the user's request.");
+                        writer.WriteLine("// asked for more items than page max, and there is no page size");
+                        writer.WriteLine("// configured, we rely on the service ignoring the set maximum");
+                        writer.WriteLine("// and giving us {0} items back. If a page size is set, that will", ServiceConfig.AutoIterate.ServicePageSize);
+                        writer.WriteLine("// be used to configure the pagination.");
+                        writer.WriteLine("// We'll make further calls to satisfy the user's request.");
                     }
                     writer.WriteLine("_emitLimit = cmdletContext.{0};", ServiceConfig.AutoIterate.EmitLimit);
                 }
@@ -997,6 +1003,31 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         }
                         writer.CloseRegion();
                         writer.WriteLine();
+
+                        if (pageSizeSet)
+                        {
+                            writer.WriteLine("if (AutoIterationHelpers.HasValue(_pageSize))");
+                            writer.OpenRegion();
+                            {
+                                writer.WriteLine("int correctPageSize;");
+                                writer.WriteLine("if (AutoIterationHelpers.IsSet(request.{0}))", ServiceConfig.AutoIterate.EmitLimit);
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.{0});", ServiceConfig.AutoIterate.EmitLimit);
+                                }
+                                writer.CloseRegion();
+                                writer.WriteLine("else");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("correctPageSize = _pageSize.Value;", ServiceConfig.AutoIterate.EmitLimit);
+                                }
+                                writer.CloseRegion();
+
+                                writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(correctPageSize);", ServiceConfig.AutoIterate.EmitLimit, iteratorLimitType);
+                            }
+                            writer.CloseRegion();
+                            writer.WriteLine();
+                        }
 
                         writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
                         writer.WriteLine("CmdletOutput output;");
@@ -1048,14 +1079,14 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine();
                         writer.WriteLine("ProcessOutput(output);");
 
-                        if (ServiceConfig.AutoIterate.ServicePageSize != -1)
+                        if (pageSizeSet)
                         {
                             writer.WriteLine("// The service has a maximum page size of {0} and the user has set a retrieval limit.", ServiceConfig.AutoIterate.ServicePageSize);
                             writer.WriteLine("// Deduce what's left to fetch and if less than one page update _emitLimit to fetch just");
                             writer.WriteLine("// what's left to match the user's request.");
                             writer.WriteLine();
                             writer.WriteLine("var _remainingItems = _emitLimit - _retrievedSoFar;");
-                            writer.WriteLine("if (_remainingItems < {0})", ServiceConfig.AutoIterate.ServicePageSize);
+                            writer.WriteLine("if (_remainingItems < _pageSize)");
                             writer.OpenRegion();
                             {
                                 writer.WriteLine("_emitLimit = _remainingItems;");

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Get-CGIIdentityPoolRole -IdentityPoolId us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
+
+
+LoggedAt         : 8/12/2015 4:33:51 PM
+IdentityPoolId   : us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
+Roles            : {[unauthenticated, arn:aws:iam::123456789012:role/CommonTests1Role]}
+ResponseMetadata : Amazon.Runtime.ResponseMetadata
+ContentLength    : 165
+HttpStatusCode   : OK
+</code>
+        <description>Gets the information about roles for a specific Identity Pool.</description>
+    </example>
+</examples>

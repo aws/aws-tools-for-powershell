@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>New-CGIIdentityPool -AllowUnauthenticatedIdentities $true -IdentityPoolName CommonTests13
+
+
+LoggedAt                       : 8/12/2015 4:56:07 PM
+AllowUnauthenticatedIdentities : True
+DeveloperProviderName          :
+IdentityPoolId                 : us-east-1:15d49393-ab16-431a-b26e-EXAMPLEGUID3
+IdentityPoolName               : CommonTests13
+OpenIdConnectProviderARNs      : {}
+SupportedLoginProviders        : {}
+ResponseMetadata               : Amazon.Runtime.ResponseMetadata
+ContentLength                  : 136
+HttpStatusCode                 : OK
+</code>
+        <description>Creates a new Identity Pool which allows unauthenticated identities.</description>
+    </example>
+</examples>
