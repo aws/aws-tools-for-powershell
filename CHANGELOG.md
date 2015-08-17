@@ -1,3 +1,9 @@
+### 3.1.5.0 (2015-08-12)
+  * Elastic Beanstalk
+    - Added a new cmdlet, Get-EBInstanceHealth, to support the new instance health service api.
+  * Fixes
+    - The Set-AWSCredentials and Initialize-AWSDefaults cmdlets have been updated to use the WriteVerbose api instead of directly writing to the console, allowing their output to be suppressed.
+  
 ### 3.1.4.0 (2015-08-06)
   * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
   
