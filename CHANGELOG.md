@@ -1,3 +1,10 @@
+### 3.1.7 ()
+  * Amazon CloudFront
+    - Added two cmdlets, New-CFSignedUrl and New-CFSignedCookie. These cmdlets enable you to generate signed urls and cookies, using canned or custom policies, to content in CloudFront distributions.
+	
+### 3.1.6.0 (2015-08-25)
+  * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
+
 ### 3.1.5.1 (2015-08-17)
   * Amazon Cognito Identity
     - Added cmdlets for the control plane APIs. These new cmdlets have the noun prefix 'CGI'.

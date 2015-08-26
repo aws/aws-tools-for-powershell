@@ -23,9 +23,13 @@ using Amazon.PowerShell.Common;
 
 namespace Amazon.PowerShell.Cmdlets.CF
 {
+    /// <summary>
+    /// Creates a signed URL that grants universal access to private content until a given date (using a canned policy)
+    /// or tailored access to private content based on an access time window and ip range.
+    /// </summary>
     [Cmdlet("New", "CFSignedUrl", DefaultParameterSetName = "CannedPolicyParameterSet")]
     [OutputType(typeof(Uri), typeof(string))]
-    [AWSCmdlet("Returns a signed URL that grants universal access to private content until a given date (using a canned policy)" +
+    [AWSCmdlet("Creates a signed URL that grants universal access to private content until a given date (using a canned policy)" +
                " or tailored access to private content based on an access time window and ip range.")]
     [AWSCmdletOutput("System.Uri", "This cmdlet returns a signed uri to the private content.")]
     [AWSCmdletOutput("System.String", "This cmdlet returns a signed uri to the private content as a string if the -AsString switch is specified.")]

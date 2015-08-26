@@ -53,7 +53,8 @@ namespace AWSPowerShellGenerator.Generators
         // I wanted to retain the grouping with minimal duplication.
         private static readonly Dictionary<string, string[]> _specialCmdletsMap = new Dictionary<string, string[]>
         {
-            { "Amazon DynamoDB", new string[] { "NewDDBTableSchemaCmdlet", "AddDDBKeySchemaCmdlet", "AddDDBIndexSchemaCmdlet" } }
+            { "Amazon DynamoDB", new string[] { "NewDDBTableSchemaCmdlet", "AddDDBKeySchemaCmdlet", "AddDDBIndexSchemaCmdlet" } },
+            { "Amazon CloudFront", new string[] { "NewCFSignedUrlCmdlet", "NewCFSignedCookieCmdlet" } }
         };
 
         protected override void GenerateHelper()

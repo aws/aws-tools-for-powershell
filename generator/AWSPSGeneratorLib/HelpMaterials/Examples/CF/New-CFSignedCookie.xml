@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> $params = @{
+	"ResourceUri"="http://xyz.cloudfront.net/image1.jpeg"
+	"KeyPairId"="AKIAIOSFODNN7EXAMPLE"
+	"PrivateKeyFile"="C:\pk-AKIAIOSFODNN7EXAMPLE.pem"
+	"ExpiresOn"=(Get-Date).AddYears(1)
+}
+PS C:\> New-CFSignedCookie @params
+
+Expires
+-------
+[CloudFront-Expires, 1472227284]
+    </code>
+    <description>Creates a signed cookie to the specified resource using a canned policy. The cookie will be valid for one year.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> $start = (Get-Date).AddHours(24)
+PS C:\> $params = @{
+	"ResourceUri"="http://xyz.cloudfront.net/content/*.jpeg"
+	"KeyPairId"="AKIAIOSFODNN7EXAMPLE"
+	"PrivateKeyFile"="C:\pk-AKIAIOSFODNN7EXAMPLE.pem"
+	"ExpiresOn"=$start.AddDays(7)
+    "ActiveFrom"=$start
+}
+
+PS C:\> New-CFSignedCookie @params
+	
+Policy
+------
+[CloudFront-Policy, eyJTd...wIjo...
+	</code>
+	<description>Creates a signed cookie to the specified resources using a custom policy. The cookie will be valid in 24 hours and will expire one week afterward.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> $start = (Get-Date).AddHours(24)
+PS C:\> $params = @{
+	"ResourceUri"="http://xyz.cloudfront.net/content/*.jpeg"
+	"KeyPairId"="AKIAIOSFODNN7EXAMPLE"
+	"PrivateKeyFile"="C:\pk-AKIAIOSFODNN7EXAMPLE.pem"
+	"ExpiresOn"=$start.AddDays(7)
+    "ActiveFrom"=$start
+	"IpRange"="192.0.2.0/24"
+}
+
+PS C:\> New-CFSignedCookie @params
+	
+Policy                                                                                                                                         ------                                                                                                                                         [CloudFront-Policy, eyJTd...wIjo...
+	</code>
+	<description>Creates a signed cookie to the specified resources using a custom policy. The cookie will be valid in 24 hours and will expire one week afterward. Access to the resources is restricted to the specified ip range.</description>
+  </example>
+</examples>

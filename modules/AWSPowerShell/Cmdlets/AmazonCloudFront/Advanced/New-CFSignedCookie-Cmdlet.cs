@@ -23,9 +23,13 @@ using Amazon.PowerShell.Common;
 
 namespace Amazon.PowerShell.Cmdlets.CF
 {
+    /// <summary>
+    /// Creates signed cookies that grants universal access to private content until a given date (using a canned policy) 
+    /// or tailored access to private content based on an access time window and ip range.
+    /// </summary>
     [Cmdlet("New", "CFSignedCookie", DefaultParameterSetName = "FromUrlParameterSet")]
     [OutputType(typeof(CookiesForCannedPolicy), typeof(CookiesForCustomPolicy))]
-    [AWSCmdlet("Returns signed cookies that grants universal access to private content until a given date (using a canned policy)" + 
+    [AWSCmdlet("Creates signed cookies that grants universal access to private content until a given date (using a canned policy)" + 
                " or tailored access to private content based on an access time window and ip range.")]
     [AWSCmdletOutput("Amazon.CloudFront.CookiesForCannedPolicy",
         "This cmdlet returns a Amazon.CloudFront.CookiesForCannedPolicy object containing signed cookies to a resource using a canned policy."
