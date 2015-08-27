@@ -28,6 +28,7 @@ using Amazon.S3.Transfer;
 using Amazon.S3.Model;
 using Amazon.Runtime;
 using System.Collections;
+using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -640,15 +641,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public override void ReportProgress(UploadDirectoryProgressArgs args)
             {
-                if (string.Compare(_currentFile, args.CurrentFile, StringComparison.CurrentCultureIgnoreCase) != 0)
-                {
+                // trigger progress update if we've changed file OR have reached the end of
+                // the current file (if we don't do the latter, we can skip a count increment
+                // and end up reporting less files uploaded than actual)
+                var haveChangedFile = string.Compare(_currentFile, args.CurrentFile, StringComparison.CurrentCultureIgnoreCase) != 0;
+                if (haveChangedFile)
                     _currentFile = args.CurrentFile;
+
+                var lastUploadCount = _fileUploadCount;
+                if (args.TransferredBytesForCurrentFile == args.TotalNumberOfBytesForCurrentFile)
                     _fileUploadCount = args.NumberOfFilesUploaded;
-                    ReportProgress(args.NumberOfFilesUploaded, args.TotalNumberOfFiles,
-                        ProgressMsgFormat,
-                            _fileUploadCount,
-                            _startingFolder,
-                            _currentFile);
+
+                if (_fileUploadCount > lastUploadCount || haveChangedFile)
+                {
+                    ReportProgress(args.NumberOfFilesUploaded, 
+                                   args.TotalNumberOfFiles,
+                                   ProgressMsgFormat,
+                                   _fileUploadCount,
+                                   _startingFolder,
+                                   _currentFile.Substring(_startingFolder.Length + 1));
                 }
             }
         }
