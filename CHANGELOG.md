@@ -1,3 +1,7 @@
+### 3.1.8.1 (2015-08-28)
+  * Amazon S3
+    - Fixed issue with -Verbose option reporting an incorrect count of uploaded files when Write-S3Object cmdlet completed processing.
+	
 ### 3.1.8.0 (2015-08-27)
   * Amazon CloudFront
     - Added two cmdlets, New-CFSignedUrl and New-CFSignedCookie. These cmdlets enable you to generate signed urls and cookies, using canned or custom policies, to content in CloudFront distributions.
