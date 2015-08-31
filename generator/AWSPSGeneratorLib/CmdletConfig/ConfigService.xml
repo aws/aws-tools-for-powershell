@@ -19,6 +19,7 @@
     <ServiceOperation MethodName="DescribeDeliveryChannels" />
     <ServiceOperation MethodName="DescribeDeliveryChannelStatus" />
     <ServiceOperation MethodName="GetResourceConfigHistory"/>
+	<ServiceOperation MethodName="ListDiscoveredResources" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName"/>
     <ServiceOperation MethodName="PutConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name">
       <Params>
         <Param Name="ConfigurationRecorder_Name"  NewName="ConfigurationRecorderName" Alias="ConfigurationRecorder_Name" />

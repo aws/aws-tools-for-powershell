@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon S3 bucket
-        /// and the Amazon SNS topic.</para>
+        /// <para>The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers notifications
+        /// to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -453,6 +453,7 @@ Set-Alias -Name CFG-DescribeDeliveryChannels -Value Get-CFGDeliveryChannels
 Set-Alias -Name Describe-CFGDeliveryChannelStatus -Value Get-CFGDeliveryChannelStatus
 Set-Alias -Name CFG-DescribeDeliveryChannelStatus -Value Get-CFGDeliveryChannelStatus
 Set-Alias -Name CFG-GetResourceConfigHistory -Value Get-CFGResourceConfigHistory
+Set-Alias -Name CFG-ListDiscoveredResources -Value Get-CFGDiscoveredResource
 Set-Alias -Name Put-CFGConfigurationRecorder -Value Write-CFGConfigurationRecorder
 Set-Alias -Name CFG-PutConfigurationRecorder -Value Write-CFGConfigurationRecorder
 Set-Alias -Name Put-CFGDeliveryChannel -Value Write-CFGDeliveryChannel

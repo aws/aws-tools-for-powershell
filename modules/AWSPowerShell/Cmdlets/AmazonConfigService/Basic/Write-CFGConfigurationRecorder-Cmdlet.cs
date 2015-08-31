@@ -76,10 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of strings representing valid AWS resource types (e.g., <code>AWS::EC2::Instance</code>
-        /// or <code>AWS::CloudTrail::Trail</code>). <b>resourceTypes</b> is only valid if you
-        /// have chosen not to select <b>allSupported</b>. For a list of valid <b>resourceTypes</b>
-        /// values, see the <b>resourceType Value</b> column in the following topic: <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
+        /// <para>A comma-separated list of strings representing valid AWS resource types (for example,
+        /// <code>AWS::EC2::Instance</code> or <code>AWS::CloudTrail::Trail</code>). <b>resourceTypes</b>
+        /// is only valid if you have chosen not to select <b>allSupported</b>. For a list of
+        /// valid <b>resourceTypes</b> values, see the <b>resourceType Value</b> column in the
+        /// following topic: <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
         /// AWS Resource Types</a>.</para>
         /// </para>
         /// </summary>

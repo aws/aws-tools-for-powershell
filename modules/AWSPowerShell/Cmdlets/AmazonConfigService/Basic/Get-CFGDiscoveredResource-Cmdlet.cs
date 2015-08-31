@@ -28,70 +28,64 @@ using Amazon.ConfigService.Model;
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
-    /// Returns a list of configuration items for the specified resource. The list contains
-    /// details about each state of the resource during the specified time interval.
+    /// Accepts a resource type and returns a list of resource identifiers for the resources
+    /// of that type. A resource identifier includes the resource type, ID, and (if available)
+    /// the custom resource name. The results consist of resources that AWS Config has discovered,
+    /// including those that AWS Config is not currently recording. You can narrow the results
+    /// to include only resources that have specific resource IDs or a resource name.
     /// 
-    ///  
-    /// <para>
-    /// The response is paginated, and by default, AWS Config returns a limit of 10 configuration
-    /// items per page. You can customize this number with the <code>limit</code> parameter.
+    ///  <note>You can specify either resource IDs or a resource name but not both in the
+    /// same request.</note><para>
+    /// The response is paginated, and by default AWS Config lists 100 resource identifiers
+    /// on each page. You can customize this number with the <code>limit</code> parameter.
     /// The response includes a <code>nextToken</code> string, and to get the next page of
     /// results, run the request again and enter this string for the <code>nextToken</code>
     /// parameter.
-    /// </para><note><para>
-    /// Each call to the API is limited to span a duration of seven days. It is likely that
-    /// the number of records returned is smaller than the specified <code>limit</code>. In
-    /// such cases, you can make another call, using the <code>nextToken</code>.
-    /// </para></note>
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "CFGResourceConfigHistory")]
-    [OutputType("Amazon.ConfigService.Model.ConfigurationItem")]
-    [AWSCmdlet("Invokes the GetResourceConfigHistory operation against Amazon Config.", Operation = new[] {"GetResourceConfigHistory"})]
-    [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationItem",
-        "This cmdlet returns a collection of ConfigurationItem objects.",
-        "The service call response (type GetResourceConfigHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CFGDiscoveredResource")]
+    [OutputType("Amazon.ConfigService.Model.ResourceIdentifier")]
+    [AWSCmdlet("Invokes the ListDiscoveredResources operation against Amazon Config.", Operation = new[] {"ListDiscoveredResources"})]
+    [AWSCmdletOutput("Amazon.ConfigService.Model.ResourceIdentifier",
+        "This cmdlet returns a collection of ResourceIdentifier objects.",
+        "The service call response (type ListDiscoveredResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
     )]
-    public class GetCFGResourceConfigHistoryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    public class GetCFGDiscoveredResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The chronological order for configuration items listed. By default the results are
-        /// listed in reverse chronological order.</para>
+        /// <para>Specifies whether AWS Config includes deleted resources in the results. By default,
+        /// deleted resources are not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ChronologicalOrder ChronologicalOrder { get; set; }
+        public Boolean IncludeDeletedResources { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The time stamp that indicates an earlier time. If not specified, the action returns
-        /// paginated results that contain configuration items that start from when the first
-        /// configuration item was recorded.</para>
+        /// <para>The IDs of only those resources that you want AWS Config to list in the response.
+        /// If you do not specify this parameter, AWS Config lists all resources of the specified
+        /// type that it has discovered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EarlierTime { get; set; }
+        [Alias("ResourceIds")]
+        public System.String[] ResourceId { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The time stamp that indicates a later time. If not specified, current time is taken.</para>
+        /// <para>The custom name of only those resources that you want AWS Config to list in the response.
+        /// If you do not specify this parameter, AWS Config lists all resources of the specified
+        /// type that it has discovered.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public DateTime LaterTime { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String ResourceName { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource (for example., <code>sg-xxxxxx</code>).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public String ResourceId { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>The resource type.</para>
+        /// <para>The type of resources that you want AWS Config to list in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         /// <summary>
         /// <para>
-        /// <para>The maximum number of configuration items returned on each page. The default is 10.
+        /// <para>The maximum number of resource identifiers returned on each page. The default is 100.
         /// You cannot specify a limit greater than 100. If you specify 0, AWS Config uses the
         /// default.</para>
         /// </para>
@@ -127,15 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
-            context.ChronologicalOrder = this.ChronologicalOrder;
-            if (ParameterWasBound("EarlierTime"))
-                context.EarlierTime = this.EarlierTime;
-            if (ParameterWasBound("LaterTime"))
-                context.LaterTime = this.LaterTime;
+            if (ParameterWasBound("IncludeDeletedResources"))
+                context.IncludeDeletedResources = this.IncludeDeletedResources;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            context.ResourceId = this.ResourceId;
+            if (this.ResourceId != null)
+            {
+                context.ResourceIds = new List<String>(this.ResourceId);
+            }
+            context.ResourceName = this.ResourceName;
             context.ResourceType = this.ResourceType;
             
             var output = Execute(context) as CmdletOutput;
@@ -148,19 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetResourceConfigHistoryRequest();
+            var request = new ListDiscoveredResourcesRequest();
             
-            if (cmdletContext.ChronologicalOrder != null)
+            if (cmdletContext.IncludeDeletedResources != null)
             {
-                request.ChronologicalOrder = cmdletContext.ChronologicalOrder;
-            }
-            if (cmdletContext.EarlierTime != null)
-            {
-                request.EarlierTime = cmdletContext.EarlierTime.Value;
-            }
-            if (cmdletContext.LaterTime != null)
-            {
-                request.LaterTime = cmdletContext.LaterTime.Value;
+                request.IncludeDeletedResources = cmdletContext.IncludeDeletedResources.Value;
             }
             if (cmdletContext.Limit != null)
             {
@@ -170,9 +157,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 request.NextToken = cmdletContext.NextToken;
             }
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.ResourceIds != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.ResourceIds = cmdletContext.ResourceIds;
+            }
+            if (cmdletContext.ResourceName != null)
+            {
+                request.ResourceName = cmdletContext.ResourceName;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -185,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetResourceConfigHistory(request);
+                var response = client.ListDiscoveredResources(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ConfigurationItems;
+                object pipelineOutput = response.ResourceIdentifiers;
                 notes = new Dictionary<string, object>();
                 notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
@@ -215,12 +206,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public ChronologicalOrder ChronologicalOrder { get; set; }
-            public DateTime? EarlierTime { get; set; }
-            public DateTime? LaterTime { get; set; }
+            public Boolean? IncludeDeletedResources { get; set; }
             public Int32? Limit { get; set; }
             public String NextToken { get; set; }
-            public String ResourceId { get; set; }
+            public List<String> ResourceIds { get; set; }
+            public String ResourceName { get; set; }
             public ResourceType ResourceType { get; set; }
         }
         
