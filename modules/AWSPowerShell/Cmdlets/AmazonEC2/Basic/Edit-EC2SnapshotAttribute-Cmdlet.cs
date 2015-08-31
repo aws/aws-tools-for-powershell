@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The snapshot attribute to modify.</para>
+        /// <para>The snapshot attribute to modify.</para><note><para>Only volume creation permissions may be modified at the customer level.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OperationType { get; set; }
+        public OperationType OperationType { get; set; }
         
         /// <summary>
         /// <para>
@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<CreateVolumePermission> CreateVolumePermission_Add { get; set; }
             public List<CreateVolumePermission> CreateVolumePermission_Remove { get; set; }
             public List<String> GroupNames { get; set; }
-            public String OperationType { get; set; }
+            public OperationType OperationType { get; set; }
             public String SnapshotId { get; set; }
             public List<String> UserIds { get; set; }
         }

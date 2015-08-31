@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OperationType { get; set; }
+        public OperationType OperationType { get; set; }
         
         /// <summary>
         /// <para>
@@ -305,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public String ImageId { get; set; }
             public List<LaunchPermission> LaunchPermission_Add { get; set; }
             public List<LaunchPermission> LaunchPermission_Remove { get; set; }
-            public String OperationType { get; set; }
+            public OperationType OperationType { get; set; }
             public List<String> ProductCodes { get; set; }
             public List<String> UserGroups { get; set; }
             public List<String> UserIds { get; set; }

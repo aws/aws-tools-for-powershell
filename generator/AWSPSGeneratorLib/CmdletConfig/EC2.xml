@@ -67,7 +67,7 @@
         <Param Name="PriceSchedules" Alias="PricingSchedules" />  <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="CreateRoute" Output="Response" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
+    <ServiceOperation MethodName="CreateRoute" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
     <ServiceOperation MethodName="CreateRouteTable" />
     <ServiceOperation MethodName="CreateSecurityGroup" PipelineParameter="GroupName" PositionalParameters="Description;VpcId">
       <Params>

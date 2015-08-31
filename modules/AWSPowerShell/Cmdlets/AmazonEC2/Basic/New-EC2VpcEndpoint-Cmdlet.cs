@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// The AWS service name, in the form com.amazonaws.&lt;region&gt;.&lt;service&gt;.
-        /// To get a list of available services, use the DescribeVpcEndpointServices request.
+        /// <para>The AWS service name, in the form <code>com.amazonaws.<i>region</i>.<i>service</i></code>.
+        /// To get a list of available services, use the <a>DescribeVpcEndpointServices</a> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

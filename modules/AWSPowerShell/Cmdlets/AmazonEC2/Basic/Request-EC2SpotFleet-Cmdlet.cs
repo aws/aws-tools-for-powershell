@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html">Spot
+    /// You can submit a single request that specifies multiple instance types, each with
+    /// its own instance weighting that reflects its value to your application workload. Amazon
+    /// EC2 computes the bid price for each launch specification and requests Spot Instances
+    /// in the Spot pool where the price per unit is the lowest. For more information, see
+    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html">Spot
     /// Fleets</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -72,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("SpotFleetRequestConfig_LaunchSpecifications")]
-        public Amazon.EC2.Model.LaunchSpecification[] SpotFleetRequestConfig_LaunchSpecification { get; set; }
+        public Amazon.EC2.Model.SpotFleetLaunchSpecification[] SpotFleetRequestConfig_LaunchSpecification { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The maximum hourly price (bid) for any Spot Instance launched to fulfill the request.</para>
+        /// <para>The bid price per unit hour.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Spot Instances to launch.</para>
+        /// <para>The number of units to request. You can choose to set the target capacity in terms
+        /// of instances or a performance characteristic that is important to your application
+        /// workload, such as vCPUs, memory, or I/O.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -147,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
             {
-                context.SpotFleetRequestConfig_LaunchSpecifications = new List<LaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
+                context.SpotFleetRequestConfig_LaunchSpecifications = new List<SpotFleetLaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
             }
             context.SpotFleetRequestConfig_SpotPrice = this.SpotFleetRequestConfig_SpotPrice;
             if (ParameterWasBound("SpotFleetRequestConfig_TargetCapacity"))
@@ -195,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.IamFleetRole = requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole;
                 requestSpotFleetRequestConfigIsNull = false;
             }
-            List<LaunchSpecification> requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification = null;
+            List<SpotFleetLaunchSpecification> requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification = null;
             if (cmdletContext.SpotFleetRequestConfig_LaunchSpecifications != null)
             {
                 requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification = cmdletContext.SpotFleetRequestConfig_LaunchSpecifications;
@@ -297,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public String SpotFleetRequestConfig_ClientToken { get; set; }
             public String SpotFleetRequestConfig_IamFleetRole { get; set; }
-            public List<LaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
+            public List<SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
             public String SpotFleetRequestConfig_SpotPrice { get; set; }
             public Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }
             public Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group.</para>
+        /// <para>The ID of the security group. Required for a security group in a nondefault VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

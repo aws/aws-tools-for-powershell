@@ -92,12 +92,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The full ARN of the AWS Key Management Service (KMS) master key to use when creating
-        /// the encrypted volume. This parameter is only required if you want to use a non-default
-        /// master key; if this parameter is not specified, the default master key is used. The
-        /// ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the
-        /// master key, the AWS account ID of the master key owner, the <code>key</code> namespace,
-        /// and then the master key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
+        /// <para>The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK)
+        /// to use when creating the encrypted volume. This parameter is only required if you
+        /// want to use a non-default CMK; if this parameter is not specified, the default CMK
+        /// for EBS is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
+        /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
         /// If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also
         /// be set.</para>
         /// </para>

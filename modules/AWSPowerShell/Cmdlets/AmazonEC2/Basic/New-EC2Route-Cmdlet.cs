@@ -50,23 +50,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Route", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.CreateRouteResponse")]
+    [OutputType("System.Boolean")]
     [AWSCmdlet("Invokes the CreateRoute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateRoute"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.CreateRouteResponse",
-        "This cmdlet returns a CreateRouteResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("System.Boolean",
+        "This cmdlet returns a Boolean object.",
+        "The service call response (type CreateRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2RouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
-        
         /// <summary>
         /// <para>
         /// <para>The CIDR address block used for the destination match. Routing decisions are based
@@ -142,7 +133,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.ClientToken = this.ClientToken;
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.GatewayId = this.GatewayId;
             context.InstanceId = this.InstanceId;
@@ -162,10 +152,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new CreateRouteRequest();
             
-            if (cmdletContext.ClientToken != null)
-            {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
             if (cmdletContext.DestinationCidrBlock != null)
             {
                 request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
@@ -199,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = client.CreateRoute(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.Return;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -225,7 +211,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
             public String DestinationCidrBlock { get; set; }
             public String GatewayId { get; set; }
             public String InstanceId { get; set; }
