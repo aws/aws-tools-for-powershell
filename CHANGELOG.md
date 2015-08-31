@@ -1,4 +1,4 @@
-### 3.1.8.1 (2015-08-28)
+### 3.1.9.0 (2015-08-31)
   * Amazon S3
     - Fixed issue with -Verbose option reporting an incorrect count of uploaded files when Write-S3Object cmdlet completed processing.
 	
