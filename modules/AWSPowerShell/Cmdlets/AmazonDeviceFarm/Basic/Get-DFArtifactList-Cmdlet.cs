@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     {
         /// <summary>
         /// <para>
-        /// <para>The artifacts' ARNs.</para>
+        /// <para>The Run, Job, Suite, or Test ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
