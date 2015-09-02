@@ -615,23 +615,26 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        internal class UploadFolderProgressTracker : ProgressTracker<UploadDirectoryProgressArgs>
-        {
-            int _fileUploadCount = 0;
-            string _currentFile = string.Empty;
-            readonly string _startingFolder;
+	    internal class UploadFolderProgressTracker : ProgressTracker<UploadDirectoryProgressArgs>
+	    {
+	        private int _filesCompleted = 0;
+	        private string _currentFile = string.Empty;
+	        private readonly string _startingFolder;
 
-            const string UploadingFolderActivity = "Uploading";
-            const string ProgressMsgFormat = "Uploaded {0} files from {1}, processing file {2}";
+	        private const string UploadingFolderActivity = "Uploading";
+	        private const string ProgressMsgFormat = "Uploaded {0} of {1} files from {2}, processing: {3}";
 
-            public override string Activity
-            {
-                get { return UploadingFolderActivity; }
-            }
+	        public override string Activity
+	        {
+	            get { return UploadingFolderActivity; }
+	        }
 
-            public int UploadedCount { get { return _fileUploadCount; } }
+	        public int UploadedCount
+	        {
+	            get { return _filesCompleted; }
+	        }
 
-            public UploadFolderProgressTracker(ProgressRunner runner, Action<EventHandler<UploadDirectoryProgressArgs>> subscribe, string startingFolder)
+    	    public UploadFolderProgressTracker(ProgressRunner runner, Action<EventHandler<UploadDirectoryProgressArgs>> subscribe, string startingFolder)
                 : base(runner, subscribe)
             {
                 this._startingFolder = startingFolder;
@@ -641,23 +644,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public override void ReportProgress(UploadDirectoryProgressArgs args)
             {
-                // trigger progress update if we've changed file OR have reached the end of
-                // the current file (if we don't do the latter, we can skip a count increment
-                // and end up reporting less files uploaded than actual)
+                var lastUploadCount = _filesCompleted;
                 var haveChangedFile = string.Compare(_currentFile, args.CurrentFile, StringComparison.CurrentCultureIgnoreCase) != 0;
                 if (haveChangedFile)
                     _currentFile = args.CurrentFile;
 
-                var lastUploadCount = _fileUploadCount;
-                if (args.TransferredBytesForCurrentFile == args.TotalNumberOfBytesForCurrentFile)
-                    _fileUploadCount = args.NumberOfFilesUploaded;
+                // since we need to track if file changed or we hit EOF, simpler to always refresh - and it will work
+                // better if the sdk parallelizes uploads in future (but we will need to adjust our approach to
+                // current file tracking)
+                _filesCompleted = args.NumberOfFilesUploaded;
 
-                if (_fileUploadCount > lastUploadCount || haveChangedFile)
+                if (_filesCompleted > lastUploadCount || haveChangedFile)
                 {
                     ReportProgress(args.NumberOfFilesUploaded, 
                                    args.TotalNumberOfFiles,
                                    ProgressMsgFormat,
-                                   _fileUploadCount,
+                                   args.NumberOfFilesUploaded,
+                                   args.TotalNumberOfFiles,
                                    _startingFolder,
                                    _currentFile.Substring(_startingFolder.Length + 1));
                 }
