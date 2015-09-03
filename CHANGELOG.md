@@ -1,3 +1,9 @@
+### 3.1.10.0 (2015-09-03)
+  * Amazon S3
+    - Fixed issue in AWS SDK for .NET that caused Read-S3Object to fail to download a hierarchy of files if zero length files were present in subfolders.
+  * AWS Storage Gateway
+    - Added new cmdlets (Add-SGResourceTag, Get-SGResourceTags and Remove-SGResourceTag) to support tagging Storage Gateway resources.
+	
 ### 3.1.9.0 (2015-08-31)
   * Amazon S3
     - Fixed issue with -Verbose option reporting an incorrect count of uploaded files when Write-S3Object cmdlet completed processing.
