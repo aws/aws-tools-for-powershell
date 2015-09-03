@@ -2072,6 +2072,8 @@ Set-Alias -Name SSM-GetDocument -Value Get-SSMDocument
 Set-Alias -Name SSM-ListAssociations -Value Get-SSMAssociationList
 Set-Alias -Name SSM-ListDocuments -Value Get-SSMDocumentList
 Set-Alias -Name SSM-UpdateAssociationStatus -Value Update-SSMAssociationStatus
+Set-Alias -Name Describe-SGTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
+Set-Alias -Name SG-DescribeTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
 Set-Alias -Name Describe-SGTapes -Value Get-SGTapes
 Set-Alias -Name SG-DescribeTapes -Value Get-SGTapes
 Set-Alias -Name Describe-SGUploadBuffer -Value Get-SGUploadBuffer
@@ -2085,12 +2087,15 @@ Set-Alias -Name List-SGGateways -Value Get-SGGateway
 Set-Alias -Name SG-ListGateways -Value Get-SGGateway
 Set-Alias -Name List-SGLocalDisks -Value Get-SGLocalDisk
 Set-Alias -Name SG-ListLocalDisks -Value Get-SGLocalDisk
+Set-Alias -Name List-SGResourceTags -Value Get-SGResourceTags
+Set-Alias -Name SG-ListTagsForResource -Value Get-SGResourceTags
 Set-Alias -Name List-SGVolumeInitiators -Value Get-SGVolumeInitiators
 Set-Alias -Name SG-ListVolumeInitiators -Value Get-SGVolumeInitiators
 Set-Alias -Name List-SGVolumeRecoveryPoints -Value Get-SGVolumeRecoveryPoint
 Set-Alias -Name SG-ListVolumeRecoveryPoints -Value Get-SGVolumeRecoveryPoint
 Set-Alias -Name List-SGVolumes -Value Get-SGVolume
 Set-Alias -Name SG-ListVolumes -Value Get-SGVolume
+Set-Alias -Name SG-RemoveTagsFromResource -Value Remove-SGResourceTag
 Set-Alias -Name SG-ResetCache -Value Reset-SGCache
 Set-Alias -Name Retrieve-SGTapeArchive -Value Get-SGTapeArchive
 Set-Alias -Name SG-RetrieveTapeArchive -Value Get-SGTapeArchive
@@ -2109,6 +2114,7 @@ Set-Alias -Name SG-UpdateVTLDeviceType -Value Update-SGVTLDeviceType
 Set-Alias -Name Activate-SGGateway -Value Enable-SGGateway
 Set-Alias -Name SG-ActivateGateway -Value Enable-SGGateway
 Set-Alias -Name SG-AddCache -Value Add-SGCache
+Set-Alias -Name SG-AddTagsToResource -Value Add-SGResourceTag
 Set-Alias -Name SG-AddUploadBuffer -Value Add-SGUploadBuffer
 Set-Alias -Name SG-AddWorkingStorage -Value Add-SGWorkingStorage
 Set-Alias -Name Cancel-SGArchival -Value Stop-SGArchival
@@ -2157,8 +2163,6 @@ Set-Alias -Name Describe-SGStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
 Set-Alias -Name SG-DescribeStorediSCSIVolumes -Value Get-SGStorediSCSIVolume
 Set-Alias -Name Describe-SGTapeArchives -Value Get-SGTapeArchives
 Set-Alias -Name SG-DescribeTapeArchives -Value Get-SGTapeArchives
-Set-Alias -Name Describe-SGTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
-Set-Alias -Name SG-DescribeTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
 Set-Alias -Name STS-AssumeRole -Value Use-STSRole
 Set-Alias -Name Assume-STSRole -Value Use-STSRole
 Set-Alias -Name STS-AssumeRoleWithSAML -Value Use-STSRoleWithSAML

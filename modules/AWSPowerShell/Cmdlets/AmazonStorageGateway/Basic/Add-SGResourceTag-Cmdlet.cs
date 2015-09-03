@@ -28,41 +28,50 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation updates a gateway's metadata, which includes the gateway's name and
-    /// time zone. To specify which gateway to update, use the Amazon Resource Name (ARN)
-    /// of the gateway in your request.
+    /// This operation adds one or more tags to the specified resource. You use tags to add
+    /// metadata to resources, which you can use to categorize these resources. For example,
+    /// you can categorize resources by purpose, owner, environment, or team. Each tag consists
+    /// of a key and a value, which you define. You can add tags to the following AWS Storage
+    /// Gateway resources:
+    /// 
+    ///  <ul><li><para>
+    /// Storage gateways of all types
+    /// </para></li></ul><ul><li><para>
+    /// Storage Volumes
+    /// </para></li></ul><ul><li><para>
+    /// Virtual Tapes
+    /// </para></li></ul><para>
+    /// You can create a maximum of 10 tags for each resource. Virtual tapes and storage volumes
+    /// that are recovered to a new gateway maintain their tags.
+    /// </para>
     /// </summary>
-    [Cmdlet("Update", "SGGatewayInformation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse")]
-    [AWSCmdlet("Invokes the UpdateGatewayInformation operation against AWS Storage Gateway.", Operation = new[] {"UpdateGatewayInformation"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse",
-        "This cmdlet returns a UpdateGatewayInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "SGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the AddTagsToResource operation against AWS Storage Gateway.", Operation = new[] {"AddTagsToResource"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSGGatewayInformationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public class AddSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the resource you want to add tags to.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String ResourceARN { get; set; }
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The key-value pair that represents the tag you want to add to the resource. The value
+        /// can be an empty string.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @.</para></note>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public String GatewayName { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public String GatewayTimezone { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -77,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GatewayName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SGGatewayInformation (UpdateGatewayInformation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceARN", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-SGResourceTag (AddTagsToResource)"))
             {
                 return;
             }
@@ -89,9 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
-            context.GatewayARN = this.GatewayARN;
-            context.GatewayName = this.GatewayName;
-            context.GatewayTimezone = this.GatewayTimezone;
+            context.ResourceARN = this.ResourceARN;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Tag>(this.Tag);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -103,19 +114,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateGatewayInformationRequest();
+            var request = new AddTagsToResourceRequest();
             
-            if (cmdletContext.GatewayARN != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.GatewayARN = cmdletContext.GatewayARN;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.GatewayName != null)
+            if (cmdletContext.Tags != null)
             {
-                request.GatewayName = cmdletContext.GatewayName;
-            }
-            if (cmdletContext.GatewayTimezone != null)
-            {
-                request.GatewayTimezone = cmdletContext.GatewayTimezone;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -124,9 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateGatewayInformation(request);
+                var response = client.AddTagsToResource(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.ResourceARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -152,9 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
-            public String GatewayName { get; set; }
-            public String GatewayTimezone { get; set; }
+            public String ResourceARN { get; set; }
+            public List<Tag> Tags { get; set; }
         }
         
     }

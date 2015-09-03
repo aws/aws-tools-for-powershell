@@ -28,41 +28,34 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// This operation updates a gateway's metadata, which includes the gateway's name and
-    /// time zone. To specify which gateway to update, use the Amazon Resource Name (ARN)
-    /// of the gateway in your request.
+    /// This operation removes one or more tags from the specified resource.
     /// </summary>
-    [Cmdlet("Update", "SGGatewayInformation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse")]
-    [AWSCmdlet("Invokes the UpdateGatewayInformation operation against AWS Storage Gateway.", Operation = new[] {"UpdateGatewayInformation"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse",
-        "This cmdlet returns a UpdateGatewayInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against AWS Storage Gateway.", Operation = new[] {"RemoveTagsFromResource"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateSGGatewayInformationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public class RemoveSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The Amazon Resource Name (ARN) of the resource you want to remove the tags from.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String ResourceARN { get; set; }
         
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The keys of the tags you want to remove from the specified resource. A tag is composed
+        /// of a key/value pair.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public String GatewayName { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        public String GatewayTimezone { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -77,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GatewayName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SGGatewayInformation (UpdateGatewayInformation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceARN", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SGResourceTag (RemoveTagsFromResource)"))
             {
                 return;
             }
@@ -89,9 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 Credentials = this.CurrentCredentials
             };
             
-            context.GatewayARN = this.GatewayARN;
-            context.GatewayName = this.GatewayName;
-            context.GatewayTimezone = this.GatewayTimezone;
+            context.ResourceARN = this.ResourceARN;
+            if (this.TagKey != null)
+            {
+                context.TagKeys = new List<String>(this.TagKey);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -103,19 +98,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateGatewayInformationRequest();
+            var request = new RemoveTagsFromResourceRequest();
             
-            if (cmdletContext.GatewayARN != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.GatewayARN = cmdletContext.GatewayARN;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.GatewayName != null)
+            if (cmdletContext.TagKeys != null)
             {
-                request.GatewayName = cmdletContext.GatewayName;
-            }
-            if (cmdletContext.GatewayTimezone != null)
-            {
-                request.GatewayTimezone = cmdletContext.GatewayTimezone;
+                request.TagKeys = cmdletContext.TagKeys;
             }
             
             CmdletOutput output;
@@ -124,9 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateGatewayInformation(request);
+                var response = client.RemoveTagsFromResource(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.ResourceARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -152,9 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
-            public String GatewayName { get; set; }
-            public String GatewayTimezone { get; set; }
+            public String ResourceARN { get; set; }
+            public List<String> TagKeys { get; set; }
         }
         
     }

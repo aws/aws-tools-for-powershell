@@ -37,6 +37,7 @@
     <ServiceOperation MethodName="AddCache" PositionalParameters="DiskIds"/>
     <ServiceOperation MethodName="AddUploadBuffer" PositionalParameters="DiskIds"/>
     <ServiceOperation MethodName="AddWorkingStorage" PositionalParameters="DiskIds"/>
+	<ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="ResourceTag" PipelineParameter="ResourceARN" />
     <ServiceOperation MethodName="CreateCachediSCSIVolume" Output="Response" 
                       PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken"
                       ShouldProcessTarget="GatewayARN">
@@ -69,11 +70,17 @@
 	<ServiceOperation MethodName="ListVolumeInitiators"  PositionalParameters="VolumeARN"/>
     <ServiceOperation MethodName="ListVolumeRecoveryPoints" Output="Response"/>
     <ServiceOperation MethodName="ListVolumes" MetadataProperties="GatewayARN" />
+	<ServiceOperation MethodName="ListTagsForResource" 
+		Verb="List" 
+		Noun="ResourceTags" 
+		PipelineParameter="ResourceARN" 
+		MetadataProperties="ResourceARN" />
+	<ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceARN" />
     <ServiceOperation MethodName="ShutdownGateway"/>
     <ServiceOperation MethodName="StartGateway"/>
     <ServiceOperation MethodName="UpdateBandwidthRateLimit" PositionalParameters="AverageUploadRateLimitInBitsPerSec;AverageDownloadRateLimitInBitsPerSec"/>
     <ServiceOperation MethodName="UpdateChapCredentials" Output="Response" PipelineParameter="TargetARN" PositionalParameters="SecretToAuthenticateInitiator;InitiatorName;SecretToAuthenticateTarget"/>
-    <ServiceOperation MethodName="UpdateGatewayInformation" PositionalParameters="GatewayName;GatewayTimezone"/>
+    <ServiceOperation MethodName="UpdateGatewayInformation" PositionalParameters="GatewayName;GatewayTimezone" Output="Response"/>
     <ServiceOperation MethodName="UpdateGatewaySoftwareNow"/>
     <ServiceOperation MethodName="UpdateMaintenanceStartTime" PositionalParameters="HourOfDay;MinuteOfHour;DayOfWeek"/>
     <ServiceOperation MethodName="UpdateSnapshotSchedule" PipelineParameter="VolumeARN" PositionalParameters="StartAt;RecurrenceInHours;Description">

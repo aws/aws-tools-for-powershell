@@ -59,9 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         /// <summary>
         /// <para>
-        /// <para>The hour component of the maintenance start time represented as <emphasis>hh</emphasis>,
-        /// where <i>hh</i> is the hour (00 to 23). The hour of the day is in the time zone of
-        /// the gateway.</para>
+        /// <para>The hour component of the maintenance start time represented as <i>hh</i>, where <i>hh</i>
+        /// is the hour (00 to 23). The hour of the day is in the time zone of the gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
