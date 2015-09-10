@@ -1,3 +1,7 @@
+### 3.1.11.0 (2015-09-10)
+  * Amazon S3
+    - Reworked progress indication for folder uploads so that the % progress bar tracks bytes uploaded versus total to send for all files. In previous versions it tracked the number of files uploaded which could lead to periods of no progress activity if the files were large.
+	
 ### 3.1.10.0 (2015-09-03)
   * Amazon S3
     - Fixed issue in AWS SDK for .NET that caused Read-S3Object to fail to download a hierarchy of files if zero length files were present in subfolders.
