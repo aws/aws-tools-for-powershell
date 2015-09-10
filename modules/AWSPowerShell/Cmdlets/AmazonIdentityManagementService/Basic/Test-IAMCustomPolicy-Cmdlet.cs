@@ -28,26 +28,80 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists the account aliases associated with the account. For information about using
-    /// an AWS account alias, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-    /// an Alias for Your AWS Account ID</a> in the <i>Using IAM</i> guide. 
+    /// Simulate a set of IAM policies against a list of API actions and AWS resources to
+    /// determine the policies' effective permissions. The policies are provided as a list
+    /// of strings.
     /// 
     ///  
     /// <para>
-    ///  You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
-    /// parameters. 
+    /// The simulation does not perform the API actions, it only checks the authorization
+    /// to determine if the simulated policies allow or deny the actions.
+    /// </para><para>
+    /// If you want to simulate existing policies attached to an IAM user, group, or role,
+    /// use <a>SimulatePrincipalPolicy</a> instead.
+    /// </para><para>
+    /// Context keys are variables maintained by AWS and its services that provide details
+    /// about the context of an API query request, and can be evaluated by using the <code>Condition</code>
+    /// element of an IAM policy. To get the list of context keys required by the policies
+    /// to simulate them correctly, use <a>GetContextKeysForCustomPolicy</a>.
+    /// </para><para>
+    /// If the output is long, you can paginate the results using the <code>MaxItems</code>
+    /// and <code>Marker</code> parameters.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "IAMAccountAlias")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListAccountAliases operation against AWS Identity and Access Management.", Operation = new[] {"ListAccountAliases"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListAccountAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Test", "IAMCustomPolicy")]
+    [OutputType("Amazon.IdentityManagement.Model.EvaluationResult")]
+    [AWSCmdlet("Invokes the SimulateCustomPolicy operation against AWS Identity and Access Management.", Operation = new[] {"SimulateCustomPolicy"})]
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.EvaluationResult",
+        "This cmdlet returns a collection of EvaluationResult objects.",
+        "The service call response (type SimulateCustomPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
     )]
-    public class GetIAMAccountAliasCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public class TestIAMCustomPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        /// <summary>
+        /// <para>
+        /// <para>A list of names of API actions to evaluate in the simulation. Each action is evaluated
+        /// for each resource. Each action must include the service identifier, such as <code>iam:CreateUser</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ActionNames")]
+        public System.String[] ActionName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of context keys and corresponding values that are used by the simulation. Whenever
+        /// a context key is evaluated by a <code>Condition</code> element in one of the simulated
+        /// IAM permission policies, the corresponding value is supplied.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ContextEntries")]
+        public Amazon.IdentityManagement.Model.ContextEntry[] ContextEntry { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of policy documents to include in the simulation. Each document is specified
+        /// as a string containing the complete, valid JSON text of an IAM policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] PolicyInputList { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of ARNs of AWS resources to include in the simulation. If this parameter is
+        /// not provided then the value defaults to <code>*</code> (all resources). Each API in
+        /// the <code>ActionNames</code> parameter is evaluated for each resource in this list.
+        /// The simulation determines the access result (allowed or denied) of each combination
+        /// and reports it in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceArns")]
+        public System.String[] ResourceArn { get; set; }
+        
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
@@ -55,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// element in the response you received to inform the next call about where to start.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public String Marker { get; set; }
         
@@ -81,9 +135,25 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.ActionName != null)
+            {
+                context.ActionNames = new List<String>(this.ActionName);
+            }
+            if (this.ContextEntry != null)
+            {
+                context.ContextEntries = new List<ContextEntry>(this.ContextEntry);
+            }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            if (this.PolicyInputList != null)
+            {
+                context.PolicyInputList = new List<String>(this.PolicyInputList);
+            }
+            if (this.ResourceArn != null)
+            {
+                context.ResourceArns = new List<String>(this.ResourceArn);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -96,7 +166,23 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListAccountAliasesRequest();
+            var request = new SimulateCustomPolicyRequest();
+            if (cmdletContext.ActionNames != null)
+            {
+                request.ActionNames = cmdletContext.ActionNames;
+            }
+            if (cmdletContext.ContextEntries != null)
+            {
+                request.ContextEntries = cmdletContext.ContextEntries;
+            }
+            if (cmdletContext.PolicyInputList != null)
+            {
+                request.PolicyInputList = cmdletContext.PolicyInputList;
+            }
+            if (cmdletContext.ResourceArns != null)
+            {
+                request.ResourceArns = cmdletContext.ResourceArns;
+            }
             
             // Initialize loop variants and commence piping
             String _nextMarker = null;
@@ -129,9 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     try
                     {
                         
-                        var response = client.ListAccountAliases(request);
+                        var response = client.SimulateCustomPolicy(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.AccountAliases;
+                        object pipelineOutput = response.EvaluationResults;
                         notes = new Dictionary<string, object>();
                         notes["IsTruncated"] = response.IsTruncated;
                         notes["Marker"] = response.Marker;
@@ -141,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.AccountAliases.Count;
+                        int _receivedThisCall = response.EvaluationResults.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -185,8 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<String> ActionNames { get; set; }
+            public List<ContextEntry> ContextEntries { get; set; }
             public String Marker { get; set; }
             public int? MaxItems { get; set; }
+            public List<String> PolicyInputList { get; set; }
+            public List<String> ResourceArns { get; set; }
         }
         
     }

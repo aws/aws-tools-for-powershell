@@ -1,0 +1,135 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
+
+namespace Amazon.PowerShell.Cmdlets.IAM
+{
+    /// <summary>
+    /// Gets a list of all of the context keys referenced in <code>Condition</code> elements
+    /// in the input policies. The policies are supplied as a list of one or more strings.
+    /// To get the context keys from policies associated with an IAM user, group, or role,
+    /// use <a>GetContextKeysForPrincipalPolicy</a>.
+    /// 
+    ///  
+    /// <para>
+    /// Context keys are variables maintained by AWS and its services that provide details
+    /// about the context of an API query request, and can be evaluated by using the <code>Condition</code>
+    /// element of an IAM policy. Use GetContextKeysForCustomPolicy to understand what key
+    /// names and values you must supply when you call <a>SimulateCustomPolicy</a>. Note that
+    /// all parameters are shown in unencoded form here for clarity, but must be URL encoded
+    /// to be included as a part of a real HTML request.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Get", "IAMContextKeysForCustomPolicy")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the GetContextKeysForCustomPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetContextKeysForCustomPolicy"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type GetContextKeysForCustomPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetIAMContextKeysForCustomPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>A list of policies for which you want list of context keys used in <code>Condition</code>
+        /// elements.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String[] PolicyInputList { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            if (this.PolicyInputList != null)
+            {
+                context.PolicyInputList = new List<String>(this.PolicyInputList);
+            }
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new GetContextKeysForCustomPolicyRequest();
+            
+            if (cmdletContext.PolicyInputList != null)
+            {
+                request.PolicyInputList = cmdletContext.PolicyInputList;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.GetContextKeysForCustomPolicy(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.ContextKeyNames;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public List<String> PolicyInputList { get; set; }
+        }
+        
+    }
+}

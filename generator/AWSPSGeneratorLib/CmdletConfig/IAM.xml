@@ -23,6 +23,7 @@
     <Map From="Resync" To="Sync" />
     <Map From="Attach" To="Register" />
     <Map From="Detach" To="Unregister"/>
+    <Map From="Simulate" To="Test"/>
   </VerbMappings>
   
   <DefaultRegion>us-east-1</DefaultRegion>
@@ -153,6 +154,12 @@
 
     <ServiceOperation MethodName="GenerateCredentialReport" Verb="Request" Output="Response" />
     <ServiceOperation MethodName="GetCredentialReport" Exclude="true" />
+
+    <ServiceOperation MethodName="SimulateCustomPolicy" />
+    <ServiceOperation MethodName="SimulatePrincipalPolicy" />
+    <ServiceOperation MethodName="GetContextKeysForCustomPolicy" />
+    <ServiceOperation MethodName="GetContextKeysForPrincipalPolicy" />
+
   </ServiceOperations>
 
   <PipelineByValueProperties>

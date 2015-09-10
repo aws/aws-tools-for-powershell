@@ -28,48 +28,96 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Lists all managed policies that are attached to the specified role. 
+    /// Simulate the set of IAM policies attached to an IAM entity against a list of API actions
+    /// and AWS resources to determine the policies' effective permissions. The entity can
+    /// be an IAM user, group, or role. If you specify a user, then the simulation also includes
+    /// all of the policies attached to groups that the user is a member of.
     /// 
     ///  
     /// <para>
-    /// A role can also have inline policies embedded with it. To list the inline policies
-    /// for a role, use the <a>ListRolePolicies</a> API. For information about policies, refer
-    /// to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// You can optionally include a list of one or more additional policies specified as
+    /// strings to include in the simulation. If you want to simulate only policies specified
+    /// as strings, use <a>SimulateCustomPolicy</a> instead.
     /// </para><para>
-    /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
-    /// parameters. You can use the <code>PathPrefix</code> parameter to limit the list of
-    /// policies to only those matching the specified path prefix. If there are no policies
-    /// attached to the specified role (or none that match the specified path prefix), the
-    /// action returns an empty list. 
+    /// The simulation does not perform the API actions, it only checks the authorization
+    /// to determine if the simulated policies allow or deny the actions.
+    /// </para><para><b>Note:</b> This API discloses information about the permissions granted to other
+    /// users. If you do not want users to see other user's permissions, then consider allowing
+    /// them to use <a>SimulateCustomPolicy</a> instead.
+    /// </para><para>
+    /// Context keys are variables maintained by AWS and its services that provide details
+    /// about the context of an API query request, and can be evaluated by using the <code>Condition</code>
+    /// element of an IAM policy. To get the list of context keys required by the policies
+    /// to simulate them correctly, use <a>GetContextKeysForPrincipalPolicy</a>.
+    /// </para><para>
+    /// If the output is long, you can paginate the results using the <code>MaxItems</code>
+    /// and <code>Marker</code> parameters.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "IAMAttachedRolePolicies")]
-    [OutputType("Amazon.IdentityManagement.Model.AttachedPolicyType")]
-    [AWSCmdlet("Invokes the ListAttachedRolePolicies operation against AWS Identity and Access Management.", Operation = new[] {"ListAttachedRolePolicies"})]
-    [AWSCmdletOutput("Amazon.IdentityManagement.Model.AttachedPolicyType",
-        "This cmdlet returns a collection of AttachedPolicyType objects.",
-        "The service call response (type ListAttachedRolePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Test", "IAMPrincipalPolicy")]
+    [OutputType("Amazon.IdentityManagement.Model.EvaluationResult")]
+    [AWSCmdlet("Invokes the SimulatePrincipalPolicy operation against AWS Identity and Access Management.", Operation = new[] {"SimulatePrincipalPolicy"})]
+    [AWSCmdletOutput("Amazon.IdentityManagement.Model.EvaluationResult",
+        "This cmdlet returns a collection of EvaluationResult objects.",
+        "The service call response (type SimulatePrincipalPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
     )]
-    public class GetIAMAttachedRolePoliciesCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    public class TestIAMPrincipalPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
-        /// included, it defaults to a slash (/), listing all policies.</para>
+        /// <para>A list of names of API actions to evaluate in the simulation. Each action is evaluated
+        /// for each resource. Each action must include the service identifier, such as <code>iam:CreateUser</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PathPrefix { get; set; }
+        [Alias("ActionNames")]
+        public System.String[] ActionName { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The name (friendly name, not ARN) of the role to list attached policies for.</para>
+        /// <para>A list of context keys and corresponding values that are used by the simulation. Whenever
+        /// a context key is evaluated by a <code>Condition</code> element in one of the simulated
+        /// IAM permission policies, the corresponding value is supplied.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String RoleName { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("ContextEntries")]
+        public Amazon.IdentityManagement.Model.ContextEntry[] ContextEntry { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of additional policy documents to include in the simulation. Each
+        /// document is specified as a string containing the complete, valid JSON text of an IAM
+        /// policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] PolicyInputList { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to
+        /// include in the simulation. If you specify a user, group, or role, the simulation includes
+        /// all policies associated with that entity. If you specify a user, the simulation also
+        /// includes all policies attached to any groups the user is a member of.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String PolicySourceArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of ARNs of AWS resources to include in the simulation. If this parameter is
+        /// not provided then the value defaults to <code>*</code> (all resources). Each API in
+        /// the <code>ActionNames</code> parameter is evaluated for each resource in this list.
+        /// The simulation determines the access result (allowed or denied) of each combination
+        /// and reports it in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceArns")]
+        public System.String[] ResourceArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,11 +152,26 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.ActionName != null)
+            {
+                context.ActionNames = new List<String>(this.ActionName);
+            }
+            if (this.ContextEntry != null)
+            {
+                context.ContextEntries = new List<ContextEntry>(this.ContextEntry);
+            }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
-            context.PathPrefix = this.PathPrefix;
-            context.RoleName = this.RoleName;
+            if (this.PolicyInputList != null)
+            {
+                context.PolicyInputList = new List<String>(this.PolicyInputList);
+            }
+            context.PolicySourceArn = this.PolicySourceArn;
+            if (this.ResourceArn != null)
+            {
+                context.ResourceArns = new List<String>(this.ResourceArn);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -121,14 +184,26 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListAttachedRolePoliciesRequest();
-            if (cmdletContext.PathPrefix != null)
+            var request = new SimulatePrincipalPolicyRequest();
+            if (cmdletContext.ActionNames != null)
             {
-                request.PathPrefix = cmdletContext.PathPrefix;
+                request.ActionNames = cmdletContext.ActionNames;
             }
-            if (cmdletContext.RoleName != null)
+            if (cmdletContext.ContextEntries != null)
             {
-                request.RoleName = cmdletContext.RoleName;
+                request.ContextEntries = cmdletContext.ContextEntries;
+            }
+            if (cmdletContext.PolicyInputList != null)
+            {
+                request.PolicyInputList = cmdletContext.PolicyInputList;
+            }
+            if (cmdletContext.PolicySourceArn != null)
+            {
+                request.PolicySourceArn = cmdletContext.PolicySourceArn;
+            }
+            if (cmdletContext.ResourceArns != null)
+            {
+                request.ResourceArns = cmdletContext.ResourceArns;
             }
             
             // Initialize loop variants and commence piping
@@ -162,9 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     try
                     {
                         
-                        var response = client.ListAttachedRolePolicies(request);
+                        var response = client.SimulatePrincipalPolicy(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.AttachedPolicies;
+                        object pipelineOutput = response.EvaluationResults;
                         notes = new Dictionary<string, object>();
                         notes["IsTruncated"] = response.IsTruncated;
                         notes["Marker"] = response.Marker;
@@ -174,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.AttachedPolicies.Count;
+                        int _receivedThisCall = response.EvaluationResults.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -218,10 +293,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<String> ActionNames { get; set; }
+            public List<ContextEntry> ContextEntries { get; set; }
             public String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public String PathPrefix { get; set; }
-            public String RoleName { get; set; }
+            public List<String> PolicyInputList { get; set; }
+            public String PolicySourceArn { get; set; }
+            public List<String> ResourceArns { get; set; }
         }
         
     }
