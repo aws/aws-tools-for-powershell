@@ -618,7 +618,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
 	    internal class UploadFolderProgressTracker : ProgressTracker<UploadDirectoryProgressArgs>
 	    {
 	        private int _filesCompleted = 0;
-	        private string _currentFile = string.Empty;
 	        private readonly string _startingFolder;
 
 	        private const string UploadingFolderActivity = "Uploading";
@@ -644,25 +643,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public override void ReportProgress(UploadDirectoryProgressArgs args)
             {
-                var lastUploadCount = _filesCompleted;
-                var haveChangedFile = string.Compare(_currentFile, args.CurrentFile, StringComparison.CurrentCultureIgnoreCase) != 0;
-                if (haveChangedFile)
-                    _currentFile = args.CurrentFile;
-
-                // since we need to track if file changed or we hit EOF, simpler to always refresh - and it will work
-                // better if the sdk parallelizes uploads in future (but we will need to adjust our approach to
-                // current file tracking)
-                _filesCompleted = args.NumberOfFilesUploaded;
-
-                if (_filesCompleted > lastUploadCount || haveChangedFile)
+                // Transfer util has an intermittent bug where it will send uploaded > total
+                // for number of files. Still tracking it down, but this makes the progress
+                // update safe for pshell users
+                if (args.NumberOfFilesUploaded <= args.TotalNumberOfFiles)
                 {
-                    ReportProgress(args.NumberOfFilesUploaded, 
-                                   args.TotalNumberOfFiles,
+                    _filesCompleted = args.NumberOfFilesUploaded;
+
+                    var currentPercent = (int)(((float)args.TransferredBytes / args.TotalBytes) * 100);
+                    ReportProgress(currentPercent,
                                    ProgressMsgFormat,
                                    args.NumberOfFilesUploaded,
                                    args.TotalNumberOfFiles,
                                    _startingFolder,
-                                   _currentFile.Substring(_startingFolder.Length + 1));
+                                   args.CurrentFile.Substring(_startingFolder.Length + 1));
                 }
             }
         }
