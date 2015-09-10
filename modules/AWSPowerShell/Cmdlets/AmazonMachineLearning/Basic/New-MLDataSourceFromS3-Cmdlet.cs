@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// A recipe describes how each input variable will be used in training. Will the variable
     /// be included or excluded from training? Will the variable be manipulated, for example,
     /// combined with another variable, or split apart into word combinations? The recipe
-    /// provides answers to these questions. For more information, see the <a href="http://docs.aws.amazon.com/machinelearning/latest/dg">Amazon
+    /// provides answers to these questions. For more information, see the <a href="http://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
     /// Machine Learning Developer Guide</a>.
     /// </para>
     /// </summary>
@@ -104,7 +104,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         /// <summary>
         /// <para>
-        /// <para> Describes the schema for an Amazon S3 <code>DataSource</code>.</para>
+        /// <para> A JSON string that represents the schema for an Amazon S3 <code>DataSource</code>.
+        /// The <code>DataSchema</code> defines the structure of the observation data in the data
+        /// file(s) referenced in the <code>DataSource</code>.</para><para>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
+        /// and <code>excludedVariableNames</code> have an array of key-value pairs for their
+        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para> "recordAnnotationFieldName": "F1",</para><para> "recordWeightFieldName": "F2",</para><para> "targetFieldName": "F3",</para><para> "dataFormat": "CSV",</para><para> "dataFileContainsHeader": true,</para><para> "attributes": [</para><para> { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
+        /// }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType":
+        /// "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6",
+        /// "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" },
+        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para> "excludedVariableNames": [ "F6" ] } </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

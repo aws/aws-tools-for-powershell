@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// from the following types:</para><ul><li>Choose <code>REGRESSION</code> if the <code>MLModel</code> will be used
         /// to predict a numeric value.</li><li>Choose <code>BINARY</code> if the <code>MLModel</code>
         /// result has two possible values.</li><li>Choose <code>MULTICLASS</code> if the <code>MLModel</code>
-        /// result has a limited number of values. </li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/machinelearning/latest/dg">Amazon
+        /// result has a limited number of values. </li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/machine-learning/latest/dg">Amazon
         /// Machine Learning Developer Guide</a>.</para>
         /// </para>
         /// </summary>

@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// After using the <code>DeleteBatchPrediction</code> operation, you can use the <a>GetBatchPrediction</a>
     /// operation to verify that the status of the <code>BatchPrediction</code> changed to
     /// DELETED.
-    /// </para><caution><title>Caution</title><para>
-    /// The result of the <code>DeleteBatchPrediction</code> operation is irreversible.
-    /// </para></caution>
+    /// </para><para><b>Caution:</b> The result of the <code>DeleteBatchPrediction</code> operation is
+    /// irreversible.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "MLBatchPrediction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

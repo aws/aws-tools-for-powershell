@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <summary>
         /// <para>
         /// <para>DataRearrangement - A JSON string that represents the splitting requirement of a <code>DataSource</code>.
-        /// </para><para> Sample - <code> "{\"randomSeed\":\"some-random-seed\", \"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</code></para>
+        /// </para><para> Sample - <code> "{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,8 +88,15 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         /// <summary>
         /// <para>
-        /// <para>A JSON string that represents the schema. This is not required if <code>DataSchemaUri</code>
-        /// is specified. </para>
+        /// <para>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>.
+        /// The <code>DataSchema</code> defines the structure of the observation data in the data
+        /// file(s) referenced in the <code>DataSource</code>.</para><para>A <code>DataSchema</code> is not required if you specify a <code>DataSchemaUri</code></para><para>Define your <code>DataSchema</code> as a series of key-value pairs. <code>attributes</code>
+        /// and <code>excludedVariableNames</code> have an array of key-value pairs for their
+        /// value. Use the following format to define your <code>DataSchema</code>.</para><para>{ "version": "1.0",</para><para> "recordAnnotationFieldName": "F1",</para><para> "recordWeightFieldName": "F2",</para><para> "targetFieldName": "F3",</para><para> "dataFormat": "CSV",</para><para> "dataFileContainsHeader": true,</para><para> "attributes": [</para><para> { "fieldName": "F1", "fieldType": "TEXT" }, { "fieldName": "F2", "fieldType": "NUMERIC"
+        /// }, { "fieldName": "F3", "fieldType": "CATEGORICAL" }, { "fieldName": "F4", "fieldType":
+        /// "NUMERIC" }, { "fieldName": "F5", "fieldType": "CATEGORICAL" }, { "fieldName": "F6",
+        /// "fieldType": "TEXT" }, { "fieldName": "F7", "fieldType": "WEIGHTED_INT_SEQUENCE" },
+        /// { "fieldName": "F8", "fieldType": "WEIGHTED_STRING_SEQUENCE" } ],</para><para> "excludedVariableNames": [ "F6" ] } </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

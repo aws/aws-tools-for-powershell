@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// <para>
     /// After using the <code>DeleteDataSource</code> operation, you can use the <a>GetDataSource</a>
     /// operation to verify that the status of the <code>DataSource</code> changed to DELETED.
-    /// </para><caution><title>Caution</title><para>
-    /// The results of the <code>DeleteDataSource</code> operation are irreversible.
-    /// </para></caution>
+    /// </para><para><b>Caution:</b> The results of the <code>DeleteDataSource</code> operation are irreversible.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "MLDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
