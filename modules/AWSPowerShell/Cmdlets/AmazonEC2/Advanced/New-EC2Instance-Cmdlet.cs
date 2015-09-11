@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// The block device mapping for the instance. For more information, see 
-        /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Block Device Mapping</a> 
+        /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device Mapping</a> 
         /// in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Parameter]
