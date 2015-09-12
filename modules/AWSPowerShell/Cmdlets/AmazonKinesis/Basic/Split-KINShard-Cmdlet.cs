@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// For the default shard limit for an AWS account, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
     /// Kinesis Limits</a>. If you need to increase this limit, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
-    /// AWS Support</a></para><para>
+    /// AWS Support</a>.
+    /// </para><para>
     /// If you try to operate on too many streams in parallel using <a>CreateStream</a>, <a>DeleteStream</a>,
     /// <a>MergeShards</a> or <a>SplitShard</a>, you receive a <code>LimitExceededException</code>.
     /// 

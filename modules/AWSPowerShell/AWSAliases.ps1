@@ -1190,6 +1190,7 @@ Set-Alias -Name Modify-HSMHsm -Value Edit-HSMItem
 Set-Alias -Name HSM-ModifyHsm -Value Edit-HSMItem
 Set-Alias -Name Modify-HSMLunaClient -Value Edit-HSMLunaClient
 Set-Alias -Name HSM-ModifyLunaClient -Value Edit-HSMLunaClient
+Set-Alias -Name IAM-UpdateServerCertificate -Value Update-IAMServerCertificate
 Set-Alias -Name IAM-UpdateSigningCertificate -Value Update-IAMSigningCertificate
 Set-Alias -Name IAM-UpdateSSHPublicKey -Value Update-IAMSSHPublicKey
 Set-Alias -Name IAM-UpdateUser -Value Update-IAMUser
@@ -1199,6 +1200,8 @@ Set-Alias -Name Upload-IAMSigningCertificate -Value Publish-IAMSigningCertificat
 Set-Alias -Name IAM-UploadSigningCertificate -Value Publish-IAMSigningCertificate
 Set-Alias -Name Upload-IAMSSHPublicKey -Value Publish-IAMSSHPublicKey
 Set-Alias -Name IAM-UploadSSHPublicKey -Value Publish-IAMSSHPublicKey
+Set-Alias -Name List-IAMRolePolicies -Value Get-IAMRolePolicies
+Set-Alias -Name IAM-ListRolePolicies -Value Get-IAMRolePolicies
 Set-Alias -Name List-IAMRoles -Value Get-IAMRoles
 Set-Alias -Name IAM-ListRoles -Value Get-IAMRoles
 Set-Alias -Name List-IAMSAMLProviders -Value Get-IAMSAMLProviders
@@ -1238,7 +1241,7 @@ Set-Alias -Name IAM-UpdateGroup -Value Update-IAMGroup
 Set-Alias -Name IAM-UpdateLoginProfile -Value Update-IAMLoginProfile
 Set-Alias -Name IAM-UpdateOpenIDConnectProviderThumbprint -Value Update-IAMOpenIDConnectProviderThumbprint
 Set-Alias -Name IAM-UpdateSAMLProvider -Value Update-IAMSAMLProvider
-Set-Alias -Name IAM-UpdateServerCertificate -Value Update-IAMServerCertificate
+Set-Alias -Name IAM-GetLoginProfile -Value Get-IAMLoginProfile
 Set-Alias -Name IAM-GetOpenIDConnectProvider -Value Get-IAMOpenIDConnectProvider
 Set-Alias -Name IAM-GetPolicy -Value Get-IAMPolicy
 Set-Alias -Name IAM-GetPolicyVersion -Value Get-IAMPolicyVersion
@@ -1279,8 +1282,6 @@ Set-Alias -Name List-IAMPolicies -Value Get-IAMPolicies
 Set-Alias -Name IAM-ListPolicies -Value Get-IAMPolicies
 Set-Alias -Name List-IAMPolicyVersions -Value Get-IAMPolicyVersions
 Set-Alias -Name IAM-ListPolicyVersions -Value Get-IAMPolicyVersions
-Set-Alias -Name List-IAMRolePolicies -Value Get-IAMRolePolicies
-Set-Alias -Name IAM-ListRolePolicies -Value Get-IAMRolePolicies
 Set-Alias -Name Delete-IAMPolicy -Value Remove-IAMPolicy
 Set-Alias -Name IAM-DeletePolicy -Value Remove-IAMPolicy
 Set-Alias -Name Delete-IAMPolicyVersion -Value Remove-IAMPolicyVersion
@@ -1317,7 +1318,6 @@ Set-Alias -Name IAM-GetContextKeysForPrincipalPolicy -Value Get-IAMContextKeysFo
 Set-Alias -Name IAM-GetGroup -Value Get-IAMGroup
 Set-Alias -Name IAM-GetGroupPolicy -Value Get-IAMGroupPolicy
 Set-Alias -Name IAM-GetInstanceProfile -Value Get-IAMInstanceProfile
-Set-Alias -Name IAM-GetLoginProfile -Value Get-IAMLoginProfile
 Set-Alias -Name IAM-AddClientIDToOpenIDConnectProvider -Value Add-IAMClientIDToOpenIDConnectProvider
 Set-Alias -Name IAM-AddRoleToInstanceProfile -Value Add-IAMRoleToInstanceProfile
 Set-Alias -Name IAM-AddUserToGroup -Value Add-IAMUserToGroup

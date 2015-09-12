@@ -10,7 +10,7 @@
 
   <PipelineParameter>InstanceId</PipelineParameter>
   
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="1000"/>
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="25"/>
 
   <ServiceOperations>
     <ServiceOperation MethodName="CreateAssociation" />
