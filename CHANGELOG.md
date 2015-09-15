@@ -1,3 +1,14 @@
+### 3.1.12.0 (2015-09-15)
+  * Amazon EC2
+    - Updated the Request-EC2SpotFleet cmdlet with support for specifying allocation strategy.
+    - Get-EC2Snapshot now supports additional DataEncryptionKeyId and StateMessage parameters in the returned Snapshot object.
+  * Amazon Elastic File System
+    - Updated the Get-EFSMountTarget cmdlet to support a new MountTargetId parameter.  
+  * Amazon EC2 Simple Systems Manager
+    - Fixed bug in the automatic pagination support in Get-SSMDocumentList cmdlet. The cmdlet caused the service to respond with an error message due to the MaxResults parameter being set higher than 25.
+  * Amazon Route 53
+    - Updated the New-R53HealthCheck and Update-R53HealthCheck cmdlets to add support for calculated and latency health checks.
+
 ### 3.1.11.0 (2015-09-10)
   * Amazon S3
     - Reworked progress indication for folder uploads so that the % progress bar tracks bytes uploaded versus total to send for all files. In previous versions it tracked the number of files uploaded which could lead to periods of no progress activity if the files were large.
