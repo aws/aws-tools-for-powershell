@@ -49,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
     {
         /// <summary>
         /// <para>
+        /// <para>For a specified parent health check, a list of <code>HealthCheckId</code> values for
+        /// the associated child health checks.</para><para>Specify this value only if you want to change it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ChildHealthChecks")]
+        public System.String[] ChildHealthCheck { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
         /// 53 to change the current status of the endpoint from unhealthy to healthy or vice
         /// versa.</para><para>Valid values are integers between 1 and 10. For more information, see "How Amazon
@@ -85,6 +95,26 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public Int64 HealthCheckVersion { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of child health checks that must be healthy for Route 53 to consider
+        /// the parent health check to be healthy. Valid values are integers between 0 and 256,
+        /// inclusive.</para><para>Specify this value only if you want to change it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 HealthThreshold { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that indicates whether the status of health check should be inverted.
+        /// For example, if a health check is healthy but <code>Inverted</code> is <code>True</code>,
+        /// then Route 53 considers the health check to be unhealthy.</para><para>Specify this value only if you want to change it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean Inverted { get; set; }
         
         /// <summary>
         /// <para>
@@ -160,6 +190,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.SearchString = this.SearchString;
             if (ParameterWasBound("FailureThreshold"))
                 context.FailureThreshold = this.FailureThreshold;
+            if (ParameterWasBound("Inverted"))
+                context.Inverted = this.Inverted;
+            if (ParameterWasBound("HealthThreshold"))
+                context.HealthThreshold = this.HealthThreshold;
+            if (this.ChildHealthCheck != null)
+            {
+                context.ChildHealthChecks = new List<String>(this.ChildHealthCheck);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -205,6 +243,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 request.FailureThreshold = cmdletContext.FailureThreshold.Value;
             }
+            if (cmdletContext.Inverted != null)
+            {
+                request.Inverted = cmdletContext.Inverted.Value;
+            }
+            if (cmdletContext.HealthThreshold != null)
+            {
+                request.HealthThreshold = cmdletContext.HealthThreshold.Value;
+            }
+            if (cmdletContext.ChildHealthChecks != null)
+            {
+                request.ChildHealthChecks = cmdletContext.ChildHealthChecks;
+            }
             
             CmdletOutput output;
             
@@ -248,6 +298,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public String FullyQualifiedDomainName { get; set; }
             public String SearchString { get; set; }
             public Int32? FailureThreshold { get; set; }
+            public Boolean? Inverted { get; set; }
+            public Int32? HealthThreshold { get; set; }
+            public List<String> ChildHealthChecks { get; set; }
         }
         
     }

@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
+        /// <para>For a specified parent health check, a list of <code>HealthCheckId</code> values for
+        /// the associated child health checks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("HealthCheckConfig_ChildHealthChecks")]
+        public System.String[] HealthCheckConfig_ChildHealthCheck { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
         /// 53 to change the current status of the endpoint from unhealthy to healthy or vice
         /// versa.</para><para>Valid values are integers between 1 and 10. For more information, see "How Amazon
@@ -81,11 +91,41 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
+        /// <para>The minimum number of child health checks that must be healthy for Route 53 to consider
+        /// the parent health check to be healthy. Valid values are integers between 0 and 256,
+        /// inclusive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 HealthCheckConfig_HealthThreshold { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that indicates whether the status of health check should be inverted.
+        /// For example, if a health check is healthy but <code>Inverted</code> is <code>True</code>,
+        /// then Route 53 considers the health check to be unhealthy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean HealthCheckConfig_Inverted { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>IP Address of the instance being checked. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public String HealthCheckConfig_IPAddress { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether you want Route 53 to measure the latency between
+        /// health checkers in multiple AWS regions and your endpoint and to display CloudWatch
+        /// latency graphs in the Route 53 console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean HealthCheckConfig_MeasureLatency { get; set; }
         
         /// <summary>
         /// <para>
@@ -172,6 +212,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 context.HealthCheckConfig_RequestInterval = this.HealthCheckConfig_RequestInterval;
             if (ParameterWasBound("HealthCheckConfig_FailureThreshold"))
                 context.HealthCheckConfig_FailureThreshold = this.HealthCheckConfig_FailureThreshold;
+            if (ParameterWasBound("HealthCheckConfig_MeasureLatency"))
+                context.HealthCheckConfig_MeasureLatency = this.HealthCheckConfig_MeasureLatency;
+            if (ParameterWasBound("HealthCheckConfig_Inverted"))
+                context.HealthCheckConfig_Inverted = this.HealthCheckConfig_Inverted;
+            if (ParameterWasBound("HealthCheckConfig_HealthThreshold"))
+                context.HealthCheckConfig_HealthThreshold = this.HealthCheckConfig_HealthThreshold;
+            if (this.HealthCheckConfig_ChildHealthCheck != null)
+            {
+                context.HealthCheckConfig_ChildHealthChecks = new List<String>(this.HealthCheckConfig_ChildHealthCheck);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -273,6 +323,46 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.FailureThreshold = requestHealthCheckConfig_healthCheckConfig_FailureThreshold.Value;
                 requestHealthCheckConfigIsNull = false;
             }
+            Boolean? requestHealthCheckConfig_healthCheckConfig_MeasureLatency = null;
+            if (cmdletContext.HealthCheckConfig_MeasureLatency != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_MeasureLatency = cmdletContext.HealthCheckConfig_MeasureLatency.Value;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_MeasureLatency != null)
+            {
+                request.HealthCheckConfig.MeasureLatency = requestHealthCheckConfig_healthCheckConfig_MeasureLatency.Value;
+                requestHealthCheckConfigIsNull = false;
+            }
+            Boolean? requestHealthCheckConfig_healthCheckConfig_Inverted = null;
+            if (cmdletContext.HealthCheckConfig_Inverted != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_Inverted = cmdletContext.HealthCheckConfig_Inverted.Value;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_Inverted != null)
+            {
+                request.HealthCheckConfig.Inverted = requestHealthCheckConfig_healthCheckConfig_Inverted.Value;
+                requestHealthCheckConfigIsNull = false;
+            }
+            Int32? requestHealthCheckConfig_healthCheckConfig_HealthThreshold = null;
+            if (cmdletContext.HealthCheckConfig_HealthThreshold != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_HealthThreshold = cmdletContext.HealthCheckConfig_HealthThreshold.Value;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_HealthThreshold != null)
+            {
+                request.HealthCheckConfig.HealthThreshold = requestHealthCheckConfig_healthCheckConfig_HealthThreshold.Value;
+                requestHealthCheckConfigIsNull = false;
+            }
+            List<String> requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck = null;
+            if (cmdletContext.HealthCheckConfig_ChildHealthChecks != null)
+            {
+                requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck = cmdletContext.HealthCheckConfig_ChildHealthChecks;
+            }
+            if (requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck != null)
+            {
+                request.HealthCheckConfig.ChildHealthChecks = requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck;
+                requestHealthCheckConfigIsNull = false;
+            }
              // determine if request.HealthCheckConfig should be set to null
             if (requestHealthCheckConfigIsNull)
             {
@@ -322,6 +412,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public String HealthCheckConfig_SearchString { get; set; }
             public Int32? HealthCheckConfig_RequestInterval { get; set; }
             public Int32? HealthCheckConfig_FailureThreshold { get; set; }
+            public Boolean? HealthCheckConfig_MeasureLatency { get; set; }
+            public Boolean? HealthCheckConfig_Inverted { get; set; }
+            public Int32? HealthCheckConfig_HealthThreshold { get; set; }
+            public List<String> HealthCheckConfig_ChildHealthChecks { get; set; }
         }
         
     }
