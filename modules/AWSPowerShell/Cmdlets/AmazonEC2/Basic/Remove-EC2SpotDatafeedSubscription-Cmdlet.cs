@@ -28,8 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes the data feed for Spot Instances. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
-    /// Instance Data Feed</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Deletes the data feed for Spot instances.
     /// </summary>
     [Cmdlet("Remove", "EC2SpotDatafeedSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

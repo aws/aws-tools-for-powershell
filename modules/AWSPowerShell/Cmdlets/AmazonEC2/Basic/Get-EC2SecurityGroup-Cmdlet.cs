@@ -50,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>description</code> - The description of the security group.</para></li><li><para><code>egress.ip-permission.prefix-list-id</code> - The ID (prefix) of the AWS service
+        /// <para>One or more filters. If using multiple filters for rules, the results include security
+        /// groups for which any combination of rules - not necessarily a single rule - match
+        /// all filters.</para><ul><li><para><code>description</code> - The description of the security group.</para></li><li><para><code>egress.ip-permission.prefix-list-id</code> - The ID (prefix) of the AWS service
         /// to which the security group allows access.</para></li><li><para><code>group-id</code> - The ID of the security group. </para></li><li><para><code>group-name</code> - The name of the security group.</para></li><li><para><code>ip-permission.cidr</code> - A CIDR range that has been granted permission.</para></li><li><para><code>ip-permission.from-port</code> - The start of port range for the TCP and UDP
         /// protocols, or an ICMP type number.</para></li><li><para><code>ip-permission.group-id</code> - The ID of a security group that has been granted
         /// permission.</para></li><li><para><code>ip-permission.group-name</code> - The name of a security group that has been

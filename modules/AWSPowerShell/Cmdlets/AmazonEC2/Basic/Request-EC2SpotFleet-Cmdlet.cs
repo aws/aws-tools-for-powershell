@@ -32,12 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You can submit a single request that specifies multiple instance types, each with
-    /// its own instance weighting that reflects its value to your application workload. Amazon
-    /// EC2 computes the bid price for each launch specification and requests Spot Instances
-    /// in the Spot pool where the price per unit is the lowest. For more information, see
-    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html">Spot
-    /// Fleets</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// You can submit a single request that includes multiple launch specifications that
+    /// vary by instance type, AMI, Availability Zone, or subnet.
+    /// </para><para>
+    /// By default, the Spot fleet requests Spot instances in the Spot pool where the price
+    /// per unit is the lowest. Each launch specification can include its own instance weighting
+    /// that reflects the value of the instance type to your application workload.
+    /// </para><para>
+    /// Alternatively, you can specify that the Spot fleet distribute the target capacity
+    /// across the Spot pools included in its launch specifications. By ensuring that the
+    /// Spot instances in your Spot fleet are in different Spot pools, you can improve the
+    /// availability of your fleet.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
+    /// Fleet Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "EC2SpotFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,6 +59,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
+        /// <para>Determines how to allocate the target capacity across the Spot pools specified by
+        /// the Spot fleet request. The default is <code>lowestPrice</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public AllocationStrategy SpotFleetRequestConfig_AllocationStrategy { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>A unique, case-sensitive identifier you provide to ensure idempotency of your listings.
         /// This helps avoid duplicate listings. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// Idempotency</a>.</para>
@@ -61,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>Grants the Spot fleet service permission to terminate instances on your behalf when
-        /// you cancel a Spot fleet request using <a>CancelSpotFleetRequests</a> or when the Spot
+        /// <para>Grants the Spot fleet permission to terminate Spot instances on your behalf when you
+        /// cancel its Spot fleet request using <a>CancelSpotFleetRequests</a> or when the Spot
         /// fleet request expires, if you set <code>terminateInstancesWithExpiration</code>.</para>
         /// </para>
         /// </summary>
@@ -71,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>Information about the launch specifications for the instances.</para>
+        /// <para>Information about the launch specifications for the Spot fleet request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>Indicates whether running instances should be terminated when the Spot fleet request
-        /// expires.</para>
+        /// <para>Indicates whether running Spot instances should be terminated when the Spot fleet
+        /// request expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// At this point, no new Spot Instance requests are placed or enabled to fulfill the
+        /// At this point, no new Spot instance requests are placed or enabled to fulfill the
         /// request.</para>
         /// </para>
         /// </summary>
@@ -149,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            context.SpotFleetRequestConfig_AllocationStrategy = this.SpotFleetRequestConfig_AllocationStrategy;
             context.SpotFleetRequestConfig_ClientToken = this.SpotFleetRequestConfig_ClientToken;
             context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
@@ -181,6 +199,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate SpotFleetRequestConfig
             bool requestSpotFleetRequestConfigIsNull = true;
             request.SpotFleetRequestConfig = new SpotFleetRequestConfigData();
+            AllocationStrategy requestSpotFleetRequestConfig_spotFleetRequestConfig_AllocationStrategy = null;
+            if (cmdletContext.SpotFleetRequestConfig_AllocationStrategy != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_AllocationStrategy = cmdletContext.SpotFleetRequestConfig_AllocationStrategy;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_AllocationStrategy != null)
+            {
+                request.SpotFleetRequestConfig.AllocationStrategy = requestSpotFleetRequestConfig_spotFleetRequestConfig_AllocationStrategy;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
             String requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken = null;
             if (cmdletContext.SpotFleetRequestConfig_ClientToken != null)
             {
@@ -301,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
+            public AllocationStrategy SpotFleetRequestConfig_AllocationStrategy { get; set; }
             public String SpotFleetRequestConfig_ClientToken { get; set; }
             public String SpotFleetRequestConfig_IamFleetRole { get; set; }
             public List<SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }

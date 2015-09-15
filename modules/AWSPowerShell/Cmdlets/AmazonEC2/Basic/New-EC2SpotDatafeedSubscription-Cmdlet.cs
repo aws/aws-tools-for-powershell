@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
+    /// Creates a data feed for Spot instances, enabling you to view Spot instance usage logs.
     /// You can create one data feed per AWS account. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
     /// Instance Data Feed</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </summary>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket in which to store the Spot Instance data feed.</para>
+        /// <para>The Amazon S3 bucket in which to store the Spot instance data feed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

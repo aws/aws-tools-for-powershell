@@ -28,14 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels one or more Spot Instance requests. Spot Instances are instances that Amazon
+    /// Cancels one or more Spot instance requests. Spot instances are instances that Amazon
     /// EC2 starts on your behalf when the bid price that you specify exceeds the current
-    /// Spot Price. Amazon EC2 periodically sets the Spot Price based on available Spot Instance
-    /// capacity and current Spot Instance requests. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+    /// Spot price. Amazon EC2 periodically sets the Spot price based on available Spot instance
+    /// capacity and current Spot instance requests. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
     /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// 
     ///  <important><para>
-    /// Canceling a Spot Instance request does not terminate running Spot Instances associated
+    /// Canceling a Spot instance request does not terminate running Spot instances associated
     /// with the request.
     /// </para></important>
     /// </summary>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>One or more Spot Instance request IDs.</para>
+        /// <para>One or more Spot instance request IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
