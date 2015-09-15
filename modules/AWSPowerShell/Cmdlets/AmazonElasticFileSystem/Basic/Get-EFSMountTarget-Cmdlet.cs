@@ -28,13 +28,15 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Returns the descriptions of the current mount targets for a file system. The order
-    /// of mount targets returned in the response is unspecified.
+    /// Returns the descriptions of all the current mount targets, or a specific mount target,
+    /// for a file system. When requesting all of the current mount targets, the order of
+    /// mount targets returned in the response is unspecified.
     /// 
     ///  
     /// <para>
-    ///  This operation requires permission for the <code>elasticfilesystem:DescribeMountTargets</code>
-    /// action on the file system <code>FileSystemId</code>. 
+    /// This operation requires permission for the <code>elasticfilesystem:DescribeMountTargets</code>
+    /// action, on either the file system id that you specify in <code>FileSystemId</code>,
+    /// or on the file system of the mount target that you specify in <code>MountTargetId</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EFSMountTarget")]
@@ -49,11 +51,21 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     {
         /// <summary>
         /// <para>
-        /// <para>String. The ID of the file system whose mount targets you want to list.</para>
+        /// <para>Optional. String. The ID of the file system whose mount targets you want to list.
+        /// It must be included in your request if <code>MountTargetId</code> is not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public String FileSystemId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Optional. String. The ID of the mount target that you want to have described. It must
+        /// be included in your request if <code>FileSystemId</code> is not included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String MountTargetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,6 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            context.MountTargetId = this.MountTargetId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -107,6 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             if (cmdletContext.FileSystemId != null)
             {
                 request.FileSystemId = cmdletContext.FileSystemId;
+            }
+            if (cmdletContext.MountTargetId != null)
+            {
+                request.MountTargetId = cmdletContext.MountTargetId;
             }
             
             // Initialize loop variants and commence piping
@@ -199,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             public String FileSystemId { get; set; }
             public String Marker { get; set; }
             public int? MaxItems { get; set; }
+            public String MountTargetId { get; set; }
         }
         
     }

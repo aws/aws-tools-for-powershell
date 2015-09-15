@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// file system. The EC2 instance on which you mount the file system via the mount target
     /// can resolve the mount target's DNS name to its IP address. For more information, see
     /// <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-implementation">How
-    /// it Works: Implementation Overview</a></para><para>
+    /// it Works: Implementation Overview</a>. 
+    /// </para><para>
     ///  Note that you can create mount targets for a file system in only one VPC, and there
     /// can be only one mount target per Availability Zone. That is, if the file system already
     /// has one or more mount targets created for it, the request to add another mount target
@@ -89,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// target created in another Availability Zone. For more information, go to <a href="http://aws.amazon.com/efs/">Amazon
     /// EFS</a> product detail page. In addition, by always using a mount target local to
     /// the instance's Availability Zone, you eliminate a partial failure scenario; if the
-    /// Availablity Zone in which your mount target is created goes down, then you won't be
-    /// able to access your file system through that mount target. 
+    /// Availability Zone in which your mount target is created goes down, then you won't
+    /// be able to access your file system through that mount target. 
     /// </para><para>
     /// This operation requires permission for the following action on the file system:
     /// </para><ul><li><code>elasticfilesystem:CreateMountTarget</code></li></ul><para>
