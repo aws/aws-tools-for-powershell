@@ -1,3 +1,7 @@
+### 3.1.13.0 (2015-09-16)
+  * SDK Update for Amazon S3
+    - Updated the awssdk.s3.dll assembly to include the new STANDARD_IA storage class and support for multiple lifecycle transitions. There are no changes to the Amazon S3 cmdlets.
+
 ### 3.1.12.0 (2015-09-15)
   * Amazon EC2
     - Updated the Request-EC2SpotFleet cmdlet with support for specifying allocation strategy.
@@ -14,17 +18,17 @@
     - Reworked progress indication for folder uploads so that the % progress bar tracks bytes uploaded versus total to send for all files. In previous versions it tracked the number of files uploaded which could lead to periods of no progress activity if the files were large.
   * AWS Identity and Access Management
     - Added new cmdlets (Get-IAMContextKeysForCustomPolicy, Get-IAMContextKeysForPrincipalPolicy, Test-IAMCustomPolicy and Test-IAMPrincipalPolicy) to support programmatic access to the IAM policy simulator. The SimulatePrincipalPolicy API (Test-IAMPrincipalPolicy) allows you to programmatically audit permissions in your account and validate a specific user’s permissions. The SimulateCustomPolicy API (Test-IAMCustomPolicy) provides a way to verify a new policy before applying it. These new APIs allow you to automate the validation and auditing of permissions for your IAM users, groups, and roles.
-	
+
 ### 3.1.10.0 (2015-09-03)
   * Amazon S3
     - Fixed issue in AWS SDK for .NET that caused Read-S3Object to fail to download a hierarchy of files if zero length files were present in subfolders.
   * AWS Storage Gateway
     - Added new cmdlets (Add-SGResourceTag, Get-SGResourceTags and Remove-SGResourceTag) to support tagging Storage Gateway resources.
-	
+
 ### 3.1.9.0 (2015-08-31)
   * Amazon S3
     - Fixed issue with -Verbose option reporting an incorrect count of uploaded files when Write-S3Object cmdlet completed processing.
-	
+
 ### 3.1.8.0 (2015-08-27)
   * Amazon CloudFront
     - Added two cmdlets, New-CFSignedUrl and New-CFSignedCookie. These cmdlets enable you to generate signed urls and cookies, using canned or custom policies, to content in CloudFront distributions.
@@ -33,14 +37,14 @@
 
 ### 3.1.7.0 (2015-08-27)
   * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
-	
+
 ### 3.1.6.0 (2015-08-25)
   * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
 
 ### 3.1.5.1 (2015-08-17)
   * Amazon Cognito Identity
     - Added cmdlets for the control plane APIs. These new cmdlets have the noun prefix 'CGI'.
-	
+
 ### 3.1.5.0 (2015-08-12)
   * Elastic Beanstalk
     - Added new cmdlets to support the new instance health APIs: Get-EBEnvironmentHealth (DescribeEnvironmentHealth API) and Get-EBInstanceHealth (DescribeInstancesHealth API).
@@ -52,14 +56,14 @@
   
 ### 3.1.3.0 (2015-08-04)
   * DeviceFarm
-	  - Updated DeviceFarm cmdlets with latest service features, adding support for iOS and retrieving account settings.
+    - Updated DeviceFarm cmdlets with latest service features, adding support for iOS and retrieving account settings.
 
 ### 3.1.2.0 (2015-07-30)
 * RDS
     - Add support for Amazon Aurora.
 * OpsWorks
     - Add support for ECS clusters.
-	
+
 ### 3.1.1.0 (2015-07-28)
 * CloudWatch Logs
     - Added cmdlets for 4 new APIs to support cross-account subscriptions. These allow you to collaborate with an owner of a different AWS account and receive their log events on your Amazon Kinesis stream (cross-account data sharing). The new cmdlets are Write-CWLDestination (PutDestination), Write-CWLDestinationPolicy (PutDestinationPolicy), Get-CWLDestination (DescribeDestinations) and Remove-CWLDestination (DeleteDestination).
