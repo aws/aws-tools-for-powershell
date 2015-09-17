@@ -303,6 +303,10 @@ Set-Alias -Name CW-PutMetricAlarm -Value Write-CWMetricAlarm
 Set-Alias -Name Put-CWMetricData -Value Write-CWMetricData
 Set-Alias -Name CW-PutMetricData -Value Write-CWMetricData
 Set-Alias -Name CW-SetAlarmState -Value Set-CWAlarmState
+Set-Alias -Name Cancel-CWLExportTask -Value Stop-CWLExportTask
+Set-Alias -Name CWL-CancelExportTask -Value Stop-CWLExportTask
+Set-Alias -Name Create-CWLExportTask -Value New-CWLExportTask
+Set-Alias -Name CWL-CreateExportTask -Value New-CWLExportTask
 Set-Alias -Name Create-CWLLogGroup -Value New-CWLLogGroup
 Set-Alias -Name CWL-CreateLogGroup -Value New-CWLLogGroup
 Set-Alias -Name Create-CWLLogStream -Value New-CWLLogStream
@@ -321,6 +325,8 @@ Set-Alias -Name Delete-CWLSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name Describe-CWLDestination -Value Get-CWLDestination
 Set-Alias -Name CWL-DescribeDestinations -Value Get-CWLDestination
+Set-Alias -Name Describe-CWLExportTasks -Value Get-CWLExportTasks
+Set-Alias -Name CWL-DescribeExportTasks -Value Get-CWLExportTasks
 Set-Alias -Name Describe-CWLLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name CWL-DescribeLogGroups -Value Get-CWLLogGroups
 Set-Alias -Name Describe-CWLLogStreams -Value Get-CWLLogStreams
