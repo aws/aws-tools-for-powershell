@@ -1,3 +1,7 @@
+### 3.1.14.0 (2015-09-17)
+  * Amazon CloudWatch Logs
+    - Added new cmdlets (Get-CWLExportTasks, New-CWLExportTask, Stop-CWLExportTask) to support exporting log data from Log Groups to Amazon S3 Buckets.
+
 ### 3.1.13.0 (2015-09-16)
   * SDK Update for Amazon S3
     - Updated the awssdk.s3.dll assembly to include the new STANDARD_IA storage class and support for multiple lifecycle transitions. There are no changes to the Amazon S3 cmdlets.
