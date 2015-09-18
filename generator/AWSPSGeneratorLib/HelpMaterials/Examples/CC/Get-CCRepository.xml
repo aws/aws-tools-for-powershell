@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-CCRepository -RepositoryName MyDemoRepo
+
+AccountId             : 80398EXAMPLE
+Arn                   : arn:aws:codecommit:us-east-1:80398EXAMPLE:MyDemoRepo
+CloneUrlHttp          : https://git-codecommit.us-east-1.amazonaws.com/v1/repos/MyDemoRepo
+CloneUrlSsh           : ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/MyDemoRepo
+CreationDate          : 9/8/2015 3:21:33 PM
+DefaultBranch         :
+LastModifiedDate      : 9/8/2015 3:21:33 PM
+RepositoryDescription : This is a repository for demonstration purposes.
+RepositoryId          : c7d0d2b0-ce40-4303-b4c3-38529EXAMPLE
+RepositoryName        : MyDemoRepo</code>
+	<description>This example gets information for the specified repository.</description>
+  </example>
+</examples>

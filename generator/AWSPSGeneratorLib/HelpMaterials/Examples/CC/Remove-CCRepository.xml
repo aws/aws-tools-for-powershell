@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Remove-CCRepository -RepositoryName MyDemoRepo -Force
+
+43ef2443-3372-4b12-9e78-65c27EXAMPLE</code>
+	<description>This example forcibly deletes the specified repository.</description>
+  </example>
+</examples>
