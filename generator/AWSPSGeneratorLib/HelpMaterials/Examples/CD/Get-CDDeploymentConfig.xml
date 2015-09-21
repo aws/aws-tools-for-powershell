@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-CDDeploymentConfig -DeploymentConfigName ThreeQuartersHealthy
+
+CreateTime              DeploymentConfigId                      DeploymentConfigName    MinimumHealthyHosts
+----------              ------------------                      --------------------    -------------------
+10/3/2014 4:32:30 PM    518a3950-d034-46a1-9d2c-3c949EXAMPLE    ThreeQuartersHealthy    Amazon.CodeDeploy.Model.MinimumHealthyHosts
+
+
+PS C:\> Echo ((Get-CDDeploymentConfig -DeploymentConfigName ThreeQuartersHealthy).MinimumHealthyHosts)
+
+Type             Value
+----             -----
+FLEET_PERCENT    75</code>
+	<description>This example gets information about the specified deployment configuration.</description>
+  </example>
+</examples>

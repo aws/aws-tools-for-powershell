@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-CDDeploymentGroupList -ApplicationName CodeDeployDemoApplication
+
+ApplicationName              DeploymentGroups                                    NextToken
+---------------              ----------------                                    ---------
+CodeDeployDemoApplication    {CodeDeployDemoFleet, CodeDeployProductionFleet}</code>
+	<description>This example gets a list of deployment groups for the specified application.</description>
+  </example>
+</examples>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-CDDeployment -ApplicationName MyNewApplication -S3Location_Bucket MyBucket -S3Location_BundleType zip -DeploymentConfigName CodeDeployDefault.OneAtATime -DeploymentGroupName MyNewDeploymentGroup -IgnoreApplicationStopFailures $True -S3Location_Key aws-codedeploy_linux-master.zip -Revision_RevisionType S3
+
+d-ZHROG7UEX</code>
+	<description>This example creates a new deployment for the specified application and deployment group with the specified deployment configuration and application revision.</description>
+  </example>
+</examples>

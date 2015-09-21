@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Unregister-CDOnPremiseInstance -InstanceName AssetTag12010298EX</code>
+	<description>This example deregisters the on-premises instance with the specified name.</description>
+  </example>
+</examples>

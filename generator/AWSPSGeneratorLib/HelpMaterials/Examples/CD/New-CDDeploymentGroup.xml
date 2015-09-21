@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $ec2TagFilter = New-Object Amazon.CodeDeploy.Model.EC2TagFilter
+PS C:\> $ec2TagFilter.Key = "Name"
+PS C:\> $ec2TagFilter.Type = [Amazon.CodeDeploy.EC2TagFilterType]::KEY_AND_VALUE
+PS C:\> $ec2TagFilter.Value = "CodeDeployDemo"
+PS C:\> New-CDDeploymentGroup -ApplicationName MyNewApplication -AutoScalingGroup CodeDeployDemo-ASG -DeploymentConfigName CodeDeployDefault.OneAtATime -DeploymentGroupName MyNewDeploymentGroup -Ec2TagFilter $ec2TagFilter -ServiceRoleArn arn:aws:iam::80398EXAMPLE:role/CodeDeployDemo
+
+16bbf199-95fd-40fc-a909-0bbcfEXAMPLE</code>
+	<description>This example creates a deployment group with the specified name, Auto Scaling group, deployment configuration, tag, and service role, for the specified application.</description>
+  </example>
+</examples>

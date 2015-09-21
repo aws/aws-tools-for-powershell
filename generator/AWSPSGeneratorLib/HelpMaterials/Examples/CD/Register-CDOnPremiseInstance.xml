@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Register-CDOnPremiseInstance -IamUserArn arn:aws:iam::80398EXAMPLE:user/CodeDeployDemoUser -InstanceName AssetTag12010298EX</code>
+	<description>This example registers an on-premises instance with the specified name and IAM user.</description>
+  </example>
+</examples>

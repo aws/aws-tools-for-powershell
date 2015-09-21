@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $tag = New-Object Amazon.CodeDeploy.Model.Tag
+PS C:\> $tag.Key = "Name"
+PS C:\> $tag.Value = "CodeDeploy-OnPrem"
+PS C:\> Remove-CDOnPremiseInstanceTag -InstanceName AssetTag12010298EX -Tag $tag</code>
+	<description>This example deletes the specified tag for the on-premises instance with the specified name. The command will prompt for confirmation before proceeding. Add the –Force parameter to delete the tag without a prompt.</description>
+  </example>
+</examples>

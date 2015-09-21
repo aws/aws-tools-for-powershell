@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-CDDeploymentInstance -DeploymentId d-QZMRGSTEX -InstanceId i-254e22EX
+
+DeploymentId    : d-QZMRGSTEX
+InstanceId      : arn:aws:ec2:us-east-1:80398EXAMPLE:instance/i-254e22EX
+LastUpdatedAt   : 7/23/2015 11:25:24 PM
+LifecycleEvents : {ApplicationStop, DownloadBundle, BeforeInstall, Install...}
+Status          : Succeeded</code>
+	<description>This example gets information about the specified instance for the specified deployment.</description>
+  </example>
+</examples>

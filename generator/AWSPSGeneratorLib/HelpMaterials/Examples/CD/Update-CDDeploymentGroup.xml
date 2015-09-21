@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Update-CDDeploymentGroup -ApplicationName MyNewApplication -CurrentDeploymentGroupName MyNewDeploymentGroup -NewDeploymentGroupName MyNewDeploymentGroup-2</code>
+	<description>This example changes the name of the specified deployment group for the specified application.</description>
+  </example>
+</examples>
