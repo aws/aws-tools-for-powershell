@@ -18,7 +18,7 @@ Revision                      : Amazon.CodeDeploy.Model.RevisionLocation
 StartTime                     : 1/1/0001 12:00:00 AM
 Status                        : Succeeded
 
-PS C:\> Echo ((Get-CDDeployment -DeploymentId d-QZMRGSTEX).DeploymentOverview)
+PS C:\> Write-Output ((Get-CDDeployment -DeploymentId d-QZMRGSTEX).DeploymentOverview)
 
 Failed     : 0
 InProgress : 0
@@ -26,7 +26,7 @@ Pending    : 0
 Skipped    : 0
 Succeeded  : 3
 
-PS C:\> Echo ((Get-CDDeployment -DeploymentId d-QZMRGSTEX).Revision.S3Location)
+PS C:\> Write-Output ((Get-CDDeployment -DeploymentId d-QZMRGSTEX).Revision.S3Location)
 
 Bucket     : MyBucket
 BundleType : zip

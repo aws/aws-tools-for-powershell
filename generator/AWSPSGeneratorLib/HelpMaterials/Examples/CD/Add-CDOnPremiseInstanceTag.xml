@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> $tag = New-Object Amazon.CodeDeploy.Model.Tag
-PS C:\> $tag.Key = "Name"
-PS C:\> $tag.Value = "CodeDeployDemoOPI"
-PS C:\> Add-CDOnPremiseInstanceTag -InstanceName AssetTag12010298EX -Tag $tag</code>
+    <code>Add-CDOnPremiseInstanceTag -InstanceName AssetTag12010298EX -Tag @{"Key" = "Name"; "Value" = "CodeDeployDemo-OnPrem"}</code>
 	<description>This example adds an on-premises instance tag with the specified key and value for the specified on-premises instance.</description>
   </example>
 </examples>
