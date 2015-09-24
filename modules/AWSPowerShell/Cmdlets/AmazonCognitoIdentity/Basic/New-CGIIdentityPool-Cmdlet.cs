@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// <summary>
     /// Creates a new identity pool. The identity pool is a store of user identity information
     /// that is specific to your AWS account. The limit on identity pools is 60 per account.
-    /// You must use AWS Developer credentials to call this API.
+    /// The keys for <code>SupportedLoginProviders</code> are as follows: <ul><li>Facebook:
+    /// <code>graph.facebook.com</code></li><li>Google: <code>accounts.google.com</code></li><li>Amazon: <code>www.amazon.com</code></li><li>Twitter: <code>api.twitter.com</code></li><li>Digits: <code>www.digits.com</code></li></ul> You must use AWS Developer
+    /// credentials to call this API.
     /// </summary>
     [Cmdlet("New", "CGIIdentityPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse")]
