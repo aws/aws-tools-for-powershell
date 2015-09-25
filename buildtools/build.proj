@@ -1,4 +1,4 @@
-    <Project ToolsVersion="4.0" 
+<Project ToolsVersion="4.0" 
 	DefaultTargets="full-build"
 	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
@@ -9,13 +9,6 @@
 	<Import Project="$(InternalBuildTools)\references.targets" Condition="Exists('$(InternalBuildTools)\references.targets')" />
 	<Import Project="$(InternalBuildTools)\common.targets" Condition="Exists('$(InternalBuildTools)\common.targets')" />
 
-    <!--
-    NOTE: Full build consumes the AWSPowerShell project and generates helps and formats files.
-          Full build DOES NOT generate cmdlets.
-          To generate cmdlets, run target 'create-cmdlets', add the new/generated cmdlets to the
-          AWSPowerShell project, then run full-build to create the format and help files.
-    -->
-	
     <PropertyGroup>
         <!-- perform a release build by default -->
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
@@ -53,8 +46,8 @@
     </PropertyGroup>
     
 	<Target Name="full-build" 
-            DependsOnTargets="clean;build-generator;get-references;update-version;build-modules;copy-artifacts;run-tests;create-help;keyscan;save-build">
-		<Message Text="Builds all cmdlets and PowerShell deployment artifacts"/>
+            DependsOnTargets="clean;build-generator;get-references;create-cmdlets;update-version;build-modules;copy-artifacts;run-tests;create-help;keyscan;save-build">
+		<Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
 	</Target>
 
     <Target Name="build-generator">
