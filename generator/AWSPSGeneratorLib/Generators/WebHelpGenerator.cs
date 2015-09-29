@@ -56,7 +56,9 @@ namespace AWSPowerShellGenerator.Generators
             else if (!SDKHelpRoot.EndsWith("/"))
                 SDKHelpRoot = SDKHelpRoot + "/";
 
-            Console.WriteLine("Generating web help documentation, SDK help base URI set to {0}", SDKHelpRoot);
+            Console.WriteLine("Generating web help documentation:");
+            Console.WriteLine(".... SDK help base URI set to {0}", SDKHelpRoot);
+            Console.WriteLine(".... writing doc output to {0}", OutputFolder);
 
             var buildLogsPath = Path.Combine(this.Options.RootPath, "logs");
             if (!Directory.Exists(buildLogsPath))

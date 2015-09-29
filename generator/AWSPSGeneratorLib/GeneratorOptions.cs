@@ -83,6 +83,19 @@ namespace AWSPowerShellGenerator
         public string CNNorth1RegionDocsDomain { get; set; }
 
         /// <summary>
+        /// The folder containing the built AWSPowerShell module(s). Used when generating
+        /// the web docs in our release process, where we pick up the module from the Include\PowerShell
+        /// folder. 
+        /// </summary>
+        public string BuiltModulesLocation { get; set; }
+
+        /// <summary>
+        /// Curently used only when generating web docs, to override internal defaults 
+        /// and allow us to write directly into the docs repo location.
+        /// </summary>
+        public string DocOutputFolder { get; set; }
+
+        /// <summary>
         /// Internal helper used by the generator to determine if a given
         /// generation task should be run.
         /// </summary>

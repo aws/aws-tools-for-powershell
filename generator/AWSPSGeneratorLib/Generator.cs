@@ -85,8 +85,24 @@ namespace AWSPowerShellGenerator
                 return;
             }
 
-            var awsPsXmlPath = Path.Combine(awsPowerShellSourcePath, Path.Combine(BinSubFolder, AWSPowerShellModuleName + ".xml"));
-            var awsPsDllPath = Path.Combine(awsPowerShellSourcePath, Path.Combine(BinSubFolder, AWSPowerShellModuleName + ".dll"));
+            string awsPsXmlPath;
+            string awsPsDllPath;
+
+            if (string.IsNullOrEmpty(options.BuiltModulesLocation))
+            {
+                var basePath = Path.Combine(awsPowerShellSourcePath, BinSubFolder);
+                Console.WriteLine("Helpgen: Referencing ndoc xml/module assembly from {0}", basePath);
+
+                awsPsXmlPath = Path.Combine(basePath, AWSPowerShellModuleName + ".xml");
+                awsPsDllPath = Path.Combine(basePath, AWSPowerShellModuleName + ".dll");
+            }
+            else
+            {
+                Console.WriteLine("Helpgen: referencing ndoc xml/module assembly from {0}", options.BuiltModulesLocation);
+
+                awsPsXmlPath = Path.Combine(options.BuiltModulesLocation, AWSPowerShellModuleName + ".xml");
+                awsPsDllPath = Path.Combine(options.BuiltModulesLocation, AWSPowerShellModuleName + ".dll");
+            }
 
             var awsPowerShellAssembly = Assembly.LoadFrom(awsPsDllPath);
 
@@ -131,12 +147,19 @@ namespace AWSPowerShellGenerator
 
                 var cmdletDocumentation = new XmlDocument();
                 cmdletDocumentation.Load(awsPsXmlPath);
+
+                string docOutputFolder;
+                if (string.IsNullOrEmpty(options.DocOutputFolder))
+                    docOutputFolder = Path.Combine(fqRootPath, DocBuildOutputSubFolder);
+                else
+                    docOutputFolder = options.DocOutputFolder;
+
                 var webhelpGenerator = new WebHelpGenerator
                 {
                     CmdletAssembly = awsPowerShellAssembly,
                     AssemblyDocumentation = cmdletDocumentation,
                     Name = AWSPowerShellModuleName,
-                    OutputFolder = Path.Combine(fqRootPath, DocBuildOutputSubFolder),
+                    OutputFolder = docOutputFolder,
                     CNNorth1RegionDocsDomain = options.CNNorth1RegionDocsDomain,
                     Options = options
                 };

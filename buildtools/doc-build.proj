@@ -36,9 +36,22 @@
 		
 	</PropertyGroup>
 
+	<Choose>
+		<When Condition="'$(DocBuildReleaseBuild)'=='True' ">
+			<PropertyGroup>
+				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Include\PowerShell</Deployment>
+			</PropertyGroup>
+		</When>
+		<Otherwise>
+			<PropertyGroup>
+				<Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
+			</PropertyGroup>
+		</Otherwise>
+	</Choose>
+	
 	<Target Name="doc-build" DependsOnTargets="setup-production-doc-build;build-docgenerator">
 		<Message Text="Generating web cmdlet reference"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp -ml $(Deployment) -dof $(DocOutputRoot)" />
 
         <CreateSitemapTask
             SourceFolder="$(DocOutputRoot)"

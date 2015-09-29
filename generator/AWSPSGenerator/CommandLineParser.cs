@@ -210,6 +210,22 @@ namespace AWSPowerShellGenerator
                 HasValue = false,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.BreakOnOutputMismatchError = true,
                 HelpText = "If set, cmdlet outputs that don't match configuration declaration trigger a build break."
+            },
+            new ArgDeclaration
+            {
+                OptionName = "moduleslocation",
+                ShortName = "ml",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.BuiltModulesLocation = argValue,
+                HelpText = "The folder location containing the built AWSPowerShell module(s). Used when generating web docs in a separate build process."
+            },
+            new ArgDeclaration
+            {
+                OptionName = "docoutputfolder",
+                ShortName = "dof",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.DocOutputFolder = argValue,
+                HelpText = "The folder location that will hold the generated web docs. Used when generating web docs in a separate build process."
             }
         };
 

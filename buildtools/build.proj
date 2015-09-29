@@ -119,6 +119,9 @@
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\bin\$(Configuration)\AWSPowerShell.dll"
             DestinationFolder="$(Deployment)"/>
+		<!-- the ndoc xml file is needed in separate build process to generate and push web docs to github -->
+        <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\bin\$(Configuration)\AWSPowerShell.xml"
+            DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.TypeExtensions.ps1xml"
             DestinationFolder="$(Deployment)"/>
         <Copy SourceFiles="@(SDKAssemblies)"
