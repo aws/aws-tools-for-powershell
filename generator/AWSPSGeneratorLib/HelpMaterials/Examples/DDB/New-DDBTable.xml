@@ -4,7 +4,7 @@
     <code>
 PS C:\>$schema = New-DDBTableSchema
 PS C:\>$schema | Add-DDBKeySchema -KeyName "ForumName" -KeyDataType "S"
-PS C:\>$schema | Add-DDBKeySchema -KeyName "Subject" -KeyDataType "S"
+PS C:\>$schema | Add-DDBKeySchema -KeyName "Subject" -KeyType RANGE -KeyDataType "S"
 PS C:\>$schema | New-DDBTable -TableName "Thread" -ReadCapacity 10 -WriteCapacity 5
 
 AttributeDefinitions   : {ForumName, Subject}
