@@ -5,7 +5,7 @@
     <description>Returns all tags for all Auto Scaling groups.</description>
   </example>
   <example>
-    <code>Get-ASTag -Filter @( @{ Name="Key"; Values=@("keyValue", "keyValue2") } )</code>
+    <code>Get-ASTag -Filter @( @{ Name="Key1"; Values=@("keyValue", "keyValue2") } )</code>
     <description>Returns the tags with a Key value matching either 'keyValue' or 'keyValue2'. The filter names you can query against are 'auto-scaling-group', 'key', 'value', and 'propagate-at-launch'.</description>
   </example>
   <example>
