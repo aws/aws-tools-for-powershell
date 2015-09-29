@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>PS C:\> Get-CPPipeline -Name CodePipelineDemo -Version 1
+
+ArtifactStore : Amazon.CodePipeline.Model.ArtifactStore
+Name          : CodePipelineDemo
+RoleArn       : arn:aws:iam::80398EXAMPLE:role/CodePipelineServiceRole
+Stages        : {Source, Build, Beta, TestStage}
+Version       : 1</code>
+      <description>This example gets general information about the specified pipeline.</description>
+    </example>
+	<example>
+      <code>-----
+Input:
+-----
+
+$pipeline = Get-CPPipeline -Name CodePipelineDemo
+Write-Output ("Name = " + $pipeline.Name)
+Write-Output ("RoleArn = " + $pipeline.RoleArn)
+Write-Output ("Version = " + $pipeline.Version)
+Write-Output ("ArtifactStore:")
+Write-Output ("  Location = " + $pipeline.ArtifactStore.Location)
+Write-Output ("  Type = " + $pipeline.ArtifactStore.Type.Value)
+Write-Output ("Stages:")
+ForEach ($stage in $pipeline.Stages) {
+  Write-Output ("  Name = " + $stage.Name)
+  Write-Output ("    Actions:")
+  ForEach ($action in $stage.Actions) {
+    Write-Output ("      Name = " + $action.Name)
+	Write-Output ("        Category = " + $action.ActionTypeId.Category)
+	Write-Output ("        Owner = " + $action.ActionTypeId.Owner)
+	Write-Output ("        Provider = " + $action.ActionTypeId.Provider)
+	Write-Output ("        Version = " + $action.ActionTypeId.Version)
+	Write-Output ("        Configuration:")
+	ForEach ($key in $action.Configuration.Keys) {
+	  $value = $action.Configuration.$key
+	  Write-Output ("          " + $key + " = " + $value)
+	}
+	Write-Output ("        InputArtifacts:")
+	ForEach ($ia in $action.InputArtifacts) {
+	  Write-Output ("          " + $ia.Name)
+	}
+	ForEach ($oa in $action.OutputArtifacts) {
+	  Write-Output ("          " + $oa.Name)
+	}
+	Write-Output ("        RunOrder = " + $action.RunOrder)
+  }
+}
+
+------
+Output:
+------
+
+Name = CodePipelineDemo
+RoleArn = arn:aws:iam::80398EXAMPLE:role/CodePipelineServiceRole
+Version = 3
+ArtifactStore:
+  Location = MyBucketName
+  Type = S3
+Stages:
+  Name = Source
+    Actions:
+      Name = Source
+        Category = Source
+        Owner = ThirdParty
+        Provider = GitHub
+        Version = 1
+        Configuration:
+          Branch = master
+          OAuthToken = ****
+          Owner = my-user-name
+          Repo = MyRepoName
+        InputArtifacts:
+          MyApp
+        RunOrder = 1
+  Name = Build
+    Actions:
+      Name = Build
+        Category = Build
+        Owner = Custom
+        Provider = MyCustomProviderName
+        Version = 1
+        Configuration:
+          ProjectName = MyProjectName
+        InputArtifacts:
+          MyApp
+          MyAppBuild
+        RunOrder = 1
+  Name = Beta
+    Actions:
+      Name = CodePipelineDemoFleet
+        Category = Deploy
+        Owner = AWS
+        Provider = CodeDeploy
+        Version = 1
+        Configuration:
+          ApplicationName = CodePipelineDemoApplication
+          DeploymentGroupName = CodePipelineDemoFleet
+        InputArtifacts:
+          MyAppBuild
+        RunOrder = 1
+  Name = TestStage
+    Actions:
+      Name = MyJenkinsTestAction
+        Category = Test
+        Owner = Custom
+        Provider = MyCustomTestProvider
+        Version = 1
+        Configuration:
+          ProjectName = MyJenkinsProjectName
+        InputArtifacts:
+          MyAppBuild
+        RunOrder = 1</code>
+      <description>This example gets detailed information about the specified pipeline.</description>
+    </example>
+</examples>

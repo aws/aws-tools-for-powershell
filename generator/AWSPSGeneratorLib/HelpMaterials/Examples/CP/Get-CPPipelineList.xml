@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>PS C:\> Get-CPPipelineList
+
+Created                  Name                Updated                  Version
+-------                  ----                -------                  -------
+8/13/2015 10:17:54 PM    CodePipelineDemo    8/13/2015 10:17:54 PM    3
+7/8/2015 2:41:53 AM      MyFirstPipeline     7/22/2015 9:06:37 PM     7</code>
+      <description>This example gets a list of available pipelines.</description>
+    </example>
+</examples>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>-----
+Input:
+-----
+
+ForEach ($actionType in (Get-CPActionType -ActionOwnerFilter AWS)) {
+  Write-Output ("For Category = " + $actionType.Id.Category + ", Owner = " + $actionType.Id.Owner + ", Provider = " + $actionType.Id.Provider + ", Version = " + $actionType.Id.Version + ":")
+  Write-Output ("  ActionConfigurationProperties:")
+  ForEach ($acp in $actionType.ActionConfigurationProperties) {
+    Write-Output ("    For " + $acp.Name + ":")
+    Write-Output ("      Description = " + $acp.Description)
+    Write-Output ("      Key = " + $acp.Key)
+    Write-Output ("      Queryable = " + $acp.Queryable)
+    Write-Output ("      Required = " + $acp.Required)
+    Write-Output ("      Secret = " + $acp.Secret)
+  }
+  Write-Output ("  InputArtifactDetails:")
+  Write-Output ("    MaximumCount = " + $actionType.InputArtifactDetails.MaximumCount)
+  Write-Output ("    MinimumCount = " + $actionType.InputArtifactDetails.MinimumCount)
+  Write-Output ("  OutputArtifactDetails:")
+  Write-Output ("    MaximumCount = " + $actionType.OutputArtifactDetails.MaximumCount)
+  Write-Output ("    MinimumCount = " + $actionType.OutputArtifactDetails.MinimumCount)
+  Write-Output ("  Settings:")
+  Write-Output ("    EntityUrlTemplate = " + $actionType.Settings.EntityUrlTemplate)
+  Write-Output ("    ExecutionUrlTemplate = " + $actionType.Settings.ExecutionUrlTemplate)
+}
+
+------
+Output:
+------
+
+...
+
+For Category = Deploy, Owner = AWS, Provider = ElasticBeanstalk, Version = 1:
+  ActionConfigurationProperties:
+    For ApplicationName:
+      Description = The AWS Elastic Beanstalk Application name
+      Key = True
+      Queryable = False
+      Required = True
+      Secret = False
+    For EnvironmentName:
+      Description = The AWS Elastic Beanstalk Environment name
+      Key = True
+      Queryable = False
+      Required = True
+      Secret = False
+  InputArtifactDetails:
+    MaximumCount = 1
+    MinimumCount = 1
+  OutputArtifactDetails:
+    MaximumCount = 0
+    MinimumCount = 0
+  Settings:
+    EntityUrlTemplate = https://console.aws.amazon.com/elasticbeanstalk/r/application/{Config:ApplicationName}
+    ExecutionUrlTemplate = https://console.aws.amazon.com/elasticbeanstalk/r/application/{Config:ApplicationName} 
+For Category = Deploy, Owner = AWS, Provider = CodeDeploy, Version = 1:
+  ActionConfigurationProperties:
+    For ApplicationName:
+      Description = The AWS CodeDeploy Application name
+      Key = True
+      Queryable = False
+      Required = True
+      Secret = False
+    For DeploymentGroupName:
+      Description = The AWS CodeDeploy Deployment Group name
+      Key = True
+      Queryable = False
+      Required = True
+      Secret = False
+  InputArtifactDetails:
+    MaximumCount = 1
+    MinimumCount = 1
+  OutputArtifactDetails:
+    MaximumCount = 0
+    MinimumCount = 0
+  Settings:
+    EntityUrlTemplate = https://console.aws.amazon.com/codedeploy/home?#/applications/{Config:ApplicationName}/deployment-groups/{Config:DeploymentGroupName}
+    ExecutionUrlTemplate = https://console.aws.amazon.com/codedeploy/home?#/deployments/{ExternalExecutionId}
+
+...</code>
+      <description>This example gets information about all available actions for the specified owner.</description>
+    </example>
+</examples>
