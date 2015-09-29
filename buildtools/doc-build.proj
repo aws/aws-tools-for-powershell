@@ -1,0 +1,66 @@
+<Project ToolsVersion="4.0" 
+	DefaultTargets="doc-build"
+	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <InternalBuildTools Condition="'$(InternalBuildTools)'==''">..\..\AWSDotNetBuildTools</InternalBuildTools>
+    </PropertyGroup>
+    
+	<Import Project="$(InternalBuildTools)\references.targets" Condition="Exists('$(InternalBuildTools)\references.targets')" />
+	<Import Project="$(InternalBuildTools)\common.targets" Condition="Exists('$(InternalBuildTools)\common.targets')" />
+
+	
+	<PropertyGroup>
+        <!-- perform a release build by default -->
+        <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+		
+        <!-- path to the root of the repo artifacts; locations for various content will be inferred from this -->
+        <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
+		
+        <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
+             the get-references (=> get-reference-sdk) target
+        -->
+        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies\net35</SDKAssembliesFolder>
+	
+        <!-- the relative location (to the project file) of the generator executable -->
+        <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\$(Configuration)</GeneratorPath>
+        <Generator>AWSPSGenerator.exe</Generator>
+
+		<DocBuildReleaseBuild Condition="'$(DocBuildReleaseBuild)'==''">False</DocBuildReleaseBuild>
+		
+        <!-- default output path to ..\DocDeployment\docs if not specified -->
+        <DocOutputRoot Condition="'$(DocOutputRoot)'==''">$(MSBuildProjectDirectory)\..\DocDeployment\docs</DocOutputRoot>
+
+        <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
+        <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
+		
+	</PropertyGroup>
+
+	<Target Name="doc-build" DependsOnTargets="setup-production-doc-build;build-docgenerator">
+		<Message Text="Generating web cmdlet reference"/>
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp" />
+
+        <CreateSitemapTask
+            SourceFolder="$(DocOutputRoot)"
+            BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/"
+            OutputFile="$(DocOutputRoot)\sitemap.xml"
+            WaitForDebugger="false"
+            />
+        
+    </Target>
+	
+	<Target Name="setup-production-doc-build" Condition="'$(DocBuildReleaseBuild)'=='True'">
+		<MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="get-reference-powershell" Properties="TargetRepository=$(MSBuildProjectDirectory)\.."/>
+	</Target>
+	
+	<Target Name="optional-build-tools" Condition="'$(DocBuildReleaseBuild)'!='True'">
+		<MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="build-tools"/>
+	</Target>
+    
+    <Target Name="build-docgenerator">
+		<!-- PowerShell's generator handles source and doc gen -->
+		<Message Text="Building AWS PowerShell generator"/>
+		<Exec Command="$(devenv2013) /Rebuild $(Configuration) $(RootPath)\solutions\AWSPowerShellGenerator.sln"/>
+    </Target>
+    
+</Project>
