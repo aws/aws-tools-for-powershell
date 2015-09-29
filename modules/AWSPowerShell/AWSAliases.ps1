@@ -605,6 +605,7 @@ Set-Alias -Name DDB-UpdateTable -Value Update-DDBTable
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name EC2-PurchaseReservedInstancesOffering -Value New-EC2ReservedInstance
 Set-Alias -Name Reboot-EC2Instances -Value Restart-EC2Instance
 Set-Alias -Name EC2-RebootInstances -Value Restart-EC2Instance
 Set-Alias -Name EC2-RegisterImage -Value Register-EC2Image
@@ -665,6 +666,8 @@ Set-Alias -Name Modify-EC2ReservedInstances -Value Edit-EC2ReservedInstance
 Set-Alias -Name EC2-ModifyReservedInstances -Value Edit-EC2ReservedInstance
 Set-Alias -Name Modify-EC2SnapshotAttribute -Value Edit-EC2SnapshotAttribute
 Set-Alias -Name EC2-ModifySnapshotAttribute -Value Edit-EC2SnapshotAttribute
+Set-Alias -Name Modify-EC2SpotFleetRequest -Value Edit-EC2SpotFleetRequest
+Set-Alias -Name EC2-ModifySpotFleetRequest -Value Edit-EC2SpotFleetRequest
 Set-Alias -Name Modify-EC2SubnetAttribute -Value Edit-EC2SubnetAttribute
 Set-Alias -Name EC2-ModifySubnetAttribute -Value Edit-EC2SubnetAttribute
 Set-Alias -Name Modify-EC2VolumeAttribute -Value Edit-EC2VolumeAttribute
@@ -673,7 +676,6 @@ Set-Alias -Name Modify-EC2VpcEndpoint -Value Edit-EC2VpcEndpoint
 Set-Alias -Name EC2-ModifyVpcEndpoint -Value Edit-EC2VpcEndpoint
 Set-Alias -Name EC2-MonitorInstances -Value Start-EC2InstanceMonitoring
 Set-Alias -Name EC2-MoveAddressToVpc -Value Move-EC2AddressToVpc
-Set-Alias -Name EC2-PurchaseReservedInstancesOffering -Value New-EC2ReservedInstance
 Set-Alias -Name Describe-EC2SecurityGroups -Value Get-EC2SecurityGroup
 Set-Alias -Name EC2-DescribeSecurityGroups -Value Get-EC2SecurityGroup
 Set-Alias -Name Describe-EC2SnapshotAttribute -Value Get-EC2SnapshotAttribute

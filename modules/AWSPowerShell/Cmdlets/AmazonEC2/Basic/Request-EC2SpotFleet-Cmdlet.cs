@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>Determines how to allocate the target capacity across the Spot pools specified by
-        /// the Spot fleet request. The default is <code>lowestPrice</code>.</para>
+        /// <para>Indicates how to allocate the target capacity across the Spot pools specified by the
+        /// Spot fleet request. The default is <code>lowestPrice</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,6 +75,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public String SpotFleetRequestConfig_ClientToken { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether running Spot instances should be terminated if the target capacity
+        /// of the Spot fleet request is decreased below the current size of the Spot fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public ExcessCapacityTerminationPolicy SpotFleetRequestConfig_ExcessCapacityTerminationPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -168,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             context.SpotFleetRequestConfig_AllocationStrategy = this.SpotFleetRequestConfig_AllocationStrategy;
             context.SpotFleetRequestConfig_ClientToken = this.SpotFleetRequestConfig_ClientToken;
+            context.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy = this.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy;
             context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
             {
@@ -217,6 +227,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken != null)
             {
                 request.SpotFleetRequestConfig.ClientToken = requestSpotFleetRequestConfig_spotFleetRequestConfig_ClientToken;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            ExcessCapacityTerminationPolicy requestSpotFleetRequestConfig_spotFleetRequestConfig_ExcessCapacityTerminationPolicy = null;
+            if (cmdletContext.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_ExcessCapacityTerminationPolicy = cmdletContext.SpotFleetRequestConfig_ExcessCapacityTerminationPolicy;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_ExcessCapacityTerminationPolicy != null)
+            {
+                request.SpotFleetRequestConfig.ExcessCapacityTerminationPolicy = requestSpotFleetRequestConfig_spotFleetRequestConfig_ExcessCapacityTerminationPolicy;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             String requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole = null;
@@ -331,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public AllocationStrategy SpotFleetRequestConfig_AllocationStrategy { get; set; }
             public String SpotFleetRequestConfig_ClientToken { get; set; }
+            public ExcessCapacityTerminationPolicy SpotFleetRequestConfig_ExcessCapacityTerminationPolicy { get; set; }
             public String SpotFleetRequestConfig_IamFleetRole { get; set; }
             public List<SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
             public String SpotFleetRequestConfig_SpotPrice { get; set; }

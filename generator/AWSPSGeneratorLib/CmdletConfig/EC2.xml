@@ -245,6 +245,7 @@
     <ServiceOperation MethodName="RequestSpotFleet"
                       ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice"
                       Output="Void"/>
+    <ServiceOperation MethodName="ModifySpotFleetRequest" />
 
     <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" PipelineParameter="ImageId"/>
     <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void">
