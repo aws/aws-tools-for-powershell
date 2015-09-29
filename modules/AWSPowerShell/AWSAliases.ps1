@@ -171,6 +171,8 @@ Set-Alias -Name Create-CFNStack -Value New-CFNStack
 Set-Alias -Name CFN-CreateStack -Value New-CFNStack
 Set-Alias -Name Delete-CFNStack -Value Remove-CFNStack
 Set-Alias -Name CFN-DeleteStack -Value Remove-CFNStack
+Set-Alias -Name Describe-CFNAccountLimits -Value Get-CFNAccountLimits
+Set-Alias -Name CFN-DescribeAccountLimits -Value Get-CFNAccountLimits
 Set-Alias -Name Describe-CFNStackEvents -Value Get-CFNStackEvent
 Set-Alias -Name CFN-DescribeStackEvents -Value Get-CFNStackEvent
 Set-Alias -Name Describe-CFNStackResource -Value Get-CFNStackResource

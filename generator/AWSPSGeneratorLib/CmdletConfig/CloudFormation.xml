@@ -38,6 +38,7 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="DeleteStack" Output="Void"/>
+    <ServiceOperation MethodName="DescribeAccountLimits"/>
     <ServiceOperation MethodName="DescribeStackEvents"/>
     <ServiceOperation MethodName="DescribeStackResource" PositionalParameters="LogicalResourceId"/>
     <ServiceOperation MethodName="DescribeStackResources"/>

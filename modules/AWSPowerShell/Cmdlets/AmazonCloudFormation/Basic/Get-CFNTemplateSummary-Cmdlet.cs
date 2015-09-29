@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
-        /// size: 460,800 bytes) located in an Amazon S3 bucket. For more information about templates,
-        /// see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
+        /// size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information
+        /// about templates, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
         /// <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
         /// </para>
