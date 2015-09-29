@@ -52,11 +52,33 @@
     <ServiceOperation MethodName="VerifyDomainIdentity" />
     <ServiceOperation MethodName="VerifyEmailAddress" Output="Void" />
     <ServiceOperation MethodName="VerifyEmailIdentity" Output="Void" />
+    
+    
+    <ServiceOperation MethodName="CloneReceiptRuleSet" Output="Void" Verb="Copy" PipelineParameter="OriginalRuleSetName"/>
+    <ServiceOperation MethodName="CreateReceiptFilter" Output="Void" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="CreateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
+    <ServiceOperation MethodName="CreateReceiptRuleSet" Output="Void"/>
+    <ServiceOperation MethodName="DeleteReceiptFilter" Output="Void" />
+    <ServiceOperation MethodName="DeleteReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="RuleName"/>
+    <ServiceOperation MethodName="DeleteReceiptRuleSet" Output="Void"/>
+    <ServiceOperation MethodName="DescribeActiveReceiptRuleSet" Output="Response" />
+    <ServiceOperation MethodName="DescribeReceiptRule" PipelineParameter="RuleName" />
+    <ServiceOperation MethodName="DescribeReceiptRuleSet" Output="Response"/>
+    <ServiceOperation MethodName="ListReceiptFilters"/>
+    <ServiceOperation MethodName="ListReceiptRuleSets"/>
+    <ServiceOperation MethodName="ReorderReceiptRuleSet" Output="Void" Verb="Set" Noun="ReceiptRuleSetOrder" PipelineParameter="RuleNames"/>
+    <ServiceOperation MethodName="SendBounce" PipelineParameter="BouncedRecipientInfoList" ShouldProcessTarget="BounceSender"/>
+    <ServiceOperation MethodName="SetActiveReceiptRuleSet" Output="Void"/>
+    <ServiceOperation MethodName="SetReceiptRulePosition" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="RuleName"/>
+    <ServiceOperation MethodName="UpdateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
+    
   </ServiceOperations>
 
   <PipelineByValueProperties>
     <Property>Identity</Property>
     <Property>EmailAddress</Property>
+    <Property>RuleName</Property>
+    <Property>RuleSetName</Property>
   </PipelineByValueProperties>
 
 </ConfigModel>
