@@ -22,44 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFormation;
-using Amazon.CloudFormation.Model;
+using Amazon.SimpleEmail;
+using Amazon.SimpleEmail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CFN
+namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Validates a specified template.
+    /// Lists the receipt rule sets that exist under your AWS account. If there are additional
+    /// receipt rule sets to be retrieved, you will receive a <code>NextToken</code> that
+    /// you can provide to the next call to <code>ListReceiptRuleSets</code> to retrieve the
+    /// additional entries.
+    /// 
+    ///  
+    /// <para>
+    /// For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
+    /// This action is throttled at one request per second.
+    /// </para>
     /// </summary>
-    [Cmdlet("Test", "CFNTemplate")]
-    [OutputType("Amazon.CloudFormation.Model.ValidateTemplateResponse")]
-    [AWSCmdlet("Invokes the ValidateTemplate operation against AWS CloudFormation.", Operation = new[] {"ValidateTemplate"})]
-    [AWSCmdletOutput("Amazon.CloudFormation.Model.ValidateTemplateResponse",
-        "This cmdlet returns a ValidateTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SESReceiptRuleSets")]
+    [OutputType("Amazon.SimpleEmail.Model.ReceiptRuleSetMetadata")]
+    [AWSCmdlet("Invokes the ListReceiptRuleSets operation against Amazon Simple Email Service.", Operation = new[] {"ListReceiptRuleSets"})]
+    [AWSCmdletOutput("Amazon.SimpleEmail.Model.ReceiptRuleSetMetadata",
+        "This cmdlet returns a collection of ReceiptRuleSetMetadata objects.",
+        "The service call response (type ListReceiptRuleSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
     )]
-    public class TestCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public class GetSESReceiptRuleSetsCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
-        /// length of 51,200 bytes. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
-        /// If both are passed, only <code>TemplateBody</code> is used.</para>
+        /// <para>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate
+        /// the position in the receipt rule set list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TemplateBody { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>Location of file containing the template body. The URL must point to a template (max
-        /// size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information,
-        /// go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must pass <code>TemplateURL</code> or <code>TemplateBody</code>.
-        /// If both are passed, only <code>TemplateBody</code> is used.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public String TemplateURL { get; set; }
+        public String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -72,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
-            context.TemplateBody = this.TemplateBody;
-            context.TemplateURL = this.TemplateURL;
+            context.NextToken = this.NextToken;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -85,15 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ValidateTemplateRequest();
+            var request = new ListReceiptRuleSetsRequest();
             
-            if (cmdletContext.TemplateBody != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.TemplateBody = cmdletContext.TemplateBody;
-            }
-            if (cmdletContext.TemplateURL != null)
-            {
-                request.TemplateURL = cmdletContext.TemplateURL;
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -102,9 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ValidateTemplate(request);
+                var response = client.ListReceiptRuleSets(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.RuleSets;
+                notes = new Dictionary<string, object>();
+                notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -130,8 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TemplateBody { get; set; }
-            public String TemplateURL { get; set; }
+            public String NextToken { get; set; }
         }
         
     }

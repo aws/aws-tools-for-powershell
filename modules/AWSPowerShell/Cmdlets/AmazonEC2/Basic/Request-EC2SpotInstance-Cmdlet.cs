@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>One or more security groups. To request an instance in a nondefault VPC, you must
-        /// specify the ID of the security group. To request an instance in EC2-Classic or a default
-        /// VPC, you can specify the name or the ID of the security group.</para>
+        /// <para>One or more security groups. When requesting instances in a VPC, you must specify
+        /// the IDs of the security groups. When requesting instances in EC2-Classic, you can
+        /// specify the names or the IDs of the security groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

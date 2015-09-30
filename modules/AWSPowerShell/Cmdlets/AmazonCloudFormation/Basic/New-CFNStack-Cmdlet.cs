@@ -105,6 +105,26 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         /// <summary>
         /// <para>
+        /// <para>The template resource types that you have permissions to work with for this create
+        /// stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
+        /// <code>Custom::MyCustomInstance</code>. Use the following syntax to describe template
+        /// resource types: <code>AWS::*</code> (for all AWS resource), <code>Custom::*</code>
+        /// (for all custom resources), <code>Custom::<i>logical_ID</i></code> (for a specific
+        /// custom resource), <code>AWS::<i>service_name</i>::*</code> (for all resources of a
+        /// particular AWS service), and <code>AWS::<i>service_name</i>::<i>resource_logical_ID</i></code>
+        /// (for a specific AWS resource).</para><para>If the list of resource types doesn't include a resource that you're creating, the
+        /// stack creation fails. By default, AWS CloudFormation grants permissions to all resource
+        /// types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific
+        /// condition keys in IAM policies. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
+        /// Access with AWS Identity and Access Management</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceTypes")]
+        public System.String[] ResourceType { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The name that is associated with the stack. The name must be unique in the region
         /// in which you are creating the stack.</para><note>A stack name can contain only alphanumeric characters (case sensitive) and
         /// hyphens. It must start with an alphabetic character and cannot be longer than 255
@@ -161,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
-        /// size: 460,800 bytes) located in an S3 bucket in the same region as the stack. For
-        /// more information, go to the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
+        /// size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information,
+        /// go to the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
         /// parameter, but not both.</para>
         /// </para>
@@ -220,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Parameters = new List<Parameter>(this.Parameter);
             }
+            if (this.ResourceType != null)
+            {
+                context.ResourceTypes = new List<String>(this.ResourceType);
+            }
             context.StackName = this.StackName;
             context.StackPolicyBody = this.StackPolicyBody;
             context.StackPolicyURL = this.StackPolicyURL;
@@ -263,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.ResourceTypes != null)
+            {
+                request.ResourceTypes = cmdletContext.ResourceTypes;
             }
             if (cmdletContext.StackName != null)
             {
@@ -332,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<String> NotificationARNs { get; set; }
             public OnFailure OnFailure { get; set; }
             public List<Parameter> Parameters { get; set; }
+            public List<String> ResourceTypes { get; set; }
             public String StackName { get; set; }
             public String StackPolicyBody { get; set; }
             public String StackPolicyURL { get; set; }

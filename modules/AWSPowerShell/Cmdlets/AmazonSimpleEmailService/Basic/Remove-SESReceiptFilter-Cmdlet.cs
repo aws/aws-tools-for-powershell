@@ -22,36 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFormation;
-using Amazon.CloudFormation.Model;
+using Amazon.SimpleEmail;
+using Amazon.SimpleEmail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CFN
+namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Cancels an update on the specified stack. If the call completes successfully, the
-    /// stack rolls back the update and reverts to the previous stack configuration.
+    /// Deletes the specified IP address filter.
     /// 
-    ///  <note>You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.</note>
+    ///  
+    /// <para>
+    /// For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
+    /// This action is throttled at one request per second.
+    /// </para>
     /// </summary>
-    [Cmdlet("Stop", "CFNUpdateStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "SESReceiptFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CancelUpdateStack operation against AWS CloudFormation.", Operation = new[] {"CancelUpdateStack"})]
+    [AWSCmdlet("Invokes the DeleteReceiptFilter operation against Amazon Simple Email Service.", Operation = new[] {"DeleteReceiptFilter"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CancelUpdateStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FilterName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type DeleteReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopCFNUpdateStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public class RemoveSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The name or the unique stack ID that is associated with the stack.</para>
+        /// <para>The name of the IP address filter to delete.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String FilterName { get; set; }
         
         /// <summary>
-        /// Returns the value passed to the StackName parameter.
+        /// Returns the value passed to the FilterName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StackName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CFNUpdateStack (CancelUpdateStack)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FilterName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SESReceiptFilter (DeleteReceiptFilter)"))
             {
                 return;
             }
@@ -82,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
-            context.StackName = this.StackName;
+            context.FilterName = this.FilterName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -94,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelUpdateStackRequest();
+            var request = new DeleteReceiptFilterRequest();
             
-            if (cmdletContext.StackName != null)
+            if (cmdletContext.FilterName != null)
             {
-                request.StackName = cmdletContext.StackName;
+                request.FilterName = cmdletContext.FilterName;
             }
             
             CmdletOutput output;
@@ -107,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelUpdateStack(request);
+                var response = client.DeleteReceiptFilter(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.StackName;
+                    pipelineOutput = this.FilterName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -137,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackName { get; set; }
+            public String FilterName { get; set; }
         }
         
     }

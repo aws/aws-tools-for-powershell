@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>message</code> - Information about the Availability Zone.</para></li><li><para><code>region-name</code> - The name of the region for the Availability Zone (for example,
         /// <code>us-east-1</code>).</para></li><li><para><code>state</code> - The state of the Availability Zone (<code>available</code> |
-        /// <code>impaired</code> | <code>unavailable</code>).</para></li><li><para><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).</para></li></ul>
+        /// <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</para></li><li><para><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

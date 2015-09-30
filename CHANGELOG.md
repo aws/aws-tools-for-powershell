@@ -1,6 +1,10 @@
 ### 3.1.15.0 (2015-09-28)
   * Amazon Simple Email Service
     - Amazon Simple Email Service can now accept incoming emails. You can configure Amazon SES to deliver messages to an Amazon S3 bucket, call an AWS Lambda function, publish notifications to Amazon SNS, drop messages, or bounce messages. Added new cmdlets to support this feature.
+  * AWS CloudFormation
+    - Added new Get-CFNAccountLimits cmdlet, added the ResourceType parameter to New-CFNStack and Update-CFNStack cmdlets.
+  * Amazon EC2
+    - Added a new cmdlet - Request-EC2SpotFleet.
 
 ### 3.1.14.0 (2015-09-17)
   * Amazon CloudWatch Logs

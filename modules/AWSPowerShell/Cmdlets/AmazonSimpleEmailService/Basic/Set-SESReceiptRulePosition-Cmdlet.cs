@@ -22,40 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudFormation;
-using Amazon.CloudFormation.Model;
+using Amazon.SimpleEmail;
+using Amazon.SimpleEmail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CFN
+namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Cancels an update on the specified stack. If the call completes successfully, the
-    /// stack rolls back the update and reverts to the previous stack configuration.
+    /// Sets the position of the specified receipt rule in the receipt rule set.
     /// 
-    ///  <note>You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.</note>
+    ///  
+    /// <para>
+    /// For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
+    /// This action is throttled at one request per second.
+    /// </para>
     /// </summary>
-    [Cmdlet("Stop", "CFNUpdateStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CancelUpdateStack operation against AWS CloudFormation.", Operation = new[] {"CancelUpdateStack"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CancelUpdateStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "SESReceiptRulePosition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Invokes the SetReceiptRulePosition operation against Amazon Simple Email Service.", Operation = new[] {"SetReceiptRulePosition"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type SetReceiptRulePositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopCFNUpdateStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
+    public class SetSESReceiptRulePositionCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The name or the unique stack ID that is associated with the stack.</para>
+        /// <para>The name of the receipt rule after which to place the specified receipt rule.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        [System.Management.Automation.Parameter]
+        public String After { get; set; }
         
         /// <summary>
-        /// Returns the value passed to the StackName parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The name of the receipt rule to reposition.</para>
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String RuleName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the receipt rule set that contains the receipt rule to reposition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public String RuleSetName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -70,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StackName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CFNUpdateStack (CancelUpdateStack)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RuleName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SESReceiptRulePosition (SetReceiptRulePosition)"))
             {
                 return;
             }
@@ -82,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 Credentials = this.CurrentCredentials
             };
             
-            context.StackName = this.StackName;
+            context.After = this.After;
+            context.RuleName = this.RuleName;
+            context.RuleSetName = this.RuleSetName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -94,11 +110,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelUpdateStackRequest();
+            var request = new SetReceiptRulePositionRequest();
             
-            if (cmdletContext.StackName != null)
+            if (cmdletContext.After != null)
             {
-                request.StackName = cmdletContext.StackName;
+                request.After = cmdletContext.After;
+            }
+            if (cmdletContext.RuleName != null)
+            {
+                request.RuleName = cmdletContext.RuleName;
+            }
+            if (cmdletContext.RuleSetName != null)
+            {
+                request.RuleSetName = cmdletContext.RuleSetName;
             }
             
             CmdletOutput output;
@@ -107,11 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelUpdateStack(request);
+                var response = client.SetReceiptRulePosition(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.StackName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -137,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackName { get; set; }
+            public String After { get; set; }
+            public String RuleName { get; set; }
+            public String RuleSetName { get; set; }
         }
         
     }

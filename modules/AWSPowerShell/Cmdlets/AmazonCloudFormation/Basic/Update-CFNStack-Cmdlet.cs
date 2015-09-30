@@ -97,6 +97,21 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         /// <summary>
         /// <para>
+        /// <para>The template resource types that you have permissions to work with for this update
+        /// stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
+        /// <code>Custom::MyCustomInstance</code>.</para><para>If the list of resource types doesn't include a resource that you're updating, the
+        /// stack update fails. By default, AWS CloudFormation grants permissions to all resource
+        /// types. AWS Identity and Access Management (IAM) uses this parameter for AWS CloudFormation-specific
+        /// condition keys in IAM policies. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling
+        /// Access with AWS Identity and Access Management</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceTypes")]
+        public System.String[] ResourceType { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The name or unique stack ID of the stack to update.</para>
         /// </para>
         /// </summary>
@@ -165,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         /// <summary>
         /// <para>
-        /// <para>Location of file containing the template body. The URL must point to a template located
-        /// in an S3 bucket in the same region as the stack. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
+        /// <para>Location of file containing the template body. The URL must point to a template that
+        /// is located in an Amazon S3 bucket. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify either the <code>TemplateBody</code> or the <code>TemplateURL</code>
         /// parameter, but not both.</para>
         /// </para>
@@ -219,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Parameters = new List<Parameter>(this.Parameter);
             }
+            if (this.ResourceType != null)
+            {
+                context.ResourceTypes = new List<String>(this.ResourceType);
+            }
             context.StackName = this.StackName;
             context.StackPolicyBody = this.StackPolicyBody;
             context.StackPolicyDuringUpdateBody = this.StackPolicyDuringUpdateBody;
@@ -252,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.ResourceTypes != null)
+            {
+                request.ResourceTypes = cmdletContext.ResourceTypes;
             }
             if (cmdletContext.StackName != null)
             {
@@ -323,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<String> Capabilities { get; set; }
             public List<String> NotificationARNs { get; set; }
             public List<Parameter> Parameters { get; set; }
+            public List<String> ResourceTypes { get; set; }
             public String StackName { get; set; }
             public String StackPolicyBody { get; set; }
             public String StackPolicyDuringUpdateBody { get; set; }
