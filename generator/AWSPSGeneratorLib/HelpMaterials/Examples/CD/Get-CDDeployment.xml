@@ -16,23 +16,27 @@ ErrorInformation              :
 IgnoreApplicationStopFailures : False
 Revision                      : Amazon.CodeDeploy.Model.RevisionLocation
 StartTime                     : 1/1/0001 12:00:00 AM
-Status                        : Succeeded
-
-PS C:\> (Get-CDDeployment -DeploymentId d-QZMRGSTEX).DeploymentOverview
+Status                        : Succeeded</code>
+	<description>This example gets summary information about the specified deployment.</description>
+  </example>
+  <example>
+    <code>PS C:\> (Get-CDDeployment -DeploymentId d-QZMRGSTEX).DeploymentOverview
 
 Failed     : 0
 InProgress : 0
 Pending    : 0
 Skipped    : 0
-Succeeded  : 3
-
-PS C:\> (Get-CDDeployment -DeploymentId d-QZMRGSTEX).Revision.S3Location
+Succeeded  : 3</code>
+	<description>This example gets information about the status of instances that are participating in the specified deployment.</description>
+  </example>
+  <example>
+    <code>PS C:\> (Get-CDDeployment -DeploymentId d-QZMRGSTEX).Revision.S3Location
 
 Bucket     : MyBucket
 BundleType : zip
 ETag       : cfbb81b304ee5e27efc21adaed3EXAMPLE
 Key        : clzfqEX
 Version    :</code>
-	<description>This example gets information about the specified deployment.</description>
+	<description>This example gets information about the application revision for the specified deployment.</description>
   </example>
 </examples>

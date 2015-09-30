@@ -13,6 +13,6 @@
 
 Type = S3, Bucket = MyBucket, BundleType = zip, ETag = 4565c1ac97187f190c1a90265EXAMPLE, Key = 5xd27EX.zip
 Type = GitHub, CommitId = f48933c3...76405362, Repository = MyGitHubUser/CodeDeployDemoRepo</code>
-	<description>This example ....</description>
+	<description>This example gets information about available revisions for the specified application.</description>
   </example>
 </examples>
