@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster. </para><para>Valid Values: <code>MySQL</code></para>
+        /// <para>The name of the database engine to be used for this DB cluster. </para><para>Valid Values: <code>aurora</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use. </para><para><b>Aurora</b></para><para>Example: <code>5.6.0</code></para>
+        /// <para>The version number of the database engine to use. </para><para><b>Aurora</b></para><para>Example: <code>5.6.10a</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

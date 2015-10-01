@@ -76,10 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>True to copy all tags from the restored DB instance to snapshots of the DB instance;
+        /// otherwise false. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean CopyTagsToSnapshot { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> The compute and memory capacity of the Amazon RDS DB instance. </para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
         /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
-        /// | db.t2.small | db.t2.medium</code></para>
+        /// | db.t2.small | db.t2.medium | db.t2.large</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> Name of the DB instance to create from the DB snapshot. This parameter isn't case-sensitive.
-        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 255 alphanumeric characters or hyphens</li><li>First
-        /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for
+        /// SQL Server)</li><li>First character must be a letter</li><li>Cannot end with a hyphen
+        /// or contain two consecutive hyphens</li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -106,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The identifier for the DB snapshot to restore from. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
+        /// <para> The identifier for the DB snapshot to restore from. </para><para>Constraints:</para><ul><li>Must contain from 1 to 255 alphanumeric characters or hyphens</li><li>First
         /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
         /// hyphens</li></ul>
         /// </para>
@@ -260,6 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
                 context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
+            if (ParameterWasBound("CopyTagsToSnapshot"))
+                context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBName = this.DBName;
@@ -303,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -405,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public Boolean? AutoMinorVersionUpgrade { get; set; }
             public String AvailabilityZone { get; set; }
+            public Boolean? CopyTagsToSnapshot { get; set; }
             public String DBInstanceClass { get; set; }
             public String DBInstanceIdentifier { get; set; }
             public String DBName { get; set; }

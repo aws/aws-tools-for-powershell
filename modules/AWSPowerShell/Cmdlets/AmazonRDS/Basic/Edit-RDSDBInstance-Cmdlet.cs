@@ -132,6 +132,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>True to copy all tags from the DB instance to snapshots of the DB instance; otherwise
+        /// false. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean CopyTagsToSnapshot { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> The new compute and memory capacity of the DB instance. To determine the instance
         /// classes that are available for a particular DB engine, use the <a>DescribeOrderableDBInstanceOptions</a>
         /// action. </para><para> Passing a value for this setting causes an outage during the change and is applied
@@ -139,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// as <code>true</code> for this request. </para><para>Default: Uses existing setting</para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
         /// | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge
-        /// | db.t2.micro | db.t2.small | db.t2.medium</code></para>
+        /// | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,8 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// except "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
-        /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30 alphanumeric
-        /// characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).</para><note> Amazon RDS API actions never return the password, so this action provides
+        /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL and Amazon Aurora), 8
+        /// to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).</para><note> Amazon RDS API actions never return the password, so this action provides
         /// a way to regain access to a primary instance user if the password is lost. This includes
         /// restoring privileges that might have been accidentally revoked. </note>
         /// </para>
@@ -379,6 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("BackupRetentionPeriod"))
                 context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
+            if (ParameterWasBound("CopyTagsToSnapshot"))
+                context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBParameterGroupName = this.DBParameterGroupName;
@@ -439,6 +450,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CACertificateIdentifier != null)
             {
                 request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -545,6 +560,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public Boolean? AutoMinorVersionUpgrade { get; set; }
             public Int32? BackupRetentionPeriod { get; set; }
             public String CACertificateIdentifier { get; set; }
+            public Boolean? CopyTagsToSnapshot { get; set; }
             public String DBInstanceClass { get; set; }
             public String DBInstanceIdentifier { get; set; }
             public String DBParameterGroupName { get; set; }

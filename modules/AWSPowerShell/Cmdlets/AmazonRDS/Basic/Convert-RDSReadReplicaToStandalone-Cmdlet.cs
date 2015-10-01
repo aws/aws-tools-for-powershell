@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The DB instance identifier. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be the identifier for an existing Read Replica DB instance</li><li>Must
         /// contain from 1 to 63 alphanumeric characters or hyphens</li><li>First character must
-        /// be a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><para>Example: <copy>mydbinstance</copy></para>
+        /// be a letter</li><li>Cannot end with a hyphen or contain two consecutive hyphens</li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

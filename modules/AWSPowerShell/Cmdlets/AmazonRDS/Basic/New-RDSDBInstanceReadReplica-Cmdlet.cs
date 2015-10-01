@@ -68,10 +68,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>True to copy all tags from the Read Replica to snapshots of the Read Replica; otherwise
+        /// false. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean CopyTagsToSnapshot { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> The compute and memory capacity of the Read Replica. </para><para> Valid Values: <code>db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
         /// |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
         /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
-        /// | db.t2.small | db.t2.medium</code></para><para>Default: Inherits from the source DB instance.</para>
+        /// | db.t2.small | db.t2.medium | db.t2.large</code></para><para>Default: Inherits from the source DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,6 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
                 context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
+            if (ParameterWasBound("CopyTagsToSnapshot"))
+                context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
@@ -242,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -320,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public Boolean? AutoMinorVersionUpgrade { get; set; }
             public String AvailabilityZone { get; set; }
+            public Boolean? CopyTagsToSnapshot { get; set; }
             public String DBInstanceClass { get; set; }
             public String DBInstanceIdentifier { get; set; }
             public String DBSubnetGroupName { get; set; }

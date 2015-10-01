@@ -42,6 +42,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     {
         /// <summary>
         /// <para>
+        /// <para>True to copy all tags from the source DB snapshot to the target DB snapshot; otherwise
+        /// false. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean CopyTags { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> The identifier for the source DB snapshot. </para><para>Constraints:</para><ul><li>Must specify a valid system snapshot in the "available" state.</li><li>If
         /// the source snapshot is in the same region as the copy, specify a valid DB snapshot
         /// identifier.</li><li>If the source snapshot is in a different region than the copy,
@@ -96,6 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
+            if (ParameterWasBound("CopyTags"))
+                context.CopyTags = this.CopyTags;
             context.SourceDBSnapshotIdentifier = this.SourceDBSnapshotIdentifier;
             if (this.Tag != null)
             {
@@ -115,6 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new CopyDBSnapshotRequest();
             
+            if (cmdletContext.CopyTags != null)
+            {
+                request.CopyTags = cmdletContext.CopyTags.Value;
+            }
             if (cmdletContext.SourceDBSnapshotIdentifier != null)
             {
                 request.SourceDBSnapshotIdentifier = cmdletContext.SourceDBSnapshotIdentifier;
@@ -162,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
+            public Boolean? CopyTags { get; set; }
             public String SourceDBSnapshotIdentifier { get; set; }
             public List<Tag> Tags { get; set; }
             public String TargetDBSnapshotIdentifier { get; set; }

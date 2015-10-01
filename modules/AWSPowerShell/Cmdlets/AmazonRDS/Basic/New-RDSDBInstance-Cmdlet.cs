@@ -92,6 +92,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>True to copy all tags from the DB instance to snapshots of the DB instance; otherwise
+        /// false. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean CopyTagsToSnapshot { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The identifier of the DB cluster that the instance will belong to.</para><para>For information on creating a DB cluster, see <a>CreateDBCluster</a>.</para><para>Type: String</para>
         /// </para>
         /// </summary>
@@ -103,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The compute and memory capacity of the DB instance. </para><para> Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
         /// | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge
-        /// | db.t2.micro | db.t2.small | db.t2.medium</code></para>
+        /// | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// by the specified database engine</li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
         /// is not specified, the default "postgres" database is created in the DB instance. </para><para>Constraints:</para><ul><li>Must contain 1 to 63 alphanumeric characters</li><li>Must begin with a
         /// letter or an underscore. Subsequent characters can be letters, underscores, or digits
-        /// (0-9).</li><li>Cannot be a word reserved by the specified database engine</li></ul><para><b>Oracle</b></para><para> The Oracle System ID (SID) of the created DB instance. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li>Cannot be longer than 8 characters</li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para>
+        /// (0-9).</li><li>Cannot be a word reserved by the specified database engine</li></ul><para><b>Oracle</b></para><para> The Oracle System ID (SID) of the created DB instance. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li>Cannot be longer than 8 characters</li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora</b></para><para>The name of the database to create when the primary instance of the DB cluster is
+        /// created. If this parameter is not specified, no database is created in the DB instance.
+        /// </para><para>Constraints:</para><ul><li>Must contain 1 to 64 alphanumeric characters</li><li>Cannot be a word reserved
+        /// by the specified database engine</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -179,62 +191,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// us-west-2):</b><code> 5.5.40 | 5.5.40a</code></li><li><b>Version 5.5 (Available
         /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version
         /// 5.6 (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b |
-        /// 5.6.22 | 5.6.23</code></li></ul><para><b>MySQL</b></para><ul><li><b>Version 5.1 (Only available in the following regions: ap-northeast-1,
-        /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 5.1.73a | 5.1.73b</code></li><li><b>Version 5.5 (Only available in the following
-        /// regions: ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1,
-        /// us-west-2):</b><code> 5.5.40 | 5.5.40a</code></li><li><b>Version 5.5 (Available
-        /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version
-        /// 5.6 (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b |
-        /// 5.6.22 | 5.6.23</code></li></ul><para><b>MySQL</b></para><ul><li><b>Version 5.1 (Only available in the following regions: ap-northeast-1,
-        /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 5.1.73a | 5.1.73b</code></li><li><b>Version 5.5 (Only available in the following
-        /// regions: ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1,
-        /// us-west-2):</b><code> 5.5.40 | 5.5.40a</code></li><li><b>Version 5.5 (Available
-        /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version
-        /// 5.6 (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b |
-        /// 5.6.22 | 5.6.23</code></li></ul><para><b>MySQL</b></para><ul><li><b>Version 5.1 (Only available in the following regions: ap-northeast-1,
-        /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 5.1.73a | 5.1.73b</code></li><li><b>Version 5.5 (Only available in the following
-        /// regions: ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1,
-        /// us-west-2):</b><code> 5.5.40 | 5.5.40a</code></li><li><b>Version 5.5 (Available
-        /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version
-        /// 5.6 (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b |
         /// 5.6.22 | 5.6.23</code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
         /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
         /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Available in all regions):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 |
-        /// 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Available in all regions):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
-        /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Available in all regions):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 |
-        /// 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Available in all regions):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
-        /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Available in all regions):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 |
-        /// 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Available in all regions):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Standard Edition (oracle-se)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Standard Edition (oracle-se)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Standard Edition (oracle-se)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Standard Edition One (oracle-se1)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Standard Edition One (oracle-se1)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 12.1.0.1.v1</code></li></ul><para><b>Oracle Database Standard Edition One (oracle-se1)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 12.1.0.1.v1</code></li></ul><para><b>PostgreSQL</b></para><ul><li><b>Version 9.3 (Only available in the following regions: ap-northeast-1,
-        /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 9.3.1 | 9.3.2</code></li><li><b>Version 9.3 (Available in all regions):</b><code>
-        /// 9.3.3 | 9.3.5 | 9.3.6</code></li><li><b>Version 9.4 (Available in all regions):</b><code> 9.4.1</code></li></ul><para><b>PostgreSQL</b></para><ul><li><b>Version 9.3 (Only available in the following regions: ap-northeast-1,
-        /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 9.3.1 | 9.3.2</code></li><li><b>Version 9.3 (Available in all regions):</b><code>
-        /// 9.3.3 | 9.3.5 | 9.3.6</code></li><li><b>Version 9.4 (Available in all regions):</b><code> 9.4.1</code></li></ul><para><b>PostgreSQL</b></para><ul><li><b>Version 9.3 (Only available in the following regions: ap-northeast-1,
+        /// 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4</code></li><li><b>Version
+        /// 12.1 (Available in all regions):</b><code>12.1.0.1.v1 | 12.1.0.1.v2 | 12.1.0.2.v1
+        /// </code></li></ul><para><b>Oracle Database Standard Edition (oracle-se)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
+        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3
+        /// | 11.2.0.4.v4</code></li><li><b>Version 12.1 (Only available in the following regions:
+        /// eu-central-1, us-west-1):</b><code>12.1.0.1.v1 | 12.1.0.1.v2</code></li></ul><para><b>Oracle Database Standard Edition One (oracle-se1)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
+        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3
+        /// | 11.2.0.4.v4</code></li><li><b>Version 12.1 (Only available in the following regions:
+        /// eu-central-1, us-west-1):</b><code> 12.1.0.1.v1 | 12.1.0.1.v2</code></li></ul><para><b>PostgreSQL</b></para><ul><li><b>Version 9.3 (Only available in the following regions: ap-northeast-1,
         /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
         /// 9.3.1 | 9.3.2</code></li><li><b>Version 9.3 (Available in all regions):</b><code>
         /// 9.3.3 | 9.3.5 | 9.3.6</code></li><li><b>Version 9.4 (Available in all regions):</b><code> 9.4.1</code></li></ul><para><b>Microsoft SQL Server Enterprise Edition (sqlserver-ee)</b></para><ul><li><b>Version 10.50 (Only available in the following regions: eu-central-1,
         /// us-west-1):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Only available
-        /// in the following regions: eu-central-1, us-west-1):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Enterprise Edition (sqlserver-ee)</b></para><ul><li><b>Version 10.50 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Only available
-        /// in the following regions: eu-central-1, us-west-1):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Express Edition (sqlserver-ex)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Express Edition (sqlserver-ex)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Standard Edition (sqlserver-se)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Standard Edition (sqlserver-se)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Web Edition (sqlserver-web)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Web Edition (sqlserver-web)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul>
+        /// in the following regions: eu-central-1, us-west-1):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Express Edition (sqlserver-ex)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Standard Edition (sqlserver-se)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Web Edition (sqlserver-web)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The password for the master database user. Can be any printable ASCII character except
-        /// "/", """, or "@". </para><para>Type: String</para><para><b>MySQL</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>Oracle</b></para><para> Constraints: Must contain from 8 to 30 characters. </para><para><b>SQL Server</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>PostgreSQL</b></para><para> Constraints: Must contain from 8 to 128 characters. </para>
+        /// "/", """, or "@". </para><para>Type: String</para><para><b>MySQL</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>Oracle</b></para><para> Constraints: Must contain from 8 to 30 characters. </para><para><b>SQL Server</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>PostgreSQL</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>Amazon Aurora</b></para><para> Constraints: Must contain from 8 to 41 characters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -319,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The port number on which the database accepts connections. </para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
         /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
-        /// </para>
+        /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -454,6 +427,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("BackupRetentionPeriod"))
                 context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CharacterSetName = this.CharacterSetName;
+            if (ParameterWasBound("CopyTagsToSnapshot"))
+                context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
@@ -526,6 +501,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CharacterSetName != null)
             {
                 request.CharacterSetName = cmdletContext.CharacterSetName;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -671,6 +650,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public String AvailabilityZone { get; set; }
             public Int32? BackupRetentionPeriod { get; set; }
             public String CharacterSetName { get; set; }
+            public Boolean? CopyTagsToSnapshot { get; set; }
             public String DBClusterIdentifier { get; set; }
             public String DBInstanceClass { get; set; }
             public String DBInstanceIdentifier { get; set; }
