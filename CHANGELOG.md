@@ -1,3 +1,9 @@
+### 3.1.16.0 (2015-10-01)
+  * AWS CloudTrail
+    - Added new cmdlets for AWS CloudTrail: Add-CTTag, Get-CTTag, Remove-CTTag, and Get-PublicKey. This release of CloudTrail includes support for log file integrity validation, log encryption with AWS KMS–Managed Keys (SSE-KMS), and trail tagging.
+  * Amazon RDS
+    - Added support for t2.large DB instance, support for copying tags to snapshot, and other minor updates.
+
 ### 3.1.15.0 (2015-09-28)
   * Amazon Simple Email Service
     - Amazon Simple Email Service can now accept incoming emails. You can configure Amazon SES to deliver messages to an Amazon S3 bucket, call an AWS Lambda function, publish notifications to Amazon SNS, drop messages, or bounce messages. Added new cmdlets to support this feature.
