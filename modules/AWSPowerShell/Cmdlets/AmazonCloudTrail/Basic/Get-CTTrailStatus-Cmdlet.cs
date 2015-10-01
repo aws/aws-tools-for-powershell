@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// <summary>
     /// Returns a JSON-formatted list of information about the specified trail. Fields include
     /// information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop
-    /// logging times for each trail.
+    /// logging times for each trail. This operation returns trail status from a single region.
+    /// To return trail status from all regions, you must call the operation on each region.
     /// </summary>
     [Cmdlet("Get", "CTTrailStatus")]
     [OutputType("Amazon.CloudTrail.Model.GetTrailStatusResponse")]
@@ -42,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the trail for which you are requesting the current status.</para>
+        /// <para>Specifies the name or the CloudTrail ARN of the trail for which you are requesting
+        /// status. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

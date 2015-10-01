@@ -28,15 +28,10 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// From the command line, use <code>update-subscription</code>.
-    /// 
-    ///  
-    /// <para>
     /// Updates the settings that specify delivery of log files. Changes to a trail do not
     /// require stopping the CloudTrail service. Use this action to designate an existing
     /// bucket for log delivery. If the existing bucket has previously been a target for CloudTrail
-    /// log files, an IAM policy exists for the bucket. 
-    /// </para>
+    /// log files, an IAM policy exists for the bucket.
     /// </summary>
     [Cmdlet("Update", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.UpdateTrailResponse")]
@@ -58,12 +53,26 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         /// <summary>
         /// <para>
-        /// <para>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user’s
+        /// <para>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
         /// log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public String CloudWatchLogsRoleArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether log file validation is enabled. The default is false.</para><note>When you disable log file integrity validation, the chain of digest files is
+        /// broken after one hour. CloudTrail will not create digest files for log files that
+        /// were delivered during a period in which log file integrity validation was disabled.
+        /// For example, if you enable log file integrity validation at noon on January 1, disable
+        /// it at noon on January 2, and re-enable it at noon on January 10, digest files will
+        /// not be created for the log files delivered from noon on January 2 to noon on January
+        /// 10. The same applies whenever you stop CloudTrail logging or delete a trail.</note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean EnableLogFileValidation { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +85,22 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the trail.</para>
+        /// <para>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value
+        /// can be a an alias name prefixed by "alias/", a fully specified ARN to an alias, a
+        /// fully specified ARN to a key, or a globally unique identifier.</para><para>Examples:</para><ul><li>alias/MyAliasName</li><li>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</li><li>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>12345678-1234-1234-1234-123456789012</li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String KmsKeyId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the trail or trail ARN. If <code>Name</code> is a trail name,
+        /// the string must meet the following requirements:</para><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
+        /// (_), or dashes (-)</li><li>Start with a letter or number, and end with a letter or
+        /// number</li><li>Be between 3 and 128 characters</li><li>Have no adjacent periods,
+        /// underscores or dashes. Names like <code>my-_namespace</code> and <code>my--namespace</code>
+        /// are invalid.</li><li>Not be in IP address format (for example, 192.168.5.4)</li></ul><para>If <code>Name</code> is a trail ARN, it must be in the format <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -84,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the Amazon S3 bucket designated for publishing log files.</para>
+        /// <para>Specifies the name of the Amazon S3 bucket designated for publishing log files. See
+        /// <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon
+        /// S3 Bucket Naming Requirements</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -92,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon S3 key prefix that precedes the name of the bucket you have designated
-        /// for log file delivery.</para>
+        /// <para>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have
+        /// designated for log file delivery. For more information, see <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding
+        /// Your CloudTrail Log Files</a>. The maximum length is 200 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -101,7 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the Amazon SNS topic defined for notification of log file delivery.</para>
+        /// <para>Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
+        /// The maximum length is 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
             
             context.CloudWatchLogsLogGroupArn = this.CloudWatchLogsLogGroupArn;
             context.CloudWatchLogsRoleArn = this.CloudWatchLogsRoleArn;
+            if (ParameterWasBound("EnableLogFileValidation"))
+                context.EnableLogFileValidation = this.EnableLogFileValidation;
             if (ParameterWasBound("IncludeGlobalServiceEvents"))
                 context.IncludeGlobalServiceEvents = this.IncludeGlobalServiceEvents;
+            context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             context.S3BucketName = this.S3BucketName;
             context.S3KeyPrefix = this.S3KeyPrefix;
@@ -161,9 +192,17 @@ namespace Amazon.PowerShell.Cmdlets.CT
             {
                 request.CloudWatchLogsRoleArn = cmdletContext.CloudWatchLogsRoleArn;
             }
+            if (cmdletContext.EnableLogFileValidation != null)
+            {
+                request.EnableLogFileValidation = cmdletContext.EnableLogFileValidation.Value;
+            }
             if (cmdletContext.IncludeGlobalServiceEvents != null)
             {
                 request.IncludeGlobalServiceEvents = cmdletContext.IncludeGlobalServiceEvents.Value;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.Name != null)
             {
@@ -218,7 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             public String CloudWatchLogsLogGroupArn { get; set; }
             public String CloudWatchLogsRoleArn { get; set; }
+            public Boolean? EnableLogFileValidation { get; set; }
             public Boolean? IncludeGlobalServiceEvents { get; set; }
+            public String KmsKeyId { get; set; }
             public String Name { get; set; }
             public String S3BucketName { get; set; }
             public String S3KeyPrefix { get; set; }

@@ -28,28 +28,39 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Starts the recording of AWS API calls and log file delivery for a trail.
+    /// Adds one or more tags to a trail, up to a limit of 10. Tags must be unique per trail.
+    /// Overwrites an existing tag's value when a new value is specified for an existing tag
+    /// key. If you specify a key without a value, the tag will be created with the specified
+    /// key and a value of null.
     /// </summary>
-    [Cmdlet("Start", "CTLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "CTTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StartLogging operation against AWS CloudTrail.", Operation = new[] {"StartLogging"})]
+    [AWSCmdlet("Invokes the AddTags operation against AWS CloudTrail.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type StartLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StartCTLoggingCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public class AddCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS
-        /// API calls. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
+        /// <para>Specifies the ARN of the trail to which one or more tags will be added. The format
+        /// of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public String ResourceId { get; set; }
         
         /// <summary>
-        /// Returns the value passed to the Name parameter.
+        /// <para>
+        /// <para>Contains a list of CloudTrail tags, up to a limit of 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CloudTrail.Model.Tag[] TagsList { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the ResourceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CTLogging (StartLogging)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CTTag (AddTags)"))
             {
                 return;
             }
@@ -80,7 +91,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 Credentials = this.CurrentCredentials
             };
             
-            context.Name = this.Name;
+            context.ResourceId = this.ResourceId;
+            if (this.TagsList != null)
+            {
+                context.TagsList = new List<Tag>(this.TagsList);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -92,11 +107,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartLoggingRequest();
+            var request = new AddTagsRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ResourceId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ResourceId = cmdletContext.ResourceId;
+            }
+            if (cmdletContext.TagsList != null)
+            {
+                request.TagsList = cmdletContext.TagsList;
             }
             
             CmdletOutput output;
@@ -105,11 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.StartLogging(request);
+                var response = client.AddTags(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.Name;
+                    pipelineOutput = this.ResourceId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -135,7 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public String ResourceId { get; set; }
+            public List<Tag> TagsList { get; set; }
         }
         
     }

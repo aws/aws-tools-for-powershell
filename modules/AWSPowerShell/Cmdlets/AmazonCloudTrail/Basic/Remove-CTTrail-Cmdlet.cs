@@ -28,7 +28,8 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Deletes a trail.
+    /// Deletes a trail. This operation must be called from the region in which the trail
+    /// was created.
     /// </summary>
     [Cmdlet("Remove", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -41,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     {
         /// <summary>
         /// <para>
-        /// <para>The name of a trail to be deleted.</para>
+        /// <para>Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of
+        /// a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

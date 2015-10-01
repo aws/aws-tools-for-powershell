@@ -41,7 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
     {
         /// <summary>
         /// <para>
-        /// <para>The trail returned.</para>
+        /// <para>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The
+        /// format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.
+        /// If an empty list is specified, information for the trail in the current region is
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

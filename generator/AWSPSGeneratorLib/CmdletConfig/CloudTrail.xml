@@ -10,9 +10,15 @@
   <PipelineParameter>Name</PipelineParameter>
   
 	<NounMappings>
-		<Map From="Trails" To="Trail" />		
+		<Map From="Trails" To="Trail" />
+		<Map From="Tags" To="Tag" />
+    <Map From="PublicKeys" To="PublicKey" />
 	</NounMappings>
 
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+  
   <Params>
     <Param Name="Trail_" Exclude="true" />
   </Params>
@@ -25,16 +31,20 @@
 	</PipelineByValueProperties>
 	
 	<ServiceOperations>
+		<ServiceOperation MethodName="AddTags" Output="Void" PipelineParameter="ResourceId"/>	
 		<ServiceOperation MethodName="CreateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
 		<ServiceOperation MethodName="DeleteTrail" Output="Void" />
 		<ServiceOperation MethodName="DescribeTrails" >
-      <Params>
-        <Param Name="TrailNameList" Alias="Name" />
-      </Params>
+          <Params>
+            <Param Name="TrailNameList" Alias="Name" />
+          </Params>
 		</ServiceOperation>
 		<ServiceOperation MethodName="GetTrailStatus" Output="Response" />
-    <ServiceOperation MethodName="LookupEvents" Verb="Find" />
-    <ServiceOperation MethodName="StartLogging" Output="Void" />
+		<ServiceOperation MethodName="LookupEvents" Verb="Find" />
+		<ServiceOperation MethodName="ListPublicKeys" />
+		<ServiceOperation MethodName="ListTags"/>
+		<ServiceOperation MethodName="RemoveTags" Output="Void" ShouldProcessTarget="ResourceId"/>
+		<ServiceOperation MethodName="StartLogging" Output="Void" />
 		<ServiceOperation MethodName="StopLogging" Output="Void" />
 		<ServiceOperation MethodName="UpdateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
   </ServiceOperations>

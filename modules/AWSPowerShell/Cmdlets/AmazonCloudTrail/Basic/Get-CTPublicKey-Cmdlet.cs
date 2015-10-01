@@ -28,35 +28,29 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Looks up API activity events captured by CloudTrail that create, update, or delete
-    /// resources in your account. Events for a region can be looked up for the times in which
-    /// you had CloudTrail turned on in that region during the last seven days. Lookup supports
-    /// five different attributes: time range (defined by a start time and end time), user
-    /// name, event name, resource type, and resource name. All attributes are optional. The
-    /// maximum number of attributes that can be specified in any one lookup request are time
-    /// range and one other attribute. The default number of results returned is 10, with
-    /// a maximum of 50 possible. The response includes a token that you can use to get the
-    /// next page of results. 
+    /// Returns all public keys whose private keys were used to sign the digest files within
+    /// the specified time range. The public key is needed to validate digest files that were
+    /// signed with its corresponding private key.
     /// 
-    ///  <important>The rate of lookup requests is limited to one per second per account.
-    /// If this limit is exceeded, a throttling error occurs. </important><important>Events
-    /// that occurred during the selected time range will not be available for lookup if CloudTrail
-    /// logging was not enabled when the events occurred.</important>
+    ///  <note>CloudTrail uses different private/public key pairs per region. Each digest
+    /// file is signed with a private key unique to its region. Therefore, when you validate
+    /// a digest file from a particular region, you must look in the same region for its corresponding
+    /// public key.</note>
     /// </summary>
-    [Cmdlet("Find", "CTEvents")]
-    [OutputType("Amazon.CloudTrail.Model.Event")]
-    [AWSCmdlet("Invokes the LookupEvents operation against AWS CloudTrail.", Operation = new[] {"LookupEvents"})]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.Event",
-        "This cmdlet returns a collection of Event objects.",
-        "The service call response (type LookupEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CTPublicKey")]
+    [OutputType("Amazon.CloudTrail.Model.PublicKey")]
+    [AWSCmdlet("Invokes the ListPublicKeys operation against AWS CloudTrail.", Operation = new[] {"ListPublicKeys"})]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.PublicKey",
+        "This cmdlet returns a collection of PublicKey objects.",
+        "The service call response (type ListPublicKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
     )]
-    public class FindCTEventsCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public class GetCTPublicKeyCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Specifies that only events that occur before or at the specified time are returned.
-        /// If the specified end time is before the specified start time, an error is returned.</para>
+        /// <para>Optionally specifies, in UTC, the end of the time range to look up public keys for
+        /// CloudTrail digest files. If not specified, the current time is used. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,17 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         /// <summary>
         /// <para>
-        /// <para>Contains a list of lookup attributes. Currently the list can contain only one item.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("LookupAttributes")]
-        public Amazon.CloudTrail.Model.LookupAttribute[] LookupAttribute { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>Specifies that only events that occur after or at the specified time are returned.
-        /// If the specified start time is after the specified end time, an error is returned.</para>
+        /// <para>Optionally specifies, in UTC, the start of the time range to look up public keys for
+        /// CloudTrail digest files. If not specified, the current time is used, and the current
+        /// public key is returned. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,19 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         /// <summary>
         /// <para>
-        /// <para>The number of events to return. Possible values are 1 through 50. The default is 10.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxResults")]
-        public Int32 MaxResult { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>The token to use to get the next page of results after a previous API call. This token
-        /// must be passed in with the same parameters that were specified in the the original
-        /// call. For example, if the original call specified an AttributeKey of 'Username' with
-        /// a value of 'root', the call with NextToken should include those same parameters.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,12 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.CT
             
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
-            if (this.LookupAttribute != null)
-            {
-                context.LookupAttributes = new List<LookupAttribute>(this.LookupAttribute);
-            }
-            if (ParameterWasBound("MaxResult"))
-                context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -133,19 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new LookupEventsRequest();
+            var request = new ListPublicKeysRequest();
             
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
-            }
-            if (cmdletContext.LookupAttributes != null)
-            {
-                request.LookupAttributes = cmdletContext.LookupAttributes;
-            }
-            if (cmdletContext.MaxResults != null)
-            {
-                request.MaxResults = cmdletContext.MaxResults.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -162,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.LookupEvents(request);
+                var response = client.ListPublicKeys(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Events;
+                object pipelineOutput = response.PublicKeyList;
                 notes = new Dictionary<string, object>();
                 notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
@@ -193,8 +153,6 @@ namespace Amazon.PowerShell.Cmdlets.CT
         internal class CmdletContext : ExecutorContext
         {
             public DateTime? EndTime { get; set; }
-            public List<LookupAttribute> LookupAttributes { get; set; }
-            public Int32? MaxResults { get; set; }
             public String NextToken { get; set; }
             public DateTime? StartTime { get; set; }
         }

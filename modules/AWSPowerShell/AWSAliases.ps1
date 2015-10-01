@@ -276,6 +276,8 @@ Set-Alias -Name Update-CSScalingParameters -Value Update-CSScalingParameter
 Set-Alias -Name CS-UpdateScalingParameters -Value Update-CSScalingParameter
 Set-Alias -Name Update-CSServiceAccessPolicies -Value Update-CSServiceAccessPolicy
 Set-Alias -Name CS-UpdateServiceAccessPolicies -Value Update-CSServiceAccessPolicy
+Set-Alias -Name Add-CTTags -Value Add-CTTag
+Set-Alias -Name CT-AddTags -Value Add-CTTag
 Set-Alias -Name Create-CTTrail -Value New-CTTrail
 Set-Alias -Name CT-CreateTrail -Value New-CTTrail
 Set-Alias -Name Delete-CTTrail -Value Remove-CTTrail
@@ -283,7 +285,13 @@ Set-Alias -Name CT-DeleteTrail -Value Remove-CTTrail
 Set-Alias -Name Describe-CTTrails -Value Get-CTTrail
 Set-Alias -Name CT-DescribeTrails -Value Get-CTTrail
 Set-Alias -Name CT-GetTrailStatus -Value Get-CTTrailStatus
+Set-Alias -Name List-CTPublicKeys -Value Get-CTPublicKey
+Set-Alias -Name CT-ListPublicKeys -Value Get-CTPublicKey
+Set-Alias -Name List-CTTags -Value Get-CTTag
+Set-Alias -Name CT-ListTags -Value Get-CTTag
 Set-Alias -Name CT-LookupEvents -Value Find-CTEvents
+Set-Alias -Name Remove-CTTags -Value Remove-CTTag
+Set-Alias -Name CT-RemoveTags -Value Remove-CTTag
 Set-Alias -Name CT-StartLogging -Value Start-CTLogging
 Set-Alias -Name CT-StopLogging -Value Stop-CTLogging
 Set-Alias -Name CT-UpdateTrail -Value Update-CTTrail

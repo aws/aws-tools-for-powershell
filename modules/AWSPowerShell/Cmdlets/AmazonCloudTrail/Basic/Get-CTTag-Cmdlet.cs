@@ -28,51 +28,39 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Starts the recording of AWS API calls and log file delivery for a trail.
+    /// Lists the tags for the trail in the current region.
     /// </summary>
-    [Cmdlet("Start", "CTLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StartLogging operation against AWS CloudTrail.", Operation = new[] {"StartLogging"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type StartLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CTTag")]
+    [OutputType("Amazon.CloudTrail.Model.ResourceTag")]
+    [AWSCmdlet("Invokes the ListTags operation against AWS CloudTrail.", Operation = new[] {"ListTags"})]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.ResourceTag",
+        "This cmdlet returns a collection of ResourceTag objects.",
+        "The service call response (type ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
     )]
-    public class StartCTLoggingCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public class GetCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS
-        /// API calls. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
+        /// <para>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of
+        /// 20 ARNs. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String[] ResourceIdList { get; set; }
         
         /// <summary>
-        /// Returns the value passed to the Name parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CTLogging (StartLogging)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -80,7 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 Credentials = this.CurrentCredentials
             };
             
-            context.Name = this.Name;
+            context.NextToken = this.NextToken;
+            if (this.ResourceIdList != null)
+            {
+                context.ResourceIdList = new List<String>(this.ResourceIdList);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -92,11 +84,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartLoggingRequest();
+            var request = new ListTagsRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Name = cmdletContext.Name;
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.ResourceIdList != null)
+            {
+                request.ResourceIdList = cmdletContext.ResourceIdList;
             }
             
             CmdletOutput output;
@@ -105,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.StartLogging(request);
+                var response = client.ListTags(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.Name;
+                object pipelineOutput = response.ResourceTagList;
+                notes = new Dictionary<string, object>();
+                notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -135,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public String NextToken { get; set; }
+            public List<String> ResourceIdList { get; set; }
         }
         
     }
