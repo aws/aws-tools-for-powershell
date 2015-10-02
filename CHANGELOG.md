@@ -1,3 +1,4 @@
+### 3.1.16.1 (2015-10-02)
   * Amazon Elasticsearch
     - Added support for the new service. Cmdlets for the service are identified with a noun prefix code of 'ES'.
 
