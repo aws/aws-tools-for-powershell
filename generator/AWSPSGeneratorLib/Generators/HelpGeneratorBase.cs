@@ -35,6 +35,19 @@ namespace AWSPowerShellGenerator.Generators
         protected object AWSCmdletAttribute;
         protected List<object> AWSCmdletOutputAttributes;
 
+        // lists cmdlets where we want to expose the dynamic parameters based on the 
+        // AWSCredentialsArguments or AWSRegionArguments types as first-class parameters
+        // for the cmdlet
+        const string AWSCredentialsArgumentsTypename = "Amazon.PowerShell.Common.AWSCredentialsArguments";
+        const string AWSRegionArgumentsTypename = "Amazon.PowerShell.Common.AWSRegionArguments";
+        private Dictionary<string, IEnumerable<string>> _dynamicParameterExpansion = new Dictionary<string, IEnumerable<string>>
+        {
+            { "Amazon.PowerShell.Common.SetCredentialsCmdlet", new string[] { AWSCredentialsArgumentsTypename } },
+            { "Amazon.PowerShell.Common.NewCredentialsCmdlet", new string[] { AWSCredentialsArgumentsTypename } },
+            { "Amazon.PowerShell.Common.SetDefaultRegionCmdlet", new string[] { AWSRegionArgumentsTypename } },
+            { "Amazon.PowerShell.Common.InitializeDefaultsCmdlet", new string[] { AWSCredentialsArgumentsTypename, AWSRegionArgumentsTypename } },
+        };
+
         private static string _copyright;
         public static string Copyright
         {
@@ -185,7 +198,30 @@ namespace AWSPowerShellGenerator.Generators
 
         protected IEnumerable<SimplePropertyInfo> GetRootSimpleProperties(Type requestType)
         {
-            var properties = requestType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+            var properties = requestType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance).ToList();
+
+            // mix in any parameters added dynamically to specific cmdlets (this way we don't spam all cmdlets
+            // with credential parameters) yet still show the actual params where the user needs to see them
+            IEnumerable<string> dynamicParameterTypes = null;
+            if (_dynamicParameterExpansion.TryGetValue(requestType.FullName, out dynamicParameterTypes))
+            {
+                // add in the parameters that are injected at runtime (credentials, region etc) - don't want to
+                // do this and add spam to every cmdlet though. Do it here so we keep consistent ordering on
+                // the returned collection.
+                foreach (var dpt in dynamicParameterTypes)
+                {
+                    var typeInstance = CmdletAssembly.GetType(dpt);
+                    var dynamicParams = typeInstance.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+                    foreach (var dp in dynamicParams)
+                    {
+                        if (dp.GetSetMethod() != null) // skip properties with non-public setters, since they won't be parameters
+                        {
+                            properties.Add(dp);
+                        }
+                    }
+                }
+            }
+
             var simpleProperties = properties
                 .Select(p => CreateSimpleProperty(p, null))
                 .Where(sp => sp.IsReadWrite)

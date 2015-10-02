@@ -134,11 +134,10 @@
                         </div>
                     </div>
                     <div class="parameter">
-                        <div class="parameterName">-StoredCredentials &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
+                        <div class="parameterName">-ProfileName &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
                         <div class="parameterDescription">
-                            The name associated with a set of credentials previously saved in the local credentials stored shared with the AWS Toolkit 
-                            for Visual Studio. The credentials may have been set up using the toolkit or the <a href="./Set-AWSCredentials.html">Set-AWSCredentials</a> 
-                            or <a href="./Initialize-AWSDefaults.html">Initialize-AWSDefaults</a> cmdlets.
+                            The name associated with a set of credentials previously saved in either the encryptred SDK credential store (and shared with the AWS SDK for .NET
+                            and the AWS Toolkit for Visual Studio) or an ini-format credential file, shared with the SDKs and the AWS CLI.
                         </div>
                         <div class="parameterAttributes">
                             <table>
@@ -158,7 +157,30 @@
                         </div>
                     </div>
                     <div class="parameter">
-                        <div class="parameterName">-Credentials &lt;<a href="http://docs.aws.amazon.com/sdkfornet/latest/apidocs/items/T_Amazon_Runtime_AWSCredentials_NET3_5.html" target="_blank">AWSCredentials</a>&gt;</div>
+                        <div class="parameterName">-ProfileLocation &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
+                        <div class="parameterDescription">
+                            Custom location of the cross-SDK ini-format credential file (by default the tools check for C:\users\username\.aws\credentials). This parameter is not used 
+                            if credentials are being accessed in the encrypted SDK credential store.
+                        </div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Credential &lt;<a href="http://docs.aws.amazon.com/sdkfornet/latest/apidocs/items/T_Amazon_Runtime_AWSCredentials_NET3_5.html" target="_blank">AWSCredentials</a>&gt;</div>
                         <div class="parameterDescription">An AWSCredentials object containing key information for the user account.</div>
                         <div class="parameterAttributes">
                             <table>
@@ -216,7 +238,7 @@
                 </div>
             </div>
             <div class="sectionbody">
-                <div class="versioninfo"><p><strong>AWS Tools for Windows PowerShell: </strong><span id="assemblyVersion">2.x.y.z</span></p></div>
+                <div class="versioninfo"><p><strong>AWS Tools for Windows PowerShell: </strong><span id="assemblyVersion">3.x.y.z</span></p></div>
             </div>
         </div>
         <div id="pageFooter">
