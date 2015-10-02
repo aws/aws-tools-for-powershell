@@ -182,7 +182,7 @@ namespace AWSPowerShellGenerator.Utils
 
             var newManifest = manifestContent.Substring(0, requiredAssembliesStart + RequiredAssembliesKey.Length)
                                 + replacementContent.ToString().TrimEnd(',')
-                                + "\n"
+                                + "\r\n"
                                 + manifestContent.Substring(requiredAssembliesEnd);
 
             // if the file didn't change, don't write it (otherwise Git shows it as changed but no hunks)
