@@ -1,0 +1,428 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.Elasticsearch;
+using Amazon.Elasticsearch.Model;
+
+namespace Amazon.PowerShell.Cmdlets.ES
+{
+    /// <summary>
+    /// Modifies the cluster configuration of the specified Elasticsearch domain, setting
+    /// as setting the instance type and the number of instances.
+    /// </summary>
+    [Cmdlet("Update", "ESDomainConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Elasticsearch.Model.ElasticsearchDomainConfig")]
+    [AWSCmdlet("Invokes the UpdateElasticsearchDomainConfig operation against Amazon Elasticsearch.", Operation = new[] {"UpdateElasticsearchDomainConfig"})]
+    [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainConfig",
+        "This cmdlet returns a ElasticsearchDomainConfig object.",
+        "The service call response (type UpdateElasticsearchDomainConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class UpdateESDomainConfigCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>IAM access policy as a JSON-formatted string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AccessPolicies")]
+        public String AccessPolicy { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Modifies the advanced option to allow references to indices in an HTTP request body.
+        /// Must be <code>false</code> when configuring access to individual sub-resources. By
+        /// default, the value is <code>true</code>. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdvancedOptions")]
+        public System.Collections.Hashtable AdvancedOption { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the time, in UTC format, when the service takes a daily automated snapshot
+        /// of the specified Elasticsearch domain. Default value is <code>0</code> hours.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Total number of dedicated master nodes, active and on standby, for the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value to indicate whether a dedicated master node is enabled. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes" target="_blank">About Dedicated Master Nodes</a> for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The instance type for a dedicated master node.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Elasticsearch domain that you are updating. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String DomainName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether EBS-based storage is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean EBSOptions_EBSEnabled { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The number of instances in the specified domain cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 ElasticsearchClusterConfig_InstanceCount { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The instance type for an Elasticsearch cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 EBSOptions_Iops { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> Integer to specify the size of an EBS volume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Int32 EBSOptions_VolumeSize { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the volume type for EBS-based storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public VolumeType EBSOptions_VolumeType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value to indicate whether zone awareness is enabled. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness" target="_blank">About Zone Awareness</a> for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DomainName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ESDomainConfig (UpdateElasticsearchDomainConfig)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.AccessPolicies = this.AccessPolicy;
+            if (this.AdvancedOption != null)
+            {
+                context.AdvancedOptions = new Dictionary<String, String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AdvancedOption.Keys)
+                {
+                    context.AdvancedOptions.Add((String)hashKey, (String)(this.AdvancedOption[hashKey]));
+                }
+            }
+            context.DomainName = this.DomainName;
+            if (ParameterWasBound("EBSOptions_EBSEnabled"))
+                context.EBSOptions_EBSEnabled = this.EBSOptions_EBSEnabled;
+            if (ParameterWasBound("EBSOptions_Iops"))
+                context.EBSOptions_Iops = this.EBSOptions_Iops;
+            if (ParameterWasBound("EBSOptions_VolumeSize"))
+                context.EBSOptions_VolumeSize = this.EBSOptions_VolumeSize;
+            context.EBSOptions_VolumeType = this.EBSOptions_VolumeType;
+            if (ParameterWasBound("ElasticsearchClusterConfig_DedicatedMasterCount"))
+                context.ElasticsearchClusterConfig_DedicatedMasterCount = this.ElasticsearchClusterConfig_DedicatedMasterCount;
+            if (ParameterWasBound("ElasticsearchClusterConfig_DedicatedMasterEnabled"))
+                context.ElasticsearchClusterConfig_DedicatedMasterEnabled = this.ElasticsearchClusterConfig_DedicatedMasterEnabled;
+            context.ElasticsearchClusterConfig_DedicatedMasterType = this.ElasticsearchClusterConfig_DedicatedMasterType;
+            if (ParameterWasBound("ElasticsearchClusterConfig_InstanceCount"))
+                context.ElasticsearchClusterConfig_InstanceCount = this.ElasticsearchClusterConfig_InstanceCount;
+            context.ElasticsearchClusterConfig_InstanceType = this.ElasticsearchClusterConfig_InstanceType;
+            if (ParameterWasBound("ElasticsearchClusterConfig_ZoneAwarenessEnabled"))
+                context.ElasticsearchClusterConfig_ZoneAwarenessEnabled = this.ElasticsearchClusterConfig_ZoneAwarenessEnabled;
+            if (ParameterWasBound("SnapshotOptions_AutomatedSnapshotStartHour"))
+                context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new UpdateElasticsearchDomainConfigRequest();
+            
+            if (cmdletContext.AccessPolicies != null)
+            {
+                request.AccessPolicies = cmdletContext.AccessPolicies;
+            }
+            if (cmdletContext.AdvancedOptions != null)
+            {
+                request.AdvancedOptions = cmdletContext.AdvancedOptions;
+            }
+            if (cmdletContext.DomainName != null)
+            {
+                request.DomainName = cmdletContext.DomainName;
+            }
+            
+             // populate EBSOptions
+            bool requestEBSOptionsIsNull = true;
+            request.EBSOptions = new EBSOptions();
+            Boolean? requestEBSOptions_eBSOptions_EBSEnabled = null;
+            if (cmdletContext.EBSOptions_EBSEnabled != null)
+            {
+                requestEBSOptions_eBSOptions_EBSEnabled = cmdletContext.EBSOptions_EBSEnabled.Value;
+            }
+            if (requestEBSOptions_eBSOptions_EBSEnabled != null)
+            {
+                request.EBSOptions.EBSEnabled = requestEBSOptions_eBSOptions_EBSEnabled.Value;
+                requestEBSOptionsIsNull = false;
+            }
+            Int32? requestEBSOptions_eBSOptions_Iops = null;
+            if (cmdletContext.EBSOptions_Iops != null)
+            {
+                requestEBSOptions_eBSOptions_Iops = cmdletContext.EBSOptions_Iops.Value;
+            }
+            if (requestEBSOptions_eBSOptions_Iops != null)
+            {
+                request.EBSOptions.Iops = requestEBSOptions_eBSOptions_Iops.Value;
+                requestEBSOptionsIsNull = false;
+            }
+            Int32? requestEBSOptions_eBSOptions_VolumeSize = null;
+            if (cmdletContext.EBSOptions_VolumeSize != null)
+            {
+                requestEBSOptions_eBSOptions_VolumeSize = cmdletContext.EBSOptions_VolumeSize.Value;
+            }
+            if (requestEBSOptions_eBSOptions_VolumeSize != null)
+            {
+                request.EBSOptions.VolumeSize = requestEBSOptions_eBSOptions_VolumeSize.Value;
+                requestEBSOptionsIsNull = false;
+            }
+            VolumeType requestEBSOptions_eBSOptions_VolumeType = null;
+            if (cmdletContext.EBSOptions_VolumeType != null)
+            {
+                requestEBSOptions_eBSOptions_VolumeType = cmdletContext.EBSOptions_VolumeType;
+            }
+            if (requestEBSOptions_eBSOptions_VolumeType != null)
+            {
+                request.EBSOptions.VolumeType = requestEBSOptions_eBSOptions_VolumeType;
+                requestEBSOptionsIsNull = false;
+            }
+             // determine if request.EBSOptions should be set to null
+            if (requestEBSOptionsIsNull)
+            {
+                request.EBSOptions = null;
+            }
+            
+             // populate ElasticsearchClusterConfig
+            bool requestElasticsearchClusterConfigIsNull = true;
+            request.ElasticsearchClusterConfig = new ElasticsearchClusterConfig();
+            Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount = null;
+            if (cmdletContext.ElasticsearchClusterConfig_DedicatedMasterCount != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount = cmdletContext.ElasticsearchClusterConfig_DedicatedMasterCount.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount != null)
+            {
+                request.ElasticsearchClusterConfig.DedicatedMasterCount = requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount.Value;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+            Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled = null;
+            if (cmdletContext.ElasticsearchClusterConfig_DedicatedMasterEnabled != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled = cmdletContext.ElasticsearchClusterConfig_DedicatedMasterEnabled.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled != null)
+            {
+                request.ElasticsearchClusterConfig.DedicatedMasterEnabled = requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled.Value;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+            ESPartitionInstanceType requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType = null;
+            if (cmdletContext.ElasticsearchClusterConfig_DedicatedMasterType != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType = cmdletContext.ElasticsearchClusterConfig_DedicatedMasterType;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType != null)
+            {
+                request.ElasticsearchClusterConfig.DedicatedMasterType = requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+            Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount = null;
+            if (cmdletContext.ElasticsearchClusterConfig_InstanceCount != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount = cmdletContext.ElasticsearchClusterConfig_InstanceCount.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount != null)
+            {
+                request.ElasticsearchClusterConfig.InstanceCount = requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount.Value;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+            ESPartitionInstanceType requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType = null;
+            if (cmdletContext.ElasticsearchClusterConfig_InstanceType != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType = cmdletContext.ElasticsearchClusterConfig_InstanceType;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType != null)
+            {
+                request.ElasticsearchClusterConfig.InstanceType = requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+            Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled = null;
+            if (cmdletContext.ElasticsearchClusterConfig_ZoneAwarenessEnabled != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled = cmdletContext.ElasticsearchClusterConfig_ZoneAwarenessEnabled.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled != null)
+            {
+                request.ElasticsearchClusterConfig.ZoneAwarenessEnabled = requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled.Value;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+             // determine if request.ElasticsearchClusterConfig should be set to null
+            if (requestElasticsearchClusterConfigIsNull)
+            {
+                request.ElasticsearchClusterConfig = null;
+            }
+            
+             // populate SnapshotOptions
+            bool requestSnapshotOptionsIsNull = true;
+            request.SnapshotOptions = new SnapshotOptions();
+            Int32? requestSnapshotOptions_snapshotOptions_AutomatedSnapshotStartHour = null;
+            if (cmdletContext.SnapshotOptions_AutomatedSnapshotStartHour != null)
+            {
+                requestSnapshotOptions_snapshotOptions_AutomatedSnapshotStartHour = cmdletContext.SnapshotOptions_AutomatedSnapshotStartHour.Value;
+            }
+            if (requestSnapshotOptions_snapshotOptions_AutomatedSnapshotStartHour != null)
+            {
+                request.SnapshotOptions.AutomatedSnapshotStartHour = requestSnapshotOptions_snapshotOptions_AutomatedSnapshotStartHour.Value;
+                requestSnapshotOptionsIsNull = false;
+            }
+             // determine if request.SnapshotOptions should be set to null
+            if (requestSnapshotOptionsIsNull)
+            {
+                request.SnapshotOptions = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.UpdateElasticsearchDomainConfig(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.DomainConfig;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public String AccessPolicies { get; set; }
+            public Dictionary<String, String> AdvancedOptions { get; set; }
+            public String DomainName { get; set; }
+            public Boolean? EBSOptions_EBSEnabled { get; set; }
+            public Int32? EBSOptions_Iops { get; set; }
+            public Int32? EBSOptions_VolumeSize { get; set; }
+            public VolumeType EBSOptions_VolumeType { get; set; }
+            public Int32? ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
+            public Boolean? ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
+            public ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
+            public Int32? ElasticsearchClusterConfig_InstanceCount { get; set; }
+            public ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
+            public Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
+            public Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+        }
+        
+    }
+}

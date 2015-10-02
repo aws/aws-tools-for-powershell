@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ES</ServiceNounPrefix>
+  <ServiceClientInterface>IAmazonElasticsearch</ServiceClientInterface>
+  <ServiceClient>AmazonElasticsearchClient</ServiceClient>
+  <ServiceNamespace>Amazon.Elasticsearch</ServiceNamespace>
+
+  <AdditionalNamespaces />
+
+  <ServiceOperations>
+
+	  <ServiceOperation MethodName="AddTags" Noun="Tag" PipelineParameter="TagList" Output="Void"/>
+    <ServiceOperation MethodName="CreateElasticsearchDomain" NoPipelineParameter="true" Noun="Domain"/>
+    <ServiceOperation MethodName="DeleteElasticsearchDomain" Noun="Domain" />
+    <ServiceOperation MethodName="DescribeElasticsearchDomain" Noun="Domain"/>
+    <ServiceOperation MethodName="DescribeElasticsearchDomainConfig" Noun="DomainConfig"/>
+    <ServiceOperation MethodName="DescribeElasticsearchDomains" Noun="DomainList"/>
+    <ServiceOperation MethodName="ListDomainNames" Verb="Get" Noun="DomainNameList"/>
+    <ServiceOperation MethodName="ListTags" Verb="Get" Noun="Tag" />
+    <ServiceOperation MethodName="RemoveTags" Noun="Tag" Output="Void" PipelineParameter="TagKeys" ShouldProcessTarget="ARN" />
+    <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" Noun="DomainConfig" NoPipelineParameter="true"/>
+
+  </ServiceOperations>
+
+</ConfigModel>

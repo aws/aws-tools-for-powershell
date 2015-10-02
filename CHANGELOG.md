@@ -1,3 +1,6 @@
+  * Amazon Elasticsearch
+    - Added support for the new service. Cmdlets for the service are identified with a noun prefix code of 'ES'.
+
 ### 3.1.16.0 (2015-10-01)
   * AWS CloudTrail
     - Added new cmdlets for AWS CloudTrail: Add-CTTag, Get-CTTag, Remove-CTTag, and Get-PublicKey. This release of CloudTrail includes support for log file integrity validation, log encryption with AWS KMS–Managed Keys (SSE-KMS), and trail tagging.

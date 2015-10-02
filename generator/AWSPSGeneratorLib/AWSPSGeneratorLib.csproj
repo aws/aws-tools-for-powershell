@@ -119,6 +119,7 @@
     <None Include="CmdletConfig\Route53.xml" />
     <None Include="CmdletConfig\ELB.xml" />
     <None Include="CmdletConfig\EMR.xml" />
+    <None Include="CmdletConfig\ES.xml" />
     <None Include="CmdletConfig\StorageGateway.xml" />
     <None Include="CmdletConfig\CloudFront.xml" />
     <None Include="CmdletConfig\ElastiCache.xml" />

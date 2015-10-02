@@ -31,6 +31,7 @@
     <Path>ElastiCache.xml</Path>
     <Path>ELB.xml</Path>
     <Path>EMR.xml</Path>
+    <Path>ES.xml</Path>
     <Path>ETS.xml</Path>
     <Path>HSM.xml</Path>
     <Path>IAM.xml</Path>
@@ -80,6 +81,7 @@
     <Map From="EC" To="Amazon ElastiCache" />
     <Map From="ELB" To="Elastic Load Balancing" />
     <Map From="EMR" To="Amazon Elastic MapReduce" />
+    <Map From="ES" To="Amazon Elasticsearch" />
     <Map From="HSM" To="AWS Cloud HSM" />
     <Map From="IAM" To="AWS Identity and Access Management" />
     <Map From="IE" To="AWS Import/Export" />

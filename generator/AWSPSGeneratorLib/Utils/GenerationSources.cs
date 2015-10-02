@@ -186,7 +186,7 @@ namespace AWSPowerShellGenerator.Utils
                                 + manifestContent.Substring(requiredAssembliesEnd);
 
             // if the file didn't change, don't write it (otherwise Git shows it as changed but no hunks)
-            if (manifestContent.Equals(newManifest, StringComparison.Ordinal))
+            if (!manifestContent.Equals(newManifest, StringComparison.Ordinal))
             {
                 Console.WriteLine("......new SDK assemblies required, updating AWSPowerShell.psd1");
                 File.WriteAllText(moduleManifestFile, newManifest);

@@ -79,6 +79,7 @@ RequiredAssemblies = @(
   "AWSSDK.ElasticFileSystem.dll",
   "AWSSDK.ElasticLoadBalancing.dll",
   "AWSSDK.ElasticMapReduce.dll",
+  "AWSSDK.Elasticsearch.dll",
   "AWSSDK.ElasticTranscoder.dll",
   "AWSSDK.IdentityManagement.dll",
   "AWSSDK.ImportExport.dll",
