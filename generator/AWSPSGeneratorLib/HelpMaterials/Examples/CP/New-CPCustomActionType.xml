@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>PS C:\> New-CPCustomActionType -Category Build -ConfigurationProperty @{"Description" = "The name of the build project must be provided when this action is added to the pipeline."; "Key" = $True; "Name" = "ProjectName"; "Queryable" = $False; "Required" = $True; "Secret" = $False; "Type" = "String"} -Settings_EntityUrlTemplate "https://my-build-instance/job/{Config:ProjectName}/" -Settings_ExecutionUrlTemplate "https://my-build-instance/job/mybuildjob/lastSuccessfulBuild{ExternalExecutionId}/" -InputArtifactDetails_MaximumCount 1 -OutputArtifactDetails_MaximumCount 1 -InputArtifactDetails_MinimumCount 0 -OutputArtifactDetails_MinimumCount 0 -Provider "MyBuildProviderName" -Version 1
+
+ActionConfigurationProperties : {ProjectName}
+Id                            : Amazon.CodePipeline.Model.ActionTypeId
+InputArtifactDetails          : Amazon.CodePipeline.Model.ArtifactDetails
+OutputArtifactDetails         : Amazon.CodePipeline.Model.ArtifactDetails
+Settings                      : Amazon.CodePipeline.Model.ActionTypeSettings
+</code>
+      <description>This example creates a new custom action with the specified properties.</description>
+    </example>
+</examples>
