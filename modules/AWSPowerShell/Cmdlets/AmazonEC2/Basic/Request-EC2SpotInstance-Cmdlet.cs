@@ -110,6 +110,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
+        /// <para>The required duration for the Spot instances, in minutes. This value must be a multiple
+        /// of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot instance receives its instance ID.
+        /// At the end of the duration period, Amazon EC2 marks the Spot instance for termination
+        /// and provides a Spot instance termination notice, which gives the instance a two-minute
+        /// warning before it terminates.</para><para>Note that you can't specify an Availability Zone group or a launch group if you specify
+        /// a required duration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BlockDurationMinutes")]
+        public Int32 BlockDurationMinute { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
         /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
@@ -310,6 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             };
             
             context.AvailabilityZoneGroup = this.AvailabilityZoneGroup;
+            if (ParameterWasBound("BlockDurationMinute"))
+                context.BlockDurationMinutes = this.BlockDurationMinute;
             context.ClientToken = this.ClientToken;
             if (ParameterWasBound("InstanceCount"))
                 context.InstanceCount = this.InstanceCount;
@@ -368,6 +384,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZoneGroup != null)
             {
                 request.AvailabilityZoneGroup = cmdletContext.AvailabilityZoneGroup;
+            }
+            if (cmdletContext.BlockDurationMinutes != null)
+            {
+                request.BlockDurationMinutes = cmdletContext.BlockDurationMinutes.Value;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -652,6 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal class CmdletContext : ExecutorContext
         {
             public String AvailabilityZoneGroup { get; set; }
+            public Int32? BlockDurationMinutes { get; set; }
             public String ClientToken { get; set; }
             public Int32? InstanceCount { get; set; }
             public String LaunchGroup { get; set; }
