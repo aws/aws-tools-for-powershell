@@ -1,3 +1,11 @@
+### 3.1.17.0 (2015-10-06)
+  * Amazon
+    - Added support for integrating CloudFront with AWS WAF
+  * EC2
+    - Added new property BlockDurationMinutes to Request-EC2SpotInstance cmdlet. This specifies the duration for which the instance is required.
+  * WAF
+    - Added support for the new service. Cmdlets for the service are identified with a noun prefix code of 'WAF'.
+
 ### 3.1.16.1 (2015-10-02)
   * Amazon Elasticsearch
     - Added support for the new service. Cmdlets for the service are identified with a noun prefix code of 'ES'.
