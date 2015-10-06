@@ -100,6 +100,7 @@ RequiredAssemblies = @(
   "AWSSDK.SimpleWorkflow.dll",
   "AWSSDK.SQS.dll",
   "AWSSDK.StorageGateway.dll",
+  "AWSSDK.WAF.dll",
   "AWSSDK.WorkSpaces.dll"
 )
 

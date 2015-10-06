@@ -52,6 +52,7 @@
     <Path>SQS.xml</Path>
     <Path>StorageGateway.xml</Path>
     <Path>STS.xml</Path>
+    <Path>WAF.xml</Path>
     <Path>WKS.xml</Path>
   </Configs>
 
@@ -103,6 +104,7 @@
     <Map From="RS" To="Amazon Redshift" />
     <Map From="OPS" To="AWS OpsWorks" />
     <Map From="ASA" To="AWS Support API" />
+    <Map From="WAF" To="AWS WAF" />
     <Map From="WKS" To="Amazon WorkSpaces" />
   </ClientNames>
 

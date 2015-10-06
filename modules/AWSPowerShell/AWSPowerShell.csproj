@@ -207,6 +207,9 @@
     <Reference Include="AWSSDK.Elasticsearch">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Elasticsearch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WAF">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.WAF.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\**" />

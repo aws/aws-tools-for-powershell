@@ -141,7 +141,9 @@
     <None Include="CmdletConfig\Route53Domains.xml" />
     <None Include="CmdletConfig\CodeDeploy.xml" />
     <None Include="CmdletConfig\ConfigService.xml" />
-    <None Include="CmdletConfig\KMS.xml" />
+    <None Include="CmdletConfig\KMS.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\HSM.xml" />
     <None Include="CmdletConfig\ML.xml" />
     <None Include="CmdletConfig\DirectoryService.xml" />
@@ -157,6 +159,7 @@
     <None Include="CmdletConfig\CognitoIdentity.xml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="CmdletConfig\WAF.xml" />
     <Content Include="HelpMaterials\WebHelp\StaticContent\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
