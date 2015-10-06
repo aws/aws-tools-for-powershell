@@ -28,17 +28,27 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// List distributions.
+    /// List the distributions that are associated with a specified AWS WAF web ACL.
     /// </summary>
-    [Cmdlet("Get", "CFDistributions")]
+    [Cmdlet("Get", "CFDistributionListByWebACLId")]
     [OutputType("Amazon.CloudFront.Model.DistributionList")]
-    [AWSCmdlet("Invokes the ListDistributions operation against Amazon CloudFront.", Operation = new[] {"ListDistributions"})]
+    [AWSCmdlet("Invokes the ListDistributionsByWebACLId operation against Amazon CloudFront.", Operation = new[] {"ListDistributionsByWebACLId"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.DistributionList",
         "This cmdlet returns a DistributionList object.",
-        "The service call response (type ListDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type ListDistributionsByWebACLIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetCFDistributionsCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
+    public class GetCFDistributionListByWebACLIdCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        /// <summary>
+        /// <para>
+        /// The Id of the AWS WAF web ACL for which you want
+        /// to list the associated distributions. If you specify "null" for the Id, the request
+        /// returns a list of the distributions that aren't associated with a web ACL.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String WebACLId { get; set; }
+        
         /// <summary>
         /// <para>
         /// Use Marker and MaxItems to control pagination of
@@ -75,6 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             
             context.Marker = this.Marker;
             context.MaxItems = this.MaxItem;
+            context.WebACLId = this.WebACLId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -86,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDistributionsRequest();
+            var request = new ListDistributionsByWebACLIdRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -96,6 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 request.MaxItems = cmdletContext.MaxItems;
             }
+            if (cmdletContext.WebACLId != null)
+            {
+                request.WebACLId = cmdletContext.WebACLId;
+            }
             
             CmdletOutput output;
             
@@ -103,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListDistributions(request);
+                var response = client.ListDistributionsByWebACLId(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DistributionList;
                 output = new CmdletOutput
@@ -133,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             public String Marker { get; set; }
             public String MaxItems { get; set; }
+            public String WebACLId { get; set; }
         }
         
     }

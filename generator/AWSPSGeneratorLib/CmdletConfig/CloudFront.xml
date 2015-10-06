@@ -32,6 +32,7 @@
     <ServiceOperation MethodName="GetStreamingDistributionConfig"/>
     <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities"/>
     <ServiceOperation MethodName="ListDistributions"/>
+	<ServiceOperation MethodName="ListDistributionsByWebACLId" Noun="DistributionListByWebACLId"/>
     <ServiceOperation MethodName="ListInvalidations" PipelineParameter="DistributionId"/>
     <ServiceOperation MethodName="ListStreamingDistributions"/>
     <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" PositionalParameters="IfMatch"/>

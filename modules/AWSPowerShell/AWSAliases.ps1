@@ -222,6 +222,8 @@ Set-Alias -Name List-CFCloudFrontOriginAccessIdentities -Value Get-CFCloudFrontO
 Set-Alias -Name CF-ListCloudFrontOriginAccessIdentities -Value Get-CFCloudFrontOriginAccessIdentities
 Set-Alias -Name List-CFDistributions -Value Get-CFDistributions
 Set-Alias -Name CF-ListDistributions -Value Get-CFDistributions
+Set-Alias -Name List-CFDistributionListByWebACLId -Value Get-CFDistributionListByWebACLId
+Set-Alias -Name CF-ListDistributionsByWebACLId -Value Get-CFDistributionListByWebACLId
 Set-Alias -Name List-CFInvalidations -Value Get-CFInvalidations
 Set-Alias -Name CF-ListInvalidations -Value Get-CFInvalidations
 Set-Alias -Name List-CFStreamingDistributions -Value Get-CFStreamingDistributions

@@ -562,6 +562,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public ViewerProtocolPolicy DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
         
         /// <summary>
+        /// <para>
+        /// (Optional) If you're using AWS WAF to filter
+        /// CloudFront requests, the Id of the AWS WAF web ACL that is associated with the distribution.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String DistributionConfig_WebACLId { get; set; }
+        
+        /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
         /// be used with caution.
@@ -679,6 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.DistributionConfig_ViewerCertificate_IAMCertificateId = this.ViewerCertificate_IAMCertificateId;
             context.DistributionConfig_ViewerCertificate_MinimumProtocolVersion = this.ViewerCertificate_MinimumProtocolVersion;
             context.DistributionConfig_ViewerCertificate_SSLSupportMethod = this.ViewerCertificate_SSLSupportMethod;
+            context.DistributionConfig_WebACLId = this.DistributionConfig_WebACLId;
             context.Id = this.Id;
             context.IfMatch = this.IfMatch;
             
@@ -746,6 +756,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfig_distributionConfig_PriceClass != null)
             {
                 request.DistributionConfig.PriceClass = requestDistributionConfig_distributionConfig_PriceClass;
+                requestDistributionConfigIsNull = false;
+            }
+            String requestDistributionConfig_distributionConfig_WebACLId = null;
+            if (cmdletContext.DistributionConfig_WebACLId != null)
+            {
+                requestDistributionConfig_distributionConfig_WebACLId = cmdletContext.DistributionConfig_WebACLId;
+            }
+            if (requestDistributionConfig_distributionConfig_WebACLId != null)
+            {
+                request.DistributionConfig.WebACLId = requestDistributionConfig_distributionConfig_WebACLId;
                 requestDistributionConfigIsNull = false;
             }
             Restrictions requestDistributionConfig_distributionConfig_Restrictions = null;
@@ -1461,6 +1481,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public String DistributionConfig_ViewerCertificate_IAMCertificateId { get; set; }
             public MinimumProtocolVersion DistributionConfig_ViewerCertificate_MinimumProtocolVersion { get; set; }
             public SSLSupportMethod DistributionConfig_ViewerCertificate_SSLSupportMethod { get; set; }
+            public String DistributionConfig_WebACLId { get; set; }
             public String Id { get; set; }
             public String IfMatch { get; set; }
         }
