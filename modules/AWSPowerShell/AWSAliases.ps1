@@ -1495,6 +1495,7 @@ Set-Alias -Name LM-RemovePermission -Value Remove-LMPermission
 Set-Alias -Name LM-UpdateEventSourceMapping -Value Update-LMEventSourceMapping
 Set-Alias -Name LM-UpdateFunctionCode -Value Update-LMFunctionCode
 Set-Alias -Name LM-UpdateFunctionConfiguration -Value Update-LMFunctionConfiguration
+Set-Alias -Name MCA-GenerateDataSet -Value New-MCADataSet
 Set-Alias -Name ML-UpdateEvaluation -Value Update-MLEvaluation
 Set-Alias -Name ML-UpdateMLModel -Value Update-MLMLModel
 Set-Alias -Name Create-MLBatchPrediction -Value New-MLBatchPrediction

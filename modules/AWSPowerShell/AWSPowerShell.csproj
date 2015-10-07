@@ -60,6 +60,9 @@
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AWSSupport.dll</HintPath>
     </Reference>
