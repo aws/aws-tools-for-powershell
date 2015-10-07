@@ -30,7 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Creates a new configuration recorder to record the selected resource configurations.
     /// 
-    /// 
     ///  
     /// <para>
     /// You can use this action to change the role <code>roleARN</code> and/or the <code>recordingGroup</code>

@@ -53,6 +53,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     {
         /// <summary>
         /// <para>
+        /// <para>The frequency with which a AWS Config recurringly delivers configuration snapshots.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency")]
+        public MaximumExecutionFrequency ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The name of the delivery channel. By default, AWS Config automatically assigns the
         /// name "default" when creating the delivery channel. You cannot change the assigned
         /// name. </para>
@@ -120,6 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
+            context.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency = this.ConfigSnapshotDeliveryProperties_DeliveryFrequency;
             context.DeliveryChannelName = this.DeliveryChannelName;
             context.DeliveryChannel_S3BucketName = this.DeliveryChannel_S3BucketName;
             context.DeliveryChannel_S3KeyPrefix = this.DeliveryChannel_S3KeyPrefix;
@@ -181,6 +191,31 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.SnsTopicARN = requestDeliveryChannel_deliveryChannel_SnsTopicARN;
                 requestDeliveryChannelIsNull = false;
             }
+            ConfigSnapshotDeliveryProperties requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = null;
+            
+             // populate ConfigSnapshotDeliveryProperties
+            bool requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryPropertiesIsNull = true;
+            requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = new ConfigSnapshotDeliveryProperties();
+            MaximumExecutionFrequency requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency = null;
+            if (cmdletContext.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency != null)
+            {
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency = cmdletContext.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency;
+            }
+            if (requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency != null)
+            {
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties.DeliveryFrequency = requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency;
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryPropertiesIsNull = false;
+            }
+             // determine if requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties should be set to null
+            if (requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryPropertiesIsNull)
+            {
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = null;
+            }
+            if (requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties != null)
+            {
+                request.DeliveryChannel.ConfigSnapshotDeliveryProperties = requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties;
+                requestDeliveryChannelIsNull = false;
+            }
              // determine if request.DeliveryChannel should be set to null
             if (requestDeliveryChannelIsNull)
             {
@@ -223,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
+            public MaximumExecutionFrequency DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
             public String DeliveryChannelName { get; set; }
             public String DeliveryChannel_S3BucketName { get; set; }
             public String DeliveryChannel_S3KeyPrefix { get; set; }
