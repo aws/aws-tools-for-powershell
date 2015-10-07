@@ -38,6 +38,7 @@
     <Path>ImportExport.xml</Path>
     <Path>KMS.xml</Path>
     <Path>Kinesis.xml</Path>
+    <Path>KinesisFirehose.xml</Path>
     <Path>Lambda.xml</Path>
     <Path>ML.xml</Path>
     <Path>OpsWorks.xml</Path>
@@ -88,6 +89,7 @@
     <Map From="IE" To="AWS Import/Export" />
     <Map From="KMS" To="AWS Key Management Service" />
     <Map From="KIN" To="AWS Kinesis" />
+    <Map From="KINF" To="Amazon Kinesis Firehose" />
     <Map From="LM" To="Amazon Lambda" />
     <Map From="ML" To="Amazon Machine Learning" />
     <Map From="RDS" To="Amazon Relational Database Service" />
@@ -128,6 +130,10 @@
     <Type>System.Collections.Generic.List`1</Type>
     <Type>System.Collections.Generic.Dictionary`2</Type>
     <Type>Amazon.CodePipeline.Model.PipelineDeclaration</Type>
+    <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration</Type>
+    <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>
+    <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate</Type>
+    <Type>Amazon.KinesisFirehose.Model.S3DestinationUpdate</Type>
   </TypesNotToFlatten>
 
   <MetadataProperties>

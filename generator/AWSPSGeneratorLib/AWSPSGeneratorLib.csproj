@@ -160,6 +160,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="CmdletConfig\WAF.xml" />
+    <Content Include="CmdletConfig\KinesisFirehose.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="HelpMaterials\WebHelp\StaticContent\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -85,6 +85,7 @@ RequiredAssemblies = @(
   "AWSSDK.ImportExport.dll",
   "AWSSDK.KeyManagementService.dll",
   "AWSSDK.Kinesis.dll",
+  "AWSSDK.KinesisFirehose.dll",
   "AWSSDK.Lambda.dll",
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.OpsWorks.dll",

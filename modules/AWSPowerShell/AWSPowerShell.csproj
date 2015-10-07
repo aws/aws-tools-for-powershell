@@ -210,6 +210,9 @@
     <Reference Include="AWSSDK.WAF">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.WAF.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.KinesisFirehose">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.KinesisFirehose.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cmdlets\**" />
