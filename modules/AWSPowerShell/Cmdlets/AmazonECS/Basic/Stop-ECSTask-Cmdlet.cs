@@ -29,6 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Stops a running task.
+    /// 
+    ///  
+    /// <para>
+    /// When <a>StopTask</a> is called on a task, the equivalent of <code>docker stop</code>
+    /// is issued to the containers running in the task. This results in a <code>SIGTERM</code>
+    /// and a 30-second timeout, after which <code>SIGKILL</code> is sent and the containers
+    /// are forcibly stopped. If the container handles the <code>SIGTERM</code> gracefully
+    /// and exits within 30 seconds from receiving it, no <code>SIGKILL</code> is sent.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Task")]
@@ -42,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task
-        /// you want to stop. If you do not specify a cluster, the default cluster is assumed..</para>
+        /// to stop. If you do not specify a cluster, the default cluster is assumed..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -50,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The task UUIDs or full Amazon Resource Name (ARN) entry of the task you would like
-        /// to stop.</para>
+        /// <para>The task ID or full Amazon Resource Name (ARN) entry of the task to stop.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

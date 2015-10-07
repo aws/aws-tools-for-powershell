@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The container instance UUID or full Amazon Resource Name (ARN) entries for the container
+        /// <para>The container instance ID or full Amazon Resource Name (ARN) entries for the container
         /// instance on which you would like to update the Amazon ECS container agent.</para>
         /// </para>
         /// </summary>

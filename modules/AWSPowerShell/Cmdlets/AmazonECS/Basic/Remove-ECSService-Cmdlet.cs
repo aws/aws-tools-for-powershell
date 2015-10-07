@@ -41,7 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster that hosts the service you want to delete.</para>
+        /// <para>The name of the cluster that hosts the service to delete. If you do not specify a
+        /// cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -49,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The name of the service you want to delete.</para>
+        /// <para>The name of the service to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

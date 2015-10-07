@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Deregisters an Amazon ECS container instance from the specified cluster. This instance
-    /// will no longer be available to run tasks.
+    /// is no longer available to run tasks.
     /// 
     ///  
     /// <para>
@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container
-        /// instance you want to deregister. If you do not specify a cluster, the default cluster
-        /// is assumed.</para>
+        /// instance to deregister. If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -66,11 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The container instance UUID or full Amazon Resource Name (ARN) of the container instance
-        /// you want to deregister. The ARN contains the <code>arn:aws:ecs</code> namespace, followed
-        /// by the region of the container instance, the AWS account ID of the container instance
+        /// <para>The container instance ID or full Amazon Resource Name (ARN) of the container instance
+        /// to deregister. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by
+        /// the region of the container instance, the AWS account ID of the container instance
         /// owner, the <code>container-instance</code> namespace, and then the container instance
-        /// UUID. For example, arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_UUID</i>.</para>
+        /// ID. For example, arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,14 +77,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>Force the deregistration of the container instance. If you have tasks running on the
-        /// container instance when you deregister it with the <code>force</code> option, these
-        /// tasks remain running and they will continue to pass Elastic Load Balancing load balancer
+        /// <para>Forces the deregistration of the container instance. If you have tasks running on
+        /// the container instance when you deregister it with the <code>force</code> option,
+        /// these tasks remain running and they continue to pass Elastic Load Balancing load balancer
         /// health checks until you terminate the instance or the tasks stop through some other
         /// means, but they are orphaned (no longer monitored or accounted for by Amazon ECS).
         /// If an orphaned task on your container instance is part of an Amazon ECS service, then
-        /// the service scheduler will start another copy of that task on a different container
-        /// instance if possible.</para>
+        /// the service scheduler starts another copy of that task, on a different container instance
+        /// if possible.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

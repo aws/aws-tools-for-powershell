@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Registers a new task definition from the supplied <code>family</code> and <code>containerDefinitions</code>.
     /// Optionally, you can add data volumes to your containers with the <code>volumes</code>
-    /// parameter. For more information on task definition parameters and defaults, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+    /// parameter. For more information about task definition parameters and defaults, see
+    /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
     /// ECS Task Definitions</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
     /// </summary>
     [Cmdlet("Register", "ECSTaskDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>You must specify a <code>family</code> for a task definition, which allows you to
-        /// track multiple versions of the same task definition. You can think of the <code>family</code>
+        /// track multiple versions of the same task definition. The <code>family</code> is used
         /// as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers,
         /// hyphens, and underscores are allowed.</para>
         /// </para>

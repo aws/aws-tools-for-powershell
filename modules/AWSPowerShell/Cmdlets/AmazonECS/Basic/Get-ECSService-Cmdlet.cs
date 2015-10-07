@@ -40,7 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster that hosts the service you want to describe.</para>
+        /// <para>The name of the cluster that hosts the service to describe. If you do not specify
+        /// a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>A list of services you want to describe.</para>
+        /// <para>A list of services to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

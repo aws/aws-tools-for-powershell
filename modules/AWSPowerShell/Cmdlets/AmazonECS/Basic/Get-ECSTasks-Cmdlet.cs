@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks
-        /// you want to list. If you do not specify a cluster, the default cluster is assumed..</para>
+        /// to list. If you do not specify a cluster, the default cluster is assumed..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The container instance UUID or full Amazon Resource Name (ARN) of the container instance
-        /// that you want to filter the <code>ListTasks</code> results with. Specifying a <code>containerInstance</code>
-        /// will limit the results to tasks that belong to that container instance.</para>
+        /// <para>The container instance ID or full Amazon Resource Name (ARN) of the container instance
+        /// with which to filter the <code>ListTasks</code> results. Specifying a <code>containerInstance</code>
+        /// limits the results to tasks that belong to that container instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,11 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The task status that you want to filter the <code>ListTasks</code> results with. Specifying
-        /// a <code>desiredStatus</code> of <code>STOPPED</code> will limit the results to tasks
-        /// that are in the <code>STOPPED</code> status, which can be useful for debugging tasks
-        /// that are not starting properly or have died or finished. The default status filter
-        /// is <code>RUNNING</code>.</para>
+        /// <para>The task status with which to filter the <code>ListTasks</code> results. Specifying
+        /// a <code>desiredStatus</code> of <code>STOPPED</code> limits the results to tasks that
+        /// are in the <code>STOPPED</code> status, which can be useful for debugging tasks that
+        /// are not starting properly or have died or finished. The default status filter is <code>RUNNING</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The name of the family that you want to filter the <code>ListTasks</code> results
-        /// with. Specifying a <code>family</code> will limit the results to tasks that belong
-        /// to that family.</para>
+        /// <para>The name of the family with which to filter the <code>ListTasks</code> results. Specifying
+        /// a <code>family</code> limits the results to tasks that belong to that family.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,9 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The name of the service that you want to filter the <code>ListTasks</code> results
-        /// with. Specifying a <code>serviceName</code> will limit the results to tasks that belong
-        /// to that service.</para>
+        /// <para>The name of the service with which to filter the <code>ListTasks</code> results. Specifying
+        /// a <code>serviceName</code> limits the results to tasks that belong to that service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The <code>startedBy</code> value that you want to filter the task results with. Specifying
-        /// a <code>startedBy</code> value will limit the results to tasks that were started with
+        /// <para>The <code>startedBy</code> value with which to filter the task results. Specifying
+        /// a <code>startedBy</code> value limits the results to tasks that were started with
         /// that value.</para>
         /// </para>
         /// </summary>

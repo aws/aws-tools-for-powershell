@@ -28,8 +28,8 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Start a task using random placement and the default Amazon ECS scheduler. If you want
-    /// to use your own scheduler or place a task on a specific container instance, use <code>StartTask</code>
+    /// Start a task using random placement and the default Amazon ECS scheduler. To use your
+    /// own scheduler or place a task on a specific container instance, use <code>StartTask</code>
     /// instead.
     /// 
     ///  <important><para>
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     {
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that you want to
-        /// run your task on. If you do not specify a cluster, the default cluster is assumed..</para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster on which to run your
+        /// task. If you do not specify a cluster, the default cluster is assumed..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The number of instantiations of the specified task that you would like to place on
-        /// your cluster.</para><important><para>The <code>count</code> parameter is limited to 10 tasks per call.</para></important>
+        /// <para>The number of instantiations of the specified task to place on your cluster.</para><important><para>The <code>count</code> parameter is limited to 10 tasks per call.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,9 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition that you want to run. If a
-        /// <code>revision</code> is not specified, the latest <code>ACTIVE</code> revision is
-        /// used.</para>
+        /// full Amazon Resource Name (ARN) of the task definition to run. If a <code>revision</code>
+        /// is not specified, the latest <code>ACTIVE</code> revision is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

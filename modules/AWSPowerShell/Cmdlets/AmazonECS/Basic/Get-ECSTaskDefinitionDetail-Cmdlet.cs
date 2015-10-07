@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
     /// Describes a task definition. You can specify a <code>family</code> and <code>revision</code>
-    /// to find information on a specific task definition, or you can simply specify the family
-    /// to find the latest <code>ACTIVE</code> revision in that family.
+    /// to find information about a specific task definition, or you can simply specify the
+    /// family to find the latest <code>ACTIVE</code> revision in that family.
     /// 
     ///  <note><para>
     /// You can only describe <code>INACTIVE</code> task definitions while an active task
@@ -50,8 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>family</code> for the latest <code>ACTIVE</code> revision, <code>family</code>
         /// and <code>revision</code> (<code>family:revision</code>) for a specific revision in
-        /// the family, or full Amazon Resource Name (ARN) of the task definition that you want
-        /// to describe.</para>
+        /// the family, or full Amazon Resource Name (ARN) of the task definition to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

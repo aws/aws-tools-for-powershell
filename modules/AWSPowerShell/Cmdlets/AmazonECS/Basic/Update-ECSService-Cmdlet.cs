@@ -45,6 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// task when <code>UpdateService</code> is run. If your cluster cannot support another
     /// instantiation of the task used in your service, you can reduce the desired count of
     /// your service by one before modifying the task definition.
+    /// </para><para>
+    /// When <a>UpdateService</a> replaces a task during an update, the equivalent of <code>docker
+    /// stop</code> is issued to the containers running in the task. This results in a <code>SIGTERM</code>
+    /// and a 30-second timeout, after which <code>SIGKILL</code> is sent and the containers
+    /// are forcibly stopped. If the container handles the <code>SIGTERM</code> gracefully
+    /// and exits within 30 seconds from receiving it, no <code>SIGKILL</code> is sent.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The number of instantiations of the task that you would like to place and keep running
-        /// in your service.</para>
+        /// <para>The number of instantiations of the task to place and keep running in your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
-        /// <para>The name of the service that you want to update.</para>
+        /// <para>The name of the service to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,11 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition that you want to run in your
-        /// service. If a <code>revision</code> is not specified, the latest <code>ACTIVE</code>
-        /// revision is used. If you modify the task definition with <code>UpdateService</code>,
-        /// Amazon ECS spawns a task with the new version of the task definition and then stops
-        /// an old task after the new version is running.</para>
+        /// full Amazon Resource Name (ARN) of the task definition to run in your service. If
+        /// a <code>revision</code> is not specified, the latest <code>ACTIVE</code> revision
+        /// is used. If you modify the task definition with <code>UpdateService</code>, Amazon
+        /// ECS spawns a task with the new version of the task definition and then stops an old
+        /// task after the new version is running.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

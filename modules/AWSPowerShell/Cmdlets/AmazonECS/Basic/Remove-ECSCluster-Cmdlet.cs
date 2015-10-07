@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     {
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that you want to
-        /// delete.</para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,7 +28,7 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Creates a new Amazon ECS cluster. By default, your account will receive a <code>default</code>
+    /// Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
     /// cluster when you launch your first container instance. However, you can create your
     /// own cluster with a unique name with the <code>CreateCluster</code> action.
     /// </summary>
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     {
         /// <summary>
         /// <para>
-        /// <para>The name of your cluster. If you do not specify a name for your cluster, you will
-        /// create a cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase),
+        /// <para>The name of your cluster. If you do not specify a name for your cluster, you create
+        /// a cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase),
         /// numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>

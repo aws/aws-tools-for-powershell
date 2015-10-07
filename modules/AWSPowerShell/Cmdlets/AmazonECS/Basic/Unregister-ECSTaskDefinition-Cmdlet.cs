@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition that you want to deregister.
-        /// You must specify a <code>revision</code>.</para>
+        /// full Amazon Resource Name (ARN) of the task definition to deregister. You must specify
+        /// a <code>revision</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
