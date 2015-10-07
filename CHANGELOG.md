@@ -1,3 +1,15 @@
+### 3.1.18.0 (2015-10-07)
+  * Amazon Kinesis Firehose
+    - Amazon Kinesis Firehose is a fully managed service for ingesting data streams directly into AWS data services such as Amazon S3 and Amazon Redshift. Cmdlets for the service are identified with a noun prefix code of 'KINF'
+  * Amazon Inspector
+    - Amazon Inspector is a new service from AWS that identifies security issues in your application deployments. Cmdlets for the service are identified with a noun prefix code of 'INS'
+  * AWS Marketplace Commerce Analytics
+    - The AWS Marketplace Commerce Analytics service allows marketplace partners to programmatically request business intelligence data from AWS Marketplace. Cmdlets for the service are identified with a noun prefix code of 'MCA'.
+  * AWS Config
+    - Added new cmdlets to support Config Rule and Evaluations.
+  * Amazon Kinesis
+    - Added two new Amazon Kinesis cmdlets Request-KINStreamRetentionPeriodDecrease, and Request-KINStreamRetentionPeriodIncrease that allow customers to choose how long their data records are stored in their Amazon Kinesis streams.
+
 ### 3.1.17.0 (2015-10-06)
   * Amazon
     - Added support for integrating CloudFront with AWS WAF
