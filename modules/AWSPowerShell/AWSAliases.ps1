@@ -1467,10 +1467,12 @@ Set-Alias -Name INS-ListAttachedRulesPackages -Value Get-INSAttachedRulesPackage
 Set-Alias -Name KIN-AddTagsToStream -Value Add-KINTagsToStream
 Set-Alias -Name Create-KINStream -Value New-KINStream
 Set-Alias -Name KIN-CreateStream -Value New-KINStream
+Set-Alias -Name KIN-DecreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodDecrease
 Set-Alias -Name Delete-KINStream -Value Remove-KINStream
 Set-Alias -Name KIN-DeleteStream -Value Remove-KINStream
 Set-Alias -Name Describe-KINStream -Value Get-KINStream
 Set-Alias -Name KIN-DescribeStream -Value Get-KINStream
+Set-Alias -Name KIN-IncreaseStreamRetentionPeriod -Value Request-KINStreamRetentionPeriodIncrease
 Set-Alias -Name KIN-ListStreams -Value Get-KINStreams
 Set-Alias -Name KIN-ListTagsForStream -Value Get-KINTagsForStream
 Set-Alias -Name Merge-KINShards -Value Merge-KINShard
