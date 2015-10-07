@@ -84,6 +84,7 @@ RequiredAssemblies = @(
   "AWSSDK.ElasticTranscoder.dll",
   "AWSSDK.IdentityManagement.dll",
   "AWSSDK.ImportExport.dll",
+  "AWSSDK.Inspector.dll",
   "AWSSDK.KeyManagementService.dll",
   "AWSSDK.Kinesis.dll",
   "AWSSDK.KinesisFirehose.dll",

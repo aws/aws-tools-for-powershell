@@ -36,6 +36,7 @@
     <Path>HSM.xml</Path>
     <Path>IAM.xml</Path>
     <Path>ImportExport.xml</Path>
+	<Path>Inspector.xml</Path>
     <Path>KMS.xml</Path>
     <Path>Kinesis.xml</Path>
     <Path>KinesisFirehose.xml</Path>
@@ -88,6 +89,7 @@
     <Map From="HSM" To="AWS Cloud HSM" />
     <Map From="IAM" To="AWS Identity and Access Management" />
     <Map From="IE" To="AWS Import/Export" />
+	<Map From="INS" To="Amazon Inspector" />
     <Map From="KMS" To="AWS Key Management Service" />
     <Map From="KIN" To="AWS Kinesis" />
     <Map From="KINF" To="Amazon Kinesis Firehose" />

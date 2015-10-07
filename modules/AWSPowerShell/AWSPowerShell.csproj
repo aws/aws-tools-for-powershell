@@ -135,6 +135,9 @@
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Inspector">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Inspector.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ImportExport">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ImportExport.dll</HintPath>
     </Reference>
