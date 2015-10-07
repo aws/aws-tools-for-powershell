@@ -35,6 +35,7 @@
     <Path>ETS.xml</Path>
     <Path>HSM.xml</Path>
     <Path>IAM.xml</Path>
+    <Path>IoT.xml</Path>
     <Path>ImportExport.xml</Path>
 	<Path>Inspector.xml</Path>
     <Path>KMS.xml</Path>
@@ -88,6 +89,7 @@
     <Map From="ES" To="Amazon Elasticsearch" />
     <Map From="HSM" To="AWS Cloud HSM" />
     <Map From="IAM" To="AWS Identity and Access Management" />
+    <Map From="IOT" To="AWS IoT" />
     <Map From="IE" To="AWS Import/Export" />
 	<Map From="INS" To="Amazon Inspector" />
     <Map From="KMS" To="AWS Key Management Service" />

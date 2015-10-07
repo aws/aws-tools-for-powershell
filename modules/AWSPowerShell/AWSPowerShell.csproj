@@ -141,6 +141,9 @@
     <Reference Include="AWSSDK.ImportExport">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ImportExport.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoT">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.IoT.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
