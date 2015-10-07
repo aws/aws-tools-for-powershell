@@ -60,6 +60,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         /// <summary>
         /// <para>
+        /// <para>This boolean parameter can be used to request AWS Lambda to update the Lambda function
+        /// and publish a version as an atomic operation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Boolean Publish { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>Amazon S3 bucket name where the .zip file containing your deployment package is stored.
         /// This bucket must reside in the same AWS region where you are creating the Lambda function.</para>
         /// </para>
@@ -117,6 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            if (ParameterWasBound("Publish"))
+                context.Publish = this.Publish;
             context.S3Bucket = this.S3Bucket;
             context.S3Key = this.S3Key;
             context.S3ObjectVersion = this.S3ObjectVersion;
@@ -137,6 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Publish != null)
+            {
+                request.Publish = cmdletContext.Publish.Value;
             }
             if (cmdletContext.S3Bucket != null)
             {
@@ -190,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }
+            public Boolean? Publish { get; set; }
             public String S3Bucket { get; set; }
             public String S3Key { get; set; }
             public String S3ObjectVersion { get; set; }

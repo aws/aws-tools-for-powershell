@@ -28,37 +28,26 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the configuration information of the Lambda function and a presigned URL link
-    /// to the .zip file you uploaded with <a>CreateFunction</a> so you can download the .zip
-    /// file. Note that the URL is valid for up to 10 minutes. The configuration information
-    /// is the same information you provided as parameters when uploading the function.
-    /// 
-    ///  
-    /// <para>
-    /// Using the optional <code>Qualifier</code> parameter, you can specify a specific function
-    /// version for which you want this information. If you don't specify this parameter,
-    /// the API uses unqualified function ARN which return information about the $LATEST version
-    /// of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html">AWS
-    /// Lambda Function Versioning and Aliases</a>.
-    /// </para><para>
-    /// This operation requires permission for the <code>lambda:GetFunction</code> action.
-    /// </para>
+    /// List all versions of a function.
     /// </summary>
-    [Cmdlet("Get", "LMFunction")]
-    [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]
-    [AWSCmdlet("Invokes the GetFunction operation against Amazon Lambda.", Operation = new[] {"GetFunction"})]
-    [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionResponse",
-        "This cmdlet returns a GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LMVersionsByFunction")]
+    [OutputType("Amazon.Lambda.Model.FunctionConfiguration")]
+    [AWSCmdlet("Invokes the ListVersionsByFunction operation against Amazon Lambda.", Operation = new[] {"ListVersionsByFunction"})]
+    [AWSCmdletOutput("Amazon.Lambda.Model.FunctionConfiguration",
+        "This cmdlet returns a collection of FunctionConfiguration objects.",
+        "The service call response (type ListVersionsByFunctionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
     )]
-    public class GetLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public class GetLMVersionsByFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The Lambda function name. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
-        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
-        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
-        /// If you specify only the function name, it is limited to 64 character in length. </para>
+        /// <para>Function name whose versions to list. You can specify an unqualified function name
+        /// (for example, "Thumbnail") or you can specify Amazon Resource Name (ARN) of the function
+        /// (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda
+        /// also allows you to specify only the account ID qualifier (for example, "account-id:Thumbnail").
+        /// Note that the length constraint applies only to the ARN. If you specify only the function
+        /// name, it is limited to 64 character in length. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,16 +55,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         /// <summary>
         /// <para>
-        /// <para>Using this optional parameter to specify a function version or alias name. If you
-        /// specify function version, the API uses qualified function ARN for the request and
-        /// returns information about the specific Lambda function version. If you specify alias
-        /// name, the API uses alias ARN and returns information about the function version to
-        /// which the alias points. If you don't provide this parameter, the API uses unqualified
-        /// function ARN and returns information about the $LATEST version of the Lambda function.</para>
+        /// <para> Optional string. An opaque pagination token returned from a previous <code>ListVersionsByFunction</code>
+        /// operation. If present, indicates where to continue the listing. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public String Marker { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> Optional integer. Specifies the maximum number of AWS Lambda function versions to
+        /// return in response. This parameter value must be greater than 0. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public Int32 MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -89,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
-            context.Qualifier = this.Qualifier;
+            context.Marker = this.Marker;
+            if (ParameterWasBound("MaxItem"))
+                context.MaxItems = this.MaxItem;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -101,15 +98,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetFunctionRequest();
+            var request = new ListVersionsByFunctionRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
             }
-            if (cmdletContext.Qualifier != null)
+            if (cmdletContext.Marker != null)
             {
-                request.Qualifier = cmdletContext.Qualifier;
+                request.Marker = cmdletContext.Marker;
+            }
+            if (cmdletContext.MaxItems != null)
+            {
+                request.MaxItems = cmdletContext.MaxItems.Value;
             }
             
             CmdletOutput output;
@@ -118,9 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetFunction(request);
+                var response = client.ListVersionsByFunction(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.Versions;
+                notes = new Dictionary<string, object>();
+                notes["NextMarker"] = response.NextMarker;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -147,7 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
+            public String Marker { get; set; }
+            public Int32? MaxItems { get; set; }
         }
         
     }

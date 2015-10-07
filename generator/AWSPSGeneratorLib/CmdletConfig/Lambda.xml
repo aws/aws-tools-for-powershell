@@ -20,19 +20,26 @@
 
   <ServiceOperations>
     <ServiceOperation MethodName="AddPermission" />
+    <ServiceOperation MethodName="CreateAlias" Output="Response" />
     <ServiceOperation MethodName="CreateEventSourceMapping" Output="Response" PositionalParameters="EventSource;Role"/>
     <ServiceOperation MethodName="CreateFunction" Exclude="true"/>
+    <ServiceOperation MethodName="DeleteAlias" Output="Void"  />
     <ServiceOperation MethodName="DeleteFunction" Output="Void" />
     <ServiceOperation MethodName="DeleteEventSourceMapping" Output="Response" />
+    <ServiceOperation MethodName="GetAlias" Output="Response"  />
     <ServiceOperation MethodName="GetEventSourceMapping" Output="Response" />
 	  <ServiceOperation MethodName="GetFunction" Output="Response" />
 	  <ServiceOperation MethodName="GetFunctionConfiguration" Output="Response" />
     <ServiceOperation MethodName="GetPolicy" />
     <ServiceOperation MethodName="Invoke" Exclude="true"/>
     <ServiceOperation MethodName="InvokeAsync" Exclude="true"/>
+    <ServiceOperation MethodName="ListAliases" Noun="AliasList" />
     <ServiceOperation MethodName="ListEventSourceMappings" />
 	  <ServiceOperation MethodName="ListFunctions" />
+    <ServiceOperation MethodName="ListVersionsByFunction"  />
+    <ServiceOperation MethodName="PublishVersion" Output="Response"  />
     <ServiceOperation MethodName="RemovePermission" Output="Void" />
+    <ServiceOperation MethodName="UpdateAlias" Output="Response"  />
     <ServiceOperation MethodName="UpdateFunctionCode" Output="Response" />
     <ServiceOperation MethodName="UpdateFunctionConfiguration" Output="Response" />
     <ServiceOperation MethodName="UpdateEventSourceMapping" Output="Response" />

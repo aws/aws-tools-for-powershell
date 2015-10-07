@@ -28,37 +28,25 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the configuration information of the Lambda function and a presigned URL link
-    /// to the .zip file you uploaded with <a>CreateFunction</a> so you can download the .zip
-    /// file. Note that the URL is valid for up to 10 minutes. The configuration information
-    /// is the same information you provided as parameters when uploading the function.
-    /// 
-    ///  
-    /// <para>
-    /// Using the optional <code>Qualifier</code> parameter, you can specify a specific function
-    /// version for which you want this information. If you don't specify this parameter,
-    /// the API uses unqualified function ARN which return information about the $LATEST version
-    /// of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html">AWS
-    /// Lambda Function Versioning and Aliases</a>.
-    /// </para><para>
-    /// This operation requires permission for the <code>lambda:GetFunction</code> action.
+    /// Returns the specified alias information such as the alias ARN, description, and function
+    /// version it is pointing to. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html">Introduction
+    /// to AWS Lambda Aliases</a><para>
+    /// This requires permission for the lambda:GetAlias action.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "LMFunction")]
-    [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]
-    [AWSCmdlet("Invokes the GetFunction operation against Amazon Lambda.", Operation = new[] {"GetFunction"})]
-    [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionResponse",
-        "This cmdlet returns a GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LMAlias")]
+    [OutputType("Amazon.Lambda.Model.GetAliasResponse")]
+    [AWSCmdlet("Invokes the GetAlias operation against Amazon Lambda.", Operation = new[] {"GetAlias"})]
+    [AWSCmdletOutput("Amazon.Lambda.Model.GetAliasResponse",
+        "This cmdlet returns a GetAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public class GetLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The Lambda function name. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
-        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
-        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
-        /// If you specify only the function name, it is limited to 64 character in length. </para>
+        /// <para>Function name for which the alias is created. An alias is a subresource that exists
+        /// only in the context of an existing Lambda function. So you must specify the function
+        /// name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,16 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         /// <summary>
         /// <para>
-        /// <para>Using this optional parameter to specify a function version or alias name. If you
-        /// specify function version, the API uses qualified function ARN for the request and
-        /// returns information about the specific Lambda function version. If you specify alias
-        /// name, the API uses alias ARN and returns information about the function version to
-        /// which the alias points. If you don't provide this parameter, the API uses unqualified
-        /// function ARN and returns information about the $LATEST version of the Lambda function.</para>
+        /// <para>Name of the alias for which you want to retrieve information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public String Name { get; set; }
         
         
         protected override void ProcessRecord()
@@ -89,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
-            context.Qualifier = this.Qualifier;
+            context.Name = this.Name;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -101,15 +84,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetFunctionRequest();
+            var request = new GetAliasRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
             }
-            if (cmdletContext.Qualifier != null)
+            if (cmdletContext.Name != null)
             {
-                request.Qualifier = cmdletContext.Qualifier;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -118,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetFunction(request);
+                var response = client.GetAlias(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -147,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
+            public String Name { get; set; }
         }
         
     }

@@ -33,6 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
+    /// You can use the optional <code>Qualifier</code> parameter to retrieve configuration
+    /// information for a specific Lambda function version. If you don't provide it, the API
+    /// returns information about the $LATEST version of the function. For more information
+    /// about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html">AWS
+    /// Lambda Function Versioning and Aliases</a>.
+    /// </para><para>
     /// This operation requires permission for the <code>lambda:GetFunctionConfiguration</code>
     /// operation.
     /// </para>
@@ -57,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public String FunctionName { get; set; }
         
+        /// <summary>
+        /// <para>
+        /// <para>Using this optional parameter you can specify function version or alias name. If you
+        /// specify function version, the API uses qualified function ARN and returns information
+        /// about the specific function version. if you specify alias name, the API uses alias
+        /// ARN and returns information about the function version to which the alias points.</para><para>If you don't specify this parameter, the API uses unqualified function ARN, and returns
+        /// information about the $LATEST function version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String Qualifier { get; set; }
+        
         
         protected override void ProcessRecord()
         {
@@ -69,6 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            context.Qualifier = this.Qualifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -85,6 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             
             CmdletOutput output;
@@ -122,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }
+            public String Qualifier { get; set; }
         }
         
     }

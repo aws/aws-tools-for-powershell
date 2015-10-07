@@ -28,11 +28,13 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the access policy, containing a list of permissions granted via the <code>AddPermission</code>
-    /// API, associated with the specified bucket.
+    /// Returns the resource policy, containing a list of permissions that apply to a specific
+    /// to an ARN that you specify via the <code>Qualifier</code> paramter. 
     /// 
     ///  
     /// <para>
+    /// For informration about adding permissions, see <a>AddPermission</a>.
+    /// </para><para>
     /// You need permission for the <code>lambda:GetPolicy action.</code></para>
     /// </summary>
     [Cmdlet("Get", "LMPolicy")]
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     {
         /// <summary>
         /// <para>
-        /// <para>Function name whose access policy you want to retrieve. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
+        /// <para>Function name whose resource policy you want to retrieve. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
         /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
         /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
         /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
@@ -55,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public String FunctionName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>You can specify this optional query parameter to specify function version or alias
+        /// name in which case this API will return all permissions associated with the specific
+        /// ARN. If you don't provide this parameter, the API will return permissions that apply
+        /// to the unqualified function ARN. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String Qualifier { get; set; }
         
         
         protected override void ProcessRecord()
@@ -68,6 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            context.Qualifier = this.Qualifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -84,6 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             
             CmdletOutput output;
@@ -121,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }
+            public String Qualifier { get; set; }
         }
         
     }

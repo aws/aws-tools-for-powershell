@@ -28,35 +28,23 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// You can remove individual permissions from an resource policy associated with a Lambda
-    /// function by providing a statement ID that you provided when you addded the permission.
-    /// The API removes corresponding permission that is associated with the specific ARN
-    /// identified by the <code>Qualifier</code> parameter.
-    /// 
-    ///  
-    /// <para>
-    /// Note that removal of a permission will cause an active event source to lose permission
-    /// to the function. 
-    /// </para><para>
-    /// You need permission for the <code>lambda:RemovePermission</code> action.
+    /// Deletes specified Lambda function alias. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-v2-intro-aliases.html">Introduction
+    /// to AWS Lambda Aliases</a><para>
+    /// This requires permission for the lambda:DeleteAlias action.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "LMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemovePermission operation against Amazon Lambda.", Operation = new[] {"RemovePermission"})]
+    [AWSCmdlet("Invokes the DeleteAlias operation against Amazon Lambda.", Operation = new[] {"DeleteAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public class RemoveLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Lambda function whose resource policy you want to remove a permission from.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
-        /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
-        /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
-        /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
-        /// If you specify only the function name, it is limited to 64 character in length. </para>
+        /// <para>The Lambda function name for which the alias is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,22 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         /// <summary>
         /// <para>
-        /// <para>You can specify this optional parameter to remove permission associated with a specific
-        /// function version or function alias. The value of this paramter is the function version
-        /// or alias name. If you don't specify this parameter, the API removes permission associated
-        /// with the unqualified function ARN.</para>
+        /// <para>Name of the alias to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>Statement ID of the permission to remove.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public String StatementId { get; set; }
+        public String Name { get; set; }
         
         /// <summary>
         /// Returns the value passed to the FunctionName parameter.
@@ -102,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FunctionName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LMPermission (RemovePermission)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LMAlias (DeleteAlias)"))
             {
                 return;
             }
@@ -114,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
-            context.Qualifier = this.Qualifier;
-            context.StatementId = this.StatementId;
+            context.Name = this.Name;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -127,19 +103,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemovePermissionRequest();
+            var request = new DeleteAliasRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
             }
-            if (cmdletContext.Qualifier != null)
+            if (cmdletContext.Name != null)
             {
-                request.Qualifier = cmdletContext.Qualifier;
-            }
-            if (cmdletContext.StatementId != null)
-            {
-                request.StatementId = cmdletContext.StatementId;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -148,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.RemovePermission(request);
+                var response = client.DeleteAlias(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
@@ -179,8 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal class CmdletContext : ExecutorContext
         {
             public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
-            public String StatementId { get; set; }
+            public String Name { get; set; }
         }
         
     }
