@@ -1,3 +1,11 @@
+### 3.1.19.0 (2015-10-08)
+  * AWS IoT
+    - AWS IoT offering enables our users to leverage the AWS Cloud for their Internet of things use-cases. Cmdlets for the service are identified with a noun prefix code of 'IOT'.
+  * AWS Lambda
+    - Lambda now supports function versioning.
+  * Amazon ECS 
+    - Task definitions now support more Docker options.
+
 ### 3.1.18.0 (2015-10-07)
   * Amazon Kinesis Firehose
     - Amazon Kinesis Firehose is a fully managed service for ingesting data streams directly into AWS data services such as Amazon S3 and Amazon Redshift. Cmdlets for the service are identified with a noun prefix code of 'KINF'
