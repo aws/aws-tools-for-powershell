@@ -1,4 +1,4 @@
-### 3.1.19.0 (2015-10-08)
+### 3.1.19.1 (2015-10-11)
   * AWS IoT
     - AWS IoT offering enables our users to leverage the AWS Cloud for their Internet of things use-cases. Cmdlets for the service are identified with a noun prefix code of 'IOT'.
   * AWS Lambda
