@@ -174,11 +174,13 @@ namespace Amazon.PowerShell.Common
             {
                 if (explicitStoredLookup)
                 {
-                    string message = "Unable to load stored credentials for ";
+                    string message = "Error loading stored credentials";
                     if (!string.IsNullOrEmpty(self.ProfileName))
-                        message += "profile = [" + self.ProfileName + "], ";
+                        message += " from profile '" + self.ProfileName + "'";
                     if (!string.IsNullOrEmpty(self.ProfilesLocation))
-                        message += "profile location = [" + self.ProfilesLocation + "]";
+                        message += ", (profile location = '" + self.ProfilesLocation + "')";
+                    message += ".\r\nError: " + e.Message + ".";
+
                     throw new ArgumentException(message, e);
                 }
             }
