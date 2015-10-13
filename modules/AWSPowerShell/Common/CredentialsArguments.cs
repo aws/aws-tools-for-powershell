@@ -26,6 +26,7 @@ using Amazon.Runtime.Internal.Settings;
 using Amazon.Runtime;
 using System.Text;
 using Amazon.PowerShell.Utils;
+using Amazon.Util;
 
 namespace Amazon.PowerShell.Common
 {
@@ -179,7 +180,7 @@ namespace Amazon.PowerShell.Common
                         message += " from profile '" + self.ProfileName + "'";
                     if (!string.IsNullOrEmpty(self.ProfilesLocation))
                         message += ", (profile location = '" + self.ProfilesLocation + "')";
-                    message += ".\r\nError: " + e.Message + ".";
+                    message += ".\r\nError: " + e.Message;
 
                     throw new ArgumentException(message, e);
                 }
