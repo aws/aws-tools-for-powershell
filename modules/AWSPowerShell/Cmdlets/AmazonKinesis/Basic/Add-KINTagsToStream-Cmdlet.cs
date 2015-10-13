@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Invokes the AddTagsToStream operation against AWS Kinesis.", Operation = new[] {"AddTagsToStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsToStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.AddTagsToStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamName { get; set; }
+        public System.String StreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             context.StreamName = this.StreamName;
             if (this.Tag != null)
             {
-                context.Tags = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
                     context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsToStreamRequest();
+            var request = new Amazon.Kinesis.Model.AddTagsToStreamRequest();
             
             if (cmdletContext.StreamName != null)
             {
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StreamName { get; set; }
-            public Dictionary<String, String> Tags { get; set; }
+            public System.String StreamName { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

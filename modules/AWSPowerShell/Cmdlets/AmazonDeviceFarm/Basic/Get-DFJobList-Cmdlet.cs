@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the ListJobs operation against AWS Device Farm.", Operation = new[] {"ListJobs"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Job",
         "This cmdlet returns a collection of Job objects.",
-        "The service call response (type ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.DeviceFarm.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetDFJobListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Arn { get; set; }
+        public System.String Arn { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListJobsRequest();
+            var request = new Amazon.DeviceFarm.Model.ListJobsRequest();
             
             if (cmdletContext.Arn != null)
             {
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Arn { get; set; }
-            public String NextToken { get; set; }
+            public System.String Arn { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

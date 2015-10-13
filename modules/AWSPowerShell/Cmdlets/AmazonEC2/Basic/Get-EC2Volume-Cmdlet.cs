@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeVolumes operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVolumes"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Volume",
         "This cmdlet returns a collection of Volume objects.",
-        "The service call response (type DescribeVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -127,14 +127,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.VolumeId != null)
             {
-                context.VolumeIds = new List<String>(this.VolumeId);
+                context.VolumeIds = new List<System.String>(this.VolumeId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeVolumesRequest();
+            var request = new Amazon.EC2.Model.DescribeVolumesRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -244,10 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public List<String> VolumeIds { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> VolumeIds { get; set; }
         }
         
     }

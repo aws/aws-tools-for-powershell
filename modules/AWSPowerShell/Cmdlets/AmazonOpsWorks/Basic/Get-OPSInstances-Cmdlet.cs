@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeInstances operation against AWS OpsWorks.", Operation = new[] {"DescribeInstances"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Instance",
         "This cmdlet returns a collection of Instance objects.",
-        "The service call response (type DescribeInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSInstancesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LayerId { get; set; }
+        public System.String LayerId { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.InstanceId != null)
             {
-                context.InstanceIds = new List<String>(this.InstanceId);
+                context.InstanceIds = new List<System.String>(this.InstanceId);
             }
             context.LayerId = this.LayerId;
             context.StackId = this.StackId;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeInstancesRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeInstancesRequest();
             
             if (cmdletContext.InstanceIds != null)
             {
@@ -153,9 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> InstanceIds { get; set; }
-            public String LayerId { get; set; }
-            public String StackId { get; set; }
+            public List<System.String> InstanceIds { get; set; }
+            public System.String LayerId { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

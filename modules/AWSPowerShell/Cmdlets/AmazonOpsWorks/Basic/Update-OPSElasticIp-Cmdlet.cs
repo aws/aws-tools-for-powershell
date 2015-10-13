@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateElasticIp operation against AWS OpsWorks.", Operation = new[] {"UpdateElasticIp"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ElasticIp { get; set; }
+        public System.String ElasticIp { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateElasticIpRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateElasticIpRequest();
             
             if (cmdletContext.ElasticIp != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ElasticIp { get; set; }
-            public String Name { get; set; }
+            public System.String ElasticIp { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon Inspector.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSTagListForResourceCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceArn { get; set; }
+        public System.String ResourceArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsForResourceRequest();
+            var request = new Amazon.Inspector.Model.ListTagsForResourceRequest();
             
             if (cmdletContext.ResourceArn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceArn { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

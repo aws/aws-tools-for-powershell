@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DescribeLogGroups operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeLogGroups"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.LogGroup",
         "This cmdlet returns a collection of LogGroup objects.",
-        "The service call response (type DescribeLogGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWLLogGroupsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String LogGroupNamePrefix { get; set; }
+        public System.String LogGroupNamePrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLogGroupsRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeLogGroupsRequest();
             
             if (cmdletContext.Limit != null)
             {
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
-            public String LogGroupNamePrefix { get; set; }
-            public String NextToken { get; set; }
+            public System.String LogGroupNamePrefix { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

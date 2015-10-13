@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleResponse")]
     [AWSCmdlet("Invokes the AssumeRole operation against AWS Security Token Service.", Operation = new[] {"AssumeRole"})]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleResponse",
-        "This cmdlet returns a AssumeRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SecurityToken.Model.AssumeRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("DurationSeconds")]
-        public Int32 DurationInSeconds { get; set; }
+        public System.Int32 DurationInSeconds { get; set; }
         
         /// <summary>
         /// <para>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String ExternalId { get; set; }
+        public System.String ExternalId { get; set; }
         
         /// <summary>
         /// <para>
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
         
         /// <summary>
         /// <para>
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RoleArn { get; set; }
+        public System.String RoleArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String RoleSessionName { get; set; }
+        public System.String RoleSessionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SerialNumber { get; set; }
+        public System.String SerialNumber { get; set; }
         
         /// <summary>
         /// <para>
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TokenCode { get; set; }
+        public System.String TokenCode { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssumeRoleRequest();
+            var request = new Amazon.SecurityToken.Model.AssumeRoleRequest();
             
             if (cmdletContext.DurationInSeconds != null)
             {
@@ -303,13 +303,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DurationInSeconds { get; set; }
-            public String ExternalId { get; set; }
-            public String Policy { get; set; }
-            public String RoleArn { get; set; }
-            public String RoleSessionName { get; set; }
-            public String SerialNumber { get; set; }
-            public String TokenCode { get; set; }
+            public System.Int32? DurationInSeconds { get; set; }
+            public System.String ExternalId { get; set; }
+            public System.String Policy { get; set; }
+            public System.String RoleArn { get; set; }
+            public System.String RoleSessionName { get; set; }
+            public System.String SerialNumber { get; set; }
+            public System.String TokenCode { get; set; }
         }
         
     }

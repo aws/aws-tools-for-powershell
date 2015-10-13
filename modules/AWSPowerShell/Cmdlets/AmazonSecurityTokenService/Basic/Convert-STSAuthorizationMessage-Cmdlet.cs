@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [AWSCmdlet("Invokes the DecodeAuthorizationMessage operation against AWS Security Token Service.", Operation = new[] {"DecodeAuthorizationMessage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DecodeAuthorizationMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConvertSTSAuthorizationMessageCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String EncodedMessage { get; set; }
+        public System.String EncodedMessage { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DecodeAuthorizationMessageRequest();
+            var request = new Amazon.SecurityToken.Model.DecodeAuthorizationMessageRequest();
             
             if (cmdletContext.EncodedMessage != null)
             {
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EncodedMessage { get; set; }
+            public System.String EncodedMessage { get; set; }
         }
         
     }

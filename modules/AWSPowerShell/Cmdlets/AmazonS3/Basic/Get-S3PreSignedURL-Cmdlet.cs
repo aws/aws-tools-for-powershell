@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("System.String")]
     [AWSCmdlet("Invokes the GetPreSignedURL operation against Amazon Simple Storage Service.", Operation = new[] {"GetPreSignedURL"})]
     [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.String object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3PreSignedURLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResponseHeaderOverrides_CacheControl { get; set; }
+        public System.String ResponseHeaderOverrides_CacheControl { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResponseHeaderOverrides_ContentDisposition { get; set; }
+        public System.String ResponseHeaderOverrides_ContentDisposition { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResponseHeaderOverrides_ContentEncoding { get; set; }
+        public System.String ResponseHeaderOverrides_ContentEncoding { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResponseHeaderOverrides_ContentLanguage { get; set; }
+        public System.String ResponseHeaderOverrides_ContentLanguage { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContentType { get; set; }
+        public System.String ContentType { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResponseHeaderOverrides_ContentType { get; set; }
+        public System.String ResponseHeaderOverrides_ContentType { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Expires")]
-        public DateTime Expire { get; set; }
+        public System.DateTime Expire { get; set; }
         
         /// <summary>
         /// <para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ResponseHeaderOverrides_Expires")]
-        public String ResponseHeaderOverrides_Expire { get; set; }
+        public System.String ResponseHeaderOverrides_Expire { get; set; }
         
         /// <summary>
         /// <para>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Protocol Protocol { get; set; }
+        public Amazon.S3.Protocol Protocol { get; set; }
         
         /// <summary>
         /// <para>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
         
         /// <summary>
         /// <para>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+        public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
+        public Amazon.S3.ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
         
         /// <summary>
         /// <para>
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public HttpVerb Verb { get; set; }
+        public Amazon.S3.HttpVerb Verb { get; set; }
         
         /// <summary>
         /// <para>
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPreSignedUrlRequest();
+            var request = new Amazon.S3.Model.GetPreSignedUrlRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -257,8 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate ResponseHeaderOverrides
             bool requestResponseHeaderOverridesIsNull = true;
-            request.ResponseHeaderOverrides = new ResponseHeaderOverrides();
-            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentType = null;
+            request.ResponseHeaderOverrides = new Amazon.S3.Model.ResponseHeaderOverrides();
+            System.String requestResponseHeaderOverrides_responseHeaderOverrides_ContentType = null;
             if (cmdletContext.ResponseHeaderOverrides_ContentType != null)
             {
                 requestResponseHeaderOverrides_responseHeaderOverrides_ContentType = cmdletContext.ResponseHeaderOverrides_ContentType;
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ResponseHeaderOverrides.ContentType = requestResponseHeaderOverrides_responseHeaderOverrides_ContentType;
                 requestResponseHeaderOverridesIsNull = false;
             }
-            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage = null;
+            System.String requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage = null;
             if (cmdletContext.ResponseHeaderOverrides_ContentLanguage != null)
             {
                 requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage = cmdletContext.ResponseHeaderOverrides_ContentLanguage;
@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ResponseHeaderOverrides.ContentLanguage = requestResponseHeaderOverrides_responseHeaderOverrides_ContentLanguage;
                 requestResponseHeaderOverridesIsNull = false;
             }
-            String requestResponseHeaderOverrides_responseHeaderOverrides_Expire = null;
+            System.String requestResponseHeaderOverrides_responseHeaderOverrides_Expire = null;
             if (cmdletContext.ResponseHeaderOverrides_Expires != null)
             {
                 requestResponseHeaderOverrides_responseHeaderOverrides_Expire = cmdletContext.ResponseHeaderOverrides_Expires;
@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ResponseHeaderOverrides.Expires = requestResponseHeaderOverrides_responseHeaderOverrides_Expire;
                 requestResponseHeaderOverridesIsNull = false;
             }
-            String requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl = null;
+            System.String requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl = null;
             if (cmdletContext.ResponseHeaderOverrides_CacheControl != null)
             {
                 requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl = cmdletContext.ResponseHeaderOverrides_CacheControl;
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ResponseHeaderOverrides.CacheControl = requestResponseHeaderOverrides_responseHeaderOverrides_CacheControl;
                 requestResponseHeaderOverridesIsNull = false;
             }
-            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition = null;
+            System.String requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition = null;
             if (cmdletContext.ResponseHeaderOverrides_ContentDisposition != null)
             {
                 requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition = cmdletContext.ResponseHeaderOverrides_ContentDisposition;
@@ -308,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ResponseHeaderOverrides.ContentDisposition = requestResponseHeaderOverrides_responseHeaderOverrides_ContentDisposition;
                 requestResponseHeaderOverridesIsNull = false;
             }
-            String requestResponseHeaderOverrides_responseHeaderOverrides_ContentEncoding = null;
+            System.String requestResponseHeaderOverrides_responseHeaderOverrides_ContentEncoding = null;
             if (cmdletContext.ResponseHeaderOverrides_ContentEncoding != null)
             {
                 requestResponseHeaderOverrides_responseHeaderOverrides_ContentEncoding = cmdletContext.ResponseHeaderOverrides_ContentEncoding;
@@ -358,22 +358,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String Key { get; set; }
-            public String ContentType { get; set; }
-            public DateTime? Expires { get; set; }
-            public Protocol? Protocol { get; set; }
-            public HttpVerb? Verb { get; set; }
-            public String VersionId { get; set; }
-            public ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
-            public String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
-            public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
-            public String ResponseHeaderOverrides_ContentType { get; set; }
-            public String ResponseHeaderOverrides_ContentLanguage { get; set; }
-            public String ResponseHeaderOverrides_Expires { get; set; }
-            public String ResponseHeaderOverrides_CacheControl { get; set; }
-            public String ResponseHeaderOverrides_ContentDisposition { get; set; }
-            public String ResponseHeaderOverrides_ContentEncoding { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String Key { get; set; }
+            public System.String ContentType { get; set; }
+            public System.DateTime? Expires { get; set; }
+            public Amazon.S3.Protocol? Protocol { get; set; }
+            public Amazon.S3.HttpVerb? Verb { get; set; }
+            public System.String VersionId { get; set; }
+            public Amazon.S3.ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
+            public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+            public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+            public System.String ResponseHeaderOverrides_ContentType { get; set; }
+            public System.String ResponseHeaderOverrides_ContentLanguage { get; set; }
+            public System.String ResponseHeaderOverrides_Expires { get; set; }
+            public System.String ResponseHeaderOverrides_CacheControl { get; set; }
+            public System.String ResponseHeaderOverrides_ContentDisposition { get; set; }
+            public System.String ResponseHeaderOverrides_ContentEncoding { get; set; }
         }
         
     }

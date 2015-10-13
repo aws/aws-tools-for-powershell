@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the ActivateGateway operation against AWS Storage Gateway.", Operation = new[] {"ActivateGateway"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ActivateGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.ActivateGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ActivationKey { get; set; }
+        public System.String ActivationKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String GatewayName { get; set; }
+        public System.String GatewayName { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String GatewayRegion { get; set; }
+        public System.String GatewayRegion { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String GatewayTimezone { get; set; }
+        public System.String GatewayTimezone { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String GatewayType { get; set; }
+        public System.String GatewayType { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MediumChangerType { get; set; }
+        public System.String MediumChangerType { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TapeDriveType { get; set; }
+        public System.String TapeDriveType { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ActivateGatewayRequest();
+            var request = new Amazon.StorageGateway.Model.ActivateGatewayRequest();
             
             if (cmdletContext.ActivationKey != null)
             {
@@ -227,13 +227,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ActivationKey { get; set; }
-            public String GatewayName { get; set; }
-            public String GatewayRegion { get; set; }
-            public String GatewayTimezone { get; set; }
-            public String GatewayType { get; set; }
-            public String MediumChangerType { get; set; }
-            public String TapeDriveType { get; set; }
+            public System.String ActivationKey { get; set; }
+            public System.String GatewayName { get; set; }
+            public System.String GatewayRegion { get; set; }
+            public System.String GatewayTimezone { get; set; }
+            public System.String GatewayType { get; set; }
+            public System.String MediumChangerType { get; set; }
+            public System.String TapeDriveType { get; set; }
         }
         
     }

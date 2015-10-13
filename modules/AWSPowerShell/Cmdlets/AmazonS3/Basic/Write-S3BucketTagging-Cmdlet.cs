@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketTagging operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketTagging"})]
     [AWSCmdletOutput("None or Amazon.S3.Model.Tag",
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketTaggingCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             if (this.TagSet != null)
             {
-                context.TagSet = new List<Tag>(this.TagSet);
+                context.TagSet = new List<Amazon.S3.Model.Tag>(this.TagSet);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketTaggingRequest();
+            var request = new Amazon.S3.Model.PutBucketTaggingRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public List<Tag> TagSet { get; set; }
+            public System.String BucketName { get; set; }
+            public List<Amazon.S3.Model.Tag> TagSet { get; set; }
         }
         
     }

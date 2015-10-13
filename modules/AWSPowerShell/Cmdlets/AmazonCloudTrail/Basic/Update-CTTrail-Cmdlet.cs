@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.UpdateTrailResponse")]
     [AWSCmdlet("Invokes the UpdateTrail operation against AWS CloudTrail.", Operation = new[] {"UpdateTrail"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.UpdateTrailResponse",
-        "This cmdlet returns a UpdateTrailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudTrail.Model.UpdateTrailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CloudWatchLogsLogGroupArn { get; set; }
+        public System.String CloudWatchLogsLogGroupArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CloudWatchLogsRoleArn { get; set; }
+        public System.String CloudWatchLogsRoleArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EnableLogFileValidation { get; set; }
+        public System.Boolean EnableLogFileValidation { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean IncludeGlobalServiceEvents { get; set; }
+        [Alias("IncludeGlobalServiceEvents")]
+        public System.Boolean IncludeGlobalServiceEvent { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String S3BucketName { get; set; }
+        public System.String S3BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String S3KeyPrefix { get; set; }
+        public System.String S3KeyPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -133,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SnsTopicName { get; set; }
+        public System.String SnsTopicName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -164,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
             context.CloudWatchLogsRoleArn = this.CloudWatchLogsRoleArn;
             if (ParameterWasBound("EnableLogFileValidation"))
                 context.EnableLogFileValidation = this.EnableLogFileValidation;
-            if (ParameterWasBound("IncludeGlobalServiceEvents"))
-                context.IncludeGlobalServiceEvents = this.IncludeGlobalServiceEvents;
+            if (ParameterWasBound("IncludeGlobalServiceEvent"))
+                context.IncludeGlobalServiceEvents = this.IncludeGlobalServiceEvent;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             context.S3BucketName = this.S3BucketName;
@@ -182,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateTrailRequest();
+            var request = new Amazon.CloudTrail.Model.UpdateTrailRequest();
             
             if (cmdletContext.CloudWatchLogsLogGroupArn != null)
             {
@@ -255,15 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CloudWatchLogsLogGroupArn { get; set; }
-            public String CloudWatchLogsRoleArn { get; set; }
-            public Boolean? EnableLogFileValidation { get; set; }
-            public Boolean? IncludeGlobalServiceEvents { get; set; }
-            public String KmsKeyId { get; set; }
-            public String Name { get; set; }
-            public String S3BucketName { get; set; }
-            public String S3KeyPrefix { get; set; }
-            public String SnsTopicName { get; set; }
+            public System.String CloudWatchLogsLogGroupArn { get; set; }
+            public System.String CloudWatchLogsRoleArn { get; set; }
+            public System.Boolean? EnableLogFileValidation { get; set; }
+            public System.Boolean? IncludeGlobalServiceEvents { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String Name { get; set; }
+            public System.String S3BucketName { get; set; }
+            public System.String S3KeyPrefix { get; set; }
+            public System.String SnsTopicName { get; set; }
         }
         
     }

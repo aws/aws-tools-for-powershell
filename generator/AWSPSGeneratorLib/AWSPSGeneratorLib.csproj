@@ -160,6 +160,8 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="CmdletConfig\WAF.xml" />
+    <None Include="CmdletConfig\Inspector.xml" />
+    <None Include="CmdletConfig\IoT.xml" />
     <Content Include="CmdletConfig\KinesisFirehose.xml">
       <SubType>Designer</SubType>
     </Content>

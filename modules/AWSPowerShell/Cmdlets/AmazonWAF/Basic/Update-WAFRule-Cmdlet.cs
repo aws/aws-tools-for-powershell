@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the UpdateRule operation against AWS WAF.", Operation = new[] {"UpdateRule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.UpdateRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RuleId { get; set; }
+        public System.String RuleId { get; set; }
         
         /// <summary>
         /// <para>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             context.RuleId = this.RuleId;
             if (this.Update != null)
             {
-                context.Updates = new List<RuleUpdate>(this.Update);
+                context.Updates = new List<Amazon.WAF.Model.RuleUpdate>(this.Update);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateRuleRequest();
+            var request = new Amazon.WAF.Model.UpdateRuleRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -184,9 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public String RuleId { get; set; }
-            public List<RuleUpdate> Updates { get; set; }
+            public System.String ChangeToken { get; set; }
+            public System.String RuleId { get; set; }
+            public List<Amazon.WAF.Model.RuleUpdate> Updates { get; set; }
         }
         
     }

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Invokes the UpdateDomainContactPrivacy operation against AWS Route 53 Domains.", Operation = new[] {"UpdateDomainContactPrivacy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateDomainContactPrivacyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateR53DDomainContactPrivacyCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AdminPrivacy { get; set; }
+        public System.Boolean AdminPrivacy { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RegistrantPrivacy { get; set; }
+        public System.Boolean RegistrantPrivacy { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean TechPrivacy { get; set; }
+        public System.Boolean TechPrivacy { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDomainContactPrivacyRequest();
+            var request = new Amazon.Route53Domains.Model.UpdateDomainContactPrivacyRequest();
             
             if (cmdletContext.AdminPrivacy != null)
             {
@@ -187,10 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AdminPrivacy { get; set; }
-            public String DomainName { get; set; }
-            public Boolean? RegistrantPrivacy { get; set; }
-            public Boolean? TechPrivacy { get; set; }
+            public System.Boolean? AdminPrivacy { get; set; }
+            public System.String DomainName { get; set; }
+            public System.Boolean? RegistrantPrivacy { get; set; }
+            public System.Boolean? TechPrivacy { get; set; }
         }
         
     }

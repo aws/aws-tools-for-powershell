@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the ListPolicyVersions operation against AWS IoT.", Operation = new[] {"ListPolicyVersions"})]
     [AWSCmdletOutput("Amazon.IoT.Model.PolicyVersion",
         "This cmdlet returns a collection of PolicyVersion objects.",
-        "The service call response (type ListPolicyVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.ListPolicyVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTPolicyVersionListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListPolicyVersionsRequest();
+            var request = new Amazon.IoT.Model.ListPolicyVersionsRequest();
             
             if (cmdletContext.PolicyName != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyName { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeEvents operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EventDescription",
         "This cmdlet returns a collection of EventDescription objects.",
-        "The service call response (type DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEBEventCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RequestId { get; set; }
+        public System.String RequestId { get; set; }
         
         /// <summary>
         /// <para>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EventSeverity Severity { get; set; }
+        public Amazon.ElasticBeanstalk.EventSeverity Severity { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String TemplateName { get; set; }
+        public System.String TemplateName { get; set; }
         
         /// <summary>
         /// <para>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String VersionLabel { get; set; }
+        public System.String VersionLabel { get; set; }
         
         /// <summary>
         /// <para>
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeEventsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeEventsRequest();
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 1000;
@@ -333,17 +333,17 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public DateTime? EndTime { get; set; }
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
             public int? MaxRecords { get; set; }
-            public String NextToken { get; set; }
-            public String RequestId { get; set; }
-            public EventSeverity Severity { get; set; }
-            public DateTime? StartTime { get; set; }
-            public String TemplateName { get; set; }
-            public String VersionLabel { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String RequestId { get; set; }
+            public Amazon.ElasticBeanstalk.EventSeverity Severity { get; set; }
+            public System.DateTime? StartTime { get; set; }
+            public System.String TemplateName { get; set; }
+            public System.String VersionLabel { get; set; }
         }
         
     }

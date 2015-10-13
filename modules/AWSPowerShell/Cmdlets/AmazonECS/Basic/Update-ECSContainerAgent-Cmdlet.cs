@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the UpdateContainerAgent operation against Amazon EC2 Container Service.", Operation = new[] {"UpdateContainerAgent"})]
     [AWSCmdletOutput("Amazon.ECS.Model.ContainerInstance",
         "This cmdlet returns a ContainerInstance object.",
-        "The service call response (type UpdateContainerAgentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.UpdateContainerAgentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateECSContainerAgentCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContainerInstance { get; set; }
+        public System.String ContainerInstance { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateContainerAgentRequest();
+            var request = new Amazon.ECS.Model.UpdateContainerAgentRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public String ContainerInstance { get; set; }
+            public System.String Cluster { get; set; }
+            public System.String ContainerInstance { get; set; }
         }
         
     }

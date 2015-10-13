@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DefineIndexField operation against Amazon CloudSearch.", Operation = new[] {"DefineIndexField"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.IndexFieldStatus",
         "This cmdlet returns a IndexFieldStatus object.",
-        "The service call response (type DefineIndexFieldResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DefineIndexFieldResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetCSIndexFieldCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_AnalysisScheme")]
-        public String TextArrayOptions_AnalysisScheme { get; set; }
+        public System.String TextArrayOptions_AnalysisScheme { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_AnalysisScheme")]
-        public String TextOptions_AnalysisScheme { get; set; }
+        public System.String TextOptions_AnalysisScheme { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_DefaultValue")]
-        public String DateArrayOptions_DefaultValue { get; set; }
+        public System.String DateArrayOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_DefaultValue")]
-        public String DateOptions_DefaultValue { get; set; }
+        public System.String DateOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_DefaultValue")]
-        public Double DoubleArrayOptions_DefaultValue { get; set; }
+        public System.Double DoubleArrayOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_DefaultValue")]
-        public Double DoubleOptions_DefaultValue { get; set; }
+        public System.Double DoubleOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_DefaultValue")]
-        public Int64 IntArrayOptions_DefaultValue { get; set; }
+        public System.Int64 IntArrayOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_DefaultValue")]
-        public Int64 IntOptions_DefaultValue { get; set; }
+        public System.Int64 IntOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_DefaultValue")]
-        public String LatLonOptions_DefaultValue { get; set; }
+        public System.String LatLonOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_DefaultValue")]
-        public String LiteralArrayOptions_DefaultValue { get; set; }
+        public System.String LiteralArrayOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_DefaultValue")]
-        public String LiteralOptions_DefaultValue { get; set; }
+        public System.String LiteralOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_DefaultValue")]
-        public String TextArrayOptions_DefaultValue { get; set; }
+        public System.String TextArrayOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_DefaultValue")]
-        public String TextOptions_DefaultValue { get; set; }
+        public System.String TextOptions_DefaultValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_FacetEnabled")]
-        public Boolean DateArrayOptions_FacetEnabled { get; set; }
+        public System.Boolean DateArrayOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_FacetEnabled")]
-        public Boolean DateOptions_FacetEnabled { get; set; }
+        public System.Boolean DateOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_FacetEnabled")]
-        public Boolean DoubleArrayOptions_FacetEnabled { get; set; }
+        public System.Boolean DoubleArrayOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_FacetEnabled")]
-        public Boolean DoubleOptions_FacetEnabled { get; set; }
+        public System.Boolean DoubleOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_FacetEnabled")]
-        public Boolean IntArrayOptions_FacetEnabled { get; set; }
+        public System.Boolean IntArrayOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_FacetEnabled")]
-        public Boolean IntOptions_FacetEnabled { get; set; }
+        public System.Boolean IntOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_FacetEnabled")]
-        public Boolean LatLonOptions_FacetEnabled { get; set; }
+        public System.Boolean LatLonOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_FacetEnabled")]
-        public Boolean LiteralArrayOptions_FacetEnabled { get; set; }
+        public System.Boolean LiteralArrayOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_FacetEnabled")]
-        public Boolean LiteralOptions_FacetEnabled { get; set; }
+        public System.Boolean LiteralOptions_FacetEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_HighlightEnabled")]
-        public Boolean TextArrayOptions_HighlightEnabled { get; set; }
+        public System.Boolean TextArrayOptions_HighlightEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_HighlightEnabled")]
-        public Boolean TextOptions_HighlightEnabled { get; set; }
+        public System.Boolean TextOptions_HighlightEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IndexField_IndexFieldName { get; set; }
+        public System.String IndexField_IndexFieldName { get; set; }
         
         /// <summary>
         /// <para>
@@ -305,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public IndexFieldType IndexField_IndexFieldType { get; set; }
+        public Amazon.CloudSearch.IndexFieldType IndexField_IndexFieldType { get; set; }
         
         /// <summary>
         /// <para>
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_ReturnEnabled")]
-        public Boolean DateArrayOptions_ReturnEnabled { get; set; }
+        public System.Boolean DateArrayOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_ReturnEnabled")]
-        public Boolean DateOptions_ReturnEnabled { get; set; }
+        public System.Boolean DateOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_ReturnEnabled")]
-        public Boolean DoubleArrayOptions_ReturnEnabled { get; set; }
+        public System.Boolean DoubleArrayOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_ReturnEnabled")]
-        public Boolean DoubleOptions_ReturnEnabled { get; set; }
+        public System.Boolean DoubleOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_ReturnEnabled")]
-        public Boolean IntArrayOptions_ReturnEnabled { get; set; }
+        public System.Boolean IntArrayOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -359,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_ReturnEnabled")]
-        public Boolean IntOptions_ReturnEnabled { get; set; }
+        public System.Boolean IntOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -368,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_ReturnEnabled")]
-        public Boolean LatLonOptions_ReturnEnabled { get; set; }
+        public System.Boolean LatLonOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_ReturnEnabled")]
-        public Boolean LiteralArrayOptions_ReturnEnabled { get; set; }
+        public System.Boolean LiteralArrayOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -386,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_ReturnEnabled")]
-        public Boolean LiteralOptions_ReturnEnabled { get; set; }
+        public System.Boolean LiteralOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -395,7 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_ReturnEnabled")]
-        public Boolean TextArrayOptions_ReturnEnabled { get; set; }
+        public System.Boolean TextArrayOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -404,7 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_ReturnEnabled")]
-        public Boolean TextOptions_ReturnEnabled { get; set; }
+        public System.Boolean TextOptions_ReturnEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_SearchEnabled")]
-        public Boolean DateArrayOptions_SearchEnabled { get; set; }
+        public System.Boolean DateArrayOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -422,7 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_SearchEnabled")]
-        public Boolean DateOptions_SearchEnabled { get; set; }
+        public System.Boolean DateOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -431,7 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_SearchEnabled")]
-        public Boolean DoubleArrayOptions_SearchEnabled { get; set; }
+        public System.Boolean DoubleArrayOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -440,7 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_SearchEnabled")]
-        public Boolean DoubleOptions_SearchEnabled { get; set; }
+        public System.Boolean DoubleOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -449,7 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_SearchEnabled")]
-        public Boolean IntArrayOptions_SearchEnabled { get; set; }
+        public System.Boolean IntArrayOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -458,7 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_SearchEnabled")]
-        public Boolean IntOptions_SearchEnabled { get; set; }
+        public System.Boolean IntOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -467,7 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_SearchEnabled")]
-        public Boolean LatLonOptions_SearchEnabled { get; set; }
+        public System.Boolean LatLonOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -476,7 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_SearchEnabled")]
-        public Boolean LiteralArrayOptions_SearchEnabled { get; set; }
+        public System.Boolean LiteralArrayOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -485,7 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_SearchEnabled")]
-        public Boolean LiteralOptions_SearchEnabled { get; set; }
+        public System.Boolean LiteralOptions_SearchEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -494,7 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_SortEnabled")]
-        public Boolean DateOptions_SortEnabled { get; set; }
+        public System.Boolean DateOptions_SortEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -503,7 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_SortEnabled")]
-        public Boolean DoubleOptions_SortEnabled { get; set; }
+        public System.Boolean DoubleOptions_SortEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -512,7 +512,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_SortEnabled")]
-        public Boolean IntOptions_SortEnabled { get; set; }
+        public System.Boolean IntOptions_SortEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -521,7 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_SortEnabled")]
-        public Boolean LatLonOptions_SortEnabled { get; set; }
+        public System.Boolean LatLonOptions_SortEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -530,7 +530,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_SortEnabled")]
-        public Boolean LiteralOptions_SortEnabled { get; set; }
+        public System.Boolean LiteralOptions_SortEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -539,7 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_SortEnabled")]
-        public Boolean TextOptions_SortEnabled { get; set; }
+        public System.Boolean TextOptions_SortEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -548,7 +548,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_SourceField")]
-        public String DateOptions_SourceField { get; set; }
+        public System.String DateOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -557,7 +557,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_SourceField")]
-        public String DoubleOptions_SourceField { get; set; }
+        public System.String DoubleOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -566,7 +566,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_SourceField")]
-        public String IntOptions_SourceField { get; set; }
+        public System.String IntOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -575,7 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_SourceField")]
-        public String LatLonOptions_SourceField { get; set; }
+        public System.String LatLonOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -584,7 +584,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_SourceField")]
-        public String LiteralOptions_SourceField { get; set; }
+        public System.String LiteralOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -593,7 +593,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_SourceField")]
-        public String TextOptions_SourceField { get; set; }
+        public System.String TextOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -602,7 +602,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_SourceFields")]
-        public String DateArrayOptions_SourceField { get; set; }
+        public System.String DateArrayOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -611,7 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_SourceFields")]
-        public String DoubleArrayOptions_SourceField { get; set; }
+        public System.String DoubleArrayOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -620,7 +620,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_SourceFields")]
-        public String IntArrayOptions_SourceField { get; set; }
+        public System.String IntArrayOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -629,7 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_SourceFields")]
-        public String LiteralArrayOptions_SourceField { get; set; }
+        public System.String LiteralArrayOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -638,7 +638,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_SourceFields")]
-        public String TextArrayOptions_SourceField { get; set; }
+        public System.String TextArrayOptions_SourceField { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -781,7 +781,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DefineIndexFieldRequest();
+            var request = new Amazon.CloudSearch.Model.DefineIndexFieldRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -790,8 +790,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
             
              // populate IndexField
             bool requestIndexFieldIsNull = true;
-            request.IndexField = new IndexField();
-            String requestIndexField_indexField_IndexFieldName = null;
+            request.IndexField = new Amazon.CloudSearch.Model.IndexField();
+            System.String requestIndexField_indexField_IndexFieldName = null;
             if (cmdletContext.IndexField_IndexFieldName != null)
             {
                 requestIndexField_indexField_IndexFieldName = cmdletContext.IndexField_IndexFieldName;
@@ -801,7 +801,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.IndexFieldName = requestIndexField_indexField_IndexFieldName;
                 requestIndexFieldIsNull = false;
             }
-            IndexFieldType requestIndexField_indexField_IndexFieldType = null;
+            Amazon.CloudSearch.IndexFieldType requestIndexField_indexField_IndexFieldType = null;
             if (cmdletContext.IndexField_IndexFieldType != null)
             {
                 requestIndexField_indexField_IndexFieldType = cmdletContext.IndexField_IndexFieldType;
@@ -811,12 +811,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.IndexFieldType = requestIndexField_indexField_IndexFieldType;
                 requestIndexFieldIsNull = false;
             }
-            DateArrayOptions requestIndexField_indexField_DateArrayOptions = null;
+            Amazon.CloudSearch.Model.DateArrayOptions requestIndexField_indexField_DateArrayOptions = null;
             
              // populate DateArrayOptions
             bool requestIndexField_indexField_DateArrayOptionsIsNull = true;
-            requestIndexField_indexField_DateArrayOptions = new DateArrayOptions();
-            String requestIndexField_indexField_DateArrayOptions_dateArrayOptions_DefaultValue = null;
+            requestIndexField_indexField_DateArrayOptions = new Amazon.CloudSearch.Model.DateArrayOptions();
+            System.String requestIndexField_indexField_DateArrayOptions_dateArrayOptions_DefaultValue = null;
             if (cmdletContext.IndexField_DateArrayOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_DateArrayOptions_dateArrayOptions_DefaultValue = cmdletContext.IndexField_DateArrayOptions_DefaultValue;
@@ -826,7 +826,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateArrayOptions.DefaultValue = requestIndexField_indexField_DateArrayOptions_dateArrayOptions_DefaultValue;
                 requestIndexField_indexField_DateArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DateArrayOptions_dateArrayOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_DateArrayOptions_dateArrayOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_DateArrayOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_DateArrayOptions_dateArrayOptions_FacetEnabled = cmdletContext.IndexField_DateArrayOptions_FacetEnabled.Value;
@@ -836,7 +836,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateArrayOptions.FacetEnabled = requestIndexField_indexField_DateArrayOptions_dateArrayOptions_FacetEnabled.Value;
                 requestIndexField_indexField_DateArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DateArrayOptions_dateArrayOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_DateArrayOptions_dateArrayOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_DateArrayOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_DateArrayOptions_dateArrayOptions_ReturnEnabled = cmdletContext.IndexField_DateArrayOptions_ReturnEnabled.Value;
@@ -846,7 +846,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateArrayOptions.ReturnEnabled = requestIndexField_indexField_DateArrayOptions_dateArrayOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_DateArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DateArrayOptions_dateArrayOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_DateArrayOptions_dateArrayOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_DateArrayOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_DateArrayOptions_dateArrayOptions_SearchEnabled = cmdletContext.IndexField_DateArrayOptions_SearchEnabled.Value;
@@ -856,7 +856,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateArrayOptions.SearchEnabled = requestIndexField_indexField_DateArrayOptions_dateArrayOptions_SearchEnabled.Value;
                 requestIndexField_indexField_DateArrayOptionsIsNull = false;
             }
-            String requestIndexField_indexField_DateArrayOptions_dateArrayOptions_SourceField = null;
+            System.String requestIndexField_indexField_DateArrayOptions_dateArrayOptions_SourceField = null;
             if (cmdletContext.IndexField_DateArrayOptions_SourceFields != null)
             {
                 requestIndexField_indexField_DateArrayOptions_dateArrayOptions_SourceField = cmdletContext.IndexField_DateArrayOptions_SourceFields;
@@ -876,12 +876,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.DateArrayOptions = requestIndexField_indexField_DateArrayOptions;
                 requestIndexFieldIsNull = false;
             }
-            DoubleArrayOptions requestIndexField_indexField_DoubleArrayOptions = null;
+            Amazon.CloudSearch.Model.DoubleArrayOptions requestIndexField_indexField_DoubleArrayOptions = null;
             
              // populate DoubleArrayOptions
             bool requestIndexField_indexField_DoubleArrayOptionsIsNull = true;
-            requestIndexField_indexField_DoubleArrayOptions = new DoubleArrayOptions();
-            Double? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_DefaultValue = null;
+            requestIndexField_indexField_DoubleArrayOptions = new Amazon.CloudSearch.Model.DoubleArrayOptions();
+            System.Double? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_DefaultValue = null;
             if (cmdletContext.IndexField_DoubleArrayOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_DefaultValue = cmdletContext.IndexField_DoubleArrayOptions_DefaultValue.Value;
@@ -891,7 +891,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleArrayOptions.DefaultValue = requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_DefaultValue.Value;
                 requestIndexField_indexField_DoubleArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_DoubleArrayOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_FacetEnabled = cmdletContext.IndexField_DoubleArrayOptions_FacetEnabled.Value;
@@ -901,7 +901,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleArrayOptions.FacetEnabled = requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_FacetEnabled.Value;
                 requestIndexField_indexField_DoubleArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_DoubleArrayOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_ReturnEnabled = cmdletContext.IndexField_DoubleArrayOptions_ReturnEnabled.Value;
@@ -911,7 +911,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleArrayOptions.ReturnEnabled = requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_DoubleArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_DoubleArrayOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_SearchEnabled = cmdletContext.IndexField_DoubleArrayOptions_SearchEnabled.Value;
@@ -921,7 +921,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleArrayOptions.SearchEnabled = requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_SearchEnabled.Value;
                 requestIndexField_indexField_DoubleArrayOptionsIsNull = false;
             }
-            String requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_SourceField = null;
+            System.String requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_SourceField = null;
             if (cmdletContext.IndexField_DoubleArrayOptions_SourceFields != null)
             {
                 requestIndexField_indexField_DoubleArrayOptions_doubleArrayOptions_SourceField = cmdletContext.IndexField_DoubleArrayOptions_SourceFields;
@@ -941,12 +941,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.DoubleArrayOptions = requestIndexField_indexField_DoubleArrayOptions;
                 requestIndexFieldIsNull = false;
             }
-            IntArrayOptions requestIndexField_indexField_IntArrayOptions = null;
+            Amazon.CloudSearch.Model.IntArrayOptions requestIndexField_indexField_IntArrayOptions = null;
             
              // populate IntArrayOptions
             bool requestIndexField_indexField_IntArrayOptionsIsNull = true;
-            requestIndexField_indexField_IntArrayOptions = new IntArrayOptions();
-            Int64? requestIndexField_indexField_IntArrayOptions_intArrayOptions_DefaultValue = null;
+            requestIndexField_indexField_IntArrayOptions = new Amazon.CloudSearch.Model.IntArrayOptions();
+            System.Int64? requestIndexField_indexField_IntArrayOptions_intArrayOptions_DefaultValue = null;
             if (cmdletContext.IndexField_IntArrayOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_IntArrayOptions_intArrayOptions_DefaultValue = cmdletContext.IndexField_IntArrayOptions_DefaultValue.Value;
@@ -956,7 +956,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntArrayOptions.DefaultValue = requestIndexField_indexField_IntArrayOptions_intArrayOptions_DefaultValue.Value;
                 requestIndexField_indexField_IntArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_IntArrayOptions_intArrayOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_IntArrayOptions_intArrayOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_IntArrayOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_IntArrayOptions_intArrayOptions_FacetEnabled = cmdletContext.IndexField_IntArrayOptions_FacetEnabled.Value;
@@ -966,7 +966,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntArrayOptions.FacetEnabled = requestIndexField_indexField_IntArrayOptions_intArrayOptions_FacetEnabled.Value;
                 requestIndexField_indexField_IntArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_IntArrayOptions_intArrayOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_IntArrayOptions_intArrayOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_IntArrayOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_IntArrayOptions_intArrayOptions_ReturnEnabled = cmdletContext.IndexField_IntArrayOptions_ReturnEnabled.Value;
@@ -976,7 +976,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntArrayOptions.ReturnEnabled = requestIndexField_indexField_IntArrayOptions_intArrayOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_IntArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_IntArrayOptions_intArrayOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_IntArrayOptions_intArrayOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_IntArrayOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_IntArrayOptions_intArrayOptions_SearchEnabled = cmdletContext.IndexField_IntArrayOptions_SearchEnabled.Value;
@@ -986,7 +986,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntArrayOptions.SearchEnabled = requestIndexField_indexField_IntArrayOptions_intArrayOptions_SearchEnabled.Value;
                 requestIndexField_indexField_IntArrayOptionsIsNull = false;
             }
-            String requestIndexField_indexField_IntArrayOptions_intArrayOptions_SourceField = null;
+            System.String requestIndexField_indexField_IntArrayOptions_intArrayOptions_SourceField = null;
             if (cmdletContext.IndexField_IntArrayOptions_SourceFields != null)
             {
                 requestIndexField_indexField_IntArrayOptions_intArrayOptions_SourceField = cmdletContext.IndexField_IntArrayOptions_SourceFields;
@@ -1006,12 +1006,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.IntArrayOptions = requestIndexField_indexField_IntArrayOptions;
                 requestIndexFieldIsNull = false;
             }
-            LiteralArrayOptions requestIndexField_indexField_LiteralArrayOptions = null;
+            Amazon.CloudSearch.Model.LiteralArrayOptions requestIndexField_indexField_LiteralArrayOptions = null;
             
              // populate LiteralArrayOptions
             bool requestIndexField_indexField_LiteralArrayOptionsIsNull = true;
-            requestIndexField_indexField_LiteralArrayOptions = new LiteralArrayOptions();
-            String requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_DefaultValue = null;
+            requestIndexField_indexField_LiteralArrayOptions = new Amazon.CloudSearch.Model.LiteralArrayOptions();
+            System.String requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_DefaultValue = null;
             if (cmdletContext.IndexField_LiteralArrayOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_DefaultValue = cmdletContext.IndexField_LiteralArrayOptions_DefaultValue;
@@ -1021,7 +1021,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralArrayOptions.DefaultValue = requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_DefaultValue;
                 requestIndexField_indexField_LiteralArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_LiteralArrayOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_FacetEnabled = cmdletContext.IndexField_LiteralArrayOptions_FacetEnabled.Value;
@@ -1031,7 +1031,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralArrayOptions.FacetEnabled = requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_FacetEnabled.Value;
                 requestIndexField_indexField_LiteralArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_LiteralArrayOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_ReturnEnabled = cmdletContext.IndexField_LiteralArrayOptions_ReturnEnabled.Value;
@@ -1041,7 +1041,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralArrayOptions.ReturnEnabled = requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_LiteralArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_LiteralArrayOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_SearchEnabled = cmdletContext.IndexField_LiteralArrayOptions_SearchEnabled.Value;
@@ -1051,7 +1051,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralArrayOptions.SearchEnabled = requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_SearchEnabled.Value;
                 requestIndexField_indexField_LiteralArrayOptionsIsNull = false;
             }
-            String requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_SourceField = null;
+            System.String requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_SourceField = null;
             if (cmdletContext.IndexField_LiteralArrayOptions_SourceFields != null)
             {
                 requestIndexField_indexField_LiteralArrayOptions_literalArrayOptions_SourceField = cmdletContext.IndexField_LiteralArrayOptions_SourceFields;
@@ -1071,12 +1071,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.LiteralArrayOptions = requestIndexField_indexField_LiteralArrayOptions;
                 requestIndexFieldIsNull = false;
             }
-            TextArrayOptions requestIndexField_indexField_TextArrayOptions = null;
+            Amazon.CloudSearch.Model.TextArrayOptions requestIndexField_indexField_TextArrayOptions = null;
             
              // populate TextArrayOptions
             bool requestIndexField_indexField_TextArrayOptionsIsNull = true;
-            requestIndexField_indexField_TextArrayOptions = new TextArrayOptions();
-            String requestIndexField_indexField_TextArrayOptions_textArrayOptions_AnalysisScheme = null;
+            requestIndexField_indexField_TextArrayOptions = new Amazon.CloudSearch.Model.TextArrayOptions();
+            System.String requestIndexField_indexField_TextArrayOptions_textArrayOptions_AnalysisScheme = null;
             if (cmdletContext.IndexField_TextArrayOptions_AnalysisScheme != null)
             {
                 requestIndexField_indexField_TextArrayOptions_textArrayOptions_AnalysisScheme = cmdletContext.IndexField_TextArrayOptions_AnalysisScheme;
@@ -1086,7 +1086,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextArrayOptions.AnalysisScheme = requestIndexField_indexField_TextArrayOptions_textArrayOptions_AnalysisScheme;
                 requestIndexField_indexField_TextArrayOptionsIsNull = false;
             }
-            String requestIndexField_indexField_TextArrayOptions_textArrayOptions_DefaultValue = null;
+            System.String requestIndexField_indexField_TextArrayOptions_textArrayOptions_DefaultValue = null;
             if (cmdletContext.IndexField_TextArrayOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_TextArrayOptions_textArrayOptions_DefaultValue = cmdletContext.IndexField_TextArrayOptions_DefaultValue;
@@ -1096,7 +1096,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextArrayOptions.DefaultValue = requestIndexField_indexField_TextArrayOptions_textArrayOptions_DefaultValue;
                 requestIndexField_indexField_TextArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_TextArrayOptions_textArrayOptions_HighlightEnabled = null;
+            System.Boolean? requestIndexField_indexField_TextArrayOptions_textArrayOptions_HighlightEnabled = null;
             if (cmdletContext.IndexField_TextArrayOptions_HighlightEnabled != null)
             {
                 requestIndexField_indexField_TextArrayOptions_textArrayOptions_HighlightEnabled = cmdletContext.IndexField_TextArrayOptions_HighlightEnabled.Value;
@@ -1106,7 +1106,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextArrayOptions.HighlightEnabled = requestIndexField_indexField_TextArrayOptions_textArrayOptions_HighlightEnabled.Value;
                 requestIndexField_indexField_TextArrayOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_TextArrayOptions_textArrayOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_TextArrayOptions_textArrayOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_TextArrayOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_TextArrayOptions_textArrayOptions_ReturnEnabled = cmdletContext.IndexField_TextArrayOptions_ReturnEnabled.Value;
@@ -1116,7 +1116,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextArrayOptions.ReturnEnabled = requestIndexField_indexField_TextArrayOptions_textArrayOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_TextArrayOptionsIsNull = false;
             }
-            String requestIndexField_indexField_TextArrayOptions_textArrayOptions_SourceField = null;
+            System.String requestIndexField_indexField_TextArrayOptions_textArrayOptions_SourceField = null;
             if (cmdletContext.IndexField_TextArrayOptions_SourceFields != null)
             {
                 requestIndexField_indexField_TextArrayOptions_textArrayOptions_SourceField = cmdletContext.IndexField_TextArrayOptions_SourceFields;
@@ -1136,12 +1136,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.TextArrayOptions = requestIndexField_indexField_TextArrayOptions;
                 requestIndexFieldIsNull = false;
             }
-            DateOptions requestIndexField_indexField_DateOptions = null;
+            Amazon.CloudSearch.Model.DateOptions requestIndexField_indexField_DateOptions = null;
             
              // populate DateOptions
             bool requestIndexField_indexField_DateOptionsIsNull = true;
-            requestIndexField_indexField_DateOptions = new DateOptions();
-            String requestIndexField_indexField_DateOptions_dateOptions_DefaultValue = null;
+            requestIndexField_indexField_DateOptions = new Amazon.CloudSearch.Model.DateOptions();
+            System.String requestIndexField_indexField_DateOptions_dateOptions_DefaultValue = null;
             if (cmdletContext.IndexField_DateOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_DateOptions_dateOptions_DefaultValue = cmdletContext.IndexField_DateOptions_DefaultValue;
@@ -1151,7 +1151,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateOptions.DefaultValue = requestIndexField_indexField_DateOptions_dateOptions_DefaultValue;
                 requestIndexField_indexField_DateOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DateOptions_dateOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_DateOptions_dateOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_DateOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_DateOptions_dateOptions_FacetEnabled = cmdletContext.IndexField_DateOptions_FacetEnabled.Value;
@@ -1161,7 +1161,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateOptions.FacetEnabled = requestIndexField_indexField_DateOptions_dateOptions_FacetEnabled.Value;
                 requestIndexField_indexField_DateOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DateOptions_dateOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_DateOptions_dateOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_DateOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_DateOptions_dateOptions_ReturnEnabled = cmdletContext.IndexField_DateOptions_ReturnEnabled.Value;
@@ -1171,7 +1171,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateOptions.ReturnEnabled = requestIndexField_indexField_DateOptions_dateOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_DateOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DateOptions_dateOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_DateOptions_dateOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_DateOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_DateOptions_dateOptions_SearchEnabled = cmdletContext.IndexField_DateOptions_SearchEnabled.Value;
@@ -1181,7 +1181,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateOptions.SearchEnabled = requestIndexField_indexField_DateOptions_dateOptions_SearchEnabled.Value;
                 requestIndexField_indexField_DateOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DateOptions_dateOptions_SortEnabled = null;
+            System.Boolean? requestIndexField_indexField_DateOptions_dateOptions_SortEnabled = null;
             if (cmdletContext.IndexField_DateOptions_SortEnabled != null)
             {
                 requestIndexField_indexField_DateOptions_dateOptions_SortEnabled = cmdletContext.IndexField_DateOptions_SortEnabled.Value;
@@ -1191,7 +1191,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DateOptions.SortEnabled = requestIndexField_indexField_DateOptions_dateOptions_SortEnabled.Value;
                 requestIndexField_indexField_DateOptionsIsNull = false;
             }
-            String requestIndexField_indexField_DateOptions_dateOptions_SourceField = null;
+            System.String requestIndexField_indexField_DateOptions_dateOptions_SourceField = null;
             if (cmdletContext.IndexField_DateOptions_SourceField != null)
             {
                 requestIndexField_indexField_DateOptions_dateOptions_SourceField = cmdletContext.IndexField_DateOptions_SourceField;
@@ -1211,12 +1211,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.DateOptions = requestIndexField_indexField_DateOptions;
                 requestIndexFieldIsNull = false;
             }
-            DoubleOptions requestIndexField_indexField_DoubleOptions = null;
+            Amazon.CloudSearch.Model.DoubleOptions requestIndexField_indexField_DoubleOptions = null;
             
              // populate DoubleOptions
             bool requestIndexField_indexField_DoubleOptionsIsNull = true;
-            requestIndexField_indexField_DoubleOptions = new DoubleOptions();
-            Double? requestIndexField_indexField_DoubleOptions_doubleOptions_DefaultValue = null;
+            requestIndexField_indexField_DoubleOptions = new Amazon.CloudSearch.Model.DoubleOptions();
+            System.Double? requestIndexField_indexField_DoubleOptions_doubleOptions_DefaultValue = null;
             if (cmdletContext.IndexField_DoubleOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_DoubleOptions_doubleOptions_DefaultValue = cmdletContext.IndexField_DoubleOptions_DefaultValue.Value;
@@ -1226,7 +1226,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleOptions.DefaultValue = requestIndexField_indexField_DoubleOptions_doubleOptions_DefaultValue.Value;
                 requestIndexField_indexField_DoubleOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_DoubleOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_DoubleOptions_doubleOptions_FacetEnabled = cmdletContext.IndexField_DoubleOptions_FacetEnabled.Value;
@@ -1236,7 +1236,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleOptions.FacetEnabled = requestIndexField_indexField_DoubleOptions_doubleOptions_FacetEnabled.Value;
                 requestIndexField_indexField_DoubleOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_DoubleOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_DoubleOptions_doubleOptions_ReturnEnabled = cmdletContext.IndexField_DoubleOptions_ReturnEnabled.Value;
@@ -1246,7 +1246,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleOptions.ReturnEnabled = requestIndexField_indexField_DoubleOptions_doubleOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_DoubleOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_DoubleOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_DoubleOptions_doubleOptions_SearchEnabled = cmdletContext.IndexField_DoubleOptions_SearchEnabled.Value;
@@ -1256,7 +1256,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleOptions.SearchEnabled = requestIndexField_indexField_DoubleOptions_doubleOptions_SearchEnabled.Value;
                 requestIndexField_indexField_DoubleOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_SortEnabled = null;
+            System.Boolean? requestIndexField_indexField_DoubleOptions_doubleOptions_SortEnabled = null;
             if (cmdletContext.IndexField_DoubleOptions_SortEnabled != null)
             {
                 requestIndexField_indexField_DoubleOptions_doubleOptions_SortEnabled = cmdletContext.IndexField_DoubleOptions_SortEnabled.Value;
@@ -1266,7 +1266,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_DoubleOptions.SortEnabled = requestIndexField_indexField_DoubleOptions_doubleOptions_SortEnabled.Value;
                 requestIndexField_indexField_DoubleOptionsIsNull = false;
             }
-            String requestIndexField_indexField_DoubleOptions_doubleOptions_SourceField = null;
+            System.String requestIndexField_indexField_DoubleOptions_doubleOptions_SourceField = null;
             if (cmdletContext.IndexField_DoubleOptions_SourceField != null)
             {
                 requestIndexField_indexField_DoubleOptions_doubleOptions_SourceField = cmdletContext.IndexField_DoubleOptions_SourceField;
@@ -1286,12 +1286,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.DoubleOptions = requestIndexField_indexField_DoubleOptions;
                 requestIndexFieldIsNull = false;
             }
-            IntOptions requestIndexField_indexField_IntOptions = null;
+            Amazon.CloudSearch.Model.IntOptions requestIndexField_indexField_IntOptions = null;
             
              // populate IntOptions
             bool requestIndexField_indexField_IntOptionsIsNull = true;
-            requestIndexField_indexField_IntOptions = new IntOptions();
-            Int64? requestIndexField_indexField_IntOptions_intOptions_DefaultValue = null;
+            requestIndexField_indexField_IntOptions = new Amazon.CloudSearch.Model.IntOptions();
+            System.Int64? requestIndexField_indexField_IntOptions_intOptions_DefaultValue = null;
             if (cmdletContext.IndexField_IntOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_IntOptions_intOptions_DefaultValue = cmdletContext.IndexField_IntOptions_DefaultValue.Value;
@@ -1301,7 +1301,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntOptions.DefaultValue = requestIndexField_indexField_IntOptions_intOptions_DefaultValue.Value;
                 requestIndexField_indexField_IntOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_IntOptions_intOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_IntOptions_intOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_IntOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_IntOptions_intOptions_FacetEnabled = cmdletContext.IndexField_IntOptions_FacetEnabled.Value;
@@ -1311,7 +1311,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntOptions.FacetEnabled = requestIndexField_indexField_IntOptions_intOptions_FacetEnabled.Value;
                 requestIndexField_indexField_IntOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_IntOptions_intOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_IntOptions_intOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_IntOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_IntOptions_intOptions_ReturnEnabled = cmdletContext.IndexField_IntOptions_ReturnEnabled.Value;
@@ -1321,7 +1321,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntOptions.ReturnEnabled = requestIndexField_indexField_IntOptions_intOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_IntOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_IntOptions_intOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_IntOptions_intOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_IntOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_IntOptions_intOptions_SearchEnabled = cmdletContext.IndexField_IntOptions_SearchEnabled.Value;
@@ -1331,7 +1331,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntOptions.SearchEnabled = requestIndexField_indexField_IntOptions_intOptions_SearchEnabled.Value;
                 requestIndexField_indexField_IntOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_IntOptions_intOptions_SortEnabled = null;
+            System.Boolean? requestIndexField_indexField_IntOptions_intOptions_SortEnabled = null;
             if (cmdletContext.IndexField_IntOptions_SortEnabled != null)
             {
                 requestIndexField_indexField_IntOptions_intOptions_SortEnabled = cmdletContext.IndexField_IntOptions_SortEnabled.Value;
@@ -1341,7 +1341,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_IntOptions.SortEnabled = requestIndexField_indexField_IntOptions_intOptions_SortEnabled.Value;
                 requestIndexField_indexField_IntOptionsIsNull = false;
             }
-            String requestIndexField_indexField_IntOptions_intOptions_SourceField = null;
+            System.String requestIndexField_indexField_IntOptions_intOptions_SourceField = null;
             if (cmdletContext.IndexField_IntOptions_SourceField != null)
             {
                 requestIndexField_indexField_IntOptions_intOptions_SourceField = cmdletContext.IndexField_IntOptions_SourceField;
@@ -1361,12 +1361,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.IntOptions = requestIndexField_indexField_IntOptions;
                 requestIndexFieldIsNull = false;
             }
-            LatLonOptions requestIndexField_indexField_LatLonOptions = null;
+            Amazon.CloudSearch.Model.LatLonOptions requestIndexField_indexField_LatLonOptions = null;
             
              // populate LatLonOptions
             bool requestIndexField_indexField_LatLonOptionsIsNull = true;
-            requestIndexField_indexField_LatLonOptions = new LatLonOptions();
-            String requestIndexField_indexField_LatLonOptions_latLonOptions_DefaultValue = null;
+            requestIndexField_indexField_LatLonOptions = new Amazon.CloudSearch.Model.LatLonOptions();
+            System.String requestIndexField_indexField_LatLonOptions_latLonOptions_DefaultValue = null;
             if (cmdletContext.IndexField_LatLonOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_LatLonOptions_latLonOptions_DefaultValue = cmdletContext.IndexField_LatLonOptions_DefaultValue;
@@ -1376,7 +1376,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LatLonOptions.DefaultValue = requestIndexField_indexField_LatLonOptions_latLonOptions_DefaultValue;
                 requestIndexField_indexField_LatLonOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_LatLonOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_LatLonOptions_latLonOptions_FacetEnabled = cmdletContext.IndexField_LatLonOptions_FacetEnabled.Value;
@@ -1386,7 +1386,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LatLonOptions.FacetEnabled = requestIndexField_indexField_LatLonOptions_latLonOptions_FacetEnabled.Value;
                 requestIndexField_indexField_LatLonOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_LatLonOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_LatLonOptions_latLonOptions_ReturnEnabled = cmdletContext.IndexField_LatLonOptions_ReturnEnabled.Value;
@@ -1396,7 +1396,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LatLonOptions.ReturnEnabled = requestIndexField_indexField_LatLonOptions_latLonOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_LatLonOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_LatLonOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_LatLonOptions_latLonOptions_SearchEnabled = cmdletContext.IndexField_LatLonOptions_SearchEnabled.Value;
@@ -1406,7 +1406,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LatLonOptions.SearchEnabled = requestIndexField_indexField_LatLonOptions_latLonOptions_SearchEnabled.Value;
                 requestIndexField_indexField_LatLonOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_SortEnabled = null;
+            System.Boolean? requestIndexField_indexField_LatLonOptions_latLonOptions_SortEnabled = null;
             if (cmdletContext.IndexField_LatLonOptions_SortEnabled != null)
             {
                 requestIndexField_indexField_LatLonOptions_latLonOptions_SortEnabled = cmdletContext.IndexField_LatLonOptions_SortEnabled.Value;
@@ -1416,7 +1416,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LatLonOptions.SortEnabled = requestIndexField_indexField_LatLonOptions_latLonOptions_SortEnabled.Value;
                 requestIndexField_indexField_LatLonOptionsIsNull = false;
             }
-            String requestIndexField_indexField_LatLonOptions_latLonOptions_SourceField = null;
+            System.String requestIndexField_indexField_LatLonOptions_latLonOptions_SourceField = null;
             if (cmdletContext.IndexField_LatLonOptions_SourceField != null)
             {
                 requestIndexField_indexField_LatLonOptions_latLonOptions_SourceField = cmdletContext.IndexField_LatLonOptions_SourceField;
@@ -1436,12 +1436,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.LatLonOptions = requestIndexField_indexField_LatLonOptions;
                 requestIndexFieldIsNull = false;
             }
-            LiteralOptions requestIndexField_indexField_LiteralOptions = null;
+            Amazon.CloudSearch.Model.LiteralOptions requestIndexField_indexField_LiteralOptions = null;
             
              // populate LiteralOptions
             bool requestIndexField_indexField_LiteralOptionsIsNull = true;
-            requestIndexField_indexField_LiteralOptions = new LiteralOptions();
-            String requestIndexField_indexField_LiteralOptions_literalOptions_DefaultValue = null;
+            requestIndexField_indexField_LiteralOptions = new Amazon.CloudSearch.Model.LiteralOptions();
+            System.String requestIndexField_indexField_LiteralOptions_literalOptions_DefaultValue = null;
             if (cmdletContext.IndexField_LiteralOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_LiteralOptions_literalOptions_DefaultValue = cmdletContext.IndexField_LiteralOptions_DefaultValue;
@@ -1451,7 +1451,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralOptions.DefaultValue = requestIndexField_indexField_LiteralOptions_literalOptions_DefaultValue;
                 requestIndexField_indexField_LiteralOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_FacetEnabled = null;
+            System.Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_FacetEnabled = null;
             if (cmdletContext.IndexField_LiteralOptions_FacetEnabled != null)
             {
                 requestIndexField_indexField_LiteralOptions_literalOptions_FacetEnabled = cmdletContext.IndexField_LiteralOptions_FacetEnabled.Value;
@@ -1461,7 +1461,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralOptions.FacetEnabled = requestIndexField_indexField_LiteralOptions_literalOptions_FacetEnabled.Value;
                 requestIndexField_indexField_LiteralOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_LiteralOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_LiteralOptions_literalOptions_ReturnEnabled = cmdletContext.IndexField_LiteralOptions_ReturnEnabled.Value;
@@ -1471,7 +1471,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralOptions.ReturnEnabled = requestIndexField_indexField_LiteralOptions_literalOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_LiteralOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_SearchEnabled = null;
+            System.Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_SearchEnabled = null;
             if (cmdletContext.IndexField_LiteralOptions_SearchEnabled != null)
             {
                 requestIndexField_indexField_LiteralOptions_literalOptions_SearchEnabled = cmdletContext.IndexField_LiteralOptions_SearchEnabled.Value;
@@ -1481,7 +1481,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralOptions.SearchEnabled = requestIndexField_indexField_LiteralOptions_literalOptions_SearchEnabled.Value;
                 requestIndexField_indexField_LiteralOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_SortEnabled = null;
+            System.Boolean? requestIndexField_indexField_LiteralOptions_literalOptions_SortEnabled = null;
             if (cmdletContext.IndexField_LiteralOptions_SortEnabled != null)
             {
                 requestIndexField_indexField_LiteralOptions_literalOptions_SortEnabled = cmdletContext.IndexField_LiteralOptions_SortEnabled.Value;
@@ -1491,7 +1491,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_LiteralOptions.SortEnabled = requestIndexField_indexField_LiteralOptions_literalOptions_SortEnabled.Value;
                 requestIndexField_indexField_LiteralOptionsIsNull = false;
             }
-            String requestIndexField_indexField_LiteralOptions_literalOptions_SourceField = null;
+            System.String requestIndexField_indexField_LiteralOptions_literalOptions_SourceField = null;
             if (cmdletContext.IndexField_LiteralOptions_SourceField != null)
             {
                 requestIndexField_indexField_LiteralOptions_literalOptions_SourceField = cmdletContext.IndexField_LiteralOptions_SourceField;
@@ -1511,12 +1511,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.IndexField.LiteralOptions = requestIndexField_indexField_LiteralOptions;
                 requestIndexFieldIsNull = false;
             }
-            TextOptions requestIndexField_indexField_TextOptions = null;
+            Amazon.CloudSearch.Model.TextOptions requestIndexField_indexField_TextOptions = null;
             
              // populate TextOptions
             bool requestIndexField_indexField_TextOptionsIsNull = true;
-            requestIndexField_indexField_TextOptions = new TextOptions();
-            String requestIndexField_indexField_TextOptions_textOptions_AnalysisScheme = null;
+            requestIndexField_indexField_TextOptions = new Amazon.CloudSearch.Model.TextOptions();
+            System.String requestIndexField_indexField_TextOptions_textOptions_AnalysisScheme = null;
             if (cmdletContext.IndexField_TextOptions_AnalysisScheme != null)
             {
                 requestIndexField_indexField_TextOptions_textOptions_AnalysisScheme = cmdletContext.IndexField_TextOptions_AnalysisScheme;
@@ -1526,7 +1526,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextOptions.AnalysisScheme = requestIndexField_indexField_TextOptions_textOptions_AnalysisScheme;
                 requestIndexField_indexField_TextOptionsIsNull = false;
             }
-            String requestIndexField_indexField_TextOptions_textOptions_DefaultValue = null;
+            System.String requestIndexField_indexField_TextOptions_textOptions_DefaultValue = null;
             if (cmdletContext.IndexField_TextOptions_DefaultValue != null)
             {
                 requestIndexField_indexField_TextOptions_textOptions_DefaultValue = cmdletContext.IndexField_TextOptions_DefaultValue;
@@ -1536,7 +1536,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextOptions.DefaultValue = requestIndexField_indexField_TextOptions_textOptions_DefaultValue;
                 requestIndexField_indexField_TextOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_TextOptions_textOptions_HighlightEnabled = null;
+            System.Boolean? requestIndexField_indexField_TextOptions_textOptions_HighlightEnabled = null;
             if (cmdletContext.IndexField_TextOptions_HighlightEnabled != null)
             {
                 requestIndexField_indexField_TextOptions_textOptions_HighlightEnabled = cmdletContext.IndexField_TextOptions_HighlightEnabled.Value;
@@ -1546,7 +1546,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextOptions.HighlightEnabled = requestIndexField_indexField_TextOptions_textOptions_HighlightEnabled.Value;
                 requestIndexField_indexField_TextOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_TextOptions_textOptions_ReturnEnabled = null;
+            System.Boolean? requestIndexField_indexField_TextOptions_textOptions_ReturnEnabled = null;
             if (cmdletContext.IndexField_TextOptions_ReturnEnabled != null)
             {
                 requestIndexField_indexField_TextOptions_textOptions_ReturnEnabled = cmdletContext.IndexField_TextOptions_ReturnEnabled.Value;
@@ -1556,7 +1556,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextOptions.ReturnEnabled = requestIndexField_indexField_TextOptions_textOptions_ReturnEnabled.Value;
                 requestIndexField_indexField_TextOptionsIsNull = false;
             }
-            Boolean? requestIndexField_indexField_TextOptions_textOptions_SortEnabled = null;
+            System.Boolean? requestIndexField_indexField_TextOptions_textOptions_SortEnabled = null;
             if (cmdletContext.IndexField_TextOptions_SortEnabled != null)
             {
                 requestIndexField_indexField_TextOptions_textOptions_SortEnabled = cmdletContext.IndexField_TextOptions_SortEnabled.Value;
@@ -1566,7 +1566,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestIndexField_indexField_TextOptions.SortEnabled = requestIndexField_indexField_TextOptions_textOptions_SortEnabled.Value;
                 requestIndexField_indexField_TextOptionsIsNull = false;
             }
-            String requestIndexField_indexField_TextOptions_textOptions_SourceField = null;
+            System.String requestIndexField_indexField_TextOptions_textOptions_SourceField = null;
             if (cmdletContext.IndexField_TextOptions_SourceField != null)
             {
                 requestIndexField_indexField_TextOptions_textOptions_SourceField = cmdletContext.IndexField_TextOptions_SourceField;
@@ -1626,70 +1626,70 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String IndexField_DateArrayOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_DateArrayOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_DateArrayOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_DateArrayOptions_SearchEnabled { get; set; }
-            public String IndexField_DateArrayOptions_SourceFields { get; set; }
-            public String IndexField_DateOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_DateOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_DateOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_DateOptions_SearchEnabled { get; set; }
-            public Boolean? IndexField_DateOptions_SortEnabled { get; set; }
-            public String IndexField_DateOptions_SourceField { get; set; }
-            public Double? IndexField_DoubleArrayOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_DoubleArrayOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_DoubleArrayOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_DoubleArrayOptions_SearchEnabled { get; set; }
-            public String IndexField_DoubleArrayOptions_SourceFields { get; set; }
-            public Double? IndexField_DoubleOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_DoubleOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_DoubleOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_DoubleOptions_SearchEnabled { get; set; }
-            public Boolean? IndexField_DoubleOptions_SortEnabled { get; set; }
-            public String IndexField_DoubleOptions_SourceField { get; set; }
-            public String IndexField_IndexFieldName { get; set; }
-            public IndexFieldType IndexField_IndexFieldType { get; set; }
-            public Int64? IndexField_IntArrayOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_IntArrayOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_IntArrayOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_IntArrayOptions_SearchEnabled { get; set; }
-            public String IndexField_IntArrayOptions_SourceFields { get; set; }
-            public Int64? IndexField_IntOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_IntOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_IntOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_IntOptions_SearchEnabled { get; set; }
-            public Boolean? IndexField_IntOptions_SortEnabled { get; set; }
-            public String IndexField_IntOptions_SourceField { get; set; }
-            public String IndexField_LatLonOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_LatLonOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_LatLonOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_LatLonOptions_SearchEnabled { get; set; }
-            public Boolean? IndexField_LatLonOptions_SortEnabled { get; set; }
-            public String IndexField_LatLonOptions_SourceField { get; set; }
-            public String IndexField_LiteralArrayOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_LiteralArrayOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_LiteralArrayOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_LiteralArrayOptions_SearchEnabled { get; set; }
-            public String IndexField_LiteralArrayOptions_SourceFields { get; set; }
-            public String IndexField_LiteralOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_LiteralOptions_FacetEnabled { get; set; }
-            public Boolean? IndexField_LiteralOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_LiteralOptions_SearchEnabled { get; set; }
-            public Boolean? IndexField_LiteralOptions_SortEnabled { get; set; }
-            public String IndexField_LiteralOptions_SourceField { get; set; }
-            public String IndexField_TextArrayOptions_AnalysisScheme { get; set; }
-            public String IndexField_TextArrayOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_TextArrayOptions_HighlightEnabled { get; set; }
-            public Boolean? IndexField_TextArrayOptions_ReturnEnabled { get; set; }
-            public String IndexField_TextArrayOptions_SourceFields { get; set; }
-            public String IndexField_TextOptions_AnalysisScheme { get; set; }
-            public String IndexField_TextOptions_DefaultValue { get; set; }
-            public Boolean? IndexField_TextOptions_HighlightEnabled { get; set; }
-            public Boolean? IndexField_TextOptions_ReturnEnabled { get; set; }
-            public Boolean? IndexField_TextOptions_SortEnabled { get; set; }
-            public String IndexField_TextOptions_SourceField { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String IndexField_DateArrayOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_DateArrayOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_DateArrayOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_DateArrayOptions_SearchEnabled { get; set; }
+            public System.String IndexField_DateArrayOptions_SourceFields { get; set; }
+            public System.String IndexField_DateOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_DateOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_DateOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_DateOptions_SearchEnabled { get; set; }
+            public System.Boolean? IndexField_DateOptions_SortEnabled { get; set; }
+            public System.String IndexField_DateOptions_SourceField { get; set; }
+            public System.Double? IndexField_DoubleArrayOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_DoubleArrayOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_DoubleArrayOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_DoubleArrayOptions_SearchEnabled { get; set; }
+            public System.String IndexField_DoubleArrayOptions_SourceFields { get; set; }
+            public System.Double? IndexField_DoubleOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_DoubleOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_DoubleOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_DoubleOptions_SearchEnabled { get; set; }
+            public System.Boolean? IndexField_DoubleOptions_SortEnabled { get; set; }
+            public System.String IndexField_DoubleOptions_SourceField { get; set; }
+            public System.String IndexField_IndexFieldName { get; set; }
+            public Amazon.CloudSearch.IndexFieldType IndexField_IndexFieldType { get; set; }
+            public System.Int64? IndexField_IntArrayOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_IntArrayOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_IntArrayOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_IntArrayOptions_SearchEnabled { get; set; }
+            public System.String IndexField_IntArrayOptions_SourceFields { get; set; }
+            public System.Int64? IndexField_IntOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_IntOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_IntOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_IntOptions_SearchEnabled { get; set; }
+            public System.Boolean? IndexField_IntOptions_SortEnabled { get; set; }
+            public System.String IndexField_IntOptions_SourceField { get; set; }
+            public System.String IndexField_LatLonOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_LatLonOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_LatLonOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_LatLonOptions_SearchEnabled { get; set; }
+            public System.Boolean? IndexField_LatLonOptions_SortEnabled { get; set; }
+            public System.String IndexField_LatLonOptions_SourceField { get; set; }
+            public System.String IndexField_LiteralArrayOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_LiteralArrayOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_LiteralArrayOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_LiteralArrayOptions_SearchEnabled { get; set; }
+            public System.String IndexField_LiteralArrayOptions_SourceFields { get; set; }
+            public System.String IndexField_LiteralOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_LiteralOptions_FacetEnabled { get; set; }
+            public System.Boolean? IndexField_LiteralOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_LiteralOptions_SearchEnabled { get; set; }
+            public System.Boolean? IndexField_LiteralOptions_SortEnabled { get; set; }
+            public System.String IndexField_LiteralOptions_SourceField { get; set; }
+            public System.String IndexField_TextArrayOptions_AnalysisScheme { get; set; }
+            public System.String IndexField_TextArrayOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_TextArrayOptions_HighlightEnabled { get; set; }
+            public System.Boolean? IndexField_TextArrayOptions_ReturnEnabled { get; set; }
+            public System.String IndexField_TextArrayOptions_SourceFields { get; set; }
+            public System.String IndexField_TextOptions_AnalysisScheme { get; set; }
+            public System.String IndexField_TextOptions_DefaultValue { get; set; }
+            public System.Boolean? IndexField_TextOptions_HighlightEnabled { get; set; }
+            public System.Boolean? IndexField_TextOptions_ReturnEnabled { get; set; }
+            public System.Boolean? IndexField_TextOptions_SortEnabled { get; set; }
+            public System.String IndexField_TextOptions_SourceField { get; set; }
         }
         
     }

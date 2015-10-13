@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateOptionGroup operation against Amazon Relational Database Service.", Operation = new[] {"CreateOptionGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.OptionGroup",
         "This cmdlet returns a OptionGroup object.",
-        "The service call response (type CreateOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EngineName { get; set; }
+        public System.String EngineName { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String MajorEngineVersion { get; set; }
+        public System.String MajorEngineVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String OptionGroupDescription { get; set; }
+        public System.String OptionGroupDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.OptionGroupName = this.OptionGroupName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateOptionGroupRequest();
+            var request = new Amazon.RDS.Model.CreateOptionGroupRequest();
             
             if (cmdletContext.EngineName != null)
             {
@@ -184,11 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EngineName { get; set; }
-            public String MajorEngineVersion { get; set; }
-            public String OptionGroupDescription { get; set; }
-            public String OptionGroupName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String EngineName { get; set; }
+            public System.String MajorEngineVersion { get; set; }
+            public System.String OptionGroupDescription { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

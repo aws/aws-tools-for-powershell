@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteTags operation against Amazon Redshift.", Operation = new[] {"DeleteTags"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSTagsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ResourceName = this.ResourceName;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTagsRequest();
+            var request = new Amazon.Redshift.Model.DeleteTagsRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String ResourceName { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

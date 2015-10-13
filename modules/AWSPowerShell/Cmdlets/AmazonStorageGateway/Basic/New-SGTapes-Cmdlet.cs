@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the CreateTapes operation against AWS Storage Gateway.", Operation = new[] {"CreateTapes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type CreateTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.CreateTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSGTapesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 NumTapesToCreate { get; set; }
+        public System.Int32 NumTapesToCreate { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TapeBarcodePrefix { get; set; }
+        public System.String TapeBarcodePrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 TapeSizeInBytes { get; set; }
+        public System.Int64 TapeSizeInBytes { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateTapesRequest();
+            var request = new Amazon.StorageGateway.Model.CreateTapesRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -189,11 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String GatewayARN { get; set; }
-            public Int32? NumTapesToCreate { get; set; }
-            public String TapeBarcodePrefix { get; set; }
-            public Int64? TapeSizeInBytes { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String GatewayARN { get; set; }
+            public System.Int32? NumTapesToCreate { get; set; }
+            public System.String TapeBarcodePrefix { get; set; }
+            public System.Int64? TapeSizeInBytes { get; set; }
         }
         
     }

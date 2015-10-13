@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the PurchaseReservedNodeOffering operation against Amazon Redshift.", Operation = new[] {"PurchaseReservedNodeOffering"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNode",
         "This cmdlet returns a ReservedNode object.",
-        "The service call response (type PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 NodeCount { get; set; }
+        public System.Int32 NodeCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedNodeOfferingId { get; set; }
+        public System.String ReservedNodeOfferingId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedNodeOfferingRequest();
+            var request = new Amazon.Redshift.Model.PurchaseReservedNodeOfferingRequest();
             
             if (cmdletContext.NodeCount != null)
             {
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? NodeCount { get; set; }
-            public String ReservedNodeOfferingId { get; set; }
+            public System.Int32? NodeCount { get; set; }
+            public System.String ReservedNodeOfferingId { get; set; }
         }
         
     }

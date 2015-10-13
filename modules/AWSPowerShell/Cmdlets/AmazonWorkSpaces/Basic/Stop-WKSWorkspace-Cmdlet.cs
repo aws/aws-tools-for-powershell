@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Invokes the TerminateWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"TerminateWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest",
         "This cmdlet returns a collection of FailedWorkspaceChangeRequest objects.",
-        "The service call response (type TerminateWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.TerminateWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (this.Request != null)
             {
-                context.Request = new List<TerminateRequest>(this.Request);
+                context.Request = new List<Amazon.WorkSpaces.Model.TerminateRequest>(this.Request);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TerminateWorkspacesRequest();
+            var request = new Amazon.WorkSpaces.Model.TerminateWorkspacesRequest();
             
             if (cmdletContext.Request != null)
             {
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<TerminateRequest> Request { get; set; }
+            public List<Amazon.WorkSpaces.Model.TerminateRequest> Request { get; set; }
         }
         
     }

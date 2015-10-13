@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteSnapshot operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteSnapshot"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SnapshotId parameter.
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSnapshotRequest();
+            var request = new Amazon.EC2.Model.DeleteSnapshotRequest();
             
             if (cmdletContext.SnapshotId != null)
             {
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotId { get; set; }
+            public System.String SnapshotId { get; set; }
         }
         
     }

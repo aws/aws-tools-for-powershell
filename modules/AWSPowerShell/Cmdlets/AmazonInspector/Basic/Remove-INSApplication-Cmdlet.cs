@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the DeleteApplication operation against Amazon Inspector.", Operation = new[] {"DeleteApplication"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.DeleteApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveINSApplicationCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationArn { get; set; }
+        public System.String ApplicationArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteApplicationRequest();
+            var request = new Amazon.Inspector.Model.DeleteApplicationRequest();
             
             if (cmdletContext.ApplicationArn != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationArn { get; set; }
+            public System.String ApplicationArn { get; set; }
         }
         
     }

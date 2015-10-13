@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the CreateLaunchConfiguration operation against Auto Scaling.", Operation = new[] {"CreateLaunchConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LaunchConfigurationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CreateLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AssociatePublicIpAddress { get; set; }
+        public System.Boolean AssociatePublicIpAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClassicLinkVPCId { get; set; }
+        public System.String ClassicLinkVPCId { get; set; }
         
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EbsOptimized { get; set; }
+        public System.Boolean EbsOptimized { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean InstanceMonitoring_Enabled { get; set; }
+        public System.Boolean InstanceMonitoring_Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IamInstanceProfile { get; set; }
+        public System.String IamInstanceProfile { get; set; }
         
         /// <summary>
         /// <para>
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ImageId { get; set; }
+        public System.String ImageId { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceType { get; set; }
+        public System.String InstanceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KernelId { get; set; }
+        public System.String KernelId { get; set; }
         
         /// <summary>
         /// <para>
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String KeyName { get; set; }
+        public System.String KeyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LaunchConfigurationName { get; set; }
+        public System.String LaunchConfigurationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PlacementTenancy { get; set; }
+        public System.String PlacementTenancy { get; set; }
         
         /// <summary>
         /// <para>
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RamdiskId { get; set; }
+        public System.String RamdiskId { get; set; }
         
         /// <summary>
         /// <para>
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SpotPrice { get; set; }
+        public System.String SpotPrice { get; set; }
         
         /// <summary>
         /// <para>
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String UserData { get; set; }
+        public System.String UserData { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LaunchConfigurationName parameter.
@@ -283,12 +283,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             if (this.BlockDeviceMapping != null)
             {
-                context.BlockDeviceMappings = new List<BlockDeviceMapping>(this.BlockDeviceMapping);
+                context.BlockDeviceMappings = new List<Amazon.AutoScaling.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
             context.ClassicLinkVPCId = this.ClassicLinkVPCId;
             if (this.ClassicLinkVPCSecurityGroup != null)
             {
-                context.ClassicLinkVPCSecurityGroups = new List<String>(this.ClassicLinkVPCSecurityGroup);
+                context.ClassicLinkVPCSecurityGroups = new List<System.String>(this.ClassicLinkVPCSecurityGroup);
             }
             if (ParameterWasBound("EbsOptimized"))
                 context.EbsOptimized = this.EbsOptimized;
@@ -305,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.RamdiskId = this.RamdiskId;
             if (this.SecurityGroup != null)
             {
-                context.SecurityGroups = new List<String>(this.SecurityGroup);
+                context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
             context.SpotPrice = this.SpotPrice;
             context.UserData = this.UserData;
@@ -320,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateLaunchConfigurationRequest();
+            var request = new Amazon.AutoScaling.Model.CreateLaunchConfigurationRequest();
             
             if (cmdletContext.AssociatePublicIpAddress != null)
             {
@@ -357,8 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
             
              // populate InstanceMonitoring
             bool requestInstanceMonitoringIsNull = true;
-            request.InstanceMonitoring = new InstanceMonitoring();
-            Boolean? requestInstanceMonitoring_instanceMonitoring_Enabled = null;
+            request.InstanceMonitoring = new Amazon.AutoScaling.Model.InstanceMonitoring();
+            System.Boolean? requestInstanceMonitoring_instanceMonitoring_Enabled = null;
             if (cmdletContext.InstanceMonitoring_Enabled != null)
             {
                 requestInstanceMonitoring_instanceMonitoring_Enabled = cmdletContext.InstanceMonitoring_Enabled.Value;
@@ -446,24 +446,24 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AssociatePublicIpAddress { get; set; }
-            public List<BlockDeviceMapping> BlockDeviceMappings { get; set; }
-            public String ClassicLinkVPCId { get; set; }
-            public List<String> ClassicLinkVPCSecurityGroups { get; set; }
-            public Boolean? EbsOptimized { get; set; }
-            public String IamInstanceProfile { get; set; }
-            public String ImageId { get; set; }
-            public String InstanceId { get; set; }
-            public Boolean? InstanceMonitoring_Enabled { get; set; }
-            public String InstanceType { get; set; }
-            public String KernelId { get; set; }
-            public String KeyName { get; set; }
-            public String LaunchConfigurationName { get; set; }
-            public String PlacementTenancy { get; set; }
-            public String RamdiskId { get; set; }
-            public List<String> SecurityGroups { get; set; }
-            public String SpotPrice { get; set; }
-            public String UserData { get; set; }
+            public System.Boolean? AssociatePublicIpAddress { get; set; }
+            public List<Amazon.AutoScaling.Model.BlockDeviceMapping> BlockDeviceMappings { get; set; }
+            public System.String ClassicLinkVPCId { get; set; }
+            public List<System.String> ClassicLinkVPCSecurityGroups { get; set; }
+            public System.Boolean? EbsOptimized { get; set; }
+            public System.String IamInstanceProfile { get; set; }
+            public System.String ImageId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Boolean? InstanceMonitoring_Enabled { get; set; }
+            public System.String InstanceType { get; set; }
+            public System.String KernelId { get; set; }
+            public System.String KeyName { get; set; }
+            public System.String LaunchConfigurationName { get; set; }
+            public System.String PlacementTenancy { get; set; }
+            public System.String RamdiskId { get; set; }
+            public List<System.String> SecurityGroups { get; set; }
+            public System.String SpotPrice { get; set; }
+            public System.String UserData { get; set; }
         }
         
     }

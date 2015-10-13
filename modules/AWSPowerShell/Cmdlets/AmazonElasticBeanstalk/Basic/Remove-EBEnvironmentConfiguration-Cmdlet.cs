@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DeleteEnvironmentConfiguration operation against AWS Elastic Beanstalk.", Operation = new[] {"DeleteEnvironmentConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the name of the environment that was updated when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteEnvironmentConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEBEnvironmentConfigurationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// Returns the name of the environment that was updated.
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteEnvironmentConfigurationRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String EnvironmentName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String EnvironmentName { get; set; }
         }
         
     }

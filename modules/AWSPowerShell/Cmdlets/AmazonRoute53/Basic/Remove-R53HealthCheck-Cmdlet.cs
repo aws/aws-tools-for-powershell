@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the DeleteHealthCheck operation against AWS Route 53.", Operation = new[] {"DeleteHealthCheck"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the HealthCheckId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteHealthCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.DeleteHealthCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HealthCheckId { get; set; }
+        public System.String HealthCheckId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the HealthCheckId parameter.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteHealthCheckRequest();
+            var request = new Amazon.Route53.Model.DeleteHealthCheckRequest();
             
             if (cmdletContext.HealthCheckId != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HealthCheckId { get; set; }
+            public System.String HealthCheckId { get; set; }
         }
         
     }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     [AWSCmdlet("Invokes the GenerateDataSet operation against AWS Marketplace Commerce Analytics.", Operation = new[] {"GenerateDataSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type GenerateDataSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMCADataSetCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime DataSetPublicationDate { get; set; }
+        public System.DateTime DataSetPublicationDate { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DataSetType DataSetType { get; set; }
+        public Amazon.AWSMarketplaceCommerceAnalytics.DataSetType DataSetType { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String DestinationS3BucketName { get; set; }
+        public System.String DestinationS3BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationS3Prefix { get; set; }
+        public System.String DestinationS3Prefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String RoleNameArn { get; set; }
+        public System.String RoleNameArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String SnsTopicArn { get; set; }
+        public System.String SnsTopicArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GenerateDataSetRequest();
+            var request = new Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetRequest();
             
             if (cmdletContext.DataSetPublicationDate != null)
             {
@@ -185,12 +185,12 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         internal class CmdletContext : ExecutorContext
         {
-            public DateTime? DataSetPublicationDate { get; set; }
-            public DataSetType DataSetType { get; set; }
-            public String DestinationS3BucketName { get; set; }
-            public String DestinationS3Prefix { get; set; }
-            public String RoleNameArn { get; set; }
-            public String SnsTopicArn { get; set; }
+            public System.DateTime? DataSetPublicationDate { get; set; }
+            public Amazon.AWSMarketplaceCommerceAnalytics.DataSetType DataSetType { get; set; }
+            public System.String DestinationS3BucketName { get; set; }
+            public System.String DestinationS3Prefix { get; set; }
+            public System.String RoleNameArn { get; set; }
+            public System.String SnsTopicArn { get; set; }
         }
         
     }

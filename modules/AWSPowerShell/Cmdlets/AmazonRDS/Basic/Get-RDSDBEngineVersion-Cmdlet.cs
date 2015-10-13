@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribeDBEngineVersions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBEngineVersions"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBEngineVersion",
         "This cmdlet returns a collection of DBEngineVersion objects.",
-        "The service call response (type DescribeDBEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.RDS.Model.DescribeDBEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRDSDBEngineVersionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String DBParameterGroupFamily { get; set; }
+        public System.String DBParameterGroupFamily { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean DefaultOnly { get; set; }
+        public System.Boolean DefaultOnly { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ListSupportedCharacterSets { get; set; }
+        [Alias("ListSupportedCharacterSets")]
+        public System.Boolean ListSupportedCharacterSet { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -133,10 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineVersion = this.EngineVersion;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
-            if (ParameterWasBound("ListSupportedCharacterSets"))
-                context.ListSupportedCharacterSets = this.ListSupportedCharacterSets;
+            if (ParameterWasBound("ListSupportedCharacterSet"))
+                context.ListSupportedCharacterSets = this.ListSupportedCharacterSet;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
@@ -152,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeDBEngineVersionsRequest();
+            var request = new Amazon.RDS.Model.DescribeDBEngineVersionsRequest();
             if (cmdletContext.DBParameterGroupFamily != null)
             {
                 request.DBParameterGroupFamily = cmdletContext.DBParameterGroupFamily;
@@ -179,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -264,13 +265,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBParameterGroupFamily { get; set; }
-            public Boolean? DefaultOnly { get; set; }
-            public String Engine { get; set; }
-            public String EngineVersion { get; set; }
-            public List<Filter> Filters { get; set; }
-            public Boolean? ListSupportedCharacterSets { get; set; }
-            public String Marker { get; set; }
+            public System.String DBParameterGroupFamily { get; set; }
+            public System.Boolean? DefaultOnly { get; set; }
+            public System.String Engine { get; set; }
+            public System.String EngineVersion { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.Boolean? ListSupportedCharacterSets { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

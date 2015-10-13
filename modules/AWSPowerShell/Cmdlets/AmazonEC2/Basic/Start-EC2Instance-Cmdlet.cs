@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the StartInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"StartInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStateChange",
         "This cmdlet returns a collection of InstanceStateChange objects.",
-        "The service call response (type StartInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.StartInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AdditionalInfo { get; set; }
+        public System.String AdditionalInfo { get; set; }
         
         /// <summary>
         /// <para>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartInstancesRequest();
+            var request = new Amazon.EC2.Model.StartInstancesRequest();
             
             if (cmdletContext.AdditionalInfo != null)
             {
@@ -163,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AdditionalInfo { get; set; }
-            public List<String> InstanceIds { get; set; }
+            public System.String AdditionalInfo { get; set; }
+            public List<System.String> InstanceIds { get; set; }
         }
         
     }

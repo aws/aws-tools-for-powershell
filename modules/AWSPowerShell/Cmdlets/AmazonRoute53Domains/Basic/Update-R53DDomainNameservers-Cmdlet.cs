@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Invokes the UpdateDomainNameservers operation against AWS Route 53 Domains.", Operation = new[] {"UpdateDomainNameservers"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateDomainNameserversResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.UpdateDomainNameserversResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateR53DDomainNameserversCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FIAuthKey { get; set; }
+        public System.String FIAuthKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.FIAuthKey = this.FIAuthKey;
             if (this.Nameserver != null)
             {
-                context.Nameservers = new List<Nameserver>(this.Nameserver);
+                context.Nameservers = new List<Amazon.Route53Domains.Model.Nameserver>(this.Nameserver);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDomainNameserversRequest();
+            var request = new Amazon.Route53Domains.Model.UpdateDomainNameserversRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -165,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String FIAuthKey { get; set; }
-            public List<Nameserver> Nameservers { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String FIAuthKey { get; set; }
+            public List<Amazon.Route53Domains.Model.Nameserver> Nameservers { get; set; }
         }
         
     }

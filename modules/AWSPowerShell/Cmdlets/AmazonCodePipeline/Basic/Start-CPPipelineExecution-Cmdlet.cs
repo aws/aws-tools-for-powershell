@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the StartPipelineExecution operation against AWS CodePipeline.", Operation = new[] {"StartPipelineExecution"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type StartPipelineExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.StartPipelineExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartCPPipelineExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartPipelineExecutionRequest();
+            var request = new Amazon.CodePipeline.Model.StartPipelineExecutionRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

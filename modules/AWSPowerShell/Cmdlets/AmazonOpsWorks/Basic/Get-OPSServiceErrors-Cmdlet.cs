@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeServiceErrors operation against AWS OpsWorks.", Operation = new[] {"DescribeServiceErrors"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.ServiceError",
         "This cmdlet returns a collection of ServiceError objects.",
-        "The service call response (type DescribeServiceErrorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeServiceErrorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSServiceErrorsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.InstanceId = this.InstanceId;
             if (this.ServiceErrorId != null)
             {
-                context.ServiceErrorIds = new List<String>(this.ServiceErrorId);
+                context.ServiceErrorIds = new List<System.String>(this.ServiceErrorId);
             }
             context.StackId = this.StackId;
             
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeServiceErrorsRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeServiceErrorsRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -152,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public List<String> ServiceErrorIds { get; set; }
-            public String StackId { get; set; }
+            public System.String InstanceId { get; set; }
+            public List<System.String> ServiceErrorIds { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

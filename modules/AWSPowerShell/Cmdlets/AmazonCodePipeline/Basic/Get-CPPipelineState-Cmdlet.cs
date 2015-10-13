@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [OutputType("Amazon.CodePipeline.Model.GetPipelineStateResponse")]
     [AWSCmdlet("Invokes the GetPipelineState operation against AWS CodePipeline.", Operation = new[] {"GetPipelineState"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.GetPipelineStateResponse",
-        "This cmdlet returns a GetPipelineStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CodePipeline.Model.GetPipelineStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCPPipelineStateCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPipelineStateRequest();
+            var request = new Amazon.CodePipeline.Model.GetPipelineStateRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutCORSConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"PutCORSConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutCORSConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutCORSConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3CORSConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             if (this.Configuration_Rule != null)
             {
-                context.Configuration_Rules = new List<CORSRule>(this.Configuration_Rule);
+                context.Configuration_Rules = new List<Amazon.S3.Model.CORSRule>(this.Configuration_Rule);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutCORSConfigurationRequest();
+            var request = new Amazon.S3.Model.PutCORSConfigurationRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate Configuration
             bool requestConfigurationIsNull = true;
-            request.Configuration = new CORSConfiguration();
-            List<CORSRule> requestConfiguration_configuration_Rule = null;
+            request.Configuration = new Amazon.S3.Model.CORSConfiguration();
+            List<Amazon.S3.Model.CORSRule> requestConfiguration_configuration_Rule = null;
             if (cmdletContext.Configuration_Rules != null)
             {
                 requestConfiguration_configuration_Rule = cmdletContext.Configuration_Rules;
@@ -166,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public List<CORSRule> Configuration_Rules { get; set; }
+            public System.String BucketName { get; set; }
+            public List<Amazon.S3.Model.CORSRule> Configuration_Rules { get; set; }
         }
         
     }

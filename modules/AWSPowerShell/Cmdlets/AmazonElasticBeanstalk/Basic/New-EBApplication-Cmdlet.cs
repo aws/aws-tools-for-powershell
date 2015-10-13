@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the CreateApplication operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateApplication"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationDescription",
         "This cmdlet returns a ApplicationDescription object.",
-        "The service call response (type CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateApplicationRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.CreateApplicationRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String Description { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String Description { get; set; }
         }
         
     }

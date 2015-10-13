@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the DeleteWebACL operation against AWS WAF.", Operation = new[] {"DeleteWebACL"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.DeleteWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String WebACLId { get; set; }
+        public System.String WebACLId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteWebACLRequest();
+            var request = new Amazon.WAF.Model.DeleteWebACLRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public String WebACLId { get; set; }
+            public System.String ChangeToken { get; set; }
+            public System.String WebACLId { get; set; }
         }
         
     }

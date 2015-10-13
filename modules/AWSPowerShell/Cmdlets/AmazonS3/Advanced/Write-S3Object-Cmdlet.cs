@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 		/// The name of the bucket that will hold the uploaded content.
 		/// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-		public string BucketName { get; set; }
+		public System.String BucketName { get; set; }
 
 		#region Upload Single File Params
 
@@ -72,13 +72,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromLocalFile, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromContent, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromStream, Mandatory = true, ValueFromPipelineByPropertyName = true)]
-		public String Key { get; set; }
+		public System.String Key { get; set; }
 
 		/// <summary>
 		/// The full path to the local file to be uploaded.
 		/// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_FromLocalFile, Mandatory = true)]
-		public String File { get; set; }
+		public System.String File { get; set; }
 
 		/// <summary>
 		/// Specifies text content that will be used to set the content of the object in S3. Use a here-string to
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 		/// </summary>
         [Alias("Text")]
 		[Parameter(ParameterSetName = ParamSet_FromContent, Mandatory = true)]
-		public String Content { get; set; }
+		public System.String Content { get; set; }
 
 		#endregion
 
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 		/// The stream to be uploaded.
 		/// </summary>
         [Parameter(ParameterSetName = ParamSet_FromStream, Mandatory = true)]
-		public Stream Stream { get; set; }
+		public System.IO.Stream Stream { get; set; }
 
 		#endregion
 
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Alias("Prefix")]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromLocalFolder, Mandatory = true, ValueFromPipelineByPropertyName = true)]
-        public String KeyPrefix { get; set; }
+        public System.String KeyPrefix { get; set; }
 
         /// <summary>
         /// The full path to a local folder; all content in the folder will be uploaded to the
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Alias("Directory")]
         [Parameter(Position = 2, ParameterSetName = ParamSet_FromLocalFolder, Mandatory = true)]
-        public String Folder { get; set; }
+        public System.String Folder { get; set; }
 
         /// <summary>
         /// If set, all sub-folders beneath the folder set in LocalFolder will also be uploaded.
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Alias("Pattern")]
         [Parameter(Position = 4, ParameterSetName = ParamSet_FromLocalFolder)]
-        public string SearchPattern { get; set; }
+        public System.String SearchPattern { get; set; }
 
         #endregion
 
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Please refer to <see cref="T:Amazon.S3.Model.S3CannedACL" /> for information on S3 Canned ACLs.
         /// </summary>
         [Parameter]
-        public string CannedACLName { get; set; }
+        public System.String CannedACLName { get; set; }
 
         /// <summary>
         /// If set, applies an ACL making the S3 object(s) public with read-only permissions
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the MIME type of the content being uploaded.
         /// </summary>
         [Parameter]
-        public String ContentType { get; set; }
+        public System.String ContentType { get; set; }
 
         /// <summary>
         /// Specifies the STANDARD storage class, which is the default storage class for S3 objects.
@@ -196,45 +196,45 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Allowable values: None, AES256, AWSKMS.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryption { get; set; }
+        public System.String ServerSideEncryption { get; set; }
 
         /// <summary>
         /// Specifies the AWS KMS key for Amazon S3 to use to encrypt the object.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+        public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
 
         /// <summary>
         /// Specifies the server-side encryption algorithm to be used with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerMethod { get; set; }
+        public System.String ServerSideEncryptionCustomerMethod { get; set; }
 
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 to use to encrypt the object.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerProvidedKey { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
 
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
 
         /// <summary>
         /// Metadata headers to set on the object.
         /// </summary>
         [Parameter]
-        public Hashtable Metadata { get; set; }
+        public System.Collections.Hashtable Metadata { get; set; }
 
         /// <summary>
         /// Response headers to set on the object.
         /// </summary>
         [Parameter]
         [Alias("Headers")]
-        public Hashtable HeaderCollection { get; set; }
+        public System.Collections.Hashtable HeaderCollection { get; set; }
 
         #endregion
 
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         [Alias("ConcurrentServiceRequests")]
-        public int? ConcurrentServiceRequest { get; set; }
+        public System.Int32? ConcurrentServiceRequest { get; set; }
 
         #endregion
 

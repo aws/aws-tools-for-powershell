@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the UpdateDeploymentGroup operation against AWS CodeDeploy.", Operation = new[] {"UpdateDeploymentGroup"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.AutoScalingGroup",
         "This cmdlet returns a collection of AutoScalingGroup objects.",
-        "The service call response (type UpdateDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.UpdateDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CurrentDeploymentGroupName { get; set; }
+        public System.String CurrentDeploymentGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentConfigName { get; set; }
+        public System.String DeploymentConfigName { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewDeploymentGroupName { get; set; }
+        public System.String NewDeploymentGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceRoleArn { get; set; }
+        public System.String ServiceRoleArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -136,18 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.ApplicationName = this.ApplicationName;
             if (this.AutoScalingGroup != null)
             {
-                context.AutoScalingGroups = new List<String>(this.AutoScalingGroup);
+                context.AutoScalingGroups = new List<System.String>(this.AutoScalingGroup);
             }
             context.CurrentDeploymentGroupName = this.CurrentDeploymentGroupName;
             context.DeploymentConfigName = this.DeploymentConfigName;
             if (this.Ec2TagFilter != null)
             {
-                context.Ec2TagFilters = new List<EC2TagFilter>(this.Ec2TagFilter);
+                context.Ec2TagFilters = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.Ec2TagFilter);
             }
             context.NewDeploymentGroupName = this.NewDeploymentGroupName;
             if (this.OnPremisesInstanceTagFilter != null)
             {
-                context.OnPremisesInstanceTagFilters = new List<TagFilter>(this.OnPremisesInstanceTagFilter);
+                context.OnPremisesInstanceTagFilters = new List<Amazon.CodeDeploy.Model.TagFilter>(this.OnPremisesInstanceTagFilter);
             }
             context.ServiceRoleArn = this.ServiceRoleArn;
             
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDeploymentGroupRequest();
+            var request = new Amazon.CodeDeploy.Model.UpdateDeploymentGroupRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -230,14 +230,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public List<String> AutoScalingGroups { get; set; }
-            public String CurrentDeploymentGroupName { get; set; }
-            public String DeploymentConfigName { get; set; }
-            public List<EC2TagFilter> Ec2TagFilters { get; set; }
-            public String NewDeploymentGroupName { get; set; }
-            public List<TagFilter> OnPremisesInstanceTagFilters { get; set; }
-            public String ServiceRoleArn { get; set; }
+            public System.String ApplicationName { get; set; }
+            public List<System.String> AutoScalingGroups { get; set; }
+            public System.String CurrentDeploymentGroupName { get; set; }
+            public System.String DeploymentConfigName { get; set; }
+            public List<Amazon.CodeDeploy.Model.EC2TagFilter> Ec2TagFilters { get; set; }
+            public System.String NewDeploymentGroupName { get; set; }
+            public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
+            public System.String ServiceRoleArn { get; set; }
         }
         
     }

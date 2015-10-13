@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the RevokeGrant operation against AWS Key Management Service.", Operation = new[] {"RevokeGrant"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RevokeGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.RevokeGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RevokeKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GrantId { get; set; }
+        public System.String GrantId { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the KeyId parameter.
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RevokeGrantRequest();
+            var request = new Amazon.KeyManagementService.Model.RevokeGrantRequest();
             
             if (cmdletContext.GrantId != null)
             {
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GrantId { get; set; }
-            public String KeyId { get; set; }
+            public System.String GrantId { get; set; }
+            public System.String KeyId { get; set; }
         }
         
     }

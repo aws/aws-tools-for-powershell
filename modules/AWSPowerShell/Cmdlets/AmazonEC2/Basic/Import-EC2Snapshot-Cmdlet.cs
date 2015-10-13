@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ImportSnapshotResponse")]
     [AWSCmdlet("Invokes the ImportSnapshot operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ImportSnapshot"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportSnapshotResponse",
-        "This cmdlet returns a ImportSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.ImportSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ImportEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientData_Comment { get; set; }
+        public System.String ClientData_Comment { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DiskContainer_Description { get; set; }
+        public System.String DiskContainer_Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DiskContainer_Format { get; set; }
+        public System.String DiskContainer_Format { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RoleName { get; set; }
+        public System.String RoleName { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DiskContainer_UserBucket_S3Bucket")]
-        public String DiskContainer_S3Bucket { get; set; }
+        public System.String DiskContainer_S3Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DiskContainer_UserBucket_S3Key")]
-        public String DiskContainer_S3Key { get; set; }
+        public System.String DiskContainer_S3Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ClientData_UploadEnd { get; set; }
+        public System.DateTime ClientData_UploadEnd { get; set; }
         
         /// <summary>
         /// <para>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double ClientData_UploadSize { get; set; }
+        public System.Double ClientData_UploadSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ClientData_UploadStart { get; set; }
+        public System.DateTime ClientData_UploadStart { get; set; }
         
         /// <summary>
         /// <para>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DiskContainer_Url { get; set; }
+        public System.String DiskContainer_Url { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -188,13 +188,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ImportSnapshotRequest();
+            var request = new Amazon.EC2.Model.ImportSnapshotRequest();
             
             
              // populate ClientData
             bool requestClientDataIsNull = true;
-            request.ClientData = new ClientData();
-            String requestClientData_clientData_Comment = null;
+            request.ClientData = new Amazon.EC2.Model.ClientData();
+            System.String requestClientData_clientData_Comment = null;
             if (cmdletContext.ClientData_Comment != null)
             {
                 requestClientData_clientData_Comment = cmdletContext.ClientData_Comment;
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ClientData.Comment = requestClientData_clientData_Comment;
                 requestClientDataIsNull = false;
             }
-            DateTime? requestClientData_clientData_UploadEnd = null;
+            System.DateTime? requestClientData_clientData_UploadEnd = null;
             if (cmdletContext.ClientData_UploadEnd != null)
             {
                 requestClientData_clientData_UploadEnd = cmdletContext.ClientData_UploadEnd.Value;
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ClientData.UploadEnd = requestClientData_clientData_UploadEnd.Value;
                 requestClientDataIsNull = false;
             }
-            Double? requestClientData_clientData_UploadSize = null;
+            System.Double? requestClientData_clientData_UploadSize = null;
             if (cmdletContext.ClientData_UploadSize != null)
             {
                 requestClientData_clientData_UploadSize = cmdletContext.ClientData_UploadSize.Value;
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ClientData.UploadSize = requestClientData_clientData_UploadSize.Value;
                 requestClientDataIsNull = false;
             }
-            DateTime? requestClientData_clientData_UploadStart = null;
+            System.DateTime? requestClientData_clientData_UploadStart = null;
             if (cmdletContext.ClientData_UploadStart != null)
             {
                 requestClientData_clientData_UploadStart = cmdletContext.ClientData_UploadStart.Value;
@@ -250,8 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate DiskContainer
             bool requestDiskContainerIsNull = true;
-            request.DiskContainer = new SnapshotDiskContainer();
-            String requestDiskContainer_diskContainer_Description = null;
+            request.DiskContainer = new Amazon.EC2.Model.SnapshotDiskContainer();
+            System.String requestDiskContainer_diskContainer_Description = null;
             if (cmdletContext.DiskContainer_Description != null)
             {
                 requestDiskContainer_diskContainer_Description = cmdletContext.DiskContainer_Description;
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.DiskContainer.Description = requestDiskContainer_diskContainer_Description;
                 requestDiskContainerIsNull = false;
             }
-            String requestDiskContainer_diskContainer_Format = null;
+            System.String requestDiskContainer_diskContainer_Format = null;
             if (cmdletContext.DiskContainer_Format != null)
             {
                 requestDiskContainer_diskContainer_Format = cmdletContext.DiskContainer_Format;
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.DiskContainer.Format = requestDiskContainer_diskContainer_Format;
                 requestDiskContainerIsNull = false;
             }
-            String requestDiskContainer_diskContainer_Url = null;
+            System.String requestDiskContainer_diskContainer_Url = null;
             if (cmdletContext.DiskContainer_Url != null)
             {
                 requestDiskContainer_diskContainer_Url = cmdletContext.DiskContainer_Url;
@@ -281,12 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.DiskContainer.Url = requestDiskContainer_diskContainer_Url;
                 requestDiskContainerIsNull = false;
             }
-            UserBucket requestDiskContainer_diskContainer_UserBucket = null;
+            Amazon.EC2.Model.UserBucket requestDiskContainer_diskContainer_UserBucket = null;
             
              // populate UserBucket
             bool requestDiskContainer_diskContainer_UserBucketIsNull = true;
-            requestDiskContainer_diskContainer_UserBucket = new UserBucket();
-            String requestDiskContainer_diskContainer_UserBucket_diskContainer_S3Bucket = null;
+            requestDiskContainer_diskContainer_UserBucket = new Amazon.EC2.Model.UserBucket();
+            System.String requestDiskContainer_diskContainer_UserBucket_diskContainer_S3Bucket = null;
             if (cmdletContext.DiskContainer_S3Bucket != null)
             {
                 requestDiskContainer_diskContainer_UserBucket_diskContainer_S3Bucket = cmdletContext.DiskContainer_S3Bucket;
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestDiskContainer_diskContainer_UserBucket.S3Bucket = requestDiskContainer_diskContainer_UserBucket_diskContainer_S3Bucket;
                 requestDiskContainer_diskContainer_UserBucketIsNull = false;
             }
-            String requestDiskContainer_diskContainer_UserBucket_diskContainer_S3Key = null;
+            System.String requestDiskContainer_diskContainer_UserBucket_diskContainer_S3Key = null;
             if (cmdletContext.DiskContainer_S3Key != null)
             {
                 requestDiskContainer_diskContainer_UserBucket_diskContainer_S3Key = cmdletContext.DiskContainer_S3Key;
@@ -360,18 +360,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientData_Comment { get; set; }
-            public DateTime? ClientData_UploadEnd { get; set; }
-            public Double? ClientData_UploadSize { get; set; }
-            public DateTime? ClientData_UploadStart { get; set; }
-            public String ClientToken { get; set; }
-            public String Description { get; set; }
-            public String DiskContainer_Description { get; set; }
-            public String DiskContainer_Format { get; set; }
-            public String DiskContainer_Url { get; set; }
-            public String DiskContainer_S3Bucket { get; set; }
-            public String DiskContainer_S3Key { get; set; }
-            public String RoleName { get; set; }
+            public System.String ClientData_Comment { get; set; }
+            public System.DateTime? ClientData_UploadEnd { get; set; }
+            public System.Double? ClientData_UploadSize { get; set; }
+            public System.DateTime? ClientData_UploadStart { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public System.String DiskContainer_Description { get; set; }
+            public System.String DiskContainer_Format { get; set; }
+            public System.String DiskContainer_Url { get; set; }
+            public System.String DiskContainer_S3Bucket { get; set; }
+            public System.String DiskContainer_S3Key { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

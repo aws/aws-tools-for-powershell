@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyDBSubnetGroup operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBSubnetGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSubnetGroup",
         "This cmdlet returns a DBSubnetGroup object.",
-        "The service call response (type ModifyDBSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String DBSubnetGroupDescription { get; set; }
+        public System.String DBSubnetGroupDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             if (this.SubnetId != null)
             {
-                context.SubnetIds = new List<String>(this.SubnetId);
+                context.SubnetIds = new List<System.String>(this.SubnetId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyDBSubnetGroupRequest();
+            var request = new Amazon.RDS.Model.ModifyDBSubnetGroupRequest();
             
             if (cmdletContext.DBSubnetGroupDescription != null)
             {
@@ -157,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSubnetGroupDescription { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public List<String> SubnetIds { get; set; }
+            public System.String DBSubnetGroupDescription { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public List<System.String> SubnetIds { get; set; }
         }
         
     }

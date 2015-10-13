@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GenerateCredentialReportResponse")]
     [AWSCmdlet("Invokes the GenerateCredentialReport operation against AWS Identity and Access Management.", Operation = new[] {"GenerateCredentialReport"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GenerateCredentialReportResponse",
-        "This cmdlet returns a GenerateCredentialReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GenerateCredentialReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestIAMCredentialReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GenerateCredentialReportRequest();
+            var request = new Amazon.IdentityManagement.Model.GenerateCredentialReportRequest();
             
             
             CmdletOutput output;

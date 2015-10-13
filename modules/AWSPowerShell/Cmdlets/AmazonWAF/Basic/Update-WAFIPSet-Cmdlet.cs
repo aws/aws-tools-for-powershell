@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the UpdateIPSet operation against AWS WAF.", Operation = new[] {"UpdateIPSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.UpdateIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateWAFIPSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IPSetId { get; set; }
+        public System.String IPSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             context.IPSetId = this.IPSetId;
             if (this.Update != null)
             {
-                context.Updates = new List<IPSetUpdate>(this.Update);
+                context.Updates = new List<Amazon.WAF.Model.IPSetUpdate>(this.Update);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateIPSetRequest();
+            var request = new Amazon.WAF.Model.UpdateIPSetRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -188,9 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public String IPSetId { get; set; }
-            public List<IPSetUpdate> Updates { get; set; }
+            public System.String ChangeToken { get; set; }
+            public System.String IPSetId { get; set; }
+            public List<Amazon.WAF.Model.IPSetUpdate> Updates { get; set; }
         }
         
     }

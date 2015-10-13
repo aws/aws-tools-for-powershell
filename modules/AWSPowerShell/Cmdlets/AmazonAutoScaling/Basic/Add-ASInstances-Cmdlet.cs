@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the AttachInstances operation against Auto Scaling.", Operation = new[] {"AttachInstances"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the ids of the EC2 instances that were attached when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddASInstancesCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.InstanceId != null)
             {
-                context.InstanceIds = new List<String>(this.InstanceId);
+                context.InstanceIds = new List<System.String>(this.InstanceId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachInstancesRequest();
+            var request = new Amazon.AutoScaling.Model.AttachInstancesRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> InstanceIds { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> InstanceIds { get; set; }
         }
         
     }

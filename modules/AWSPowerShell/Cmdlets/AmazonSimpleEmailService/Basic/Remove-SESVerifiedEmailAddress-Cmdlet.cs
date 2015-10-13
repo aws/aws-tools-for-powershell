@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the DeleteVerifiedEmailAddress operation against Amazon Simple Email Service.", Operation = new[] {"DeleteVerifiedEmailAddress"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EmailAddress parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteVerifiedEmailAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSESVerifiedEmailAddressCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EmailAddress { get; set; }
+        public System.String EmailAddress { get; set; }
         
         /// <summary>
         /// Returns the value passed to the EmailAddress parameter.
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteVerifiedEmailAddressRequest();
+            var request = new Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressRequest();
             
             if (cmdletContext.EmailAddress != null)
             {
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EmailAddress { get; set; }
+            public System.String EmailAddress { get; set; }
         }
         
     }

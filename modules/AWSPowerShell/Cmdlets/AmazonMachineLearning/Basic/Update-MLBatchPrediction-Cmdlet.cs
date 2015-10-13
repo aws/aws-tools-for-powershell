@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the UpdateBatchPrediction operation against Amazon Machine Learning.", Operation = new[] {"UpdateBatchPrediction"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.UpdateBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BatchPredictionId { get; set; }
+        public System.String BatchPredictionId { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String BatchPredictionName { get; set; }
+        public System.String BatchPredictionName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateBatchPredictionRequest();
+            var request = new Amazon.MachineLearning.Model.UpdateBatchPredictionRequest();
             
             if (cmdletContext.BatchPredictionId != null)
             {
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BatchPredictionId { get; set; }
-            public String BatchPredictionName { get; set; }
+            public System.String BatchPredictionId { get; set; }
+            public System.String BatchPredictionName { get; set; }
         }
         
     }

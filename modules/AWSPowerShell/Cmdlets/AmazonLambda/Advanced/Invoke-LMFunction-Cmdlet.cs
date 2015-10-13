@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("System.Int32")]
     [AWSCmdlet("Invokes the Invoke operation against Amazon Lambda.", Operation = new [] {"Invoke"})]
     [AWSCmdletOutput("System.Int32",
-        "This cmdlet returns a Int32 object.",
-        "The service call response (type InvokeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Int32 object.",
+        "The service call response (type Amazon.Lambda.Model.InvokeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [Parameter(Position = 1)]
-        public String Payload { get; set; }
+        public System.String Payload { get; set; }
 
         /// <summary>
         /// Using the <code>ClientContext</code> you can pass client-specific information to the
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// in the <i>Amazon Mobile Analytics API Reference and User Guide</i>.
         /// </summary>
         [Parameter(Position = 2)]
-        public String ClientContext { get; set; }
+        public System.String ClientContext { get; set; }
 
         /// <summary>
         /// By default, the <code>Invoke</code> API assumes "RequestResponse" invocation type.
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// without running it. 
         /// </summary>
         [Parameter(Position = 3)]
-        public InvocationType InvocationType { get; set; }
+        public Amazon.Lambda.InvocationType InvocationType { get; set; }
 
         /// <summary>
         /// You can set this optional parameter to "Tail" in the request only if you specify the
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// function in the <code>x-amz-log-results</code> header. 
         /// </summary>
         [Parameter(Position = 4)]
-        public LogType LogType { get; set; }
+        public Amazon.Lambda.LogType LogType { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

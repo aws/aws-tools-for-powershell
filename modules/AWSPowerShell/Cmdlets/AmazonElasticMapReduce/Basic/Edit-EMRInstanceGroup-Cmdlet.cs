@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the ModifyInstanceGroups operation against Amazon Elastic MapReduce.", Operation = new[] {"ModifyInstanceGroups"})]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceGroup parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyInstanceGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.InstanceGroup != null)
             {
-                context.InstanceGroups = new List<InstanceGroupModifyConfig>(this.InstanceGroup);
+                context.InstanceGroups = new List<Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig>(this.InstanceGroup);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyInstanceGroupsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsRequest();
             
             if (cmdletContext.InstanceGroups != null)
             {
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<InstanceGroupModifyConfig> InstanceGroups { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig> InstanceGroups { get; set; }
         }
         
     }

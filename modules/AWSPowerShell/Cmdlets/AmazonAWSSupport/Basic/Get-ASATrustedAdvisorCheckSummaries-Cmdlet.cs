@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeTrustedAdvisorCheckSummaries operation against AWS Support API.", Operation = new[] {"DescribeTrustedAdvisorCheckSummaries"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.TrustedAdvisorCheckSummary",
         "This cmdlet returns a collection of TrustedAdvisorCheckSummary objects.",
-        "The service call response (type DescribeTrustedAdvisorCheckSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASATrustedAdvisorCheckSummariesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             
             if (this.CheckId != null)
             {
-                context.CheckIds = new List<String>(this.CheckId);
+                context.CheckIds = new List<System.String>(this.CheckId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTrustedAdvisorCheckSummariesRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckSummariesRequest();
             
             if (cmdletContext.CheckIds != null)
             {
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> CheckIds { get; set; }
+            public List<System.String> CheckIds { get; set; }
         }
         
     }

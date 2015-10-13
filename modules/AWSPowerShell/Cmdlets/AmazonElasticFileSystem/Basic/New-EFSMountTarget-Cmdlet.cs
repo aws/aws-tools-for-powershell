@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [OutputType("Amazon.ElasticFileSystem.Model.CreateMountTargetResponse")]
     [AWSCmdlet("Invokes the CreateMountTarget operation against Amazon Elastic File System.", Operation = new[] {"CreateMountTarget"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.CreateMountTargetResponse",
-        "This cmdlet returns a CreateMountTargetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticFileSystem.Model.CreateMountTargetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String FileSystemId { get; set; }
+        public System.String FileSystemId { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IpAddress { get; set; }
+        public System.String IpAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             context.IpAddress = this.IpAddress;
             if (this.SecurityGroup != null)
             {
-                context.SecurityGroups = new List<String>(this.SecurityGroup);
+                context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
             context.SubnetId = this.SubnetId;
             
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateMountTargetRequest();
+            var request = new Amazon.ElasticFileSystem.Model.CreateMountTargetRequest();
             
             if (cmdletContext.FileSystemId != null)
             {
@@ -236,10 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FileSystemId { get; set; }
-            public String IpAddress { get; set; }
-            public List<String> SecurityGroups { get; set; }
-            public String SubnetId { get; set; }
+            public System.String FileSystemId { get; set; }
+            public System.String IpAddress { get; set; }
+            public List<System.String> SecurityGroups { get; set; }
+            public System.String SubnetId { get; set; }
         }
         
     }

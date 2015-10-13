@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("PasswordData", "string")]
     [AWSCmdlet("Invokes the GetPasswordData operation against Amazon Elastic Compute Cloud.", Operation = new [] {"GetPasswordData"})]
     [AWSCmdletOutput("PasswordData",
-        "If -Decrypt or -PemFile are not specified, returns PasswordData instance containing the encrypted password for later decryption.",
-        "The service response (type GetPasswordDataResponse) is added to the cmdlet entry in the $AWSHistory stack."
+        "If -Decrypt or -PemFile are not specified, returns a string containing the encrypted password for later decryption.",
+        "The service response (type Amazon.EC2.Model.GetPasswordDataResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     [AWSCmdletOutput("string", "If -Decrypt or -PemFile is specified, the decrypted password.")]
     public class GetEC2PasswordDataCmdlet : AmazonEC2ClientCmdlet, IExecutor
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter(Position=0, ValueFromPipelineByPropertyName=true, Mandatory=true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
 
         /// <summary>
         /// If set, the instance password is decrypted and emitted to the pipeline as a string. 
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </remarks>
         /// </summary>
         [Parameter]
-        public string PemFile { get; set; }
+        public System.String PemFile { get; set; }
 
         protected override void ProcessRecord()
         {

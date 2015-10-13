@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the SetVisibleToAllUsers operation against Amazon Elastic MapReduce.", Operation = new[] {"SetVisibleToAllUsers"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobFlowId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetVisibleToAllUsersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEMRVisibleToAllUsersCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean VisibleToAllUsers { get; set; }
+        [Alias("VisibleToAllUsers")]
+        public System.Boolean VisibleToAllUser { get; set; }
         
         /// <summary>
         /// Returns the value passed to the JobFlowId parameter.
@@ -98,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.JobFlowId != null)
             {
-                context.JobFlowIds = new List<String>(this.JobFlowId);
+                context.JobFlowIds = new List<System.String>(this.JobFlowId);
             }
-            if (ParameterWasBound("VisibleToAllUsers"))
-                context.VisibleToAllUsers = this.VisibleToAllUsers;
+            if (ParameterWasBound("VisibleToAllUser"))
+                context.VisibleToAllUsers = this.VisibleToAllUser;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -113,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetVisibleToAllUsersRequest();
+            var request = new Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersRequest();
             
             if (cmdletContext.JobFlowIds != null)
             {
@@ -160,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> JobFlowIds { get; set; }
-            public Boolean? VisibleToAllUsers { get; set; }
+            public List<System.String> JobFlowIds { get; set; }
+            public System.Boolean? VisibleToAllUsers { get; set; }
         }
         
     }

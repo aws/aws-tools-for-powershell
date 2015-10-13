@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [OutputType("Amazon.ElasticTranscoder.Model.CreatePresetResponse")]
     [AWSCmdlet("Invokes the CreatePreset operation against Amazon Elastic Transcoder.", Operation = new[] {"CreatePreset"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.CreatePresetResponse",
-        "This cmdlet returns a CreatePresetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticTranscoder.Model.CreatePresetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_AspectRatio { get; set; }
+        public System.String Thumbnails_AspectRatio { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_AspectRatio { get; set; }
+        public System.String Video_AspectRatio { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Audio_AudioPackingMode { get; set; }
+        public System.String Audio_AudioPackingMode { get; set; }
         
         /// <summary>
         /// <para>
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_BitDepth")]
-        public String CodecOptions_BitDepth { get; set; }
+        public System.String CodecOptions_BitDepth { get; set; }
         
         /// <summary>
         /// <para>
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_BitOrder")]
-        public String CodecOptions_BitOrder { get; set; }
+        public System.String CodecOptions_BitOrder { get; set; }
         
         /// <summary>
         /// <para>
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Audio_BitRate { get; set; }
+        public System.String Audio_BitRate { get; set; }
         
         /// <summary>
         /// <para>
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_BitRate { get; set; }
+        public System.String Video_BitRate { get; set; }
         
         /// <summary>
         /// <para>
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Audio_Channels")]
-        public String Audio_Channel { get; set; }
+        public System.String Audio_Channel { get; set; }
         
         /// <summary>
         /// <para>
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Audio_Codec { get; set; }
+        public System.String Audio_Codec { get; set; }
         
         /// <summary>
         /// <para>
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_Codec { get; set; }
+        public System.String Video_Codec { get; set; }
         
         /// <summary>
         /// <para>
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Container { get; set; }
+        public System.String Container { get; set; }
         
         /// <summary>
         /// <para>
@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_DisplayAspectRatio { get; set; }
+        public System.String Video_DisplayAspectRatio { get; set; }
         
         /// <summary>
         /// <para>
@@ -310,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_FixedGOP { get; set; }
+        public System.String Video_FixedGOP { get; set; }
         
         /// <summary>
         /// <para>
@@ -320,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_Format { get; set; }
+        public System.String Thumbnails_Format { get; set; }
         
         /// <summary>
         /// <para>
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_FrameRate { get; set; }
+        public System.String Video_FrameRate { get; set; }
         
         /// <summary>
         /// <para>
@@ -344,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_Interval { get; set; }
+        public System.String Thumbnails_Interval { get; set; }
         
         /// <summary>
         /// <para>
@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_KeyframesMaxDist { get; set; }
+        public System.String Video_KeyframesMaxDist { get; set; }
         
         /// <summary>
         /// <para>
@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_MaxFrameRate { get; set; }
+        public System.String Video_MaxFrameRate { get; set; }
         
         /// <summary>
         /// <para>
@@ -386,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_MaxHeight { get; set; }
+        public System.String Thumbnails_MaxHeight { get; set; }
         
         /// <summary>
         /// <para>
@@ -396,7 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_MaxHeight { get; set; }
+        public System.String Video_MaxHeight { get; set; }
         
         /// <summary>
         /// <para>
@@ -406,7 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_MaxWidth { get; set; }
+        public System.String Thumbnails_MaxWidth { get; set; }
         
         /// <summary>
         /// <para>
@@ -416,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_MaxWidth { get; set; }
+        public System.String Video_MaxWidth { get; set; }
         
         /// <summary>
         /// <para>
@@ -425,7 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -436,7 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_PaddingPolicy { get; set; }
+        public System.String Thumbnails_PaddingPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -447,7 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_PaddingPolicy { get; set; }
+        public System.String Video_PaddingPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -462,7 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_Profile")]
-        public String CodecOptions_Profile { get; set; }
+        public System.String CodecOptions_Profile { get; set; }
         
         /// <summary>
         /// <para>
@@ -476,7 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_Resolution { get; set; }
+        public System.String Thumbnails_Resolution { get; set; }
         
         /// <summary>
         /// <para>
@@ -497,7 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_Resolution { get; set; }
+        public System.String Video_Resolution { get; set; }
         
         /// <summary>
         /// <para>
@@ -507,7 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Audio_SampleRate { get; set; }
+        public System.String Audio_SampleRate { get; set; }
         
         /// <summary>
         /// <para>
@@ -518,7 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_Signed")]
-        public String CodecOptions_Signed { get; set; }
+        public System.String CodecOptions_Signed { get; set; }
         
         /// <summary>
         /// <para>
@@ -545,7 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Thumbnails_SizingPolicy { get; set; }
+        public System.String Thumbnails_SizingPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -573,7 +573,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Video_SizingPolicy { get; set; }
+        public System.String Video_SizingPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -641,7 +641,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.Video_Codec = this.Video_Codec;
             if (this.Video_CodecOption != null)
             {
-                context.Video_CodecOptions = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Video_CodecOptions = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Video_CodecOption.Keys)
                 {
                     context.Video_CodecOptions.Add((String)hashKey, (String)(this.Video_CodecOption[hashKey]));
@@ -659,7 +659,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.Video_SizingPolicy = this.Video_SizingPolicy;
             if (this.Video_Watermark != null)
             {
-                context.Video_Watermarks = new List<PresetWatermark>(this.Video_Watermark);
+                context.Video_Watermarks = new List<Amazon.ElasticTranscoder.Model.PresetWatermark>(this.Video_Watermark);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -672,13 +672,13 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePresetRequest();
+            var request = new Amazon.ElasticTranscoder.Model.CreatePresetRequest();
             
             
              // populate Audio
             bool requestAudioIsNull = true;
-            request.Audio = new AudioParameters();
-            String requestAudio_audio_AudioPackingMode = null;
+            request.Audio = new Amazon.ElasticTranscoder.Model.AudioParameters();
+            System.String requestAudio_audio_AudioPackingMode = null;
             if (cmdletContext.Audio_AudioPackingMode != null)
             {
                 requestAudio_audio_AudioPackingMode = cmdletContext.Audio_AudioPackingMode;
@@ -688,7 +688,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Audio.AudioPackingMode = requestAudio_audio_AudioPackingMode;
                 requestAudioIsNull = false;
             }
-            String requestAudio_audio_BitRate = null;
+            System.String requestAudio_audio_BitRate = null;
             if (cmdletContext.Audio_BitRate != null)
             {
                 requestAudio_audio_BitRate = cmdletContext.Audio_BitRate;
@@ -698,7 +698,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Audio.BitRate = requestAudio_audio_BitRate;
                 requestAudioIsNull = false;
             }
-            String requestAudio_audio_Channel = null;
+            System.String requestAudio_audio_Channel = null;
             if (cmdletContext.Audio_Channels != null)
             {
                 requestAudio_audio_Channel = cmdletContext.Audio_Channels;
@@ -708,7 +708,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Audio.Channels = requestAudio_audio_Channel;
                 requestAudioIsNull = false;
             }
-            String requestAudio_audio_Codec = null;
+            System.String requestAudio_audio_Codec = null;
             if (cmdletContext.Audio_Codec != null)
             {
                 requestAudio_audio_Codec = cmdletContext.Audio_Codec;
@@ -718,7 +718,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Audio.Codec = requestAudio_audio_Codec;
                 requestAudioIsNull = false;
             }
-            String requestAudio_audio_SampleRate = null;
+            System.String requestAudio_audio_SampleRate = null;
             if (cmdletContext.Audio_SampleRate != null)
             {
                 requestAudio_audio_SampleRate = cmdletContext.Audio_SampleRate;
@@ -728,12 +728,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Audio.SampleRate = requestAudio_audio_SampleRate;
                 requestAudioIsNull = false;
             }
-            AudioCodecOptions requestAudio_audio_CodecOptions = null;
+            Amazon.ElasticTranscoder.Model.AudioCodecOptions requestAudio_audio_CodecOptions = null;
             
              // populate CodecOptions
             bool requestAudio_audio_CodecOptionsIsNull = true;
-            requestAudio_audio_CodecOptions = new AudioCodecOptions();
-            String requestAudio_audio_CodecOptions_codecOptions_BitDepth = null;
+            requestAudio_audio_CodecOptions = new Amazon.ElasticTranscoder.Model.AudioCodecOptions();
+            System.String requestAudio_audio_CodecOptions_codecOptions_BitDepth = null;
             if (cmdletContext.Audio_CodecOptions_BitDepth != null)
             {
                 requestAudio_audio_CodecOptions_codecOptions_BitDepth = cmdletContext.Audio_CodecOptions_BitDepth;
@@ -743,7 +743,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestAudio_audio_CodecOptions.BitDepth = requestAudio_audio_CodecOptions_codecOptions_BitDepth;
                 requestAudio_audio_CodecOptionsIsNull = false;
             }
-            String requestAudio_audio_CodecOptions_codecOptions_BitOrder = null;
+            System.String requestAudio_audio_CodecOptions_codecOptions_BitOrder = null;
             if (cmdletContext.Audio_CodecOptions_BitOrder != null)
             {
                 requestAudio_audio_CodecOptions_codecOptions_BitOrder = cmdletContext.Audio_CodecOptions_BitOrder;
@@ -753,7 +753,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestAudio_audio_CodecOptions.BitOrder = requestAudio_audio_CodecOptions_codecOptions_BitOrder;
                 requestAudio_audio_CodecOptionsIsNull = false;
             }
-            String requestAudio_audio_CodecOptions_codecOptions_Profile = null;
+            System.String requestAudio_audio_CodecOptions_codecOptions_Profile = null;
             if (cmdletContext.Audio_CodecOptions_Profile != null)
             {
                 requestAudio_audio_CodecOptions_codecOptions_Profile = cmdletContext.Audio_CodecOptions_Profile;
@@ -763,7 +763,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestAudio_audio_CodecOptions.Profile = requestAudio_audio_CodecOptions_codecOptions_Profile;
                 requestAudio_audio_CodecOptionsIsNull = false;
             }
-            String requestAudio_audio_CodecOptions_codecOptions_Signed = null;
+            System.String requestAudio_audio_CodecOptions_codecOptions_Signed = null;
             if (cmdletContext.Audio_CodecOptions_Signed != null)
             {
                 requestAudio_audio_CodecOptions_codecOptions_Signed = cmdletContext.Audio_CodecOptions_Signed;
@@ -803,8 +803,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             
              // populate Thumbnails
             bool requestThumbnailsIsNull = true;
-            request.Thumbnails = new Thumbnails();
-            String requestThumbnails_thumbnails_AspectRatio = null;
+            request.Thumbnails = new Amazon.ElasticTranscoder.Model.Thumbnails();
+            System.String requestThumbnails_thumbnails_AspectRatio = null;
             if (cmdletContext.Thumbnails_AspectRatio != null)
             {
                 requestThumbnails_thumbnails_AspectRatio = cmdletContext.Thumbnails_AspectRatio;
@@ -814,7 +814,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Thumbnails.AspectRatio = requestThumbnails_thumbnails_AspectRatio;
                 requestThumbnailsIsNull = false;
             }
-            String requestThumbnails_thumbnails_Format = null;
+            System.String requestThumbnails_thumbnails_Format = null;
             if (cmdletContext.Thumbnails_Format != null)
             {
                 requestThumbnails_thumbnails_Format = cmdletContext.Thumbnails_Format;
@@ -824,7 +824,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Thumbnails.Format = requestThumbnails_thumbnails_Format;
                 requestThumbnailsIsNull = false;
             }
-            String requestThumbnails_thumbnails_Interval = null;
+            System.String requestThumbnails_thumbnails_Interval = null;
             if (cmdletContext.Thumbnails_Interval != null)
             {
                 requestThumbnails_thumbnails_Interval = cmdletContext.Thumbnails_Interval;
@@ -834,7 +834,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Thumbnails.Interval = requestThumbnails_thumbnails_Interval;
                 requestThumbnailsIsNull = false;
             }
-            String requestThumbnails_thumbnails_MaxHeight = null;
+            System.String requestThumbnails_thumbnails_MaxHeight = null;
             if (cmdletContext.Thumbnails_MaxHeight != null)
             {
                 requestThumbnails_thumbnails_MaxHeight = cmdletContext.Thumbnails_MaxHeight;
@@ -844,7 +844,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Thumbnails.MaxHeight = requestThumbnails_thumbnails_MaxHeight;
                 requestThumbnailsIsNull = false;
             }
-            String requestThumbnails_thumbnails_MaxWidth = null;
+            System.String requestThumbnails_thumbnails_MaxWidth = null;
             if (cmdletContext.Thumbnails_MaxWidth != null)
             {
                 requestThumbnails_thumbnails_MaxWidth = cmdletContext.Thumbnails_MaxWidth;
@@ -854,7 +854,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Thumbnails.MaxWidth = requestThumbnails_thumbnails_MaxWidth;
                 requestThumbnailsIsNull = false;
             }
-            String requestThumbnails_thumbnails_PaddingPolicy = null;
+            System.String requestThumbnails_thumbnails_PaddingPolicy = null;
             if (cmdletContext.Thumbnails_PaddingPolicy != null)
             {
                 requestThumbnails_thumbnails_PaddingPolicy = cmdletContext.Thumbnails_PaddingPolicy;
@@ -864,7 +864,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Thumbnails.PaddingPolicy = requestThumbnails_thumbnails_PaddingPolicy;
                 requestThumbnailsIsNull = false;
             }
-            String requestThumbnails_thumbnails_Resolution = null;
+            System.String requestThumbnails_thumbnails_Resolution = null;
             if (cmdletContext.Thumbnails_Resolution != null)
             {
                 requestThumbnails_thumbnails_Resolution = cmdletContext.Thumbnails_Resolution;
@@ -874,7 +874,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Thumbnails.Resolution = requestThumbnails_thumbnails_Resolution;
                 requestThumbnailsIsNull = false;
             }
-            String requestThumbnails_thumbnails_SizingPolicy = null;
+            System.String requestThumbnails_thumbnails_SizingPolicy = null;
             if (cmdletContext.Thumbnails_SizingPolicy != null)
             {
                 requestThumbnails_thumbnails_SizingPolicy = cmdletContext.Thumbnails_SizingPolicy;
@@ -892,8 +892,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             
              // populate Video
             bool requestVideoIsNull = true;
-            request.Video = new VideoParameters();
-            String requestVideo_video_AspectRatio = null;
+            request.Video = new Amazon.ElasticTranscoder.Model.VideoParameters();
+            System.String requestVideo_video_AspectRatio = null;
             if (cmdletContext.Video_AspectRatio != null)
             {
                 requestVideo_video_AspectRatio = cmdletContext.Video_AspectRatio;
@@ -903,7 +903,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.AspectRatio = requestVideo_video_AspectRatio;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_BitRate = null;
+            System.String requestVideo_video_BitRate = null;
             if (cmdletContext.Video_BitRate != null)
             {
                 requestVideo_video_BitRate = cmdletContext.Video_BitRate;
@@ -913,7 +913,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.BitRate = requestVideo_video_BitRate;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_Codec = null;
+            System.String requestVideo_video_Codec = null;
             if (cmdletContext.Video_Codec != null)
             {
                 requestVideo_video_Codec = cmdletContext.Video_Codec;
@@ -923,7 +923,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.Codec = requestVideo_video_Codec;
                 requestVideoIsNull = false;
             }
-            Dictionary<String, String> requestVideo_video_CodecOption = null;
+            Dictionary<System.String, System.String> requestVideo_video_CodecOption = null;
             if (cmdletContext.Video_CodecOptions != null)
             {
                 requestVideo_video_CodecOption = cmdletContext.Video_CodecOptions;
@@ -933,7 +933,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.CodecOptions = requestVideo_video_CodecOption;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_DisplayAspectRatio = null;
+            System.String requestVideo_video_DisplayAspectRatio = null;
             if (cmdletContext.Video_DisplayAspectRatio != null)
             {
                 requestVideo_video_DisplayAspectRatio = cmdletContext.Video_DisplayAspectRatio;
@@ -943,7 +943,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.DisplayAspectRatio = requestVideo_video_DisplayAspectRatio;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_FixedGOP = null;
+            System.String requestVideo_video_FixedGOP = null;
             if (cmdletContext.Video_FixedGOP != null)
             {
                 requestVideo_video_FixedGOP = cmdletContext.Video_FixedGOP;
@@ -953,7 +953,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.FixedGOP = requestVideo_video_FixedGOP;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_FrameRate = null;
+            System.String requestVideo_video_FrameRate = null;
             if (cmdletContext.Video_FrameRate != null)
             {
                 requestVideo_video_FrameRate = cmdletContext.Video_FrameRate;
@@ -963,7 +963,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.FrameRate = requestVideo_video_FrameRate;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_KeyframesMaxDist = null;
+            System.String requestVideo_video_KeyframesMaxDist = null;
             if (cmdletContext.Video_KeyframesMaxDist != null)
             {
                 requestVideo_video_KeyframesMaxDist = cmdletContext.Video_KeyframesMaxDist;
@@ -973,7 +973,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.KeyframesMaxDist = requestVideo_video_KeyframesMaxDist;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_MaxFrameRate = null;
+            System.String requestVideo_video_MaxFrameRate = null;
             if (cmdletContext.Video_MaxFrameRate != null)
             {
                 requestVideo_video_MaxFrameRate = cmdletContext.Video_MaxFrameRate;
@@ -983,7 +983,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.MaxFrameRate = requestVideo_video_MaxFrameRate;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_MaxHeight = null;
+            System.String requestVideo_video_MaxHeight = null;
             if (cmdletContext.Video_MaxHeight != null)
             {
                 requestVideo_video_MaxHeight = cmdletContext.Video_MaxHeight;
@@ -993,7 +993,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.MaxHeight = requestVideo_video_MaxHeight;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_MaxWidth = null;
+            System.String requestVideo_video_MaxWidth = null;
             if (cmdletContext.Video_MaxWidth != null)
             {
                 requestVideo_video_MaxWidth = cmdletContext.Video_MaxWidth;
@@ -1003,7 +1003,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.MaxWidth = requestVideo_video_MaxWidth;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_PaddingPolicy = null;
+            System.String requestVideo_video_PaddingPolicy = null;
             if (cmdletContext.Video_PaddingPolicy != null)
             {
                 requestVideo_video_PaddingPolicy = cmdletContext.Video_PaddingPolicy;
@@ -1013,7 +1013,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.PaddingPolicy = requestVideo_video_PaddingPolicy;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_Resolution = null;
+            System.String requestVideo_video_Resolution = null;
             if (cmdletContext.Video_Resolution != null)
             {
                 requestVideo_video_Resolution = cmdletContext.Video_Resolution;
@@ -1023,7 +1023,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.Resolution = requestVideo_video_Resolution;
                 requestVideoIsNull = false;
             }
-            String requestVideo_video_SizingPolicy = null;
+            System.String requestVideo_video_SizingPolicy = null;
             if (cmdletContext.Video_SizingPolicy != null)
             {
                 requestVideo_video_SizingPolicy = cmdletContext.Video_SizingPolicy;
@@ -1033,7 +1033,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Video.SizingPolicy = requestVideo_video_SizingPolicy;
                 requestVideoIsNull = false;
             }
-            List<PresetWatermark> requestVideo_video_Watermark = null;
+            List<Amazon.ElasticTranscoder.Model.PresetWatermark> requestVideo_video_Watermark = null;
             if (cmdletContext.Video_Watermarks != null)
             {
                 requestVideo_video_Watermark = cmdletContext.Video_Watermarks;
@@ -1083,41 +1083,41 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Audio_AudioPackingMode { get; set; }
-            public String Audio_BitRate { get; set; }
-            public String Audio_Channels { get; set; }
-            public String Audio_Codec { get; set; }
-            public String Audio_CodecOptions_BitDepth { get; set; }
-            public String Audio_CodecOptions_BitOrder { get; set; }
-            public String Audio_CodecOptions_Profile { get; set; }
-            public String Audio_CodecOptions_Signed { get; set; }
-            public String Audio_SampleRate { get; set; }
-            public String Container { get; set; }
-            public String Description { get; set; }
-            public String Name { get; set; }
-            public String Thumbnails_AspectRatio { get; set; }
-            public String Thumbnails_Format { get; set; }
-            public String Thumbnails_Interval { get; set; }
-            public String Thumbnails_MaxHeight { get; set; }
-            public String Thumbnails_MaxWidth { get; set; }
-            public String Thumbnails_PaddingPolicy { get; set; }
-            public String Thumbnails_Resolution { get; set; }
-            public String Thumbnails_SizingPolicy { get; set; }
-            public String Video_AspectRatio { get; set; }
-            public String Video_BitRate { get; set; }
-            public String Video_Codec { get; set; }
-            public Dictionary<String, String> Video_CodecOptions { get; set; }
-            public String Video_DisplayAspectRatio { get; set; }
-            public String Video_FixedGOP { get; set; }
-            public String Video_FrameRate { get; set; }
-            public String Video_KeyframesMaxDist { get; set; }
-            public String Video_MaxFrameRate { get; set; }
-            public String Video_MaxHeight { get; set; }
-            public String Video_MaxWidth { get; set; }
-            public String Video_PaddingPolicy { get; set; }
-            public String Video_Resolution { get; set; }
-            public String Video_SizingPolicy { get; set; }
-            public List<PresetWatermark> Video_Watermarks { get; set; }
+            public System.String Audio_AudioPackingMode { get; set; }
+            public System.String Audio_BitRate { get; set; }
+            public System.String Audio_Channels { get; set; }
+            public System.String Audio_Codec { get; set; }
+            public System.String Audio_CodecOptions_BitDepth { get; set; }
+            public System.String Audio_CodecOptions_BitOrder { get; set; }
+            public System.String Audio_CodecOptions_Profile { get; set; }
+            public System.String Audio_CodecOptions_Signed { get; set; }
+            public System.String Audio_SampleRate { get; set; }
+            public System.String Container { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public System.String Thumbnails_AspectRatio { get; set; }
+            public System.String Thumbnails_Format { get; set; }
+            public System.String Thumbnails_Interval { get; set; }
+            public System.String Thumbnails_MaxHeight { get; set; }
+            public System.String Thumbnails_MaxWidth { get; set; }
+            public System.String Thumbnails_PaddingPolicy { get; set; }
+            public System.String Thumbnails_Resolution { get; set; }
+            public System.String Thumbnails_SizingPolicy { get; set; }
+            public System.String Video_AspectRatio { get; set; }
+            public System.String Video_BitRate { get; set; }
+            public System.String Video_Codec { get; set; }
+            public Dictionary<System.String, System.String> Video_CodecOptions { get; set; }
+            public System.String Video_DisplayAspectRatio { get; set; }
+            public System.String Video_FixedGOP { get; set; }
+            public System.String Video_FrameRate { get; set; }
+            public System.String Video_KeyframesMaxDist { get; set; }
+            public System.String Video_MaxFrameRate { get; set; }
+            public System.String Video_MaxHeight { get; set; }
+            public System.String Video_MaxWidth { get; set; }
+            public System.String Video_PaddingPolicy { get; set; }
+            public System.String Video_Resolution { get; set; }
+            public System.String Video_SizingPolicy { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.PresetWatermark> Video_Watermarks { get; set; }
         }
         
     }

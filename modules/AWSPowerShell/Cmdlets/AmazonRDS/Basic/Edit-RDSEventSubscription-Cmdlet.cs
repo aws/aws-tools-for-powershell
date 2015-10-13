@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyEventSubscription operation against Amazon Relational Database Service.", Operation = new[] {"ModifyEventSubscription"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnsTopicArn { get; set; }
+        public System.String SnsTopicArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceType { get; set; }
+        public System.String SourceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Enabled = this.Enabled;
             if (this.EventCategory != null)
             {
-                context.EventCategories = new List<String>(this.EventCategory);
+                context.EventCategories = new List<System.String>(this.EventCategory);
             }
             context.SnsTopicArn = this.SnsTopicArn;
             context.SourceType = this.SourceType;
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyEventSubscriptionRequest();
+            var request = new Amazon.RDS.Model.ModifyEventSubscriptionRequest();
             
             if (cmdletContext.Enabled != null)
             {
@@ -198,11 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Enabled { get; set; }
-            public List<String> EventCategories { get; set; }
-            public String SnsTopicArn { get; set; }
-            public String SourceType { get; set; }
-            public String SubscriptionName { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public List<System.String> EventCategories { get; set; }
+            public System.String SnsTopicArn { get; set; }
+            public System.String SourceType { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

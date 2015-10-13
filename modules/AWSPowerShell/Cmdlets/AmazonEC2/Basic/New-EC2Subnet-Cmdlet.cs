@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateSubnet operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSubnet"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Subnet",
         "This cmdlet returns a Subnet object.",
-        "The service call response (type CreateSubnetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSubnetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2SubnetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String CidrBlock { get; set; }
+        public System.String CidrBlock { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSubnetRequest();
+            var request = new Amazon.EC2.Model.CreateSubnetRequest();
             
             if (cmdletContext.AvailabilityZone != null)
             {
@@ -177,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZone { get; set; }
-            public String CidrBlock { get; set; }
-            public String VpcId { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.String CidrBlock { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

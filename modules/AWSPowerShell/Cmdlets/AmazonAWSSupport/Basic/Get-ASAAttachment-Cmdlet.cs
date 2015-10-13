@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeAttachment operation against AWS Support API.", Operation = new[] {"DescribeAttachment"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.Attachment",
         "This cmdlet returns a Attachment object.",
-        "The service call response (type DescribeAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASAAttachmentCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AttachmentId { get; set; }
+        public System.String AttachmentId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAttachmentRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeAttachmentRequest();
             
             if (cmdletContext.AttachmentId != null)
             {
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttachmentId { get; set; }
+            public System.String AttachmentId { get; set; }
         }
         
     }

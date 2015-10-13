@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the CreateCacheSecurityGroup operation against Amazon ElastiCache.", Operation = new[] {"CreateCacheSecurityGroup"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSecurityGroup",
         "This cmdlet returns a CacheSecurityGroup object.",
-        "The service call response (type CreateCacheSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateCacheSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECCacheSecurityGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheSecurityGroupName { get; set; }
+        public System.String CacheSecurityGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCacheSecurityGroupRequest();
+            var request = new Amazon.ElastiCache.Model.CreateCacheSecurityGroupRequest();
             
             if (cmdletContext.CacheSecurityGroupName != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheSecurityGroupName { get; set; }
-            public String Description { get; set; }
+            public System.String CacheSecurityGroupName { get; set; }
+            public System.String Description { get; set; }
         }
         
     }

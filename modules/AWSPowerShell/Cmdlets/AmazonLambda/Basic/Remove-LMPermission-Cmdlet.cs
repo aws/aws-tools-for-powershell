@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the RemovePermission operation against Amazon Lambda.", Operation = new[] {"RemovePermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public System.String Qualifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StatementId { get; set; }
+        public System.String StatementId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the FunctionName parameter.
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemovePermissionRequest();
+            var request = new Amazon.Lambda.Model.RemovePermissionRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -178,9 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
-            public String StatementId { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
+            public System.String StatementId { get; set; }
         }
         
     }

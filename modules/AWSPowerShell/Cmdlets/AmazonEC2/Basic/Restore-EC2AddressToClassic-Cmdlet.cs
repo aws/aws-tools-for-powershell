@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.RestoreAddressToClassicResponse")]
     [AWSCmdlet("Invokes the RestoreAddressToClassic operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RestoreAddressToClassic"})]
     [AWSCmdletOutput("Amazon.EC2.Model.RestoreAddressToClassicResponse",
-        "This cmdlet returns a RestoreAddressToClassicResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.RestoreAddressToClassicResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreEC2AddressToClassicCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PublicIp { get; set; }
+        public System.String PublicIp { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreAddressToClassicRequest();
+            var request = new Amazon.EC2.Model.RestoreAddressToClassicRequest();
             
             if (cmdletContext.PublicIp != null)
             {
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PublicIp { get; set; }
+            public System.String PublicIp { get; set; }
         }
         
     }

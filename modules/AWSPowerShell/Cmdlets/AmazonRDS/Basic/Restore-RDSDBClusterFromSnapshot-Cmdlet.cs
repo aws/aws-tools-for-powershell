@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the RestoreDBClusterFromSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"RestoreDBClusterFromSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type RestoreDBClusterFromSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RestoreDBClusterFromSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreRDSDBClusterFromSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DatabaseName { get; set; }
+        public System.String DatabaseName { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             if (this.AvailabilityZone != null)
             {
-                context.AvailabilityZones = new List<String>(this.AvailabilityZone);
+                context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
             }
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
@@ -184,11 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreDBClusterFromSnapshotRequest();
+            var request = new Amazon.RDS.Model.RestoreDBClusterFromSnapshotRequest();
             
             if (cmdletContext.AvailabilityZones != null)
             {
@@ -282,17 +282,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AvailabilityZones { get; set; }
-            public String DatabaseName { get; set; }
-            public String DBClusterIdentifier { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public String Engine { get; set; }
-            public String EngineVersion { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public String SnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public List<System.String> AvailabilityZones { get; set; }
+            public System.String DatabaseName { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public System.String Engine { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

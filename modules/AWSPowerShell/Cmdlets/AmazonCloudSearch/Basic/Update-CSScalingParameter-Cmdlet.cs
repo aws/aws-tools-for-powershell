@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the UpdateScalingParameters operation against Amazon CloudSearch.", Operation = new[] {"UpdateScalingParameters"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ScalingParametersStatus",
         "This cmdlet returns a ScalingParametersStatus object.",
-        "The service call response (type UpdateScalingParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.UpdateScalingParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public PartitionInstanceType ScalingParameters_DesiredInstanceType { get; set; }
+        public Amazon.CloudSearch.PartitionInstanceType ScalingParameters_DesiredInstanceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 ScalingParameters_DesiredPartitionCount { get; set; }
+        public System.Int32 ScalingParameters_DesiredPartitionCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 ScalingParameters_DesiredReplicationCount { get; set; }
+        public System.Int32 ScalingParameters_DesiredReplicationCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateScalingParametersRequest();
+            var request = new Amazon.CloudSearch.Model.UpdateScalingParametersRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
             
              // populate ScalingParameters
             bool requestScalingParametersIsNull = true;
-            request.ScalingParameters = new ScalingParameters();
-            PartitionInstanceType requestScalingParameters_scalingParameters_DesiredInstanceType = null;
+            request.ScalingParameters = new Amazon.CloudSearch.Model.ScalingParameters();
+            Amazon.CloudSearch.PartitionInstanceType requestScalingParameters_scalingParameters_DesiredInstanceType = null;
             if (cmdletContext.ScalingParameters_DesiredInstanceType != null)
             {
                 requestScalingParameters_scalingParameters_DesiredInstanceType = cmdletContext.ScalingParameters_DesiredInstanceType;
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.ScalingParameters.DesiredInstanceType = requestScalingParameters_scalingParameters_DesiredInstanceType;
                 requestScalingParametersIsNull = false;
             }
-            Int32? requestScalingParameters_scalingParameters_DesiredPartitionCount = null;
+            System.Int32? requestScalingParameters_scalingParameters_DesiredPartitionCount = null;
             if (cmdletContext.ScalingParameters_DesiredPartitionCount != null)
             {
                 requestScalingParameters_scalingParameters_DesiredPartitionCount = cmdletContext.ScalingParameters_DesiredPartitionCount.Value;
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.ScalingParameters.DesiredPartitionCount = requestScalingParameters_scalingParameters_DesiredPartitionCount.Value;
                 requestScalingParametersIsNull = false;
             }
-            Int32? requestScalingParameters_scalingParameters_DesiredReplicationCount = null;
+            System.Int32? requestScalingParameters_scalingParameters_DesiredReplicationCount = null;
             if (cmdletContext.ScalingParameters_DesiredReplicationCount != null)
             {
                 requestScalingParameters_scalingParameters_DesiredReplicationCount = cmdletContext.ScalingParameters_DesiredReplicationCount.Value;
@@ -200,10 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public PartitionInstanceType ScalingParameters_DesiredInstanceType { get; set; }
-            public Int32? ScalingParameters_DesiredPartitionCount { get; set; }
-            public Int32? ScalingParameters_DesiredReplicationCount { get; set; }
+            public System.String DomainName { get; set; }
+            public Amazon.CloudSearch.PartitionInstanceType ScalingParameters_DesiredInstanceType { get; set; }
+            public System.Int32? ScalingParameters_DesiredPartitionCount { get; set; }
+            public System.Int32? ScalingParameters_DesiredReplicationCount { get; set; }
         }
         
     }

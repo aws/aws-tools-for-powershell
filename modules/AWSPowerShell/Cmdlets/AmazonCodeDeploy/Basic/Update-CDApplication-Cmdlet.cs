@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the UpdateApplication operation against AWS CodeDeploy.", Operation = new[] {"UpdateApplication"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCDApplicationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewApplicationName { get; set; }
+        public System.String NewApplicationName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ApplicationName parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateApplicationRequest();
+            var request = new Amazon.CodeDeploy.Model.UpdateApplicationRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String NewApplicationName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String NewApplicationName { get; set; }
         }
         
     }

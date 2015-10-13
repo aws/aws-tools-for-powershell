@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeTrustedAdvisorChecks operation against AWS Support API.", Operation = new[] {"DescribeTrustedAdvisorChecks"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.TrustedAdvisorCheckDescription",
         "This cmdlet returns a collection of TrustedAdvisorCheckDescription objects.",
-        "The service call response (type DescribeTrustedAdvisorChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASATrustedAdvisorChecksCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Language { get; set; }
+        public System.String Language { get; set; }
         
         
         protected override void ProcessRecord()
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTrustedAdvisorChecksRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeTrustedAdvisorChecksRequest();
             
             if (cmdletContext.Language != null)
             {
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Language { get; set; }
+            public System.String Language { get; set; }
         }
         
     }

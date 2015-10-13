@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.CreateConnectionResponse")]
     [AWSCmdlet("Invokes the CreateConnection operation against AWS Direct Connect.", Operation = new[] {"CreateConnection"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateConnectionResponse",
-        "This cmdlet returns a CreateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DirectConnect.Model.CreateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Bandwidth { get; set; }
+        public System.String Bandwidth { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ConnectionName { get; set; }
+        public System.String ConnectionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Location { get; set; }
+        public System.String Location { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateConnectionRequest();
+            var request = new Amazon.DirectConnect.Model.CreateConnectionRequest();
             
             if (cmdletContext.Bandwidth != null)
             {
@@ -161,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Bandwidth { get; set; }
-            public String ConnectionName { get; set; }
-            public String Location { get; set; }
+            public System.String Bandwidth { get; set; }
+            public System.String ConnectionName { get; set; }
+            public System.String Location { get; set; }
         }
         
     }

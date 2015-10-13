@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the CreateUserProfile operation against AWS OpsWorks.", Operation = new[] {"CreateUserProfile"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateUserProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CreateUserProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowSelfManagement { get; set; }
+        public System.Boolean AllowSelfManagement { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String IamUserArn { get; set; }
+        public System.String IamUserArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SshPublicKey { get; set; }
+        public System.String SshPublicKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SshUsername { get; set; }
+        public System.String SshUsername { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateUserProfileRequest();
+            var request = new Amazon.OpsWorks.Model.CreateUserProfileRequest();
             
             if (cmdletContext.AllowSelfManagement != null)
             {
@@ -178,10 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowSelfManagement { get; set; }
-            public String IamUserArn { get; set; }
-            public String SshPublicKey { get; set; }
-            public String SshUsername { get; set; }
+            public System.Boolean? AllowSelfManagement { get; set; }
+            public System.String IamUserArn { get; set; }
+            public System.String SshPublicKey { get; set; }
+            public System.String SshUsername { get; set; }
         }
         
     }

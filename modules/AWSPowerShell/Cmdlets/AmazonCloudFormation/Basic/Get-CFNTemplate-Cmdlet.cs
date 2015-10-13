@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the GetTemplate operation against AWS CloudFormation.", Operation = new[] {"GetTemplate"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type GetTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.GetTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetTemplateRequest();
+            var request = new Amazon.CloudFormation.Model.GetTemplateRequest();
             
             if (cmdletContext.StackName != null)
             {
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackName { get; set; }
+            public System.String StackName { get; set; }
         }
         
     }

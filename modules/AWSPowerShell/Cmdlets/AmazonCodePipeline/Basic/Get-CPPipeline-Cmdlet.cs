@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the GetPipeline operation against AWS CodePipeline.", Operation = new[] {"GetPipeline"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineDeclaration",
         "This cmdlet returns a PipelineDeclaration object.",
-        "The service call response (type GetPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.GetPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Version { get; set; }
+        public System.Int32 Version { get; set; }
         
         
         protected override void ProcessRecord()
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPipelineRequest();
+            var request = new Amazon.CodePipeline.Model.GetPipelineRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
-            public Int32? Version { get; set; }
+            public System.String Name { get; set; }
+            public System.Int32? Version { get; set; }
         }
         
     }

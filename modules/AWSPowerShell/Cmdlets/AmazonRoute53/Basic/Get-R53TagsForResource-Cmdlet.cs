@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Route 53.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ResourceTagSet",
         "This cmdlet returns a ResourceTagSet object.",
-        "The service call response (type ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53TagsForResourceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TagResourceType ResourceType { get; set; }
+        public Amazon.Route53.TagResourceType ResourceType { get; set; }
         
         
         protected override void ProcessRecord()
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsForResourceRequest();
+            var request = new Amazon.Route53.Model.ListTagsForResourceRequest();
             
             if (cmdletContext.ResourceType != null)
             {
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public TagResourceType ResourceType { get; set; }
-            public String ResourceId { get; set; }
+            public Amazon.Route53.TagResourceType ResourceType { get; set; }
+            public System.String ResourceId { get; set; }
         }
         
     }

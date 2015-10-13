@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribeDBClusterSnapshots operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBClusterSnapshots"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
         "This cmdlet returns a collection of DBClusterSnapshot objects.",
-        "The service call response (type DescribeDBClusterSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.RDS.Model.DescribeDBClusterSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterSnapshotIdentifier { get; set; }
+        public System.String DBClusterSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotType { get; set; }
+        public System.String SnapshotType { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeDBClusterSnapshotsRequest();
+            var request = new Amazon.RDS.Model.DescribeDBClusterSnapshotsRequest();
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -247,12 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterIdentifier { get; set; }
-            public String DBClusterSnapshotIdentifier { get; set; }
-            public List<Filter> Filters { get; set; }
-            public String Marker { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String SnapshotType { get; set; }
+            public System.String SnapshotType { get; set; }
         }
         
     }

@@ -46,11 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// Security Credentials for Mobile Apps Using Third-Party Identity Providers. </para>
     /// </summary>
     [Cmdlet("Use", "STSWebIdentityRole")]
-    [OutputType("AssumeRoleWithWebIdentityResult")]
+    [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult")]
     [AWSCmdlet("Invokes the AssumeRoleWithWebIdentity operation against AWS Security Token Service.", Operation = new [] {"AssumeRoleWithWebIdentity"})]
     [AWSClientCmdlet("AWS Security Token Service", "STS", "2011-06-15")]
-    [AWSCmdletOutput("AssumeRoleWithWebIdentityResult",
-        "This cmdlet returns a AssumeRoleWithWebIdentityResult instance. The service response (type AssumeRoleWithWebIdentityResponse) is added to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult",
+        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult instance. The service response (type Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UseSTSWebIdentityRoleCmdlet : BaseCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RoleArn { get; set; }
+        public System.String RoleArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 1)]
-        public String RoleSessionName { get; set; }
+        public System.String RoleSessionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 2)]
-        public String WebIdentityToken { get; set; }
+        public System.String WebIdentityToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 3)]
-        public String ProviderId { get; set; }
+        public System.String ProviderId { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 4)]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,13 +124,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [Parameter]
         [Alias("DurationSeconds")]
-        public Int32? Duration { get; set; }
+        public System.Int32? Duration { get; set; }
 
         /// <summary>
         /// The region to use. STS has a single endpoint irrespective of region, though STS in GovCloud has its own endpoint.
         /// </summary>
         [Parameter]
-        public String Region { get; set; }
+        public System.String Region { get; set; }
 
         protected IAmazonSecurityTokenService CreateClient(string region)
         {

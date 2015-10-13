@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the CreateResourceGroup operation against Amazon Inspector.", Operation = new[] {"CreateResourceGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.CreateResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ResourceGroupTags")]
-        public String ResourceGroupTag { get; set; }
+        public System.String ResourceGroupTag { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateResourceGroupRequest();
+            var request = new Amazon.Inspector.Model.CreateResourceGroupRequest();
             
             if (cmdletContext.ResourceGroupTags != null)
             {
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceGroupTags { get; set; }
+            public System.String ResourceGroupTags { get; set; }
         }
         
     }

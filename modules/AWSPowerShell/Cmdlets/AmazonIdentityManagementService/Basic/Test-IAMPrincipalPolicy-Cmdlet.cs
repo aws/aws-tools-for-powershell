@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the SimulatePrincipalPolicy operation against AWS Identity and Access Management.", Operation = new[] {"SimulatePrincipalPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.EvaluationResult",
         "This cmdlet returns a collection of EvaluationResult objects.",
-        "The service call response (type SimulatePrincipalPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.IdentityManagement.Model.SimulatePrincipalPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String)"
     )]
     public class TestIAMPrincipalPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicySourceArn { get; set; }
+        public System.String PolicySourceArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -154,23 +154,23 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             if (this.ActionName != null)
             {
-                context.ActionNames = new List<String>(this.ActionName);
+                context.ActionNames = new List<System.String>(this.ActionName);
             }
             if (this.ContextEntry != null)
             {
-                context.ContextEntries = new List<ContextEntry>(this.ContextEntry);
+                context.ContextEntries = new List<Amazon.IdentityManagement.Model.ContextEntry>(this.ContextEntry);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
             if (this.PolicyInputList != null)
             {
-                context.PolicyInputList = new List<String>(this.PolicyInputList);
+                context.PolicyInputList = new List<System.String>(this.PolicyInputList);
             }
             context.PolicySourceArn = this.PolicySourceArn;
             if (this.ResourceArn != null)
             {
-                context.ResourceArns = new List<String>(this.ResourceArn);
+                context.ResourceArns = new List<System.String>(this.ResourceArn);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new SimulatePrincipalPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.SimulatePrincipalPolicyRequest();
             if (cmdletContext.ActionNames != null)
             {
                 request.ActionNames = cmdletContext.ActionNames;
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -293,13 +293,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ActionNames { get; set; }
-            public List<ContextEntry> ContextEntries { get; set; }
-            public String Marker { get; set; }
+            public List<System.String> ActionNames { get; set; }
+            public List<Amazon.IdentityManagement.Model.ContextEntry> ContextEntries { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public List<String> PolicyInputList { get; set; }
-            public String PolicySourceArn { get; set; }
-            public List<String> ResourceArns { get; set; }
+            public List<System.String> PolicyInputList { get; set; }
+            public System.String PolicySourceArn { get; set; }
+            public List<System.String> ResourceArns { get; set; }
         }
         
     }

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DescribeAvailabilityOptions operation against Amazon CloudSearch.", Operation = new[] {"DescribeAvailabilityOptions"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AvailabilityOptionsStatus",
         "This cmdlet returns a AvailabilityOptionsStatus object.",
-        "The service call response (type DescribeAvailabilityOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeAvailabilityOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCSAvailabilityOptionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Deployed { get; set; }
+        public System.Boolean Deployed { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAvailabilityOptionsRequest();
+            var request = new Amazon.CloudSearch.Model.DescribeAvailabilityOptionsRequest();
             
             if (cmdletContext.Deployed != null)
             {
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Deployed { get; set; }
-            public String DomainName { get; set; }
+            public System.Boolean? Deployed { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

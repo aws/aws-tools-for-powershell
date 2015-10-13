@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateNetworkInterface operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateNetworkInterface"})]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterface",
         "This cmdlet returns a NetworkInterface object.",
-        "The service call response (type CreateNetworkInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateNetworkInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PrivateIpAddress { get; set; }
+        public System.String PrivateIpAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 SecondaryPrivateIpAddressCount { get; set; }
+        public System.Int32 SecondaryPrivateIpAddressCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -132,12 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Description = this.Description;
             if (this.Group != null)
             {
-                context.Groups = new List<String>(this.Group);
+                context.Groups = new List<System.String>(this.Group);
             }
             context.PrivateIpAddress = this.PrivateIpAddress;
             if (this.PrivateIpAddressSet != null)
             {
-                context.PrivateIpAddressSet = new List<PrivateIpAddressSpecification>(this.PrivateIpAddressSet);
+                context.PrivateIpAddressSet = new List<Amazon.EC2.Model.PrivateIpAddressSpecification>(this.PrivateIpAddressSet);
             }
             if (ParameterWasBound("SecondaryPrivateIpAddressCount"))
                 context.SecondaryPrivateIpAddressCount = this.SecondaryPrivateIpAddressCount;
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateNetworkInterfaceRequest();
+            var request = new Amazon.EC2.Model.CreateNetworkInterfaceRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -214,12 +214,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public List<String> Groups { get; set; }
-            public String PrivateIpAddress { get; set; }
-            public List<PrivateIpAddressSpecification> PrivateIpAddressSet { get; set; }
-            public Int32? SecondaryPrivateIpAddressCount { get; set; }
-            public String SubnetId { get; set; }
+            public System.String Description { get; set; }
+            public List<System.String> Groups { get; set; }
+            public System.String PrivateIpAddress { get; set; }
+            public List<Amazon.EC2.Model.PrivateIpAddressSpecification> PrivateIpAddressSet { get; set; }
+            public System.Int32? SecondaryPrivateIpAddressCount { get; set; }
+            public System.String SubnetId { get; set; }
         }
         
     }

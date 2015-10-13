@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Invokes the DecreaseStreamRetentionPeriod operation against AWS Kinesis.", Operation = new[] {"DecreaseStreamRetentionPeriod"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DecreaseStreamRetentionPeriodResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestKINStreamRetentionPeriodDecreaseCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("RetentionPeriodHours")]
-        public Int32 RetentionPeriodHour { get; set; }
+        public System.Int32 RetentionPeriodHour { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamName { get; set; }
+        public System.String StreamName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the StreamName parameter.
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DecreaseStreamRetentionPeriodRequest();
+            var request = new Amazon.Kinesis.Model.DecreaseStreamRetentionPeriodRequest();
             
             if (cmdletContext.RetentionPeriodHours != null)
             {
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? RetentionPeriodHours { get; set; }
-            public String StreamName { get; set; }
+            public System.Int32? RetentionPeriodHours { get; set; }
+            public System.String StreamName { get; set; }
         }
         
     }

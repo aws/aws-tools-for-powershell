@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the AssignInstance operation against AWS OpsWorks.", Operation = new[] {"AssignInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AssignInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.AssignInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterOPSInstanceAssignmentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.InstanceId = this.InstanceId;
             if (this.LayerId != null)
             {
-                context.LayerIds = new List<String>(this.LayerId);
+                context.LayerIds = new List<System.String>(this.LayerId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssignInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.AssignInstanceRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public List<String> LayerIds { get; set; }
+            public System.String InstanceId { get; set; }
+            public List<System.String> LayerIds { get; set; }
         }
         
     }

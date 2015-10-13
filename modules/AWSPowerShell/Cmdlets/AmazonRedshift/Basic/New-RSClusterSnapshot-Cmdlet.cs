@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"CreateClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type CreateClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateClusterSnapshotRequest();
+            var request = new Amazon.Redshift.Model.CreateClusterSnapshotRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -165,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
-            public String SnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

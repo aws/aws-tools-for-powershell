@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the AddTagsToResource operation against AWS Storage Gateway.", Operation = new[] {"AddTagsToResource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceARN { get; set; }
+        public System.String ResourceARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.ResourceARN = this.ResourceARN;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsToResourceRequest();
+            var request = new Amazon.StorageGateway.Model.AddTagsToResourceRequest();
             
             if (cmdletContext.ResourceARN != null)
             {
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceARN { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceARN { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
         }
         
     }

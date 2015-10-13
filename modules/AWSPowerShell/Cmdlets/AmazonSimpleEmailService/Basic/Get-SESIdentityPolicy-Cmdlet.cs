@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the GetIdentityPolicies operation against Amazon Simple Email Service.", Operation = new[] {"GetIdentityPolicies"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type GetIdentityPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESIdentityPolicyCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Identity { get; set; }
+        public System.String Identity { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             context.Identity = this.Identity;
             if (this.PolicyName != null)
             {
-                context.PolicyNames = new List<String>(this.PolicyName);
+                context.PolicyNames = new List<System.String>(this.PolicyName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetIdentityPoliciesRequest();
+            var request = new Amazon.SimpleEmail.Model.GetIdentityPoliciesRequest();
             
             if (cmdletContext.Identity != null)
             {
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Identity { get; set; }
-            public List<String> PolicyNames { get; set; }
+            public System.String Identity { get; set; }
+            public List<System.String> PolicyNames { get; set; }
         }
         
     }

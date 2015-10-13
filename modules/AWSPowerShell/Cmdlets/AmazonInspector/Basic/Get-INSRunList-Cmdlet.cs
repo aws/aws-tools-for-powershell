@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the ListRuns operation against Amazon Inspector.", Operation = new[] {"ListRuns"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListRunsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.Inspector.Model.ListRunsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetINSRunListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_CompletionTime_Maximum")]
-        public DateTime CompletionTime_Maximum { get; set; }
+        public System.DateTime CompletionTime_Maximum { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_CreationTime_Maximum")]
-        public DateTime CreationTime_Maximum { get; set; }
+        public System.DateTime CreationTime_Maximum { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_CompletionTime_Minimum")]
-        public DateTime CompletionTime_Minimum { get; set; }
+        public System.DateTime CompletionTime_Minimum { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_CreationTime_Minimum")]
-        public DateTime CreationTime_Minimum { get; set; }
+        public System.DateTime CreationTime_Minimum { get; set; }
         
         /// <summary>
         /// <para>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             
             if (this.AssessmentArn != null)
             {
-                context.AssessmentArns = new List<String>(this.AssessmentArn);
+                context.AssessmentArns = new List<System.String>(this.AssessmentArn);
             }
             if (ParameterWasBound("CompletionTime_Maximum"))
                 context.Filter_CompletionTime_Maximum = this.CompletionTime_Maximum;
@@ -165,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 context.Filter_CreationTime_Minimum = this.CreationTime_Minimum;
             if (this.Filter_RulesPackage != null)
             {
-                context.Filter_RulesPackages = new List<String>(this.Filter_RulesPackage);
+                context.Filter_RulesPackages = new List<System.String>(this.Filter_RulesPackage);
             }
             if (this.Filter_RunNamePattern != null)
             {
-                context.Filter_RunNamePatterns = new List<String>(this.Filter_RunNamePattern);
+                context.Filter_RunNamePatterns = new List<System.String>(this.Filter_RunNamePattern);
             }
             if (this.Filter_RunState != null)
             {
-                context.Filter_RunStates = new List<String>(this.Filter_RunState);
+                context.Filter_RunStates = new List<System.String>(this.Filter_RunState);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListRunsRequest();
+            var request = new Amazon.Inspector.Model.ListRunsRequest();
             if (cmdletContext.AssessmentArns != null)
             {
                 request.AssessmentArns = cmdletContext.AssessmentArns;
@@ -198,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
             
              // populate Filter
             bool requestFilterIsNull = true;
-            request.Filter = new RunsFilter();
-            List<String> requestFilter_filter_RulesPackage = null;
+            request.Filter = new Amazon.Inspector.Model.RunsFilter();
+            List<System.String> requestFilter_filter_RulesPackage = null;
             if (cmdletContext.Filter_RulesPackages != null)
             {
                 requestFilter_filter_RulesPackage = cmdletContext.Filter_RulesPackages;
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.RulesPackages = requestFilter_filter_RulesPackage;
                 requestFilterIsNull = false;
             }
-            List<String> requestFilter_filter_RunNamePattern = null;
+            List<System.String> requestFilter_filter_RunNamePattern = null;
             if (cmdletContext.Filter_RunNamePatterns != null)
             {
                 requestFilter_filter_RunNamePattern = cmdletContext.Filter_RunNamePatterns;
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.RunNamePatterns = requestFilter_filter_RunNamePattern;
                 requestFilterIsNull = false;
             }
-            List<String> requestFilter_filter_RunState = null;
+            List<System.String> requestFilter_filter_RunState = null;
             if (cmdletContext.Filter_RunStates != null)
             {
                 requestFilter_filter_RunState = cmdletContext.Filter_RunStates;
@@ -229,12 +229,12 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.RunStates = requestFilter_filter_RunState;
                 requestFilterIsNull = false;
             }
-            TimestampRange requestFilter_filter_CompletionTime = null;
+            Amazon.Inspector.Model.TimestampRange requestFilter_filter_CompletionTime = null;
             
              // populate CompletionTime
             bool requestFilter_filter_CompletionTimeIsNull = true;
-            requestFilter_filter_CompletionTime = new TimestampRange();
-            DateTime? requestFilter_filter_CompletionTime_completionTime_Maximum = null;
+            requestFilter_filter_CompletionTime = new Amazon.Inspector.Model.TimestampRange();
+            System.DateTime? requestFilter_filter_CompletionTime_completionTime_Maximum = null;
             if (cmdletContext.Filter_CompletionTime_Maximum != null)
             {
                 requestFilter_filter_CompletionTime_completionTime_Maximum = cmdletContext.Filter_CompletionTime_Maximum.Value;
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 requestFilter_filter_CompletionTime.Maximum = requestFilter_filter_CompletionTime_completionTime_Maximum.Value;
                 requestFilter_filter_CompletionTimeIsNull = false;
             }
-            DateTime? requestFilter_filter_CompletionTime_completionTime_Minimum = null;
+            System.DateTime? requestFilter_filter_CompletionTime_completionTime_Minimum = null;
             if (cmdletContext.Filter_CompletionTime_Minimum != null)
             {
                 requestFilter_filter_CompletionTime_completionTime_Minimum = cmdletContext.Filter_CompletionTime_Minimum.Value;
@@ -264,12 +264,12 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.CompletionTime = requestFilter_filter_CompletionTime;
                 requestFilterIsNull = false;
             }
-            TimestampRange requestFilter_filter_CreationTime = null;
+            Amazon.Inspector.Model.TimestampRange requestFilter_filter_CreationTime = null;
             
              // populate CreationTime
             bool requestFilter_filter_CreationTimeIsNull = true;
-            requestFilter_filter_CreationTime = new TimestampRange();
-            DateTime? requestFilter_filter_CreationTime_creationTime_Maximum = null;
+            requestFilter_filter_CreationTime = new Amazon.Inspector.Model.TimestampRange();
+            System.DateTime? requestFilter_filter_CreationTime_creationTime_Maximum = null;
             if (cmdletContext.Filter_CreationTime_Maximum != null)
             {
                 requestFilter_filter_CreationTime_creationTime_Maximum = cmdletContext.Filter_CreationTime_Maximum.Value;
@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 requestFilter_filter_CreationTime.Maximum = requestFilter_filter_CreationTime_creationTime_Maximum.Value;
                 requestFilter_filter_CreationTimeIsNull = false;
             }
-            DateTime? requestFilter_filter_CreationTime_creationTime_Minimum = null;
+            System.DateTime? requestFilter_filter_CreationTime_creationTime_Minimum = null;
             if (cmdletContext.Filter_CreationTime_Minimum != null)
             {
                 requestFilter_filter_CreationTime_creationTime_Minimum = cmdletContext.Filter_CreationTime_Minimum.Value;
@@ -306,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -391,16 +391,16 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AssessmentArns { get; set; }
-            public DateTime? Filter_CompletionTime_Maximum { get; set; }
-            public DateTime? Filter_CompletionTime_Minimum { get; set; }
-            public DateTime? Filter_CreationTime_Maximum { get; set; }
-            public DateTime? Filter_CreationTime_Minimum { get; set; }
-            public List<String> Filter_RulesPackages { get; set; }
-            public List<String> Filter_RunNamePatterns { get; set; }
-            public List<String> Filter_RunStates { get; set; }
+            public List<System.String> AssessmentArns { get; set; }
+            public System.DateTime? Filter_CompletionTime_Maximum { get; set; }
+            public System.DateTime? Filter_CompletionTime_Minimum { get; set; }
+            public System.DateTime? Filter_CreationTime_Maximum { get; set; }
+            public System.DateTime? Filter_CreationTime_Minimum { get; set; }
+            public List<System.String> Filter_RulesPackages { get; set; }
+            public List<System.String> Filter_RunNamePatterns { get; set; }
+            public List<System.String> Filter_RunStates { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

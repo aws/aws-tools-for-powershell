@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the DeleteByteMatchSet operation against AWS WAF.", Operation = new[] {"DeleteByteMatchSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.DeleteByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ByteMatchSetId { get; set; }
+        public System.String ByteMatchSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteByteMatchSetRequest();
+            var request = new Amazon.WAF.Model.DeleteByteMatchSetRequest();
             
             if (cmdletContext.ByteMatchSetId != null)
             {
@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ByteMatchSetId { get; set; }
-            public String ChangeToken { get; set; }
+            public System.String ByteMatchSetId { get; set; }
+            public System.String ChangeToken { get; set; }
         }
         
     }

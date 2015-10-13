@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the ListThingPrincipals operation against AWS IoT.", Operation = new[] {"ListThingPrincipals"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListThingPrincipalsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.ListThingPrincipalsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTThingPrincipalListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ThingName { get; set; }
+        public System.String ThingName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListThingPrincipalsRequest();
+            var request = new Amazon.IoT.Model.ListThingPrincipalsRequest();
             
             if (cmdletContext.ThingName != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ThingName { get; set; }
+            public System.String ThingName { get; set; }
         }
         
     }

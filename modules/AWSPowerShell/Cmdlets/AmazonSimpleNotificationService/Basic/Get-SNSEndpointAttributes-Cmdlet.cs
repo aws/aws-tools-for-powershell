@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the GetEndpointAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"GetEndpointAttributes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type GetEndpointAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSNSEndpointAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EndpointArn { get; set; }
+        public System.String EndpointArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetEndpointAttributesRequest();
+            var request = new Amazon.SimpleNotificationService.Model.GetEndpointAttributesRequest();
             
             if (cmdletContext.EndpointArn != null)
             {
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EndpointArn { get; set; }
+            public System.String EndpointArn { get; set; }
         }
         
     }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the UpdateVTLDeviceType operation against AWS Storage Gateway.", Operation = new[] {"UpdateVTLDeviceType"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateVTLDeviceTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSGVTLDeviceTypeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeviceType { get; set; }
+        public System.String DeviceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VTLDeviceARN { get; set; }
+        public System.String VTLDeviceARN { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateVTLDeviceTypeRequest();
+            var request = new Amazon.StorageGateway.Model.UpdateVTLDeviceTypeRequest();
             
             if (cmdletContext.DeviceType != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeviceType { get; set; }
-            public String VTLDeviceARN { get; set; }
+            public System.String DeviceType { get; set; }
+            public System.String VTLDeviceARN { get; set; }
         }
         
     }

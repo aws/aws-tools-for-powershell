@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeEventCategories operation against Amazon Redshift.", Operation = new[] {"DescribeEventCategories"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.EventCategoriesMap",
         "This cmdlet returns a collection of EventCategoriesMap objects.",
-        "The service call response (type DescribeEventCategoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DescribeEventCategoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRSEventCategoriesCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceType { get; set; }
+        public System.String SourceType { get; set; }
         
         
         protected override void ProcessRecord()
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEventCategoriesRequest();
+            var request = new Amazon.Redshift.Model.DescribeEventCategoriesRequest();
             
             if (cmdletContext.SourceType != null)
             {
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceType { get; set; }
+            public System.String SourceType { get; set; }
         }
         
     }

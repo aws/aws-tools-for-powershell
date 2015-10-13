@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Invokes the LookupEvents operation against AWS CloudTrail.", Operation = new[] {"LookupEvents"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.Event",
         "This cmdlet returns a collection of Event objects.",
-        "The service call response (type LookupEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudTrail.Model.LookupEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class FindCTEventsCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxResults")]
-        public Int32 MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.EndTime = this.EndTime;
             if (this.LookupAttribute != null)
             {
-                context.LookupAttributes = new List<LookupAttribute>(this.LookupAttribute);
+                context.LookupAttributes = new List<Amazon.CloudTrail.Model.LookupAttribute>(this.LookupAttribute);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new LookupEventsRequest();
+            var request = new Amazon.CloudTrail.Model.LookupEventsRequest();
             
             if (cmdletContext.EndTime != null)
             {
@@ -192,11 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public DateTime? EndTime { get; set; }
-            public List<LookupAttribute> LookupAttributes { get; set; }
-            public Int32? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public List<Amazon.CloudTrail.Model.LookupAttribute> LookupAttributes { get; set; }
+            public System.Int32? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

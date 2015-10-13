@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"DeleteClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type DeleteClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DeleteClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotClusterIdentifier { get; set; }
+        public System.String SnapshotClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteClusterSnapshotRequest();
+            var request = new Amazon.Redshift.Model.DeleteClusterSnapshotRequest();
             
             if (cmdletContext.SnapshotClusterIdentifier != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotClusterIdentifier { get; set; }
-            public String SnapshotIdentifier { get; set; }
+            public System.String SnapshotClusterIdentifier { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
         }
         
     }

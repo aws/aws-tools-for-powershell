@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the ModifyHsm operation against AWS Cloud HSM.", Operation = new[] {"ModifyHsm"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.ModifyHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EniIp { get; set; }
+        public System.String EniIp { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExternalId { get; set; }
+        public System.String ExternalId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HsmArn { get; set; }
+        public System.String HsmArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IamRoleArn { get; set; }
+        public System.String IamRoleArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SyslogIp { get; set; }
+        public System.String SyslogIp { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyHsmRequest();
+            var request = new Amazon.CloudHSM.Model.ModifyHsmRequest();
             
             if (cmdletContext.EniIp != null)
             {
@@ -190,12 +190,12 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EniIp { get; set; }
-            public String ExternalId { get; set; }
-            public String HsmArn { get; set; }
-            public String IamRoleArn { get; set; }
-            public String SubnetId { get; set; }
-            public String SyslogIp { get; set; }
+            public System.String EniIp { get; set; }
+            public System.String ExternalId { get; set; }
+            public System.String HsmArn { get; set; }
+            public System.String IamRoleArn { get; set; }
+            public System.String SubnetId { get; set; }
+            public System.String SyslogIp { get; set; }
         }
         
     }

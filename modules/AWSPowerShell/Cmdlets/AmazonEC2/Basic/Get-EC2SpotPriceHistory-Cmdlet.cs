@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeSpotPriceHistory operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSpotPriceHistory"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotPrice",
         "This cmdlet returns a collection of SpotPrice objects.",
-        "The service call response (type DescribeSpotPriceHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeSpotPriceHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2SpotPriceHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -145,18 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.EndTime = this.EndTime;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.InstanceType != null)
             {
-                context.InstanceTypes = new List<String>(this.InstanceType);
+                context.InstanceTypes = new List<System.String>(this.InstanceType);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.ProductDescription != null)
             {
-                context.ProductDescriptions = new List<String>(this.ProductDescription);
+                context.ProductDescriptions = new List<System.String>(this.ProductDescription);
             }
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeSpotPriceHistoryRequest();
+            var request = new Amazon.EC2.Model.DescribeSpotPriceHistoryRequest();
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -284,14 +284,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZone { get; set; }
-            public DateTime? EndTime { get; set; }
-            public List<Filter> Filters { get; set; }
-            public List<String> InstanceTypes { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> InstanceTypes { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public List<String> ProductDescriptions { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ProductDescriptions { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

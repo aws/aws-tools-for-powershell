@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     [OutputType("Amazon.CloudSearchDomain.Model.SearchResult")]
     [AWSCmdlet("Invokes the Search operation against Amazon CloudSearchDomain.", Operation = new [] {"Search"})]
     [AWSCmdletOutput("Amazon.CloudSearchDomain.Model.SearchResult",
-        "This cmdlet returns a SearchResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudSearchDomain.Model.SearchResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SearchCSDDocumentsCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
-        public String ServiceUrl { get; set; }
+        public System.String ServiceUrl { get; set; }
 
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Cursor { get; set; }
+        public System.String Cursor { get; set; }
         
         /// <summary>
         /// <para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Expr { get; set; }
+        public System.String Expr { get; set; }
         
         /// <summary>
         /// <para>
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Facet { get; set; }
+        public System.String Facet { get; set; }
         
         /// <summary>
         /// <para>
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String FilterQuery { get; set; }
+        public System.String FilterQuery { get; set; }
         
         /// <summary>
         /// <para>
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Highlight { get; set; }
+        public System.String Highlight { get; set; }
         
         /// <summary>
         /// <para>
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public Boolean? Partial { get; set; }
+        public System.Boolean? Partial { get; set; }
         
         /// <summary>
         /// <para>
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(Position = 1)]
-        public String Query { get; set; }
+        public System.String Query { get; set; }
         
         /// <summary>
         /// <para>
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </summary>
         [Parameter]
         [Alias("QueryOptions")]
-        public String QueryOption { get; set; }
+        public System.String QueryOption { get; set; }
         
         /// <summary>
         /// <para>
@@ -416,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public QueryParser QueryParser { get; set; }
+        public Amazon.CloudSearchDomain.QueryParser QueryParser { get; set; }
         
         /// <summary>
         /// <para>
@@ -432,7 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Return { get; set; }
+        public System.String Return { get; set; }
         
         /// <summary>
         /// <para>
@@ -443,7 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public Int64? Size { get; set; }
+        public System.Int64? Size { get; set; }
         
         /// <summary>
         /// <para>
@@ -465,7 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Sort { get; set; }
+        public System.String Sort { get; set; }
         
         /// <summary>
         /// <para>
@@ -481,7 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public Int64? Start { get; set; }
+        public System.Int64? Start { get; set; }
 
         /// <summary>
         /// If set, the cmdlet calls the service operation using anonymous credentials.

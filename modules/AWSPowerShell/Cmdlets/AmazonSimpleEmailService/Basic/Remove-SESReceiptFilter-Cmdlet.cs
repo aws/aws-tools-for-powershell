@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the DeleteReceiptFilter operation against Amazon Simple Email Service.", Operation = new[] {"DeleteReceiptFilter"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FilterName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.DeleteReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String FilterName { get; set; }
+        public System.String FilterName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the FilterName parameter.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteReceiptFilterRequest();
+            var request = new Amazon.SimpleEmail.Model.DeleteReceiptFilterRequest();
             
             if (cmdletContext.FilterName != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FilterName { get; set; }
+            public System.String FilterName { get; set; }
         }
         
     }

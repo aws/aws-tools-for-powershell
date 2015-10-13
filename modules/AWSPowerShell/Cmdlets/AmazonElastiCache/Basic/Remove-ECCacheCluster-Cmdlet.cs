@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DeleteCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"DeleteCacheCluster"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
         "This cmdlet returns a CacheCluster object.",
-        "The service call response (type DeleteCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheClusterId { get; set; }
+        public System.String CacheClusterId { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalSnapshotIdentifier { get; set; }
+        public System.String FinalSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteCacheClusterRequest();
+            var request = new Amazon.ElastiCache.Model.DeleteCacheClusterRequest();
             
             if (cmdletContext.CacheClusterId != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheClusterId { get; set; }
-            public String FinalSnapshotIdentifier { get; set; }
+            public System.String CacheClusterId { get; set; }
+            public System.String FinalSnapshotIdentifier { get; set; }
         }
         
     }

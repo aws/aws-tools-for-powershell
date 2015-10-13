@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeReservedCacheNodesOfferings operation against Amazon ElastiCache.", Operation = new[] {"DescribeReservedCacheNodesOfferings"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReservedCacheNodesOffering",
         "This cmdlet returns a collection of ReservedCacheNodesOffering objects.",
-        "The service call response (type DescribeReservedCacheNodesOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElastiCache.Model.DescribeReservedCacheNodesOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String CacheNodeType { get; set; }
+        public System.String CacheNodeType { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Duration { get; set; }
+        public System.String Duration { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OfferingType { get; set; }
+        public System.String OfferingType { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ProductDescription { get; set; }
+        public System.String ProductDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedCacheNodesOfferingId { get; set; }
+        public System.String ReservedCacheNodesOfferingId { get; set; }
         
         /// <summary>
         /// <para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeReservedCacheNodesOfferingsRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeReservedCacheNodesOfferingsRequest();
             if (cmdletContext.CacheNodeType != null)
             {
                 request.CacheNodeType = cmdletContext.CacheNodeType;
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -257,13 +257,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheNodeType { get; set; }
-            public String Duration { get; set; }
-            public String Marker { get; set; }
+            public System.String CacheNodeType { get; set; }
+            public System.String Duration { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String OfferingType { get; set; }
-            public String ProductDescription { get; set; }
-            public String ReservedCacheNodesOfferingId { get; set; }
+            public System.String OfferingType { get; set; }
+            public System.String ProductDescription { get; set; }
+            public System.String ReservedCacheNodesOfferingId { get; set; }
         }
         
     }

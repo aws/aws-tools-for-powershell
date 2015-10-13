@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteNetworkAclEntry operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteNetworkAclEntry"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NetworkAclId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteNetworkAclEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteNetworkAclEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2NetworkAclEntryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean Egress { get; set; }
+        public System.Boolean Egress { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NetworkAclId { get; set; }
+        public System.String NetworkAclId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 RuleNumber { get; set; }
+        public System.Int32 RuleNumber { get; set; }
         
         /// <summary>
         /// Returns the value passed to the NetworkAclId parameter.
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteNetworkAclEntryRequest();
+            var request = new Amazon.EC2.Model.DeleteNetworkAclEntryRequest();
             
             if (cmdletContext.Egress != null)
             {
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Egress { get; set; }
-            public String NetworkAclId { get; set; }
-            public Int32? RuleNumber { get; set; }
+            public System.Boolean? Egress { get; set; }
+            public System.String NetworkAclId { get; set; }
+            public System.Int32? RuleNumber { get; set; }
         }
         
     }

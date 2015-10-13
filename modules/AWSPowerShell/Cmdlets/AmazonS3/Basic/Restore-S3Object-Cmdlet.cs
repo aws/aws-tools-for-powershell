@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the RestoreObject operation against Amazon Simple Storage Service.", Operation = new[] {"RestoreObject"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RestoreObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.RestoreObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Days")]
-        public Int32 CopyLifetimeInDays { get; set; }
+        public System.Int32 CopyLifetimeInDays { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreObjectRequest();
+            var request = new Amazon.S3.Model.RestoreObjectRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -175,10 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String Key { get; set; }
-            public Int32? CopyLifetimeInDays { get; set; }
-            public String VersionId { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String Key { get; set; }
+            public System.Int32? CopyLifetimeInDays { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

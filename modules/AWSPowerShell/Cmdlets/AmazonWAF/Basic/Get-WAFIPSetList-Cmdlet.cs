@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the ListIPSets operation against AWS WAF.", Operation = new[] {"ListIPSets"})]
     [AWSCmdletOutput("Amazon.WAF.Model.IPSetSummary",
         "This cmdlet returns a collection of IPSetSummary objects.",
-        "The service call response (type ListIPSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
+        "The service call response (type Amazon.WAF.Model.ListIPSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetWAFIPSetListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String NextMarker { get; set; }
+        public System.String NextMarker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -91,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListIPSetsRequest();
+            var request = new Amazon.WAF.Model.ListIPSetsRequest();
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
-            public String NextMarker { get; set; }
+            public System.String NextMarker { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteEventSubscription operation against Amazon Redshift.", Operation = new[] {"DeleteEventSubscription"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubscriptionName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteEventSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteEventSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSEventSubscriptionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SubscriptionName parameter.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteEventSubscriptionRequest();
+            var request = new Amazon.Redshift.Model.DeleteEventSubscriptionRequest();
             
             if (cmdletContext.SubscriptionName != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SubscriptionName { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

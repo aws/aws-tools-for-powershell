@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the AddPermission operation against Amazon Lambda.", Operation = new[] {"AddPermission"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AddPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.AddPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Action { get; set; }
+        public System.String Action { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Principal { get; set; }
+        public System.String Principal { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public System.String Qualifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceAccount { get; set; }
+        public System.String SourceAccount { get; set; }
         
         /// <summary>
         /// <para>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceArn { get; set; }
+        public System.String SourceArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StatementId { get; set; }
+        public System.String StatementId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddPermissionRequest();
+            var request = new Amazon.Lambda.Model.AddPermissionRequest();
             
             if (cmdletContext.Action != null)
             {
@@ -248,13 +248,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Action { get; set; }
-            public String FunctionName { get; set; }
-            public String Principal { get; set; }
-            public String Qualifier { get; set; }
-            public String SourceAccount { get; set; }
-            public String SourceArn { get; set; }
-            public String StatementId { get; set; }
+            public System.String Action { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Principal { get; set; }
+            public System.String Qualifier { get; set; }
+            public System.String SourceAccount { get; set; }
+            public System.String SourceArn { get; set; }
+            public System.String StatementId { get; set; }
         }
         
     }

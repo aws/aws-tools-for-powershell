@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CancelBundleTask operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelBundleTask"})]
     [AWSCmdletOutput("Amazon.EC2.Model.BundleTask",
         "This cmdlet returns a BundleTask object.",
-        "The service call response (type CancelBundleTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CancelBundleTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEC2BundleTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BundleId { get; set; }
+        public System.String BundleId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelBundleTaskRequest();
+            var request = new Amazon.EC2.Model.CancelBundleTaskRequest();
             
             if (cmdletContext.BundleId != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BundleId { get; set; }
+            public System.String BundleId { get; set; }
         }
         
     }

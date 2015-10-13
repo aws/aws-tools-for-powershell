@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Invokes the RemoveTagsFromStream operation against AWS Kinesis.", Operation = new[] {"RemoveTagsFromStream"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemoveTagsFromStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.RemoveTagsFromStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveKINTagsFromStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamName { get; set; }
+        public System.String StreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             context.StreamName = this.StreamName;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsFromStreamRequest();
+            var request = new Amazon.Kinesis.Model.RemoveTagsFromStreamRequest();
             
             if (cmdletContext.StreamName != null)
             {
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StreamName { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String StreamName { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBSecurityGroup operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBSecurityGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSecurityGroup",
         "This cmdlet returns a DBSecurityGroup object.",
-        "The service call response (type CreateDBSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBSecurityGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String DBSecurityGroupDescription { get; set; }
+        public System.String DBSecurityGroupDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
+        public System.String DBSecurityGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSecurityGroupName = this.DBSecurityGroupName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBSecurityGroupRequest();
+            var request = new Amazon.RDS.Model.CreateDBSecurityGroupRequest();
             
             if (cmdletContext.DBSecurityGroupDescription != null)
             {
@@ -156,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSecurityGroupDescription { get; set; }
-            public String DBSecurityGroupName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String DBSecurityGroupDescription { get; set; }
+            public System.String DBSecurityGroupName { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

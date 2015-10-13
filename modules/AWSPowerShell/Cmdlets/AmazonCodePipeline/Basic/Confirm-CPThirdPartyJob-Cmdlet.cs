@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the AcknowledgeThirdPartyJob operation against AWS CodePipeline.", Operation = new[] {"AcknowledgeThirdPartyJob"})]
     [AWSCmdletOutput("Amazon.CodePipeline.JobStatus",
         "This cmdlet returns a JobStatus object.",
-        "The service call response (type AcknowledgeThirdPartyJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.AcknowledgeThirdPartyJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmCPThirdPartyJobCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Nonce { get; set; }
+        public System.String Nonce { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AcknowledgeThirdPartyJobRequest();
+            var request = new Amazon.CodePipeline.Model.AcknowledgeThirdPartyJobRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -153,9 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String JobId { get; set; }
-            public String Nonce { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String JobId { get; set; }
+            public System.String Nonce { get; set; }
         }
         
     }

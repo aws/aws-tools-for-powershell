@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeReservedInstancesOfferings operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeReservedInstancesOfferings"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesOffering",
         "This cmdlet returns a collection of ReservedInstancesOffering objects.",
-        "The service call response (type DescribeReservedInstancesOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2ReservedInstancesOfferingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean IncludeMarketplace { get; set; }
+        public System.Boolean IncludeMarketplace { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Tenancy InstanceTenancy { get; set; }
+        public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public InstanceType InstanceType { get; set; }
+        public Amazon.EC2.InstanceType InstanceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 MaxDuration { get; set; }
+        public System.Int64 MaxDuration { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MaxInstanceCount { get; set; }
+        public System.Int32 MaxInstanceCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 MinDuration { get; set; }
+        public System.Int64 MinDuration { get; set; }
         
         /// <summary>
         /// <para>
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public OfferingTypeValues OfferingType { get; set; }
+        public Amazon.EC2.OfferingTypeValues OfferingType { get; set; }
         
         /// <summary>
         /// <para>
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RIProductDescription ProductDescription { get; set; }
+        public Amazon.EC2.RIProductDescription ProductDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AvailabilityZone = this.AvailabilityZone;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (ParameterWasBound("IncludeMarketplace"))
                 context.IncludeMarketplace = this.IncludeMarketplace;
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ProductDescription = this.ProductDescription;
             if (this.ReservedInstancesOfferingId != null)
             {
-                context.ReservedInstancesOfferingIds = new List<String>(this.ReservedInstancesOfferingId);
+                context.ReservedInstancesOfferingIds = new List<System.String>(this.ReservedInstancesOfferingId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeReservedInstancesOfferingsRequest();
+            var request = new Amazon.EC2.Model.DescribeReservedInstancesOfferingsRequest();
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -360,19 +360,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZone { get; set; }
-            public List<Filter> Filters { get; set; }
-            public Boolean? IncludeMarketplace { get; set; }
-            public Tenancy InstanceTenancy { get; set; }
-            public InstanceType InstanceType { get; set; }
-            public Int64? MaxDuration { get; set; }
-            public Int32? MaxInstanceCount { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public System.Boolean? IncludeMarketplace { get; set; }
+            public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
+            public Amazon.EC2.InstanceType InstanceType { get; set; }
+            public System.Int64? MaxDuration { get; set; }
+            public System.Int32? MaxInstanceCount { get; set; }
             public int? MaxResults { get; set; }
-            public Int64? MinDuration { get; set; }
-            public String NextToken { get; set; }
-            public OfferingTypeValues OfferingType { get; set; }
-            public RIProductDescription ProductDescription { get; set; }
-            public List<String> ReservedInstancesOfferingIds { get; set; }
+            public System.Int64? MinDuration { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.EC2.OfferingTypeValues OfferingType { get; set; }
+            public Amazon.EC2.RIProductDescription ProductDescription { get; set; }
+            public List<System.String> ReservedInstancesOfferingIds { get; set; }
         }
         
     }

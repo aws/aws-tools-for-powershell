@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the GetJobDetails operation against AWS CodePipeline.", Operation = new[] {"GetJobDetails"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.JobDetails",
         "This cmdlet returns a JobDetails object.",
-        "The service call response (type GetJobDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.GetJobDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCPJobDetailsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetJobDetailsRequest();
+            var request = new Amazon.CodePipeline.Model.GetJobDetailsRequest();
             
             if (cmdletContext.JobId != null)
             {
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String JobId { get; set; }
+            public System.String JobId { get; set; }
         }
         
     }

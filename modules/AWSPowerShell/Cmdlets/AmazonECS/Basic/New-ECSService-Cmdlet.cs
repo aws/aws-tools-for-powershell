@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the CreateService operation against Amazon EC2 Container Service.", Operation = new[] {"CreateService"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Service",
         "This cmdlet returns a Service object.",
-        "The service call response (type CreateServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.CreateServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DesiredCount { get; set; }
+        public System.Int32 DesiredCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Role { get; set; }
+        public System.String Role { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceName { get; set; }
+        public System.String ServiceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TaskDefinition { get; set; }
+        public System.String TaskDefinition { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.DesiredCount = this.DesiredCount;
             if (this.LoadBalancer != null)
             {
-                context.LoadBalancers = new List<LoadBalancer>(this.LoadBalancer);
+                context.LoadBalancers = new List<Amazon.ECS.Model.LoadBalancer>(this.LoadBalancer);
             }
             context.Role = this.Role;
             context.ServiceName = this.ServiceName;
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateServiceRequest();
+            var request = new Amazon.ECS.Model.CreateServiceRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -223,13 +223,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String Cluster { get; set; }
-            public Int32? DesiredCount { get; set; }
-            public List<LoadBalancer> LoadBalancers { get; set; }
-            public String Role { get; set; }
-            public String ServiceName { get; set; }
-            public String TaskDefinition { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String Cluster { get; set; }
+            public System.Int32? DesiredCount { get; set; }
+            public List<Amazon.ECS.Model.LoadBalancer> LoadBalancers { get; set; }
+            public System.String Role { get; set; }
+            public System.String ServiceName { get; set; }
+            public System.String TaskDefinition { get; set; }
         }
         
     }

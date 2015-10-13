@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the ConfirmPrivateVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"ConfirmPrivateVirtualInterface"})]
     [AWSCmdletOutput("Amazon.DirectConnect.VirtualInterfaceState",
         "This cmdlet returns a VirtualInterfaceState object.",
-        "The service call response (type ConfirmPrivateVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String VirtualGatewayId { get; set; }
+        public System.String VirtualGatewayId { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VirtualInterfaceId { get; set; }
+        public System.String VirtualInterfaceId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConfirmPrivateVirtualInterfaceRequest();
+            var request = new Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceRequest();
             
             if (cmdletContext.VirtualGatewayId != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VirtualGatewayId { get; set; }
-            public String VirtualInterfaceId { get; set; }
+            public System.String VirtualGatewayId { get; set; }
+            public System.String VirtualInterfaceId { get; set; }
         }
         
     }

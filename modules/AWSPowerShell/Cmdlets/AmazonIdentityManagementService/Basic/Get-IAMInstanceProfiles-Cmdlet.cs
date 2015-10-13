@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ListInstanceProfiles operation against AWS Identity and Access Management.", Operation = new[] {"ListInstanceProfiles"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.InstanceProfile",
         "This cmdlet returns a collection of InstanceProfile objects.",
-        "The service call response (type ListInstanceProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.IdentityManagement.Model.ListInstanceProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String)"
     )]
     public class GetIAMInstanceProfilesCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PathPrefix { get; set; }
+        public System.String PathPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -109,14 +109,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListInstanceProfilesRequest();
+            var request = new Amazon.IdentityManagement.Model.ListInstanceProfilesRequest();
             if (cmdletContext.PathPrefix != null)
             {
                 request.PathPrefix = cmdletContext.PathPrefix;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -202,9 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public String PathPrefix { get; set; }
+            public System.String PathPrefix { get; set; }
         }
         
     }

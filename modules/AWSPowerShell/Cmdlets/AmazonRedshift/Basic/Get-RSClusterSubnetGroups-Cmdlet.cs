@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeClusterSubnetGroups operation against Amazon Redshift.", Operation = new[] {"DescribeClusterSubnetGroups"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSubnetGroup",
         "This cmdlet returns a collection of ClusterSubnetGroup objects.",
-        "The service call response (type DescribeClusterSubnetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.Redshift.Model.DescribeClusterSubnetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRSClusterSubnetGroupsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterSubnetGroupName { get; set; }
+        public System.String ClusterSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -133,11 +133,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.MaxRecords = this.MaxRecord;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             if (this.TagValue != null)
             {
-                context.TagValues = new List<String>(this.TagValue);
+                context.TagValues = new List<System.String>(this.TagValue);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeClusterSubnetGroupsRequest();
+            var request = new Amazon.Redshift.Model.DescribeClusterSubnetGroupsRequest();
             if (cmdletContext.ClusterSubnetGroupName != null)
             {
                 request.ClusterSubnetGroupName = cmdletContext.ClusterSubnetGroupName;
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -281,11 +281,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterSubnetGroupName { get; set; }
-            public String Marker { get; set; }
+            public System.String ClusterSubnetGroupName { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public List<String> TagKeys { get; set; }
-            public List<String> TagValues { get; set; }
+            public List<System.String> TagKeys { get; set; }
+            public List<System.String> TagValues { get; set; }
         }
         
     }

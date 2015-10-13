@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Invokes the PutRecord operation against Amazon Kinesis Firehose.", Operation = new[] {"PutRecord"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type PutRecordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisFirehose.Model.PutRecordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteKINFRecordCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryStreamName { get; set; }
+        public System.String DeliveryStreamName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutRecordRequest();
+            var request = new Amazon.KinesisFirehose.Model.PutRecordRequest();
             
             if (cmdletContext.DeliveryStreamName != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             
              // populate Record
             bool requestRecordIsNull = true;
-            request.Record = new Record();
+            request.Record = new Amazon.KinesisFirehose.Model.Record();
             System.IO.MemoryStream requestRecord_record_Data = null;
             if (cmdletContext.Record_Data != null)
             {
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryStreamName { get; set; }
+            public System.String DeliveryStreamName { get; set; }
             public System.IO.MemoryStream Record_Data { get; set; }
         }
         

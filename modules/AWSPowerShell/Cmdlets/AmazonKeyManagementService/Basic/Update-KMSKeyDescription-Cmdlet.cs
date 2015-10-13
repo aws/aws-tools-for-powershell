@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the UpdateKeyDescription operation against AWS Key Management Service.", Operation = new[] {"UpdateKeyDescription"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateKeyDescriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.UpdateKeyDescriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateKMSKeyDescriptionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the KeyId parameter.
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateKeyDescriptionRequest();
+            var request = new Amazon.KeyManagementService.Model.UpdateKeyDescriptionRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String KeyId { get; set; }
+            public System.String Description { get; set; }
+            public System.String KeyId { get; set; }
         }
         
     }

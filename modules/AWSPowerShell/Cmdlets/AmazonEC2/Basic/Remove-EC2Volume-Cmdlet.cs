@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteVolume operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteVolume"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VolumeId parameter.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteVolumeRequest();
+            var request = new Amazon.EC2.Model.DeleteVolumeRequest();
             
             if (cmdletContext.VolumeId != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VolumeId { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

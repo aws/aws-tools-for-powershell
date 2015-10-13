@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribeDBLogFiles operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBLogFiles"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DescribeDBLogFilesDetails",
         "This cmdlet returns a collection of DescribeDBLogFilesDetails objects.",
-        "The service call response (type DescribeDBLogFilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.RDS.Model.DescribeDBLogFilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRDSDBLogFilesCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 FileLastWritten { get; set; }
+        public System.Int64 FileLastWritten { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FilenameContains { get; set; }
+        public System.String FilenameContains { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 FileSize { get; set; }
+        public System.Int64 FileSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.FileSize = this.FileSize;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeDBLogFilesRequest();
+            var request = new Amazon.RDS.Model.DescribeDBLogFilesRequest();
             if (cmdletContext.DBInstanceIdentifier != null)
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -251,12 +251,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceIdentifier { get; set; }
-            public Int64? FileLastWritten { get; set; }
-            public String FilenameContains { get; set; }
-            public Int64? FileSize { get; set; }
-            public List<Filter> Filters { get; set; }
-            public String Marker { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.Int64? FileLastWritten { get; set; }
+            public System.String FilenameContains { get; set; }
+            public System.Int64? FileSize { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

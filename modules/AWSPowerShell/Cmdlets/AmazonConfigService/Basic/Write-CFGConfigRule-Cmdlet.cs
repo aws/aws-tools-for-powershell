@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the PutConfigRule operation against Amazon Config.", Operation = new[] {"PutConfigRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigRule_ConfigRuleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.PutConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCFGConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_ComplianceResourceId")]
-        public String Scope_ComplianceResourceId { get; set; }
+        public System.String Scope_ComplianceResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigRule_ConfigRuleArn { get; set; }
+        public System.String ConfigRule_ConfigRuleArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigRule_ConfigRuleId { get; set; }
+        public System.String ConfigRule_ConfigRuleId { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ConfigRule_ConfigRuleName { get; set; }
+        public System.String ConfigRule_ConfigRuleName { get; set; }
         
         /// <summary>
         /// <para>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
+        public Amazon.ConfigService.ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
         
         /// <summary>
         /// <para>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigRule_Description { get; set; }
+        public System.String ConfigRule_Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_InputParameters")]
-        public String ConfigRule_InputParameter { get; set; }
+        public System.String ConfigRule_InputParameter { get; set; }
         
         /// <summary>
         /// <para>
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
+        public Amazon.ConfigService.MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
         
         /// <summary>
         /// <para>
@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Source_SourceIdentifier")]
-        public String Source_SourceIdentifier { get; set; }
+        public System.String Source_SourceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_TagKey")]
-        public String Scope_TagKey { get; set; }
+        public System.String Scope_TagKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_TagValue")]
-        public String Scope_TagValue { get; set; }
+        public System.String Scope_TagValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Source_Owner")]
-        public Owner Source_Owner { get; set; }
+        public Amazon.ConfigService.Owner Source_Owner { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ConfigRule_ConfigRuleName parameter.
@@ -257,14 +257,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.ConfigRule_Scope_ComplianceResourceId = this.Scope_ComplianceResourceId;
             if (this.Scope_ComplianceResourceType != null)
             {
-                context.ConfigRule_Scope_ComplianceResourceTypes = new List<String>(this.Scope_ComplianceResourceType);
+                context.ConfigRule_Scope_ComplianceResourceTypes = new List<System.String>(this.Scope_ComplianceResourceType);
             }
             context.ConfigRule_Scope_TagKey = this.Scope_TagKey;
             context.ConfigRule_Scope_TagValue = this.Scope_TagValue;
             context.ConfigRule_Source_Owner = this.Source_Owner;
             if (this.Source_SourceDetail != null)
             {
-                context.ConfigRule_Source_SourceDetails = new List<SourceDetail>(this.Source_SourceDetail);
+                context.ConfigRule_Source_SourceDetails = new List<Amazon.ConfigService.Model.SourceDetail>(this.Source_SourceDetail);
             }
             context.ConfigRule_Source_SourceIdentifier = this.Source_SourceIdentifier;
             
@@ -278,13 +278,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutConfigRuleRequest();
+            var request = new Amazon.ConfigService.Model.PutConfigRuleRequest();
             
             
              // populate ConfigRule
             bool requestConfigRuleIsNull = true;
-            request.ConfigRule = new ConfigRule();
-            String requestConfigRule_configRule_ConfigRuleArn = null;
+            request.ConfigRule = new Amazon.ConfigService.Model.ConfigRule();
+            System.String requestConfigRule_configRule_ConfigRuleArn = null;
             if (cmdletContext.ConfigRule_ConfigRuleArn != null)
             {
                 requestConfigRule_configRule_ConfigRuleArn = cmdletContext.ConfigRule_ConfigRuleArn;
@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.ConfigRuleArn = requestConfigRule_configRule_ConfigRuleArn;
                 requestConfigRuleIsNull = false;
             }
-            String requestConfigRule_configRule_ConfigRuleId = null;
+            System.String requestConfigRule_configRule_ConfigRuleId = null;
             if (cmdletContext.ConfigRule_ConfigRuleId != null)
             {
                 requestConfigRule_configRule_ConfigRuleId = cmdletContext.ConfigRule_ConfigRuleId;
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.ConfigRuleId = requestConfigRule_configRule_ConfigRuleId;
                 requestConfigRuleIsNull = false;
             }
-            String requestConfigRule_configRule_ConfigRuleName = null;
+            System.String requestConfigRule_configRule_ConfigRuleName = null;
             if (cmdletContext.ConfigRule_ConfigRuleName != null)
             {
                 requestConfigRule_configRule_ConfigRuleName = cmdletContext.ConfigRule_ConfigRuleName;
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.ConfigRuleName = requestConfigRule_configRule_ConfigRuleName;
                 requestConfigRuleIsNull = false;
             }
-            ConfigRuleState requestConfigRule_configRule_ConfigRuleState = null;
+            Amazon.ConfigService.ConfigRuleState requestConfigRule_configRule_ConfigRuleState = null;
             if (cmdletContext.ConfigRule_ConfigRuleState != null)
             {
                 requestConfigRule_configRule_ConfigRuleState = cmdletContext.ConfigRule_ConfigRuleState;
@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.ConfigRuleState = requestConfigRule_configRule_ConfigRuleState;
                 requestConfigRuleIsNull = false;
             }
-            String requestConfigRule_configRule_Description = null;
+            System.String requestConfigRule_configRule_Description = null;
             if (cmdletContext.ConfigRule_Description != null)
             {
                 requestConfigRule_configRule_Description = cmdletContext.ConfigRule_Description;
@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.Description = requestConfigRule_configRule_Description;
                 requestConfigRuleIsNull = false;
             }
-            String requestConfigRule_configRule_InputParameter = null;
+            System.String requestConfigRule_configRule_InputParameter = null;
             if (cmdletContext.ConfigRule_InputParameters != null)
             {
                 requestConfigRule_configRule_InputParameter = cmdletContext.ConfigRule_InputParameters;
@@ -344,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.InputParameters = requestConfigRule_configRule_InputParameter;
                 requestConfigRuleIsNull = false;
             }
-            MaximumExecutionFrequency requestConfigRule_configRule_MaximumExecutionFrequency = null;
+            Amazon.ConfigService.MaximumExecutionFrequency requestConfigRule_configRule_MaximumExecutionFrequency = null;
             if (cmdletContext.ConfigRule_MaximumExecutionFrequency != null)
             {
                 requestConfigRule_configRule_MaximumExecutionFrequency = cmdletContext.ConfigRule_MaximumExecutionFrequency;
@@ -354,12 +354,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.MaximumExecutionFrequency = requestConfigRule_configRule_MaximumExecutionFrequency;
                 requestConfigRuleIsNull = false;
             }
-            Source requestConfigRule_configRule_Source = null;
+            Amazon.ConfigService.Model.Source requestConfigRule_configRule_Source = null;
             
              // populate Source
             bool requestConfigRule_configRule_SourceIsNull = true;
-            requestConfigRule_configRule_Source = new Source();
-            Owner requestConfigRule_configRule_Source_source_Owner = null;
+            requestConfigRule_configRule_Source = new Amazon.ConfigService.Model.Source();
+            Amazon.ConfigService.Owner requestConfigRule_configRule_Source_source_Owner = null;
             if (cmdletContext.ConfigRule_Source_Owner != null)
             {
                 requestConfigRule_configRule_Source_source_Owner = cmdletContext.ConfigRule_Source_Owner;
@@ -369,7 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 requestConfigRule_configRule_Source.Owner = requestConfigRule_configRule_Source_source_Owner;
                 requestConfigRule_configRule_SourceIsNull = false;
             }
-            List<SourceDetail> requestConfigRule_configRule_Source_source_SourceDetail = null;
+            List<Amazon.ConfigService.Model.SourceDetail> requestConfigRule_configRule_Source_source_SourceDetail = null;
             if (cmdletContext.ConfigRule_Source_SourceDetails != null)
             {
                 requestConfigRule_configRule_Source_source_SourceDetail = cmdletContext.ConfigRule_Source_SourceDetails;
@@ -379,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 requestConfigRule_configRule_Source.SourceDetails = requestConfigRule_configRule_Source_source_SourceDetail;
                 requestConfigRule_configRule_SourceIsNull = false;
             }
-            String requestConfigRule_configRule_Source_source_SourceIdentifier = null;
+            System.String requestConfigRule_configRule_Source_source_SourceIdentifier = null;
             if (cmdletContext.ConfigRule_Source_SourceIdentifier != null)
             {
                 requestConfigRule_configRule_Source_source_SourceIdentifier = cmdletContext.ConfigRule_Source_SourceIdentifier;
@@ -399,12 +399,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigRule.Source = requestConfigRule_configRule_Source;
                 requestConfigRuleIsNull = false;
             }
-            Scope requestConfigRule_configRule_Scope = null;
+            Amazon.ConfigService.Model.Scope requestConfigRule_configRule_Scope = null;
             
              // populate Scope
             bool requestConfigRule_configRule_ScopeIsNull = true;
-            requestConfigRule_configRule_Scope = new Scope();
-            String requestConfigRule_configRule_Scope_scope_ComplianceResourceId = null;
+            requestConfigRule_configRule_Scope = new Amazon.ConfigService.Model.Scope();
+            System.String requestConfigRule_configRule_Scope_scope_ComplianceResourceId = null;
             if (cmdletContext.ConfigRule_Scope_ComplianceResourceId != null)
             {
                 requestConfigRule_configRule_Scope_scope_ComplianceResourceId = cmdletContext.ConfigRule_Scope_ComplianceResourceId;
@@ -414,7 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 requestConfigRule_configRule_Scope.ComplianceResourceId = requestConfigRule_configRule_Scope_scope_ComplianceResourceId;
                 requestConfigRule_configRule_ScopeIsNull = false;
             }
-            List<String> requestConfigRule_configRule_Scope_scope_ComplianceResourceType = null;
+            List<System.String> requestConfigRule_configRule_Scope_scope_ComplianceResourceType = null;
             if (cmdletContext.ConfigRule_Scope_ComplianceResourceTypes != null)
             {
                 requestConfigRule_configRule_Scope_scope_ComplianceResourceType = cmdletContext.ConfigRule_Scope_ComplianceResourceTypes;
@@ -424,7 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 requestConfigRule_configRule_Scope.ComplianceResourceTypes = requestConfigRule_configRule_Scope_scope_ComplianceResourceType;
                 requestConfigRule_configRule_ScopeIsNull = false;
             }
-            String requestConfigRule_configRule_Scope_scope_TagKey = null;
+            System.String requestConfigRule_configRule_Scope_scope_TagKey = null;
             if (cmdletContext.ConfigRule_Scope_TagKey != null)
             {
                 requestConfigRule_configRule_Scope_scope_TagKey = cmdletContext.ConfigRule_Scope_TagKey;
@@ -434,7 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 requestConfigRule_configRule_Scope.TagKey = requestConfigRule_configRule_Scope_scope_TagKey;
                 requestConfigRule_configRule_ScopeIsNull = false;
             }
-            String requestConfigRule_configRule_Scope_scope_TagValue = null;
+            System.String requestConfigRule_configRule_Scope_scope_TagValue = null;
             if (cmdletContext.ConfigRule_Scope_TagValue != null)
             {
                 requestConfigRule_configRule_Scope_scope_TagValue = cmdletContext.ConfigRule_Scope_TagValue;
@@ -496,20 +496,20 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConfigRule_ConfigRuleArn { get; set; }
-            public String ConfigRule_ConfigRuleId { get; set; }
-            public String ConfigRule_ConfigRuleName { get; set; }
-            public ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
-            public String ConfigRule_Description { get; set; }
-            public String ConfigRule_InputParameters { get; set; }
-            public MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
-            public String ConfigRule_Scope_ComplianceResourceId { get; set; }
-            public List<String> ConfigRule_Scope_ComplianceResourceTypes { get; set; }
-            public String ConfigRule_Scope_TagKey { get; set; }
-            public String ConfigRule_Scope_TagValue { get; set; }
-            public Owner ConfigRule_Source_Owner { get; set; }
-            public List<SourceDetail> ConfigRule_Source_SourceDetails { get; set; }
-            public String ConfigRule_Source_SourceIdentifier { get; set; }
+            public System.String ConfigRule_ConfigRuleArn { get; set; }
+            public System.String ConfigRule_ConfigRuleId { get; set; }
+            public System.String ConfigRule_ConfigRuleName { get; set; }
+            public Amazon.ConfigService.ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
+            public System.String ConfigRule_Description { get; set; }
+            public System.String ConfigRule_InputParameters { get; set; }
+            public Amazon.ConfigService.MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
+            public System.String ConfigRule_Scope_ComplianceResourceId { get; set; }
+            public List<System.String> ConfigRule_Scope_ComplianceResourceTypes { get; set; }
+            public System.String ConfigRule_Scope_TagKey { get; set; }
+            public System.String ConfigRule_Scope_TagValue { get; set; }
+            public Amazon.ConfigService.Owner ConfigRule_Source_Owner { get; set; }
+            public List<Amazon.ConfigService.Model.SourceDetail> ConfigRule_Source_SourceDetails { get; set; }
+            public System.String ConfigRule_Source_SourceIdentifier { get; set; }
         }
         
     }

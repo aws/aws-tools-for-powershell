@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the CreateHsm operation against AWS Cloud HSM.", Operation = new[] {"CreateHsm"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.CreateHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EniIp { get; set; }
+        public System.String EniIp { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExternalId { get; set; }
+        public System.String ExternalId { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IamRoleArn { get; set; }
+        public System.String IamRoleArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshKey { get; set; }
+        public System.String SshKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SubscriptionType SubscriptionType { get; set; }
+        public Amazon.CloudHSM.SubscriptionType SubscriptionType { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SyslogIp { get; set; }
+        public System.String SyslogIp { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateHsmRequest();
+            var request = new Amazon.CloudHSM.Model.CreateHsmRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -219,14 +219,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String EniIp { get; set; }
-            public String ExternalId { get; set; }
-            public String IamRoleArn { get; set; }
-            public String SshKey { get; set; }
-            public String SubnetId { get; set; }
-            public SubscriptionType SubscriptionType { get; set; }
-            public String SyslogIp { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String EniIp { get; set; }
+            public System.String ExternalId { get; set; }
+            public System.String IamRoleArn { get; set; }
+            public System.String SshKey { get; set; }
+            public System.String SubnetId { get; set; }
+            public Amazon.CloudHSM.SubscriptionType SubscriptionType { get; set; }
+            public System.String SyslogIp { get; set; }
         }
         
     }

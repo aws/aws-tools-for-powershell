@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the GetChange operation against AWS Route 53.", Operation = new[] {"GetChange"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type GetChangeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetChangeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53ChangeCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
         
         
         protected override void ProcessRecord()
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetChangeRequest();
+            var request = new Amazon.Route53.Model.GetChangeRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeregisterInstance operation against AWS OpsWorks.", Operation = new[] {"DeregisterInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeregisterInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.DeregisterInstanceRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

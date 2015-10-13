@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketLogging operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketLogging"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketLoggingCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LoggingConfig_TargetBucketName { get; set; }
+        public System.String LoggingConfig_TargetBucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LoggingConfig_TargetPrefix { get; set; }
+        public System.String LoggingConfig_TargetPrefix { get; set; }
         
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.LoggingConfig_TargetBucketName = this.LoggingConfig_TargetBucketName;
             if (this.LoggingConfig_Grant != null)
             {
-                context.LoggingConfig_Grants = new List<S3Grant>(this.LoggingConfig_Grant);
+                context.LoggingConfig_Grants = new List<Amazon.S3.Model.S3Grant>(this.LoggingConfig_Grant);
             }
             context.LoggingConfig_TargetPrefix = this.LoggingConfig_TargetPrefix;
             
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketLoggingRequest();
+            var request = new Amazon.S3.Model.PutBucketLoggingRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate LoggingConfig
             bool requestLoggingConfigIsNull = true;
-            request.LoggingConfig = new S3BucketLoggingConfig();
-            String requestLoggingConfig_loggingConfig_TargetBucketName = null;
+            request.LoggingConfig = new Amazon.S3.Model.S3BucketLoggingConfig();
+            System.String requestLoggingConfig_loggingConfig_TargetBucketName = null;
             if (cmdletContext.LoggingConfig_TargetBucketName != null)
             {
                 requestLoggingConfig_loggingConfig_TargetBucketName = cmdletContext.LoggingConfig_TargetBucketName;
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.LoggingConfig.TargetBucketName = requestLoggingConfig_loggingConfig_TargetBucketName;
                 requestLoggingConfigIsNull = false;
             }
-            List<S3Grant> requestLoggingConfig_loggingConfig_Grant = null;
+            List<Amazon.S3.Model.S3Grant> requestLoggingConfig_loggingConfig_Grant = null;
             if (cmdletContext.LoggingConfig_Grants != null)
             {
                 requestLoggingConfig_loggingConfig_Grant = cmdletContext.LoggingConfig_Grants;
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.LoggingConfig.Grants = requestLoggingConfig_loggingConfig_Grant;
                 requestLoggingConfigIsNull = false;
             }
-            String requestLoggingConfig_loggingConfig_TargetPrefix = null;
+            System.String requestLoggingConfig_loggingConfig_TargetPrefix = null;
             if (cmdletContext.LoggingConfig_TargetPrefix != null)
             {
                 requestLoggingConfig_loggingConfig_TargetPrefix = cmdletContext.LoggingConfig_TargetPrefix;
@@ -208,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String LoggingConfig_TargetBucketName { get; set; }
-            public List<S3Grant> LoggingConfig_Grants { get; set; }
-            public String LoggingConfig_TargetPrefix { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String LoggingConfig_TargetBucketName { get; set; }
+            public List<Amazon.S3.Model.S3Grant> LoggingConfig_Grants { get; set; }
+            public System.String LoggingConfig_TargetPrefix { get; set; }
         }
         
     }

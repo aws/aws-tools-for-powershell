@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the RemoveAttributesFromFindings operation against Amazon Inspector.", Operation = new[] {"RemoveAttributesFromFindings"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RemoveAttributesFromFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.RemoveAttributesFromFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveINSFindingAttributeCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -85,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.INS
             
             if (this.AttributeKey != null)
             {
-                context.AttributeKeys = new List<String>(this.AttributeKey);
+                context.AttributeKeys = new List<System.String>(this.AttributeKey);
             }
             if (this.FindingArn != null)
             {
-                context.FindingArns = new List<String>(this.FindingArn);
+                context.FindingArns = new List<System.String>(this.FindingArn);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveAttributesFromFindingsRequest();
+            var request = new Amazon.Inspector.Model.RemoveAttributesFromFindingsRequest();
             
             if (cmdletContext.AttributeKeys != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AttributeKeys { get; set; }
-            public List<String> FindingArns { get; set; }
+            public List<System.String> AttributeKeys { get; set; }
+            public List<System.String> FindingArns { get; set; }
         }
         
     }

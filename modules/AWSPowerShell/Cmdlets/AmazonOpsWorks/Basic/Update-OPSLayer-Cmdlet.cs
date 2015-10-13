@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateLayer operation against AWS OpsWorks.", Operation = new[] {"UpdateLayer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LayerId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateLayerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateLayerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSLayerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoAssignElasticIps { get; set; }
+        [Alias("AutoAssignElasticIps")]
+        public System.Boolean AutoAssignElasticIp { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoAssignPublicIps { get; set; }
+        [Alias("AutoAssignPublicIps")]
+        public System.Boolean AutoAssignPublicIp { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomInstanceProfileArn { get; set; }
+        public System.String CustomInstanceProfileArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomJson { get; set; }
+        public System.String CustomJson { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LifecycleEventConfiguration_Shutdown_DelayUntilElbConnectionsDrained")]
-        public Boolean Shutdown_DelayUntilElbConnectionsDrained { get; set; }
+        public System.Boolean Shutdown_DelayUntilElbConnectionsDrained { get; set; }
         
         /// <summary>
         /// <para>
@@ -137,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EnableAutoHealing { get; set; }
+        public System.Boolean EnableAutoHealing { get; set; }
         
         /// <summary>
         /// <para>
@@ -147,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LifecycleEventConfiguration_Shutdown_ExecutionTimeout")]
-        public Int32 Shutdown_ExecutionTimeout { get; set; }
+        public System.Int32 Shutdown_ExecutionTimeout { get; set; }
         
         /// <summary>
         /// <para>
@@ -161,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean InstallUpdatesOnBoot { get; set; }
+        public System.Boolean InstallUpdatesOnBoot { get; set; }
         
         /// <summary>
         /// <para>
@@ -169,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LayerId { get; set; }
+        public System.String LayerId { get; set; }
         
         /// <summary>
         /// <para>
@@ -177,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -207,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Shortname { get; set; }
+        public System.String Shortname { get; set; }
         
         /// <summary>
         /// <para>
@@ -231,7 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean UseEbsOptimizedInstances { get; set; }
+        [Alias("UseEbsOptimizedInstances")]
+        public System.Boolean UseEbsOptimizedInstance { get; set; }
         
         /// <summary>
         /// <para>
@@ -276,41 +279,41 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.Attribute != null)
             {
-                context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
                     context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
                 }
             }
-            if (ParameterWasBound("AutoAssignElasticIps"))
-                context.AutoAssignElasticIps = this.AutoAssignElasticIps;
-            if (ParameterWasBound("AutoAssignPublicIps"))
-                context.AutoAssignPublicIps = this.AutoAssignPublicIps;
+            if (ParameterWasBound("AutoAssignElasticIp"))
+                context.AutoAssignElasticIps = this.AutoAssignElasticIp;
+            if (ParameterWasBound("AutoAssignPublicIp"))
+                context.AutoAssignPublicIps = this.AutoAssignPublicIp;
             context.CustomInstanceProfileArn = this.CustomInstanceProfileArn;
             context.CustomJson = this.CustomJson;
             if (this.CustomRecipes_Configure != null)
             {
-                context.CustomRecipes_Configure = new List<String>(this.CustomRecipes_Configure);
+                context.CustomRecipes_Configure = new List<System.String>(this.CustomRecipes_Configure);
             }
             if (this.CustomRecipes_Deploy != null)
             {
-                context.CustomRecipes_Deploy = new List<String>(this.CustomRecipes_Deploy);
+                context.CustomRecipes_Deploy = new List<System.String>(this.CustomRecipes_Deploy);
             }
             if (this.CustomRecipes_Setup != null)
             {
-                context.CustomRecipes_Setup = new List<String>(this.CustomRecipes_Setup);
+                context.CustomRecipes_Setup = new List<System.String>(this.CustomRecipes_Setup);
             }
             if (this.CustomRecipes_Shutdown != null)
             {
-                context.CustomRecipes_Shutdown = new List<String>(this.CustomRecipes_Shutdown);
+                context.CustomRecipes_Shutdown = new List<System.String>(this.CustomRecipes_Shutdown);
             }
             if (this.CustomRecipes_Undeploy != null)
             {
-                context.CustomRecipes_Undeploy = new List<String>(this.CustomRecipes_Undeploy);
+                context.CustomRecipes_Undeploy = new List<System.String>(this.CustomRecipes_Undeploy);
             }
             if (this.CustomSecurityGroupId != null)
             {
-                context.CustomSecurityGroupIds = new List<String>(this.CustomSecurityGroupId);
+                context.CustomSecurityGroupIds = new List<System.String>(this.CustomSecurityGroupId);
             }
             if (ParameterWasBound("EnableAutoHealing"))
                 context.EnableAutoHealing = this.EnableAutoHealing;
@@ -324,14 +327,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.Name = this.Name;
             if (this.Package != null)
             {
-                context.Packages = new List<String>(this.Package);
+                context.Packages = new List<System.String>(this.Package);
             }
             context.Shortname = this.Shortname;
-            if (ParameterWasBound("UseEbsOptimizedInstances"))
-                context.UseEbsOptimizedInstances = this.UseEbsOptimizedInstances;
+            if (ParameterWasBound("UseEbsOptimizedInstance"))
+                context.UseEbsOptimizedInstances = this.UseEbsOptimizedInstance;
             if (this.VolumeConfiguration != null)
             {
-                context.VolumeConfigurations = new List<VolumeConfiguration>(this.VolumeConfiguration);
+                context.VolumeConfigurations = new List<Amazon.OpsWorks.Model.VolumeConfiguration>(this.VolumeConfiguration);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -344,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateLayerRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateLayerRequest();
             
             if (cmdletContext.Attributes != null)
             {
@@ -369,8 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate CustomRecipes
             bool requestCustomRecipesIsNull = true;
-            request.CustomRecipes = new Recipes();
-            List<String> requestCustomRecipes_customRecipes_Configure = null;
+            request.CustomRecipes = new Amazon.OpsWorks.Model.Recipes();
+            List<System.String> requestCustomRecipes_customRecipes_Configure = null;
             if (cmdletContext.CustomRecipes_Configure != null)
             {
                 requestCustomRecipes_customRecipes_Configure = cmdletContext.CustomRecipes_Configure;
@@ -380,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomRecipes.Configure = requestCustomRecipes_customRecipes_Configure;
                 requestCustomRecipesIsNull = false;
             }
-            List<String> requestCustomRecipes_customRecipes_Deploy = null;
+            List<System.String> requestCustomRecipes_customRecipes_Deploy = null;
             if (cmdletContext.CustomRecipes_Deploy != null)
             {
                 requestCustomRecipes_customRecipes_Deploy = cmdletContext.CustomRecipes_Deploy;
@@ -390,7 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomRecipes.Deploy = requestCustomRecipes_customRecipes_Deploy;
                 requestCustomRecipesIsNull = false;
             }
-            List<String> requestCustomRecipes_customRecipes_Setup = null;
+            List<System.String> requestCustomRecipes_customRecipes_Setup = null;
             if (cmdletContext.CustomRecipes_Setup != null)
             {
                 requestCustomRecipes_customRecipes_Setup = cmdletContext.CustomRecipes_Setup;
@@ -400,7 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomRecipes.Setup = requestCustomRecipes_customRecipes_Setup;
                 requestCustomRecipesIsNull = false;
             }
-            List<String> requestCustomRecipes_customRecipes_Shutdown = null;
+            List<System.String> requestCustomRecipes_customRecipes_Shutdown = null;
             if (cmdletContext.CustomRecipes_Shutdown != null)
             {
                 requestCustomRecipes_customRecipes_Shutdown = cmdletContext.CustomRecipes_Shutdown;
@@ -410,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomRecipes.Shutdown = requestCustomRecipes_customRecipes_Shutdown;
                 requestCustomRecipesIsNull = false;
             }
-            List<String> requestCustomRecipes_customRecipes_Undeploy = null;
+            List<System.String> requestCustomRecipes_customRecipes_Undeploy = null;
             if (cmdletContext.CustomRecipes_Undeploy != null)
             {
                 requestCustomRecipes_customRecipes_Undeploy = cmdletContext.CustomRecipes_Undeploy;
@@ -444,13 +447,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate LifecycleEventConfiguration
             bool requestLifecycleEventConfigurationIsNull = true;
-            request.LifecycleEventConfiguration = new LifecycleEventConfiguration();
-            ShutdownEventConfiguration requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown = null;
+            request.LifecycleEventConfiguration = new Amazon.OpsWorks.Model.LifecycleEventConfiguration();
+            Amazon.OpsWorks.Model.ShutdownEventConfiguration requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown = null;
             
              // populate Shutdown
             bool requestLifecycleEventConfiguration_lifecycleEventConfiguration_ShutdownIsNull = true;
-            requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown = new ShutdownEventConfiguration();
-            Boolean? requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown_shutdown_DelayUntilElbConnectionsDrained = null;
+            requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown = new Amazon.OpsWorks.Model.ShutdownEventConfiguration();
+            System.Boolean? requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown_shutdown_DelayUntilElbConnectionsDrained = null;
             if (cmdletContext.LifecycleEventConfiguration_Shutdown_DelayUntilElbConnectionsDrained != null)
             {
                 requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown_shutdown_DelayUntilElbConnectionsDrained = cmdletContext.LifecycleEventConfiguration_Shutdown_DelayUntilElbConnectionsDrained.Value;
@@ -460,7 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown.DelayUntilElbConnectionsDrained = requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown_shutdown_DelayUntilElbConnectionsDrained.Value;
                 requestLifecycleEventConfiguration_lifecycleEventConfiguration_ShutdownIsNull = false;
             }
-            Int32? requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown_shutdown_ExecutionTimeout = null;
+            System.Int32? requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown_shutdown_ExecutionTimeout = null;
             if (cmdletContext.LifecycleEventConfiguration_Shutdown_ExecutionTimeout != null)
             {
                 requestLifecycleEventConfiguration_lifecycleEventConfiguration_Shutdown_shutdown_ExecutionTimeout = cmdletContext.LifecycleEventConfiguration_Shutdown_ExecutionTimeout.Value;
@@ -542,27 +545,27 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> Attributes { get; set; }
-            public Boolean? AutoAssignElasticIps { get; set; }
-            public Boolean? AutoAssignPublicIps { get; set; }
-            public String CustomInstanceProfileArn { get; set; }
-            public String CustomJson { get; set; }
-            public List<String> CustomRecipes_Configure { get; set; }
-            public List<String> CustomRecipes_Deploy { get; set; }
-            public List<String> CustomRecipes_Setup { get; set; }
-            public List<String> CustomRecipes_Shutdown { get; set; }
-            public List<String> CustomRecipes_Undeploy { get; set; }
-            public List<String> CustomSecurityGroupIds { get; set; }
-            public Boolean? EnableAutoHealing { get; set; }
-            public Boolean? InstallUpdatesOnBoot { get; set; }
-            public String LayerId { get; set; }
-            public Boolean? LifecycleEventConfiguration_Shutdown_DelayUntilElbConnectionsDrained { get; set; }
-            public Int32? LifecycleEventConfiguration_Shutdown_ExecutionTimeout { get; set; }
-            public String Name { get; set; }
-            public List<String> Packages { get; set; }
-            public String Shortname { get; set; }
-            public Boolean? UseEbsOptimizedInstances { get; set; }
-            public List<VolumeConfiguration> VolumeConfigurations { get; set; }
+            public Dictionary<System.String, System.String> Attributes { get; set; }
+            public System.Boolean? AutoAssignElasticIps { get; set; }
+            public System.Boolean? AutoAssignPublicIps { get; set; }
+            public System.String CustomInstanceProfileArn { get; set; }
+            public System.String CustomJson { get; set; }
+            public List<System.String> CustomRecipes_Configure { get; set; }
+            public List<System.String> CustomRecipes_Deploy { get; set; }
+            public List<System.String> CustomRecipes_Setup { get; set; }
+            public List<System.String> CustomRecipes_Shutdown { get; set; }
+            public List<System.String> CustomRecipes_Undeploy { get; set; }
+            public List<System.String> CustomSecurityGroupIds { get; set; }
+            public System.Boolean? EnableAutoHealing { get; set; }
+            public System.Boolean? InstallUpdatesOnBoot { get; set; }
+            public System.String LayerId { get; set; }
+            public System.Boolean? LifecycleEventConfiguration_Shutdown_DelayUntilElbConnectionsDrained { get; set; }
+            public System.Int32? LifecycleEventConfiguration_Shutdown_ExecutionTimeout { get; set; }
+            public System.String Name { get; set; }
+            public List<System.String> Packages { get; set; }
+            public System.String Shortname { get; set; }
+            public System.Boolean? UseEbsOptimizedInstances { get; set; }
+            public List<Amazon.OpsWorks.Model.VolumeConfiguration> VolumeConfigurations { get; set; }
         }
         
     }

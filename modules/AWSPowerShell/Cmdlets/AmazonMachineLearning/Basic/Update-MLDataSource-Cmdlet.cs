@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the UpdateDataSource operation against Amazon Machine Learning.", Operation = new[] {"UpdateDataSource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.UpdateDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String DataSourceName { get; set; }
+        public System.String DataSourceName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDataSourceRequest();
+            var request = new Amazon.MachineLearning.Model.UpdateDataSourceRequest();
             
             if (cmdletContext.DataSourceId != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DataSourceId { get; set; }
-            public String DataSourceName { get; set; }
+            public System.String DataSourceId { get; set; }
+            public System.String DataSourceName { get; set; }
         }
         
     }

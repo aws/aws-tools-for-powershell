@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the DescribeTaskDefinition operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeTaskDefinition"})]
     [AWSCmdletOutput("Amazon.ECS.Model.TaskDefinition",
         "This cmdlet returns a TaskDefinition object.",
-        "The service call response (type DescribeTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.DescribeTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSTaskDefinitionDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TaskDefinition { get; set; }
+        public System.String TaskDefinition { get; set; }
         
         
         protected override void ProcessRecord()
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTaskDefinitionRequest();
+            var request = new Amazon.ECS.Model.DescribeTaskDefinitionRequest();
             
             if (cmdletContext.TaskDefinition != null)
             {
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TaskDefinition { get; set; }
+            public System.String TaskDefinition { get; set; }
         }
         
     }

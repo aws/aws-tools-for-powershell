@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketRequestPayment operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketRequestPayment"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketRequestPaymentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketRequestPaymentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketRequestPaymentCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RequestPaymentConfiguration_Payer { get; set; }
+        public System.String RequestPaymentConfiguration_Payer { get; set; }
         
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketRequestPaymentRequest();
+            var request = new Amazon.S3.Model.PutBucketRequestPaymentRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate RequestPaymentConfiguration
             bool requestRequestPaymentConfigurationIsNull = true;
-            request.RequestPaymentConfiguration = new RequestPaymentConfiguration();
-            String requestRequestPaymentConfiguration_requestPaymentConfiguration_Payer = null;
+            request.RequestPaymentConfiguration = new Amazon.S3.Model.RequestPaymentConfiguration();
+            System.String requestRequestPaymentConfiguration_requestPaymentConfiguration_Payer = null;
             if (cmdletContext.RequestPaymentConfiguration_Payer != null)
             {
                 requestRequestPaymentConfiguration_requestPaymentConfiguration_Payer = cmdletContext.RequestPaymentConfiguration_Payer;
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String RequestPaymentConfiguration_Payer { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String RequestPaymentConfiguration_Payer { get; set; }
         }
         
     }

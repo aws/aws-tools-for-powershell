@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.CreateHealthCheckResponse")]
     [AWSCmdlet("Invokes the CreateHealthCheck operation against AWS Route 53.", Operation = new[] {"CreateHealthCheck"})]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateHealthCheckResponse",
-        "This cmdlet returns a CreateHealthCheckResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.CreateHealthCheckResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CallerReference { get; set; }
+        public System.String CallerReference { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheckConfig_FailureThreshold { get; set; }
+        public System.Int32 HealthCheckConfig_FailureThreshold { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HealthCheckConfig_FullyQualifiedDomainName { get; set; }
+        public System.String HealthCheckConfig_FullyQualifiedDomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheckConfig_HealthThreshold { get; set; }
+        public System.Int32 HealthCheckConfig_HealthThreshold { get; set; }
         
         /// <summary>
         /// <para>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean HealthCheckConfig_Inverted { get; set; }
+        public System.Boolean HealthCheckConfig_Inverted { get; set; }
         
         /// <summary>
         /// <para>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String HealthCheckConfig_IPAddress { get; set; }
+        public System.String HealthCheckConfig_IPAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean HealthCheckConfig_MeasureLatency { get; set; }
+        public System.Boolean HealthCheckConfig_MeasureLatency { get; set; }
         
         /// <summary>
         /// <para>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheckConfig_Port { get; set; }
+        public System.Int32 HealthCheckConfig_Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheckConfig_RequestInterval { get; set; }
+        public System.Int32 HealthCheckConfig_RequestInterval { get; set; }
         
         /// <summary>
         /// <para>
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HealthCheckConfig_ResourcePath { get; set; }
+        public System.String HealthCheckConfig_ResourcePath { get; set; }
         
         /// <summary>
         /// <para>
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HealthCheckConfig_SearchString { get; set; }
+        public System.String HealthCheckConfig_SearchString { get; set; }
         
         /// <summary>
         /// <para>
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public HealthCheckType HealthCheckConfig_Type { get; set; }
+        public Amazon.Route53.HealthCheckType HealthCheckConfig_Type { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 context.HealthCheckConfig_HealthThreshold = this.HealthCheckConfig_HealthThreshold;
             if (this.HealthCheckConfig_ChildHealthCheck != null)
             {
-                context.HealthCheckConfig_ChildHealthChecks = new List<String>(this.HealthCheckConfig_ChildHealthCheck);
+                context.HealthCheckConfig_ChildHealthChecks = new List<System.String>(this.HealthCheckConfig_ChildHealthCheck);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateHealthCheckRequest();
+            var request = new Amazon.Route53.Model.CreateHealthCheckRequest();
             
             if (cmdletContext.CallerReference != null)
             {
@@ -242,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             
              // populate HealthCheckConfig
             bool requestHealthCheckConfigIsNull = true;
-            request.HealthCheckConfig = new HealthCheckConfig();
-            String requestHealthCheckConfig_healthCheckConfig_IPAddress = null;
+            request.HealthCheckConfig = new Amazon.Route53.Model.HealthCheckConfig();
+            System.String requestHealthCheckConfig_healthCheckConfig_IPAddress = null;
             if (cmdletContext.HealthCheckConfig_IPAddress != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_IPAddress = cmdletContext.HealthCheckConfig_IPAddress;
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.IPAddress = requestHealthCheckConfig_healthCheckConfig_IPAddress;
                 requestHealthCheckConfigIsNull = false;
             }
-            Int32? requestHealthCheckConfig_healthCheckConfig_Port = null;
+            System.Int32? requestHealthCheckConfig_healthCheckConfig_Port = null;
             if (cmdletContext.HealthCheckConfig_Port != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_Port = cmdletContext.HealthCheckConfig_Port.Value;
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.Port = requestHealthCheckConfig_healthCheckConfig_Port.Value;
                 requestHealthCheckConfigIsNull = false;
             }
-            HealthCheckType requestHealthCheckConfig_healthCheckConfig_Type = null;
+            Amazon.Route53.HealthCheckType requestHealthCheckConfig_healthCheckConfig_Type = null;
             if (cmdletContext.HealthCheckConfig_Type != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_Type = cmdletContext.HealthCheckConfig_Type;
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.Type = requestHealthCheckConfig_healthCheckConfig_Type;
                 requestHealthCheckConfigIsNull = false;
             }
-            String requestHealthCheckConfig_healthCheckConfig_ResourcePath = null;
+            System.String requestHealthCheckConfig_healthCheckConfig_ResourcePath = null;
             if (cmdletContext.HealthCheckConfig_ResourcePath != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_ResourcePath = cmdletContext.HealthCheckConfig_ResourcePath;
@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.ResourcePath = requestHealthCheckConfig_healthCheckConfig_ResourcePath;
                 requestHealthCheckConfigIsNull = false;
             }
-            String requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName = null;
+            System.String requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName = null;
             if (cmdletContext.HealthCheckConfig_FullyQualifiedDomainName != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName = cmdletContext.HealthCheckConfig_FullyQualifiedDomainName;
@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.FullyQualifiedDomainName = requestHealthCheckConfig_healthCheckConfig_FullyQualifiedDomainName;
                 requestHealthCheckConfigIsNull = false;
             }
-            String requestHealthCheckConfig_healthCheckConfig_SearchString = null;
+            System.String requestHealthCheckConfig_healthCheckConfig_SearchString = null;
             if (cmdletContext.HealthCheckConfig_SearchString != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_SearchString = cmdletContext.HealthCheckConfig_SearchString;
@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.SearchString = requestHealthCheckConfig_healthCheckConfig_SearchString;
                 requestHealthCheckConfigIsNull = false;
             }
-            Int32? requestHealthCheckConfig_healthCheckConfig_RequestInterval = null;
+            System.Int32? requestHealthCheckConfig_healthCheckConfig_RequestInterval = null;
             if (cmdletContext.HealthCheckConfig_RequestInterval != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_RequestInterval = cmdletContext.HealthCheckConfig_RequestInterval.Value;
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.RequestInterval = requestHealthCheckConfig_healthCheckConfig_RequestInterval.Value;
                 requestHealthCheckConfigIsNull = false;
             }
-            Int32? requestHealthCheckConfig_healthCheckConfig_FailureThreshold = null;
+            System.Int32? requestHealthCheckConfig_healthCheckConfig_FailureThreshold = null;
             if (cmdletContext.HealthCheckConfig_FailureThreshold != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_FailureThreshold = cmdletContext.HealthCheckConfig_FailureThreshold.Value;
@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.FailureThreshold = requestHealthCheckConfig_healthCheckConfig_FailureThreshold.Value;
                 requestHealthCheckConfigIsNull = false;
             }
-            Boolean? requestHealthCheckConfig_healthCheckConfig_MeasureLatency = null;
+            System.Boolean? requestHealthCheckConfig_healthCheckConfig_MeasureLatency = null;
             if (cmdletContext.HealthCheckConfig_MeasureLatency != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_MeasureLatency = cmdletContext.HealthCheckConfig_MeasureLatency.Value;
@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.MeasureLatency = requestHealthCheckConfig_healthCheckConfig_MeasureLatency.Value;
                 requestHealthCheckConfigIsNull = false;
             }
-            Boolean? requestHealthCheckConfig_healthCheckConfig_Inverted = null;
+            System.Boolean? requestHealthCheckConfig_healthCheckConfig_Inverted = null;
             if (cmdletContext.HealthCheckConfig_Inverted != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_Inverted = cmdletContext.HealthCheckConfig_Inverted.Value;
@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.Inverted = requestHealthCheckConfig_healthCheckConfig_Inverted.Value;
                 requestHealthCheckConfigIsNull = false;
             }
-            Int32? requestHealthCheckConfig_healthCheckConfig_HealthThreshold = null;
+            System.Int32? requestHealthCheckConfig_healthCheckConfig_HealthThreshold = null;
             if (cmdletContext.HealthCheckConfig_HealthThreshold != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_HealthThreshold = cmdletContext.HealthCheckConfig_HealthThreshold.Value;
@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HealthCheckConfig.HealthThreshold = requestHealthCheckConfig_healthCheckConfig_HealthThreshold.Value;
                 requestHealthCheckConfigIsNull = false;
             }
-            List<String> requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck = null;
+            List<System.String> requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck = null;
             if (cmdletContext.HealthCheckConfig_ChildHealthChecks != null)
             {
                 requestHealthCheckConfig_healthCheckConfig_ChildHealthCheck = cmdletContext.HealthCheckConfig_ChildHealthChecks;
@@ -403,19 +403,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CallerReference { get; set; }
-            public String HealthCheckConfig_IPAddress { get; set; }
-            public Int32? HealthCheckConfig_Port { get; set; }
-            public HealthCheckType HealthCheckConfig_Type { get; set; }
-            public String HealthCheckConfig_ResourcePath { get; set; }
-            public String HealthCheckConfig_FullyQualifiedDomainName { get; set; }
-            public String HealthCheckConfig_SearchString { get; set; }
-            public Int32? HealthCheckConfig_RequestInterval { get; set; }
-            public Int32? HealthCheckConfig_FailureThreshold { get; set; }
-            public Boolean? HealthCheckConfig_MeasureLatency { get; set; }
-            public Boolean? HealthCheckConfig_Inverted { get; set; }
-            public Int32? HealthCheckConfig_HealthThreshold { get; set; }
-            public List<String> HealthCheckConfig_ChildHealthChecks { get; set; }
+            public System.String CallerReference { get; set; }
+            public System.String HealthCheckConfig_IPAddress { get; set; }
+            public System.Int32? HealthCheckConfig_Port { get; set; }
+            public Amazon.Route53.HealthCheckType HealthCheckConfig_Type { get; set; }
+            public System.String HealthCheckConfig_ResourcePath { get; set; }
+            public System.String HealthCheckConfig_FullyQualifiedDomainName { get; set; }
+            public System.String HealthCheckConfig_SearchString { get; set; }
+            public System.Int32? HealthCheckConfig_RequestInterval { get; set; }
+            public System.Int32? HealthCheckConfig_FailureThreshold { get; set; }
+            public System.Boolean? HealthCheckConfig_MeasureLatency { get; set; }
+            public System.Boolean? HealthCheckConfig_Inverted { get; set; }
+            public System.Int32? HealthCheckConfig_HealthThreshold { get; set; }
+            public List<System.String> HealthCheckConfig_ChildHealthChecks { get; set; }
         }
         
     }

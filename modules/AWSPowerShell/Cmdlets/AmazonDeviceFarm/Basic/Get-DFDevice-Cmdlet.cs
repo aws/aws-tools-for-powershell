@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the GetDevice operation against AWS Device Farm.", Operation = new[] {"GetDevice"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Device",
         "This cmdlet returns a Device object.",
-        "The service call response (type GetDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDFDeviceCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Arn { get; set; }
+        public System.String Arn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDeviceRequest();
+            var request = new Amazon.DeviceFarm.Model.GetDeviceRequest();
             
             if (cmdletContext.Arn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Arn { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

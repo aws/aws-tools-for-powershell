@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreatePlacementGroup operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreatePlacementGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreatePlacementGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.CreatePlacementGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2PlacementGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public PlacementStrategy Strategy { get; set; }
+        public Amazon.EC2.PlacementStrategy Strategy { get; set; }
         
         /// <summary>
         /// Returns the value passed to the GroupName parameter.
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePlacementGroupRequest();
+            var request = new Amazon.EC2.Model.CreatePlacementGroupRequest();
             
             if (cmdletContext.GroupName != null)
             {
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupName { get; set; }
-            public PlacementStrategy Strategy { get; set; }
+            public System.String GroupName { get; set; }
+            public Amazon.EC2.PlacementStrategy Strategy { get; set; }
         }
         
     }

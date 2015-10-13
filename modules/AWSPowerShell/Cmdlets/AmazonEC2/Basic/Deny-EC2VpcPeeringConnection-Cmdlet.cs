@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the RejectVpcPeeringConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RejectVpcPeeringConnection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcPeeringConnectionId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RejectVpcPeeringConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.RejectVpcPeeringConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DenyEC2VpcPeeringConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String VpcPeeringConnectionId { get; set; }
+        public System.String VpcPeeringConnectionId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VpcPeeringConnectionId parameter.
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RejectVpcPeeringConnectionRequest();
+            var request = new Amazon.EC2.Model.RejectVpcPeeringConnectionRequest();
             
             if (cmdletContext.VpcPeeringConnectionId != null)
             {
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VpcPeeringConnectionId { get; set; }
+            public System.String VpcPeeringConnectionId { get; set; }
         }
         
     }

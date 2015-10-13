@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateMyUserProfile operation against AWS OpsWorks.", Operation = new[] {"UpdateMyUserProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SshPublicKey parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateMyUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateMyUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSMyUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SshPublicKey { get; set; }
+        public System.String SshPublicKey { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SshPublicKey parameter.
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateMyUserProfileRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateMyUserProfileRequest();
             
             if (cmdletContext.SshPublicKey != null)
             {
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SshPublicKey { get; set; }
+            public System.String SshPublicKey { get; set; }
         }
         
     }

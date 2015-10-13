@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AuthorizeSecurityGroupIngress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AuthorizeSecurityGroupIngress"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AuthorizeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GrantEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GroupId { get; set; }
+        public System.String GroupId { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.GroupName = this.GroupName;
             if (this.IpPermission != null)
             {
-                context.IpPermissions = new List<IpPermission>(this.IpPermission);
+                context.IpPermissions = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AuthorizeSecurityGroupIngressRequest();
+            var request = new Amazon.EC2.Model.AuthorizeSecurityGroupIngressRequest();
             
             if (cmdletContext.GroupId != null)
             {
@@ -184,9 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupId { get; set; }
-            public String GroupName { get; set; }
-            public List<IpPermission> IpPermissions { get; set; }
+            public System.String GroupId { get; set; }
+            public System.String GroupName { get; set; }
+            public List<Amazon.EC2.Model.IpPermission> IpPermissions { get; set; }
         }
         
     }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the UpdateReceiptRule operation against Amazon Simple Email Service.", Operation = new[] {"UpdateReceiptRule"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateReceiptRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.UpdateReceiptRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Rule_Enabled { get; set; }
+        public System.Boolean Rule_Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Rule_Name { get; set; }
+        public System.String Rule_Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleSetName { get; set; }
+        public System.String RuleSetName { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Rule_ScanEnabled { get; set; }
+        public System.Boolean Rule_ScanEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TlsPolicy Rule_TlsPolicy { get; set; }
+        public Amazon.SimpleEmail.TlsPolicy Rule_TlsPolicy { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -140,14 +140,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.Rule_Action != null)
             {
-                context.Rule_Actions = new List<ReceiptAction>(this.Rule_Action);
+                context.Rule_Actions = new List<Amazon.SimpleEmail.Model.ReceiptAction>(this.Rule_Action);
             }
             if (ParameterWasBound("Rule_Enabled"))
                 context.Rule_Enabled = this.Rule_Enabled;
             context.Rule_Name = this.Rule_Name;
             if (this.Rule_Recipient != null)
             {
-                context.Rule_Recipients = new List<String>(this.Rule_Recipient);
+                context.Rule_Recipients = new List<System.String>(this.Rule_Recipient);
             }
             if (ParameterWasBound("Rule_ScanEnabled"))
                 context.Rule_ScanEnabled = this.Rule_ScanEnabled;
@@ -164,13 +164,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateReceiptRuleRequest();
+            var request = new Amazon.SimpleEmail.Model.UpdateReceiptRuleRequest();
             
             
              // populate Rule
             bool requestRuleIsNull = true;
-            request.Rule = new ReceiptRule();
-            List<ReceiptAction> requestRule_rule_Action = null;
+            request.Rule = new Amazon.SimpleEmail.Model.ReceiptRule();
+            List<Amazon.SimpleEmail.Model.ReceiptAction> requestRule_rule_Action = null;
             if (cmdletContext.Rule_Actions != null)
             {
                 requestRule_rule_Action = cmdletContext.Rule_Actions;
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Rule.Actions = requestRule_rule_Action;
                 requestRuleIsNull = false;
             }
-            Boolean? requestRule_rule_Enabled = null;
+            System.Boolean? requestRule_rule_Enabled = null;
             if (cmdletContext.Rule_Enabled != null)
             {
                 requestRule_rule_Enabled = cmdletContext.Rule_Enabled.Value;
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Rule.Enabled = requestRule_rule_Enabled.Value;
                 requestRuleIsNull = false;
             }
-            String requestRule_rule_Name = null;
+            System.String requestRule_rule_Name = null;
             if (cmdletContext.Rule_Name != null)
             {
                 requestRule_rule_Name = cmdletContext.Rule_Name;
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Rule.Name = requestRule_rule_Name;
                 requestRuleIsNull = false;
             }
-            List<String> requestRule_rule_Recipient = null;
+            List<System.String> requestRule_rule_Recipient = null;
             if (cmdletContext.Rule_Recipients != null)
             {
                 requestRule_rule_Recipient = cmdletContext.Rule_Recipients;
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Rule.Recipients = requestRule_rule_Recipient;
                 requestRuleIsNull = false;
             }
-            Boolean? requestRule_rule_ScanEnabled = null;
+            System.Boolean? requestRule_rule_ScanEnabled = null;
             if (cmdletContext.Rule_ScanEnabled != null)
             {
                 requestRule_rule_ScanEnabled = cmdletContext.Rule_ScanEnabled.Value;
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Rule.ScanEnabled = requestRule_rule_ScanEnabled.Value;
                 requestRuleIsNull = false;
             }
-            TlsPolicy requestRule_rule_TlsPolicy = null;
+            Amazon.SimpleEmail.TlsPolicy requestRule_rule_TlsPolicy = null;
             if (cmdletContext.Rule_TlsPolicy != null)
             {
                 requestRule_rule_TlsPolicy = cmdletContext.Rule_TlsPolicy;
@@ -274,13 +274,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<ReceiptAction> Rule_Actions { get; set; }
-            public Boolean? Rule_Enabled { get; set; }
-            public String Rule_Name { get; set; }
-            public List<String> Rule_Recipients { get; set; }
-            public Boolean? Rule_ScanEnabled { get; set; }
-            public TlsPolicy Rule_TlsPolicy { get; set; }
-            public String RuleSetName { get; set; }
+            public List<Amazon.SimpleEmail.Model.ReceiptAction> Rule_Actions { get; set; }
+            public System.Boolean? Rule_Enabled { get; set; }
+            public System.String Rule_Name { get; set; }
+            public List<System.String> Rule_Recipients { get; set; }
+            public System.Boolean? Rule_ScanEnabled { get; set; }
+            public Amazon.SimpleEmail.TlsPolicy Rule_TlsPolicy { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

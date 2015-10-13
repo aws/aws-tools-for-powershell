@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.S3Bucket")]
     [AWSCmdlet("Invokes the ListBuckets operation against Amazon S3.", Operation = new [] {"ListBuckets"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket", 
-                     "The cmdlet returns 0 or more S3Bucket instances.",
-                     "The service response (type ListBucketsResponse) is added to the cmdlet entry in the $AWSHistory stack."
+                     "The cmdlet returns 0 or more Amazon.S3.Model.S3Bucket instances.",
+                     "The service response (type Amazon.S3.Model.ListBucketsResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// If set, returns a single S3Bucket instance mapping to the specified bucket.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public string BucketName { get; set; }
+        public System.String BucketName { get; set; }
 
         protected override void ProcessRecord()
         {

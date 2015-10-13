@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [OutputType("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse")]
     [AWSCmdlet("Invokes the CreateAssociationBatch operation against Amazon Simple Systems Management.", Operation = new[] {"CreateAssociationBatch"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse",
-        "This cmdlet returns a CreateAssociationBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSSMAssociationFromBatchCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             if (this.Entry != null)
             {
-                context.Entries = new List<CreateAssociationBatchRequestEntry>(this.Entry);
+                context.Entries = new List<Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequestEntry>(this.Entry);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAssociationBatchRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequest();
             
             if (cmdletContext.Entries != null)
             {
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<CreateAssociationBatchRequestEntry> Entries { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequestEntry> Entries { get; set; }
         }
         
     }

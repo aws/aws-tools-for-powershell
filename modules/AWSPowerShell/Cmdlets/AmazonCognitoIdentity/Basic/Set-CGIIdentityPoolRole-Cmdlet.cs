@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Invokes the SetIdentityPoolRoles operation against Amazon Cognito Identity.", Operation = new[] {"SetIdentityPoolRoles"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IdentityPoolId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetIdentityPoolRolesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IdentityPoolId { get; set; }
+        public System.String IdentityPoolId { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             context.IdentityPoolId = this.IdentityPoolId;
             if (this.Role != null)
             {
-                context.Roles = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Roles = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Role.Keys)
                 {
                     context.Roles.Add((String)hashKey, (String)(this.Role[hashKey]));
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetIdentityPoolRolesRequest();
+            var request = new Amazon.CognitoIdentity.Model.SetIdentityPoolRolesRequest();
             
             if (cmdletContext.IdentityPoolId != null)
             {
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IdentityPoolId { get; set; }
-            public Dictionary<String, String> Roles { get; set; }
+            public System.String IdentityPoolId { get; set; }
+            public Dictionary<System.String, System.String> Roles { get; set; }
         }
         
     }

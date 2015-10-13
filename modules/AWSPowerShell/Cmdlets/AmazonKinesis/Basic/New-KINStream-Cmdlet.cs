@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Invokes the CreateStream operation against AWS Kinesis.", Operation = new[] {"CreateStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.CreateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKINStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 ShardCount { get; set; }
+        public System.Int32 ShardCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamName { get; set; }
+        public System.String StreamName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the StreamName parameter.
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateStreamRequest();
+            var request = new Amazon.Kinesis.Model.CreateStreamRequest();
             
             if (cmdletContext.ShardCount != null)
             {
@@ -187,8 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? ShardCount { get; set; }
-            public String StreamName { get; set; }
+            public System.Int32? ShardCount { get; set; }
+            public System.String StreamName { get; set; }
         }
         
     }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateSpotDatafeedSubscription operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSpotDatafeedSubscription"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotDatafeedSubscription",
         "This cmdlet returns a SpotDatafeedSubscription object.",
-        "The service call response (type CreateSpotDatafeedSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2SpotDatafeedSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Bucket { get; set; }
+        public System.String Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Prefix { get; set; }
+        public System.String Prefix { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSpotDatafeedSubscriptionRequest();
+            var request = new Amazon.EC2.Model.CreateSpotDatafeedSubscriptionRequest();
             
             if (cmdletContext.Bucket != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Bucket { get; set; }
-            public String Prefix { get; set; }
+            public System.String Bucket { get; set; }
+            public System.String Prefix { get; set; }
         }
         
     }

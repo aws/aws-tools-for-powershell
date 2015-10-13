@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [OutputType("Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse")]
     [AWSCmdlet("Invokes the ModifyLoadBalancerAttributes operation against Elastic Load Balancing.", Operation = new[] {"ModifyLoadBalancerAttributes"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse",
-        "This cmdlet returns a ModifyLoadBalancerAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditELBLoadBalancerAttributeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_EmitInterval")]
-        public Int32 AccessLog_EmitInterval { get; set; }
+        public System.Int32 AccessLog_EmitInterval { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_Enabled")]
-        public Boolean AccessLog_Enabled { get; set; }
+        public System.Boolean AccessLog_Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_ConnectionDraining_Enabled")]
-        public Boolean ConnectionDraining_Enabled { get; set; }
+        public System.Boolean ConnectionDraining_Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled")]
-        public Boolean CrossZoneLoadBalancing_Enabled { get; set; }
+        public System.Boolean CrossZoneLoadBalancing_Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_ConnectionSettings_IdleTimeout")]
-        public Int32 ConnectionSettings_IdleTimeout { get; set; }
+        public System.Int32 ConnectionSettings_IdleTimeout { get; set; }
         
         /// <summary>
         /// <para>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_S3BucketName")]
-        public String AccessLog_S3BucketName { get; set; }
+        public System.String AccessLog_S3BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_S3BucketPrefix")]
-        public String AccessLog_S3BucketPrefix { get; set; }
+        public System.String AccessLog_S3BucketPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_ConnectionDraining_Timeout")]
-        public Int32 ConnectionDraining_Timeout { get; set; }
+        public System.Int32 ConnectionDraining_Timeout { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             context.LoadBalancerAttributes_AccessLog_S3BucketPrefix = this.AccessLog_S3BucketPrefix;
             if (this.LoadBalancerAttributes_AdditionalAttribute != null)
             {
-                context.LoadBalancerAttributes_AdditionalAttributes = new List<AdditionalAttribute>(this.LoadBalancerAttributes_AdditionalAttribute);
+                context.LoadBalancerAttributes_AdditionalAttributes = new List<Amazon.ElasticLoadBalancing.Model.AdditionalAttribute>(this.LoadBalancerAttributes_AdditionalAttribute);
             }
             if (ParameterWasBound("ConnectionDraining_Enabled"))
                 context.LoadBalancerAttributes_ConnectionDraining_Enabled = this.ConnectionDraining_Enabled;
@@ -201,13 +201,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyLoadBalancerAttributesRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesRequest();
             
             
              // populate LoadBalancerAttributes
             bool requestLoadBalancerAttributesIsNull = true;
-            request.LoadBalancerAttributes = new LoadBalancerAttributes();
-            List<AdditionalAttribute> requestLoadBalancerAttributes_loadBalancerAttributes_AdditionalAttribute = null;
+            request.LoadBalancerAttributes = new Amazon.ElasticLoadBalancing.Model.LoadBalancerAttributes();
+            List<Amazon.ElasticLoadBalancing.Model.AdditionalAttribute> requestLoadBalancerAttributes_loadBalancerAttributes_AdditionalAttribute = null;
             if (cmdletContext.LoadBalancerAttributes_AdditionalAttributes != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_AdditionalAttribute = cmdletContext.LoadBalancerAttributes_AdditionalAttributes;
@@ -217,12 +217,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.LoadBalancerAttributes.AdditionalAttributes = requestLoadBalancerAttributes_loadBalancerAttributes_AdditionalAttribute;
                 requestLoadBalancerAttributesIsNull = false;
             }
-            ConnectionSettings requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings = null;
+            Amazon.ElasticLoadBalancing.Model.ConnectionSettings requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings = null;
             
              // populate ConnectionSettings
             bool requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettingsIsNull = true;
-            requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings = new ConnectionSettings();
-            Int32? requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings_connectionSettings_IdleTimeout = null;
+            requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings = new Amazon.ElasticLoadBalancing.Model.ConnectionSettings();
+            System.Int32? requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings_connectionSettings_IdleTimeout = null;
             if (cmdletContext.LoadBalancerAttributes_ConnectionSettings_IdleTimeout != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings_connectionSettings_IdleTimeout = cmdletContext.LoadBalancerAttributes_ConnectionSettings_IdleTimeout.Value;
@@ -242,12 +242,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.LoadBalancerAttributes.ConnectionSettings = requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionSettings;
                 requestLoadBalancerAttributesIsNull = false;
             }
-            CrossZoneLoadBalancing requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing = null;
+            Amazon.ElasticLoadBalancing.Model.CrossZoneLoadBalancing requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing = null;
             
              // populate CrossZoneLoadBalancing
             bool requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancingIsNull = true;
-            requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing = new CrossZoneLoadBalancing();
-            Boolean? requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing_crossZoneLoadBalancing_Enabled = null;
+            requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing = new Amazon.ElasticLoadBalancing.Model.CrossZoneLoadBalancing();
+            System.Boolean? requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing_crossZoneLoadBalancing_Enabled = null;
             if (cmdletContext.LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing_crossZoneLoadBalancing_Enabled = cmdletContext.LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled.Value;
@@ -267,12 +267,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.LoadBalancerAttributes.CrossZoneLoadBalancing = requestLoadBalancerAttributes_loadBalancerAttributes_CrossZoneLoadBalancing;
                 requestLoadBalancerAttributesIsNull = false;
             }
-            ConnectionDraining requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining = null;
+            Amazon.ElasticLoadBalancing.Model.ConnectionDraining requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining = null;
             
              // populate ConnectionDraining
             bool requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDrainingIsNull = true;
-            requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining = new ConnectionDraining();
-            Boolean? requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining_connectionDraining_Enabled = null;
+            requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining = new Amazon.ElasticLoadBalancing.Model.ConnectionDraining();
+            System.Boolean? requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining_connectionDraining_Enabled = null;
             if (cmdletContext.LoadBalancerAttributes_ConnectionDraining_Enabled != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining_connectionDraining_Enabled = cmdletContext.LoadBalancerAttributes_ConnectionDraining_Enabled.Value;
@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining.Enabled = requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining_connectionDraining_Enabled.Value;
                 requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDrainingIsNull = false;
             }
-            Int32? requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining_connectionDraining_Timeout = null;
+            System.Int32? requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining_connectionDraining_Timeout = null;
             if (cmdletContext.LoadBalancerAttributes_ConnectionDraining_Timeout != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining_connectionDraining_Timeout = cmdletContext.LoadBalancerAttributes_ConnectionDraining_Timeout.Value;
@@ -302,12 +302,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.LoadBalancerAttributes.ConnectionDraining = requestLoadBalancerAttributes_loadBalancerAttributes_ConnectionDraining;
                 requestLoadBalancerAttributesIsNull = false;
             }
-            AccessLog requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog = null;
+            Amazon.ElasticLoadBalancing.Model.AccessLog requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog = null;
             
              // populate AccessLog
             bool requestLoadBalancerAttributes_loadBalancerAttributes_AccessLogIsNull = true;
-            requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog = new AccessLog();
-            Int32? requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_EmitInterval = null;
+            requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog = new Amazon.ElasticLoadBalancing.Model.AccessLog();
+            System.Int32? requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_EmitInterval = null;
             if (cmdletContext.LoadBalancerAttributes_AccessLog_EmitInterval != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_EmitInterval = cmdletContext.LoadBalancerAttributes_AccessLog_EmitInterval.Value;
@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog.EmitInterval = requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_EmitInterval.Value;
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLogIsNull = false;
             }
-            Boolean? requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_Enabled = null;
+            System.Boolean? requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_Enabled = null;
             if (cmdletContext.LoadBalancerAttributes_AccessLog_Enabled != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_Enabled = cmdletContext.LoadBalancerAttributes_AccessLog_Enabled.Value;
@@ -327,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog.Enabled = requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_Enabled.Value;
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLogIsNull = false;
             }
-            String requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_S3BucketName = null;
+            System.String requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_S3BucketName = null;
             if (cmdletContext.LoadBalancerAttributes_AccessLog_S3BucketName != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_S3BucketName = cmdletContext.LoadBalancerAttributes_AccessLog_S3BucketName;
@@ -337,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog.S3BucketName = requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_S3BucketName;
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLogIsNull = false;
             }
-            String requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_S3BucketPrefix = null;
+            System.String requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_S3BucketPrefix = null;
             if (cmdletContext.LoadBalancerAttributes_AccessLog_S3BucketPrefix != null)
             {
                 requestLoadBalancerAttributes_loadBalancerAttributes_AccessLog_accessLog_S3BucketPrefix = cmdletContext.LoadBalancerAttributes_AccessLog_S3BucketPrefix;
@@ -401,16 +401,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? LoadBalancerAttributes_AccessLog_EmitInterval { get; set; }
-            public Boolean? LoadBalancerAttributes_AccessLog_Enabled { get; set; }
-            public String LoadBalancerAttributes_AccessLog_S3BucketName { get; set; }
-            public String LoadBalancerAttributes_AccessLog_S3BucketPrefix { get; set; }
-            public List<AdditionalAttribute> LoadBalancerAttributes_AdditionalAttributes { get; set; }
-            public Boolean? LoadBalancerAttributes_ConnectionDraining_Enabled { get; set; }
-            public Int32? LoadBalancerAttributes_ConnectionDraining_Timeout { get; set; }
-            public Int32? LoadBalancerAttributes_ConnectionSettings_IdleTimeout { get; set; }
-            public Boolean? LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled { get; set; }
-            public String LoadBalancerName { get; set; }
+            public System.Int32? LoadBalancerAttributes_AccessLog_EmitInterval { get; set; }
+            public System.Boolean? LoadBalancerAttributes_AccessLog_Enabled { get; set; }
+            public System.String LoadBalancerAttributes_AccessLog_S3BucketName { get; set; }
+            public System.String LoadBalancerAttributes_AccessLog_S3BucketPrefix { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.AdditionalAttribute> LoadBalancerAttributes_AdditionalAttributes { get; set; }
+            public System.Boolean? LoadBalancerAttributes_ConnectionDraining_Enabled { get; set; }
+            public System.Int32? LoadBalancerAttributes_ConnectionDraining_Timeout { get; set; }
+            public System.Int32? LoadBalancerAttributes_ConnectionSettings_IdleTimeout { get; set; }
+            public System.Boolean? LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

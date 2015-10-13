@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the SetInstanceHealth operation against Auto Scaling.", Operation = new[] {"SetInstanceHealth"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetInstanceHealthResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.SetInstanceHealthResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetASInstanceHealthCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String HealthStatus { get; set; }
+        public System.String HealthStatus { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean ShouldRespectGracePeriod { get; set; }
+        public System.Boolean ShouldRespectGracePeriod { get; set; }
         
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetInstanceHealthRequest();
+            var request = new Amazon.AutoScaling.Model.SetInstanceHealthRequest();
             
             if (cmdletContext.HealthStatus != null)
             {
@@ -173,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HealthStatus { get; set; }
-            public String InstanceId { get; set; }
-            public Boolean? ShouldRespectGracePeriod { get; set; }
+            public System.String HealthStatus { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Boolean? ShouldRespectGracePeriod { get; set; }
         }
         
     }

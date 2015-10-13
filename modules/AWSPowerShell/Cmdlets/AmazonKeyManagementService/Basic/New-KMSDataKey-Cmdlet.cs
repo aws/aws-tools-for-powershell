@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyResponse")]
     [AWSCmdlet("Invokes the GenerateDataKey operation against AWS Key Management Service.", Operation = new[] {"GenerateDataKey"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateDataKeyResponse",
-        "This cmdlet returns a GenerateDataKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.KeyManagementService.Model.GenerateDataKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSDataKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DataKeySpec KeySpec { get; set; }
+        public Amazon.KeyManagementService.DataKeySpec KeySpec { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 NumberOfBytes { get; set; }
+        public System.Int32 NumberOfBytes { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             
             if (this.EncryptionContext != null)
             {
-                context.EncryptionContext = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EncryptionContext.Keys)
                 {
                     context.EncryptionContext.Add((String)hashKey, (String)(this.EncryptionContext[hashKey]));
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             if (this.GrantToken != null)
             {
-                context.GrantTokens = new List<String>(this.GrantToken);
+                context.GrantTokens = new List<System.String>(this.GrantToken);
             }
             context.KeyId = this.KeyId;
             context.KeySpec = this.KeySpec;
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GenerateDataKeyRequest();
+            var request = new Amazon.KeyManagementService.Model.GenerateDataKeyRequest();
             
             if (cmdletContext.EncryptionContext != null)
             {
@@ -228,11 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> EncryptionContext { get; set; }
-            public List<String> GrantTokens { get; set; }
-            public String KeyId { get; set; }
-            public DataKeySpec KeySpec { get; set; }
-            public Int32? NumberOfBytes { get; set; }
+            public Dictionary<System.String, System.String> EncryptionContext { get; set; }
+            public List<System.String> GrantTokens { get; set; }
+            public System.String KeyId { get; set; }
+            public Amazon.KeyManagementService.DataKeySpec KeySpec { get; set; }
+            public System.Int32? NumberOfBytes { get; set; }
         }
         
     }

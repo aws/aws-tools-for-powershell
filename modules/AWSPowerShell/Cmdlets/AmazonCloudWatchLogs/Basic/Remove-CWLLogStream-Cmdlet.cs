@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DeleteLogStream operation against Amazon CloudWatch Logs.", Operation = new[] {"DeleteLogStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogStreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteLogStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.DeleteLogStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCWLLogStreamCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogStreamName { get; set; }
+        public System.String LogStreamName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LogStreamName parameter.
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteLogStreamRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DeleteLogStreamRequest();
             
             if (cmdletContext.LogGroupName != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LogGroupName { get; set; }
-            public String LogStreamName { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String LogStreamName { get; set; }
         }
         
     }

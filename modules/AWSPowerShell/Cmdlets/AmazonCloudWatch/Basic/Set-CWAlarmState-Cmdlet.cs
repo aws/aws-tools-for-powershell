@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the SetAlarmState operation against Amazon CloudWatch.", Operation = new[] {"SetAlarmState"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetAlarmStateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.SetAlarmStateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetCWAlarmStateCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AlarmName { get; set; }
+        public System.String AlarmName { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String StateReason { get; set; }
+        public System.String StateReason { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String StateReasonData { get; set; }
+        public System.String StateReasonData { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public StateValue StateValue { get; set; }
+        public Amazon.CloudWatch.StateValue StateValue { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AlarmName parameter.
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetAlarmStateRequest();
+            var request = new Amazon.CloudWatch.Model.SetAlarmStateRequest();
             
             if (cmdletContext.AlarmName != null)
             {
@@ -179,10 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AlarmName { get; set; }
-            public String StateReason { get; set; }
-            public String StateReasonData { get; set; }
-            public StateValue StateValue { get; set; }
+            public System.String AlarmName { get; set; }
+            public System.String StateReason { get; set; }
+            public System.String StateReasonData { get; set; }
+            public Amazon.CloudWatch.StateValue StateValue { get; set; }
         }
         
     }

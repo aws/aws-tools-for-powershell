@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.GetPolicyResponse")]
     [AWSCmdlet("Invokes the GetPolicy operation against AWS IoT.", Operation = new[] {"GetPolicy"})]
     [AWSCmdletOutput("Amazon.IoT.Model.GetPolicyResponse",
-        "This cmdlet returns a GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IoT.Model.GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPolicyRequest();
+            var request = new Amazon.IoT.Model.GetPolicyRequest();
             
             if (cmdletContext.PolicyName != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyName { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

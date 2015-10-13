@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBInstanceReadReplica operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBInstanceReadReplica"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type CreateDBInstanceReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBInstanceReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBInstanceReadReplicaCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoMinorVersionUpgrade { get; set; }
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTagsToSnapshot { get; set; }
+        public System.Boolean CopyTagsToSnapshot { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceClass { get; set; }
+        public System.String DBInstanceClass { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Iops { get; set; }
+        public System.Int32 Iops { get; set; }
         
         /// <summary>
         /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PubliclyAccessible { get; set; }
+        public System.Boolean PubliclyAccessible { get; set; }
         
         /// <summary>
         /// <para>
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SourceDBInstanceIdentifier { get; set; }
+        public System.String SourceDBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StorageType { get; set; }
+        public System.String StorageType { get; set; }
         
         /// <summary>
         /// <para>
@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBInstanceReadReplicaRequest();
+            var request = new Amazon.RDS.Model.CreateDBInstanceReadReplicaRequest();
             
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
@@ -333,19 +333,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AutoMinorVersionUpgrade { get; set; }
-            public String AvailabilityZone { get; set; }
-            public Boolean? CopyTagsToSnapshot { get; set; }
-            public String DBInstanceClass { get; set; }
-            public String DBInstanceIdentifier { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public Int32? Iops { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public Boolean? PubliclyAccessible { get; set; }
-            public String SourceDBInstanceIdentifier { get; set; }
-            public String StorageType { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String DBInstanceClass { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public System.Int32? Iops { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String SourceDBInstanceIdentifier { get; set; }
+            public System.String StorageType { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the PutMetricAlarm operation against Amazon CloudWatch.", Operation = new[] {"PutMetricAlarm"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutMetricAlarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutMetricAlarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCWMetricAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ActionsEnabled { get; set; }
+        public System.Boolean ActionsEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String AlarmDescription { get; set; }
+        public System.String AlarmDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AlarmName { get; set; }
+        public System.String AlarmName { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ComparisonOperator ComparisonOperator { get; set; }
+        public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("EvaluationPeriods")]
-        public Int32 EvaluationPeriod { get; set; }
+        public System.Int32 EvaluationPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String MetricName { get; set; }
+        public System.String MetricName { get; set; }
         
         /// <summary>
         /// <para>
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Namespace { get; set; }
+        public System.String Namespace { get; set; }
         
         /// <summary>
         /// <para>
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Period { get; set; }
+        public System.Int32 Period { get; set; }
         
         /// <summary>
         /// <para>
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Statistic Statistic { get; set; }
+        public Amazon.CloudWatch.Statistic Statistic { get; set; }
         
         /// <summary>
         /// <para>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double Threshold { get; set; }
+        public System.Double Threshold { get; set; }
         
         /// <summary>
         /// <para>
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StandardUnit Unit { get; set; }
+        public Amazon.CloudWatch.StandardUnit Unit { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AlarmName parameter.
@@ -222,26 +222,26 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.ActionsEnabled = this.ActionsEnabled;
             if (this.AlarmAction != null)
             {
-                context.AlarmActions = new List<String>(this.AlarmAction);
+                context.AlarmActions = new List<System.String>(this.AlarmAction);
             }
             context.AlarmDescription = this.AlarmDescription;
             context.AlarmName = this.AlarmName;
             context.ComparisonOperator = this.ComparisonOperator;
             if (this.Dimension != null)
             {
-                context.Dimensions = new List<Dimension>(this.Dimension);
+                context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
             if (ParameterWasBound("EvaluationPeriod"))
                 context.EvaluationPeriods = this.EvaluationPeriod;
             if (this.InsufficientDataAction != null)
             {
-                context.InsufficientDataActions = new List<String>(this.InsufficientDataAction);
+                context.InsufficientDataActions = new List<System.String>(this.InsufficientDataAction);
             }
             context.MetricName = this.MetricName;
             context.Namespace = this.Namespace;
             if (this.OKAction != null)
             {
-                context.OKActions = new List<String>(this.OKAction);
+                context.OKActions = new List<System.String>(this.OKAction);
             }
             if (ParameterWasBound("Period"))
                 context.Period = this.Period;
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutMetricAlarmRequest();
+            var request = new Amazon.CloudWatch.Model.PutMetricAlarmRequest();
             
             if (cmdletContext.ActionsEnabled != null)
             {
@@ -359,21 +359,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ActionsEnabled { get; set; }
-            public List<String> AlarmActions { get; set; }
-            public String AlarmDescription { get; set; }
-            public String AlarmName { get; set; }
-            public ComparisonOperator ComparisonOperator { get; set; }
-            public List<Dimension> Dimensions { get; set; }
-            public Int32? EvaluationPeriods { get; set; }
-            public List<String> InsufficientDataActions { get; set; }
-            public String MetricName { get; set; }
-            public String Namespace { get; set; }
-            public List<String> OKActions { get; set; }
-            public Int32? Period { get; set; }
-            public Statistic Statistic { get; set; }
-            public Double? Threshold { get; set; }
-            public StandardUnit Unit { get; set; }
+            public System.Boolean? ActionsEnabled { get; set; }
+            public List<System.String> AlarmActions { get; set; }
+            public System.String AlarmDescription { get; set; }
+            public System.String AlarmName { get; set; }
+            public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
+            public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
+            public System.Int32? EvaluationPeriods { get; set; }
+            public List<System.String> InsufficientDataActions { get; set; }
+            public System.String MetricName { get; set; }
+            public System.String Namespace { get; set; }
+            public List<System.String> OKActions { get; set; }
+            public System.Int32? Period { get; set; }
+            public Amazon.CloudWatch.Statistic Statistic { get; set; }
+            public System.Double? Threshold { get; set; }
+            public Amazon.CloudWatch.StandardUnit Unit { get; set; }
         }
         
     }

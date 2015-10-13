@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeInstancesHealth operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeInstancesHealth"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.SingleInstanceHealth",
         "This cmdlet returns a collection of SingleInstanceHealth objects.",
-        "The service call response (type DescribeInstancesHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String), RefreshedAt (type DateTime)"
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String), RefreshedAt (type System.DateTime)"
     )]
     public class GetEBInstanceHealthCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
             if (this.AttributeName != null)
             {
-                context.AttributeNames = new List<String>(this.AttributeName);
+                context.AttributeNames = new List<System.String>(this.AttributeName);
             }
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeInstancesHealthRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthRequest();
             
             if (cmdletContext.AttributeNames != null)
             {
@@ -161,10 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AttributeNames { get; set; }
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
-            public String NextToken { get; set; }
+            public List<System.String> AttributeNames { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeImageAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeImageAttribute"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ImageAttribute",
         "This cmdlet returns a ImageAttribute object.",
-        "The service call response (type DescribeImageAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeImageAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2ImageAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public ImageAttributeName Attribute { get; set; }
+        public Amazon.EC2.ImageAttributeName Attribute { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ImageId { get; set; }
+        public System.String ImageId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeImageAttributeRequest();
+            var request = new Amazon.EC2.Model.DescribeImageAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public ImageAttributeName Attribute { get; set; }
-            public String ImageId { get; set; }
+            public Amazon.EC2.ImageAttributeName Attribute { get; set; }
+            public System.String ImageId { get; set; }
         }
         
     }

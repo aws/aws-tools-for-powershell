@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the RemovePermission operation against Amazon Simple Queue Service.", Operation = new[] {"RemovePermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Label { get; set; }
+        public System.String Label { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
         
         /// <summary>
         /// Returns the value passed to the QueueUrl parameter.
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemovePermissionRequest();
+            var request = new Amazon.SQS.Model.RemovePermissionRequest();
             
             if (cmdletContext.Label != null)
             {
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Label { get; set; }
-            public String QueueUrl { get; set; }
+            public System.String Label { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

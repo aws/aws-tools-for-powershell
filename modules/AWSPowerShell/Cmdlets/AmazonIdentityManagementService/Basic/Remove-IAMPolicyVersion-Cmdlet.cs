@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeletePolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"DeletePolicyVersion"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type DeletePolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeletePolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeletePolicyVersionRequest();
+            var request = new Amazon.IdentityManagement.Model.DeletePolicyVersionRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
-            public String VersionId { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

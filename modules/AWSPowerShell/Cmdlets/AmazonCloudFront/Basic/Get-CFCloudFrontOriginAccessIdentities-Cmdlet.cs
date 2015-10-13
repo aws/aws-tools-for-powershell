@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the ListCloudFrontOriginAccessIdentities operation against Amazon CloudFront.", Operation = new[] {"ListCloudFrontOriginAccessIdentities"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CloudFrontOriginAccessIdentityList",
         "This cmdlet returns a CloudFrontOriginAccessIdentityList object.",
-        "The service call response (type ListCloudFrontOriginAccessIdentitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListCloudFrontOriginAccessIdentitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFCloudFrontOriginAccessIdentitiesCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public String MaxItem { get; set; }
+        public System.String MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListCloudFrontOriginAccessIdentitiesRequest();
+            var request = new Amazon.CloudFront.Model.ListCloudFrontOriginAccessIdentitiesRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public String MaxItems { get; set; }
+            public System.String Marker { get; set; }
+            public System.String MaxItems { get; set; }
         }
         
     }

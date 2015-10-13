@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the GetBranch operation against AWS CodeCommit.", Operation = new[] {"GetBranch"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.BranchInfo",
         "This cmdlet returns a BranchInfo object.",
-        "The service call response (type GetBranchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.GetBranchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCCBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BranchName { get; set; }
+        public System.String BranchName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RepositoryName { get; set; }
+        public System.String RepositoryName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetBranchRequest();
+            var request = new Amazon.CodeCommit.Model.GetBranchRequest();
             
             if (cmdletContext.BranchName != null)
             {
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BranchName { get; set; }
-            public String RepositoryName { get; set; }
+            public System.String BranchName { get; set; }
+            public System.String RepositoryName { get; set; }
         }
         
     }

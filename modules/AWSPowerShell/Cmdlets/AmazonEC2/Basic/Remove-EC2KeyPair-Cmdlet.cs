@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteKeyPair operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteKeyPair"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteKeyPairResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteKeyPairResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String KeyName { get; set; }
+        public System.String KeyName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the KeyName parameter.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteKeyPairRequest();
+            var request = new Amazon.EC2.Model.DeleteKeyPairRequest();
             
             if (cmdletContext.KeyName != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyName { get; set; }
+            public System.String KeyName { get; set; }
         }
         
     }

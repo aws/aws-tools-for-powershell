@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the AuthorizeClusterSecurityGroupIngress operation against Amazon Redshift.", Operation = new[] {"AuthorizeClusterSecurityGroupIngress"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSecurityGroup",
         "This cmdlet returns a ClusterSecurityGroup object.",
-        "The service call response (type AuthorizeClusterSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ApproveRSClusterSecurityGroupIngressCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CIDRIP { get; set; }
+        public System.String CIDRIP { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterSecurityGroupName { get; set; }
+        public System.String ClusterSecurityGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupName { get; set; }
+        public System.String EC2SecurityGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupOwnerId { get; set; }
+        public System.String EC2SecurityGroupOwnerId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AuthorizeClusterSecurityGroupIngressRequest();
+            var request = new Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressRequest();
             
             if (cmdletContext.CIDRIP != null)
             {
@@ -180,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CIDRIP { get; set; }
-            public String ClusterSecurityGroupName { get; set; }
-            public String EC2SecurityGroupName { get; set; }
-            public String EC2SecurityGroupOwnerId { get; set; }
+            public System.String CIDRIP { get; set; }
+            public System.String ClusterSecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupOwnerId { get; set; }
         }
         
     }

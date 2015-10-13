@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.GetLoggingOptionsResponse")]
     [AWSCmdlet("Invokes the GetLoggingOptions operation against AWS IoT.", Operation = new[] {"GetLoggingOptions"})]
     [AWSCmdletOutput("Amazon.IoT.Model.GetLoggingOptionsResponse",
-        "This cmdlet returns a GetLoggingOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IoT.Model.GetLoggingOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTLoggingOptionsCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetLoggingOptionsRequest();
+            var request = new Amazon.IoT.Model.GetLoggingOptionsRequest();
             
             
             CmdletOutput output;

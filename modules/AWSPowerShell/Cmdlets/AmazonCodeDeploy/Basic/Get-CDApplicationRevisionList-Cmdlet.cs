@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the ListApplicationRevisions operation against AWS CodeDeploy.", Operation = new[] {"ListApplicationRevisions"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.RevisionLocation",
         "This cmdlet returns a collection of RevisionLocation objects.",
-        "The service call response (type ListApplicationRevisionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeDeploy.Model.ListApplicationRevisionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCDApplicationRevisionListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ListStateFilterAction Deployed { get; set; }
+        public Amazon.CodeDeploy.ListStateFilterAction Deployed { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String S3Bucket { get; set; }
+        public System.String S3Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String S3KeyPrefix { get; set; }
+        public System.String S3KeyPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ApplicationRevisionSortBy SortBy { get; set; }
+        public Amazon.CodeDeploy.ApplicationRevisionSortBy SortBy { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SortOrder SortOrder { get; set; }
+        public Amazon.CodeDeploy.SortOrder SortOrder { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListApplicationRevisionsRequest();
+            var request = new Amazon.CodeDeploy.Model.ListApplicationRevisionsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -200,13 +200,13 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public ListStateFilterAction Deployed { get; set; }
-            public String NextToken { get; set; }
-            public String S3Bucket { get; set; }
-            public String S3KeyPrefix { get; set; }
-            public ApplicationRevisionSortBy SortBy { get; set; }
-            public SortOrder SortOrder { get; set; }
+            public System.String ApplicationName { get; set; }
+            public Amazon.CodeDeploy.ListStateFilterAction Deployed { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String S3Bucket { get; set; }
+            public System.String S3KeyPrefix { get; set; }
+            public Amazon.CodeDeploy.ApplicationRevisionSortBy SortBy { get; set; }
+            public Amazon.CodeDeploy.SortOrder SortOrder { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the DeleteLoadBalancerListeners operation against Elastic Load Balancing.", Operation = new[] {"DeleteLoadBalancerListeners"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteLoadBalancerListenersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerListenersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveELBLoadBalancerListenerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             context.LoadBalancerName = this.LoadBalancerName;
             if (this.LoadBalancerPort != null)
             {
-                context.LoadBalancerPorts = new List<Int32>(this.LoadBalancerPort);
+                context.LoadBalancerPorts = new List<System.Int32>(this.LoadBalancerPort);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteLoadBalancerListenersRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.DeleteLoadBalancerListenersRequest();
             
             if (cmdletContext.LoadBalancerName != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LoadBalancerName { get; set; }
-            public List<Int32> LoadBalancerPorts { get; set; }
+            public System.String LoadBalancerName { get; set; }
+            public List<System.Int32> LoadBalancerPorts { get; set; }
         }
         
     }

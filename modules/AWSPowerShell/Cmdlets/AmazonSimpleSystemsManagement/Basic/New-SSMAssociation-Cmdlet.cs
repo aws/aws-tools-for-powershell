@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the CreateAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"CreateAssociation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
         "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type CreateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String Name { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

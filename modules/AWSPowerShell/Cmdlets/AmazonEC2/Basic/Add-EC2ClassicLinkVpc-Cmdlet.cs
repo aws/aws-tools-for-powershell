@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AttachClassicLinkVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AttachClassicLinkVpc"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type AttachClassicLinkVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AttachClassicLinkVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEC2ClassicLinkVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Group != null)
             {
-                context.Groups = new List<String>(this.Group);
+                context.Groups = new List<System.String>(this.Group);
             }
             context.InstanceId = this.InstanceId;
             context.VpcId = this.VpcId;
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachClassicLinkVpcRequest();
+            var request = new Amazon.EC2.Model.AttachClassicLinkVpcRequest();
             
             if (cmdletContext.Groups != null)
             {
@@ -169,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Groups { get; set; }
-            public String InstanceId { get; set; }
-            public String VpcId { get; set; }
+            public List<System.String> Groups { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

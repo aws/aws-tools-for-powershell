@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the RegisterInstancesWithLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"RegisterInstancesWithLoadBalancer"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.Instance",
         "This cmdlet returns a collection of Instance objects.",
-        "The service call response (type RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterELBInstanceWithLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.Instance != null)
             {
-                context.Instances = new List<Instance>(this.Instance);
+                context.Instances = new List<Amazon.ElasticLoadBalancing.Model.Instance>(this.Instance);
             }
             context.LoadBalancerName = this.LoadBalancerName;
             
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterInstancesWithLoadBalancerRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerRequest();
             
             if (cmdletContext.Instances != null)
             {
@@ -170,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Instance> Instances { get; set; }
-            public String LoadBalancerName { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.Instance> Instances { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

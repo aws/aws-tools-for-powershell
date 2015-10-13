@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the TerminateInstanceInAutoScalingGroup operation against Auto Scaling.", Operation = new[] {"TerminateInstanceInAutoScalingGroup"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a Activity object.",
-        "The service call response (type TerminateInstanceInAutoScalingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopASInstanceInAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean ShouldDecrementDesiredCapacity { get; set; }
+        public System.Boolean ShouldDecrementDesiredCapacity { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TerminateInstanceInAutoScalingGroupRequest();
+            var request = new Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public Boolean? ShouldDecrementDesiredCapacity { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Boolean? ShouldDecrementDesiredCapacity { get; set; }
         }
         
     }

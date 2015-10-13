@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the UpdateByteMatchSet operation against AWS WAF.", Operation = new[] {"UpdateByteMatchSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.UpdateByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ByteMatchSetId { get; set; }
+        public System.String ByteMatchSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             context.ChangeToken = this.ChangeToken;
             if (this.Update != null)
             {
-                context.Updates = new List<ByteMatchSetUpdate>(this.Update);
+                context.Updates = new List<Amazon.WAF.Model.ByteMatchSetUpdate>(this.Update);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateByteMatchSetRequest();
+            var request = new Amazon.WAF.Model.UpdateByteMatchSetRequest();
             
             if (cmdletContext.ByteMatchSetId != null)
             {
@@ -184,9 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ByteMatchSetId { get; set; }
-            public String ChangeToken { get; set; }
-            public List<ByteMatchSetUpdate> Updates { get; set; }
+            public System.String ByteMatchSetId { get; set; }
+            public System.String ChangeToken { get; set; }
+            public List<Amazon.WAF.Model.ByteMatchSetUpdate> Updates { get; set; }
         }
         
     }

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the RestoreDBInstanceToPointInTime operation against Amazon Relational Database Service.", Operation = new[] {"RestoreDBInstanceToPointInTime"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type RestoreDBInstanceToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RestoreDBInstanceToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreRDSDBInstanceToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoMinorVersionUpgrade { get; set; }
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTagsToSnapshot { get; set; }
+        public System.Boolean CopyTagsToSnapshot { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceClass { get; set; }
+        public System.String DBInstanceClass { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBName { get; set; }
+        public System.String DBName { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Iops { get; set; }
+        public System.Int32 Iops { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LicenseModel { get; set; }
+        public System.String LicenseModel { get; set; }
         
         /// <summary>
         /// <para>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean MultiAZ { get; set; }
+        public System.Boolean MultiAZ { get; set; }
         
         /// <summary>
         /// <para>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PubliclyAccessible { get; set; }
+        public System.Boolean PubliclyAccessible { get; set; }
         
         /// <summary>
         /// <para>
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime RestoreTime { get; set; }
+        public System.DateTime RestoreTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceDBInstanceIdentifier { get; set; }
+        public System.String SourceDBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StorageType { get; set; }
+        public System.String StorageType { get; set; }
         
         /// <summary>
         /// <para>
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetDBInstanceIdentifier { get; set; }
+        public System.String TargetDBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialArn { get; set; }
+        public System.String TdeCredentialArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialPassword { get; set; }
+        public System.String TdeCredentialPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean UseLatestRestorableTime { get; set; }
+        public System.Boolean UseLatestRestorableTime { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBInstanceIdentifier = this.TargetDBInstanceIdentifier;
             context.TdeCredentialArn = this.TdeCredentialArn;
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreDBInstanceToPointInTimeRequest();
+            var request = new Amazon.RDS.Model.RestoreDBInstanceToPointInTimeRequest();
             
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
@@ -434,27 +434,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AutoMinorVersionUpgrade { get; set; }
-            public String AvailabilityZone { get; set; }
-            public Boolean? CopyTagsToSnapshot { get; set; }
-            public String DBInstanceClass { get; set; }
-            public String DBName { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public String Engine { get; set; }
-            public Int32? Iops { get; set; }
-            public String LicenseModel { get; set; }
-            public Boolean? MultiAZ { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public Boolean? PubliclyAccessible { get; set; }
-            public DateTime? RestoreTime { get; set; }
-            public String SourceDBInstanceIdentifier { get; set; }
-            public String StorageType { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TargetDBInstanceIdentifier { get; set; }
-            public String TdeCredentialArn { get; set; }
-            public String TdeCredentialPassword { get; set; }
-            public Boolean? UseLatestRestorableTime { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String DBInstanceClass { get; set; }
+            public System.String DBName { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public System.String Engine { get; set; }
+            public System.Int32? Iops { get; set; }
+            public System.String LicenseModel { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
+            public System.DateTime? RestoreTime { get; set; }
+            public System.String SourceDBInstanceIdentifier { get; set; }
+            public System.String StorageType { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TargetDBInstanceIdentifier { get; set; }
+            public System.String TdeCredentialArn { get; set; }
+            public System.String TdeCredentialPassword { get; set; }
+            public System.Boolean? UseLatestRestorableTime { get; set; }
         }
         
     }

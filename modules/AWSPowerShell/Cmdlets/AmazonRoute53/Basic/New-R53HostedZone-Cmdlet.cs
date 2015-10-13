@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.CreateHostedZoneResponse")]
     [AWSCmdlet("Invokes the CreateHostedZone operation against AWS Route 53.", Operation = new[] {"CreateHostedZone"})]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateHostedZoneResponse",
-        "This cmdlet returns a CreateHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.CreateHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String CallerReference { get; set; }
+        public System.String CallerReference { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String HostedZoneConfig_Comment { get; set; }
+        public System.String HostedZoneConfig_Comment { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DelegationSetId { get; set; }
+        public System.String DelegationSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean HostedZoneConfig_PrivateZone { get; set; }
+        public System.Boolean HostedZoneConfig_PrivateZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VPC_VPCId { get; set; }
+        public System.String VPC_VPCId { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public VPCRegion VPC_VPCRegion { get; set; }
+        public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateHostedZoneRequest();
+            var request = new Amazon.Route53.Model.CreateHostedZoneRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -183,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             
              // populate VPC
             bool requestVPCIsNull = true;
-            request.VPC = new VPC();
-            VPCRegion requestVPC_vPC_VPCRegion = null;
+            request.VPC = new Amazon.Route53.Model.VPC();
+            Amazon.Route53.VPCRegion requestVPC_vPC_VPCRegion = null;
             if (cmdletContext.VPC_VPCRegion != null)
             {
                 requestVPC_vPC_VPCRegion = cmdletContext.VPC_VPCRegion;
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.VPC.VPCRegion = requestVPC_vPC_VPCRegion;
                 requestVPCIsNull = false;
             }
-            String requestVPC_vPC_VPCId = null;
+            System.String requestVPC_vPC_VPCId = null;
             if (cmdletContext.VPC_VPCId != null)
             {
                 requestVPC_vPC_VPCId = cmdletContext.VPC_VPCId;
@@ -216,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             
              // populate HostedZoneConfig
             bool requestHostedZoneConfigIsNull = true;
-            request.HostedZoneConfig = new HostedZoneConfig();
-            String requestHostedZoneConfig_hostedZoneConfig_Comment = null;
+            request.HostedZoneConfig = new Amazon.Route53.Model.HostedZoneConfig();
+            System.String requestHostedZoneConfig_hostedZoneConfig_Comment = null;
             if (cmdletContext.HostedZoneConfig_Comment != null)
             {
                 requestHostedZoneConfig_hostedZoneConfig_Comment = cmdletContext.HostedZoneConfig_Comment;
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.HostedZoneConfig.Comment = requestHostedZoneConfig_hostedZoneConfig_Comment;
                 requestHostedZoneConfigIsNull = false;
             }
-            Boolean? requestHostedZoneConfig_hostedZoneConfig_PrivateZone = null;
+            System.Boolean? requestHostedZoneConfig_hostedZoneConfig_PrivateZone = null;
             if (cmdletContext.HostedZoneConfig_PrivateZone != null)
             {
                 requestHostedZoneConfig_hostedZoneConfig_PrivateZone = cmdletContext.HostedZoneConfig_PrivateZone.Value;
@@ -281,13 +281,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
-            public VPCRegion VPC_VPCRegion { get; set; }
-            public String VPC_VPCId { get; set; }
-            public String CallerReference { get; set; }
-            public String HostedZoneConfig_Comment { get; set; }
-            public Boolean? HostedZoneConfig_PrivateZone { get; set; }
-            public String DelegationSetId { get; set; }
+            public System.String Name { get; set; }
+            public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+            public System.String VPC_VPCId { get; set; }
+            public System.String CallerReference { get; set; }
+            public System.String HostedZoneConfig_Comment { get; set; }
+            public System.Boolean? HostedZoneConfig_PrivateZone { get; set; }
+            public System.String DelegationSetId { get; set; }
         }
         
     }

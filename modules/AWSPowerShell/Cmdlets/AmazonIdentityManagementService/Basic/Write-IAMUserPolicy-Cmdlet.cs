@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the PutUserPolicy operation against AWS Identity and Access Management.", Operation = new[] {"PutUserPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutUserPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.PutUserPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteIAMUserPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the UserName parameter.
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutUserPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.PutUserPolicyRequest();
             
             if (cmdletContext.PolicyDocument != null)
             {
@@ -176,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyDocument { get; set; }
-            public String PolicyName { get; set; }
-            public String UserName { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public System.String PolicyName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

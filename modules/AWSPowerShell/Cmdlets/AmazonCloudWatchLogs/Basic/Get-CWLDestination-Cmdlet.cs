@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DescribeDestinations operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeDestinations"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Destination",
         "This cmdlet returns a collection of Destination objects.",
-        "The service call response (type DescribeDestinationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeDestinationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWLDestinationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DestinationNamePrefix { get; set; }
+        public System.String DestinationNamePrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDestinationsRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeDestinationsRequest();
             
             if (cmdletContext.DestinationNamePrefix != null)
             {
@@ -152,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DestinationNamePrefix { get; set; }
+            public System.String DestinationNamePrefix { get; set; }
             public int? Limit { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

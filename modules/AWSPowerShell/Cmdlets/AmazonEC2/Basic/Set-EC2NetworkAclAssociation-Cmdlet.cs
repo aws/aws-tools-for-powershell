@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ReplaceNetworkAclAssociation operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReplaceNetworkAclAssociation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ReplaceNetworkAclAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEC2NetworkAclAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AssociationId { get; set; }
+        public System.String AssociationId { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String NetworkAclId { get; set; }
+        public System.String NetworkAclId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReplaceNetworkAclAssociationRequest();
+            var request = new Amazon.EC2.Model.ReplaceNetworkAclAssociationRequest();
             
             if (cmdletContext.AssociationId != null)
             {
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssociationId { get; set; }
-            public String NetworkAclId { get; set; }
+            public System.String AssociationId { get; set; }
+            public System.String NetworkAclId { get; set; }
         }
         
     }

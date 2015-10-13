@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [OutputType("Amazon.KinesisFirehose.Model.ListDeliveryStreamsResponse")]
     [AWSCmdlet("Invokes the ListDeliveryStreams operation against Amazon Kinesis Firehose.", Operation = new[] {"ListDeliveryStreams"})]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.ListDeliveryStreamsResponse",
-        "This cmdlet returns a ListDeliveryStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.KinesisFirehose.Model.ListDeliveryStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINFDeliveryStreamListCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExclusiveStartDeliveryStreamName { get; set; }
+        public System.String ExclusiveStartDeliveryStreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         
         
         protected override void ProcessRecord()
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDeliveryStreamsRequest();
+            var request = new Amazon.KinesisFirehose.Model.ListDeliveryStreamsRequest();
             
             if (cmdletContext.ExclusiveStartDeliveryStreamName != null)
             {
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ExclusiveStartDeliveryStreamName { get; set; }
-            public Int32? Limit { get; set; }
+            public System.String ExclusiveStartDeliveryStreamName { get; set; }
+            public System.Int32? Limit { get; set; }
         }
         
     }

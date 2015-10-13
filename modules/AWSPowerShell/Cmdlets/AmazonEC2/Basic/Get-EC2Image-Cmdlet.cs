@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeImages operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeImages"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Image",
         "This cmdlet returns a collection of Image objects.",
-        "The service call response (type DescribeImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -116,19 +116,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.ExecutableUser != null)
             {
-                context.ExecutableUsers = new List<String>(this.ExecutableUser);
+                context.ExecutableUsers = new List<System.String>(this.ExecutableUser);
             }
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.ImageId != null)
             {
-                context.ImageIds = new List<String>(this.ImageId);
+                context.ImageIds = new List<System.String>(this.ImageId);
             }
             if (this.Owner != null)
             {
-                context.Owners = new List<String>(this.Owner);
+                context.Owners = new List<System.String>(this.Owner);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeImagesRequest();
+            var request = new Amazon.EC2.Model.DescribeImagesRequest();
             
             if (cmdletContext.ExecutableUsers != null)
             {
@@ -194,10 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ExecutableUsers { get; set; }
-            public List<Filter> Filters { get; set; }
-            public List<String> ImageIds { get; set; }
-            public List<String> Owners { get; set; }
+            public List<System.String> ExecutableUsers { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> ImageIds { get; set; }
+            public List<System.String> Owners { get; set; }
         }
         
     }

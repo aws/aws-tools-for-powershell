@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeElasticLoadBalancers operation against AWS OpsWorks.", Operation = new[] {"DescribeElasticLoadBalancers"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.ElasticLoadBalancer",
         "This cmdlet returns a collection of ElasticLoadBalancer objects.",
-        "The service call response (type DescribeElasticLoadBalancersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeElasticLoadBalancersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSElasticLoadBalancersCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.LayerId != null)
             {
-                context.LayerIds = new List<String>(this.LayerId);
+                context.LayerIds = new List<System.String>(this.LayerId);
             }
             context.StackId = this.StackId;
             
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeElasticLoadBalancersRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeElasticLoadBalancersRequest();
             
             if (cmdletContext.LayerIds != null)
             {
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> LayerIds { get; set; }
-            public String StackId { get; set; }
+            public List<System.String> LayerIds { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

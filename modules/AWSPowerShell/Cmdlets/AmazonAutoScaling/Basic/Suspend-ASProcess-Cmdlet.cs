@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the SuspendProcesses operation against Auto Scaling.", Operation = new[] {"SuspendProcesses"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SuspendProcessesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.SuspendProcessesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SuspendASProcessCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.ScalingProcess != null)
             {
-                context.ScalingProcesses = new List<String>(this.ScalingProcess);
+                context.ScalingProcesses = new List<System.String>(this.ScalingProcess);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SuspendProcessesRequest();
+            var request = new Amazon.AutoScaling.Model.SuspendProcessesRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -164,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> ScalingProcesses { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> ScalingProcesses { get; set; }
         }
         
     }

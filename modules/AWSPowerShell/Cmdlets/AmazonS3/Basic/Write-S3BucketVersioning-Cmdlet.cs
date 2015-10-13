@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketVersioning operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketVersioning"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketVersioningResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketVersioningResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketVersioningCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MfaCodes_AuthenticationValue { get; set; }
+        public System.String MfaCodes_AuthenticationValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean VersioningConfig_EnableMfaDelete { get; set; }
+        public System.Boolean VersioningConfig_EnableMfaDelete { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MfaCodes_SerialNumber { get; set; }
+        public System.String MfaCodes_SerialNumber { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public VersionStatus VersioningConfig_Status { get; set; }
+        public Amazon.S3.VersionStatus VersioningConfig_Status { get; set; }
         
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketVersioningRequest();
+            var request = new Amazon.S3.Model.PutBucketVersioningRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate MfaCodes
             bool requestMfaCodesIsNull = true;
-            request.MfaCodes = new MfaCodes();
-            String requestMfaCodes_mfaCodes_SerialNumber = null;
+            request.MfaCodes = new Amazon.S3.Model.MfaCodes();
+            System.String requestMfaCodes_mfaCodes_SerialNumber = null;
             if (cmdletContext.MfaCodes_SerialNumber != null)
             {
                 requestMfaCodes_mfaCodes_SerialNumber = cmdletContext.MfaCodes_SerialNumber;
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.MfaCodes.SerialNumber = requestMfaCodes_mfaCodes_SerialNumber;
                 requestMfaCodesIsNull = false;
             }
-            String requestMfaCodes_mfaCodes_AuthenticationValue = null;
+            System.String requestMfaCodes_mfaCodes_AuthenticationValue = null;
             if (cmdletContext.MfaCodes_AuthenticationValue != null)
             {
                 requestMfaCodes_mfaCodes_AuthenticationValue = cmdletContext.MfaCodes_AuthenticationValue;
@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate VersioningConfig
             bool requestVersioningConfigIsNull = true;
-            request.VersioningConfig = new S3BucketVersioningConfig();
-            VersionStatus requestVersioningConfig_versioningConfig_Status = null;
+            request.VersioningConfig = new Amazon.S3.Model.S3BucketVersioningConfig();
+            Amazon.S3.VersionStatus requestVersioningConfig_versioningConfig_Status = null;
             if (cmdletContext.VersioningConfig_Status != null)
             {
                 requestVersioningConfig_versioningConfig_Status = cmdletContext.VersioningConfig_Status;
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.VersioningConfig.Status = requestVersioningConfig_versioningConfig_Status;
                 requestVersioningConfigIsNull = false;
             }
-            Boolean? requestVersioningConfig_versioningConfig_EnableMfaDelete = null;
+            System.Boolean? requestVersioningConfig_versioningConfig_EnableMfaDelete = null;
             if (cmdletContext.VersioningConfig_EnableMfaDelete != null)
             {
                 requestVersioningConfig_versioningConfig_EnableMfaDelete = cmdletContext.VersioningConfig_EnableMfaDelete.Value;
@@ -231,11 +231,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String MfaCodes_SerialNumber { get; set; }
-            public String MfaCodes_AuthenticationValue { get; set; }
-            public VersionStatus VersioningConfig_Status { get; set; }
-            public Boolean? VersioningConfig_EnableMfaDelete { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String MfaCodes_SerialNumber { get; set; }
+            public System.String MfaCodes_AuthenticationValue { get; set; }
+            public Amazon.S3.VersionStatus VersioningConfig_Status { get; set; }
+            public System.Boolean? VersioningConfig_EnableMfaDelete { get; set; }
         }
         
     }

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CopyClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"CopyClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type CopyClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CopyClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceSnapshotClusterIdentifier { get; set; }
+        public System.String SourceSnapshotClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceSnapshotIdentifier { get; set; }
+        public System.String SourceSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetSnapshotIdentifier { get; set; }
+        public System.String TargetSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyClusterSnapshotRequest();
+            var request = new Amazon.Redshift.Model.CopyClusterSnapshotRequest();
             
             if (cmdletContext.SourceSnapshotClusterIdentifier != null)
             {
@@ -169,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceSnapshotClusterIdentifier { get; set; }
-            public String SourceSnapshotIdentifier { get; set; }
-            public String TargetSnapshotIdentifier { get; set; }
+            public System.String SourceSnapshotClusterIdentifier { get; set; }
+            public System.String SourceSnapshotIdentifier { get; set; }
+            public System.String TargetSnapshotIdentifier { get; set; }
         }
         
     }

@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
     [AWSCmdlet("Invokes the CreateTable operation against Amazon DynamoDB.", Operation = new [] {"CreateTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
-        "This cmdlet returns a TableDescription object.",
-        "The service call response (type CreateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns aN Amazon.DynamoDBv2.Model.TableDescription object.",
+        "The service call response (type Amazon.DynamoDBv2.Model.CreateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
@@ -56,14 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        public String TableName { get; set; }
+        public System.String TableName { get; set; }
         
         /// <summary>
         /// TableSchema object containing the attribute and key schema information for the new
         /// table using the Write-DDBKeySchema and Write-DDBIndexSchema cmdlets.
         /// </summary>
         [Parameter(ValueFromPipeline = true, Mandatory = true, Position = 1)]
-        public TableSchema Schema { get; set; }
+        public Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema Schema { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 2)]
-        public Int64? ReadCapacity { get; set; }
+        public System.Int64? ReadCapacity { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 3)]
-        public Int64? WriteCapacity { get; set; }
+        public System.Int64? WriteCapacity { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

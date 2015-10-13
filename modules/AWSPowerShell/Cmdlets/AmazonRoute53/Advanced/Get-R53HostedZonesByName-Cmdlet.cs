@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.HostedZone")]
     [AWSCmdlet("Invokes the ListHostedZonesByName operation against AWS Route 53.")]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZone",
-        "This cmdlet returns a collection of HostedZone objects.",
-        "The service call response (type ListHostedZonesByNameResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "This cmdlet returns a collection of Amazon.Route53.Model.HostedZone objects.",
+        "The service call response (type Amazon.Route53.Model.ListHostedZonesByNameResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type HostedZonePageMarker), NextMarker (type HostedZonePageMarker), MaxItems (type String)"
     )]
     public class GetR53HostedZonesByNameCmdlet : AmazonRoute53ClientCmdlet, IExecutor
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DNSName { get; set; }
+        public System.String DNSName { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String HostedZoneId { get; set; }
+        public System.String HostedZoneId { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int? MaxItem { get; set; }
+        public System.Int32? MaxItem { get; set; }
         
         
         protected override void ProcessRecord()

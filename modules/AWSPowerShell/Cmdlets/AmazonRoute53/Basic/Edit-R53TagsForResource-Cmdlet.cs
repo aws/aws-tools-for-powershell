@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the ChangeTagsForResource operation against AWS Route 53.", Operation = new[] {"ChangeTagsForResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ChangeTagsForResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.ChangeTagsForResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditR53TagsForResourceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TagResourceType ResourceType { get; set; }
+        public Amazon.Route53.TagResourceType ResourceType { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ResourceId parameter.
@@ -110,11 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.ResourceId = this.ResourceId;
             if (this.AddTag != null)
             {
-                context.AddTags = new List<Tag>(this.AddTag);
+                context.AddTags = new List<Amazon.Route53.Model.Tag>(this.AddTag);
             }
             if (this.RemoveTagKey != null)
             {
-                context.RemoveTagKeys = new List<String>(this.RemoveTagKey);
+                context.RemoveTagKeys = new List<System.String>(this.RemoveTagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ChangeTagsForResourceRequest();
+            var request = new Amazon.Route53.Model.ChangeTagsForResourceRequest();
             
             if (cmdletContext.ResourceType != null)
             {
@@ -182,10 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public TagResourceType ResourceType { get; set; }
-            public String ResourceId { get; set; }
-            public List<Tag> AddTags { get; set; }
-            public List<String> RemoveTagKeys { get; set; }
+            public Amazon.Route53.TagResourceType ResourceType { get; set; }
+            public System.String ResourceId { get; set; }
+            public List<Amazon.Route53.Model.Tag> AddTags { get; set; }
+            public List<System.String> RemoveTagKeys { get; set; }
         }
         
     }

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the RestoreFromClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"RestoreFromClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type RestoreFromClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.RestoreFromClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreRSFromClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowVersionUpgrade { get; set; }
+        public System.Boolean AllowVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 AutomatedSnapshotRetentionPeriod { get; set; }
+        public System.Int32 AutomatedSnapshotRetentionPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClusterParameterGroupName { get; set; }
+        public System.String ClusterParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String ClusterSubnetGroupName { get; set; }
+        public System.String ClusterSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ElasticIp { get; set; }
+        public System.String ElasticIp { get; set; }
         
         /// <summary>
         /// <para>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmClientCertificateIdentifier { get; set; }
+        public System.String HsmClientCertificateIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String HsmConfigurationIdentifier { get; set; }
+        public System.String HsmConfigurationIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NodeType { get; set; }
+        public System.String NodeType { get; set; }
         
         /// <summary>
         /// <para>
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OwnerAccount { get; set; }
+        public System.String OwnerAccount { get; set; }
         
         /// <summary>
         /// <para>
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PubliclyAccessible { get; set; }
+        public System.Boolean PubliclyAccessible { get; set; }
         
         /// <summary>
         /// <para>
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotClusterIdentifier { get; set; }
+        public System.String SnapshotClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ClusterParameterGroupName = this.ClusterParameterGroupName;
             if (this.ClusterSecurityGroup != null)
             {
-                context.ClusterSecurityGroups = new List<String>(this.ClusterSecurityGroup);
+                context.ClusterSecurityGroups = new List<System.String>(this.ClusterSecurityGroup);
             }
             context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
             context.ElasticIp = this.ElasticIp;
@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -301,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreFromClusterSnapshotRequest();
+            var request = new Amazon.Redshift.Model.RestoreFromClusterSnapshotRequest();
             
             if (cmdletContext.AllowVersionUpgrade != null)
             {
@@ -414,25 +414,25 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowVersionUpgrade { get; set; }
-            public Int32? AutomatedSnapshotRetentionPeriod { get; set; }
-            public String AvailabilityZone { get; set; }
-            public String ClusterIdentifier { get; set; }
-            public String ClusterParameterGroupName { get; set; }
-            public List<String> ClusterSecurityGroups { get; set; }
-            public String ClusterSubnetGroupName { get; set; }
-            public String ElasticIp { get; set; }
-            public String HsmClientCertificateIdentifier { get; set; }
-            public String HsmConfigurationIdentifier { get; set; }
-            public String KmsKeyId { get; set; }
-            public String NodeType { get; set; }
-            public String OwnerAccount { get; set; }
-            public Int32? Port { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public Boolean? PubliclyAccessible { get; set; }
-            public String SnapshotClusterIdentifier { get; set; }
-            public String SnapshotIdentifier { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Boolean? AllowVersionUpgrade { get; set; }
+            public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String ClusterParameterGroupName { get; set; }
+            public List<System.String> ClusterSecurityGroups { get; set; }
+            public System.String ClusterSubnetGroupName { get; set; }
+            public System.String ElasticIp { get; set; }
+            public System.String HsmClientCertificateIdentifier { get; set; }
+            public System.String HsmConfigurationIdentifier { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String NodeType { get; set; }
+            public System.String OwnerAccount { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String SnapshotClusterIdentifier { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

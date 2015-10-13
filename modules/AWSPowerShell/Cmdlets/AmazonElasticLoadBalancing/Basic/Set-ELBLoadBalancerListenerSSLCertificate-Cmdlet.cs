@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the SetLoadBalancerListenerSSLCertificate operation against Elastic Load Balancing.", Operation = new[] {"SetLoadBalancerListenerSSLCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetLoadBalancerListenerSSLCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetELBLoadBalancerListenerSSLCertificateCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 LoadBalancerPort { get; set; }
+        public System.Int32 LoadBalancerPort { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SSLCertificateId { get; set; }
+        public System.String SSLCertificateId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LoadBalancerName parameter.
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetLoadBalancerListenerSSLCertificateRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.SetLoadBalancerListenerSSLCertificateRequest();
             
             if (cmdletContext.LoadBalancerName != null)
             {
@@ -170,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LoadBalancerName { get; set; }
-            public Int32? LoadBalancerPort { get; set; }
-            public String SSLCertificateId { get; set; }
+            public System.String LoadBalancerName { get; set; }
+            public System.Int32? LoadBalancerPort { get; set; }
+            public System.String SSLCertificateId { get; set; }
         }
         
     }

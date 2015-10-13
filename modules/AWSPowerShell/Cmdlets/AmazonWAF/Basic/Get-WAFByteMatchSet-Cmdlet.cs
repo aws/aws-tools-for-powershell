@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the GetByteMatchSet operation against AWS WAF.", Operation = new[] {"GetByteMatchSet"})]
     [AWSCmdletOutput("Amazon.WAF.Model.ByteMatchSet",
         "This cmdlet returns a ByteMatchSet object.",
-        "The service call response (type GetByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ByteMatchSetId { get; set; }
+        public System.String ByteMatchSetId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetByteMatchSetRequest();
+            var request = new Amazon.WAF.Model.GetByteMatchSetRequest();
             
             if (cmdletContext.ByteMatchSetId != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ByteMatchSetId { get; set; }
+            public System.String ByteMatchSetId { get; set; }
         }
         
     }

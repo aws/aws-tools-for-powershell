@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the ListGateways operation against AWS Storage Gateway.", Operation = new[] {"ListGateways"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.GatewayInfo",
         "This cmdlet returns a collection of GatewayInfo objects.",
-        "The service call response (type ListGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.StorageGateway.Model.ListGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -98,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListGatewaysRequest();
+            var request = new Amazon.StorageGateway.Model.ListGatewaysRequest();
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
         }
         
     }

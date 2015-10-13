@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the StopDataCollection operation against Amazon Inspector.", Operation = new[] {"StopDataCollection"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type StopDataCollectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.StopDataCollectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopINSDataCollectionCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AssessmentArn { get; set; }
+        public System.String AssessmentArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StopDataCollectionRequest();
+            var request = new Amazon.Inspector.Model.StopDataCollectionRequest();
             
             if (cmdletContext.AssessmentArn != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssessmentArn { get; set; }
+            public System.String AssessmentArn { get; set; }
         }
         
     }

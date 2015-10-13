@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the RunAssessment operation against Amazon Inspector.", Operation = new[] {"RunAssessment"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RunAssessmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.RunAssessmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartINSAssessmentCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AssessmentArn { get; set; }
+        public System.String AssessmentArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RunName { get; set; }
+        public System.String RunName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RunAssessmentRequest();
+            var request = new Amazon.Inspector.Model.RunAssessmentRequest();
             
             if (cmdletContext.AssessmentArn != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssessmentArn { get; set; }
-            public String RunName { get; set; }
+            public System.String AssessmentArn { get; set; }
+            public System.String RunName { get; set; }
         }
         
     }

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the CreateLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"CreateLoadBalancer"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewELBLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Scheme { get; set; }
+        public System.String Scheme { get; set; }
         
         /// <summary>
         /// <para>
@@ -159,25 +159,25 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.AvailabilityZone != null)
             {
-                context.AvailabilityZones = new List<String>(this.AvailabilityZone);
+                context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
             }
             if (this.Listener != null)
             {
-                context.Listeners = new List<Listener>(this.Listener);
+                context.Listeners = new List<Amazon.ElasticLoadBalancing.Model.Listener>(this.Listener);
             }
             context.LoadBalancerName = this.LoadBalancerName;
             context.Scheme = this.Scheme;
             if (this.SecurityGroup != null)
             {
-                context.SecurityGroups = new List<String>(this.SecurityGroup);
+                context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
             if (this.Subnet != null)
             {
-                context.Subnets = new List<String>(this.Subnet);
+                context.Subnets = new List<System.String>(this.Subnet);
             }
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElasticLoadBalancing.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateLoadBalancerRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerRequest();
             
             if (cmdletContext.AvailabilityZones != null)
             {
@@ -255,13 +255,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AvailabilityZones { get; set; }
-            public List<Listener> Listeners { get; set; }
-            public String LoadBalancerName { get; set; }
-            public String Scheme { get; set; }
-            public List<String> SecurityGroups { get; set; }
-            public List<String> Subnets { get; set; }
-            public List<Tag> Tags { get; set; }
+            public List<System.String> AvailabilityZones { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.Listener> Listeners { get; set; }
+            public System.String LoadBalancerName { get; set; }
+            public System.String Scheme { get; set; }
+            public List<System.String> SecurityGroups { get; set; }
+            public List<System.String> Subnets { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.Tag> Tags { get; set; }
         }
         
     }

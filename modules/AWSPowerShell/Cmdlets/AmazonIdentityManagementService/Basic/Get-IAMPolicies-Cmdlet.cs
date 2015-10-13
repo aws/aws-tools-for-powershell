@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ListPolicies operation against AWS Identity and Access Management.", Operation = new[] {"ListPolicies"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ManagedPolicy",
         "This cmdlet returns a collection of ManagedPolicy objects.",
-        "The service call response (type ListPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.IdentityManagement.Model.ListPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String)"
     )]
     public class GetIAMPoliciesCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean OnlyAttached { get; set; }
+        public System.Boolean OnlyAttached { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PathPrefix { get; set; }
+        public System.String PathPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public PolicyScopeType Scope { get; set; }
+        public Amazon.IdentityManagement.PolicyScopeType Scope { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListPoliciesRequest();
+            var request = new Amazon.IdentityManagement.Model.ListPoliciesRequest();
             if (cmdletContext.OnlyAttached != null)
             {
                 request.OnlyAttached = cmdletContext.OnlyAttached.Value;
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -238,11 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public Boolean? OnlyAttached { get; set; }
-            public String PathPrefix { get; set; }
-            public PolicyScopeType Scope { get; set; }
+            public System.Boolean? OnlyAttached { get; set; }
+            public System.String PathPrefix { get; set; }
+            public Amazon.IdentityManagement.PolicyScopeType Scope { get; set; }
         }
         
     }

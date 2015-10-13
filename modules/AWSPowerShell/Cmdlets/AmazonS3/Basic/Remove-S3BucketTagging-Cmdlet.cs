@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the DeleteBucketTagging operation against Amazon Simple Storage Service.", Operation = new[] {"DeleteBucketTagging"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.DeleteBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveS3BucketTaggingCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteBucketTaggingRequest();
+            var request = new Amazon.S3.Model.DeleteBucketTaggingRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
+            public System.String BucketName { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the CreateUpload operation against AWS Device Farm.", Operation = new[] {"CreateUpload"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Upload",
         "This cmdlet returns a Upload object.",
-        "The service call response (type CreateUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.CreateUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String ContentType { get; set; }
+        public System.String ContentType { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ProjectArn { get; set; }
+        public System.String ProjectArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public UploadType Type { get; set; }
+        public Amazon.DeviceFarm.UploadType Type { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateUploadRequest();
+            var request = new Amazon.DeviceFarm.Model.CreateUploadRequest();
             
             if (cmdletContext.ContentType != null)
             {
@@ -164,10 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ContentType { get; set; }
-            public String Name { get; set; }
-            public String ProjectArn { get; set; }
-            public UploadType Type { get; set; }
+            public System.String ContentType { get; set; }
+            public System.String Name { get; set; }
+            public System.String ProjectArn { get; set; }
+            public Amazon.DeviceFarm.UploadType Type { get; set; }
         }
         
     }

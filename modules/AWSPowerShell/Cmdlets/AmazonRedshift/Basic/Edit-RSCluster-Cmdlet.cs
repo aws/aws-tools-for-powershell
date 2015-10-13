@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the ModifyCluster operation against Amazon Redshift.", Operation = new[] {"ModifyCluster"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type ModifyClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.ModifyClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowVersionUpgrade { get; set; }
+        public System.Boolean AllowVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 AutomatedSnapshotRetentionPeriod { get; set; }
+        public System.Int32 AutomatedSnapshotRetentionPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClusterParameterGroupName { get; set; }
+        public System.String ClusterParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClusterType { get; set; }
+        public System.String ClusterType { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String ClusterVersion { get; set; }
+        public System.String ClusterVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmClientCertificateIdentifier { get; set; }
+        public System.String HsmClientCertificateIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String HsmConfigurationIdentifier { get; set; }
+        public System.String HsmConfigurationIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MasterUserPassword { get; set; }
+        public System.String MasterUserPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewClusterIdentifier { get; set; }
+        public System.String NewClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NodeType { get; set; }
+        public System.String NodeType { get; set; }
         
         /// <summary>
         /// <para>
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 NumberOfNodes { get; set; }
+        public System.Int32 NumberOfNodes { get; set; }
         
         /// <summary>
         /// <para>
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ClusterParameterGroupName = this.ClusterParameterGroupName;
             if (this.ClusterSecurityGroup != null)
             {
-                context.ClusterSecurityGroups = new List<String>(this.ClusterSecurityGroup);
+                context.ClusterSecurityGroups = new List<System.String>(this.ClusterSecurityGroup);
             }
             context.ClusterType = this.ClusterType;
             context.ClusterVersion = this.ClusterVersion;
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -285,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyClusterRequest();
+            var request = new Amazon.Redshift.Model.ModifyClusterRequest();
             
             if (cmdletContext.AllowVersionUpgrade != null)
             {
@@ -382,21 +382,21 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowVersionUpgrade { get; set; }
-            public Int32? AutomatedSnapshotRetentionPeriod { get; set; }
-            public String ClusterIdentifier { get; set; }
-            public String ClusterParameterGroupName { get; set; }
-            public List<String> ClusterSecurityGroups { get; set; }
-            public String ClusterType { get; set; }
-            public String ClusterVersion { get; set; }
-            public String HsmClientCertificateIdentifier { get; set; }
-            public String HsmConfigurationIdentifier { get; set; }
-            public String MasterUserPassword { get; set; }
-            public String NewClusterIdentifier { get; set; }
-            public String NodeType { get; set; }
-            public Int32? NumberOfNodes { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Boolean? AllowVersionUpgrade { get; set; }
+            public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String ClusterParameterGroupName { get; set; }
+            public List<System.String> ClusterSecurityGroups { get; set; }
+            public System.String ClusterType { get; set; }
+            public System.String ClusterVersion { get; set; }
+            public System.String HsmClientCertificateIdentifier { get; set; }
+            public System.String HsmConfigurationIdentifier { get; set; }
+            public System.String MasterUserPassword { get; set; }
+            public System.String NewClusterIdentifier { get; set; }
+            public System.String NodeType { get; set; }
+            public System.Int32? NumberOfNodes { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AssociateAddress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssociateAddress"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AssociateAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AssociateAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AllocationId { get; set; }
+        public System.String AllocationId { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowReassociation { get; set; }
+        public System.Boolean AllowReassociation { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PrivateIpAddress { get; set; }
+        public System.String PrivateIpAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String PublicIp { get; set; }
+        public System.String PublicIp { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssociateAddressRequest();
+            var request = new Amazon.EC2.Model.AssociateAddressRequest();
             
             if (cmdletContext.AllocationId != null)
             {
@@ -217,12 +217,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AllocationId { get; set; }
-            public Boolean? AllowReassociation { get; set; }
-            public String InstanceId { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public String PrivateIpAddress { get; set; }
-            public String PublicIp { get; set; }
+            public System.String AllocationId { get; set; }
+            public System.Boolean? AllowReassociation { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.String PrivateIpAddress { get; set; }
+            public System.String PublicIp { get; set; }
         }
         
     }

@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the ListClusters operation against Amazon Elastic MapReduce.", Operation = new[] {"ListClusters"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.ClusterSummary",
         "This cmdlet returns a collection of ClusterSummary objects.",
-        "The service call response (type ListClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElasticMapReduce.Model.ListClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetEMRClustersCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime CreatedAfter { get; set; }
+        public System.DateTime CreatedAfter { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime CreatedBefore { get; set; }
+        public System.DateTime CreatedBefore { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.ClusterState != null)
             {
-                context.ClusterStates = new List<String>(this.ClusterState);
+                context.ClusterStates = new List<System.String>(this.ClusterState);
             }
             if (ParameterWasBound("CreatedAfter"))
                 context.CreatedAfter = this.CreatedAfter;
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListClustersRequest();
+            var request = new Amazon.ElasticMapReduce.Model.ListClustersRequest();
             
             if (cmdletContext.ClusterStates != null)
             {
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
@@ -196,10 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ClusterStates { get; set; }
-            public DateTime? CreatedAfter { get; set; }
-            public DateTime? CreatedBefore { get; set; }
-            public String Marker { get; set; }
+            public List<System.String> ClusterStates { get; set; }
+            public System.DateTime? CreatedAfter { get; set; }
+            public System.DateTime? CreatedBefore { get; set; }
+            public System.String Marker { get; set; }
         }
         
     }

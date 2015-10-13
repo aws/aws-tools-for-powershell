@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon ElastiCache.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsForResourceRequest();
+            var request = new Amazon.ElastiCache.Model.ListTagsForResourceRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
+            public System.String ResourceName { get; set; }
         }
         
     }

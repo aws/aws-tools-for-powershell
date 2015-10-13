@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CancelSpotInstanceRequests operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelSpotInstanceRequests"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelledSpotInstanceRequest",
         "This cmdlet returns a collection of CancelledSpotInstanceRequest objects.",
-        "The service call response (type CancelSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CancelSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEC2SpotInstanceRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.SpotInstanceRequestId != null)
             {
-                context.SpotInstanceRequestIds = new List<String>(this.SpotInstanceRequestId);
+                context.SpotInstanceRequestIds = new List<System.String>(this.SpotInstanceRequestId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelSpotInstanceRequestsRequest();
+            var request = new Amazon.EC2.Model.CancelSpotInstanceRequestsRequest();
             
             if (cmdletContext.SpotInstanceRequestIds != null)
             {
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> SpotInstanceRequestIds { get; set; }
+            public List<System.String> SpotInstanceRequestIds { get; set; }
         }
         
     }

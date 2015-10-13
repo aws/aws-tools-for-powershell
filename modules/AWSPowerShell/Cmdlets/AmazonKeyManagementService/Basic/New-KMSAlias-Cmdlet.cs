@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the CreateAlias operation against AWS Key Management Service.", Operation = new[] {"CreateAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetKeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.CreateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AliasName { get; set; }
+        public System.String AliasName { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TargetKeyId { get; set; }
+        public System.String TargetKeyId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the TargetKeyId parameter.
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAliasRequest();
+            var request = new Amazon.KeyManagementService.Model.CreateAliasRequest();
             
             if (cmdletContext.AliasName != null)
             {
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AliasName { get; set; }
-            public String TargetKeyId { get; set; }
+            public System.String AliasName { get; set; }
+            public System.String TargetKeyId { get; set; }
         }
         
     }

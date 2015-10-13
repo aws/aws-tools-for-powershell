@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Invokes the AddTags operation against AWS CloudTrail.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             context.ResourceId = this.ResourceId;
             if (this.TagsList != null)
             {
-                context.TagsList = new List<Tag>(this.TagsList);
+                context.TagsList = new List<Amazon.CloudTrail.Model.Tag>(this.TagsList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsRequest();
+            var request = new Amazon.CloudTrail.Model.AddTagsRequest();
             
             if (cmdletContext.ResourceId != null)
             {
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceId { get; set; }
-            public List<Tag> TagsList { get; set; }
+            public System.String ResourceId { get; set; }
+            public List<Amazon.CloudTrail.Model.Tag> TagsList { get; set; }
         }
         
     }

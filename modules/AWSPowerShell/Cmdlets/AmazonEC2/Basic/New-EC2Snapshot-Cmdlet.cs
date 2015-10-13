@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateSnapshot operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSnapshot"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSnapshotRequest();
+            var request = new Amazon.EC2.Model.CreateSnapshotRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -166,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String VolumeId { get; set; }
+            public System.String Description { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

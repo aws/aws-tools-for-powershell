@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeStacks operation against AWS OpsWorks.", Operation = new[] {"DescribeStacks"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Stack",
         "This cmdlet returns a collection of Stack objects.",
-        "The service call response (type DescribeStacksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeStacksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSStacksCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.StackId != null)
             {
-                context.StackIds = new List<String>(this.StackId);
+                context.StackIds = new List<System.String>(this.StackId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStacksRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeStacksRequest();
             
             if (cmdletContext.StackIds != null)
             {
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> StackIds { get; set; }
+            public List<System.String> StackIds { get; set; }
         }
         
     }

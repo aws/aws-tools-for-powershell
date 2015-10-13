@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteClusterSubnetGroup operation against Amazon Redshift.", Operation = new[] {"DeleteClusterSubnetGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterSubnetGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteClusterSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteClusterSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSClusterSubnetGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterSubnetGroupName { get; set; }
+        public System.String ClusterSubnetGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ClusterSubnetGroupName parameter.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteClusterSubnetGroupRequest();
+            var request = new Amazon.Redshift.Model.DeleteClusterSubnetGroupRequest();
             
             if (cmdletContext.ClusterSubnetGroupName != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterSubnetGroupName { get; set; }
+            public System.String ClusterSubnetGroupName { get; set; }
         }
         
     }

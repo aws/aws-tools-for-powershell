@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     [OutputType("Amazon.CloudSearchDomain.Model.SuggestResult")]
     [AWSCmdlet("Invokes the Suggest operation against Amazon CloudSearchDomain.", Operation = new [] {"Suggest"})]
     [AWSCmdletOutput("Amazon.CloudSearchDomain.Model.SuggestResult",
-        "This cmdlet returns a SuggestResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudSearchDomain.Model.SuggestResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCSDSuggestionsCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
-        public String ServiceUrl { get; set; }
+        public System.String ServiceUrl { get; set; }
 
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true,Position = 1)]
-        public String Query { get; set; }
+        public System.String Query { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public Int64? Size { get; set; }
+        public System.Int64? Size { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 2)]
-        public String Suggester { get; set; }
+        public System.String Suggester { get; set; }
 
         /// <summary>
         /// If set, the cmdlet calls the service operation using anonymous credentials.

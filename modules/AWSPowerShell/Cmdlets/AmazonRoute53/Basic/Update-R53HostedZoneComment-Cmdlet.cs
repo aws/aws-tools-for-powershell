@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the UpdateHostedZoneComment operation against AWS Route 53.", Operation = new[] {"UpdateHostedZoneComment"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZone",
         "This cmdlet returns a HostedZone object.",
-        "The service call response (type UpdateHostedZoneCommentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.UpdateHostedZoneCommentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateR53HostedZoneCommentCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Comment { get; set; }
+        public System.String Comment { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateHostedZoneCommentRequest();
+            var request = new Amazon.Route53.Model.UpdateHostedZoneCommentRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
-            public String Comment { get; set; }
+            public System.String Id { get; set; }
+            public System.String Comment { get; set; }
         }
         
     }

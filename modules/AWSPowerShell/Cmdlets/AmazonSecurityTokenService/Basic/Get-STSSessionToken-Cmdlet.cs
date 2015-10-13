@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [AWSCmdlet("Invokes the GetSessionToken operation against AWS Security Token Service.", Operation = new[] {"GetSessionToken"})]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.Credentials",
         "This cmdlet returns a Credentials object.",
-        "The service call response (type GetSessionTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SecurityToken.Model.GetSessionTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSTSSessionTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DurationSeconds")]
-        public Int32 DurationInSeconds { get; set; }
+        public System.Int32 DurationInSeconds { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SerialNumber { get; set; }
+        public System.String SerialNumber { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String TokenCode { get; set; }
+        public System.String TokenCode { get; set; }
         
         
         protected override void ProcessRecord()
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetSessionTokenRequest();
+            var request = new Amazon.SecurityToken.Model.GetSessionTokenRequest();
             
             if (cmdletContext.DurationInSeconds != null)
             {
@@ -185,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DurationInSeconds { get; set; }
-            public String SerialNumber { get; set; }
-            public String TokenCode { get; set; }
+            public System.Int32? DurationInSeconds { get; set; }
+            public System.String SerialNumber { get; set; }
+            public System.String TokenCode { get; set; }
         }
         
     }

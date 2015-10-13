@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the SetStatus operation against AWS Data Pipeline.", Operation = new[] {"SetStatus"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the object ids when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.SetStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetDPStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Status { get; set; }
+        public System.String Status { get; set; }
         
         /// <summary>
         /// Returns the object ids.
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
             if (this.ObjectId != null)
             {
-                context.ObjectIds = new List<String>(this.ObjectId);
+                context.ObjectIds = new List<System.String>(this.ObjectId);
             }
             context.PipelineId = this.PipelineId;
             context.Status = this.Status;
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetStatusRequest();
+            var request = new Amazon.DataPipeline.Model.SetStatusRequest();
             
             if (cmdletContext.ObjectIds != null)
             {
@@ -171,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ObjectIds { get; set; }
-            public String PipelineId { get; set; }
-            public String Status { get; set; }
+            public List<System.String> ObjectIds { get; set; }
+            public System.String PipelineId { get; set; }
+            public System.String Status { get; set; }
         }
         
     }

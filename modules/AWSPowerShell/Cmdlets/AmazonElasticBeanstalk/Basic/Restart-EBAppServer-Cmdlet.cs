@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the RestartAppServer operation against AWS Elastic Beanstalk.", Operation = new[] {"RestartAppServer"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the id or name of the environment (depending on which parameter was supplied) when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RestartAppServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.RestartAppServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestartEBAppServerCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// Returns the id or name of the environment (depending on which parameter was supplied).
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestartAppServerRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.RestartAppServerRequest();
             
             if (cmdletContext.EnvironmentId != null)
             {
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
         }
         
     }

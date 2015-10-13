@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the UpdateRepositoryName operation against AWS CodeCommit.", Operation = new[] {"UpdateRepositoryName"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateRepositoryNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.UpdateRepositoryNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCCRepositoryNameCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewName { get; set; }
+        public System.String NewName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OldName { get; set; }
+        public System.String OldName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateRepositoryNameRequest();
+            var request = new Amazon.CodeCommit.Model.UpdateRepositoryNameRequest();
             
             if (cmdletContext.NewName != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NewName { get; set; }
-            public String OldName { get; set; }
+            public System.String NewName { get; set; }
+            public System.String OldName { get; set; }
         }
         
     }

@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ListAttachedGroupPolicies operation against AWS Identity and Access Management.", Operation = new[] {"ListAttachedGroupPolicies"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.AttachedPolicyType",
         "This cmdlet returns a collection of AttachedPolicyType objects.",
-        "The service call response (type ListAttachedGroupPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String)"
     )]
     public class GetIAMAttachedGroupPoliciesCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PathPrefix { get; set; }
+        public System.String PathPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListAttachedGroupPoliciesRequest();
+            var request = new Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesRequest();
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -218,10 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupName { get; set; }
-            public String Marker { get; set; }
+            public System.String GroupName { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public String PathPrefix { get; set; }
+            public System.String PathPrefix { get; set; }
         }
         
     }

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the PutThirdPartyJobSuccessResult operation against AWS CodePipeline.", Operation = new[] {"PutThirdPartyJobSuccessResult"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutThirdPartyJobSuccessResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.PutThirdPartyJobSuccessResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCPThirdPartyJobSuccessResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CurrentRevision_ChangeIdentifier { get; set; }
+        public System.String CurrentRevision_ChangeIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContinuationToken { get; set; }
+        public System.String ContinuationToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExecutionDetails_ExternalExecutionId { get; set; }
+        public System.String ExecutionDetails_ExternalExecutionId { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 ExecutionDetails_PercentComplete { get; set; }
+        public System.Int32 ExecutionDetails_PercentComplete { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CurrentRevision_Revision { get; set; }
+        public System.String CurrentRevision_Revision { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExecutionDetails_Summary { get; set; }
+        public System.String ExecutionDetails_Summary { get; set; }
         
         /// <summary>
         /// Returns the value passed to the JobId parameter.
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutThirdPartyJobSuccessResultRequest();
+            var request = new Amazon.CodePipeline.Model.PutThirdPartyJobSuccessResultRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate CurrentRevision
             bool requestCurrentRevisionIsNull = true;
-            request.CurrentRevision = new CurrentRevision();
-            String requestCurrentRevision_currentRevision_ChangeIdentifier = null;
+            request.CurrentRevision = new Amazon.CodePipeline.Model.CurrentRevision();
+            System.String requestCurrentRevision_currentRevision_ChangeIdentifier = null;
             if (cmdletContext.CurrentRevision_ChangeIdentifier != null)
             {
                 requestCurrentRevision_currentRevision_ChangeIdentifier = cmdletContext.CurrentRevision_ChangeIdentifier;
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.CurrentRevision.ChangeIdentifier = requestCurrentRevision_currentRevision_ChangeIdentifier;
                 requestCurrentRevisionIsNull = false;
             }
-            String requestCurrentRevision_currentRevision_Revision = null;
+            System.String requestCurrentRevision_currentRevision_Revision = null;
             if (cmdletContext.CurrentRevision_Revision != null)
             {
                 requestCurrentRevision_currentRevision_Revision = cmdletContext.CurrentRevision_Revision;
@@ -202,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate ExecutionDetails
             bool requestExecutionDetailsIsNull = true;
-            request.ExecutionDetails = new ExecutionDetails();
-            String requestExecutionDetails_executionDetails_ExternalExecutionId = null;
+            request.ExecutionDetails = new Amazon.CodePipeline.Model.ExecutionDetails();
+            System.String requestExecutionDetails_executionDetails_ExternalExecutionId = null;
             if (cmdletContext.ExecutionDetails_ExternalExecutionId != null)
             {
                 requestExecutionDetails_executionDetails_ExternalExecutionId = cmdletContext.ExecutionDetails_ExternalExecutionId;
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ExecutionDetails.ExternalExecutionId = requestExecutionDetails_executionDetails_ExternalExecutionId;
                 requestExecutionDetailsIsNull = false;
             }
-            Int32? requestExecutionDetails_executionDetails_PercentComplete = null;
+            System.Int32? requestExecutionDetails_executionDetails_PercentComplete = null;
             if (cmdletContext.ExecutionDetails_PercentComplete != null)
             {
                 requestExecutionDetails_executionDetails_PercentComplete = cmdletContext.ExecutionDetails_PercentComplete.Value;
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ExecutionDetails.PercentComplete = requestExecutionDetails_executionDetails_PercentComplete.Value;
                 requestExecutionDetailsIsNull = false;
             }
-            String requestExecutionDetails_executionDetails_Summary = null;
+            System.String requestExecutionDetails_executionDetails_Summary = null;
             if (cmdletContext.ExecutionDetails_Summary != null)
             {
                 requestExecutionDetails_executionDetails_Summary = cmdletContext.ExecutionDetails_Summary;
@@ -279,14 +279,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String ContinuationToken { get; set; }
-            public String CurrentRevision_ChangeIdentifier { get; set; }
-            public String CurrentRevision_Revision { get; set; }
-            public String ExecutionDetails_ExternalExecutionId { get; set; }
-            public Int32? ExecutionDetails_PercentComplete { get; set; }
-            public String ExecutionDetails_Summary { get; set; }
-            public String JobId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String ContinuationToken { get; set; }
+            public System.String CurrentRevision_ChangeIdentifier { get; set; }
+            public System.String CurrentRevision_Revision { get; set; }
+            public System.String ExecutionDetails_ExternalExecutionId { get; set; }
+            public System.Int32? ExecutionDetails_PercentComplete { get; set; }
+            public System.String ExecutionDetails_Summary { get; set; }
+            public System.String JobId { get; set; }
         }
         
     }

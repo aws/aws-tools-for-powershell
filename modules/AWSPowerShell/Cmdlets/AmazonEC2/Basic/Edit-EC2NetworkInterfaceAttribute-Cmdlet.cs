@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyNetworkInterfaceAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyNetworkInterfaceAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NetworkInterfaceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyNetworkInterfaceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifyNetworkInterfaceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Attachment_AttachmentId { get; set; }
+        public System.String Attachment_AttachmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Attachment_DeleteOnTermination { get; set; }
+        public System.Boolean Attachment_DeleteOnTermination { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SourceDestCheck { get; set; }
+        public System.Boolean SourceDestCheck { get; set; }
         
         /// <summary>
         /// Returns the value passed to the NetworkInterfaceId parameter.
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Description = this.Description;
             if (this.Group != null)
             {
-                context.Groups = new List<String>(this.Group);
+                context.Groups = new List<System.String>(this.Group);
             }
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             if (ParameterWasBound("SourceDestCheck"))
@@ -150,13 +150,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyNetworkInterfaceAttributeRequest();
+            var request = new Amazon.EC2.Model.ModifyNetworkInterfaceAttributeRequest();
             
             
              // populate Attachment
             bool requestAttachmentIsNull = true;
-            request.Attachment = new NetworkInterfaceAttachmentChanges();
-            String requestAttachment_attachment_AttachmentId = null;
+            request.Attachment = new Amazon.EC2.Model.NetworkInterfaceAttachmentChanges();
+            System.String requestAttachment_attachment_AttachmentId = null;
             if (cmdletContext.Attachment_AttachmentId != null)
             {
                 requestAttachment_attachment_AttachmentId = cmdletContext.Attachment_AttachmentId;
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Attachment.AttachmentId = requestAttachment_attachment_AttachmentId;
                 requestAttachmentIsNull = false;
             }
-            Boolean? requestAttachment_attachment_DeleteOnTermination = null;
+            System.Boolean? requestAttachment_attachment_DeleteOnTermination = null;
             if (cmdletContext.Attachment_DeleteOnTermination != null)
             {
                 requestAttachment_attachment_DeleteOnTermination = cmdletContext.Attachment_DeleteOnTermination.Value;
@@ -234,12 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Attachment_AttachmentId { get; set; }
-            public Boolean? Attachment_DeleteOnTermination { get; set; }
-            public String Description { get; set; }
-            public List<String> Groups { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public Boolean? SourceDestCheck { get; set; }
+            public System.String Attachment_AttachmentId { get; set; }
+            public System.Boolean? Attachment_DeleteOnTermination { get; set; }
+            public System.String Description { get; set; }
+            public List<System.String> Groups { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.Boolean? SourceDestCheck { get; set; }
         }
         
     }

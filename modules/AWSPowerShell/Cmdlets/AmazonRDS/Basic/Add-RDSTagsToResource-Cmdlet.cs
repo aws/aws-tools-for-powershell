@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the AddTagsToResource operation against Amazon Relational Database Service.", Operation = new[] {"AddTagsToResource"})]
     [AWSCmdletOutput("None or Amazon.RDS.Model.Tag",
         "Returns the collection of tags that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddRDSTagsToResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ResourceName = this.ResourceName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsToResourceRequest();
+            var request = new Amazon.RDS.Model.AddTagsToResourceRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceName { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

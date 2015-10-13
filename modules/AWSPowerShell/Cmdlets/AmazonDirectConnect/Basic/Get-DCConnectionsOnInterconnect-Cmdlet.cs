@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the DescribeConnectionsOnInterconnect operation against AWS Direct Connect.", Operation = new[] {"DescribeConnectionsOnInterconnect"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Connection",
         "This cmdlet returns a collection of Connection objects.",
-        "The service call response (type DescribeConnectionsOnInterconnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeConnectionsOnInterconnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDCConnectionsOnInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InterconnectId { get; set; }
+        public System.String InterconnectId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConnectionsOnInterconnectRequest();
+            var request = new Amazon.DirectConnect.Model.DescribeConnectionsOnInterconnectRequest();
             
             if (cmdletContext.InterconnectId != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InterconnectId { get; set; }
+            public System.String InterconnectId { get; set; }
         }
         
     }

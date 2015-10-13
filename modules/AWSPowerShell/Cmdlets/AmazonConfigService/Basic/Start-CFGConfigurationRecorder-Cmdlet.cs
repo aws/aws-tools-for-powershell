@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the StartConfigurationRecorder operation against Amazon Config.", Operation = new[] {"StartConfigurationRecorder"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type StartConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.StartConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigurationRecorderName { get; set; }
+        public System.String ConfigurationRecorderName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartConfigurationRecorderRequest();
+            var request = new Amazon.ConfigService.Model.StartConfigurationRecorderRequest();
             
             if (cmdletContext.ConfigurationRecorderName != null)
             {
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConfigurationRecorderName { get; set; }
+            public System.String ConfigurationRecorderName { get; set; }
         }
         
     }

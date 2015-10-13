@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateSnapshotCopyGrant operation against Amazon Redshift.", Operation = new[] {"CreateSnapshotCopyGrant"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.SnapshotCopyGrant",
         "This cmdlet returns a SnapshotCopyGrant object.",
-        "The service call response (type CreateSnapshotCopyGrantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateSnapshotCopyGrantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotCopyGrantName { get; set; }
+        public System.String SnapshotCopyGrantName { get; set; }
         
         /// <summary>
         /// <para>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.SnapshotCopyGrantName = this.SnapshotCopyGrantName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSnapshotCopyGrantRequest();
+            var request = new Amazon.Redshift.Model.CreateSnapshotCopyGrantRequest();
             
             if (cmdletContext.KmsKeyId != null)
             {
@@ -169,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KmsKeyId { get; set; }
-            public String SnapshotCopyGrantName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String SnapshotCopyGrantName { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

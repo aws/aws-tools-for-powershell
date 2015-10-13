@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.ModifyClusterParameterGroupResponse")]
     [AWSCmdlet("Invokes the ModifyClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"ModifyClusterParameterGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ModifyClusterParameterGroupResponse",
-        "This cmdlet returns a ModifyClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Redshift.Model.ModifyClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        public System.String ParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ParameterGroupName = this.ParameterGroupName;
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.Redshift.Model.Parameter>(this.Parameter);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyClusterParameterGroupRequest();
+            var request = new Amazon.Redshift.Model.ModifyClusterParameterGroupRequest();
             
             if (cmdletContext.ParameterGroupName != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ParameterGroupName { get; set; }
-            public List<Parameter> Parameters { get; set; }
+            public System.String ParameterGroupName { get; set; }
+            public List<Amazon.Redshift.Model.Parameter> Parameters { get; set; }
         }
         
     }

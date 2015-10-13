@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ReportInstanceStatus operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReportInstanceStatus"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Instance parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ReportInstanceStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ReportInstanceStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendEC2InstanceStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 5)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ReportStatusType Status { get; set; }
+        public Amazon.EC2.ReportStatusType Status { get; set; }
         
         /// <summary>
         /// Returns the value passed to the Instance parameter.
@@ -138,11 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.EndTime = this.EndTime;
             if (this.Instance != null)
             {
-                context.Instances = new List<String>(this.Instance);
+                context.Instances = new List<System.String>(this.Instance);
             }
             if (this.ReasonCode != null)
             {
-                context.ReasonCodes = new List<String>(this.ReasonCode);
+                context.ReasonCodes = new List<System.String>(this.ReasonCode);
             }
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReportInstanceStatusRequest();
+            var request = new Amazon.EC2.Model.ReportInstanceStatusRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -221,12 +221,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public DateTime? EndTime { get; set; }
-            public List<String> Instances { get; set; }
-            public List<String> ReasonCodes { get; set; }
-            public DateTime? StartTime { get; set; }
-            public ReportStatusType Status { get; set; }
+            public System.String Description { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public List<System.String> Instances { get; set; }
+            public List<System.String> ReasonCodes { get; set; }
+            public System.DateTime? StartTime { get; set; }
+            public Amazon.EC2.ReportStatusType Status { get; set; }
         }
         
     }

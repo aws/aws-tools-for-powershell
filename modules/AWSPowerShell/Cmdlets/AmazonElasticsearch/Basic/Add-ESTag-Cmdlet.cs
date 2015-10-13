@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Invokes the AddTags operation against Amazon Elasticsearch.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None or Amazon.Elasticsearch.Model.Tag",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagList parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Elasticsearch.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddESTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ARN { get; set; }
+        public System.String ARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.ARN = this.ARN;
             if (this.TagList != null)
             {
-                context.TagList = new List<Tag>(this.TagList);
+                context.TagList = new List<Amazon.Elasticsearch.Model.Tag>(this.TagList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsRequest();
+            var request = new Amazon.Elasticsearch.Model.AddTagsRequest();
             
             if (cmdletContext.ARN != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ARN { get; set; }
-            public List<Tag> TagList { get; set; }
+            public System.String ARN { get; set; }
+            public List<Amazon.Elasticsearch.Model.Tag> TagList { get; set; }
         }
         
     }

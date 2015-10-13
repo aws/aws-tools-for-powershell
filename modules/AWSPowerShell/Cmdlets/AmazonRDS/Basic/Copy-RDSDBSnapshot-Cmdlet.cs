@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CopyDBSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"CopyDBSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshot",
         "This cmdlet returns a DBSnapshot object.",
-        "The service call response (type CopyDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CopyDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTags { get; set; }
+        [Alias("CopyTags")]
+        public System.Boolean CopyTag { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceDBSnapshotIdentifier { get; set; }
+        public System.String SourceDBSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetDBSnapshotIdentifier { get; set; }
+        public System.String TargetDBSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -105,12 +106,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("CopyTags"))
-                context.CopyTags = this.CopyTags;
+            if (ParameterWasBound("CopyTag"))
+                context.CopyTags = this.CopyTag;
             context.SourceDBSnapshotIdentifier = this.SourceDBSnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBSnapshotIdentifier = this.TargetDBSnapshotIdentifier;
             
@@ -124,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyDBSnapshotRequest();
+            var request = new Amazon.RDS.Model.CopyDBSnapshotRequest();
             
             if (cmdletContext.CopyTags != null)
             {
@@ -177,10 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? CopyTags { get; set; }
-            public String SourceDBSnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TargetDBSnapshotIdentifier { get; set; }
+            public System.Boolean? CopyTags { get; set; }
+            public System.String SourceDBSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TargetDBSnapshotIdentifier { get; set; }
         }
         
     }

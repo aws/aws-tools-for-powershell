@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeAccountAttributes operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeAccountAttributes"})]
     [AWSCmdletOutput("Amazon.EC2.Model.AccountAttribute",
         "This cmdlet returns a collection of AccountAttribute objects.",
-        "The service call response (type DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2AccountAttributesCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.AttributeName != null)
             {
-                context.AttributeNames = new List<String>(this.AttributeName);
+                context.AttributeNames = new List<System.String>(this.AttributeName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAccountAttributesRequest();
+            var request = new Amazon.EC2.Model.DescribeAccountAttributesRequest();
             
             if (cmdletContext.AttributeNames != null)
             {
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AttributeNames { get; set; }
+            public List<System.String> AttributeNames { get; set; }
         }
         
     }

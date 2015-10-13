@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.GetObjectMetadataResponse")]
     [AWSCmdlet("Invokes the GetObjectMetadata operation against Amazon Simple Storage Service.", Operation = new[] {"GetObjectMetadata"})]
     [AWSCmdletOutput("Amazon.S3.Model.GetObjectMetadataResponse",
-        "This cmdlet returns a GetObjectMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.S3.Model.GetObjectMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3ObjectMetadataCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EtagToMatch { get; set; }
+        public System.String EtagToMatch { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EtagToNotMatch { get; set; }
+        public System.String EtagToNotMatch { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ModifiedSinceDate { get; set; }
+        public System.DateTime ModifiedSinceDate { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServerSideEncryptionCustomerProvidedKey { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         
         /// <summary>
         /// <para>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime UnmodifiedSinceDate { get; set; }
+        public System.DateTime UnmodifiedSinceDate { get; set; }
         
         /// <summary>
         /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetObjectMetadataRequest();
+            var request = new Amazon.S3.Model.GetObjectMetadataRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -240,16 +240,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String EtagToMatch { get; set; }
-            public DateTime? ModifiedSinceDate { get; set; }
-            public String EtagToNotMatch { get; set; }
-            public DateTime? UnmodifiedSinceDate { get; set; }
-            public String Key { get; set; }
-            public String VersionId { get; set; }
-            public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
-            public String ServerSideEncryptionCustomerProvidedKey { get; set; }
-            public String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String EtagToMatch { get; set; }
+            public System.DateTime? ModifiedSinceDate { get; set; }
+            public System.String EtagToNotMatch { get; set; }
+            public System.DateTime? UnmodifiedSinceDate { get; set; }
+            public System.String Key { get; set; }
+            public System.String VersionId { get; set; }
+            public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+            public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+            public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         }
         
     }

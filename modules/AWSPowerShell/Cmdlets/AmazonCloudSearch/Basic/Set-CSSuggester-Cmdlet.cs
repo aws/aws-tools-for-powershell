@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DefineSuggester operation against Amazon CloudSearch.", Operation = new[] {"DefineSuggester"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.SuggesterStatus",
         "This cmdlet returns a SuggesterStatus object.",
-        "The service call response (type DefineSuggesterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DefineSuggesterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Suggester_DocumentSuggesterOptions_FuzzyMatching")]
-        public SuggesterFuzzyMatching DocumentSuggesterOptions_FuzzyMatching { get; set; }
+        public Amazon.CloudSearch.SuggesterFuzzyMatching DocumentSuggesterOptions_FuzzyMatching { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Suggester_DocumentSuggesterOptions_SortExpression")]
-        public String DocumentSuggesterOptions_SortExpression { get; set; }
+        public System.String DocumentSuggesterOptions_SortExpression { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Suggester_DocumentSuggesterOptions_SourceField")]
-        public String DocumentSuggesterOptions_SourceField { get; set; }
+        public System.String DocumentSuggesterOptions_SourceField { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Suggester_SuggesterName { get; set; }
+        public System.String Suggester_SuggesterName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DefineSuggesterRequest();
+            var request = new Amazon.CloudSearch.Model.DefineSuggesterRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
             
              // populate Suggester
             bool requestSuggesterIsNull = true;
-            request.Suggester = new Suggester();
-            String requestSuggester_suggester_SuggesterName = null;
+            request.Suggester = new Amazon.CloudSearch.Model.Suggester();
+            System.String requestSuggester_suggester_SuggesterName = null;
             if (cmdletContext.Suggester_SuggesterName != null)
             {
                 requestSuggester_suggester_SuggesterName = cmdletContext.Suggester_SuggesterName;
@@ -157,12 +157,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.Suggester.SuggesterName = requestSuggester_suggester_SuggesterName;
                 requestSuggesterIsNull = false;
             }
-            DocumentSuggesterOptions requestSuggester_suggester_DocumentSuggesterOptions = null;
+            Amazon.CloudSearch.Model.DocumentSuggesterOptions requestSuggester_suggester_DocumentSuggesterOptions = null;
             
              // populate DocumentSuggesterOptions
             bool requestSuggester_suggester_DocumentSuggesterOptionsIsNull = true;
-            requestSuggester_suggester_DocumentSuggesterOptions = new DocumentSuggesterOptions();
-            SuggesterFuzzyMatching requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_FuzzyMatching = null;
+            requestSuggester_suggester_DocumentSuggesterOptions = new Amazon.CloudSearch.Model.DocumentSuggesterOptions();
+            Amazon.CloudSearch.SuggesterFuzzyMatching requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_FuzzyMatching = null;
             if (cmdletContext.Suggester_DocumentSuggesterOptions_FuzzyMatching != null)
             {
                 requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_FuzzyMatching = cmdletContext.Suggester_DocumentSuggesterOptions_FuzzyMatching;
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestSuggester_suggester_DocumentSuggesterOptions.FuzzyMatching = requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_FuzzyMatching;
                 requestSuggester_suggester_DocumentSuggesterOptionsIsNull = false;
             }
-            String requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_SortExpression = null;
+            System.String requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_SortExpression = null;
             if (cmdletContext.Suggester_DocumentSuggesterOptions_SortExpression != null)
             {
                 requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_SortExpression = cmdletContext.Suggester_DocumentSuggesterOptions_SortExpression;
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestSuggester_suggester_DocumentSuggesterOptions.SortExpression = requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_SortExpression;
                 requestSuggester_suggester_DocumentSuggesterOptionsIsNull = false;
             }
-            String requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_SourceField = null;
+            System.String requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_SourceField = null;
             if (cmdletContext.Suggester_DocumentSuggesterOptions_SourceField != null)
             {
                 requestSuggester_suggester_DocumentSuggesterOptions_documentSuggesterOptions_SourceField = cmdletContext.Suggester_DocumentSuggesterOptions_SourceField;
@@ -242,11 +242,11 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public SuggesterFuzzyMatching Suggester_DocumentSuggesterOptions_FuzzyMatching { get; set; }
-            public String Suggester_DocumentSuggesterOptions_SortExpression { get; set; }
-            public String Suggester_DocumentSuggesterOptions_SourceField { get; set; }
-            public String Suggester_SuggesterName { get; set; }
+            public System.String DomainName { get; set; }
+            public Amazon.CloudSearch.SuggesterFuzzyMatching Suggester_DocumentSuggesterOptions_FuzzyMatching { get; set; }
+            public System.String Suggester_DocumentSuggesterOptions_SortExpression { get; set; }
+            public System.String Suggester_DocumentSuggesterOptions_SourceField { get; set; }
+            public System.String Suggester_SuggesterName { get; set; }
         }
         
     }

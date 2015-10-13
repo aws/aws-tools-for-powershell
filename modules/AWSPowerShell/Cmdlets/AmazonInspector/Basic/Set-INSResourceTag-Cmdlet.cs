@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the SetTagsForResource operation against Amazon Inspector.", Operation = new[] {"SetTagsForResource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type SetTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.SetTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetINSResourceTagCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceArn { get; set; }
+        public System.String ResourceArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             context.ResourceArn = this.ResourceArn;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Inspector.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetTagsForResourceRequest();
+            var request = new Amazon.Inspector.Model.SetTagsForResourceRequest();
             
             if (cmdletContext.ResourceArn != null)
             {
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceArn { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceArn { get; set; }
+            public List<Amazon.Inspector.Model.Tag> Tags { get; set; }
         }
         
     }

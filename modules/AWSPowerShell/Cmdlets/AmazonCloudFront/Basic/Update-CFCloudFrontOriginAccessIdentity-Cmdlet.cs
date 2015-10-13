@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the UpdateCloudFrontOriginAccessIdentity operation against Amazon CloudFront.", Operation = new[] {"UpdateCloudFrontOriginAccessIdentity"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CloudFrontOriginAccessIdentity",
         "This cmdlet returns a CloudFrontOriginAccessIdentity object.",
-        "The service call response (type UpdateCloudFrontOriginAccessIdentityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type String)"
+        "The service call response (type Amazon.CloudFront.Model.UpdateCloudFrontOriginAccessIdentityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type System.String)"
     )]
     public class UpdateCFCloudFrontOriginAccessIdentityCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
+        public System.String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
+        public System.String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String IfMatch { get; set; }
+        public System.String IfMatch { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -123,13 +123,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateCloudFrontOriginAccessIdentityRequest();
+            var request = new Amazon.CloudFront.Model.UpdateCloudFrontOriginAccessIdentityRequest();
             
             
              // populate CloudFrontOriginAccessIdentityConfig
             bool requestCloudFrontOriginAccessIdentityConfigIsNull = true;
-            request.CloudFrontOriginAccessIdentityConfig = new CloudFrontOriginAccessIdentityConfig();
-            String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference = null;
+            request.CloudFrontOriginAccessIdentityConfig = new Amazon.CloudFront.Model.CloudFrontOriginAccessIdentityConfig();
+            System.String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference = null;
             if (cmdletContext.CloudFrontOriginAccessIdentityConfig_CallerReference != null)
             {
                 requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference = cmdletContext.CloudFrontOriginAccessIdentityConfig_CallerReference;
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.CloudFrontOriginAccessIdentityConfig.CallerReference = requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference;
                 requestCloudFrontOriginAccessIdentityConfigIsNull = false;
             }
-            String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_Comment = null;
+            System.String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_Comment = null;
             if (cmdletContext.CloudFrontOriginAccessIdentityConfig_Comment != null)
             {
                 requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_Comment = cmdletContext.CloudFrontOriginAccessIdentityConfig_Comment;
@@ -199,10 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
-            public String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
-            public String Id { get; set; }
-            public String IfMatch { get; set; }
+            public System.String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
+            public System.String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
+            public System.String Id { get; set; }
+            public System.String IfMatch { get; set; }
         }
         
     }

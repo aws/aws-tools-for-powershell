@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the ListBranches operation against AWS CodeCommit.", Operation = new[] {"ListBranches"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListBranchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeCommit.Model.ListBranchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCCBranchListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RepositoryName { get; set; }
+        public System.String RepositoryName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListBranchesRequest();
+            var request = new Amazon.CodeCommit.Model.ListBranchesRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public String RepositoryName { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String RepositoryName { get; set; }
         }
         
     }

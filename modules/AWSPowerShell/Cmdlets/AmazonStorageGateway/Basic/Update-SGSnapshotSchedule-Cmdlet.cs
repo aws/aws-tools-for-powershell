@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the UpdateSnapshotSchedule operation against AWS Storage Gateway.", Operation = new[] {"UpdateSnapshotSchedule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateSnapshotScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 RecurrenceInHours { get; set; }
+        public System.Int32 RecurrenceInHours { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 StartAt { get; set; }
+        public System.Int32 StartAt { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeARN { get; set; }
+        public System.String VolumeARN { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateSnapshotScheduleRequest();
+            var request = new Amazon.StorageGateway.Model.UpdateSnapshotScheduleRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -180,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public Int32? RecurrenceInHours { get; set; }
-            public Int32? StartAt { get; set; }
-            public String VolumeARN { get; set; }
+            public System.String Description { get; set; }
+            public System.Int32? RecurrenceInHours { get; set; }
+            public System.Int32? StartAt { get; set; }
+            public System.String VolumeARN { get; set; }
         }
         
     }

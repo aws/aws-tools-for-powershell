@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the CreateDataSourceFromS3 operation against Amazon Machine Learning.", Operation = new[] {"CreateDataSourceFromS3"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateDataSourceFromS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLDataSourceFromS3Cmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ComputeStatistics { get; set; }
+        [Alias("ComputeStatistics")]
+        public System.Boolean ComputeStatistic { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_DataLocationS3 { get; set; }
+        public System.String DataSpec_DataLocationS3 { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_DataRearrangement { get; set; }
+        public System.String DataSpec_DataRearrangement { get; set; }
         
         /// <summary>
         /// <para>
@@ -116,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_DataSchema { get; set; }
+        public System.String DataSpec_DataSchema { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_DataSchemaLocationS3 { get; set; }
+        public System.String DataSpec_DataSchemaLocationS3 { get; set; }
         
         /// <summary>
         /// <para>
@@ -132,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -140,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceName { get; set; }
+        public System.String DataSourceName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -167,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("ComputeStatistics"))
-                context.ComputeStatistics = this.ComputeStatistics;
+            if (ParameterWasBound("ComputeStatistic"))
+                context.ComputeStatistics = this.ComputeStatistic;
             context.DataSourceId = this.DataSourceId;
             context.DataSourceName = this.DataSourceName;
             context.DataSpec_DataLocationS3 = this.DataSpec_DataLocationS3;
@@ -186,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDataSourceFromS3Request();
+            var request = new Amazon.MachineLearning.Model.CreateDataSourceFromS3Request();
             
             if (cmdletContext.ComputeStatistics != null)
             {
@@ -203,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
             
              // populate DataSpec
             bool requestDataSpecIsNull = true;
-            request.DataSpec = new S3DataSpec();
-            String requestDataSpec_dataSpec_DataLocationS3 = null;
+            request.DataSpec = new Amazon.MachineLearning.Model.S3DataSpec();
+            System.String requestDataSpec_dataSpec_DataLocationS3 = null;
             if (cmdletContext.DataSpec_DataLocationS3 != null)
             {
                 requestDataSpec_dataSpec_DataLocationS3 = cmdletContext.DataSpec_DataLocationS3;
@@ -214,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.DataLocationS3 = requestDataSpec_dataSpec_DataLocationS3;
                 requestDataSpecIsNull = false;
             }
-            String requestDataSpec_dataSpec_DataRearrangement = null;
+            System.String requestDataSpec_dataSpec_DataRearrangement = null;
             if (cmdletContext.DataSpec_DataRearrangement != null)
             {
                 requestDataSpec_dataSpec_DataRearrangement = cmdletContext.DataSpec_DataRearrangement;
@@ -224,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.DataRearrangement = requestDataSpec_dataSpec_DataRearrangement;
                 requestDataSpecIsNull = false;
             }
-            String requestDataSpec_dataSpec_DataSchema = null;
+            System.String requestDataSpec_dataSpec_DataSchema = null;
             if (cmdletContext.DataSpec_DataSchema != null)
             {
                 requestDataSpec_dataSpec_DataSchema = cmdletContext.DataSpec_DataSchema;
@@ -234,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.DataSchema = requestDataSpec_dataSpec_DataSchema;
                 requestDataSpecIsNull = false;
             }
-            String requestDataSpec_dataSpec_DataSchemaLocationS3 = null;
+            System.String requestDataSpec_dataSpec_DataSchemaLocationS3 = null;
             if (cmdletContext.DataSpec_DataSchemaLocationS3 != null)
             {
                 requestDataSpec_dataSpec_DataSchemaLocationS3 = cmdletContext.DataSpec_DataSchemaLocationS3;
@@ -284,13 +285,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ComputeStatistics { get; set; }
-            public String DataSourceId { get; set; }
-            public String DataSourceName { get; set; }
-            public String DataSpec_DataLocationS3 { get; set; }
-            public String DataSpec_DataRearrangement { get; set; }
-            public String DataSpec_DataSchema { get; set; }
-            public String DataSpec_DataSchemaLocationS3 { get; set; }
+            public System.Boolean? ComputeStatistics { get; set; }
+            public System.String DataSourceId { get; set; }
+            public System.String DataSourceName { get; set; }
+            public System.String DataSpec_DataLocationS3 { get; set; }
+            public System.String DataSpec_DataRearrangement { get; set; }
+            public System.String DataSpec_DataSchema { get; set; }
+            public System.String DataSpec_DataSchemaLocationS3 { get; set; }
         }
         
     }

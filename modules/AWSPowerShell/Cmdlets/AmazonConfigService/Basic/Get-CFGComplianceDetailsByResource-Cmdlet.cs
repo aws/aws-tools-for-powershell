@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the GetComplianceDetailsByResource operation against Amazon Config.", Operation = new[] {"GetComplianceDetailsByResource"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.EvaluationResult",
         "This cmdlet returns a collection of EvaluationResult objects.",
-        "The service call response (type GetComplianceDetailsByResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCFGComplianceDetailsByResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceType { get; set; }
+        public System.String ResourceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.ComplianceType != null)
             {
-                context.ComplianceTypes = new List<String>(this.ComplianceType);
+                context.ComplianceTypes = new List<System.String>(this.ComplianceType);
             }
             context.NextToken = this.NextToken;
             context.ResourceId = this.ResourceId;
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetComplianceDetailsByResourceRequest();
+            var request = new Amazon.ConfigService.Model.GetComplianceDetailsByResourceRequest();
             
             if (cmdletContext.ComplianceTypes != null)
             {
@@ -161,10 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ComplianceTypes { get; set; }
-            public String NextToken { get; set; }
-            public String ResourceId { get; set; }
-            public String ResourceType { get; set; }
+            public List<System.String> ComplianceTypes { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String ResourceId { get; set; }
+            public System.String ResourceType { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [OutputType("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse")]
     [AWSCmdlet("Invokes the ListDeploymentGroups operation against AWS CodeDeploy.", Operation = new[] {"ListDeploymentGroups"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse",
-        "This cmdlet returns a ListDeploymentGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDDeploymentGroupListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDeploymentGroupsRequest();
+            var request = new Amazon.CodeDeploy.Model.ListDeploymentGroupsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String NextToken { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

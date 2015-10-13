@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the DeleteEndpoint operation against Amazon Simple Notification Service.", Operation = new[] {"DeleteEndpoint"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EndpointArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.DeleteEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSNSEndpointCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EndpointArn { get; set; }
+        public System.String EndpointArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the EndpointArn parameter.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteEndpointRequest();
+            var request = new Amazon.SimpleNotificationService.Model.DeleteEndpointRequest();
             
             if (cmdletContext.EndpointArn != null)
             {
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EndpointArn { get; set; }
+            public System.String EndpointArn { get; set; }
         }
         
     }

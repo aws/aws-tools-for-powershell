@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the DisassociateVPCFromHostedZone operation against AWS Route 53.", Operation = new[] {"DisassociateVPCFromHostedZone"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type DisassociateVPCFromHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterR53VPCFromHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Comment { get; set; }
+        public System.String Comment { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HostedZoneId { get; set; }
+        public System.String HostedZoneId { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VPC_VPCId { get; set; }
+        public System.String VPC_VPCId { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public VPCRegion VPC_VPCRegion { get; set; }
+        public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisassociateVPCFromHostedZoneRequest();
+            var request = new Amazon.Route53.Model.DisassociateVPCFromHostedZoneRequest();
             
             if (cmdletContext.HostedZoneId != null)
             {
@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             
              // populate VPC
             bool requestVPCIsNull = true;
-            request.VPC = new VPC();
-            VPCRegion requestVPC_vPC_VPCRegion = null;
+            request.VPC = new Amazon.Route53.Model.VPC();
+            Amazon.Route53.VPCRegion requestVPC_vPC_VPCRegion = null;
             if (cmdletContext.VPC_VPCRegion != null)
             {
                 requestVPC_vPC_VPCRegion = cmdletContext.VPC_VPCRegion;
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.VPC.VPCRegion = requestVPC_vPC_VPCRegion;
                 requestVPCIsNull = false;
             }
-            String requestVPC_vPC_VPCId = null;
+            System.String requestVPC_vPC_VPCId = null;
             if (cmdletContext.VPC_VPCId != null)
             {
                 requestVPC_vPC_VPCId = cmdletContext.VPC_VPCId;
@@ -196,10 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HostedZoneId { get; set; }
-            public VPCRegion VPC_VPCRegion { get; set; }
-            public String VPC_VPCId { get; set; }
-            public String Comment { get; set; }
+            public System.String HostedZoneId { get; set; }
+            public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+            public System.String VPC_VPCId { get; set; }
+            public System.String Comment { get; set; }
         }
         
     }

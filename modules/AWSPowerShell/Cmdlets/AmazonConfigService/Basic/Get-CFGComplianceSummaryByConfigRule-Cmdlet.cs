@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the GetComplianceSummaryByConfigRule operation against Amazon Config.", Operation = new[] {"GetComplianceSummaryByConfigRule"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceSummary",
         "This cmdlet returns a ComplianceSummary object.",
-        "The service call response (type GetComplianceSummaryByConfigRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.GetComplianceSummaryByConfigRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGComplianceSummaryByConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetComplianceSummaryByConfigRuleRequest();
+            var request = new Amazon.ConfigService.Model.GetComplianceSummaryByConfigRuleRequest();
             
             
             CmdletOutput output;

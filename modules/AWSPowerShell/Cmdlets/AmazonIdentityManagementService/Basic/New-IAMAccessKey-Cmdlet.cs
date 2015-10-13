@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateAccessKey operation against AWS Identity and Access Management.", Operation = new[] {"CreateAccessKey"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.AccessKey",
         "This cmdlet returns a AccessKey object.",
-        "The service call response (type CreateAccessKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateAccessKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMAccessKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAccessKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateAccessKeyRequest();
             
             if (cmdletContext.UserName != null)
             {
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String UserName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

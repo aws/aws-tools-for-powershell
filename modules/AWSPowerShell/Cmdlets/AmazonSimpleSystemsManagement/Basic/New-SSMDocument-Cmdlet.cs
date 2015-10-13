@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the CreateDocument operation against Amazon Simple Systems Management.", Operation = new[] {"CreateDocument"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
         "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type CreateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Content { get; set; }
+        public System.String Content { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.CreateDocumentRequest();
             
             if (cmdletContext.Content != null)
             {
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Content { get; set; }
-            public String Name { get; set; }
+            public System.String Content { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

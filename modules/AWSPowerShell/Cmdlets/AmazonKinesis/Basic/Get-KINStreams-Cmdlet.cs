@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [OutputType("Amazon.Kinesis.Model.ListStreamsResponse")]
     [AWSCmdlet("Invokes the ListStreams operation against AWS Kinesis.", Operation = new[] {"ListStreams"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.ListStreamsResponse",
-        "This cmdlet returns a ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Kinesis.Model.ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINStreamsCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ExclusiveStartStreamName { get; set; }
+        public System.String ExclusiveStartStreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         
         
         protected override void ProcessRecord()
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListStreamsRequest();
+            var request = new Amazon.Kinesis.Model.ListStreamsRequest();
             
             if (cmdletContext.ExclusiveStartStreamName != null)
             {
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ExclusiveStartStreamName { get; set; }
-            public Int32? Limit { get; set; }
+            public System.String ExclusiveStartStreamName { get; set; }
+            public System.Int32? Limit { get; set; }
         }
         
     }

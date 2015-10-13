@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the RemoveTags operation against Amazon Elastic MapReduce.", Operation = new[] {"RemoveTags"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the collection of Tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEMRTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.ResourceId = this.ResourceId;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.RemoveTagsRequest();
             
             if (cmdletContext.ResourceId != null)
             {
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceId { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String ResourceId { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

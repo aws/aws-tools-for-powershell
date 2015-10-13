@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the ResetCacheParameterGroup operation against Amazon ElastiCache.", Operation = new[] {"ResetCacheParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ResetCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ResetCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheParameterGroupName { get; set; }
+        public System.String CacheParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ResetAllParameters { get; set; }
+        [Alias("ResetAllParameters")]
+        public System.Boolean ResetAllParameter { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -97,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             if (this.ParameterNameValue != null)
             {
-                context.ParameterNameValues = new List<ParameterNameValue>(this.ParameterNameValue);
+                context.ParameterNameValues = new List<Amazon.ElastiCache.Model.ParameterNameValue>(this.ParameterNameValue);
             }
-            if (ParameterWasBound("ResetAllParameters"))
-                context.ResetAllParameters = this.ResetAllParameters;
+            if (ParameterWasBound("ResetAllParameter"))
+                context.ResetAllParameters = this.ResetAllParameter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -112,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetCacheParameterGroupRequest();
+            var request = new Amazon.ElastiCache.Model.ResetCacheParameterGroupRequest();
             
             if (cmdletContext.CacheParameterGroupName != null)
             {
@@ -161,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheParameterGroupName { get; set; }
-            public List<ParameterNameValue> ParameterNameValues { get; set; }
-            public Boolean? ResetAllParameters { get; set; }
+            public System.String CacheParameterGroupName { get; set; }
+            public List<Amazon.ElastiCache.Model.ParameterNameValue> ParameterNameValues { get; set; }
+            public System.Boolean? ResetAllParameters { get; set; }
         }
         
     }

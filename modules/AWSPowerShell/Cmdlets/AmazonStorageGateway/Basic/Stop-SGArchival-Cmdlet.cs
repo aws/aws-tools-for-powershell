@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the CancelArchival operation against AWS Storage Gateway.", Operation = new[] {"CancelArchival"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CancelArchivalResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.CancelArchivalResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopSGArchivalCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TapeARN { get; set; }
+        public System.String TapeARN { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelArchivalRequest();
+            var request = new Amazon.StorageGateway.Model.CancelArchivalRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
-            public String TapeARN { get; set; }
+            public System.String GatewayARN { get; set; }
+            public System.String TapeARN { get; set; }
         }
         
     }

@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Deletes an S3 bucket, optionally deleting remaining bucket content first (non-empty buckets cannot be deleted).
     /// </summary>
     [Cmdlet("Remove", "S3Bucket", SupportsShouldProcess=true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("DeleteBucketResponse")]
+    [OutputType("Amazon.S3.Model.DeleteBucketResponse")]
     [AWSCmdlet("Invokes the DeleteBucket method against Amazon Simple Storage Service. "
                 + "Use the -DeleteBucketContent switch to delete any objects and/or object versions the bucket contains prior to bucket deletion (non-empty buckets cannot be deleted).",
                     Operation = new [] {"DeleteBucket"}
     )]
-    [AWSCmdletOutput("DeleteBucketResponse",
-                     "Returns the service response (type DeleteBucketResponse).",
+    [AWSCmdletOutput("Amazon.S3.Model.DeleteBucketResponse",
+                     "Returns the service response (type Amazon.S3.Model.DeleteBucketResponse).",
                      "The service response is also added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The name of the bucket to be deleted.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
 
         /// <summary>
         /// <para>

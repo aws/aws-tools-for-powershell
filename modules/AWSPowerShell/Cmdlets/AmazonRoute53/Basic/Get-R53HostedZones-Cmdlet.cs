@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the ListHostedZones operation against AWS Route 53.", Operation = new[] {"ListHostedZones"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZone",
         "This cmdlet returns a collection of HostedZone objects.",
-        "The service call response (type ListHostedZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), IsTruncated (type Boolean), NextMarker (type String), MaxItems (type String)"
+        "The service call response (type Amazon.Route53.Model.ListHostedZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
     )]
     public class GetR53HostedZonesCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DelegationSetId { get; set; }
+        public System.String DelegationSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,14 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListHostedZonesRequest();
+            var request = new Amazon.Route53.Model.ListHostedZonesRequest();
             if (cmdletContext.DelegationSetId != null)
             {
                 request.DelegationSetId = cmdletContext.DelegationSetId;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -229,9 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public String DelegationSetId { get; set; }
+            public System.String DelegationSetId { get; set; }
         }
         
     }

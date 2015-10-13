@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.ListResourceRecordSetsResponse")]
     [AWSCmdlet("Invokes the ListResourceRecordSets operation against AWS Route 53.", Operation = new[] {"ListResourceRecordSets"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ListResourceRecordSetsResponse",
-        "This cmdlet returns a ListResourceRecordSetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.ListResourceRecordSetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HostedZoneId { get; set; }
+        public System.String HostedZoneId { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartRecordIdentifier { get; set; }
+        public System.String StartRecordIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String StartRecordName { get; set; }
+        public System.String StartRecordName { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public RRType StartRecordType { get; set; }
+        public Amazon.Route53.RRType StartRecordType { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public String MaxItem { get; set; }
+        public System.String MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListResourceRecordSetsRequest();
+            var request = new Amazon.Route53.Model.ListResourceRecordSetsRequest();
             
             if (cmdletContext.HostedZoneId != null)
             {
@@ -209,11 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HostedZoneId { get; set; }
-            public String StartRecordName { get; set; }
-            public RRType StartRecordType { get; set; }
-            public String StartRecordIdentifier { get; set; }
-            public String MaxItems { get; set; }
+            public System.String HostedZoneId { get; set; }
+            public System.String StartRecordName { get; set; }
+            public Amazon.Route53.RRType StartRecordType { get; set; }
+            public System.String StartRecordIdentifier { get; set; }
+            public System.String MaxItems { get; set; }
         }
         
     }

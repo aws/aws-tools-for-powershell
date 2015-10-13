@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.DescribeClustersResponse")]
     [AWSCmdlet("Invokes the DescribeClusters operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeClusters"})]
     [AWSCmdletOutput("Amazon.ECS.Model.DescribeClustersResponse",
-        "This cmdlet returns a DescribeClustersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ECS.Model.DescribeClustersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSClusterDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
             if (this.Cluster != null)
             {
-                context.Clusters = new List<String>(this.Cluster);
+                context.Clusters = new List<System.String>(this.Cluster);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeClustersRequest();
+            var request = new Amazon.ECS.Model.DescribeClustersRequest();
             
             if (cmdletContext.Clusters != null)
             {
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Clusters { get; set; }
+            public List<System.String> Clusters { get; set; }
         }
         
     }

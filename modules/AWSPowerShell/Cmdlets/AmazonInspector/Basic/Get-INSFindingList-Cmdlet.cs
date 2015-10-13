@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the ListFindings operation against Amazon Inspector.", Operation = new[] {"ListFindings"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.Inspector.Model.ListFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetINSFindingListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -142,15 +142,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
             }
             if (this.Filter_RuleName != null)
             {
-                context.Filter_RuleNames = new List<String>(this.Filter_RuleName);
+                context.Filter_RuleNames = new List<System.String>(this.Filter_RuleName);
             }
             if (this.Filter_RulesPackageArn != null)
             {
-                context.Filter_RulesPackageArns = new List<String>(this.Filter_RulesPackageArn);
+                context.Filter_RulesPackageArns = new List<System.String>(this.Filter_RulesPackageArn);
             }
             if (this.Filter_Severity != null)
             {
-                context.Filter_Severities = new List<String>(this.Filter_Severity);
+                context.Filter_Severities = new List<System.String>(this.Filter_Severity);
             }
             if (this.Filter_UserAttribute != null)
             {
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             context.NextToken = this.NextToken;
             if (this.RunArn != null)
             {
-                context.RunArns = new List<String>(this.RunArn);
+                context.RunArns = new List<System.String>(this.RunArn);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -175,11 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListFindingsRequest();
+            var request = new Amazon.Inspector.Model.ListFindingsRequest();
             
              // populate Filter
             bool requestFilterIsNull = true;
-            request.Filter = new FindingsFilter();
+            request.Filter = new Amazon.Inspector.Model.FindingsFilter();
             List<Amazon.Inspector.Model.Attribute> requestFilter_filter_Attribute = null;
             if (cmdletContext.Filter_Attributes != null)
             {
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.Attributes = requestFilter_filter_Attribute;
                 requestFilterIsNull = false;
             }
-            List<String> requestFilter_filter_RuleName = null;
+            List<System.String> requestFilter_filter_RuleName = null;
             if (cmdletContext.Filter_RuleNames != null)
             {
                 requestFilter_filter_RuleName = cmdletContext.Filter_RuleNames;
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.RuleNames = requestFilter_filter_RuleName;
                 requestFilterIsNull = false;
             }
-            List<String> requestFilter_filter_RulesPackageArn = null;
+            List<System.String> requestFilter_filter_RulesPackageArn = null;
             if (cmdletContext.Filter_RulesPackageArns != null)
             {
                 requestFilter_filter_RulesPackageArn = cmdletContext.Filter_RulesPackageArns;
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.RulesPackageArns = requestFilter_filter_RulesPackageArn;
                 requestFilterIsNull = false;
             }
-            List<String> requestFilter_filter_Severity = null;
+            List<System.String> requestFilter_filter_Severity = null;
             if (cmdletContext.Filter_Severities != null)
             {
                 requestFilter_filter_Severity = cmdletContext.Filter_Severities;
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -327,13 +327,13 @@ namespace Amazon.PowerShell.Cmdlets.INS
         internal class CmdletContext : ExecutorContext
         {
             public List<Amazon.Inspector.Model.Attribute> Filter_Attributes { get; set; }
-            public List<String> Filter_RuleNames { get; set; }
-            public List<String> Filter_RulesPackageArns { get; set; }
-            public List<String> Filter_Severities { get; set; }
+            public List<System.String> Filter_RuleNames { get; set; }
+            public List<System.String> Filter_RulesPackageArns { get; set; }
+            public List<System.String> Filter_Severities { get; set; }
             public List<Amazon.Inspector.Model.Attribute> Filter_UserAttributes { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public List<String> RunArns { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> RunArns { get; set; }
         }
         
     }

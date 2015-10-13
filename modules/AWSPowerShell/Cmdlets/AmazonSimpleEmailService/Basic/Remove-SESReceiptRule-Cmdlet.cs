@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the DeleteReceiptRule operation against Amazon Simple Email Service.", Operation = new[] {"DeleteReceiptRule"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type DeleteReceiptRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.DeleteReceiptRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleName { get; set; }
+        public System.String RuleName { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleSetName { get; set; }
+        public System.String RuleSetName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteReceiptRuleRequest();
+            var request = new Amazon.SimpleEmail.Model.DeleteReceiptRuleRequest();
             
             if (cmdletContext.RuleName != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RuleName { get; set; }
-            public String RuleSetName { get; set; }
+            public System.String RuleName { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

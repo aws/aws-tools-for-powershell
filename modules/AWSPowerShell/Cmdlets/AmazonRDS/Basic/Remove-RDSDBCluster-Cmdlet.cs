@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBCluster"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type DeleteDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalDBSnapshotIdentifier { get; set; }
+        public System.String FinalDBSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SkipFinalSnapshot { get; set; }
+        public System.Boolean SkipFinalSnapshot { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBClusterRequest();
+            var request = new Amazon.RDS.Model.DeleteDBClusterRequest();
             
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -171,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterIdentifier { get; set; }
-            public String FinalDBSnapshotIdentifier { get; set; }
-            public Boolean? SkipFinalSnapshot { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String FinalDBSnapshotIdentifier { get; set; }
+            public System.Boolean? SkipFinalSnapshot { get; set; }
         }
         
     }

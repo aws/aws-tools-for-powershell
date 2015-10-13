@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the SetReceiptRulePosition operation against Amazon Simple Email Service.", Operation = new[] {"SetReceiptRulePosition"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type SetReceiptRulePositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.SetReceiptRulePositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSESReceiptRulePositionCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String After { get; set; }
+        public System.String After { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleName { get; set; }
+        public System.String RuleName { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleSetName { get; set; }
+        public System.String RuleSetName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetReceiptRulePositionRequest();
+            var request = new Amazon.SimpleEmail.Model.SetReceiptRulePositionRequest();
             
             if (cmdletContext.After != null)
             {
@@ -159,9 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String After { get; set; }
-            public String RuleName { get; set; }
-            public String RuleSetName { get; set; }
+            public System.String After { get; set; }
+            public System.String RuleName { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

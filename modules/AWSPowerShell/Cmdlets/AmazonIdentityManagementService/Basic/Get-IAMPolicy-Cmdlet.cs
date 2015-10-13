@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ManagedPolicy",
         "This cmdlet returns a ManagedPolicy object.",
-        "The service call response (type GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.GetPolicyRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
+            public System.String PolicyArn { get; set; }
         }
         
     }

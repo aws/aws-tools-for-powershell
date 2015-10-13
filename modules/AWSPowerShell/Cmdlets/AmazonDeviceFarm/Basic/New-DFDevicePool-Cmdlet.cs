@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the CreateDevicePool operation against AWS Device Farm.", Operation = new[] {"CreateDevicePool"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.DevicePool",
         "This cmdlet returns a DevicePool object.",
-        "The service call response (type CreateDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.CreateDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ProjectArn { get; set; }
+        public System.String ProjectArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.ProjectArn = this.ProjectArn;
             if (this.Rule != null)
             {
-                context.Rules = new List<Rule>(this.Rule);
+                context.Rules = new List<Amazon.DeviceFarm.Model.Rule>(this.Rule);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDevicePoolRequest();
+            var request = new Amazon.DeviceFarm.Model.CreateDevicePoolRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -168,10 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String Name { get; set; }
-            public String ProjectArn { get; set; }
-            public List<Rule> Rules { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public System.String ProjectArn { get; set; }
+            public List<Amazon.DeviceFarm.Model.Rule> Rules { get; set; }
         }
         
     }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DetachLoadBalancers operation against Auto Scaling.", Operation = new[] {"DetachLoadBalancers"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DetachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DetachLoadBalancersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DismountASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.LoadBalancerName != null)
             {
-                context.LoadBalancerNames = new List<String>(this.LoadBalancerName);
+                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DetachLoadBalancersRequest();
+            var request = new Amazon.AutoScaling.Model.DetachLoadBalancersRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> LoadBalancerNames { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> LoadBalancerNames { get; set; }
         }
         
     }

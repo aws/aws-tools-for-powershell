@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the SetTerminationProtection operation against Amazon Elastic MapReduce.", Operation = new[] {"SetTerminationProtection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobFlowId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetTerminationProtectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetTerminationProtectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEMRTerminationProtectionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean TerminationProtected { get; set; }
+        public System.Boolean TerminationProtected { get; set; }
         
         /// <summary>
         /// Returns the value passed to the JobFlowId parameter.
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.JobFlowId != null)
             {
-                context.JobFlowIds = new List<String>(this.JobFlowId);
+                context.JobFlowIds = new List<System.String>(this.JobFlowId);
             }
             if (ParameterWasBound("TerminationProtected"))
                 context.TerminationProtected = this.TerminationProtected;
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetTerminationProtectionRequest();
+            var request = new Amazon.ElasticMapReduce.Model.SetTerminationProtectionRequest();
             
             if (cmdletContext.JobFlowIds != null)
             {
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> JobFlowIds { get; set; }
-            public Boolean? TerminationProtected { get; set; }
+            public List<System.String> JobFlowIds { get; set; }
+            public System.Boolean? TerminationProtected { get; set; }
         }
         
     }

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the DeleteCustomActionType operation against AWS CodePipeline.", Operation = new[] {"DeleteCustomActionType"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type DeleteCustomActionTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.DeleteCustomActionTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCPCustomActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ActionCategory Category { get; set; }
+        public Amazon.CodePipeline.ActionCategory Category { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Provider { get; set; }
+        public System.String Provider { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Version { get; set; }
+        public System.String Version { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteCustomActionTypeRequest();
+            var request = new Amazon.CodePipeline.Model.DeleteCustomActionTypeRequest();
             
             if (cmdletContext.Category != null)
             {
@@ -157,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public ActionCategory Category { get; set; }
-            public String Provider { get; set; }
-            public String Version { get; set; }
+            public Amazon.CodePipeline.ActionCategory Category { get; set; }
+            public System.String Provider { get; set; }
+            public System.String Version { get; set; }
         }
         
     }

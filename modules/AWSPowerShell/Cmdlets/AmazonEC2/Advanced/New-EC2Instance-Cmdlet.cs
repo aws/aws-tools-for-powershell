@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Reservation")]
     [AWSCmdlet("Invokes the RunInstances operation against Amazon Elastic Compute Cloud.", Operation = new [] {"RunInstances"})]
     [AWSCmdletOutput("Reservation",
-        "This cmdlet returns a Reservation instance.",
-        "The service response (type RunInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.EC2.Model.Reservation instance with the instances contained in the .Instances member.",
+        "The service response (type Amazon.EC2.Model.RunInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Get-EC2Image or Get-EC2ImageByName cmdlets.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ImageId { get; set; }
+        public System.String ImageId { get; set; }
 
         /// <summary>
         /// Indicates whether to assign a public IP address to an instance in a VPC.      
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </p>
         /// </remarks>
         [Parameter]
-        public Boolean? AssociatePublicIp { get; set; }
+        public System.Boolean? AssociatePublicIp { get; set; }
 
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public int MinCount { get; set; }
+        public System.Int32 MinCount { get; set; }
 
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public int MaxCount { get; set; }
+        public System.Int32 MaxCount { get; set; }
         
         /// <summary>
         /// The name of the key pair to use to connect to the instance using remote desktop or SSH.
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <b>Important:</b> If you launch an instance without specifying a key pair, you can't connect to the instance.
         /// </remarks>
         [Parameter]
-        public String KeyName { get; set; }
+        public System.String KeyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter]
         [Alias("SecurityGroups")]
-        public String[] SecurityGroup { get; set; }
+        public System.String[] SecurityGroup { get; set; }
         
         /// <summary>
         /// <para>
@@ -141,14 +141,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter]
         [Alias("SecurityGroupIds")]
-        public String[] SecurityGroupId { get; set; }
+        public System.String[] SecurityGroupId { get; set; }
         
         /// <summary>
         /// The base64-encoded MIME user data for the instances. If the -EncodeUserData switch is also set, the value
         /// for this parameter can be supplied as normal ASCII text and will be base64-encoded by the cmdlet.
         /// </summary>
         [Parameter]
-        public String UserData { get; set; }
+        public System.String UserData { get; set; }
 
         /// <summary>
         /// The name of a file containing base64-encoded MIME user data for the instances. 
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// ASCII text and will be base64-encoded by the cmdlet.
         /// </summary>
         [Parameter]
-        public string UserDataFile { get; set; }
+        public System.String UserDataFile { get; set; }
 
         /// <summary>
         /// If set and the -UserData or -UserDataFile parameters are specified, the specified
@@ -185,21 +185,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public String InstanceType { get; set; }
+        public System.String InstanceType { get; set; }
         
         /// <summary>
         /// The Availability Zone for the instance.
         /// </summary>
         [Alias("Placement_AvailabilityZone")]
         [Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// The name of an existing placement group.
         /// </summary>
         [Alias("Placement_GroupName")]
         [Parameter]
-        public String PlacementGroup { get; set; }
+        public System.String PlacementGroup { get; set; }
         
         /// <summary>
         /// <para>
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Alias("Placement_Tenancy")]
         [Parameter]
-        public String Tenancy { get; set; }
+        public System.String Tenancy { get; set; }
         
         /// <summary>
         /// <para>
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public String KernelId { get; set; }
+        public System.String KernelId { get; set; }
         
         /// <summary>
         /// <para>
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public String RamdiskId { get; set; }
+        public System.String RamdiskId { get; set; }
         
         /// <summary>
         /// The block device mapping for the instance. For more information, see 
@@ -245,19 +245,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// in the Amazon Elastic Compute Cloud User Guide.
         /// </summary>
         [Parameter]
-        public BlockDeviceMapping[] BlockDeviceMapping { get; set; }
+        public Amazon.EC2.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
         
         /// <summary>
         /// Enables monitoring for the instance.
         /// </summary>
         [Parameter]
-        public Boolean? Monitoring_Enabled { get; set; }
+        public System.Boolean? Monitoring_Enabled { get; set; }
         
         /// <summary>
         /// [EC2-VPC] The ID of the subnet to launch the instance into.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
         
         /// <summary>
         /// If you enable this option, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. 
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to 'terminate', you can terminate the instance by running the shutdown command from the instance.
         /// </summary>
         [Parameter]
-        public Boolean? DisableApiTermination { get; set; }
+        public System.Boolean? DisableApiTermination { get; set; }
         
         /// <summary>
         /// <para>
@@ -278,14 +278,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public String InstanceInitiatedShutdownBehavior { get; set; }
+        public System.String InstanceInitiatedShutdownBehavior { get; set; }
                 
         /// <summary>
         /// [EC2-VPC] The primary private IP address. You must specify a value from the IP address range of the subnet.
         /// If not specified EC2 will assign an IP address from the IP address range of the subnet.
         /// </summary>
         [Parameter]
-        public String PrivateIpAddress { get; set; }
+        public System.String PrivateIpAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter]
         [Alias("NetworkInterfaceSet,NetworkInterfaces")]
-        public InstanceNetworkInterfaceSpecification[] NetworkInterface { get; set; }
+        public Amazon.EC2.Model.InstanceNetworkInterfaceSpecification[] NetworkInterface { get; set; }
         
         /// <summary>
         /// <para>
@@ -320,26 +320,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter]
-        public Boolean? EbsOptimized { get; set; }
+        public System.Boolean? EbsOptimized { get; set; }
         
         /// <summary>
         /// The ARN of an IAM instance profile to associate with the instances. 
         /// </summary>
         [Parameter]
-        public String InstanceProfile_Arn { get; set; }
+        public System.String InstanceProfile_Arn { get; set; }
         
         /// <summary>
         /// The name of an IAM instance profile to associate with the instances. 
         /// </summary>
         [Parameter]
         [Alias("InstanceProfile_Id")]
-        public String InstanceProfile_Name { get; set; }
+        public System.String InstanceProfile_Name { get; set; }
 
         /// <summary>
         /// Reserved for internal use.
         /// </summary>
         [Parameter]
-        public String AdditionalInfo { get; set; }
+        public System.String AdditionalInfo { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

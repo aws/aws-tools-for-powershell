@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the GetSqlInjectionMatchSet operation against AWS WAF.", Operation = new[] {"GetSqlInjectionMatchSet"})]
     [AWSCmdletOutput("Amazon.WAF.Model.SqlInjectionMatchSet",
         "This cmdlet returns a SqlInjectionMatchSet object.",
-        "The service call response (type GetSqlInjectionMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetSqlInjectionMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetWAFSqlInjectionMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SqlInjectionMatchSetId { get; set; }
+        public System.String SqlInjectionMatchSetId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetSqlInjectionMatchSetRequest();
+            var request = new Amazon.WAF.Model.GetSqlInjectionMatchSetRequest();
             
             if (cmdletContext.SqlInjectionMatchSetId != null)
             {
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SqlInjectionMatchSetId { get; set; }
+            public System.String SqlInjectionMatchSetId { get; set; }
         }
         
     }

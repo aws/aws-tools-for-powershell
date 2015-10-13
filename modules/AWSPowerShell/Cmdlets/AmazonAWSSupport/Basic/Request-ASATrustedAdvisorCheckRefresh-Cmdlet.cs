@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the RefreshTrustedAdvisorCheck operation against AWS Support API.", Operation = new[] {"RefreshTrustedAdvisorCheck"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.TrustedAdvisorCheckRefreshStatus",
         "This cmdlet returns a TrustedAdvisorCheckRefreshStatus object.",
-        "The service call response (type RefreshTrustedAdvisorCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.RefreshTrustedAdvisorCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestASATrustedAdvisorCheckRefreshCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CheckId { get; set; }
+        public System.String CheckId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RefreshTrustedAdvisorCheckRequest();
+            var request = new Amazon.AWSSupport.Model.RefreshTrustedAdvisorCheckRequest();
             
             if (cmdletContext.CheckId != null)
             {
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CheckId { get; set; }
+            public System.String CheckId { get; set; }
         }
         
     }

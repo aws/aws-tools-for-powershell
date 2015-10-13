@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ReplaceRoute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReplaceRoute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RouteTableId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ReplaceRouteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ReplaceRouteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEC2RouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String DestinationCidrBlock { get; set; }
+        public System.String DestinationCidrBlock { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String GatewayId { get; set; }
+        public System.String GatewayId { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RouteTableId { get; set; }
+        public System.String RouteTableId { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VpcPeeringConnectionId { get; set; }
+        public System.String VpcPeeringConnectionId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RouteTableId parameter.
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReplaceRouteRequest();
+            var request = new Amazon.EC2.Model.ReplaceRouteRequest();
             
             if (cmdletContext.DestinationCidrBlock != null)
             {
@@ -208,12 +208,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DestinationCidrBlock { get; set; }
-            public String GatewayId { get; set; }
-            public String InstanceId { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public String RouteTableId { get; set; }
-            public String VpcPeeringConnectionId { get; set; }
+            public System.String DestinationCidrBlock { get; set; }
+            public System.String GatewayId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.String RouteTableId { get; set; }
+            public System.String VpcPeeringConnectionId { get; set; }
         }
         
     }

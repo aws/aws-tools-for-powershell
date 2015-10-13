@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]
     [AWSCmdlet("Invokes the GetFunction operation against Amazon Lambda.", Operation = new[] {"GetFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionResponse",
-        "This cmdlet returns a GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public System.String Qualifier { get; set; }
         
         
         protected override void ProcessRecord()
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetFunctionRequest();
+            var request = new Amazon.Lambda.Model.GetFunctionRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
         }
         
     }

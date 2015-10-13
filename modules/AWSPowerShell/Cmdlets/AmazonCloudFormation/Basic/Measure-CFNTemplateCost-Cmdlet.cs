@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the EstimateTemplateCost operation against AWS CloudFormation.", Operation = new[] {"EstimateTemplateCost"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type EstimateTemplateCostResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.EstimateTemplateCostResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class MeasureCFNTemplateCostCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TemplateBody { get; set; }
+        public System.String TemplateBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateURL { get; set; }
+        public System.String TemplateURL { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
             }
             context.TemplateBody = this.TemplateBody;
             context.TemplateURL = this.TemplateURL;
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EstimateTemplateCostRequest();
+            var request = new Amazon.CloudFormation.Model.EstimateTemplateCostRequest();
             
             if (cmdletContext.Parameters != null)
             {
@@ -163,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Parameter> Parameters { get; set; }
-            public String TemplateBody { get; set; }
-            public String TemplateURL { get; set; }
+            public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
+            public System.String TemplateBody { get; set; }
+            public System.String TemplateURL { get; set; }
         }
         
     }

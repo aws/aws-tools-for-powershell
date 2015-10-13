@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the ListCertificates operation against AWS IoT.", Operation = new[] {"ListCertificates"})]
     [AWSCmdletOutput("Amazon.IoT.Model.Certificate",
         "This cmdlet returns a collection of Certificate objects.",
-        "The service call response (type ListCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
+        "The service call response (type Amazon.IoT.Model.ListCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetIOTCertificateListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 PageSize { get; set; }
+        public System.Int32 PageSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AscendingOrder { get; set; }
+        public System.Boolean AscendingOrder { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListCertificatesRequest();
+            var request = new Amazon.IoT.Model.ListCertificatesRequest();
             
             if (cmdletContext.AscendingOrder != null)
             {
@@ -150,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AscendingOrder { get; set; }
-            public String Marker { get; set; }
-            public Int32? PageSize { get; set; }
+            public System.Boolean? AscendingOrder { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? PageSize { get; set; }
         }
         
     }

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Invokes the ListDomains operation against AWS Route 53 Domains.", Operation = new[] {"ListDomains"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.DomainSummary",
         "This cmdlet returns a collection of DomainSummary objects.",
-        "The service call response (type ListDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageMarker (type String)"
+        "The service call response (type Amazon.Route53Domains.Model.ListDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageMarker (type System.String)"
     )]
     public class GetR53DDomainsCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public Int32 MaxItem { get; set; }
+        public System.Int32 MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListDomainsRequest();
+            var request = new Amazon.Route53Domains.Model.ListDomainsRequest();
             
             if (cmdletContext.MaxItems != null)
             {
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public Int32? MaxItems { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxItems { get; set; }
         }
         
     }

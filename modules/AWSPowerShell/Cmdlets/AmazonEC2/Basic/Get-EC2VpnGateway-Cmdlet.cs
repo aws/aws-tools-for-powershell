@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeVpnGateways operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVpnGateways"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnGateway",
         "This cmdlet returns a collection of VpnGateway objects.",
-        "The service call response (type DescribeVpnGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeVpnGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2VpnGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -88,11 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.VpnGatewayId != null)
             {
-                context.VpnGatewayIds = new List<String>(this.VpnGatewayId);
+                context.VpnGatewayIds = new List<System.String>(this.VpnGatewayId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeVpnGatewaysRequest();
+            var request = new Amazon.EC2.Model.DescribeVpnGatewaysRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> VpnGatewayIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> VpnGatewayIds { get; set; }
         }
         
     }

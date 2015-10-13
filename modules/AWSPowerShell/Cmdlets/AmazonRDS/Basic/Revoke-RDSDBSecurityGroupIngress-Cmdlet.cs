@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the RevokeDBSecurityGroupIngress operation against Amazon Relational Database Service.", Operation = new[] {"RevokeDBSecurityGroupIngress"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSecurityGroup",
         "This cmdlet returns a DBSecurityGroup object.",
-        "The service call response (type RevokeDBSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RevokeDBSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RevokeRDSDBSecurityGroupIngressCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CIDRIP { get; set; }
+        public System.String CIDRIP { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
+        public System.String DBSecurityGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupId { get; set; }
+        public System.String EC2SecurityGroupId { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupName { get; set; }
+        public System.String EC2SecurityGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupOwnerId { get; set; }
+        public System.String EC2SecurityGroupOwnerId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RevokeDBSecurityGroupIngressRequest();
+            var request = new Amazon.RDS.Model.RevokeDBSecurityGroupIngressRequest();
             
             if (cmdletContext.CIDRIP != null)
             {
@@ -191,11 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CIDRIP { get; set; }
-            public String DBSecurityGroupName { get; set; }
-            public String EC2SecurityGroupId { get; set; }
-            public String EC2SecurityGroupName { get; set; }
-            public String EC2SecurityGroupOwnerId { get; set; }
+            public System.String CIDRIP { get; set; }
+            public System.String DBSecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupId { get; set; }
+            public System.String EC2SecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupOwnerId { get; set; }
         }
         
     }

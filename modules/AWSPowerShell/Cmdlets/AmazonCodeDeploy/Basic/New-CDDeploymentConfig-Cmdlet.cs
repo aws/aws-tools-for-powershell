@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the CreateDeploymentConfig operation against AWS CodeDeploy.", Operation = new[] {"CreateDeploymentConfig"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateDeploymentConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.CreateDeploymentConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentConfigName { get; set; }
+        public System.String DeploymentConfigName { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }
+        public Amazon.CodeDeploy.MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MinimumHealthyHosts_Value { get; set; }
+        public System.Int32 MinimumHealthyHosts_Value { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDeploymentConfigRequest();
+            var request = new Amazon.CodeDeploy.Model.CreateDeploymentConfigRequest();
             
             if (cmdletContext.DeploymentConfigName != null)
             {
@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
              // populate MinimumHealthyHosts
             bool requestMinimumHealthyHostsIsNull = true;
-            request.MinimumHealthyHosts = new MinimumHealthyHosts();
-            MinimumHealthyHostsType requestMinimumHealthyHosts_minimumHealthyHosts_Type = null;
+            request.MinimumHealthyHosts = new Amazon.CodeDeploy.Model.MinimumHealthyHosts();
+            Amazon.CodeDeploy.MinimumHealthyHostsType requestMinimumHealthyHosts_minimumHealthyHosts_Type = null;
             if (cmdletContext.MinimumHealthyHosts_Type != null)
             {
                 requestMinimumHealthyHosts_minimumHealthyHosts_Type = cmdletContext.MinimumHealthyHosts_Type;
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.MinimumHealthyHosts.Type = requestMinimumHealthyHosts_minimumHealthyHosts_Type;
                 requestMinimumHealthyHostsIsNull = false;
             }
-            Int32? requestMinimumHealthyHosts_minimumHealthyHosts_Value = null;
+            System.Int32? requestMinimumHealthyHosts_minimumHealthyHosts_Value = null;
             if (cmdletContext.MinimumHealthyHosts_Value != null)
             {
                 requestMinimumHealthyHosts_minimumHealthyHosts_Value = cmdletContext.MinimumHealthyHosts_Value.Value;
@@ -181,9 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeploymentConfigName { get; set; }
-            public MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }
-            public Int32? MinimumHealthyHosts_Value { get; set; }
+            public System.String DeploymentConfigName { get; set; }
+            public Amazon.CodeDeploy.MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }
+            public System.Int32? MinimumHealthyHosts_Value { get; set; }
         }
         
     }

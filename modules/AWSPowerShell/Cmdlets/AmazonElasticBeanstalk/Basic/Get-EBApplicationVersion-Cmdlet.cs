@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeApplicationVersions operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeApplicationVersions"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription",
         "This cmdlet returns a collection of ApplicationVersionDescription objects.",
-        "The service call response (type DescribeApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.ApplicationName = this.ApplicationName;
             if (this.VersionLabel != null)
             {
-                context.VersionLabels = new List<String>(this.VersionLabel);
+                context.VersionLabels = new List<System.String>(this.VersionLabel);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeApplicationVersionsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public List<String> VersionLabels { get; set; }
+            public System.String ApplicationName { get; set; }
+            public List<System.String> VersionLabels { get; set; }
         }
         
     }

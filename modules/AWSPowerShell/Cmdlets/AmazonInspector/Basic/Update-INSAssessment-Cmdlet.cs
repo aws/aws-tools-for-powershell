@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the UpdateAssessment operation against Amazon Inspector.", Operation = new[] {"UpdateAssessment"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateAssessmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.UpdateAssessmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateINSAssessmentCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AssessmentArn { get; set; }
+        public System.String AssessmentArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AssessmentName { get; set; }
+        public System.String AssessmentName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DurationInSeconds")]
-        public Int32 DurationInSecond { get; set; }
+        public System.Int32 DurationInSecond { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAssessmentRequest();
+            var request = new Amazon.Inspector.Model.UpdateAssessmentRequest();
             
             if (cmdletContext.AssessmentArn != null)
             {
@@ -154,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssessmentArn { get; set; }
-            public String AssessmentName { get; set; }
-            public Int32? DurationInSeconds { get; set; }
+            public System.String AssessmentArn { get; set; }
+            public System.String AssessmentName { get; set; }
+            public System.Int32? DurationInSeconds { get; set; }
         }
         
     }

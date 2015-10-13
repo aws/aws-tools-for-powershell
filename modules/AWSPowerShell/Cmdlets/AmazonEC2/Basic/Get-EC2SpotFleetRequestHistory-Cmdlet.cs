@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse")]
     [AWSCmdlet("Invokes the DescribeSpotFleetRequestHistory operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSpotFleetRequestHistory"})]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse",
-        "This cmdlet returns a DescribeSpotFleetRequestHistoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2SpotFleetRequestHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EventType EventType { get; set; }
+        public Amazon.EC2.EventType EventType { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
-        public Int32 MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SpotFleetRequestId { get; set; }
+        public System.String SpotFleetRequestId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeSpotFleetRequestHistoryRequest();
+            var request = new Amazon.EC2.Model.DescribeSpotFleetRequestHistoryRequest();
             
             if (cmdletContext.EventType != null)
             {
@@ -173,11 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public EventType EventType { get; set; }
-            public Int32? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public String SpotFleetRequestId { get; set; }
-            public DateTime? StartTime { get; set; }
+            public Amazon.EC2.EventType EventType { get; set; }
+            public System.Int32? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String SpotFleetRequestId { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

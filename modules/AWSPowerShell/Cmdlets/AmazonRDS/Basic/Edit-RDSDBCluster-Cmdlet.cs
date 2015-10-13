@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBCluster"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type ModifyDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ApplyImmediately { get; set; }
+        public System.Boolean ApplyImmediately { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BackupRetentionPeriod { get; set; }
+        public System.Int32 BackupRetentionPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterParameterGroupName { get; set; }
+        public System.String DBClusterParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MasterUserPassword { get; set; }
+        public System.String MasterUserPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewDBClusterIdentifier { get; set; }
+        public System.String NewDBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredBackupWindow { get; set; }
+        public System.String PreferredBackupWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyDBClusterRequest();
+            var request = new Amazon.RDS.Model.ModifyDBClusterRequest();
             
             if (cmdletContext.ApplyImmediately != null)
             {
@@ -292,17 +292,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ApplyImmediately { get; set; }
-            public Int32? BackupRetentionPeriod { get; set; }
-            public String DBClusterIdentifier { get; set; }
-            public String DBClusterParameterGroupName { get; set; }
-            public String MasterUserPassword { get; set; }
-            public String NewDBClusterIdentifier { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public String PreferredBackupWindow { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Boolean? ApplyImmediately { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
+            public System.String MasterUserPassword { get; set; }
+            public System.String NewDBClusterIdentifier { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

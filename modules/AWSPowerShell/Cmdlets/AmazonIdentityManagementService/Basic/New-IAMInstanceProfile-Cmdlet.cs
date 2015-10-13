@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateInstanceProfile operation against AWS Identity and Access Management.", Operation = new[] {"CreateInstanceProfile"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.InstanceProfile",
         "This cmdlet returns a InstanceProfile object.",
-        "The service call response (type CreateInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceProfileName { get; set; }
+        public System.String InstanceProfileName { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateInstanceProfileRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateInstanceProfileRequest();
             
             if (cmdletContext.InstanceProfileName != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceProfileName { get; set; }
-            public String Path { get; set; }
+            public System.String InstanceProfileName { get; set; }
+            public System.String Path { get; set; }
         }
         
     }

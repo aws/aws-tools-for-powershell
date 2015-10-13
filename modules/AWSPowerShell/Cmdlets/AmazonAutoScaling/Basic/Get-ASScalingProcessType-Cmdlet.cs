@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DescribeScalingProcessTypes operation against Auto Scaling.", Operation = new[] {"DescribeScalingProcessTypes"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.ProcessType",
         "This cmdlet returns a collection of ProcessType objects.",
-        "The service call response (type DescribeScalingProcessTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeScalingProcessTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASScalingProcessTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeScalingProcessTypesRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeScalingProcessTypesRequest();
             
             
             CmdletOutput output;

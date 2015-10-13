@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeVpcEndpoints operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVpcEndpoints"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcEndpoint",
         "This cmdlet returns a collection of VpcEndpoint objects.",
-        "The service call response (type DescribeVpcEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeVpcEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -91,14 +91,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.VpcEndpointId != null)
             {
-                context.VpcEndpointIds = new List<String>(this.VpcEndpointId);
+                context.VpcEndpointIds = new List<System.String>(this.VpcEndpointId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeVpcEndpointsRequest();
+            var request = new Amazon.EC2.Model.DescribeVpcEndpointsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -208,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public List<String> VpcEndpointIds { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> VpcEndpointIds { get; set; }
         }
         
     }

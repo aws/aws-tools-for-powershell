@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DeliverConfigSnapshot operation against Amazon Config.", Operation = new[] {"DeliverConfigSnapshot"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeliverConfigSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DeliverConfigSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SubmitCFGConfigSnapshotDeliveryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeliveryChannelName { get; set; }
+        public System.String DeliveryChannelName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeliverConfigSnapshotRequest();
+            var request = new Amazon.ConfigService.Model.DeliverConfigSnapshotRequest();
             
             if (cmdletContext.DeliveryChannelName != null)
             {
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryChannelName { get; set; }
+            public System.String DeliveryChannelName { get; set; }
         }
         
     }

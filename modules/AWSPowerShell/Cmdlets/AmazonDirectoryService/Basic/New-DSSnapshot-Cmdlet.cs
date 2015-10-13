@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the CreateSnapshot operation against AWS Directory Service.", Operation = new[] {"CreateSnapshot"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSnapshotRequest();
+            var request = new Amazon.DirectoryService.Model.CreateSnapshotRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DirectoryId { get; set; }
-            public String Name { get; set; }
+            public System.String DirectoryId { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

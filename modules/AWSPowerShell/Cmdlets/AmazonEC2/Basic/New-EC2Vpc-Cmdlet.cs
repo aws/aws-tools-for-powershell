@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpc"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Vpc",
         "This cmdlet returns a Vpc object.",
-        "The service call response (type CreateVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CidrBlock { get; set; }
+        public System.String CidrBlock { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Tenancy InstanceTenancy { get; set; }
+        public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpcRequest();
+            var request = new Amazon.EC2.Model.CreateVpcRequest();
             
             if (cmdletContext.CidrBlock != null)
             {
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CidrBlock { get; set; }
-            public Tenancy InstanceTenancy { get; set; }
+            public System.String CidrBlock { get; set; }
+            public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
         }
         
     }

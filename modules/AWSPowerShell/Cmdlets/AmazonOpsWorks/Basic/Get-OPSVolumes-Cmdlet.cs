@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeVolumes operation against AWS OpsWorks.", Operation = new[] {"DescribeVolumes"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Volume",
         "This cmdlet returns a collection of Volume objects.",
-        "The service call response (type DescribeVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSVolumesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String RaidArrayId { get; set; }
+        public System.String RaidArrayId { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.StackId = this.StackId;
             if (this.VolumeId != null)
             {
-                context.VolumeIds = new List<String>(this.VolumeId);
+                context.VolumeIds = new List<System.String>(this.VolumeId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeVolumesRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeVolumesRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -166,10 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String RaidArrayId { get; set; }
-            public String StackId { get; set; }
-            public List<String> VolumeIds { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String RaidArrayId { get; set; }
+            public System.String StackId { get; set; }
+            public List<System.String> VolumeIds { get; set; }
         }
         
     }

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     + " Repeated calls are made to retrieve metadata for all objects unless a specific object key or key prefix and instance count limiters are specified."
                     , Operation = new [] {"ListObjects"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3Object",
-                     "This cmdlet returns 0 or more S3Object instances.",
-                     "The service response (type ListObjectsRequest) is added to the cmdlet entry in the $AWSHistory stack for each call to retrieve output."
+                     "This cmdlet returns 0 or more Amazon.S3.Model.S3Object instances.",
+                     "The service response (type Amazon.S3.Model.ListObjectsRequest) is added to the cmdlet entry in the $AWSHistory stack for each call to retrieve output."
                             + " Additionally, the following properties are added as notes to the response instance: CommonPrefixes, Delimiter, MaxKeys, Prefix, NextMarker and IsTruncated."
     )]
     public class GetS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The name of the bucket that holds the S3 object(s).
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public string BucketName { get; set; }
+        public System.String BucketName { get; set; }
 
         /// <summary>
         /// Requests Amazon S3 to encode the object keys in the response and specifies
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// keys in the response.
         /// </summary>
         [Parameter(Mandatory = false)]
-        public EncodingType Encoding { get; set; }
+        public Amazon.S3.EncodingType Encoding { get; set; }
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Key value identifying a single object in S3 to return metadata for.
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_SingleObject, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
 
         #endregion
 
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Alias("Prefix")]
         [Parameter(Position = 1, ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
-        public String KeyPrefix { get; set; }
+        public System.String KeyPrefix { get; set; }
 
         /// <summary>
         /// Indicates where in the bucket to begin listing. The list will only 
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
         [Alias("NextToken")]
-        public string Marker { get; set; }
+        public System.String Marker { get; set; }
 
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems,MaxKeys")]
-        public int? MaxKey { get; set; }
+        public System.Int32? MaxKey { get; set; }
 
         /// <summary>
         /// Causes keys that contain the same string between the prefix and the 
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// returned elsewhere in the response.
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
-        public string Delimiter { get; set; }
+        public System.String Delimiter { get; set; }
 
         #endregion
 

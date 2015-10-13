@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DeleteConfigRule operation against Amazon Config.", Operation = new[] {"DeleteConfigRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigRuleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCFGConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ConfigRuleName { get; set; }
+        public System.String ConfigRuleName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ConfigRuleName parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteConfigRuleRequest();
+            var request = new Amazon.ConfigService.Model.DeleteConfigRuleRequest();
             
             if (cmdletContext.ConfigRuleName != null)
             {
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConfigRuleName { get; set; }
+            public System.String ConfigRuleName { get; set; }
         }
         
     }

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CopyDBClusterSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"CopyDBClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
         "This cmdlet returns a DBClusterSnapshot object.",
-        "The service call response (type CopyDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CopyDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceDBClusterSnapshotIdentifier { get; set; }
+        public System.String SourceDBClusterSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetDBClusterSnapshotIdentifier { get; set; }
+        public System.String TargetDBClusterSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SourceDBClusterSnapshotIdentifier = this.SourceDBClusterSnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBClusterSnapshotIdentifier = this.TargetDBClusterSnapshotIdentifier;
             
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyDBClusterSnapshotRequest();
+            var request = new Amazon.RDS.Model.CopyDBClusterSnapshotRequest();
             
             if (cmdletContext.SourceDBClusterSnapshotIdentifier != null)
             {
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceDBClusterSnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TargetDBClusterSnapshotIdentifier { get; set; }
+            public System.String SourceDBClusterSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TargetDBClusterSnapshotIdentifier { get; set; }
         }
         
     }

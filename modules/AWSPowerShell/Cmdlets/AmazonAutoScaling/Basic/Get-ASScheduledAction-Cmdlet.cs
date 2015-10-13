@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DescribeScheduledActions operation against Auto Scaling.", Operation = new[] {"DescribeScheduledActions"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.ScheduledUpdateGroupAction",
         "This cmdlet returns a collection of ScheduledUpdateGroupAction objects.",
-        "The service call response (type DescribeScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.AutoScaling.Model.DescribeScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetASScheduledActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.NextToken = this.NextToken;
             if (this.ScheduledActionName != null)
             {
-                context.ScheduledActionNames = new List<String>(this.ScheduledActionName);
+                context.ScheduledActionNames = new List<System.String>(this.ScheduledActionName);
             }
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeScheduledActionsRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeScheduledActionsRequest();
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -237,12 +237,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public DateTime? EndTime { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.DateTime? EndTime { get; set; }
             public int? MaxRecords { get; set; }
-            public String NextToken { get; set; }
-            public List<String> ScheduledActionNames { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ScheduledActionNames { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Invokes the StopLogging operation against AWS CloudTrail.", Operation = new[] {"StopLogging"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type StopLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.StopLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopCTLoggingCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// Returns the value passed to the Name parameter.
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StopLoggingRequest();
+            var request = new Amazon.CloudTrail.Model.StopLoggingRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

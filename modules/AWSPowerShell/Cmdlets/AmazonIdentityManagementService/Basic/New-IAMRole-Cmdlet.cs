@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateRole operation against AWS Identity and Access Management.", Operation = new[] {"CreateRole"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role",
         "This cmdlet returns a Role object.",
-        "The service call response (type CreateRoleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateRoleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMRoleCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AssumeRolePolicyDocument { get; set; }
+        public System.String AssumeRolePolicyDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String RoleName { get; set; }
+        public System.String RoleName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateRoleRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateRoleRequest();
             
             if (cmdletContext.AssumeRolePolicyDocument != null)
             {
@@ -161,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssumeRolePolicyDocument { get; set; }
-            public String Path { get; set; }
-            public String RoleName { get; set; }
+            public System.String AssumeRolePolicyDocument { get; set; }
+            public System.String Path { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

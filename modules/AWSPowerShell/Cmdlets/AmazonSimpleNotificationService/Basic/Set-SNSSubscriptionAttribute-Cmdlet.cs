@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the SetSubscriptionAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"SetSubscriptionAttributes"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubscriptionArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetSubscriptionAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.SetSubscriptionAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSNSSubscriptionAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String AttributeName { get; set; }
+        public System.String AttributeName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AttributeValue { get; set; }
+        public System.String AttributeValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionArn { get; set; }
+        public System.String SubscriptionArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SubscriptionArn parameter.
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetSubscriptionAttributesRequest();
+            var request = new Amazon.SimpleNotificationService.Model.SetSubscriptionAttributesRequest();
             
             if (cmdletContext.AttributeName != null)
             {
@@ -161,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttributeName { get; set; }
-            public String AttributeValue { get; set; }
-            public String SubscriptionArn { get; set; }
+            public System.String AttributeName { get; set; }
+            public System.String AttributeValue { get; set; }
+            public System.String SubscriptionArn { get; set; }
         }
         
     }

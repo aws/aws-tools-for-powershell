@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreateThingResponse")]
     [AWSCmdlet("Invokes the CreateThing operation against AWS IoT.", Operation = new[] {"CreateThing"})]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateThingResponse",
-        "This cmdlet returns a CreateThingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IoT.Model.CreateThingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ThingName { get; set; }
+        public System.String ThingName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             if (this.AttributePayload_Attribute != null)
             {
-                context.AttributePayload_Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AttributePayload_Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AttributePayload_Attribute.Keys)
                 {
                     context.AttributePayload_Attributes.Add((String)hashKey, (String)(this.AttributePayload_Attribute[hashKey]));
@@ -100,13 +100,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateThingRequest();
+            var request = new Amazon.IoT.Model.CreateThingRequest();
             
             
              // populate AttributePayload
             bool requestAttributePayloadIsNull = true;
-            request.AttributePayload = new AttributePayload();
-            Dictionary<String, String> requestAttributePayload_attributePayload_Attribute = null;
+            request.AttributePayload = new Amazon.IoT.Model.AttributePayload();
+            Dictionary<System.String, System.String> requestAttributePayload_attributePayload_Attribute = null;
             if (cmdletContext.AttributePayload_Attributes != null)
             {
                 requestAttributePayload_attributePayload_Attribute = cmdletContext.AttributePayload_Attributes;
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> AttributePayload_Attributes { get; set; }
-            public String ThingName { get; set; }
+            public Dictionary<System.String, System.String> AttributePayload_Attributes { get; set; }
+            public System.String ThingName { get; set; }
         }
         
     }

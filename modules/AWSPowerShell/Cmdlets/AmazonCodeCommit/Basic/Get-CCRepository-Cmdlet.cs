@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the GetRepository operation against AWS CodeCommit.", Operation = new[] {"GetRepository"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryMetadata",
         "This cmdlet returns a RepositoryMetadata object.",
-        "The service call response (type GetRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.GetRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RepositoryName { get; set; }
+        public System.String RepositoryName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetRepositoryRequest();
+            var request = new Amazon.CodeCommit.Model.GetRepositoryRequest();
             
             if (cmdletContext.RepositoryName != null)
             {
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RepositoryName { get; set; }
+            public System.String RepositoryName { get; set; }
         }
         
     }

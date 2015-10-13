@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the GetIPSet operation against AWS WAF.", Operation = new[] {"GetIPSet"})]
     [AWSCmdletOutput("Amazon.WAF.Model.IPSet",
         "This cmdlet returns a IPSet object.",
-        "The service call response (type GetIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetWAFIPSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IPSetId { get; set; }
+        public System.String IPSetId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetIPSetRequest();
+            var request = new Amazon.WAF.Model.GetIPSetRequest();
             
             if (cmdletContext.IPSetId != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IPSetId { get; set; }
+            public System.String IPSetId { get; set; }
         }
         
     }

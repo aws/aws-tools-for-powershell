@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteFlowLogs operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteFlowLogs"})]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem",
         "This cmdlet returns a collection of UnsuccessfulItem objects.",
-        "The service call response (type DeleteFlowLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteFlowLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.FlowLogId != null)
             {
-                context.FlowLogIds = new List<String>(this.FlowLogId);
+                context.FlowLogIds = new List<System.String>(this.FlowLogId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteFlowLogsRequest();
+            var request = new Amazon.EC2.Model.DeleteFlowLogsRequest();
             
             if (cmdletContext.FlowLogIds != null)
             {
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> FlowLogIds { get; set; }
+            public List<System.String> FlowLogIds { get; set; }
         }
         
     }

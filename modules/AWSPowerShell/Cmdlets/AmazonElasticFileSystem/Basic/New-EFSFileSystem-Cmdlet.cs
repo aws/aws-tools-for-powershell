@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [OutputType("Amazon.ElasticFileSystem.Model.CreateFileSystemResponse")]
     [AWSCmdlet("Invokes the CreateFileSystem operation against Amazon Elastic File System.", Operation = new[] {"CreateFileSystem"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.CreateFileSystemResponse",
-        "This cmdlet returns a CreateFileSystemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticFileSystem.Model.CreateFileSystemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CreationToken { get; set; }
+        public System.String CreationToken { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateFileSystemRequest();
+            var request = new Amazon.ElasticFileSystem.Model.CreateFileSystemRequest();
             
             if (cmdletContext.CreationToken != null)
             {
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CreationToken { get; set; }
+            public System.String CreationToken { get; set; }
         }
         
     }

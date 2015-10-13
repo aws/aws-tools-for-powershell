@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.DisableLoggingResponse")]
     [AWSCmdlet("Invokes the DisableLogging operation against Amazon Redshift.", Operation = new[] {"DisableLogging"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.DisableLoggingResponse",
-        "This cmdlet returns a DisableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Redshift.Model.DisableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableLoggingRequest();
+            var request = new Amazon.Redshift.Model.DisableLoggingRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
+            public System.String ClusterIdentifier { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the DeleteDeploymentGroup operation against AWS CodeDeploy.", Operation = new[] {"DeleteDeploymentGroup"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.AutoScalingGroup",
         "This cmdlet returns a collection of AutoScalingGroup objects.",
-        "The service call response (type DeleteDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.DeleteDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentGroupName { get; set; }
+        public System.String DeploymentGroupName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDeploymentGroupRequest();
+            var request = new Amazon.CodeDeploy.Model.DeleteDeploymentGroupRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String DeploymentGroupName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String DeploymentGroupName { get; set; }
         }
         
     }

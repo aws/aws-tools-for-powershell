@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the DeleteService operation against Amazon EC2 Container Service.", Operation = new[] {"DeleteService"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Service",
         "This cmdlet returns a Service object.",
-        "The service call response (type DeleteServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.DeleteServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Service { get; set; }
+        public System.String Service { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteServiceRequest();
+            var request = new Amazon.ECS.Model.DeleteServiceRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public String Service { get; set; }
+            public System.String Cluster { get; set; }
+            public System.String Service { get; set; }
         }
         
     }

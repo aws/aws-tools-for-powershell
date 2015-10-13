@@ -49,32 +49,32 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// name.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public Uri ResourceUri { get; set; }
+        public System.Uri ResourceUri { get; set; }
 
         /// <summary>
         /// The key pair id corresponding to the private key file supplied
         /// to the PrivateKeyFile parameter.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public string KeyPairId { get; set; }
+        public System.String KeyPairId { get; set; }
 
         /// <summary>
         /// The private key file. RSA private key (.pem) files are supported.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public string PrivateKeyFile { get; set; }
+        public System.String PrivateKeyFile { get; set; }
 
         /// <summary>
         /// The expiration date of the signed URL.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public DateTime ExpiresOn { get; set; }
+        public System.DateTime ExpiresOn { get; set; }
 
         /// <summary>
         /// The date from which the URL can be accessed.
         /// </summary>
         [Parameter(ParameterSetName = CustomPolicyParameterSet)]
-        public DateTime ActiveFrom { get; set; }
+        public System.DateTime ActiveFrom { get; set; }
 
         /// <summary>
         /// The allowed IP address range of the client making the GET request, 
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// 0.0.0.0/0 (i.e. no IP restriction) is used.
         /// </summary>
         [Parameter(ParameterSetName = CustomPolicyParameterSet)]
-        public string IpRange { get; set; }
+        public System.String IpRange { get; set; }
 
         /// <summary>
         /// If set the cmdlet outputs the signed url as a simple string. The default is to wrap

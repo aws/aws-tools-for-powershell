@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the ModifyMountTargetSecurityGroups operation against Amazon Elastic File System.", Operation = new[] {"ModifyMountTargetSecurityGroups"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SecurityGroup parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyMountTargetSecurityGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEFSMountTargetSecurityGroupCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MountTargetId { get; set; }
+        public System.String MountTargetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             context.MountTargetId = this.MountTargetId;
             if (this.SecurityGroup != null)
             {
-                context.SecurityGroups = new List<String>(this.SecurityGroup);
+                context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyMountTargetSecurityGroupsRequest();
+            var request = new Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsRequest();
             
             if (cmdletContext.MountTargetId != null)
             {
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MountTargetId { get; set; }
-            public List<String> SecurityGroups { get; set; }
+            public System.String MountTargetId { get; set; }
+            public List<System.String> SecurityGroups { get; set; }
         }
         
     }

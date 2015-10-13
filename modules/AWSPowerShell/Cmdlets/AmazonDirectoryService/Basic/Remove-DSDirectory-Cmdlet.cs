@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the DeleteDirectory operation against AWS Directory Service.", Operation = new[] {"DeleteDirectory"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.DeleteDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDirectoryRequest();
+            var request = new Amazon.DirectoryService.Model.DeleteDirectoryRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DirectoryId { get; set; }
+            public System.String DirectoryId { get; set; }
         }
         
     }

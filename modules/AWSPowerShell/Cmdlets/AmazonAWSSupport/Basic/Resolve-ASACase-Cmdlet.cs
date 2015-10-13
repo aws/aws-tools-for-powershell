@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [OutputType("Amazon.AWSSupport.Model.ResolveCaseResponse")]
     [AWSCmdlet("Invokes the ResolveCase operation against AWS Support API.", Operation = new[] {"ResolveCase"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.ResolveCaseResponse",
-        "This cmdlet returns a ResolveCaseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.AWSSupport.Model.ResolveCaseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResolveASACaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CaseId { get; set; }
+        public System.String CaseId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResolveCaseRequest();
+            var request = new Amazon.AWSSupport.Model.ResolveCaseRequest();
             
             if (cmdletContext.CaseId != null)
             {
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CaseId { get; set; }
+            public System.String CaseId { get; set; }
         }
         
     }

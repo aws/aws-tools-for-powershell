@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ResetDBClusterParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"ResetDBClusterParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ResetDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ResetDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterParameterGroupName { get; set; }
+        public System.String DBClusterParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ResetAllParameters { get; set; }
+        [Alias("ResetAllParameters")]
+        public System.Boolean ResetAllParameter { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -112,10 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.RDS.Model.Parameter>(this.Parameter);
             }
-            if (ParameterWasBound("ResetAllParameters"))
-                context.ResetAllParameters = this.ResetAllParameters;
+            if (ParameterWasBound("ResetAllParameter"))
+                context.ResetAllParameters = this.ResetAllParameter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -127,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetDBClusterParameterGroupRequest();
+            var request = new Amazon.RDS.Model.ResetDBClusterParameterGroupRequest();
             
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
@@ -176,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterParameterGroupName { get; set; }
-            public List<Parameter> Parameters { get; set; }
-            public Boolean? ResetAllParameters { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
+            public List<Amazon.RDS.Model.Parameter> Parameters { get; set; }
+            public System.Boolean? ResetAllParameters { get; set; }
         }
         
     }

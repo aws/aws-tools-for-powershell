@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the GetJob operation against AWS Device Farm.", Operation = new[] {"GetJob"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Job",
         "This cmdlet returns a Job object.",
-        "The service call response (type GetJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDFJobCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Arn { get; set; }
+        public System.String Arn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetJobRequest();
+            var request = new Amazon.DeviceFarm.Model.GetJobRequest();
             
             if (cmdletContext.Arn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Arn { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

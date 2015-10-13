@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the GetTopicRule operation against AWS IoT.", Operation = new[] {"GetTopicRule"})]
     [AWSCmdletOutput("Amazon.IoT.Model.TopicRule",
         "This cmdlet returns a TopicRule object.",
-        "The service call response (type GetTopicRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.GetTopicRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RuleName { get; set; }
+        public System.String RuleName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetTopicRuleRequest();
+            var request = new Amazon.IoT.Model.GetTopicRuleRequest();
             
             if (cmdletContext.RuleName != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RuleName { get; set; }
+            public System.String RuleName { get; set; }
         }
         
     }

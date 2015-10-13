@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the UpdateSqlInjectionMatchSet operation against AWS WAF.", Operation = new[] {"UpdateSqlInjectionMatchSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateSqlInjectionMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.UpdateSqlInjectionMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateWAFSqlInjectionMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SqlInjectionMatchSetId { get; set; }
+        public System.String SqlInjectionMatchSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             context.SqlInjectionMatchSetId = this.SqlInjectionMatchSetId;
             if (this.Update != null)
             {
-                context.Updates = new List<SqlInjectionMatchSetUpdate>(this.Update);
+                context.Updates = new List<Amazon.WAF.Model.SqlInjectionMatchSetUpdate>(this.Update);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateSqlInjectionMatchSetRequest();
+            var request = new Amazon.WAF.Model.UpdateSqlInjectionMatchSetRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -185,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public String SqlInjectionMatchSetId { get; set; }
-            public List<SqlInjectionMatchSetUpdate> Updates { get; set; }
+            public System.String ChangeToken { get; set; }
+            public System.String SqlInjectionMatchSetId { get; set; }
+            public List<Amazon.WAF.Model.SqlInjectionMatchSetUpdate> Updates { get; set; }
         }
         
     }

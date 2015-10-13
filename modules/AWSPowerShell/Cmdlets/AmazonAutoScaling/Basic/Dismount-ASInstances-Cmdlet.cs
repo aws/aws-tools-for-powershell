@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DetachInstances operation against Auto Scaling.", Operation = new[] {"DetachInstances"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
-        "The service call response (type DetachInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DetachInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DismountASInstancesCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ShouldDecrementDesiredCapacity { get; set; }
+        public System.Boolean ShouldDecrementDesiredCapacity { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.InstanceId != null)
             {
-                context.InstanceIds = new List<String>(this.InstanceId);
+                context.InstanceIds = new List<System.String>(this.InstanceId);
             }
             if (ParameterWasBound("ShouldDecrementDesiredCapacity"))
                 context.ShouldDecrementDesiredCapacity = this.ShouldDecrementDesiredCapacity;
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DetachInstancesRequest();
+            var request = new Amazon.AutoScaling.Model.DetachInstancesRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -165,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> InstanceIds { get; set; }
-            public Boolean? ShouldDecrementDesiredCapacity { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> InstanceIds { get; set; }
+            public System.Boolean? ShouldDecrementDesiredCapacity { get; set; }
         }
         
     }

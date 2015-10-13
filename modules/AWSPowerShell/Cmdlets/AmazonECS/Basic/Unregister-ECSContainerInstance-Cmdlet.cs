@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the DeregisterContainerInstance operation against Amazon EC2 Container Service.", Operation = new[] {"DeregisterContainerInstance"})]
     [AWSCmdletOutput("Amazon.ECS.Model.ContainerInstance",
         "This cmdlet returns a ContainerInstance object.",
-        "The service call response (type DeregisterContainerInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.DeregisterContainerInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterECSContainerInstanceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContainerInstance { get; set; }
+        public System.String ContainerInstance { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ForceDeregistration { get; set; }
+        public System.Boolean ForceDeregistration { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterContainerInstanceRequest();
+            var request = new Amazon.ECS.Model.DeregisterContainerInstanceRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -179,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public String ContainerInstance { get; set; }
-            public Boolean? ForceDeregistration { get; set; }
+            public System.String Cluster { get; set; }
+            public System.String ContainerInstance { get; set; }
+            public System.Boolean? ForceDeregistration { get; set; }
         }
         
     }

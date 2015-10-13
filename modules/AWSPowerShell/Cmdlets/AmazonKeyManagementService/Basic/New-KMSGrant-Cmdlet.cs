@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.CreateGrantResponse")]
     [AWSCmdlet("Invokes the CreateGrant operation against AWS Key Management Service.", Operation = new[] {"CreateGrant"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.CreateGrantResponse",
-        "This cmdlet returns a CreateGrantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.KeyManagementService.Model.CreateGrantResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GranteePrincipal { get; set; }
+        public System.String GranteePrincipal { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RetiringPrincipal { get; set; }
+        public System.String RetiringPrincipal { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             
             if (this.Constraints_EncryptionContextEqual != null)
             {
-                context.Constraints_EncryptionContextEquals = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Constraints_EncryptionContextEquals = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Constraints_EncryptionContextEqual.Keys)
                 {
                     context.Constraints_EncryptionContextEquals.Add((String)hashKey, (String)(this.Constraints_EncryptionContextEqual[hashKey]));
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             if (this.Constraints_EncryptionContextSubset != null)
             {
-                context.Constraints_EncryptionContextSubset = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Constraints_EncryptionContextSubset = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Constraints_EncryptionContextSubset.Keys)
                 {
                     context.Constraints_EncryptionContextSubset.Add((String)hashKey, (String)(this.Constraints_EncryptionContextSubset[hashKey]));
@@ -151,12 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             context.GranteePrincipal = this.GranteePrincipal;
             if (this.GrantToken != null)
             {
-                context.GrantTokens = new List<String>(this.GrantToken);
+                context.GrantTokens = new List<System.String>(this.GrantToken);
             }
             context.KeyId = this.KeyId;
             if (this.Operation != null)
             {
-                context.Operations = new List<String>(this.Operation);
+                context.Operations = new List<System.String>(this.Operation);
             }
             context.RetiringPrincipal = this.RetiringPrincipal;
             
@@ -170,13 +170,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateGrantRequest();
+            var request = new Amazon.KeyManagementService.Model.CreateGrantRequest();
             
             
              // populate Constraints
             bool requestConstraintsIsNull = true;
-            request.Constraints = new GrantConstraints();
-            Dictionary<String, String> requestConstraints_constraints_EncryptionContextEqual = null;
+            request.Constraints = new Amazon.KeyManagementService.Model.GrantConstraints();
+            Dictionary<System.String, System.String> requestConstraints_constraints_EncryptionContextEqual = null;
             if (cmdletContext.Constraints_EncryptionContextEquals != null)
             {
                 requestConstraints_constraints_EncryptionContextEqual = cmdletContext.Constraints_EncryptionContextEquals;
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 request.Constraints.EncryptionContextEquals = requestConstraints_constraints_EncryptionContextEqual;
                 requestConstraintsIsNull = false;
             }
-            Dictionary<String, String> requestConstraints_constraints_EncryptionContextSubset = null;
+            Dictionary<System.String, System.String> requestConstraints_constraints_EncryptionContextSubset = null;
             if (cmdletContext.Constraints_EncryptionContextSubset != null)
             {
                 requestConstraints_constraints_EncryptionContextSubset = cmdletContext.Constraints_EncryptionContextSubset;
@@ -256,13 +256,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> Constraints_EncryptionContextEquals { get; set; }
-            public Dictionary<String, String> Constraints_EncryptionContextSubset { get; set; }
-            public String GranteePrincipal { get; set; }
-            public List<String> GrantTokens { get; set; }
-            public String KeyId { get; set; }
-            public List<String> Operations { get; set; }
-            public String RetiringPrincipal { get; set; }
+            public Dictionary<System.String, System.String> Constraints_EncryptionContextEquals { get; set; }
+            public Dictionary<System.String, System.String> Constraints_EncryptionContextSubset { get; set; }
+            public System.String GranteePrincipal { get; set; }
+            public List<System.String> GrantTokens { get; set; }
+            public System.String KeyId { get; set; }
+            public List<System.String> Operations { get; set; }
+            public System.String RetiringPrincipal { get; set; }
         }
         
     }

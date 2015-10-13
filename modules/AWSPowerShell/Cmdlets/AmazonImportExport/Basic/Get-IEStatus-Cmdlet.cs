@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [OutputType("Amazon.ImportExport.Model.GetStatusResponse")]
     [AWSCmdlet("Invokes the GetStatus operation against AWS Import/Export.", Operation = new[] {"GetStatus"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.GetStatusResponse",
-        "This cmdlet returns a GetStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ImportExport.Model.GetStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIEStatusCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String APIVersion { get; set; }
+        public System.String APIVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetStatusRequest();
+            var request = new Amazon.ImportExport.Model.GetStatusRequest();
             
             if (cmdletContext.APIVersion != null)
             {
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         internal class CmdletContext : ExecutorContext
         {
-            public String APIVersion { get; set; }
-            public String JobId { get; set; }
+            public System.String APIVersion { get; set; }
+            public System.String JobId { get; set; }
         }
         
     }

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the RebootCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"RebootCacheCluster"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
         "This cmdlet returns a CacheCluster object.",
-        "The service call response (type RebootCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.RebootCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestartECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheClusterId { get; set; }
+        public System.String CacheClusterId { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheClusterId = this.CacheClusterId;
             if (this.CacheNodeIdsToReboot != null)
             {
-                context.CacheNodeIdsToReboot = new List<String>(this.CacheNodeIdsToReboot);
+                context.CacheNodeIdsToReboot = new List<System.String>(this.CacheNodeIdsToReboot);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RebootCacheClusterRequest();
+            var request = new Amazon.ElastiCache.Model.RebootCacheClusterRequest();
             
             if (cmdletContext.CacheClusterId != null)
             {
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheClusterId { get; set; }
-            public List<String> CacheNodeIdsToReboot { get; set; }
+            public System.String CacheClusterId { get; set; }
+            public List<System.String> CacheNodeIdsToReboot { get; set; }
         }
         
     }

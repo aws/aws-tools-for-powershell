@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the SetEndpointAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"SetEndpointAttributes"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EndpointArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetEndpointAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.SetEndpointAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSNSEndpointAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EndpointArn { get; set; }
+        public System.String EndpointArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the EndpointArn parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             
             if (this.Attribute != null)
             {
-                context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
                     context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetEndpointAttributesRequest();
+            var request = new Amazon.SimpleNotificationService.Model.SetEndpointAttributesRequest();
             
             if (cmdletContext.Attributes != null)
             {
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> Attributes { get; set; }
-            public String EndpointArn { get; set; }
+            public Dictionary<System.String, System.String> Attributes { get; set; }
+            public System.String EndpointArn { get; set; }
         }
         
     }

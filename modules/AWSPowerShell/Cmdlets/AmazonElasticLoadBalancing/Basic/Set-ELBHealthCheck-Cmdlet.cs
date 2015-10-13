@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the ConfigureHealthCheck operation against Elastic Load Balancing.", Operation = new[] {"ConfigureHealthCheck"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.HealthCheck",
         "This cmdlet returns a HealthCheck object.",
-        "The service call response (type ConfigureHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetELBHealthCheckCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheck_HealthyThreshold { get; set; }
+        public System.Int32 HealthCheck_HealthyThreshold { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheck_Interval { get; set; }
+        public System.Int32 HealthCheck_Interval { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HealthCheck_Target { get; set; }
+        public System.String HealthCheck_Target { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheck_Timeout { get; set; }
+        public System.Int32 HealthCheck_Timeout { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheck_UnhealthyThreshold { get; set; }
+        public System.Int32 HealthCheck_UnhealthyThreshold { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -149,13 +149,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConfigureHealthCheckRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckRequest();
             
             
              // populate HealthCheck
             bool requestHealthCheckIsNull = true;
-            request.HealthCheck = new HealthCheck();
-            Int32? requestHealthCheck_healthCheck_HealthyThreshold = null;
+            request.HealthCheck = new Amazon.ElasticLoadBalancing.Model.HealthCheck();
+            System.Int32? requestHealthCheck_healthCheck_HealthyThreshold = null;
             if (cmdletContext.HealthCheck_HealthyThreshold != null)
             {
                 requestHealthCheck_healthCheck_HealthyThreshold = cmdletContext.HealthCheck_HealthyThreshold.Value;
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.HealthCheck.HealthyThreshold = requestHealthCheck_healthCheck_HealthyThreshold.Value;
                 requestHealthCheckIsNull = false;
             }
-            Int32? requestHealthCheck_healthCheck_Interval = null;
+            System.Int32? requestHealthCheck_healthCheck_Interval = null;
             if (cmdletContext.HealthCheck_Interval != null)
             {
                 requestHealthCheck_healthCheck_Interval = cmdletContext.HealthCheck_Interval.Value;
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.HealthCheck.Interval = requestHealthCheck_healthCheck_Interval.Value;
                 requestHealthCheckIsNull = false;
             }
-            String requestHealthCheck_healthCheck_Target = null;
+            System.String requestHealthCheck_healthCheck_Target = null;
             if (cmdletContext.HealthCheck_Target != null)
             {
                 requestHealthCheck_healthCheck_Target = cmdletContext.HealthCheck_Target;
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.HealthCheck.Target = requestHealthCheck_healthCheck_Target;
                 requestHealthCheckIsNull = false;
             }
-            Int32? requestHealthCheck_healthCheck_Timeout = null;
+            System.Int32? requestHealthCheck_healthCheck_Timeout = null;
             if (cmdletContext.HealthCheck_Timeout != null)
             {
                 requestHealthCheck_healthCheck_Timeout = cmdletContext.HealthCheck_Timeout.Value;
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 request.HealthCheck.Timeout = requestHealthCheck_healthCheck_Timeout.Value;
                 requestHealthCheckIsNull = false;
             }
-            Int32? requestHealthCheck_healthCheck_UnhealthyThreshold = null;
+            System.Int32? requestHealthCheck_healthCheck_UnhealthyThreshold = null;
             if (cmdletContext.HealthCheck_UnhealthyThreshold != null)
             {
                 requestHealthCheck_healthCheck_UnhealthyThreshold = cmdletContext.HealthCheck_UnhealthyThreshold.Value;
@@ -249,12 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? HealthCheck_HealthyThreshold { get; set; }
-            public Int32? HealthCheck_Interval { get; set; }
-            public String HealthCheck_Target { get; set; }
-            public Int32? HealthCheck_Timeout { get; set; }
-            public Int32? HealthCheck_UnhealthyThreshold { get; set; }
-            public String LoadBalancerName { get; set; }
+            public System.Int32? HealthCheck_HealthyThreshold { get; set; }
+            public System.Int32? HealthCheck_Interval { get; set; }
+            public System.String HealthCheck_Target { get; set; }
+            public System.Int32? HealthCheck_Timeout { get; set; }
+            public System.Int32? HealthCheck_UnhealthyThreshold { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

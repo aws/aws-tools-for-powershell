@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the ListAssessmentAgents operation against Amazon Inspector.", Operation = new[] {"ListAssessmentAgents"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.Agent",
         "This cmdlet returns a collection of Agent objects.",
-        "The service call response (type ListAssessmentAgentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.Inspector.Model.ListAssessmentAgentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetINSAssessmentAgentListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AssessmentArn { get; set; }
+        public System.String AssessmentArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             context.AssessmentArn = this.AssessmentArn;
             if (this.Filter_AgentHealthList != null)
             {
-                context.Filter_AgentHealthList = new List<String>(this.Filter_AgentHealthList);
+                context.Filter_AgentHealthList = new List<System.String>(this.Filter_AgentHealthList);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListAssessmentAgentsRequest();
+            var request = new Amazon.Inspector.Model.ListAssessmentAgentsRequest();
             if (cmdletContext.AssessmentArn != null)
             {
                 request.AssessmentArn = cmdletContext.AssessmentArn;
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
             
              // populate Filter
             bool requestFilterIsNull = true;
-            request.Filter = new AgentsFilter();
-            List<String> requestFilter_filter_AgentHealthList = null;
+            request.Filter = new Amazon.Inspector.Model.AgentsFilter();
+            List<System.String> requestFilter_filter_AgentHealthList = null;
             if (cmdletContext.Filter_AgentHealthList != null)
             {
                 requestFilter_filter_AgentHealthList = cmdletContext.Filter_AgentHealthList;
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -221,10 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssessmentArn { get; set; }
-            public List<String> Filter_AgentHealthList { get; set; }
+            public System.String AssessmentArn { get; set; }
+            public List<System.String> Filter_AgentHealthList { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DeleteScheduledAction operation against Auto Scaling.", Operation = new[] {"DeleteScheduledAction"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteScheduledActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteScheduledActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveASScheduledActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ScheduledActionName { get; set; }
+        public System.String ScheduledActionName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteScheduledActionRequest();
+            var request = new Amazon.AutoScaling.Model.DeleteScheduledActionRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public String ScheduledActionName { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.String ScheduledActionName { get; set; }
         }
         
     }

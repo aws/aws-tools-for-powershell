@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Invokes the DeleteDeliveryStream operation against Amazon Kinesis Firehose.", Operation = new[] {"DeleteDeliveryStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryStreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDeliveryStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeliveryStreamName { get; set; }
+        public System.String DeliveryStreamName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DeliveryStreamName parameter.
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDeliveryStreamRequest();
+            var request = new Amazon.KinesisFirehose.Model.DeleteDeliveryStreamRequest();
             
             if (cmdletContext.DeliveryStreamName != null)
             {
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryStreamName { get; set; }
+            public System.String DeliveryStreamName { get; set; }
         }
         
     }

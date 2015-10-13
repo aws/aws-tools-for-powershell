@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the AddAttributesToFindings operation against Amazon Inspector.", Operation = new[] {"AddAttributesToFindings"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AddAttributesToFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.AddAttributesToFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddINSFindingAttributeCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             }
             if (this.FindingArn != null)
             {
-                context.FindingArns = new List<String>(this.FindingArn);
+                context.FindingArns = new List<System.String>(this.FindingArn);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddAttributesToFindingsRequest();
+            var request = new Amazon.Inspector.Model.AddAttributesToFindingsRequest();
             
             if (cmdletContext.Attributes != null)
             {
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         internal class CmdletContext : ExecutorContext
         {
             public List<Amazon.Inspector.Model.Attribute> Attributes { get; set; }
-            public List<String> FindingArns { get; set; }
+            public List<System.String> FindingArns { get; set; }
         }
         
     }

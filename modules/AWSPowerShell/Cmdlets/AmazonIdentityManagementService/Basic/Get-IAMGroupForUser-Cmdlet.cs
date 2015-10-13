@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ListGroupsForUser operation against AWS Identity and Access Management.", Operation = new[] {"ListGroupsForUser"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Group",
         "This cmdlet returns a collection of Group objects.",
-        "The service call response (type ListGroupsForUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.IdentityManagement.Model.ListGroupsForUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String)"
     )]
     public class GetIAMGroupForUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListGroupsForUserRequest();
+            var request = new Amazon.IdentityManagement.Model.ListGroupsForUserRequest();
             if (cmdletContext.UserName != null)
             {
                 request.UserName = cmdletContext.UserName;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -196,9 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public String UserName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

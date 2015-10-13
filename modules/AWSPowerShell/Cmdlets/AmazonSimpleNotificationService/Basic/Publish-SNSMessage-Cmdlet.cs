@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the Publish operation against Amazon Simple Notification Service.", Operation = new[] {"Publish"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type PublishResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.PublishResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class PublishSNSMessageCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Message { get; set; }
+        public System.String Message { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String MessageStructure { get; set; }
+        public System.String MessageStructure { get; set; }
         
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Subject { get; set; }
+        public System.String Subject { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TargetArn { get; set; }
+        public System.String TargetArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             context.Message = this.Message;
             if (this.MessageAttribute != null)
             {
-                context.MessageAttributes = new Dictionary<String, MessageAttributeValue>(StringComparer.Ordinal);
+                context.MessageAttributes = new Dictionary<System.String, Amazon.SimpleNotificationService.Model.MessageAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageAttribute.Keys)
                 {
                     context.MessageAttributes.Add((String)hashKey, (MessageAttributeValue)(this.MessageAttribute[hashKey]));
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PublishRequest();
+            var request = new Amazon.SimpleNotificationService.Model.PublishRequest();
             
             if (cmdletContext.Message != null)
             {
@@ -237,12 +237,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Message { get; set; }
-            public Dictionary<String, MessageAttributeValue> MessageAttributes { get; set; }
-            public String MessageStructure { get; set; }
-            public String Subject { get; set; }
-            public String TargetArn { get; set; }
-            public String TopicArn { get; set; }
+            public System.String Message { get; set; }
+            public Dictionary<System.String, Amazon.SimpleNotificationService.Model.MessageAttributeValue> MessageAttributes { get; set; }
+            public System.String MessageStructure { get; set; }
+            public System.String Subject { get; set; }
+            public System.String TargetArn { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

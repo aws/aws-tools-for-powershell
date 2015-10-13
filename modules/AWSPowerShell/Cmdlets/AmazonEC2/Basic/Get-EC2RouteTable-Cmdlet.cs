@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeRouteTables operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeRouteTables"})]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteTable",
         "This cmdlet returns a collection of RouteTable objects.",
-        "The service call response (type DescribeRouteTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeRouteTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -101,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.RouteTableId != null)
             {
-                context.RouteTableIds = new List<String>(this.RouteTableId);
+                context.RouteTableIds = new List<System.String>(this.RouteTableId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeRouteTablesRequest();
+            var request = new Amazon.EC2.Model.DescribeRouteTablesRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -163,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> RouteTableIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> RouteTableIds { get; set; }
         }
         
     }

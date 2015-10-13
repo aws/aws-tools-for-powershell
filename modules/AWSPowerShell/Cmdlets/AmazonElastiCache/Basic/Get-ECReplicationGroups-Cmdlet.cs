@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeReplicationGroups operation against Amazon ElastiCache.", Operation = new[] {"DescribeReplicationGroups"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup",
         "This cmdlet returns a collection of ReplicationGroup objects.",
-        "The service call response (type DescribeReplicationGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElastiCache.Model.DescribeReplicationGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetECReplicationGroupsCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReplicationGroupId { get; set; }
+        public System.String ReplicationGroupId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeReplicationGroupsRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeReplicationGroupsRequest();
             if (cmdletContext.ReplicationGroupId != null)
             {
                 request.ReplicationGroupId = cmdletContext.ReplicationGroupId;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -193,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String ReplicationGroupId { get; set; }
+            public System.String ReplicationGroupId { get; set; }
         }
         
     }

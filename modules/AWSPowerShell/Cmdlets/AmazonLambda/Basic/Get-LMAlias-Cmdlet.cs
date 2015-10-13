@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetAliasResponse")]
     [AWSCmdlet("Invokes the GetAlias operation against Amazon Lambda.", Operation = new[] {"GetAlias"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetAliasResponse",
-        "This cmdlet returns a GetAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.GetAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         
         protected override void ProcessRecord()
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetAliasRequest();
+            var request = new Amazon.Lambda.Model.GetAliasRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String Name { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

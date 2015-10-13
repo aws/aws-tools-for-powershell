@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AttachNetworkInterface operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AttachNetworkInterface"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AttachNetworkInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AttachNetworkInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public Int32 DeviceIndex { get; set; }
+        public System.Int32 DeviceIndex { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachNetworkInterfaceRequest();
+            var request = new Amazon.EC2.Model.AttachNetworkInterfaceRequest();
             
             if (cmdletContext.DeviceIndex != null)
             {
@@ -152,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DeviceIndex { get; set; }
-            public String InstanceId { get; set; }
-            public String NetworkInterfaceId { get; set; }
+            public System.Int32? DeviceIndex { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
         }
         
     }

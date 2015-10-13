@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateEventSubscription operation against Amazon Relational Database Service.", Operation = new[] {"CreateEventSubscription"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnsTopicArn { get; set; }
+        public System.String SnsTopicArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SourceType { get; set; }
+        public System.String SourceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -162,18 +162,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Enabled = this.Enabled;
             if (this.EventCategory != null)
             {
-                context.EventCategories = new List<String>(this.EventCategory);
+                context.EventCategories = new List<System.String>(this.EventCategory);
             }
             context.SnsTopicArn = this.SnsTopicArn;
             if (this.SourceId != null)
             {
-                context.SourceIds = new List<String>(this.SourceId);
+                context.SourceIds = new List<System.String>(this.SourceId);
             }
             context.SourceType = this.SourceType;
             context.SubscriptionName = this.SubscriptionName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateEventSubscriptionRequest();
+            var request = new Amazon.RDS.Model.CreateEventSubscriptionRequest();
             
             if (cmdletContext.Enabled != null)
             {
@@ -251,13 +251,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Enabled { get; set; }
-            public List<String> EventCategories { get; set; }
-            public String SnsTopicArn { get; set; }
-            public List<String> SourceIds { get; set; }
-            public String SourceType { get; set; }
-            public String SubscriptionName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public List<System.String> EventCategories { get; set; }
+            public System.String SnsTopicArn { get; set; }
+            public List<System.String> SourceIds { get; set; }
+            public System.String SourceType { get; set; }
+            public System.String SubscriptionName { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

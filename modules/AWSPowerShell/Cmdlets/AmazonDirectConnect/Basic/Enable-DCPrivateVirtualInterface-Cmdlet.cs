@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse")]
     [AWSCmdlet("Invokes the AllocatePrivateVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"AllocatePrivateVirtualInterface"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse",
-        "This cmdlet returns a AllocatePrivateVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewPrivateVirtualInterfaceAllocation_AmazonAddress { get; set; }
+        public System.String NewPrivateVirtualInterfaceAllocation_AmazonAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
+        public System.Int32 NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewPrivateVirtualInterfaceAllocation_AuthKey { get; set; }
+        public System.String NewPrivateVirtualInterfaceAllocation_AuthKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ConnectionId { get; set; }
+        public System.String ConnectionId { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewPrivateVirtualInterfaceAllocation_CustomerAddress { get; set; }
+        public System.String NewPrivateVirtualInterfaceAllocation_CustomerAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String OwnerAccount { get; set; }
+        public System.String OwnerAccount { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName { get; set; }
+        public System.String NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 NewPrivateVirtualInterfaceAllocation_Vlan { get; set; }
+        public System.Int32 NewPrivateVirtualInterfaceAllocation_Vlan { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AllocatePrivateVirtualInterfaceRequest();
+            var request = new Amazon.DirectConnect.Model.AllocatePrivateVirtualInterfaceRequest();
             
             if (cmdletContext.ConnectionId != null)
             {
@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
             
              // populate NewPrivateVirtualInterfaceAllocation
             bool requestNewPrivateVirtualInterfaceAllocationIsNull = true;
-            request.NewPrivateVirtualInterfaceAllocation = new NewPrivateVirtualInterfaceAllocation();
-            String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AmazonAddress = null;
+            request.NewPrivateVirtualInterfaceAllocation = new Amazon.DirectConnect.Model.NewPrivateVirtualInterfaceAllocation();
+            System.String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AmazonAddress = null;
             if (cmdletContext.NewPrivateVirtualInterfaceAllocation_AmazonAddress != null)
             {
                 requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AmazonAddress = cmdletContext.NewPrivateVirtualInterfaceAllocation_AmazonAddress;
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 request.NewPrivateVirtualInterfaceAllocation.AmazonAddress = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AmazonAddress;
                 requestNewPrivateVirtualInterfaceAllocationIsNull = false;
             }
-            Int32? requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Asn = null;
+            System.Int32? requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Asn = null;
             if (cmdletContext.NewPrivateVirtualInterfaceAllocation_Asn != null)
             {
                 requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Asn = cmdletContext.NewPrivateVirtualInterfaceAllocation_Asn.Value;
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 request.NewPrivateVirtualInterfaceAllocation.Asn = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Asn.Value;
                 requestNewPrivateVirtualInterfaceAllocationIsNull = false;
             }
-            String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AuthKey = null;
+            System.String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AuthKey = null;
             if (cmdletContext.NewPrivateVirtualInterfaceAllocation_AuthKey != null)
             {
                 requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AuthKey = cmdletContext.NewPrivateVirtualInterfaceAllocation_AuthKey;
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 request.NewPrivateVirtualInterfaceAllocation.AuthKey = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_AuthKey;
                 requestNewPrivateVirtualInterfaceAllocationIsNull = false;
             }
-            String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_CustomerAddress = null;
+            System.String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_CustomerAddress = null;
             if (cmdletContext.NewPrivateVirtualInterfaceAllocation_CustomerAddress != null)
             {
                 requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_CustomerAddress = cmdletContext.NewPrivateVirtualInterfaceAllocation_CustomerAddress;
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 request.NewPrivateVirtualInterfaceAllocation.CustomerAddress = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_CustomerAddress;
                 requestNewPrivateVirtualInterfaceAllocationIsNull = false;
             }
-            String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_VirtualInterfaceName = null;
+            System.String requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_VirtualInterfaceName = null;
             if (cmdletContext.NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName != null)
             {
                 requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_VirtualInterfaceName = cmdletContext.NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName;
@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 request.NewPrivateVirtualInterfaceAllocation.VirtualInterfaceName = requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_VirtualInterfaceName;
                 requestNewPrivateVirtualInterfaceAllocationIsNull = false;
             }
-            Int32? requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Vlan = null;
+            System.Int32? requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Vlan = null;
             if (cmdletContext.NewPrivateVirtualInterfaceAllocation_Vlan != null)
             {
                 requestNewPrivateVirtualInterfaceAllocation_newPrivateVirtualInterfaceAllocation_Vlan = cmdletContext.NewPrivateVirtualInterfaceAllocation_Vlan.Value;
@@ -273,14 +273,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConnectionId { get; set; }
-            public String NewPrivateVirtualInterfaceAllocation_AmazonAddress { get; set; }
-            public Int32? NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
-            public String NewPrivateVirtualInterfaceAllocation_AuthKey { get; set; }
-            public String NewPrivateVirtualInterfaceAllocation_CustomerAddress { get; set; }
-            public String NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName { get; set; }
-            public Int32? NewPrivateVirtualInterfaceAllocation_Vlan { get; set; }
-            public String OwnerAccount { get; set; }
+            public System.String ConnectionId { get; set; }
+            public System.String NewPrivateVirtualInterfaceAllocation_AmazonAddress { get; set; }
+            public System.Int32? NewPrivateVirtualInterfaceAllocation_Asn { get; set; }
+            public System.String NewPrivateVirtualInterfaceAllocation_AuthKey { get; set; }
+            public System.String NewPrivateVirtualInterfaceAllocation_CustomerAddress { get; set; }
+            public System.String NewPrivateVirtualInterfaceAllocation_VirtualInterfaceName { get; set; }
+            public System.Int32? NewPrivateVirtualInterfaceAllocation_Vlan { get; set; }
+            public System.String OwnerAccount { get; set; }
         }
         
     }

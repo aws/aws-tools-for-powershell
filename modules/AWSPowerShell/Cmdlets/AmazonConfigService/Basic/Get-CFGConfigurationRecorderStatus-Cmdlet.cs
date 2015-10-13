@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DescribeConfigurationRecorderStatus operation against Amazon Config.", Operation = new[] {"DescribeConfigurationRecorderStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationRecorderStatus",
         "This cmdlet returns a collection of ConfigurationRecorderStatus objects.",
-        "The service call response (type DescribeConfigurationRecorderStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGConfigurationRecorderStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.ConfigurationRecorderName != null)
             {
-                context.ConfigurationRecorderNames = new List<String>(this.ConfigurationRecorderName);
+                context.ConfigurationRecorderNames = new List<System.String>(this.ConfigurationRecorderName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConfigurationRecorderStatusRequest();
+            var request = new Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusRequest();
             
             if (cmdletContext.ConfigurationRecorderNames != null)
             {
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ConfigurationRecorderNames { get; set; }
+            public List<System.String> ConfigurationRecorderNames { get; set; }
         }
         
     }

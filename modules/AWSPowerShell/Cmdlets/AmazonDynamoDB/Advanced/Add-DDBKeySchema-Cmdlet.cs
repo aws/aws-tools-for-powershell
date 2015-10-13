@@ -28,7 +28,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [Cmdlet("Add", "DDBKeySchema")]
     [OutputType("TableSchema")]
     [AWSCmdlet("Adds a new Amazon DynamoDB KeySchemaElement instance to the supplied TableSchema object.")]
-    [AWSCmdletOutput("TableSchema", "This cmdlet returns an updated Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object to the pipeline.")]
+    [AWSCmdletOutput("Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema", "This cmdlet returns an updated Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object to the pipeline.")]
     public class AddDDBKeySchemaCmdlet : BaseCmdlet
     {
         /// <summary>
@@ -36,20 +36,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// attached KeySchema property collection.
         /// </summary>
         [Parameter(ValueFromPipeline = true, Mandatory = true)]
-        public TableSchema Schema { get; set; }
+        public Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema Schema { get; set; }
 
         /// <summary>
         /// The name of the key to be applied to the schema. If a key with the specified name already exists 
         /// an error is thrown.
         /// </summary>
         [Parameter(Position = 0, Mandatory = true)]
-        public string KeyName { get; set; }
+        public System.String KeyName { get; set; }
 
         /// <summary>
         /// The key type. Valid values are "HASH" or "RANGE". If not specified, "HASH" is assumed. 
         /// </summary>
         [Parameter(Position = 1)]
-        public string KeyType { get; set; }
+        public System.String KeyType { get; set; }
 
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [Parameter(Position = 2)]
-        public string KeyDataType { get; set; }
+        public System.String KeyDataType { get; set; }
 
         protected override void ProcessRecord()
         {

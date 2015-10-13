@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ReplaceRouteTableAssociation operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReplaceRouteTableAssociation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ReplaceRouteTableAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ReplaceRouteTableAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEC2RouteTableAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AssociationId { get; set; }
+        public System.String AssociationId { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String RouteTableId { get; set; }
+        public System.String RouteTableId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReplaceRouteTableAssociationRequest();
+            var request = new Amazon.EC2.Model.ReplaceRouteTableAssociationRequest();
             
             if (cmdletContext.AssociationId != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssociationId { get; set; }
-            public String RouteTableId { get; set; }
+            public System.String AssociationId { get; set; }
+            public System.String RouteTableId { get; set; }
         }
         
     }

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetGroupPolicyResponse")]
     [AWSCmdlet("Invokes the GetGroupPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetGroupPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetGroupPolicyResponse",
-        "This cmdlet returns a GetGroupPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetGroupPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMGroupPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetGroupPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.GetGroupPolicyRequest();
             
             if (cmdletContext.GroupName != null)
             {
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupName { get; set; }
-            public String PolicyName { get; set; }
+            public System.String GroupName { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

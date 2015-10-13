@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeEventSubscriptions operation against Amazon Redshift.", Operation = new[] {"DescribeEventSubscriptions"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.EventSubscription",
         "This cmdlet returns a collection of EventSubscription objects.",
-        "The service call response (type DescribeEventSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.Redshift.Model.DescribeEventSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRSEventSubscriptionsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeEventSubscriptionsRequest();
+            var request = new Amazon.Redshift.Model.DescribeEventSubscriptionsRequest();
             if (cmdletContext.SubscriptionName != null)
             {
                 request.SubscriptionName = cmdletContext.SubscriptionName;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -225,9 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String SubscriptionName { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

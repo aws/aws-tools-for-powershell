@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.ReEncryptResponse")]
     [AWSCmdlet("Invokes the ReEncrypt operation against AWS Key Management Service.", Operation = new[] {"ReEncrypt"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.ReEncryptResponse",
-        "This cmdlet returns a ReEncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.KeyManagementService.Model.ReEncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeKMSReEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationKeyId { get; set; }
+        public System.String DestinationKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             context.CiphertextBlob = this.CiphertextBlob;
             if (this.DestinationEncryptionContext != null)
             {
-                context.DestinationEncryptionContext = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.DestinationEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DestinationEncryptionContext.Keys)
                 {
                     context.DestinationEncryptionContext.Add((String)hashKey, (String)(this.DestinationEncryptionContext[hashKey]));
@@ -135,11 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             context.DestinationKeyId = this.DestinationKeyId;
             if (this.GrantToken != null)
             {
-                context.GrantTokens = new List<String>(this.GrantToken);
+                context.GrantTokens = new List<System.String>(this.GrantToken);
             }
             if (this.SourceEncryptionContext != null)
             {
-                context.SourceEncryptionContext = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.SourceEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SourceEncryptionContext.Keys)
                 {
                     context.SourceEncryptionContext.Add((String)hashKey, (String)(this.SourceEncryptionContext[hashKey]));
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReEncryptRequest();
+            var request = new Amazon.KeyManagementService.Model.ReEncryptRequest();
             
             if (cmdletContext.CiphertextBlob != null)
             {
@@ -214,10 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal class CmdletContext : ExecutorContext
         {
             public System.IO.MemoryStream CiphertextBlob { get; set; }
-            public Dictionary<String, String> DestinationEncryptionContext { get; set; }
-            public String DestinationKeyId { get; set; }
-            public List<String> GrantTokens { get; set; }
-            public Dictionary<String, String> SourceEncryptionContext { get; set; }
+            public Dictionary<System.String, System.String> DestinationEncryptionContext { get; set; }
+            public System.String DestinationKeyId { get; set; }
+            public List<System.String> GrantTokens { get; set; }
+            public Dictionary<System.String, System.String> SourceEncryptionContext { get; set; }
         }
         
     }

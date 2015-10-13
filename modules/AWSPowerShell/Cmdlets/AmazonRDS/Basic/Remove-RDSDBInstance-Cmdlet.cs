@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type DeleteDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalDBSnapshotIdentifier { get; set; }
+        public System.String FinalDBSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SkipFinalSnapshot { get; set; }
+        public System.Boolean SkipFinalSnapshot { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBInstanceRequest();
+            var request = new Amazon.RDS.Model.DeleteDBInstanceRequest();
             
             if (cmdletContext.DBInstanceIdentifier != null)
             {
@@ -179,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceIdentifier { get; set; }
-            public String FinalDBSnapshotIdentifier { get; set; }
-            public Boolean? SkipFinalSnapshot { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String FinalDBSnapshotIdentifier { get; set; }
+            public System.Boolean? SkipFinalSnapshot { get; set; }
         }
         
     }

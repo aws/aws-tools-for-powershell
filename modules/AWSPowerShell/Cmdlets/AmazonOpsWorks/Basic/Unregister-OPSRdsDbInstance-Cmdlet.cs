@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeregisterRdsDbInstance operation against AWS OpsWorks.", Operation = new[] {"DeregisterRdsDbInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RdsDbInstanceArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeregisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RdsDbInstanceArn { get; set; }
+        public System.String RdsDbInstanceArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RdsDbInstanceArn parameter.
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterRdsDbInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.DeregisterRdsDbInstanceRequest();
             
             if (cmdletContext.RdsDbInstanceArn != null)
             {
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RdsDbInstanceArn { get; set; }
+            public System.String RdsDbInstanceArn { get; set; }
         }
         
     }

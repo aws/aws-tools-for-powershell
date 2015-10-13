@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DeleteAnalysisScheme operation against Amazon CloudSearch.", Operation = new[] {"DeleteAnalysisScheme"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AnalysisSchemeStatus",
         "This cmdlet returns a AnalysisSchemeStatus object.",
-        "The service call response (type DeleteAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String AnalysisSchemeName { get; set; }
+        public System.String AnalysisSchemeName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteAnalysisSchemeRequest();
+            var request = new Amazon.CloudSearch.Model.DeleteAnalysisSchemeRequest();
             
             if (cmdletContext.AnalysisSchemeName != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AnalysisSchemeName { get; set; }
-            public String DomainName { get; set; }
+            public System.String AnalysisSchemeName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

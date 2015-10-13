@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the CreateCluster operation against Amazon EC2 Container Service.", Operation = new[] {"CreateCluster"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECSClusterCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ClusterName { get; set; }
+        public System.String ClusterName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateClusterRequest();
+            var request = new Amazon.ECS.Model.CreateClusterRequest();
             
             if (cmdletContext.ClusterName != null)
             {
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterName { get; set; }
+            public System.String ClusterName { get; set; }
         }
         
     }

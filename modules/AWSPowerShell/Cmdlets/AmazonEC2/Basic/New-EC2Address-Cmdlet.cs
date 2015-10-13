@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AllocateAddressResponse")]
     [AWSCmdlet("Invokes the AllocateAddress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AllocateAddress"})]
     [AWSCmdletOutput("Amazon.EC2.Model.AllocateAddressResponse",
-        "This cmdlet returns a AllocateAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.AllocateAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public DomainType Domain { get; set; }
+        public Amazon.EC2.DomainType Domain { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AllocateAddressRequest();
+            var request = new Amazon.EC2.Model.AllocateAddressRequest();
             
             if (cmdletContext.Domain != null)
             {
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public DomainType Domain { get; set; }
+            public Amazon.EC2.DomainType Domain { get; set; }
         }
         
     }

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifySnapshotAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifySnapshotAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifySnapshotAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifySnapshotAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2SnapshotAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SnapshotAttributeName Attribute { get; set; }
+        public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public OperationType OperationType { get; set; }
+        public Amazon.EC2.OperationType OperationType { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
         
         /// <summary>
         /// <para>
@@ -143,21 +143,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Attribute = this.Attribute;
             if (this.CreateVolumePermission_Add != null)
             {
-                context.CreateVolumePermission_Add = new List<CreateVolumePermission>(this.CreateVolumePermission_Add);
+                context.CreateVolumePermission_Add = new List<Amazon.EC2.Model.CreateVolumePermission>(this.CreateVolumePermission_Add);
             }
             if (this.CreateVolumePermission_Remove != null)
             {
-                context.CreateVolumePermission_Remove = new List<CreateVolumePermission>(this.CreateVolumePermission_Remove);
+                context.CreateVolumePermission_Remove = new List<Amazon.EC2.Model.CreateVolumePermission>(this.CreateVolumePermission_Remove);
             }
             if (this.GroupName != null)
             {
-                context.GroupNames = new List<String>(this.GroupName);
+                context.GroupNames = new List<System.String>(this.GroupName);
             }
             context.OperationType = this.OperationType;
             context.SnapshotId = this.SnapshotId;
             if (this.UserId != null)
             {
-                context.UserIds = new List<String>(this.UserId);
+                context.UserIds = new List<System.String>(this.UserId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifySnapshotAttributeRequest();
+            var request = new Amazon.EC2.Model.ModifySnapshotAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate CreateVolumePermission
             bool requestCreateVolumePermissionIsNull = true;
-            request.CreateVolumePermission = new CreateVolumePermissionModifications();
-            List<CreateVolumePermission> requestCreateVolumePermission_createVolumePermission_Add = null;
+            request.CreateVolumePermission = new Amazon.EC2.Model.CreateVolumePermissionModifications();
+            List<Amazon.EC2.Model.CreateVolumePermission> requestCreateVolumePermission_createVolumePermission_Add = null;
             if (cmdletContext.CreateVolumePermission_Add != null)
             {
                 requestCreateVolumePermission_createVolumePermission_Add = cmdletContext.CreateVolumePermission_Add;
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.CreateVolumePermission.Add = requestCreateVolumePermission_createVolumePermission_Add;
                 requestCreateVolumePermissionIsNull = false;
             }
-            List<CreateVolumePermission> requestCreateVolumePermission_createVolumePermission_Remove = null;
+            List<Amazon.EC2.Model.CreateVolumePermission> requestCreateVolumePermission_createVolumePermission_Remove = null;
             if (cmdletContext.CreateVolumePermission_Remove != null)
             {
                 requestCreateVolumePermission_createVolumePermission_Remove = cmdletContext.CreateVolumePermission_Remove;
@@ -258,13 +258,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public SnapshotAttributeName Attribute { get; set; }
-            public List<CreateVolumePermission> CreateVolumePermission_Add { get; set; }
-            public List<CreateVolumePermission> CreateVolumePermission_Remove { get; set; }
-            public List<String> GroupNames { get; set; }
-            public OperationType OperationType { get; set; }
-            public String SnapshotId { get; set; }
-            public List<String> UserIds { get; set; }
+            public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
+            public List<Amazon.EC2.Model.CreateVolumePermission> CreateVolumePermission_Add { get; set; }
+            public List<Amazon.EC2.Model.CreateVolumePermission> CreateVolumePermission_Remove { get; set; }
+            public List<System.String> GroupNames { get; set; }
+            public Amazon.EC2.OperationType OperationType { get; set; }
+            public System.String SnapshotId { get; set; }
+            public List<System.String> UserIds { get; set; }
         }
         
     }

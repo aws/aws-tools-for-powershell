@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the DeleteAlias operation against Amazon Lambda.", Operation = new[] {"DeleteAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// Returns the value passed to the FunctionName parameter.
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteAliasRequest();
+            var request = new Amazon.Lambda.Model.DeleteAliasRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String Name { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

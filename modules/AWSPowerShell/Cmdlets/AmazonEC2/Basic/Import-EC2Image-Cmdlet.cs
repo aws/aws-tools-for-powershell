@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ImportImageResponse")]
     [AWSCmdlet("Invokes the ImportImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ImportImage"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportImageResponse",
-        "This cmdlet returns a ImportImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.ImportImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ImportEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Architecture { get; set; }
+        public System.String Architecture { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientData_Comment { get; set; }
+        public System.String ClientData_Comment { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Hypervisor { get; set; }
+        public System.String Hypervisor { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LicenseType { get; set; }
+        public System.String LicenseType { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Platform { get; set; }
+        public System.String Platform { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RoleName { get; set; }
+        public System.String RoleName { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ClientData_UploadEnd { get; set; }
+        public System.DateTime ClientData_UploadEnd { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double ClientData_UploadSize { get; set; }
+        public System.Double ClientData_UploadSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ClientData_UploadStart { get; set; }
+        public System.DateTime ClientData_UploadStart { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Description = this.Description;
             if (this.DiskContainer != null)
             {
-                context.DiskContainers = new List<ImageDiskContainer>(this.DiskContainer);
+                context.DiskContainers = new List<Amazon.EC2.Model.ImageDiskContainer>(this.DiskContainer);
             }
             context.Hypervisor = this.Hypervisor;
             context.LicenseType = this.LicenseType;
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ImportImageRequest();
+            var request = new Amazon.EC2.Model.ImportImageRequest();
             
             if (cmdletContext.Architecture != null)
             {
@@ -201,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate ClientData
             bool requestClientDataIsNull = true;
-            request.ClientData = new ClientData();
-            String requestClientData_clientData_Comment = null;
+            request.ClientData = new Amazon.EC2.Model.ClientData();
+            System.String requestClientData_clientData_Comment = null;
             if (cmdletContext.ClientData_Comment != null)
             {
                 requestClientData_clientData_Comment = cmdletContext.ClientData_Comment;
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ClientData.Comment = requestClientData_clientData_Comment;
                 requestClientDataIsNull = false;
             }
-            DateTime? requestClientData_clientData_UploadEnd = null;
+            System.DateTime? requestClientData_clientData_UploadEnd = null;
             if (cmdletContext.ClientData_UploadEnd != null)
             {
                 requestClientData_clientData_UploadEnd = cmdletContext.ClientData_UploadEnd.Value;
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ClientData.UploadEnd = requestClientData_clientData_UploadEnd.Value;
                 requestClientDataIsNull = false;
             }
-            Double? requestClientData_clientData_UploadSize = null;
+            System.Double? requestClientData_clientData_UploadSize = null;
             if (cmdletContext.ClientData_UploadSize != null)
             {
                 requestClientData_clientData_UploadSize = cmdletContext.ClientData_UploadSize.Value;
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ClientData.UploadSize = requestClientData_clientData_UploadSize.Value;
                 requestClientDataIsNull = false;
             }
-            DateTime? requestClientData_clientData_UploadStart = null;
+            System.DateTime? requestClientData_clientData_UploadStart = null;
             if (cmdletContext.ClientData_UploadStart != null)
             {
                 requestClientData_clientData_UploadStart = cmdletContext.ClientData_UploadStart.Value;
@@ -310,18 +310,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Architecture { get; set; }
-            public String ClientData_Comment { get; set; }
-            public DateTime? ClientData_UploadEnd { get; set; }
-            public Double? ClientData_UploadSize { get; set; }
-            public DateTime? ClientData_UploadStart { get; set; }
-            public String ClientToken { get; set; }
-            public String Description { get; set; }
-            public List<ImageDiskContainer> DiskContainers { get; set; }
-            public String Hypervisor { get; set; }
-            public String LicenseType { get; set; }
-            public String Platform { get; set; }
-            public String RoleName { get; set; }
+            public System.String Architecture { get; set; }
+            public System.String ClientData_Comment { get; set; }
+            public System.DateTime? ClientData_UploadEnd { get; set; }
+            public System.Double? ClientData_UploadSize { get; set; }
+            public System.DateTime? ClientData_UploadStart { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public List<Amazon.EC2.Model.ImageDiskContainer> DiskContainers { get; set; }
+            public System.String Hypervisor { get; set; }
+            public System.String LicenseType { get; set; }
+            public System.String Platform { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

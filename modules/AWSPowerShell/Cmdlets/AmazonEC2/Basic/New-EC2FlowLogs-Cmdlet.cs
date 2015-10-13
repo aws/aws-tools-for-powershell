@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateFlowLogsResponse")]
     [AWSCmdlet("Invokes the CreateFlowLogs operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateFlowLogs"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFlowLogsResponse",
-        "This cmdlet returns a CreateFlowLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.CreateFlowLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliverLogsPermissionArn { get; set; }
+        public System.String DeliverLogsPermissionArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public FlowLogsResourceType ResourceType { get; set; }
+        public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TrafficType TrafficType { get; set; }
+        public Amazon.EC2.TrafficType TrafficType { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LogGroupName = this.LogGroupName;
             if (this.ResourceId != null)
             {
-                context.ResourceIds = new List<String>(this.ResourceId);
+                context.ResourceIds = new List<System.String>(this.ResourceId);
             }
             context.ResourceType = this.ResourceType;
             context.TrafficType = this.TrafficType;
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateFlowLogsRequest();
+            var request = new Amazon.EC2.Model.CreateFlowLogsRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -206,12 +206,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String DeliverLogsPermissionArn { get; set; }
-            public String LogGroupName { get; set; }
-            public List<String> ResourceIds { get; set; }
-            public FlowLogsResourceType ResourceType { get; set; }
-            public TrafficType TrafficType { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String DeliverLogsPermissionArn { get; set; }
+            public System.String LogGroupName { get; set; }
+            public List<System.String> ResourceIds { get; set; }
+            public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
+            public Amazon.EC2.TrafficType TrafficType { get; set; }
         }
         
     }

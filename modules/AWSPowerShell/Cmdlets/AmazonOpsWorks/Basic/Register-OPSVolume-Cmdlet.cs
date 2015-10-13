@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the RegisterVolume operation against AWS OpsWorks.", Operation = new[] {"RegisterVolume"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RegisterVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.RegisterVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Ec2VolumeId { get; set; }
+        public System.String Ec2VolumeId { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterVolumeRequest();
+            var request = new Amazon.OpsWorks.Model.RegisterVolumeRequest();
             
             if (cmdletContext.Ec2VolumeId != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Ec2VolumeId { get; set; }
-            public String StackId { get; set; }
+            public System.String Ec2VolumeId { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

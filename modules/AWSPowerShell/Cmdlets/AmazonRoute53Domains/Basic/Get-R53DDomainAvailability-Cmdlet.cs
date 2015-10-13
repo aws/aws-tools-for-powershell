@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Invokes the CheckDomainAvailability operation against AWS Route 53 Domains.", Operation = new[] {"CheckDomainAvailability"})]
     [AWSCmdletOutput("Amazon.Route53Domains.DomainAvailability",
         "This cmdlet returns a DomainAvailability object.",
-        "The service call response (type CheckDomainAvailabilityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.CheckDomainAvailabilityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53DDomainAvailabilityCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IdnLangCode { get; set; }
+        public System.String IdnLangCode { get; set; }
         
         
         protected override void ProcessRecord()
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CheckDomainAvailabilityRequest();
+            var request = new Amazon.Route53Domains.Model.CheckDomainAvailabilityRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String IdnLangCode { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String IdnLangCode { get; set; }
         }
         
     }

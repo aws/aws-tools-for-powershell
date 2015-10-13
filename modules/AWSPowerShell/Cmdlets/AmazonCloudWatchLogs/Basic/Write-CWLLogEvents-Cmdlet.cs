@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the PutLogEvents operation against Amazon CloudWatch Logs.", Operation = new[] {"PutLogEvents"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type PutLogEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: RejectedLogEventsInfo (type RejectedLogEventsInfo)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.PutLogEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: RejectedLogEventsInfo (type Amazon.CloudWatchLogs.Model.RejectedLogEventsInfo)"
     )]
     public class WriteCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String LogStreamName { get; set; }
+        public System.String LogStreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SequenceToken { get; set; }
+        public System.String SequenceToken { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             
             if (this.LogEvent != null)
             {
-                context.LogEvents = new List<InputLogEvent>(this.LogEvent);
+                context.LogEvents = new List<Amazon.CloudWatchLogs.Model.InputLogEvent>(this.LogEvent);
             }
             context.LogGroupName = this.LogGroupName;
             context.LogStreamName = this.LogStreamName;
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutLogEventsRequest();
+            var request = new Amazon.CloudWatchLogs.Model.PutLogEventsRequest();
             
             if (cmdletContext.LogEvents != null)
             {
@@ -184,10 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<InputLogEvent> LogEvents { get; set; }
-            public String LogGroupName { get; set; }
-            public String LogStreamName { get; set; }
-            public String SequenceToken { get; set; }
+            public List<Amazon.CloudWatchLogs.Model.InputLogEvent> LogEvents { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String LogStreamName { get; set; }
+            public System.String SequenceToken { get; set; }
         }
         
     }

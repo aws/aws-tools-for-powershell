@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DeleteDestination operation against Amazon CloudWatch Logs.", Operation = new[] {"DeleteDestination"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DestinationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.DeleteDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCWLDestinationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DestinationName { get; set; }
+        public System.String DestinationName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DestinationName parameter.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDestinationRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DeleteDestinationRequest();
             
             if (cmdletContext.DestinationName != null)
             {
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DestinationName { get; set; }
+            public System.String DestinationName { get; set; }
         }
         
     }

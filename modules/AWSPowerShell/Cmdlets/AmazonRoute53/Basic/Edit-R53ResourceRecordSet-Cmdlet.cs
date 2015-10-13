@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the ChangeResourceRecordSets operation against AWS Route 53.", Operation = new[] {"ChangeResourceRecordSets"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type ChangeResourceRecordSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ChangeResourceRecordSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ChangeBatch_Comment { get; set; }
+        public System.String ChangeBatch_Comment { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HostedZoneId { get; set; }
+        public System.String HostedZoneId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.ChangeBatch_Comment = this.ChangeBatch_Comment;
             if (this.ChangeBatch_Change != null)
             {
-                context.ChangeBatch_Changes = new List<Change>(this.ChangeBatch_Change);
+                context.ChangeBatch_Changes = new List<Amazon.Route53.Model.Change>(this.ChangeBatch_Change);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ChangeResourceRecordSetsRequest();
+            var request = new Amazon.Route53.Model.ChangeResourceRecordSetsRequest();
             
             if (cmdletContext.HostedZoneId != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             
              // populate ChangeBatch
             bool requestChangeBatchIsNull = true;
-            request.ChangeBatch = new ChangeBatch();
-            String requestChangeBatch_changeBatch_Comment = null;
+            request.ChangeBatch = new Amazon.Route53.Model.ChangeBatch();
+            System.String requestChangeBatch_changeBatch_Comment = null;
             if (cmdletContext.ChangeBatch_Comment != null)
             {
                 requestChangeBatch_changeBatch_Comment = cmdletContext.ChangeBatch_Comment;
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.ChangeBatch.Comment = requestChangeBatch_changeBatch_Comment;
                 requestChangeBatchIsNull = false;
             }
-            List<Change> requestChangeBatch_changeBatch_Change = null;
+            List<Amazon.Route53.Model.Change> requestChangeBatch_changeBatch_Change = null;
             if (cmdletContext.ChangeBatch_Changes != null)
             {
                 requestChangeBatch_changeBatch_Change = cmdletContext.ChangeBatch_Changes;
@@ -207,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HostedZoneId { get; set; }
-            public String ChangeBatch_Comment { get; set; }
-            public List<Change> ChangeBatch_Changes { get; set; }
+            public System.String HostedZoneId { get; set; }
+            public System.String ChangeBatch_Comment { get; set; }
+            public List<Amazon.Route53.Model.Change> ChangeBatch_Changes { get; set; }
         }
         
     }

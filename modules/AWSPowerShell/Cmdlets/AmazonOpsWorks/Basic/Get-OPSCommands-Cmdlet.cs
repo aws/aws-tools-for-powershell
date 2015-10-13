@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeCommands operation against AWS OpsWorks.", Operation = new[] {"DescribeCommands"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Command",
         "This cmdlet returns a collection of Command objects.",
-        "The service call response (type DescribeCommandsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeCommandsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSCommandsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DeploymentId { get; set; }
+        public System.String DeploymentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.CommandId != null)
             {
-                context.CommandIds = new List<String>(this.CommandId);
+                context.CommandIds = new List<System.String>(this.CommandId);
             }
             context.DeploymentId = this.DeploymentId;
             context.InstanceId = this.InstanceId;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeCommandsRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeCommandsRequest();
             
             if (cmdletContext.CommandIds != null)
             {
@@ -153,9 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> CommandIds { get; set; }
-            public String DeploymentId { get; set; }
-            public String InstanceId { get; set; }
+            public List<System.String> CommandIds { get; set; }
+            public System.String DeploymentId { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

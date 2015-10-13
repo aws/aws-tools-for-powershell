@@ -1430,6 +1430,8 @@ Set-Alias -Name IE-GetStatus -Value Get-IEStatus
 Set-Alias -Name List-IEJobs -Value Get-IEJob
 Set-Alias -Name IE-ListJobs -Value Get-IEJob
 Set-Alias -Name IE-UpdateJob -Value Update-IEJob
+Set-Alias -Name List-INSFindingList -Value Get-INSFindingList
+Set-Alias -Name INS-ListFindings -Value Get-INSFindingList
 Set-Alias -Name List-INSRulesPackageList -Value Get-INSRulesPackageList
 Set-Alias -Name INS-ListRulesPackages -Value Get-INSRulesPackageList
 Set-Alias -Name List-INSRunList -Value Get-INSRunList
@@ -1445,9 +1447,12 @@ Set-Alias -Name INS-StartDataCollection -Value Start-INSDataCollection
 Set-Alias -Name INS-StopDataCollection -Value Stop-INSDataCollection
 Set-Alias -Name INS-UpdateApplication -Value Update-INSApplication
 Set-Alias -Name INS-UpdateAssessment -Value Update-INSAssessment
+Set-Alias -Name INS-AddAttributesToFindings -Value Add-INSFindingAttribute
 Set-Alias -Name INS-AttachAssessmentAndRulesPackage -Value Add-INSAssessmentRulesPackage
 Set-Alias -Name Create-INSApplication -Value New-INSApplication
 Set-Alias -Name INS-CreateApplication -Value New-INSApplication
+Set-Alias -Name Create-INSAssessment -Value New-INSAssessment
+Set-Alias -Name INS-CreateAssessment -Value New-INSAssessment
 Set-Alias -Name Create-INSResourceGroup -Value New-INSResourceGroup
 Set-Alias -Name INS-CreateResourceGroup -Value New-INSResourceGroup
 Set-Alias -Name Delete-INSApplication -Value Remove-INSApplication
@@ -1493,6 +1498,7 @@ Set-Alias -Name IOT-ListThingPrincipals -Value Get-IOTThingPrincipalList
 Set-Alias -Name IOT-ListThings -Value Get-IOTThingList
 Set-Alias -Name IOT-ListTopicRules -Value Get-IOTTopicRuleList
 Set-Alias -Name IOT-RejectCertificateTransfer -Value Deny-IOTCertificateTransfer
+Set-Alias -Name IOT-ReplaceTopicRule -Value Set-IOTTopicRule
 Set-Alias -Name IOT-SetDefaultPolicyVersion -Value Set-IOTDefaultPolicyVersion
 Set-Alias -Name IOT-SetLoggingOptions -Value Set-IOTLoggingOptions
 Set-Alias -Name IOT-TransferCertificate -Value Request-IOTCertificateTransfer
@@ -1513,6 +1519,8 @@ Set-Alias -Name Create-IOTPolicyVersion -Value New-IOTPolicyVersion
 Set-Alias -Name IOT-CreatePolicyVersion -Value New-IOTPolicyVersion
 Set-Alias -Name Create-IOTThing -Value New-IOTThing
 Set-Alias -Name IOT-CreateThing -Value New-IOTThing
+Set-Alias -Name Create-IOTTopicRule -Value New-IOTTopicRule
+Set-Alias -Name IOT-CreateTopicRule -Value New-IOTTopicRule
 Set-Alias -Name Delete-IOTCertificate -Value Remove-IOTCertificate
 Set-Alias -Name IOT-DeleteCertificate -Value Remove-IOTCertificate
 Set-Alias -Name Delete-IOTPolicy -Value Remove-IOTPolicy

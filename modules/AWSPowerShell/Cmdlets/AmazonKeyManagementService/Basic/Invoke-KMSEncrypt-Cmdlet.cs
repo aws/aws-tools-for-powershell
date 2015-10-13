@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.EncryptResponse")]
     [AWSCmdlet("Invokes the Encrypt operation against AWS Key Management Service.", Operation = new[] {"Encrypt"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.EncryptResponse",
-        "This cmdlet returns a EncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.KeyManagementService.Model.EncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeKMSEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             
             if (this.EncryptionContext != null)
             {
-                context.EncryptionContext = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EncryptionContext.Keys)
                 {
                     context.EncryptionContext.Add((String)hashKey, (String)(this.EncryptionContext[hashKey]));
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             if (this.GrantToken != null)
             {
-                context.GrantTokens = new List<String>(this.GrantToken);
+                context.GrantTokens = new List<System.String>(this.GrantToken);
             }
             context.KeyId = this.KeyId;
             context.Plaintext = this.Plaintext;
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EncryptRequest();
+            var request = new Amazon.KeyManagementService.Model.EncryptRequest();
             
             if (cmdletContext.EncryptionContext != null)
             {
@@ -197,9 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> EncryptionContext { get; set; }
-            public List<String> GrantTokens { get; set; }
-            public String KeyId { get; set; }
+            public Dictionary<System.String, System.String> EncryptionContext { get; set; }
+            public List<System.String> GrantTokens { get; set; }
+            public System.String KeyId { get; set; }
             public System.IO.MemoryStream Plaintext { get; set; }
         }
         

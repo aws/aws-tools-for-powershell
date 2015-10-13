@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the RebootCluster operation against Amazon Redshift.", Operation = new[] {"RebootCluster"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type RebootClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.RebootClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestartRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RebootClusterRequest();
+            var request = new Amazon.Redshift.Model.RebootClusterRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
+            public System.String ClusterIdentifier { get; set; }
         }
         
     }

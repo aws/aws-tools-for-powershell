@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the UpdateMLModel operation against Amazon Machine Learning.", Operation = new[] {"UpdateMLModel"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateMLModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.UpdateMLModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateMLMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MLModelName { get; set; }
+        public System.String MLModelName { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Single ScoreThreshold { get; set; }
+        public System.Single ScoreThreshold { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateMLModelRequest();
+            var request = new Amazon.MachineLearning.Model.UpdateMLModelRequest();
             
             if (cmdletContext.MLModelId != null)
             {
@@ -163,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MLModelId { get; set; }
-            public String MLModelName { get; set; }
-            public Single? ScoreThreshold { get; set; }
+            public System.String MLModelId { get; set; }
+            public System.String MLModelName { get; set; }
+            public System.Single? ScoreThreshold { get; set; }
         }
         
     }

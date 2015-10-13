@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the DescribeRun operation against Amazon Inspector.", Operation = new[] {"DescribeRun"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.Run",
         "This cmdlet returns a Run object.",
-        "The service call response (type DescribeRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.DescribeRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSRunCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RunArn { get; set; }
+        public System.String RunArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeRunRequest();
+            var request = new Amazon.Inspector.Model.DescribeRunRequest();
             
             if (cmdletContext.RunArn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RunArn { get; set; }
+            public System.String RunArn { get; set; }
         }
         
     }

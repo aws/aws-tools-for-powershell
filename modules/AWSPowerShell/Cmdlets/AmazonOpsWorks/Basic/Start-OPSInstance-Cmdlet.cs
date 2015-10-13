@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the StartInstance operation against AWS OpsWorks.", Operation = new[] {"StartInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type StartInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.StartInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.StartInstanceRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

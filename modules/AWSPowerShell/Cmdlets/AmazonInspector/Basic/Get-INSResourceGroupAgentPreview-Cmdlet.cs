@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the PreviewAgentsForResourceGroup operation against Amazon Inspector.", Operation = new[] {"PreviewAgentsForResourceGroup"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.AgentPreview",
         "This cmdlet returns a collection of AgentPreview objects.",
-        "The service call response (type PreviewAgentsForResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.Inspector.Model.PreviewAgentsForResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetINSResourceGroupAgentPreviewCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceGroupArn { get; set; }
+        public System.String ResourceGroupArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -97,14 +97,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new PreviewAgentsForResourceGroupRequest();
+            var request = new Amazon.Inspector.Model.PreviewAgentsForResourceGroupRequest();
             if (cmdletContext.ResourceGroupArn != null)
             {
                 request.ResourceGroupArn = cmdletContext.ResourceGroupArn;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -190,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         internal class CmdletContext : ExecutorContext
         {
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public String ResourceGroupArn { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String ResourceGroupArn { get; set; }
         }
         
     }

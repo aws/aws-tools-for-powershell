@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [OutputType("Amazon.CodePipeline.Model.PutActionRevisionResponse")]
     [AWSCmdlet("Invokes the PutActionRevision operation against AWS CodePipeline.", Operation = new[] {"PutActionRevision"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PutActionRevisionResponse",
-        "This cmdlet returns a PutActionRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CodePipeline.Model.PutActionRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCPActionRevisionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ActionName { get; set; }
+        public System.String ActionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ActionRevision_Created { get; set; }
+        public System.DateTime ActionRevision_Created { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PipelineName { get; set; }
+        public System.String PipelineName { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ActionRevision_RevisionChangeId { get; set; }
+        public System.String ActionRevision_RevisionChangeId { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ActionRevision_RevisionId { get; set; }
+        public System.String ActionRevision_RevisionId { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StageName { get; set; }
+        public System.String StageName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutActionRevisionRequest();
+            var request = new Amazon.CodePipeline.Model.PutActionRevisionRequest();
             
             if (cmdletContext.ActionName != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate ActionRevision
             bool requestActionRevisionIsNull = true;
-            request.ActionRevision = new ActionRevision();
-            DateTime? requestActionRevision_actionRevision_Created = null;
+            request.ActionRevision = new Amazon.CodePipeline.Model.ActionRevision();
+            System.DateTime? requestActionRevision_actionRevision_Created = null;
             if (cmdletContext.ActionRevision_Created != null)
             {
                 requestActionRevision_actionRevision_Created = cmdletContext.ActionRevision_Created.Value;
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ActionRevision.Created = requestActionRevision_actionRevision_Created.Value;
                 requestActionRevisionIsNull = false;
             }
-            String requestActionRevision_actionRevision_RevisionChangeId = null;
+            System.String requestActionRevision_actionRevision_RevisionChangeId = null;
             if (cmdletContext.ActionRevision_RevisionChangeId != null)
             {
                 requestActionRevision_actionRevision_RevisionChangeId = cmdletContext.ActionRevision_RevisionChangeId;
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ActionRevision.RevisionChangeId = requestActionRevision_actionRevision_RevisionChangeId;
                 requestActionRevisionIsNull = false;
             }
-            String requestActionRevision_actionRevision_RevisionId = null;
+            System.String requestActionRevision_actionRevision_RevisionId = null;
             if (cmdletContext.ActionRevision_RevisionId != null)
             {
                 requestActionRevision_actionRevision_RevisionId = cmdletContext.ActionRevision_RevisionId;
@@ -219,12 +219,12 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ActionName { get; set; }
-            public DateTime? ActionRevision_Created { get; set; }
-            public String ActionRevision_RevisionChangeId { get; set; }
-            public String ActionRevision_RevisionId { get; set; }
-            public String PipelineName { get; set; }
-            public String StageName { get; set; }
+            public System.String ActionName { get; set; }
+            public System.DateTime? ActionRevision_Created { get; set; }
+            public System.String ActionRevision_RevisionChangeId { get; set; }
+            public System.String ActionRevision_RevisionId { get; set; }
+            public System.String PipelineName { get; set; }
+            public System.String StageName { get; set; }
         }
         
     }

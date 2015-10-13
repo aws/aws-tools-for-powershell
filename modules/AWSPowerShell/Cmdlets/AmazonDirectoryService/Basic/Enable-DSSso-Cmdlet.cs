@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the EnableSso operation against AWS Directory Service.", Operation = new[] {"EnableSso"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type EnableSsoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.EnableSsoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableDSSsoCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Password { get; set; }
+        public System.String Password { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DirectoryId parameter.
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableSsoRequest();
+            var request = new Amazon.DirectoryService.Model.EnableSsoRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
@@ -166,9 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DirectoryId { get; set; }
-            public String Password { get; set; }
-            public String UserName { get; set; }
+            public System.String DirectoryId { get; set; }
+            public System.String Password { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

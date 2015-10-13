@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the AbortEnvironmentUpdate operation against AWS Elastic Beanstalk.", Operation = new[] {"AbortEnvironmentUpdate"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type AbortEnvironmentUpdateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEBEnvironmentUpdateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AbortEnvironmentUpdateRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateRequest();
             
             if (cmdletContext.EnvironmentId != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
         }
         
     }

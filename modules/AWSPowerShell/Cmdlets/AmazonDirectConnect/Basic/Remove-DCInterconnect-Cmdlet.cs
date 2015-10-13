@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the DeleteInterconnect operation against AWS Direct Connect.", Operation = new[] {"DeleteInterconnect"})]
     [AWSCmdletOutput("Amazon.DirectConnect.InterconnectState",
         "This cmdlet returns a InterconnectState object.",
-        "The service call response (type DeleteInterconnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DeleteInterconnectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InterconnectId { get; set; }
+        public System.String InterconnectId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteInterconnectRequest();
+            var request = new Amazon.DirectConnect.Model.DeleteInterconnectRequest();
             
             if (cmdletContext.InterconnectId != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InterconnectId { get; set; }
+            public System.String InterconnectId { get; set; }
         }
         
     }

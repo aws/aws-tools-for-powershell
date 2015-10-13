@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateOpenIDConnectProviderThumbprint operation against AWS Identity and Access Management.", Operation = new[] {"UpdateOpenIDConnectProviderThumbprint"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateOpenIDConnectProviderThumbprintResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMOpenIDConnectProviderThumbprintCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String OpenIDConnectProviderArn { get; set; }
+        public System.String OpenIDConnectProviderArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             context.OpenIDConnectProviderArn = this.OpenIDConnectProviderArn;
             if (this.ThumbprintList != null)
             {
-                context.ThumbprintList = new List<String>(this.ThumbprintList);
+                context.ThumbprintList = new List<System.String>(this.ThumbprintList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateOpenIDConnectProviderThumbprintRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintRequest();
             
             if (cmdletContext.OpenIDConnectProviderArn != null)
             {
@@ -158,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String OpenIDConnectProviderArn { get; set; }
-            public List<String> ThumbprintList { get; set; }
+            public System.String OpenIDConnectProviderArn { get; set; }
+            public List<System.String> ThumbprintList { get; set; }
         }
         
     }

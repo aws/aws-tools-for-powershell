@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the DescribeLoadBalancerAttributes operation against Elastic Load Balancing.", Operation = new[] {"DescribeLoadBalancerAttributes"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.LoadBalancerAttributes",
         "This cmdlet returns a LoadBalancerAttributes object.",
-        "The service call response (type DescribeLoadBalancerAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancerAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetELBLoadBalancerAttributeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLoadBalancerAttributesRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancerAttributesRequest();
             
             if (cmdletContext.LoadBalancerName != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LoadBalancerName { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

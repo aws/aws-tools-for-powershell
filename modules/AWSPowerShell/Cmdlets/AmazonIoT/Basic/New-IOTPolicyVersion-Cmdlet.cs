@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreatePolicyVersionResponse")]
     [AWSCmdlet("Invokes the CreatePolicyVersion operation against AWS IoT.", Operation = new[] {"CreatePolicyVersion"})]
     [AWSCmdletOutput("Amazon.IoT.Model.CreatePolicyVersionResponse",
-        "This cmdlet returns a CreatePolicyVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IoT.Model.CreatePolicyVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIOTPolicyVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SetAsDefault { get; set; }
+        public System.Boolean SetAsDefault { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePolicyVersionRequest();
+            var request = new Amazon.IoT.Model.CreatePolicyVersionRequest();
             
             if (cmdletContext.PolicyDocument != null)
             {
@@ -151,9 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyDocument { get; set; }
-            public String PolicyName { get; set; }
-            public Boolean? SetAsDefault { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public System.String PolicyName { get; set; }
+            public System.Boolean? SetAsDefault { get; set; }
         }
         
     }

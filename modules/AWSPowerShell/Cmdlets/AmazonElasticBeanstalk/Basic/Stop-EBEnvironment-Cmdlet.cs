@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse")]
     [AWSCmdlet("Invokes the TerminateEnvironment operation against AWS Elastic Beanstalk.", Operation = new[] {"TerminateEnvironment"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse",
-        "This cmdlet returns a TerminateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean TerminateResources { get; set; }
+        [Alias("TerminateResources")]
+        public System.Boolean TerminateResource { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
-            if (ParameterWasBound("TerminateResources"))
-                context.TerminateResources = this.TerminateResources;
+            if (ParameterWasBound("TerminateResource"))
+                context.TerminateResources = this.TerminateResource;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -113,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TerminateEnvironmentRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.TerminateEnvironmentRequest();
             
             if (cmdletContext.EnvironmentId != null)
             {
@@ -162,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
-            public Boolean? TerminateResources { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public System.Boolean? TerminateResources { get; set; }
         }
         
     }

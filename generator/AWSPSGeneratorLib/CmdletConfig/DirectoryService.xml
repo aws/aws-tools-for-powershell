@@ -8,10 +8,6 @@
 
   <AdditionalNamespaces />
 
-  <RetainFullTypeNames>
-    <TypeName>Amazon.DirectoryService.Model.Attribute</TypeName>
-  </RetainFullTypeNames>
-  
   <ServiceOperations>
 
 	<ServiceOperation MethodName="ConnectDirectory" 

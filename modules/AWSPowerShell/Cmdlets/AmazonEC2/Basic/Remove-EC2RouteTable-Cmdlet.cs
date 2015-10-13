@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteRouteTable operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteRouteTable"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RouteTableId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteRouteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteRouteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RouteTableId { get; set; }
+        public System.String RouteTableId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RouteTableId parameter.
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteRouteTableRequest();
+            var request = new Amazon.EC2.Model.DeleteRouteTableRequest();
             
             if (cmdletContext.RouteTableId != null)
             {
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RouteTableId { get; set; }
+            public System.String RouteTableId { get; set; }
         }
         
     }

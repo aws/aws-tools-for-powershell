@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeEngineDefaultParameters operation against Amazon ElastiCache.", Operation = new[] {"DescribeEngineDefaultParameters"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.EngineDefaults",
         "This cmdlet returns a EngineDefaults object.",
-        "The service call response (type DescribeEngineDefaultParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DescribeEngineDefaultParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECEngineDefaultParameterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheParameterGroupFamily { get; set; }
+        public System.String CacheParameterGroupFamily { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEngineDefaultParametersRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeEngineDefaultParametersRequest();
             
             if (cmdletContext.CacheParameterGroupFamily != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheParameterGroupFamily { get; set; }
-            public String Marker { get; set; }
+            public System.String CacheParameterGroupFamily { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

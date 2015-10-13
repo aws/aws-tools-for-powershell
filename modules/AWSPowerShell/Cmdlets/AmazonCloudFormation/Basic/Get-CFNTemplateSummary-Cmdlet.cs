@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.GetTemplateSummaryResponse")]
     [AWSCmdlet("Invokes the GetTemplateSummary operation against AWS CloudFormation.", Operation = new[] {"GetTemplateSummary"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.GetTemplateSummaryResponse",
-        "This cmdlet returns a GetTemplateSummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudFormation.Model.GetTemplateSummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFNTemplateSummaryCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateBody { get; set; }
+        public System.String TemplateBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateURL { get; set; }
+        public System.String TemplateURL { get; set; }
         
         
         protected override void ProcessRecord()
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetTemplateSummaryRequest();
+            var request = new Amazon.CloudFormation.Model.GetTemplateSummaryRequest();
             
             if (cmdletContext.StackName != null)
             {
@@ -158,9 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackName { get; set; }
-            public String TemplateBody { get; set; }
-            public String TemplateURL { get; set; }
+            public System.String StackName { get; set; }
+            public System.String TemplateBody { get; set; }
+            public System.String TemplateURL { get; set; }
         }
         
     }

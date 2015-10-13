@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the DeleteDataSource operation against Amazon Machine Learning.", Operation = new[] {"DeleteDataSource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.DeleteDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDataSourceRequest();
+            var request = new Amazon.MachineLearning.Model.DeleteDataSourceRequest();
             
             if (cmdletContext.DataSourceId != null)
             {
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DataSourceId { get; set; }
+            public System.String DataSourceId { get; set; }
         }
         
     }

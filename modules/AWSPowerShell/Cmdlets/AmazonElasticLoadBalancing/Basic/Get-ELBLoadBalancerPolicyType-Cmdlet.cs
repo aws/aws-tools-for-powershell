@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the DescribeLoadBalancerPolicyTypes operation against Elastic Load Balancing.", Operation = new[] {"DescribeLoadBalancerPolicyTypes"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.PolicyTypeDescription",
         "This cmdlet returns a collection of PolicyTypeDescription objects.",
-        "The service call response (type DescribeLoadBalancerPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancerPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetELBLoadBalancerPolicyTypeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.PolicyTypeName != null)
             {
-                context.PolicyTypeNames = new List<String>(this.PolicyTypeName);
+                context.PolicyTypeNames = new List<System.String>(this.PolicyTypeName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLoadBalancerPolicyTypesRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancerPolicyTypesRequest();
             
             if (cmdletContext.PolicyTypeNames != null)
             {
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> PolicyTypeNames { get; set; }
+            public List<System.String> PolicyTypeNames { get; set; }
         }
         
     }

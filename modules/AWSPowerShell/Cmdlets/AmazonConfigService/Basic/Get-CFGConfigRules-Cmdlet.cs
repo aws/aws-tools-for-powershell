@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DescribeConfigRules operation against Amazon Config.", Operation = new[] {"DescribeConfigRules"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigRule",
         "This cmdlet returns a collection of ConfigRule objects.",
-        "The service call response (type DescribeConfigRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.ConfigService.Model.DescribeConfigRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCFGConfigRulesCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.ConfigRuleName != null)
             {
-                context.ConfigRuleNames = new List<String>(this.ConfigRuleName);
+                context.ConfigRuleNames = new List<System.String>(this.ConfigRuleName);
             }
             context.NextToken = this.NextToken;
             
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConfigRulesRequest();
+            var request = new Amazon.ConfigService.Model.DescribeConfigRulesRequest();
             
             if (cmdletContext.ConfigRuleNames != null)
             {
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ConfigRuleNames { get; set; }
-            public String NextToken { get; set; }
+            public List<System.String> ConfigRuleNames { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

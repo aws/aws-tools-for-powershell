@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Creates signed cookies that grants universal access to private content until a given date (using a canned policy)" + 
                " or tailored access to private content based on an access time window and ip range.")]
     [AWSCmdletOutput("Amazon.CloudFront.CookiesForCannedPolicy",
-        "This cmdlet returns a Amazon.CloudFront.CookiesForCannedPolicy object containing signed cookies to a resource using a canned policy."
+        "This cmdlet returns an Amazon.CloudFront.CookiesForCannedPolicy object containing signed cookies to a resource using a canned policy."
     )]
     [AWSCmdletOutput("Amazon.CloudFront.CookiesForCustomPolicy",
-        "This cmdlet returns a Amazon.CloudFront.CookiesForCustomPolicy object containing signed cookies to a resource using a custom policy."
+        "This cmdlet returns an Amazon.CloudFront.CookiesForCustomPolicy object containing signed cookies to a resource using a custom policy."
     )]
     public class NewCFSignedCookieCmdlet : BaseCmdlet
     {
@@ -53,38 +53,38 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// name.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public Uri ResourceUri { get; set; }
+        public System.Uri ResourceUri { get; set; }
 
         /// <summary>
         /// The key pair id corresponding to the private key file given.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public string KeyPairId { get; set; }
+        public System.String KeyPairId { get; set; }
 
         /// <summary>
         /// The private key file. RSA private key (.pem) are supported.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public string PrivateKeyFile { get; set; }
+        public System.String PrivateKeyFile { get; set; }
 
         /// <summary>
         /// The expiration date till which content can be accessed using the generated cookies.
         /// </summary>
         [Parameter(Mandatory = true)]
-        public DateTime ExpiresOn { get; set; }
+        public System.DateTime ExpiresOn { get; set; }
 
         /// <summary>
         /// The date from which content can be accessed using the generated cookies.
         /// </summary>
         [Parameter(ParameterSetName = CustomPolicyParameterSet)]
-        public DateTime ActiveFrom { get; set; }
+        public System.DateTime ActiveFrom { get; set; }
 
         /// <summary>
         /// The allowed IP address range of the client making the GET request, in CIDR form (e.g. 192.168.0.1/24).
        ///  If not specified, a CIDR of 0.0.0.0/0 (i.e. no IP restriction) is used.
         /// </summary>
         [Parameter(ParameterSetName = CustomPolicyParameterSet)]
-        public string IpRange { get; set; }
+        public System.String IpRange { get; set; }
 
         protected override void ProcessRecord()
         {

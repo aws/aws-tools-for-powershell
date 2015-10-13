@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeExportTasks operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeExportTasks"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportTask",
         "This cmdlet returns a collection of ExportTask objects.",
-        "The service call response (type DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2ExportTasksCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.ExportTaskId != null)
             {
-                context.ExportTaskIds = new List<String>(this.ExportTaskId);
+                context.ExportTaskIds = new List<System.String>(this.ExportTaskId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeExportTasksRequest();
+            var request = new Amazon.EC2.Model.DescribeExportTasksRequest();
             
             if (cmdletContext.ExportTaskIds != null)
             {
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ExportTaskIds { get; set; }
+            public List<System.String> ExportTaskIds { get; set; }
         }
         
     }

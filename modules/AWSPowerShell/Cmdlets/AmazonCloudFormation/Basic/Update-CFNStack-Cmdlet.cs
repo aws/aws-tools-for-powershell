@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the UpdateStack operation against AWS CloudFormation.", Operation = new[] {"UpdateStack"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.UpdateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
         
         /// <summary>
         /// <para>
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyBody { get; set; }
+        public System.String StackPolicyBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyDuringUpdateBody { get; set; }
+        public System.String StackPolicyDuringUpdateBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyDuringUpdateURL { get; set; }
+        public System.String StackPolicyDuringUpdateURL { get; set; }
         
         /// <summary>
         /// <para>
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyURL { get; set; }
+        public System.String StackPolicyURL { get; set; }
         
         /// <summary>
         /// <para>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateBody { get; set; }
+        public System.String TemplateBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateURL { get; set; }
+        public System.String TemplateURL { get; set; }
         
         /// <summary>
         /// <para>
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean UsePreviousTemplate { get; set; }
+        public System.Boolean UsePreviousTemplate { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -224,19 +224,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             
             if (this.Capability != null)
             {
-                context.Capabilities = new List<String>(this.Capability);
+                context.Capabilities = new List<System.String>(this.Capability);
             }
             if (this.NotificationARNs != null)
             {
-                context.NotificationARNs = new List<String>(this.NotificationARNs);
+                context.NotificationARNs = new List<System.String>(this.NotificationARNs);
             }
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
             }
             if (this.ResourceType != null)
             {
-                context.ResourceTypes = new List<String>(this.ResourceType);
+                context.ResourceTypes = new List<System.String>(this.ResourceType);
             }
             context.StackName = this.StackName;
             context.StackPolicyBody = this.StackPolicyBody;
@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateStackRequest();
+            var request = new Amazon.CloudFormation.Model.UpdateStackRequest();
             
             if (cmdletContext.Capabilities != null)
             {
@@ -343,18 +343,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Capabilities { get; set; }
-            public List<String> NotificationARNs { get; set; }
-            public List<Parameter> Parameters { get; set; }
-            public List<String> ResourceTypes { get; set; }
-            public String StackName { get; set; }
-            public String StackPolicyBody { get; set; }
-            public String StackPolicyDuringUpdateBody { get; set; }
-            public String StackPolicyDuringUpdateURL { get; set; }
-            public String StackPolicyURL { get; set; }
-            public String TemplateBody { get; set; }
-            public String TemplateURL { get; set; }
-            public Boolean? UsePreviousTemplate { get; set; }
+            public List<System.String> Capabilities { get; set; }
+            public List<System.String> NotificationARNs { get; set; }
+            public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
+            public List<System.String> ResourceTypes { get; set; }
+            public System.String StackName { get; set; }
+            public System.String StackPolicyBody { get; set; }
+            public System.String StackPolicyDuringUpdateBody { get; set; }
+            public System.String StackPolicyDuringUpdateURL { get; set; }
+            public System.String StackPolicyURL { get; set; }
+            public System.String TemplateBody { get; set; }
+            public System.String TemplateURL { get; set; }
+            public System.Boolean? UsePreviousTemplate { get; set; }
         }
         
     }

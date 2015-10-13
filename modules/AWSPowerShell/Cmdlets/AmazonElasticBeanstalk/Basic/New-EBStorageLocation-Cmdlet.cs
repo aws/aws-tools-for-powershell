@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the CreateStorageLocation operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateStorageLocation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateStorageLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.CreateStorageLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEBStorageLocationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateStorageLocationRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.CreateStorageLocationRequest();
             
             
             CmdletOutput output;

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the GetUpload operation against AWS Device Farm.", Operation = new[] {"GetUpload"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Upload",
         "This cmdlet returns a Upload object.",
-        "The service call response (type GetUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetUploadResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Arn { get; set; }
+        public System.String Arn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetUploadRequest();
+            var request = new Amazon.DeviceFarm.Model.GetUploadRequest();
             
             if (cmdletContext.Arn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Arn { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

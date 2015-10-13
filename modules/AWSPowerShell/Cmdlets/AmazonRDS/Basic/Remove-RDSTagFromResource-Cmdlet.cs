@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the RemoveTagsFromResource operation against Amazon Relational Database Service.", Operation = new[] {"RemoveTagsFromResource"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSTagFromResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ResourceName = this.ResourceName;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsFromResourceRequest();
+            var request = new Amazon.RDS.Model.RemoveTagsFromResourceRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String ResourceName { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the GetACL operation against Amazon Simple Storage Service.", Operation = new[] {"GetACL"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3AccessControlList",
         "This cmdlet returns a S3AccessControlList object.",
-        "The service call response (type GetACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetACLRequest();
+            var request = new Amazon.S3.Model.GetACLRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -137,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String Key { get; set; }
-            public String VersionId { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String Key { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

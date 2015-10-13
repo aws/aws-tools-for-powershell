@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the GetWebACL operation against AWS WAF.", Operation = new[] {"GetWebACL"})]
     [AWSCmdletOutput("Amazon.WAF.Model.WebACL",
         "This cmdlet returns a WebACL object.",
-        "The service call response (type GetWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String WebACLId { get; set; }
+        public System.String WebACLId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetWebACLRequest();
+            var request = new Amazon.WAF.Model.GetWebACLRequest();
             
             if (cmdletContext.WebACLId != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String WebACLId { get; set; }
+            public System.String WebACLId { get; set; }
         }
         
     }

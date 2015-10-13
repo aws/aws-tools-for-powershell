@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DisableMetricsCollection operation against Auto Scaling.", Operation = new[] {"DisableMetricsCollection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DisableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DisableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableASMetricsCollectionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.Metric != null)
             {
-                context.Metrics = new List<String>(this.Metric);
+                context.Metrics = new List<System.String>(this.Metric);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableMetricsCollectionRequest();
+            var request = new Amazon.AutoScaling.Model.DisableMetricsCollectionRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> Metrics { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> Metrics { get; set; }
         }
         
     }

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the ReorderReceiptRuleSet operation against Amazon Simple Email Service.", Operation = new[] {"ReorderReceiptRuleSet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ReorderReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSESReceiptRuleSetOrderCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleSetName { get; set; }
+        public System.String RuleSetName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RuleName parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.RuleName != null)
             {
-                context.RuleNames = new List<String>(this.RuleName);
+                context.RuleNames = new List<System.String>(this.RuleName);
             }
             context.RuleSetName = this.RuleSetName;
             
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReorderReceiptRuleSetRequest();
+            var request = new Amazon.SimpleEmail.Model.ReorderReceiptRuleSetRequest();
             
             if (cmdletContext.RuleNames != null)
             {
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> RuleNames { get; set; }
-            public String RuleSetName { get; set; }
+            public List<System.String> RuleNames { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

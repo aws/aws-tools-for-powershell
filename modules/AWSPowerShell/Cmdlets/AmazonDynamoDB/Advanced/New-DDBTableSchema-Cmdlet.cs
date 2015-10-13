@@ -27,8 +27,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("New", "DDBTableSchema")]
     [OutputType("TableSchema")]
-    [AWSCmdlet("Returns a new TableSchema object for constructing an Amazon DynamoDB key schema for use with New-DDBTable.")]
-    [AWSCmdletOutput("TableSchema", "This cmdlet returns a new Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object.")]
+    [AWSCmdlet("Returns a new Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object for constructing an Amazon DynamoDB key schema for use with New-DDBTable.")]
+    [AWSCmdletOutput("Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema", "This cmdlet returns a new Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object.")]
     public class NewDDBTableSchemaCmdlet : BaseCmdlet
     {
         protected override void ProcessRecord()

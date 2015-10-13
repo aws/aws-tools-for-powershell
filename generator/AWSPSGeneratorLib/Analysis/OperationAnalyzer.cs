@@ -577,19 +577,8 @@ namespace AWSPowerShellGenerator.Analysis
                 throw new Exception(string.Format("Can't determine generic type. Type = [{0}], GenericType = [{1}]", type.FullName, genericType.FullName));
             }
 
-            // test if the type is within the scope of the namespaces added to the cmdlet and if so,
-            // return the non-namespaced type name (unless we have instruction to retain the fully qualified
-            // name to avoid name collisions)
+            // always return namespace-scoped type names to avoid cross-service conflicts
             string scopedName = string.Format("{0}.{1}", type.Namespace, type.Name);
-            if (!currentModel.RetainFullTypeNames.Contains(scopedName, StringComparer.Ordinal))
-            {
-                if ((string.Compare(type.Namespace, currentModel.ServiceNamespace, StringComparison.Ordinal) == 0)
-                        || (string.Compare(type.Namespace, currentModel.ServiceNamespace + ".Model", StringComparison.Ordinal) == 0)
-                        || BaseSourceCodeWriter.DefaultNamespaces.Contains<string>(type.Namespace, StringComparer.Ordinal)
-                        || currentModel.AdditionalNamespaces.Contains(type.Namespace, StringComparer.Ordinal))
-                    return type.Name;
-            }
-
             return scopedName;
         }
 

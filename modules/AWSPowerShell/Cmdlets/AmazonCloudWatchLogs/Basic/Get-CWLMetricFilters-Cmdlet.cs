@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DescribeMetricFilters operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeMetricFilters"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.MetricFilter",
         "This cmdlet returns a collection of MetricFilter objects.",
-        "The service call response (type DescribeMetricFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeMetricFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWLMetricFiltersCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FilterNamePrefix { get; set; }
+        public System.String FilterNamePrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeMetricFiltersRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeMetricFiltersRequest();
             
             if (cmdletContext.FilterNamePrefix != null)
             {
@@ -169,10 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FilterNamePrefix { get; set; }
+            public System.String FilterNamePrefix { get; set; }
             public int? Limit { get; set; }
-            public String LogGroupName { get; set; }
-            public String NextToken { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

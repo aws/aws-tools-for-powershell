@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateInstanceExportTask operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateInstanceExportTask"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ExportTask",
         "This cmdlet returns a ExportTask object.",
-        "The service call response (type CreateInstanceExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateInstanceExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2InstanceExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ContainerFormat ExportToS3Task_ContainerFormat { get; set; }
+        public Amazon.EC2.ContainerFormat ExportToS3Task_ContainerFormat { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DiskImageFormat ExportToS3Task_DiskImageFormat { get; set; }
+        public Amazon.EC2.DiskImageFormat ExportToS3Task_DiskImageFormat { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExportToS3Task_S3Bucket { get; set; }
+        public System.String ExportToS3Task_S3Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExportToS3Task_S3Prefix { get; set; }
+        public System.String ExportToS3Task_S3Prefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public ExportEnvironment TargetEnvironment { get; set; }
+        public Amazon.EC2.ExportEnvironment TargetEnvironment { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateInstanceExportTaskRequest();
+            var request = new Amazon.EC2.Model.CreateInstanceExportTaskRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -158,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate ExportToS3Task
             bool requestExportToS3TaskIsNull = true;
-            request.ExportToS3Task = new ExportToS3TaskSpecification();
-            ContainerFormat requestExportToS3Task_exportToS3Task_ContainerFormat = null;
+            request.ExportToS3Task = new Amazon.EC2.Model.ExportToS3TaskSpecification();
+            Amazon.EC2.ContainerFormat requestExportToS3Task_exportToS3Task_ContainerFormat = null;
             if (cmdletContext.ExportToS3Task_ContainerFormat != null)
             {
                 requestExportToS3Task_exportToS3Task_ContainerFormat = cmdletContext.ExportToS3Task_ContainerFormat;
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ExportToS3Task.ContainerFormat = requestExportToS3Task_exportToS3Task_ContainerFormat;
                 requestExportToS3TaskIsNull = false;
             }
-            DiskImageFormat requestExportToS3Task_exportToS3Task_DiskImageFormat = null;
+            Amazon.EC2.DiskImageFormat requestExportToS3Task_exportToS3Task_DiskImageFormat = null;
             if (cmdletContext.ExportToS3Task_DiskImageFormat != null)
             {
                 requestExportToS3Task_exportToS3Task_DiskImageFormat = cmdletContext.ExportToS3Task_DiskImageFormat;
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ExportToS3Task.DiskImageFormat = requestExportToS3Task_exportToS3Task_DiskImageFormat;
                 requestExportToS3TaskIsNull = false;
             }
-            String requestExportToS3Task_exportToS3Task_S3Bucket = null;
+            System.String requestExportToS3Task_exportToS3Task_S3Bucket = null;
             if (cmdletContext.ExportToS3Task_S3Bucket != null)
             {
                 requestExportToS3Task_exportToS3Task_S3Bucket = cmdletContext.ExportToS3Task_S3Bucket;
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.ExportToS3Task.S3Bucket = requestExportToS3Task_exportToS3Task_S3Bucket;
                 requestExportToS3TaskIsNull = false;
             }
-            String requestExportToS3Task_exportToS3Task_S3Prefix = null;
+            System.String requestExportToS3Task_exportToS3Task_S3Prefix = null;
             if (cmdletContext.ExportToS3Task_S3Prefix != null)
             {
                 requestExportToS3Task_exportToS3Task_S3Prefix = cmdletContext.ExportToS3Task_S3Prefix;
@@ -247,13 +247,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public ContainerFormat ExportToS3Task_ContainerFormat { get; set; }
-            public DiskImageFormat ExportToS3Task_DiskImageFormat { get; set; }
-            public String ExportToS3Task_S3Bucket { get; set; }
-            public String ExportToS3Task_S3Prefix { get; set; }
-            public String InstanceId { get; set; }
-            public ExportEnvironment TargetEnvironment { get; set; }
+            public System.String Description { get; set; }
+            public Amazon.EC2.ContainerFormat ExportToS3Task_ContainerFormat { get; set; }
+            public Amazon.EC2.DiskImageFormat ExportToS3Task_DiskImageFormat { get; set; }
+            public System.String ExportToS3Task_S3Bucket { get; set; }
+            public System.String ExportToS3Task_S3Prefix { get; set; }
+            public System.String InstanceId { get; set; }
+            public Amazon.EC2.ExportEnvironment TargetEnvironment { get; set; }
         }
         
     }

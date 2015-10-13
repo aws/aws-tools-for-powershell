@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the CreateMLModel operation against Amazon Machine Learning.", Operation = new[] {"CreateMLModel"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateMLModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateMLModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String MLModelName { get; set; }
+        public System.String MLModelName { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ModelType")]
-        public MLModelType MLModelType { get; set; }
+        public Amazon.MachineLearning.MLModelType MLModelType { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Recipe { get; set; }
+        public System.String Recipe { get; set; }
         
         /// <summary>
         /// <para>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RecipeUri { get; set; }
+        public System.String RecipeUri { get; set; }
         
         /// <summary>
         /// <para>
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TrainingDataSourceId { get; set; }
+        public System.String TrainingDataSourceId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             context.MLModelType = this.MLModelType;
             if (this.Parameter != null)
             {
-                context.Parameters = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Parameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
                     context.Parameters.Add((String)hashKey, (String)(this.Parameter[hashKey]));
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateMLModelRequest();
+            var request = new Amazon.MachineLearning.Model.CreateMLModelRequest();
             
             if (cmdletContext.MLModelId != null)
             {
@@ -256,13 +256,13 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MLModelId { get; set; }
-            public String MLModelName { get; set; }
-            public MLModelType MLModelType { get; set; }
-            public Dictionary<String, String> Parameters { get; set; }
-            public String Recipe { get; set; }
-            public String RecipeUri { get; set; }
-            public String TrainingDataSourceId { get; set; }
+            public System.String MLModelId { get; set; }
+            public System.String MLModelName { get; set; }
+            public Amazon.MachineLearning.MLModelType MLModelType { get; set; }
+            public Dictionary<System.String, System.String> Parameters { get; set; }
+            public System.String Recipe { get; set; }
+            public System.String RecipeUri { get; set; }
+            public System.String TrainingDataSourceId { get; set; }
         }
         
     }

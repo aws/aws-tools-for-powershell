@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AttachInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AttachInternetGateway"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AttachInternetGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.AttachInternetGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEC2InternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String InternetGatewayId { get; set; }
+        public System.String InternetGatewayId { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VpcId parameter.
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachInternetGatewayRequest();
+            var request = new Amazon.EC2.Model.AttachInternetGatewayRequest();
             
             if (cmdletContext.InternetGatewayId != null)
             {
@@ -149,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InternetGatewayId { get; set; }
-            public String VpcId { get; set; }
+            public System.String InternetGatewayId { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

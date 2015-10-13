@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the DisableAlarmActions operation against Amazon CloudWatch.", Operation = new[] {"DisableAlarmActions"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DisableAlarmActionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.DisableAlarmActionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableCWAlarmActionCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             
             if (this.AlarmName != null)
             {
-                context.AlarmNames = new List<String>(this.AlarmName);
+                context.AlarmNames = new List<System.String>(this.AlarmName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableAlarmActionsRequest();
+            var request = new Amazon.CloudWatch.Model.DisableAlarmActionsRequest();
             
             if (cmdletContext.AlarmNames != null)
             {
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AlarmNames { get; set; }
+            public List<System.String> AlarmNames { get; set; }
         }
         
     }

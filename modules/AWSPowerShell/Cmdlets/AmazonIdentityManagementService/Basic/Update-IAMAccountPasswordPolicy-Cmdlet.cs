@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateAccountPasswordPolicy operation against AWS Identity and Access Management.", Operation = new[] {"UpdateAccountPasswordPolicy"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMAccountPasswordPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowUsersToChangePassword { get; set; }
+        public System.Boolean AllowUsersToChangePassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean HardExpiry { get; set; }
+        public System.Boolean HardExpiry { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MaxPasswordAge { get; set; }
+        public System.Int32 MaxPasswordAge { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MinimumPasswordLength { get; set; }
+        public System.Int32 MinimumPasswordLength { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 PasswordReusePrevention { get; set; }
+        public System.Int32 PasswordReusePrevention { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireLowercaseCharacters { get; set; }
+        [Alias("RequireLowercaseCharacters")]
+        public System.Boolean RequireLowercaseCharacter { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireNumbers { get; set; }
+        [Alias("RequireNumbers")]
+        public System.Boolean RequireNumber { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireSymbols { get; set; }
+        [Alias("RequireSymbols")]
+        public System.Boolean RequireSymbol { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireUppercaseCharacters { get; set; }
+        [Alias("RequireUppercaseCharacters")]
+        public System.Boolean RequireUppercaseCharacter { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -163,14 +167,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.MinimumPasswordLength = this.MinimumPasswordLength;
             if (ParameterWasBound("PasswordReusePrevention"))
                 context.PasswordReusePrevention = this.PasswordReusePrevention;
-            if (ParameterWasBound("RequireLowercaseCharacters"))
-                context.RequireLowercaseCharacters = this.RequireLowercaseCharacters;
-            if (ParameterWasBound("RequireNumbers"))
-                context.RequireNumbers = this.RequireNumbers;
-            if (ParameterWasBound("RequireSymbols"))
-                context.RequireSymbols = this.RequireSymbols;
-            if (ParameterWasBound("RequireUppercaseCharacters"))
-                context.RequireUppercaseCharacters = this.RequireUppercaseCharacters;
+            if (ParameterWasBound("RequireLowercaseCharacter"))
+                context.RequireLowercaseCharacters = this.RequireLowercaseCharacter;
+            if (ParameterWasBound("RequireNumber"))
+                context.RequireNumbers = this.RequireNumber;
+            if (ParameterWasBound("RequireSymbol"))
+                context.RequireSymbols = this.RequireSymbol;
+            if (ParameterWasBound("RequireUppercaseCharacter"))
+                context.RequireUppercaseCharacters = this.RequireUppercaseCharacter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -182,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAccountPasswordPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyRequest();
             
             if (cmdletContext.AllowUsersToChangePassword != null)
             {
@@ -255,15 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowUsersToChangePassword { get; set; }
-            public Boolean? HardExpiry { get; set; }
-            public Int32? MaxPasswordAge { get; set; }
-            public Int32? MinimumPasswordLength { get; set; }
-            public Int32? PasswordReusePrevention { get; set; }
-            public Boolean? RequireLowercaseCharacters { get; set; }
-            public Boolean? RequireNumbers { get; set; }
-            public Boolean? RequireSymbols { get; set; }
-            public Boolean? RequireUppercaseCharacters { get; set; }
+            public System.Boolean? AllowUsersToChangePassword { get; set; }
+            public System.Boolean? HardExpiry { get; set; }
+            public System.Int32? MaxPasswordAge { get; set; }
+            public System.Int32? MinimumPasswordLength { get; set; }
+            public System.Int32? PasswordReusePrevention { get; set; }
+            public System.Boolean? RequireLowercaseCharacters { get; set; }
+            public System.Boolean? RequireNumbers { get; set; }
+            public System.Boolean? RequireSymbols { get; set; }
+            public System.Boolean? RequireUppercaseCharacters { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the RegisterOnPremisesInstance operation against AWS CodeDeploy.", Operation = new[] {"RegisterOnPremisesInstance"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type RegisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IamUserArn { get; set; }
+        public System.String IamUserArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceName { get; set; }
+        public System.String InstanceName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterOnPremisesInstanceRequest();
+            var request = new Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceRequest();
             
             if (cmdletContext.IamUserArn != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IamUserArn { get; set; }
-            public String InstanceName { get; set; }
+            public System.String IamUserArn { get; set; }
+            public System.String InstanceName { get; set; }
         }
         
     }

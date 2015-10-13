@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the CreateEvaluation operation against Amazon Machine Learning.", Operation = new[] {"CreateEvaluation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EvaluationDataSourceId { get; set; }
+        public System.String EvaluationDataSourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EvaluationId { get; set; }
+        public System.String EvaluationId { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String EvaluationName { get; set; }
+        public System.String EvaluationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateEvaluationRequest();
+            var request = new Amazon.MachineLearning.Model.CreateEvaluationRequest();
             
             if (cmdletContext.EvaluationDataSourceId != null)
             {
@@ -186,10 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EvaluationDataSourceId { get; set; }
-            public String EvaluationId { get; set; }
-            public String EvaluationName { get; set; }
-            public String MLModelId { get; set; }
+            public System.String EvaluationDataSourceId { get; set; }
+            public System.String EvaluationId { get; set; }
+            public System.String EvaluationName { get; set; }
+            public System.String MLModelId { get; set; }
         }
         
     }

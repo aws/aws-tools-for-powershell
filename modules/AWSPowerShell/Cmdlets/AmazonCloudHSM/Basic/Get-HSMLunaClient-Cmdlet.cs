@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [OutputType("Amazon.CloudHSM.Model.DescribeLunaClientResponse")]
     [AWSCmdlet("Invokes the DescribeLunaClient operation against AWS Cloud HSM.", Operation = new[] {"DescribeLunaClient"})]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeLunaClientResponse",
-        "This cmdlet returns a DescribeLunaClientResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudHSM.Model.DescribeLunaClientResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CertificateFingerprint { get; set; }
+        public System.String CertificateFingerprint { get; set; }
         
         /// <summary>
         /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ClientArn { get; set; }
+        public System.String ClientArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLunaClientRequest();
+            var request = new Amazon.CloudHSM.Model.DescribeLunaClientRequest();
             
             if (cmdletContext.CertificateFingerprint != null)
             {
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CertificateFingerprint { get; set; }
-            public String ClientArn { get; set; }
+            public System.String CertificateFingerprint { get; set; }
+            public System.String ClientArn { get; set; }
         }
         
     }

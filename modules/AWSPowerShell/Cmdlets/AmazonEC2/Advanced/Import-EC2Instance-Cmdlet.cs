@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("Amazon.EC2.Model.ConversionTask",
         "This object contains the conversion task id of the import, assigned by Amazon EC2. "
             + "This can be used to monitor the conversion or subsequently cancel it using Cancel-EC2ConversionTask.",
-        "The service call response (type ImportInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack (if only one manifest or image was imported).")]
+        "The service call response (type Amazon.EC2.Model.ImportInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack (if only one manifest or image was imported).")]
     [AWSCmdletOutput("System.String",
         "Contains the Amazon S3 object key of the import manifest file that was created and uploaded by the cmdlet. "
             + "This value is returned when the cmdlet is executed with the -UploadOnly switch. "
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(Mandatory = true, Position = 0, ParameterSetName = ParamSet_Default)]
         [Parameter(Mandatory = true, Position = 0, ParameterSetName = ParamSet_UploadOnly)]
-        public string ImageFile { get; set; }
+        public System.String ImageFile { get; set; }
 
         /// <summary>
         /// If set the cmdlet constructs the import manifest and uploads it plus the image
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_UploadOnly)]
-        public string FileFormat { get; set; }
+        public System.String FileFormat { get; set; }
 
         /// <summary>
         /// <para>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true)]
-        public string BucketName { get; set; }
+        public System.String BucketName { get; set; }
 
         /// <summary>
         /// Optional prefix for the manifest and image file objects within the Amazon S3 bucket.
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_UploadOnly)]
-        public string KeyPrefix { get; set; }
+        public System.String KeyPrefix { get; set; }
 
         /// <summary>
         /// <para>
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = ParamSet_FromManifest)]
-        public string[] ManifestFileKey { get; set; }
+        public System.String[] ManifestFileKey { get; set; }
 
         /// <summary>
         /// <para>
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_UploadOnly)]
-        public string Description { get; set; }
+        public System.String Description { get; set; }
 
         /// <summary>
         /// <para>
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_UploadOnly)]
-        public int VolumeSize { get; set; }
+        public System.Int32 VolumeSize { get; set; }
 
         /// <summary>
         /// Specifies the maximum number of threads to use to upload the image file parts to
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(ParameterSetName = ParamSet_UploadOnly)]
         [ValidateRange(1, DiskImageImporter.MaxUploadThreads)]
         [Alias("UploadThreads")]
-        public int UploadThreadCount
+        public System.Int32 UploadThreadCount
         {
             get { return _uploadThreads; }
             set
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(Mandatory = true, ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
         [Alias("LaunchSpecification_Architecture")]
-        public ArchitectureValues Architecture { get; set; }
+        public Amazon.EC2.ArchitectureValues Architecture { get; set; }
         
         /// <summary>
         /// The Availability Zone to launch the instance into.
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
         [Alias("LaunchSpecification_Placement_AvailabilityZone")]
-        public string AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
 
         /// <summary>
         /// The security group within which the instances should be run. Determines the ingress firewall rules that are
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
         [Alias("LaunchSpecification_SecurityGroup", "LaunchSpecification_GroupNames")]
-        public string[] Group { get; set; }
+        public System.String[] Group { get; set; }
         
         /// <summary>
         /// <para>
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
         [Alias("LaunchSpecification_InstanceInitiatedShutdownBehavior")]
-        public string InstanceInitiatedShutdownBehavior { get; set; }
+        public System.String InstanceInitiatedShutdownBehavior { get; set; }
         
         /// <summary>
         /// The type of instance to be launched. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a>
@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(Mandatory = true, ParameterSetName = ParamSet_Default)]
         [Parameter(Mandatory = true, ParameterSetName = ParamSet_FromManifest)]
         [Alias("LaunchSpecification_InstanceType")]
-        public InstanceType InstanceType { get; set; }
+        public Amazon.EC2.InstanceType InstanceType { get; set; }
         
         /// <summary>
         /// Enables monitoring of the specified instances.
@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
-        public string Platform
+        public System.String Platform
         {
             get { return _platform; } 
             set { _platform = value; }
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
         [Alias("LaunchSpecification_PrivateIpAddress")]
-        public string PrivateIpAddress { get; set; }
+        public System.String PrivateIpAddress { get; set; }
         
         /// <summary>
         /// [EC2-VPC] The ID of the subnet into which you're launching the instance.
@@ -300,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
         [Alias("LaunchSpecification_SubnetId")]
-        public string SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
         /*
         /// <summary>
         /// User data to be made available to the imported instance. This parameter is ignored
@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_FromManifest)]
-        public string AdditionalInfo { get; set; }
+        public System.String AdditionalInfo { get; set; }
 
         /// <summary>
         /// <para>
@@ -379,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Parameter(ParameterSetName = ParamSet_Default)]
         [Parameter(ParameterSetName = ParamSet_UploadOnly)]
         [Alias("Expires,UrlExpirationInDays")] // 'Expires' for compat with EC2 CLI 
-        public int UrlExpiration
+        public System.Int32 UrlExpiration
         {
             get { return _urlExpiryInDays; }
             set

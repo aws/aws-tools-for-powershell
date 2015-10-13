@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the RegisterImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RegisterImage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RegisterImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RegisterImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ArchitectureValues Architecture { get; set; }
+        public Amazon.EC2.ArchitectureValues Architecture { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ImageLocation { get; set; }
+        public System.String ImageLocation { get; set; }
         
         /// <summary>
         /// <para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KernelId { get; set; }
+        public System.String KernelId { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RamdiskId { get; set; }
+        public System.String RamdiskId { get; set; }
         
         /// <summary>
         /// <para>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RootDeviceName { get; set; }
+        public System.String RootDeviceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SriovNetSupport { get; set; }
+        public System.String SriovNetSupport { get; set; }
         
         /// <summary>
         /// <para>
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VirtualizationType { get; set; }
+        public System.String VirtualizationType { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Architecture = this.Architecture;
             if (this.BlockDeviceMapping != null)
             {
-                context.BlockDeviceMappings = new List<BlockDeviceMapping>(this.BlockDeviceMapping);
+                context.BlockDeviceMappings = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
             context.Description = this.Description;
             context.ImageLocation = this.ImageLocation;
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterImageRequest();
+            var request = new Amazon.EC2.Model.RegisterImageRequest();
             
             if (cmdletContext.Architecture != null)
             {
@@ -282,16 +282,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public ArchitectureValues Architecture { get; set; }
-            public List<BlockDeviceMapping> BlockDeviceMappings { get; set; }
-            public String Description { get; set; }
-            public String ImageLocation { get; set; }
-            public String KernelId { get; set; }
-            public String Name { get; set; }
-            public String RamdiskId { get; set; }
-            public String RootDeviceName { get; set; }
-            public String SriovNetSupport { get; set; }
-            public String VirtualizationType { get; set; }
+            public Amazon.EC2.ArchitectureValues Architecture { get; set; }
+            public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMappings { get; set; }
+            public System.String Description { get; set; }
+            public System.String ImageLocation { get; set; }
+            public System.String KernelId { get; set; }
+            public System.String Name { get; set; }
+            public System.String RamdiskId { get; set; }
+            public System.String RootDeviceName { get; set; }
+            public System.String SriovNetSupport { get; set; }
+            public System.String VirtualizationType { get; set; }
         }
         
     }

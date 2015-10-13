@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the Predict operation against Amazon Machine Learning.", Operation = new[] {"Predict"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.Prediction",
         "This cmdlet returns a Prediction object.",
-        "The service call response (type PredictResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.PredictResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetMLPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PredictEndpoint { get; set; }
+        public System.String PredictEndpoint { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             context.PredictEndpoint = this.PredictEndpoint;
             if (this.Record != null)
             {
-                context.Record = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Record = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Record.Keys)
                 {
                     context.Record.Add((String)hashKey, (String)(this.Record[hashKey]));
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PredictRequest();
+            var request = new Amazon.MachineLearning.Model.PredictRequest();
             
             if (cmdletContext.MLModelId != null)
             {
@@ -150,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MLModelId { get; set; }
-            public String PredictEndpoint { get; set; }
-            public Dictionary<String, String> Record { get; set; }
+            public System.String MLModelId { get; set; }
+            public System.String PredictEndpoint { get; set; }
+            public Dictionary<System.String, System.String> Record { get; set; }
         }
         
     }

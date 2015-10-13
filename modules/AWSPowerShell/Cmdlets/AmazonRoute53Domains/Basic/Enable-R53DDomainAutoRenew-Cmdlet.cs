@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Invokes the EnableDomainAutoRenew operation against AWS Route 53 Domains.", Operation = new[] {"EnableDomainAutoRenew"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type EnableDomainAutoRenewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Domains.Model.EnableDomainAutoRenewResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableR53DDomainAutoRenewCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DomainName parameter.
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableDomainAutoRenewRequest();
+            var request = new Amazon.Route53Domains.Model.EnableDomainAutoRenewRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

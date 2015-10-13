@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"CreateClusterParameterGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterParameterGroup",
         "This cmdlet returns a ClusterParameterGroup object.",
-        "The service call response (type CreateClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ParameterGroupFamily { get; set; }
+        public System.String ParameterGroupFamily { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        public System.String ParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ParameterGroupName = this.ParameterGroupName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateClusterParameterGroupRequest();
+            var request = new Amazon.Redshift.Model.CreateClusterParameterGroupRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -190,10 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String ParameterGroupFamily { get; set; }
-            public String ParameterGroupName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String Description { get; set; }
+            public System.String ParameterGroupFamily { get; set; }
+            public System.String ParameterGroupName { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

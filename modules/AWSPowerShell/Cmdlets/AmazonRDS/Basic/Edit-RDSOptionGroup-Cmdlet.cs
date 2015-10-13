@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyOptionGroup operation against Amazon Relational Database Service.", Operation = new[] {"ModifyOptionGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.OptionGroup",
         "This cmdlet returns a OptionGroup object.",
-        "The service call response (type ModifyOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean ApplyImmediately { get; set; }
+        public System.Boolean ApplyImmediately { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -105,11 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.OptionGroupName = this.OptionGroupName;
             if (this.OptionsToInclude != null)
             {
-                context.OptionsToInclude = new List<OptionConfiguration>(this.OptionsToInclude);
+                context.OptionsToInclude = new List<Amazon.RDS.Model.OptionConfiguration>(this.OptionsToInclude);
             }
             if (this.OptionsToRemove != null)
             {
-                context.OptionsToRemove = new List<String>(this.OptionsToRemove);
+                context.OptionsToRemove = new List<System.String>(this.OptionsToRemove);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyOptionGroupRequest();
+            var request = new Amazon.RDS.Model.ModifyOptionGroupRequest();
             
             if (cmdletContext.ApplyImmediately != null)
             {
@@ -175,10 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ApplyImmediately { get; set; }
-            public String OptionGroupName { get; set; }
-            public List<OptionConfiguration> OptionsToInclude { get; set; }
-            public List<String> OptionsToRemove { get; set; }
+            public System.Boolean? ApplyImmediately { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public List<Amazon.RDS.Model.OptionConfiguration> OptionsToInclude { get; set; }
+            public List<System.String> OptionsToRemove { get; set; }
         }
         
     }

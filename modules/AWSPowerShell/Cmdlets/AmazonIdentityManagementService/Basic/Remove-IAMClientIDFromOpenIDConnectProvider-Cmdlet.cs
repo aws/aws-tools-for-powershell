@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the RemoveClientIDFromOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"RemoveClientIDFromOpenIDConnectProvider"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type RemoveClientIDFromOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.RemoveClientIDFromOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMClientIDFromOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientID { get; set; }
+        public System.String ClientID { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OpenIDConnectProviderArn { get; set; }
+        public System.String OpenIDConnectProviderArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveClientIDFromOpenIDConnectProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.RemoveClientIDFromOpenIDConnectProviderRequest();
             
             if (cmdletContext.ClientID != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientID { get; set; }
-            public String OpenIDConnectProviderArn { get; set; }
+            public System.String ClientID { get; set; }
+            public System.String OpenIDConnectProviderArn { get; set; }
         }
         
     }

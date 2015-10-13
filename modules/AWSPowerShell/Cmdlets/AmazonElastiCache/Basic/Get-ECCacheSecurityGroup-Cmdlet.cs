@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeCacheSecurityGroups operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheSecurityGroups"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSecurityGroup",
         "This cmdlet returns a collection of CacheSecurityGroup objects.",
-        "The service call response (type DescribeCacheSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetECCacheSecurityGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheSecurityGroupName { get; set; }
+        public System.String CacheSecurityGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,14 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeCacheSecurityGroupsRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeCacheSecurityGroupsRequest();
             if (cmdletContext.CacheSecurityGroupName != null)
             {
                 request.CacheSecurityGroupName = cmdletContext.CacheSecurityGroupName;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheSecurityGroupName { get; set; }
-            public String Marker { get; set; }
+            public System.String CacheSecurityGroupName { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

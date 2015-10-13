@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse")]
     [AWSCmdlet("Invokes the AssumeRoleWithSAML operation against AWS Security Token Service.", Operation = new[] {"AssumeRoleWithSAML"})]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse",
-        "This cmdlet returns a AssumeRoleWithSAMLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UseSTSRoleWithSAMLCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         [Alias("DurationSeconds")]
-        public Int32 DurationInSeconds { get; set; }
+        public System.Int32 DurationInSeconds { get; set; }
         
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String PrincipalArn { get; set; }
+        public System.String PrincipalArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RoleArn { get; set; }
+        public System.String RoleArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SAMLAssertion { get; set; }
+        public System.String SAMLAssertion { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssumeRoleWithSAMLRequest();
+            var request = new Amazon.SecurityToken.Model.AssumeRoleWithSAMLRequest();
             
             if (cmdletContext.DurationInSeconds != null)
             {
@@ -235,11 +235,11 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DurationInSeconds { get; set; }
-            public String Policy { get; set; }
-            public String PrincipalArn { get; set; }
-            public String RoleArn { get; set; }
-            public String SAMLAssertion { get; set; }
+            public System.Int32? DurationInSeconds { get; set; }
+            public System.String Policy { get; set; }
+            public System.String PrincipalArn { get; set; }
+            public System.String RoleArn { get; set; }
+            public System.String SAMLAssertion { get; set; }
         }
         
     }

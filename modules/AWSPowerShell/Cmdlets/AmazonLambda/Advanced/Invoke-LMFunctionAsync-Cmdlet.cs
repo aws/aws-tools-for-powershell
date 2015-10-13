@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("System.Int32")]
     [AWSCmdlet("Invokes the InvokeAsync operation against Amazon Lambda.", Operation = new [] {"InvokeAsync"})]
     [AWSCmdletOutput("System.Int32",
-        "This cmdlet returns a Int32 object.",
-        "The service call response (type InvokeAsyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Int32 object.",
+        "The service call response (type Amazon.Lambda.Model.InvokeAsyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeLMFunctionAsyncCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [Parameter(Position = 1)]
         [Alias("InvokeArgs")]
-        public String InvokeArg { get; set; }
+        public System.String InvokeArg { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse")]
     [AWSCmdlet("Invokes the UpdateEnvironment operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateEnvironment"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse",
-        "This cmdlet returns a UpdateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.UpdateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Tier_Name { get; set; }
+        public System.String Tier_Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        public String TemplateName { get; set; }
+        public System.String TemplateName { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Tier_Type { get; set; }
+        public System.String Tier_Type { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Tier_Version { get; set; }
+        public System.String Tier_Version { get; set; }
         
         /// <summary>
         /// <para>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VersionLabel { get; set; }
+        public System.String VersionLabel { get; set; }
         
         /// <summary>
         /// <para>
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SolutionStackName { get; set; }
+        public System.String SolutionStackName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -185,11 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.EnvironmentName = this.EnvironmentName;
             if (this.OptionSetting != null)
             {
-                context.OptionSettings = new List<ConfigurationOptionSetting>(this.OptionSetting);
+                context.OptionSettings = new List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting>(this.OptionSetting);
             }
             if (this.OptionsToRemove != null)
             {
-                context.OptionsToRemove = new List<OptionSpecification>(this.OptionsToRemove);
+                context.OptionsToRemove = new List<Amazon.ElasticBeanstalk.Model.OptionSpecification>(this.OptionsToRemove);
             }
             context.SolutionStackName = this.SolutionStackName;
             context.TemplateName = this.TemplateName;
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateEnvironmentRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.UpdateEnvironmentRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -241,8 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
              // populate Tier
             bool requestTierIsNull = true;
-            request.Tier = new EnvironmentTier();
-            String requestTier_tier_Name = null;
+            request.Tier = new Amazon.ElasticBeanstalk.Model.EnvironmentTier();
+            System.String requestTier_tier_Name = null;
             if (cmdletContext.Tier_Name != null)
             {
                 requestTier_tier_Name = cmdletContext.Tier_Name;
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 request.Tier.Name = requestTier_tier_Name;
                 requestTierIsNull = false;
             }
-            String requestTier_tier_Type = null;
+            System.String requestTier_tier_Type = null;
             if (cmdletContext.Tier_Type != null)
             {
                 requestTier_tier_Type = cmdletContext.Tier_Type;
@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 request.Tier.Type = requestTier_tier_Type;
                 requestTierIsNull = false;
             }
-            String requestTier_tier_Version = null;
+            System.String requestTier_tier_Version = null;
             if (cmdletContext.Tier_Version != null)
             {
                 requestTier_tier_Version = cmdletContext.Tier_Version;
@@ -316,17 +316,17 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
-            public List<ConfigurationOptionSetting> OptionSettings { get; set; }
-            public List<OptionSpecification> OptionsToRemove { get; set; }
-            public String SolutionStackName { get; set; }
-            public String TemplateName { get; set; }
-            public String Tier_Name { get; set; }
-            public String Tier_Type { get; set; }
-            public String Tier_Version { get; set; }
-            public String VersionLabel { get; set; }
+            public System.String Description { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> OptionsToRemove { get; set; }
+            public System.String SolutionStackName { get; set; }
+            public System.String TemplateName { get; set; }
+            public System.String Tier_Name { get; set; }
+            public System.String Tier_Type { get; set; }
+            public System.String Tier_Version { get; set; }
+            public System.String VersionLabel { get; set; }
         }
         
     }

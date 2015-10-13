@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeregisterElasticIp operation against AWS OpsWorks.", Operation = new[] {"DeregisterElasticIp"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ElasticIp parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeregisterElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ElasticIp { get; set; }
+        public System.String ElasticIp { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ElasticIp parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterElasticIpRequest();
+            var request = new Amazon.OpsWorks.Model.DeregisterElasticIpRequest();
             
             if (cmdletContext.ElasticIp != null)
             {
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ElasticIp { get; set; }
+            public System.String ElasticIp { get; set; }
         }
         
     }

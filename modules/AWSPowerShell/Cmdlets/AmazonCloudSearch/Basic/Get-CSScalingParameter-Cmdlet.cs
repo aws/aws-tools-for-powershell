@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DescribeScalingParameters operation against Amazon CloudSearch.", Operation = new[] {"DescribeScalingParameters"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ScalingParametersStatus",
         "This cmdlet returns a ScalingParametersStatus object.",
-        "The service call response (type DescribeScalingParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeScalingParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeScalingParametersRequest();
+            var request = new Amazon.CloudSearch.Model.DescribeScalingParametersRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

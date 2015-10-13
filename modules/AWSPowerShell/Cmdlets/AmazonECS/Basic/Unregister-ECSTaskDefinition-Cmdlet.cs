@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the DeregisterTaskDefinition operation against Amazon EC2 Container Service.", Operation = new[] {"DeregisterTaskDefinition"})]
     [AWSCmdletOutput("Amazon.ECS.Model.TaskDefinition",
         "This cmdlet returns a TaskDefinition object.",
-        "The service call response (type DeregisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.DeregisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TaskDefinition { get; set; }
+        public System.String TaskDefinition { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterTaskDefinitionRequest();
+            var request = new Amazon.ECS.Model.DeregisterTaskDefinitionRequest();
             
             if (cmdletContext.TaskDefinition != null)
             {
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TaskDefinition { get; set; }
+            public System.String TaskDefinition { get; set; }
         }
         
     }

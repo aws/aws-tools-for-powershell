@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the CreateAutoScalingGroup operation against Auto Scaling.", Operation = new[] {"CreateAutoScalingGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateAutoScalingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CreateAutoScalingGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DefaultCooldown { get; set; }
+        public System.Int32 DefaultCooldown { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DesiredCapacity { get; set; }
+        public System.Int32 DesiredCapacity { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthCheckGracePeriod { get; set; }
+        public System.Int32 HealthCheckGracePeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HealthCheckType { get; set; }
+        public System.String HealthCheckType { get; set; }
         
         /// <summary>
         /// <para>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LaunchConfigurationName { get; set; }
+        public System.String LaunchConfigurationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public Int32 MaxSize { get; set; }
+        public System.Int32 MaxSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 MinSize { get; set; }
+        public System.Int32 MinSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PlacementGroup { get; set; }
+        public System.String PlacementGroup { get; set; }
         
         /// <summary>
         /// <para>
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VPCZoneIdentifier { get; set; }
+        public System.String VPCZoneIdentifier { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.AvailabilityZone != null)
             {
-                context.AvailabilityZones = new List<String>(this.AvailabilityZone);
+                context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
             }
             if (ParameterWasBound("DefaultCooldown"))
                 context.DefaultCooldown = this.DefaultCooldown;
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.LaunchConfigurationName = this.LaunchConfigurationName;
             if (this.LoadBalancerName != null)
             {
-                context.LoadBalancerNames = new List<String>(this.LoadBalancerName);
+                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
             }
             if (ParameterWasBound("MaxSize"))
                 context.MaxSize = this.MaxSize;
@@ -263,11 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.PlacementGroup = this.PlacementGroup;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.AutoScaling.Model.Tag>(this.Tag);
             }
             if (this.TerminationPolicy != null)
             {
-                context.TerminationPolicies = new List<String>(this.TerminationPolicy);
+                context.TerminationPolicies = new List<System.String>(this.TerminationPolicy);
             }
             context.VPCZoneIdentifier = this.VPCZoneIdentifier;
             
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAutoScalingGroupRequest();
+            var request = new Amazon.AutoScaling.Model.CreateAutoScalingGroupRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -380,21 +380,21 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> AvailabilityZones { get; set; }
-            public Int32? DefaultCooldown { get; set; }
-            public Int32? DesiredCapacity { get; set; }
-            public Int32? HealthCheckGracePeriod { get; set; }
-            public String HealthCheckType { get; set; }
-            public String InstanceId { get; set; }
-            public String LaunchConfigurationName { get; set; }
-            public List<String> LoadBalancerNames { get; set; }
-            public Int32? MaxSize { get; set; }
-            public Int32? MinSize { get; set; }
-            public String PlacementGroup { get; set; }
-            public List<Tag> Tags { get; set; }
-            public List<String> TerminationPolicies { get; set; }
-            public String VPCZoneIdentifier { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> AvailabilityZones { get; set; }
+            public System.Int32? DefaultCooldown { get; set; }
+            public System.Int32? DesiredCapacity { get; set; }
+            public System.Int32? HealthCheckGracePeriod { get; set; }
+            public System.String HealthCheckType { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String LaunchConfigurationName { get; set; }
+            public List<System.String> LoadBalancerNames { get; set; }
+            public System.Int32? MaxSize { get; set; }
+            public System.Int32? MinSize { get; set; }
+            public System.String PlacementGroup { get; set; }
+            public List<Amazon.AutoScaling.Model.Tag> Tags { get; set; }
+            public List<System.String> TerminationPolicies { get; set; }
+            public System.String VPCZoneIdentifier { get; set; }
         }
         
     }

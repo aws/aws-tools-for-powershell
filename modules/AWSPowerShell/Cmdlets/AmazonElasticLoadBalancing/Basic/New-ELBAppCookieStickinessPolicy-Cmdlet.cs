@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the CreateAppCookieStickinessPolicy operation against Elastic Load Balancing.", Operation = new[] {"CreateAppCookieStickinessPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateAppCookieStickinessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewELBAppCookieStickinessPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String CookieName { get; set; }
+        public System.String CookieName { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LoadBalancerName parameter.
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAppCookieStickinessPolicyRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.CreateAppCookieStickinessPolicyRequest();
             
             if (cmdletContext.CookieName != null)
             {
@@ -177,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CookieName { get; set; }
-            public String LoadBalancerName { get; set; }
-            public String PolicyName { get; set; }
+            public System.String CookieName { get; set; }
+            public System.String LoadBalancerName { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

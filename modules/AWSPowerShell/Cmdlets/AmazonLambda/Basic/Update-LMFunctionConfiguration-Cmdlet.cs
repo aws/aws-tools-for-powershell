@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateFunctionConfigurationResponse")]
     [AWSCmdlet("Invokes the UpdateFunctionConfiguration operation against Amazon Lambda.", Operation = new[] {"UpdateFunctionConfiguration"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionConfigurationResponse",
-        "This cmdlet returns a UpdateFunctionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.UpdateFunctionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Handler { get; set; }
+        public System.String Handler { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MemorySize { get; set; }
+        public System.Int32 MemorySize { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Role { get; set; }
+        public System.String Role { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Timeout { get; set; }
+        public System.Int32 Timeout { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateFunctionConfigurationRequest();
+            var request = new Amazon.Lambda.Model.UpdateFunctionConfigurationRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -213,12 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String FunctionName { get; set; }
-            public String Handler { get; set; }
-            public Int32? MemorySize { get; set; }
-            public String Role { get; set; }
-            public Int32? Timeout { get; set; }
+            public System.String Description { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Handler { get; set; }
+            public System.Int32? MemorySize { get; set; }
+            public System.String Role { get; set; }
+            public System.Int32? Timeout { get; set; }
         }
         
     }

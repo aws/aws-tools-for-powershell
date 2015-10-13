@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeReservedNodeOfferings operation against Amazon Redshift.", Operation = new[] {"DescribeReservedNodeOfferings"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNodeOffering",
         "This cmdlet returns a collection of ReservedNodeOffering objects.",
-        "The service call response (type DescribeReservedNodeOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.Redshift.Model.DescribeReservedNodeOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRSReservedNodeOfferingsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedNodeOfferingId { get; set; }
+        public System.String ReservedNodeOfferingId { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,14 +112,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeReservedNodeOfferingsRequest();
+            var request = new Amazon.Redshift.Model.DescribeReservedNodeOfferingsRequest();
             if (cmdletContext.ReservedNodeOfferingId != null)
             {
                 request.ReservedNodeOfferingId = cmdletContext.ReservedNodeOfferingId;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -234,9 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String ReservedNodeOfferingId { get; set; }
+            public System.String ReservedNodeOfferingId { get; set; }
         }
         
     }

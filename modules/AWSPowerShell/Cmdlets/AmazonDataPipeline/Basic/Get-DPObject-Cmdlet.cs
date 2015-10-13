@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the DescribeObjects operation against AWS Data Pipeline.", Operation = new[] {"DescribeObjects"})]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.PipelineObject",
         "This cmdlet returns a collection of PipelineObject objects.",
-        "The service call response (type DescribeObjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: HasMoreResults (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.DataPipeline.Model.DescribeObjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: HasMoreResults (type System.Boolean), Marker (type System.String)"
     )]
     public class GetDPObjectCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean EvaluateExpressions { get; set; }
+        [Alias("EvaluateExpressions")]
+        public System.Boolean EvaluateExpression { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -90,12 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("EvaluateExpressions"))
-                context.EvaluateExpressions = this.EvaluateExpressions;
+            if (ParameterWasBound("EvaluateExpression"))
+                context.EvaluateExpressions = this.EvaluateExpression;
             context.Marker = this.Marker;
             if (this.ObjectId != null)
             {
-                context.ObjectIds = new List<String>(this.ObjectId);
+                context.ObjectIds = new List<System.String>(this.ObjectId);
             }
             context.PipelineId = this.PipelineId;
             
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeObjectsRequest();
+            var request = new Amazon.DataPipeline.Model.DescribeObjectsRequest();
             
             if (cmdletContext.EvaluateExpressions != null)
             {
@@ -126,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
@@ -197,10 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? EvaluateExpressions { get; set; }
-            public String Marker { get; set; }
-            public List<String> ObjectIds { get; set; }
-            public String PipelineId { get; set; }
+            public System.Boolean? EvaluateExpressions { get; set; }
+            public System.String Marker { get; set; }
+            public List<System.String> ObjectIds { get; set; }
+            public System.String PipelineId { get; set; }
         }
         
     }

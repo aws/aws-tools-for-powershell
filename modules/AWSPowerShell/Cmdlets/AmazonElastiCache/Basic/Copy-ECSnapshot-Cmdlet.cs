@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the CopySnapshot operation against Amazon ElastiCache.", Operation = new[] {"CopySnapshot"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type CopySnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CopySnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceSnapshotName { get; set; }
+        public System.String SourceSnapshotName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetSnapshotName { get; set; }
+        public System.String TargetSnapshotName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopySnapshotRequest();
+            var request = new Amazon.ElastiCache.Model.CopySnapshotRequest();
             
             if (cmdletContext.SourceSnapshotName != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceSnapshotName { get; set; }
-            public String TargetSnapshotName { get; set; }
+            public System.String SourceSnapshotName { get; set; }
+            public System.String TargetSnapshotName { get; set; }
         }
         
     }

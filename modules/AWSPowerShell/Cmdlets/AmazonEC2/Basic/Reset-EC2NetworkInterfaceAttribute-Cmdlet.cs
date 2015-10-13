@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ResetNetworkInterfaceAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ResetNetworkInterfaceAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NetworkInterfaceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ResetNetworkInterfaceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ResetNetworkInterfaceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceDestCheck { get; set; }
+        public System.String SourceDestCheck { get; set; }
         
         /// <summary>
         /// Returns the value passed to the NetworkInterfaceId parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetNetworkInterfaceAttributeRequest();
+            var request = new Amazon.EC2.Model.ResetNetworkInterfaceAttributeRequest();
             
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NetworkInterfaceId { get; set; }
-            public String SourceDestCheck { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.String SourceDestCheck { get; set; }
         }
         
     }

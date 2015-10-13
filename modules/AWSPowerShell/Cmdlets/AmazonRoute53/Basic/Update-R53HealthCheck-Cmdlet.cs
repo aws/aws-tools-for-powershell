@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the UpdateHealthCheck operation against AWS Route 53.", Operation = new[] {"UpdateHealthCheck"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HealthCheck",
         "This cmdlet returns a HealthCheck object.",
-        "The service call response (type UpdateHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.UpdateHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 FailureThreshold { get; set; }
+        public System.Int32 FailureThreshold { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FullyQualifiedDomainName { get; set; }
+        public System.String FullyQualifiedDomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HealthCheckId { get; set; }
+        public System.String HealthCheckId { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 HealthCheckVersion { get; set; }
+        public System.Int64 HealthCheckVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HealthThreshold { get; set; }
+        public System.Int32 HealthThreshold { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Inverted { get; set; }
+        public System.Boolean Inverted { get; set; }
         
         /// <summary>
         /// <para>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IPAddress { get; set; }
+        public System.String IPAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourcePath { get; set; }
+        public System.String ResourcePath { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SearchString { get; set; }
+        public System.String SearchString { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 context.HealthThreshold = this.HealthThreshold;
             if (this.ChildHealthCheck != null)
             {
-                context.ChildHealthChecks = new List<String>(this.ChildHealthCheck);
+                context.ChildHealthChecks = new List<System.String>(this.ChildHealthCheck);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateHealthCheckRequest();
+            var request = new Amazon.Route53.Model.UpdateHealthCheckRequest();
             
             if (cmdletContext.HealthCheckId != null)
             {
@@ -290,17 +290,17 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HealthCheckId { get; set; }
-            public Int64? HealthCheckVersion { get; set; }
-            public String IPAddress { get; set; }
-            public Int32? Port { get; set; }
-            public String ResourcePath { get; set; }
-            public String FullyQualifiedDomainName { get; set; }
-            public String SearchString { get; set; }
-            public Int32? FailureThreshold { get; set; }
-            public Boolean? Inverted { get; set; }
-            public Int32? HealthThreshold { get; set; }
-            public List<String> ChildHealthChecks { get; set; }
+            public System.String HealthCheckId { get; set; }
+            public System.Int64? HealthCheckVersion { get; set; }
+            public System.String IPAddress { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String ResourcePath { get; set; }
+            public System.String FullyQualifiedDomainName { get; set; }
+            public System.String SearchString { get; set; }
+            public System.Int32? FailureThreshold { get; set; }
+            public System.Boolean? Inverted { get; set; }
+            public System.Int32? HealthThreshold { get; set; }
+            public List<System.String> ChildHealthChecks { get; set; }
         }
         
     }

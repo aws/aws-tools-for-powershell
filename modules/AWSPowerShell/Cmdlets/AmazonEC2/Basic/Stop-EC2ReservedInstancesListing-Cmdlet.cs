@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CancelReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelReservedInstancesListing"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
         "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type CancelReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CancelReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedInstancesListingId { get; set; }
+        public System.String ReservedInstancesListingId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelReservedInstancesListingRequest();
+            var request = new Amazon.EC2.Model.CancelReservedInstancesListingRequest();
             
             if (cmdletContext.ReservedInstancesListingId != null)
             {
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ReservedInstancesListingId { get; set; }
+            public System.String ReservedInstancesListingId { get; set; }
         }
         
     }

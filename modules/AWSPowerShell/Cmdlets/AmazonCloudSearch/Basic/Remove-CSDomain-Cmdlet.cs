@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DeleteDomain operation against Amazon CloudSearch.", Operation = new[] {"DeleteDomain"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.DomainStatus",
         "This cmdlet returns a DomainStatus object.",
-        "The service call response (type DeleteDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCSDomainCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDomainRequest();
+            var request = new Amazon.CloudSearch.Model.DeleteDomainRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

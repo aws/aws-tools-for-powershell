@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Invokes the CreateDeliveryStream operation against Amazon Kinesis Firehose.", Operation = new[] {"CreateDeliveryStream"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisFirehose.Model.CreateDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryStreamName { get; set; }
+        public System.String DeliveryStreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
+        public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public S3DestinationConfiguration S3DestinationConfiguration { get; set; }
+        public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDeliveryStreamRequest();
+            var request = new Amazon.KinesisFirehose.Model.CreateDeliveryStreamRequest();
             
             if (cmdletContext.DeliveryStreamName != null)
             {
@@ -198,9 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryStreamName { get; set; }
-            public RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
-            public S3DestinationConfiguration S3DestinationConfiguration { get; set; }
+            public System.String DeliveryStreamName { get; set; }
+            public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
+            public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
         }
         
     }

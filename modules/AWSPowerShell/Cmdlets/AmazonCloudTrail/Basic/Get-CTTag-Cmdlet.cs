@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Invokes the ListTags operation against AWS CloudTrail.", Operation = new[] {"ListTags"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.ResourceTag",
         "This cmdlet returns a collection of ResourceTag objects.",
-        "The service call response (type ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudTrail.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             context.NextToken = this.NextToken;
             if (this.ResourceIdList != null)
             {
-                context.ResourceIdList = new List<String>(this.ResourceIdList);
+                context.ResourceIdList = new List<System.String>(this.ResourceIdList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsRequest();
+            var request = new Amazon.CloudTrail.Model.ListTagsRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public List<String> ResourceIdList { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ResourceIdList { get; set; }
         }
         
     }

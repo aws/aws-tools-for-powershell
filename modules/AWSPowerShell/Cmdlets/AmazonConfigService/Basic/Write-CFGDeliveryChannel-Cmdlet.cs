@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the PutDeliveryChannel operation against Amazon Config.", Operation = new[] {"PutDeliveryChannel"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryChannelName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.PutDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency")]
-        public MaximumExecutionFrequency ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
+        public Amazon.ConfigService.MaximumExecutionFrequency ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DeliveryChannel_Name")]
-        public String DeliveryChannelName { get; set; }
+        public System.String DeliveryChannelName { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryChannel_S3BucketName { get; set; }
+        public System.String DeliveryChannel_S3BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryChannel_S3KeyPrefix { get; set; }
+        public System.String DeliveryChannel_S3KeyPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryChannel_SnsTopicARN { get; set; }
+        public System.String DeliveryChannel_SnsTopicARN { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DeliveryChannelName parameter.
@@ -145,13 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutDeliveryChannelRequest();
+            var request = new Amazon.ConfigService.Model.PutDeliveryChannelRequest();
             
             
              // populate DeliveryChannel
             bool requestDeliveryChannelIsNull = true;
-            request.DeliveryChannel = new DeliveryChannel();
-            String requestDeliveryChannel_deliveryChannelName = null;
+            request.DeliveryChannel = new Amazon.ConfigService.Model.DeliveryChannel();
+            System.String requestDeliveryChannel_deliveryChannelName = null;
             if (cmdletContext.DeliveryChannelName != null)
             {
                 requestDeliveryChannel_deliveryChannelName = cmdletContext.DeliveryChannelName;
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.Name = requestDeliveryChannel_deliveryChannelName;
                 requestDeliveryChannelIsNull = false;
             }
-            String requestDeliveryChannel_deliveryChannel_S3BucketName = null;
+            System.String requestDeliveryChannel_deliveryChannel_S3BucketName = null;
             if (cmdletContext.DeliveryChannel_S3BucketName != null)
             {
                 requestDeliveryChannel_deliveryChannel_S3BucketName = cmdletContext.DeliveryChannel_S3BucketName;
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.S3BucketName = requestDeliveryChannel_deliveryChannel_S3BucketName;
                 requestDeliveryChannelIsNull = false;
             }
-            String requestDeliveryChannel_deliveryChannel_S3KeyPrefix = null;
+            System.String requestDeliveryChannel_deliveryChannel_S3KeyPrefix = null;
             if (cmdletContext.DeliveryChannel_S3KeyPrefix != null)
             {
                 requestDeliveryChannel_deliveryChannel_S3KeyPrefix = cmdletContext.DeliveryChannel_S3KeyPrefix;
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.S3KeyPrefix = requestDeliveryChannel_deliveryChannel_S3KeyPrefix;
                 requestDeliveryChannelIsNull = false;
             }
-            String requestDeliveryChannel_deliveryChannel_SnsTopicARN = null;
+            System.String requestDeliveryChannel_deliveryChannel_SnsTopicARN = null;
             if (cmdletContext.DeliveryChannel_SnsTopicARN != null)
             {
                 requestDeliveryChannel_deliveryChannel_SnsTopicARN = cmdletContext.DeliveryChannel_SnsTopicARN;
@@ -191,12 +191,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.SnsTopicARN = requestDeliveryChannel_deliveryChannel_SnsTopicARN;
                 requestDeliveryChannelIsNull = false;
             }
-            ConfigSnapshotDeliveryProperties requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = null;
+            Amazon.ConfigService.Model.ConfigSnapshotDeliveryProperties requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = null;
             
              // populate ConfigSnapshotDeliveryProperties
             bool requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryPropertiesIsNull = true;
-            requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = new ConfigSnapshotDeliveryProperties();
-            MaximumExecutionFrequency requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency = null;
+            requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = new Amazon.ConfigService.Model.ConfigSnapshotDeliveryProperties();
+            Amazon.ConfigService.MaximumExecutionFrequency requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency = null;
             if (cmdletContext.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency != null)
             {
                 requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency = cmdletContext.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency;
@@ -258,11 +258,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public MaximumExecutionFrequency DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
-            public String DeliveryChannelName { get; set; }
-            public String DeliveryChannel_S3BucketName { get; set; }
-            public String DeliveryChannel_S3KeyPrefix { get; set; }
-            public String DeliveryChannel_SnsTopicARN { get; set; }
+            public Amazon.ConfigService.MaximumExecutionFrequency DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
+            public System.String DeliveryChannelName { get; set; }
+            public System.String DeliveryChannel_S3BucketName { get; set; }
+            public System.String DeliveryChannel_S3KeyPrefix { get; set; }
+            public System.String DeliveryChannel_SnsTopicARN { get; set; }
         }
         
     }

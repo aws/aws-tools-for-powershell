@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the TransferCertificate operation against AWS IoT.", Operation = new[] {"TransferCertificate"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type TransferCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.TransferCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestIOTCertificateTransferCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CertificateId { get; set; }
+        public System.String CertificateId { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TargetAwsAccount { get; set; }
+        public System.String TargetAwsAccount { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TransferCertificateRequest();
+            var request = new Amazon.IoT.Model.TransferCertificateRequest();
             
             if (cmdletContext.CertificateId != null)
             {
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CertificateId { get; set; }
-            public String TargetAwsAccount { get; set; }
+            public System.String CertificateId { get; set; }
+            public System.String TargetAwsAccount { get; set; }
         }
         
     }

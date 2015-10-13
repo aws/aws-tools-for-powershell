@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateReservedInstancesListing"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
         "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type CreateReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 InstanceCount { get; set; }
+        public System.Int32 InstanceCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedInstancesId { get; set; }
+        public System.String ReservedInstancesId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.InstanceCount = this.InstanceCount;
             if (this.PriceSchedule != null)
             {
-                context.PriceSchedules = new List<PriceScheduleSpecification>(this.PriceSchedule);
+                context.PriceSchedules = new List<Amazon.EC2.Model.PriceScheduleSpecification>(this.PriceSchedule);
             }
             context.ReservedInstancesId = this.ReservedInstancesId;
             
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateReservedInstancesListingRequest();
+            var request = new Amazon.EC2.Model.CreateReservedInstancesListingRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -194,10 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public Int32? InstanceCount { get; set; }
-            public List<PriceScheduleSpecification> PriceSchedules { get; set; }
-            public String ReservedInstancesId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.Int32? InstanceCount { get; set; }
+            public List<Amazon.EC2.Model.PriceScheduleSpecification> PriceSchedules { get; set; }
+            public System.String ReservedInstancesId { get; set; }
         }
         
     }

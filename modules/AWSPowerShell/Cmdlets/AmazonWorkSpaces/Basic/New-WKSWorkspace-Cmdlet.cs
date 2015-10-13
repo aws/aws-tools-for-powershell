@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [OutputType("Amazon.WorkSpaces.Model.CreateWorkspacesResponse")]
     [AWSCmdlet("Invokes the CreateWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"CreateWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.CreateWorkspacesResponse",
-        "This cmdlet returns a CreateWorkspacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.WorkSpaces.Model.CreateWorkspacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (this.Workspace != null)
             {
-                context.Workspaces = new List<WorkspaceRequest>(this.Workspace);
+                context.Workspaces = new List<Amazon.WorkSpaces.Model.WorkspaceRequest>(this.Workspace);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateWorkspacesRequest();
+            var request = new Amazon.WorkSpaces.Model.CreateWorkspacesRequest();
             
             if (cmdletContext.Workspaces != null)
             {
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<WorkspaceRequest> Workspaces { get; set; }
+            public List<Amazon.WorkSpaces.Model.WorkspaceRequest> Workspaces { get; set; }
         }
         
     }

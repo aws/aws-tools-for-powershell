@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the CreatePipeline operation against Amazon Elastic Transcoder.", Operation = new[] {"CreatePipeline"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Pipeline",
         "This cmdlet returns a Pipeline object.",
-        "The service call response (type CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Warnings (type List&lt;Warning&gt;)"
+        "The service call response (type Amazon.ElasticTranscoder.Model.CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Warnings (type List&lt;Amazon.ElasticTranscoder.Model.Warning&gt;)"
     )]
     public class NewETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AwsKmsKeyArn { get; set; }
+        public System.String AwsKmsKeyArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContentConfig_Bucket { get; set; }
+        public System.String ContentConfig_Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ThumbnailConfig_Bucket { get; set; }
+        public System.String ThumbnailConfig_Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Completed { get; set; }
+        public System.String Notifications_Completed { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Error { get; set; }
+        public System.String Notifications_Error { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String InputBucket { get; set; }
+        public System.String InputBucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String OutputBucket { get; set; }
+        public System.String OutputBucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Progressing { get; set; }
+        public System.String Notifications_Progressing { get; set; }
         
         /// <summary>
         /// <para>
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Role { get; set; }
+        public System.String Role { get; set; }
         
         /// <summary>
         /// <para>
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContentConfig_StorageClass { get; set; }
+        public System.String ContentConfig_StorageClass { get; set; }
         
         /// <summary>
         /// <para>
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ThumbnailConfig_StorageClass { get; set; }
+        public System.String ThumbnailConfig_StorageClass { get; set; }
         
         /// <summary>
         /// <para>
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Warning { get; set; }
+        public System.String Notifications_Warning { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.ContentConfig_Bucket = this.ContentConfig_Bucket;
             if (this.ContentConfig_Permission != null)
             {
-                context.ContentConfig_Permissions = new List<Permission>(this.ContentConfig_Permission);
+                context.ContentConfig_Permissions = new List<Amazon.ElasticTranscoder.Model.Permission>(this.ContentConfig_Permission);
             }
             context.ContentConfig_StorageClass = this.ContentConfig_StorageClass;
             context.InputBucket = this.InputBucket;
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.ThumbnailConfig_Bucket = this.ThumbnailConfig_Bucket;
             if (this.ThumbnailConfig_Permission != null)
             {
-                context.ThumbnailConfig_Permissions = new List<Permission>(this.ThumbnailConfig_Permission);
+                context.ThumbnailConfig_Permissions = new List<Amazon.ElasticTranscoder.Model.Permission>(this.ThumbnailConfig_Permission);
             }
             context.ThumbnailConfig_StorageClass = this.ThumbnailConfig_StorageClass;
             
@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePipelineRequest();
+            var request = new Amazon.ElasticTranscoder.Model.CreatePipelineRequest();
             
             if (cmdletContext.AwsKmsKeyArn != null)
             {
@@ -292,8 +292,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             
              // populate ContentConfig
             bool requestContentConfigIsNull = true;
-            request.ContentConfig = new PipelineOutputConfig();
-            String requestContentConfig_contentConfig_Bucket = null;
+            request.ContentConfig = new Amazon.ElasticTranscoder.Model.PipelineOutputConfig();
+            System.String requestContentConfig_contentConfig_Bucket = null;
             if (cmdletContext.ContentConfig_Bucket != null)
             {
                 requestContentConfig_contentConfig_Bucket = cmdletContext.ContentConfig_Bucket;
@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.ContentConfig.Bucket = requestContentConfig_contentConfig_Bucket;
                 requestContentConfigIsNull = false;
             }
-            List<Permission> requestContentConfig_contentConfig_Permission = null;
+            List<Amazon.ElasticTranscoder.Model.Permission> requestContentConfig_contentConfig_Permission = null;
             if (cmdletContext.ContentConfig_Permissions != null)
             {
                 requestContentConfig_contentConfig_Permission = cmdletContext.ContentConfig_Permissions;
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.ContentConfig.Permissions = requestContentConfig_contentConfig_Permission;
                 requestContentConfigIsNull = false;
             }
-            String requestContentConfig_contentConfig_StorageClass = null;
+            System.String requestContentConfig_contentConfig_StorageClass = null;
             if (cmdletContext.ContentConfig_StorageClass != null)
             {
                 requestContentConfig_contentConfig_StorageClass = cmdletContext.ContentConfig_StorageClass;
@@ -339,8 +339,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             
              // populate Notifications
             bool requestNotificationsIsNull = true;
-            request.Notifications = new Notifications();
-            String requestNotifications_notifications_Completed = null;
+            request.Notifications = new Amazon.ElasticTranscoder.Model.Notifications();
+            System.String requestNotifications_notifications_Completed = null;
             if (cmdletContext.Notifications_Completed != null)
             {
                 requestNotifications_notifications_Completed = cmdletContext.Notifications_Completed;
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Notifications.Completed = requestNotifications_notifications_Completed;
                 requestNotificationsIsNull = false;
             }
-            String requestNotifications_notifications_Error = null;
+            System.String requestNotifications_notifications_Error = null;
             if (cmdletContext.Notifications_Error != null)
             {
                 requestNotifications_notifications_Error = cmdletContext.Notifications_Error;
@@ -360,7 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Notifications.Error = requestNotifications_notifications_Error;
                 requestNotificationsIsNull = false;
             }
-            String requestNotifications_notifications_Progressing = null;
+            System.String requestNotifications_notifications_Progressing = null;
             if (cmdletContext.Notifications_Progressing != null)
             {
                 requestNotifications_notifications_Progressing = cmdletContext.Notifications_Progressing;
@@ -370,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Notifications.Progressing = requestNotifications_notifications_Progressing;
                 requestNotificationsIsNull = false;
             }
-            String requestNotifications_notifications_Warning = null;
+            System.String requestNotifications_notifications_Warning = null;
             if (cmdletContext.Notifications_Warning != null)
             {
                 requestNotifications_notifications_Warning = cmdletContext.Notifications_Warning;
@@ -396,8 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             
              // populate ThumbnailConfig
             bool requestThumbnailConfigIsNull = true;
-            request.ThumbnailConfig = new PipelineOutputConfig();
-            String requestThumbnailConfig_thumbnailConfig_Bucket = null;
+            request.ThumbnailConfig = new Amazon.ElasticTranscoder.Model.PipelineOutputConfig();
+            System.String requestThumbnailConfig_thumbnailConfig_Bucket = null;
             if (cmdletContext.ThumbnailConfig_Bucket != null)
             {
                 requestThumbnailConfig_thumbnailConfig_Bucket = cmdletContext.ThumbnailConfig_Bucket;
@@ -407,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.ThumbnailConfig.Bucket = requestThumbnailConfig_thumbnailConfig_Bucket;
                 requestThumbnailConfigIsNull = false;
             }
-            List<Permission> requestThumbnailConfig_thumbnailConfig_Permission = null;
+            List<Amazon.ElasticTranscoder.Model.Permission> requestThumbnailConfig_thumbnailConfig_Permission = null;
             if (cmdletContext.ThumbnailConfig_Permissions != null)
             {
                 requestThumbnailConfig_thumbnailConfig_Permission = cmdletContext.ThumbnailConfig_Permissions;
@@ -417,7 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.ThumbnailConfig.Permissions = requestThumbnailConfig_thumbnailConfig_Permission;
                 requestThumbnailConfigIsNull = false;
             }
-            String requestThumbnailConfig_thumbnailConfig_StorageClass = null;
+            System.String requestThumbnailConfig_thumbnailConfig_StorageClass = null;
             if (cmdletContext.ThumbnailConfig_StorageClass != null)
             {
                 requestThumbnailConfig_thumbnailConfig_StorageClass = cmdletContext.ThumbnailConfig_StorageClass;
@@ -469,21 +469,21 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AwsKmsKeyArn { get; set; }
-            public String ContentConfig_Bucket { get; set; }
-            public List<Permission> ContentConfig_Permissions { get; set; }
-            public String ContentConfig_StorageClass { get; set; }
-            public String InputBucket { get; set; }
-            public String Name { get; set; }
-            public String Notifications_Completed { get; set; }
-            public String Notifications_Error { get; set; }
-            public String Notifications_Progressing { get; set; }
-            public String Notifications_Warning { get; set; }
-            public String OutputBucket { get; set; }
-            public String Role { get; set; }
-            public String ThumbnailConfig_Bucket { get; set; }
-            public List<Permission> ThumbnailConfig_Permissions { get; set; }
-            public String ThumbnailConfig_StorageClass { get; set; }
+            public System.String AwsKmsKeyArn { get; set; }
+            public System.String ContentConfig_Bucket { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.Permission> ContentConfig_Permissions { get; set; }
+            public System.String ContentConfig_StorageClass { get; set; }
+            public System.String InputBucket { get; set; }
+            public System.String Name { get; set; }
+            public System.String Notifications_Completed { get; set; }
+            public System.String Notifications_Error { get; set; }
+            public System.String Notifications_Progressing { get; set; }
+            public System.String Notifications_Warning { get; set; }
+            public System.String OutputBucket { get; set; }
+            public System.String Role { get; set; }
+            public System.String ThumbnailConfig_Bucket { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.Permission> ThumbnailConfig_Permissions { get; set; }
+            public System.String ThumbnailConfig_StorageClass { get; set; }
         }
         
     }

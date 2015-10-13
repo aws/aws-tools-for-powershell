@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the ListDeploymentInstances operation against AWS CodeDeploy.", Operation = new[] {"ListDeploymentInstances"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListDeploymentInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeDeploy.Model.ListDeploymentInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCDDeploymentInstanceListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentId { get; set; }
+        public System.String DeploymentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.DeploymentId = this.DeploymentId;
             if (this.InstanceStatusFilter != null)
             {
-                context.InstanceStatusFilter = new List<String>(this.InstanceStatusFilter);
+                context.InstanceStatusFilter = new List<System.String>(this.InstanceStatusFilter);
             }
             context.NextToken = this.NextToken;
             
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDeploymentInstancesRequest();
+            var request = new Amazon.CodeDeploy.Model.ListDeploymentInstancesRequest();
             
             if (cmdletContext.DeploymentId != null)
             {
@@ -146,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeploymentId { get; set; }
-            public List<String> InstanceStatusFilter { get; set; }
-            public String NextToken { get; set; }
+            public System.String DeploymentId { get; set; }
+            public List<System.String> InstanceStatusFilter { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

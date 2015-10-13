@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the SetDefaultPolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"SetDefaultPolicyVersion"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type SetDefaultPolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.SetDefaultPolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetIAMDefaultPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetDefaultPolicyVersionRequest();
+            var request = new Amazon.IdentityManagement.Model.SetDefaultPolicyVersionRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
-            public String VersionId { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the QueryObjects operation against AWS Data Pipeline.", Operation = new[] {"QueryObjects"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type QueryObjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: HasMoreResults (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.DataPipeline.Model.QueryObjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: HasMoreResults (type System.Boolean), Marker (type System.String)"
     )]
     public class FindDPObjectCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Sphere { get; set; }
+        public System.String Sphere { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             context.PipelineId = this.PipelineId;
             if (this.Query_Selector != null)
             {
-                context.Query_Selectors = new List<Selector>(this.Query_Selector);
+                context.Query_Selectors = new List<Amazon.DataPipeline.Model.Selector>(this.Query_Selector);
             }
             context.Sphere = this.Sphere;
             
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new QueryObjectsRequest();
+            var request = new Amazon.DataPipeline.Model.QueryObjectsRequest();
             
             if (cmdletContext.Limit != null)
             {
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
              // populate Query
             bool requestQueryIsNull = true;
-            request.Query = new Query();
-            List<Selector> requestQuery_query_Selector = null;
+            request.Query = new Amazon.DataPipeline.Model.Query();
+            List<Amazon.DataPipeline.Model.Selector> requestQuery_query_Selector = null;
             if (cmdletContext.Query_Selectors != null)
             {
                 requestQuery_query_Selector = cmdletContext.Query_Selectors;
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
@@ -226,11 +226,11 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? Limit { get; set; }
-            public String Marker { get; set; }
-            public String PipelineId { get; set; }
-            public List<Selector> Query_Selectors { get; set; }
-            public String Sphere { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String Marker { get; set; }
+            public System.String PipelineId { get; set; }
+            public List<Amazon.DataPipeline.Model.Selector> Query_Selectors { get; set; }
+            public System.String Sphere { get; set; }
         }
         
     }

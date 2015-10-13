@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the BundleInstance operation against Amazon Elastic Compute Cloud.", Operation = new[] {"BundleInstance"})]
     [AWSCmdletOutput("Amazon.EC2.Model.BundleTask",
         "This cmdlet returns a BundleTask object.",
-        "The service call response (type BundleInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.BundleInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2InstanceBundleCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Storage_S3_AWSAccessKeyId")]
-        public String S3_AWSAccessKeyId { get; set; }
+        public System.String S3_AWSAccessKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Storage_S3_Bucket")]
-        public String S3_Bucket { get; set; }
+        public System.String S3_Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Storage_S3_Prefix")]
-        public String S3_Prefix { get; set; }
+        public System.String S3_Prefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Storage_S3_UploadPolicy")]
-        public String S3_UploadPolicy { get; set; }
+        public System.String S3_UploadPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Storage_S3_UploadPolicySignature")]
-        public String S3_UploadPolicySignature { get; set; }
+        public System.String S3_UploadPolicySignature { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new BundleInstanceRequest();
+            var request = new Amazon.EC2.Model.BundleInstanceRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -160,13 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate Storage
             bool requestStorageIsNull = true;
-            request.Storage = new Storage();
-            S3Storage requestStorage_storage_S3 = null;
+            request.Storage = new Amazon.EC2.Model.Storage();
+            Amazon.EC2.Model.S3Storage requestStorage_storage_S3 = null;
             
              // populate S3
             bool requestStorage_storage_S3IsNull = true;
-            requestStorage_storage_S3 = new S3Storage();
-            String requestStorage_storage_S3_s3_AWSAccessKeyId = null;
+            requestStorage_storage_S3 = new Amazon.EC2.Model.S3Storage();
+            System.String requestStorage_storage_S3_s3_AWSAccessKeyId = null;
             if (cmdletContext.Storage_S3_AWSAccessKeyId != null)
             {
                 requestStorage_storage_S3_s3_AWSAccessKeyId = cmdletContext.Storage_S3_AWSAccessKeyId;
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestStorage_storage_S3.AWSAccessKeyId = requestStorage_storage_S3_s3_AWSAccessKeyId;
                 requestStorage_storage_S3IsNull = false;
             }
-            String requestStorage_storage_S3_s3_Bucket = null;
+            System.String requestStorage_storage_S3_s3_Bucket = null;
             if (cmdletContext.Storage_S3_Bucket != null)
             {
                 requestStorage_storage_S3_s3_Bucket = cmdletContext.Storage_S3_Bucket;
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestStorage_storage_S3.Bucket = requestStorage_storage_S3_s3_Bucket;
                 requestStorage_storage_S3IsNull = false;
             }
-            String requestStorage_storage_S3_s3_Prefix = null;
+            System.String requestStorage_storage_S3_s3_Prefix = null;
             if (cmdletContext.Storage_S3_Prefix != null)
             {
                 requestStorage_storage_S3_s3_Prefix = cmdletContext.Storage_S3_Prefix;
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestStorage_storage_S3.Prefix = requestStorage_storage_S3_s3_Prefix;
                 requestStorage_storage_S3IsNull = false;
             }
-            String requestStorage_storage_S3_s3_UploadPolicy = null;
+            System.String requestStorage_storage_S3_s3_UploadPolicy = null;
             if (cmdletContext.Storage_S3_UploadPolicy != null)
             {
                 requestStorage_storage_S3_s3_UploadPolicy = cmdletContext.Storage_S3_UploadPolicy;
@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestStorage_storage_S3.UploadPolicy = requestStorage_storage_S3_s3_UploadPolicy;
                 requestStorage_storage_S3IsNull = false;
             }
-            String requestStorage_storage_S3_s3_UploadPolicySignature = null;
+            System.String requestStorage_storage_S3_s3_UploadPolicySignature = null;
             if (cmdletContext.Storage_S3_UploadPolicySignature != null)
             {
                 requestStorage_storage_S3_s3_UploadPolicySignature = cmdletContext.Storage_S3_UploadPolicySignature;
@@ -266,12 +266,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String Storage_S3_AWSAccessKeyId { get; set; }
-            public String Storage_S3_Bucket { get; set; }
-            public String Storage_S3_Prefix { get; set; }
-            public String Storage_S3_UploadPolicy { get; set; }
-            public String Storage_S3_UploadPolicySignature { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Storage_S3_AWSAccessKeyId { get; set; }
+            public System.String Storage_S3_Bucket { get; set; }
+            public System.String Storage_S3_Prefix { get; set; }
+            public System.String Storage_S3_UploadPolicy { get; set; }
+            public System.String Storage_S3_UploadPolicySignature { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the DescribeFinding operation against Amazon Inspector.", Operation = new[] {"DescribeFinding"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.Finding",
         "This cmdlet returns a Finding object.",
-        "The service call response (type DescribeFindingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.DescribeFindingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSFindingCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String FindingArn { get; set; }
+        public System.String FindingArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeFindingRequest();
+            var request = new Amazon.Inspector.Model.DescribeFindingRequest();
             
             if (cmdletContext.FindingArn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FindingArn { get; set; }
+            public System.String FindingArn { get; set; }
         }
         
     }

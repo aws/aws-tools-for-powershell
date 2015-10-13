@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the CreateApplicationVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateApplicationVersion"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription",
         "This cmdlet returns a ApplicationVersionDescription object.",
-        "The service call response (type CreateApplicationVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.CreateApplicationVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoCreateApplication { get; set; }
+        public System.Boolean AutoCreateApplication { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceBundle_S3Bucket { get; set; }
+        public System.String SourceBundle_S3Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceBundle_S3Key { get; set; }
+        public System.String SourceBundle_S3Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String VersionLabel { get; set; }
+        public System.String VersionLabel { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateApplicationVersionRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.CreateApplicationVersionRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
              // populate SourceBundle
             bool requestSourceBundleIsNull = true;
-            request.SourceBundle = new S3Location();
-            String requestSourceBundle_sourceBundle_S3Bucket = null;
+            request.SourceBundle = new Amazon.ElasticBeanstalk.Model.S3Location();
+            System.String requestSourceBundle_sourceBundle_S3Bucket = null;
             if (cmdletContext.SourceBundle_S3Bucket != null)
             {
                 requestSourceBundle_sourceBundle_S3Bucket = cmdletContext.SourceBundle_S3Bucket;
@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 request.SourceBundle.S3Bucket = requestSourceBundle_sourceBundle_S3Bucket;
                 requestSourceBundleIsNull = false;
             }
-            String requestSourceBundle_sourceBundle_S3Key = null;
+            System.String requestSourceBundle_sourceBundle_S3Key = null;
             if (cmdletContext.SourceBundle_S3Key != null)
             {
                 requestSourceBundle_sourceBundle_S3Key = cmdletContext.SourceBundle_S3Key;
@@ -226,12 +226,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public Boolean? AutoCreateApplication { get; set; }
-            public String Description { get; set; }
-            public String SourceBundle_S3Bucket { get; set; }
-            public String SourceBundle_S3Key { get; set; }
-            public String VersionLabel { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.Boolean? AutoCreateApplication { get; set; }
+            public System.String Description { get; set; }
+            public System.String SourceBundle_S3Bucket { get; set; }
+            public System.String SourceBundle_S3Key { get; set; }
+            public System.String VersionLabel { get; set; }
         }
         
     }

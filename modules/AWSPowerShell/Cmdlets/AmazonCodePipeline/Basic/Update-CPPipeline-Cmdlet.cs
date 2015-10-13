@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the UpdatePipeline operation against AWS CodePipeline.", Operation = new[] {"UpdatePipeline"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineDeclaration",
         "This cmdlet returns a PipelineDeclaration object.",
-        "The service call response (type UpdatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.UpdatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public PipelineDeclaration Pipeline { get; set; }
+        public Amazon.CodePipeline.Model.PipelineDeclaration Pipeline { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdatePipelineRequest();
+            var request = new Amazon.CodePipeline.Model.UpdatePipelineRequest();
             
             if (cmdletContext.Pipeline != null)
             {
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public PipelineDeclaration Pipeline { get; set; }
+            public Amazon.CodePipeline.Model.PipelineDeclaration Pipeline { get; set; }
         }
         
     }

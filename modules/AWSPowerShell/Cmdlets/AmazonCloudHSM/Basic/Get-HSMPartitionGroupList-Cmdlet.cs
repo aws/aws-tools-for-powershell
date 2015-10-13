@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the ListHapgs operation against AWS Cloud HSM.", Operation = new[] {"ListHapgs"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListHapgsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudHSM.Model.ListHapgsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetHSMPartitionGroupListCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -81,11 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListHapgsRequest();
+            var request = new Amazon.CloudHSM.Model.ListHapgsRequest();
             
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

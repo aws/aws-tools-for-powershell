@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the CreateKey operation against AWS Key Management Service.", Operation = new[] {"CreateKey"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.KeyMetadata",
         "This cmdlet returns a KeyMetadata object.",
-        "The service call response (type CreateKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.CreateKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public KeyUsageType KeyUsage { get; set; }
+        public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateKeyRequest();
+            var request = new Amazon.KeyManagementService.Model.CreateKeyRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -157,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public KeyUsageType KeyUsage { get; set; }
-            public String Policy { get; set; }
+            public System.String Description { get; set; }
+            public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
+            public System.String Policy { get; set; }
         }
         
     }

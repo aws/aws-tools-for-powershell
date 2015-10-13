@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeTrustedAdvisorCheckResult operation against AWS Support API.", Operation = new[] {"DescribeTrustedAdvisorCheckResult"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.TrustedAdvisorCheckResult",
         "This cmdlet returns a TrustedAdvisorCheckResult object.",
-        "The service call response (type DescribeTrustedAdvisorCheckResultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckResultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASATrustedAdvisorCheckResultCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CheckId { get; set; }
+        public System.String CheckId { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Language { get; set; }
+        public System.String Language { get; set; }
         
         
         protected override void ProcessRecord()
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTrustedAdvisorCheckResultRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckResultRequest();
             
             if (cmdletContext.CheckId != null)
             {
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CheckId { get; set; }
-            public String Language { get; set; }
+            public System.String CheckId { get; set; }
+            public System.String Language { get; set; }
         }
         
     }

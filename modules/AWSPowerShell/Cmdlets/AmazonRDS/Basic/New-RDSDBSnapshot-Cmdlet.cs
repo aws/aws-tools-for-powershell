@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshot",
         "This cmdlet returns a DBSnapshot object.",
-        "The service call response (type CreateDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSnapshotIdentifier { get; set; }
+        public System.String DBSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBSnapshotRequest();
+            var request = new Amazon.RDS.Model.CreateDBSnapshotRequest();
             
             if (cmdletContext.DBInstanceIdentifier != null)
             {
@@ -160,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceIdentifier { get; set; }
-            public String DBSnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String DBSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

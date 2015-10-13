@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Invokes the UpdateDestination operation against Amazon Kinesis Firehose.", Operation = new[] {"UpdateDestination"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisFirehose.Model.UpdateDestinationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateKINFDestinationCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CurrentDeliveryStreamVersionId { get; set; }
+        public System.String CurrentDeliveryStreamVersionId { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryStreamName { get; set; }
+        public System.String DeliveryStreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationId { get; set; }
+        public System.String DestinationId { get; set; }
         
         /// <summary>
         /// <para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
+        public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
         
         /// <summary>
         /// <para>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public S3DestinationUpdate S3DestinationUpdate { get; set; }
+        public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDestinationRequest();
+            var request = new Amazon.KinesisFirehose.Model.UpdateDestinationRequest();
             
             if (cmdletContext.CurrentDeliveryStreamVersionId != null)
             {
@@ -213,11 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CurrentDeliveryStreamVersionId { get; set; }
-            public String DeliveryStreamName { get; set; }
-            public String DestinationId { get; set; }
-            public RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
-            public S3DestinationUpdate S3DestinationUpdate { get; set; }
+            public System.String CurrentDeliveryStreamVersionId { get; set; }
+            public System.String DeliveryStreamName { get; set; }
+            public System.String DestinationId { get; set; }
+            public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
+            public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
         }
         
     }

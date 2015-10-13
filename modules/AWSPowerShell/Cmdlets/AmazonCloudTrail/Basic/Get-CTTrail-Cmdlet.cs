@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Invokes the DescribeTrails operation against AWS CloudTrail.", Operation = new[] {"DescribeTrails"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.Trail",
         "This cmdlet returns a collection of Trail objects.",
-        "The service call response (type DescribeTrailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudTrail.Model.DescribeTrailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             
             if (this.TrailNameList != null)
             {
-                context.TrailNameList = new List<String>(this.TrailNameList);
+                context.TrailNameList = new List<System.String>(this.TrailNameList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTrailsRequest();
+            var request = new Amazon.CloudTrail.Model.DescribeTrailsRequest();
             
             if (cmdletContext.TrailNameList != null)
             {
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> TrailNameList { get; set; }
+            public List<System.String> TrailNameList { get; set; }
         }
         
     }

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the StartStack operation against AWS OpsWorks.", Operation = new[] {"StartStack"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type StartStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.StartStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the StackId parameter.
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartStackRequest();
+            var request = new Amazon.OpsWorks.Model.StartStackRequest();
             
             if (cmdletContext.StackId != null)
             {
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackId { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

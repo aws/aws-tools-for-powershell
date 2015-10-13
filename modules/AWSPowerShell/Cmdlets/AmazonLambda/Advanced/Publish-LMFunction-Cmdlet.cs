@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.CreateFunctionResult")]
     [AWSCmdlet("Invokes the CreateFunction operation against Amazon Lambda.", Operation = new [] {"CreateFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateFunctionResult",
-        "This cmdlet returns a CreateFunctionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.Lambda.Model.CreateFunctionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class PublishLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// a meaningful description as you see fit.
         /// </summary>
         [Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// The name you want to assign to the function you are uploading. You can specify an
@@ -62,13 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <a>Invoke</a>. 
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// A file path to the zip file containing your packaged source code.
         /// </summary>
         [Parameter(Position = 1)]
-        public string FunctionZip { get; set; }
+        public System.String FunctionZip { get; set; }
         
         /// <summary>
         /// The function within your code that Lambda calls to begin execution. For Node.js, it
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Function Handler (Java)</a>. 
         /// </summary>
         [Parameter(Position = 2)]
-        public String Handler { get; set; }
+        public System.String Handler { get; set; }
         
         /// <summary>
         /// The amount of memory, in MB, your Lambda function is given. Lambda uses this memory
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// is 128 MB. The value must be a multiple of 64 MB.
         /// </summary>
         [Parameter]
-        public Int32? MemorySize { get; set; }
+        public System.Int32? MemorySize { get; set; }
         
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Lambda: How it Works</a> 
         /// </summary>
         [Parameter(Position = 4)]
-        public String Role { get; set; }
+        public System.String Role { get; set; }
         
         /// <summary>
         /// The runtime environment for the Lambda function you are uploading. Currently, Lambda
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// your expected execution time. The default is 3 seconds. 
         /// </summary>
         [Parameter]
-        public Int32? Timeout { get; set; }
+        public System.Int32? Timeout { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

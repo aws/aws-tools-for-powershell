@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the EnableStageTransition operation against AWS CodePipeline.", Operation = new[] {"EnableStageTransition"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type EnableStageTransitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.EnableStageTransitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableCPStageTransitionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PipelineName { get; set; }
+        public System.String PipelineName { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StageName { get; set; }
+        public System.String StageName { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StageTransitionType TransitionType { get; set; }
+        public Amazon.CodePipeline.StageTransitionType TransitionType { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableStageTransitionRequest();
+            var request = new Amazon.CodePipeline.Model.EnableStageTransitionRequest();
             
             if (cmdletContext.PipelineName != null)
             {
@@ -155,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PipelineName { get; set; }
-            public String StageName { get; set; }
-            public StageTransitionType TransitionType { get; set; }
+            public System.String PipelineName { get; set; }
+            public System.String StageName { get; set; }
+            public Amazon.CodePipeline.StageTransitionType TransitionType { get; set; }
         }
         
     }

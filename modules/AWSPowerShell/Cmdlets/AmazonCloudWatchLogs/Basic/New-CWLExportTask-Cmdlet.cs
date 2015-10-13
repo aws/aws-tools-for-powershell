@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the CreateExportTask operation against Amazon CloudWatch Logs.", Operation = new[] {"CreateExportTask"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.CreateExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Destination { get; set; }
+        public System.String Destination { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationPrefix { get; set; }
+        public System.String DestinationPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 From { get; set; }
+        public System.Int64 From { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LogStreamNamePrefix { get; set; }
+        public System.String LogStreamNamePrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TaskName { get; set; }
+        public System.String TaskName { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 To { get; set; }
+        public System.Int64 To { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateExportTaskRequest();
+            var request = new Amazon.CloudWatchLogs.Model.CreateExportTaskRequest();
             
             if (cmdletContext.Destination != null)
             {
@@ -218,13 +218,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Destination { get; set; }
-            public String DestinationPrefix { get; set; }
-            public Int64? From { get; set; }
-            public String LogGroupName { get; set; }
-            public String LogStreamNamePrefix { get; set; }
-            public String TaskName { get; set; }
-            public Int64? To { get; set; }
+            public System.String Destination { get; set; }
+            public System.String DestinationPrefix { get; set; }
+            public System.Int64? From { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String LogStreamNamePrefix { get; set; }
+            public System.String TaskName { get; set; }
+            public System.Int64? To { get; set; }
         }
         
     }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [AWSCmdlet("Invokes the DescribeDeliveryStream operation against Amazon Kinesis Firehose.", Operation = new[] {"DescribeDeliveryStream"})]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.DeliveryStreamDescription",
         "This cmdlet returns a DeliveryStreamDescription object.",
-        "The service call response (type DescribeDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryStreamName { get; set; }
+        public System.String DeliveryStreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExclusiveStartDestinationId { get; set; }
+        public System.String ExclusiveStartDestinationId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         
         
         protected override void ProcessRecord()
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDeliveryStreamRequest();
+            var request = new Amazon.KinesisFirehose.Model.DescribeDeliveryStreamRequest();
             
             if (cmdletContext.DeliveryStreamName != null)
             {
@@ -142,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryStreamName { get; set; }
-            public String ExclusiveStartDestinationId { get; set; }
-            public Int32? Limit { get; set; }
+            public System.String DeliveryStreamName { get; set; }
+            public System.String ExclusiveStartDestinationId { get; set; }
+            public System.Int32? Limit { get; set; }
         }
         
     }

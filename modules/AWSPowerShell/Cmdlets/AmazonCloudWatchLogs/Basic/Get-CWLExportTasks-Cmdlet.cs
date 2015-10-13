@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DescribeExportTasks operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeExportTasks"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.ExportTask",
         "This cmdlet returns a collection of ExportTask objects.",
-        "The service call response (type DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWLExportTasksCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ExportTaskStatusCode StatusCode { get; set; }
+        public Amazon.CloudWatchLogs.ExportTaskStatusCode StatusCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TaskId { get; set; }
+        public System.String TaskId { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeExportTasksRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeExportTasksRequest();
             
             if (cmdletContext.Limit != null)
             {
@@ -171,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
-            public String NextToken { get; set; }
-            public ExportTaskStatusCode StatusCode { get; set; }
-            public String TaskId { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CloudWatchLogs.ExportTaskStatusCode StatusCode { get; set; }
+            public System.String TaskId { get; set; }
         }
         
     }

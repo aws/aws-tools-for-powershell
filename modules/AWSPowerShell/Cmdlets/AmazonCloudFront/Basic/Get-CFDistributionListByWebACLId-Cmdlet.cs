@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the ListDistributionsByWebACLId operation against Amazon CloudFront.", Operation = new[] {"ListDistributionsByWebACLId"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.DistributionList",
         "This cmdlet returns a DistributionList object.",
-        "The service call response (type ListDistributionsByWebACLIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListDistributionsByWebACLIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFDistributionListByWebACLIdCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String WebACLId { get; set; }
+        public System.String WebACLId { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public String MaxItem { get; set; }
+        public System.String MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDistributionsByWebACLIdRequest();
+            var request = new Amazon.CloudFront.Model.ListDistributionsByWebACLIdRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -146,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public String MaxItems { get; set; }
-            public String WebACLId { get; set; }
+            public System.String Marker { get; set; }
+            public System.String MaxItems { get; set; }
+            public System.String WebACLId { get; set; }
         }
         
     }

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the ExitStandby operation against Auto Scaling.", Operation = new[] {"ExitStandby"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
-        "The service call response (type ExitStandbyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.ExitStandbyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ExitASStandbyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.InstanceId != null)
             {
-                context.InstanceIds = new List<String>(this.InstanceId);
+                context.InstanceIds = new List<System.String>(this.InstanceId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ExitStandbyRequest();
+            var request = new Amazon.AutoScaling.Model.ExitStandbyRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> InstanceIds { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> InstanceIds { get; set; }
         }
         
     }

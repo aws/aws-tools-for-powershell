@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the CreateDataSourceFromRedshift operation against Amazon Machine Learning.", Operation = new[] {"CreateDataSourceFromRedshift"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateDataSourceFromRedshiftResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLDataSourceFromRedshiftCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseInformation_ClusterIdentifier")]
-        public String DatabaseInformation_ClusterIdentifier { get; set; }
+        public System.String DatabaseInformation_ClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ComputeStatistics { get; set; }
+        [Alias("ComputeStatistics")]
+        public System.Boolean ComputeStatistic { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseInformation_DatabaseName")]
-        public String DatabaseInformation_DatabaseName { get; set; }
+        public System.String DatabaseInformation_DatabaseName { get; set; }
         
         /// <summary>
         /// <para>
@@ -107,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_DataRearrangement { get; set; }
+        public System.String DataSpec_DataRearrangement { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_DataSchema { get; set; }
+        public System.String DataSpec_DataSchema { get; set; }
         
         /// <summary>
         /// <para>
@@ -131,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_DataSchemaUri { get; set; }
+        public System.String DataSpec_DataSchemaUri { get; set; }
         
         /// <summary>
         /// <para>
@@ -139,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -147,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceName { get; set; }
+        public System.String DataSourceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -156,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseCredentials_Password")]
-        public String DatabaseCredentials_Password { get; set; }
+        public System.String DatabaseCredentials_Password { get; set; }
         
         /// <summary>
         /// <para>
@@ -166,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RoleARN { get; set; }
+        public System.String RoleARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -175,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_S3StagingLocation { get; set; }
+        public System.String DataSpec_S3StagingLocation { get; set; }
         
         /// <summary>
         /// <para>
@@ -184,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSpec_SelectSqlQuery { get; set; }
+        public System.String DataSpec_SelectSqlQuery { get; set; }
         
         /// <summary>
         /// <para>
@@ -193,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseCredentials_Username")]
-        public String DatabaseCredentials_Username { get; set; }
+        public System.String DatabaseCredentials_Username { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -220,8 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("ComputeStatistics"))
-                context.ComputeStatistics = this.ComputeStatistics;
+            if (ParameterWasBound("ComputeStatistic"))
+                context.ComputeStatistics = this.ComputeStatistic;
             context.DataSourceId = this.DataSourceId;
             context.DataSourceName = this.DataSourceName;
             context.DataSpec_DatabaseCredentials_Password = this.DatabaseCredentials_Password;
@@ -245,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDataSourceFromRedshiftRequest();
+            var request = new Amazon.MachineLearning.Model.CreateDataSourceFromRedshiftRequest();
             
             if (cmdletContext.ComputeStatistics != null)
             {
@@ -262,8 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
             
              // populate DataSpec
             bool requestDataSpecIsNull = true;
-            request.DataSpec = new RedshiftDataSpec();
-            String requestDataSpec_dataSpec_DataRearrangement = null;
+            request.DataSpec = new Amazon.MachineLearning.Model.RedshiftDataSpec();
+            System.String requestDataSpec_dataSpec_DataRearrangement = null;
             if (cmdletContext.DataSpec_DataRearrangement != null)
             {
                 requestDataSpec_dataSpec_DataRearrangement = cmdletContext.DataSpec_DataRearrangement;
@@ -273,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.DataRearrangement = requestDataSpec_dataSpec_DataRearrangement;
                 requestDataSpecIsNull = false;
             }
-            String requestDataSpec_dataSpec_DataSchema = null;
+            System.String requestDataSpec_dataSpec_DataSchema = null;
             if (cmdletContext.DataSpec_DataSchema != null)
             {
                 requestDataSpec_dataSpec_DataSchema = cmdletContext.DataSpec_DataSchema;
@@ -283,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.DataSchema = requestDataSpec_dataSpec_DataSchema;
                 requestDataSpecIsNull = false;
             }
-            String requestDataSpec_dataSpec_DataSchemaUri = null;
+            System.String requestDataSpec_dataSpec_DataSchemaUri = null;
             if (cmdletContext.DataSpec_DataSchemaUri != null)
             {
                 requestDataSpec_dataSpec_DataSchemaUri = cmdletContext.DataSpec_DataSchemaUri;
@@ -293,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.DataSchemaUri = requestDataSpec_dataSpec_DataSchemaUri;
                 requestDataSpecIsNull = false;
             }
-            String requestDataSpec_dataSpec_S3StagingLocation = null;
+            System.String requestDataSpec_dataSpec_S3StagingLocation = null;
             if (cmdletContext.DataSpec_S3StagingLocation != null)
             {
                 requestDataSpec_dataSpec_S3StagingLocation = cmdletContext.DataSpec_S3StagingLocation;
@@ -303,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.S3StagingLocation = requestDataSpec_dataSpec_S3StagingLocation;
                 requestDataSpecIsNull = false;
             }
-            String requestDataSpec_dataSpec_SelectSqlQuery = null;
+            System.String requestDataSpec_dataSpec_SelectSqlQuery = null;
             if (cmdletContext.DataSpec_SelectSqlQuery != null)
             {
                 requestDataSpec_dataSpec_SelectSqlQuery = cmdletContext.DataSpec_SelectSqlQuery;
@@ -313,12 +314,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.SelectSqlQuery = requestDataSpec_dataSpec_SelectSqlQuery;
                 requestDataSpecIsNull = false;
             }
-            RedshiftDatabaseCredentials requestDataSpec_dataSpec_DatabaseCredentials = null;
+            Amazon.MachineLearning.Model.RedshiftDatabaseCredentials requestDataSpec_dataSpec_DatabaseCredentials = null;
             
              // populate DatabaseCredentials
             bool requestDataSpec_dataSpec_DatabaseCredentialsIsNull = true;
-            requestDataSpec_dataSpec_DatabaseCredentials = new RedshiftDatabaseCredentials();
-            String requestDataSpec_dataSpec_DatabaseCredentials_databaseCredentials_Password = null;
+            requestDataSpec_dataSpec_DatabaseCredentials = new Amazon.MachineLearning.Model.RedshiftDatabaseCredentials();
+            System.String requestDataSpec_dataSpec_DatabaseCredentials_databaseCredentials_Password = null;
             if (cmdletContext.DataSpec_DatabaseCredentials_Password != null)
             {
                 requestDataSpec_dataSpec_DatabaseCredentials_databaseCredentials_Password = cmdletContext.DataSpec_DatabaseCredentials_Password;
@@ -328,7 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 requestDataSpec_dataSpec_DatabaseCredentials.Password = requestDataSpec_dataSpec_DatabaseCredentials_databaseCredentials_Password;
                 requestDataSpec_dataSpec_DatabaseCredentialsIsNull = false;
             }
-            String requestDataSpec_dataSpec_DatabaseCredentials_databaseCredentials_Username = null;
+            System.String requestDataSpec_dataSpec_DatabaseCredentials_databaseCredentials_Username = null;
             if (cmdletContext.DataSpec_DatabaseCredentials_Username != null)
             {
                 requestDataSpec_dataSpec_DatabaseCredentials_databaseCredentials_Username = cmdletContext.DataSpec_DatabaseCredentials_Username;
@@ -348,12 +349,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.DataSpec.DatabaseCredentials = requestDataSpec_dataSpec_DatabaseCredentials;
                 requestDataSpecIsNull = false;
             }
-            RedshiftDatabase requestDataSpec_dataSpec_DatabaseInformation = null;
+            Amazon.MachineLearning.Model.RedshiftDatabase requestDataSpec_dataSpec_DatabaseInformation = null;
             
              // populate DatabaseInformation
             bool requestDataSpec_dataSpec_DatabaseInformationIsNull = true;
-            requestDataSpec_dataSpec_DatabaseInformation = new RedshiftDatabase();
-            String requestDataSpec_dataSpec_DatabaseInformation_databaseInformation_ClusterIdentifier = null;
+            requestDataSpec_dataSpec_DatabaseInformation = new Amazon.MachineLearning.Model.RedshiftDatabase();
+            System.String requestDataSpec_dataSpec_DatabaseInformation_databaseInformation_ClusterIdentifier = null;
             if (cmdletContext.DataSpec_DatabaseInformation_ClusterIdentifier != null)
             {
                 requestDataSpec_dataSpec_DatabaseInformation_databaseInformation_ClusterIdentifier = cmdletContext.DataSpec_DatabaseInformation_ClusterIdentifier;
@@ -363,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 requestDataSpec_dataSpec_DatabaseInformation.ClusterIdentifier = requestDataSpec_dataSpec_DatabaseInformation_databaseInformation_ClusterIdentifier;
                 requestDataSpec_dataSpec_DatabaseInformationIsNull = false;
             }
-            String requestDataSpec_dataSpec_DatabaseInformation_databaseInformation_DatabaseName = null;
+            System.String requestDataSpec_dataSpec_DatabaseInformation_databaseInformation_DatabaseName = null;
             if (cmdletContext.DataSpec_DatabaseInformation_DatabaseName != null)
             {
                 requestDataSpec_dataSpec_DatabaseInformation_databaseInformation_DatabaseName = cmdletContext.DataSpec_DatabaseInformation_DatabaseName;
@@ -427,19 +428,19 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ComputeStatistics { get; set; }
-            public String DataSourceId { get; set; }
-            public String DataSourceName { get; set; }
-            public String DataSpec_DatabaseCredentials_Password { get; set; }
-            public String DataSpec_DatabaseCredentials_Username { get; set; }
-            public String DataSpec_DatabaseInformation_ClusterIdentifier { get; set; }
-            public String DataSpec_DatabaseInformation_DatabaseName { get; set; }
-            public String DataSpec_DataRearrangement { get; set; }
-            public String DataSpec_DataSchema { get; set; }
-            public String DataSpec_DataSchemaUri { get; set; }
-            public String DataSpec_S3StagingLocation { get; set; }
-            public String DataSpec_SelectSqlQuery { get; set; }
-            public String RoleARN { get; set; }
+            public System.Boolean? ComputeStatistics { get; set; }
+            public System.String DataSourceId { get; set; }
+            public System.String DataSourceName { get; set; }
+            public System.String DataSpec_DatabaseCredentials_Password { get; set; }
+            public System.String DataSpec_DatabaseCredentials_Username { get; set; }
+            public System.String DataSpec_DatabaseInformation_ClusterIdentifier { get; set; }
+            public System.String DataSpec_DatabaseInformation_DatabaseName { get; set; }
+            public System.String DataSpec_DataRearrangement { get; set; }
+            public System.String DataSpec_DataSchema { get; set; }
+            public System.String DataSpec_DataSchemaUri { get; set; }
+            public System.String DataSpec_S3StagingLocation { get; set; }
+            public System.String DataSpec_SelectSqlQuery { get; set; }
+            public System.String RoleARN { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [OutputType("Amazon.ElastiCache.Model.DescribeCacheParametersResponse")]
     [AWSCmdlet("Invokes the DescribeCacheParameters operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheParameters"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.DescribeCacheParametersResponse",
-        "This cmdlet returns a DescribeCacheParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElastiCache.Model.DescribeCacheParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECCacheParameterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheParameterGroupName { get; set; }
+        public System.String CacheParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Source { get; set; }
+        public System.String Source { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
-        public Int32 MaxRecord { get; set; }
+        public System.Int32 MaxRecord { get; set; }
         
         
         protected override void ProcessRecord()
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeCacheParametersRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeCacheParametersRequest();
             
             if (cmdletContext.CacheParameterGroupName != null)
             {
@@ -157,10 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheParameterGroupName { get; set; }
-            public String Marker { get; set; }
-            public Int32? MaxRecords { get; set; }
-            public String Source { get; set; }
+            public System.String CacheParameterGroupName { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxRecords { get; set; }
+            public System.String Source { get; set; }
         }
         
     }

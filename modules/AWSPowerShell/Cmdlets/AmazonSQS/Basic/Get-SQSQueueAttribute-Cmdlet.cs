@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [OutputType("Amazon.SQS.Model.GetQueueAttributesResponse")]
     [AWSCmdlet("Invokes the GetQueueAttributes operation against Amazon Simple Queue Service.", Operation = new[] {"GetQueueAttributes"})]
     [AWSCmdletOutput("Amazon.SQS.Model.GetQueueAttributesResponse",
-        "This cmdlet returns a GetQueueAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SQS.Model.GetQueueAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
         
         
         protected override void ProcessRecord()
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.AttributeName != null)
             {
-                context.AttributeNames = new List<String>(this.AttributeName);
+                context.AttributeNames = new List<System.String>(this.AttributeName);
             }
             context.QueueUrl = this.QueueUrl;
             
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetQueueAttributesRequest();
+            var request = new Amazon.SQS.Model.GetQueueAttributesRequest();
             
             if (cmdletContext.AttributeNames != null)
             {
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AttributeNames { get; set; }
-            public String QueueUrl { get; set; }
+            public List<System.String> AttributeNames { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

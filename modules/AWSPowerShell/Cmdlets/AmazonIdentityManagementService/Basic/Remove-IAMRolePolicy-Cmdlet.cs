@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeleteRolePolicy operation against AWS Identity and Access Management.", Operation = new[] {"DeleteRolePolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RoleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteRolePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteRolePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMRolePolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RoleName { get; set; }
+        public System.String RoleName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RoleName parameter.
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteRolePolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteRolePolicyRequest();
             
             if (cmdletContext.PolicyName != null)
             {
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyName { get; set; }
-            public String RoleName { get; set; }
+            public System.String PolicyName { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

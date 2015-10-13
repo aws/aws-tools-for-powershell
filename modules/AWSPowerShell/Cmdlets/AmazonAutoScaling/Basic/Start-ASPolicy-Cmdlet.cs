@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the ExecutePolicy operation against Auto Scaling.", Operation = new[] {"ExecutePolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ExecutePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.ExecutePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartASPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double BreachThreshold { get; set; }
+        public System.Double BreachThreshold { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean HonorCooldown { get; set; }
+        public System.Boolean HonorCooldown { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double MetricValue { get; set; }
+        public System.Double MetricValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ExecutePolicyRequest();
+            var request = new Amazon.AutoScaling.Model.ExecutePolicyRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -198,11 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public Double? BreachThreshold { get; set; }
-            public Boolean? HonorCooldown { get; set; }
-            public Double? MetricValue { get; set; }
-            public String PolicyName { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.Double? BreachThreshold { get; set; }
+            public System.Boolean? HonorCooldown { get; set; }
+            public System.Double? MetricValue { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

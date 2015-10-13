@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyVpcAttribute against Amazon Elastic Compute Cloud.", Operation = new [] {"ModifyVpcAttribute"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. Only one attribute can be modified per call."
-            + "The service response (type ModifyVpcAttributeResponse) is added to the cmdlet entry in the $AWSHistory stack."
+            + "The service response (type Amazon.EC2.Model.ModifyVpcAttributeResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2VpcAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName=true, ValueFromPipeline = true, Mandatory = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
         
         /// <summary>
         /// <para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_DnsSupport, Mandatory = true)]
-        public Boolean? EnableDnsSupport { get; set; }
+        public System.Boolean? EnableDnsSupport { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_DnsHostnames, Mandatory = true)]
-        public Boolean? EnableDnsHostnames { get; set; }
+        public System.Boolean? EnableDnsHostnames { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

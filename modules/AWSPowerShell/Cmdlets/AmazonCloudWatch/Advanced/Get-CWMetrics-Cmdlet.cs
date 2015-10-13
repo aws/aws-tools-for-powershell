@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the ListMetrics operation against Amazon CloudWatch.", Operation = new [] {"ListMetrics"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.Metric",
         "This cmdlet returns 0 or more Metric instances.",
-        "The service response (type ListMetricsResponse) is added to the cmdlet entry in the $AWSHistory stack.",
+        "The service response (type Amazon.CloudWatch.Model.ListMetricsResponse) is added to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as notes to the service response type instance in the history stack: NextToken (type String)"
     )]
     public class GetCWMetricsCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Namespace { get; set; }
+        public System.String Namespace { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String MetricName { get; set; }
+        public System.String MetricName { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
 
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all metrics to the pipeline. If set,

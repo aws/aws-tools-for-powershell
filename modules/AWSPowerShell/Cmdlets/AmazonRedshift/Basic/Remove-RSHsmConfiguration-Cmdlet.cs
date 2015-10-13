@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteHsmConfiguration operation against Amazon Redshift.", Operation = new[] {"DeleteHsmConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the HsmConfigurationIdentifier parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteHsmConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteHsmConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSHsmConfigurationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HsmConfigurationIdentifier { get; set; }
+        public System.String HsmConfigurationIdentifier { get; set; }
         
         /// <summary>
         /// Returns the value passed to the HsmConfigurationIdentifier parameter.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteHsmConfigurationRequest();
+            var request = new Amazon.Redshift.Model.DeleteHsmConfigurationRequest();
             
             if (cmdletContext.HsmConfigurationIdentifier != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HsmConfigurationIdentifier { get; set; }
+            public System.String HsmConfigurationIdentifier { get; set; }
         }
         
     }

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DescribeDeliveryChannels operation against Amazon Config.", Operation = new[] {"DescribeDeliveryChannels"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.DeliveryChannel",
         "This cmdlet returns a collection of DeliveryChannel objects.",
-        "The service call response (type DescribeDeliveryChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeDeliveryChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGDeliveryChannelsCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.DeliveryChannelName != null)
             {
-                context.DeliveryChannelNames = new List<String>(this.DeliveryChannelName);
+                context.DeliveryChannelNames = new List<System.String>(this.DeliveryChannelName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDeliveryChannelsRequest();
+            var request = new Amazon.ConfigService.Model.DescribeDeliveryChannelsRequest();
             
             if (cmdletContext.DeliveryChannelNames != null)
             {
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DeliveryChannelNames { get; set; }
+            public List<System.String> DeliveryChannelNames { get; set; }
         }
         
     }

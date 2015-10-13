@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the DeleteFunction operation against Amazon Lambda.", Operation = new[] {"DeleteFunction"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public System.String Qualifier { get; set; }
         
         /// <summary>
         /// Returns the value passed to the FunctionName parameter.
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteFunctionRequest();
+            var request = new Amazon.Lambda.Model.DeleteFunctionRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -173,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
         }
         
     }

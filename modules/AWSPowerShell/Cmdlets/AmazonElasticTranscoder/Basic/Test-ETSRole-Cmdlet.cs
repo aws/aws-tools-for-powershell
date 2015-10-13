@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [OutputType("Amazon.ElasticTranscoder.Model.TestRoleResponse")]
     [AWSCmdlet("Invokes the TestRole operation against Amazon Elastic Transcoder.", Operation = new[] {"TestRole"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.TestRoleResponse",
-        "This cmdlet returns a TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticTranscoder.Model.TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String InputBucket { get; set; }
+        public System.String InputBucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String OutputBucket { get; set; }
+        public System.String OutputBucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Role { get; set; }
+        public System.String Role { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.Role = this.Role;
             if (this.Topic != null)
             {
-                context.Topics = new List<String>(this.Topic);
+                context.Topics = new List<System.String>(this.Topic);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TestRoleRequest();
+            var request = new Amazon.ElasticTranscoder.Model.TestRoleRequest();
             
             if (cmdletContext.InputBucket != null)
             {
@@ -166,10 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InputBucket { get; set; }
-            public String OutputBucket { get; set; }
-            public String Role { get; set; }
-            public List<String> Topics { get; set; }
+            public System.String InputBucket { get; set; }
+            public System.String OutputBucket { get; set; }
+            public System.String Role { get; set; }
+            public List<System.String> Topics { get; set; }
         }
         
     }

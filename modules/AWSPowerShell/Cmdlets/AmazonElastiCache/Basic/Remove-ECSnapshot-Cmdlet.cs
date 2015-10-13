@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DeleteSnapshot operation against Amazon ElastiCache.", Operation = new[] {"DeleteSnapshot"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotName { get; set; }
+        public System.String SnapshotName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSnapshotRequest();
+            var request = new Amazon.ElastiCache.Model.DeleteSnapshotRequest();
             
             if (cmdletContext.SnapshotName != null)
             {
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotName { get; set; }
+            public System.String SnapshotName { get; set; }
         }
         
     }

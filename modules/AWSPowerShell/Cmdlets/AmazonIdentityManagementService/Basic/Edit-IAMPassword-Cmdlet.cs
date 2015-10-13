@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ChangePassword operation against AWS Identity and Access Management.", Operation = new[] {"ChangePassword"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OldPassword parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ChangePasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.ChangePasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditIAMPasswordCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String NewPassword { get; set; }
+        public System.String NewPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String OldPassword { get; set; }
+        public System.String OldPassword { get; set; }
         
         /// <summary>
         /// Returns the value passed to the OldPassword parameter.
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ChangePasswordRequest();
+            var request = new Amazon.IdentityManagement.Model.ChangePasswordRequest();
             
             if (cmdletContext.NewPassword != null)
             {
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NewPassword { get; set; }
-            public String OldPassword { get; set; }
+            public System.String NewPassword { get; set; }
+            public System.String OldPassword { get; set; }
         }
         
     }

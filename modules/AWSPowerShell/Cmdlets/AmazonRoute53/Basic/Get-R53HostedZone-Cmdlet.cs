@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]
     [AWSCmdlet("Invokes the GetHostedZone operation against AWS Route 53.", Operation = new[] {"GetHostedZone"})]
     [AWSCmdletOutput("Amazon.Route53.Model.GetHostedZoneResponse",
-        "This cmdlet returns a GetHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.GetHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
         
         
         protected override void ProcessRecord()
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetHostedZoneRequest();
+            var request = new Amazon.Route53.Model.GetHostedZoneRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

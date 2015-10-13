@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBSubnetGroup operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBSubnetGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBSubnetGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDBSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.DeleteDBSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DBSubnetGroupName parameter.
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBSubnetGroupRequest();
+            var request = new Amazon.RDS.Model.DeleteDBSubnetGroupRequest();
             
             if (cmdletContext.DBSubnetGroupName != null)
             {
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSubnetGroupName { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
         }
         
     }

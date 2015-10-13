@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ResyncMFADevice operation against AWS Identity and Access Management.", Operation = new[] {"ResyncMFADevice"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ResyncMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.ResyncMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SyncIAMMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AuthenticationCode1 { get; set; }
+        public System.String AuthenticationCode1 { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String AuthenticationCode2 { get; set; }
+        public System.String AuthenticationCode2 { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SerialNumber { get; set; }
+        public System.String SerialNumber { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the UserName parameter.
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResyncMFADeviceRequest();
+            var request = new Amazon.IdentityManagement.Model.ResyncMFADeviceRequest();
             
             if (cmdletContext.AuthenticationCode1 != null)
             {
@@ -179,10 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AuthenticationCode1 { get; set; }
-            public String AuthenticationCode2 { get; set; }
-            public String SerialNumber { get; set; }
-            public String UserName { get; set; }
+            public System.String AuthenticationCode1 { get; set; }
+            public System.String AuthenticationCode2 { get; set; }
+            public System.String SerialNumber { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

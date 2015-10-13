@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.DescribeEnvironmentHealthResponse")]
     [AWSCmdlet("Invokes the DescribeEnvironmentHealth operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeEnvironmentHealth"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.DescribeEnvironmentHealthResponse",
-        "This cmdlet returns a DescribeEnvironmentHealthResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.DescribeEnvironmentHealthResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBEnvironmentHealthCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
             if (this.AttributeName != null)
             {
-                context.AttributeNames = new List<String>(this.AttributeName);
+                context.AttributeNames = new List<System.String>(this.AttributeName);
             }
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEnvironmentHealthRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeEnvironmentHealthRequest();
             
             if (cmdletContext.AttributeNames != null)
             {
@@ -142,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AttributeNames { get; set; }
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
+            public List<System.String> AttributeNames { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
         }
         
     }

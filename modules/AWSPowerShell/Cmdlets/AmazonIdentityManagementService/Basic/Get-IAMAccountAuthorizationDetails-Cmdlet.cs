@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse")]
     [AWSCmdlet("Invokes the GetAccountAuthorizationDetails operation against AWS Identity and Access Management.", Operation = new[] {"GetAccountAuthorizationDetails"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse",
-        "This cmdlet returns a GetAccountAuthorizationDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMAccountAuthorizationDetailsCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public Int32 MaxItem { get; set; }
+        public System.Int32 MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             if (this.Filter != null)
             {
-                context.Filter = new List<String>(this.Filter);
+                context.Filter = new List<System.String>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetAccountAuthorizationDetailsRequest();
+            var request = new Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsRequest();
             
             if (cmdletContext.Filter != null)
             {
@@ -156,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Filter { get; set; }
-            public String Marker { get; set; }
-            public Int32? MaxItems { get; set; }
+            public List<System.String> Filter { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxItems { get; set; }
         }
         
     }

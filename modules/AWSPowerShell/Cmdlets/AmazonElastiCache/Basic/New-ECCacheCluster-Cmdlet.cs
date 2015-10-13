@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the CreateCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"CreateCacheCluster"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
         "This cmdlet returns a CacheCluster object.",
-        "The service call response (type CreateCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoMinorVersionUpgrade { get; set; }
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public AZMode AZMode { get; set; }
+        public Amazon.ElastiCache.AZMode AZMode { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheClusterId { get; set; }
+        public System.String CacheClusterId { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CacheNodeType { get; set; }
+        public System.String CacheNodeType { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String CacheParameterGroupName { get; set; }
+        public System.String CacheParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String CacheSubnetGroupName { get; set; }
+        public System.String CacheSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
         
         /// <summary>
         /// <para>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NotificationTopicArn { get; set; }
+        public System.String NotificationTopicArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NumCacheNodes")]
-        public Int32 NumCacheNode { get; set; }
+        public System.Int32 NumCacheNode { get; set; }
         
         /// <summary>
         /// <para>
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredAvailabilityZone { get; set; }
+        public System.String PreferredAvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String ReplicationGroupId { get; set; }
+        public System.String ReplicationGroupId { get; set; }
         
         /// <summary>
         /// <para>
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SnapshotName { get; set; }
+        public System.String SnapshotName { get; set; }
         
         /// <summary>
         /// <para>
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 SnapshotRetentionLimit { get; set; }
+        public System.Int32 SnapshotRetentionLimit { get; set; }
         
         /// <summary>
         /// <para>
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotWindow { get; set; }
+        public System.String SnapshotWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             if (this.CacheSecurityGroupName != null)
             {
-                context.CacheSecurityGroupNames = new List<String>(this.CacheSecurityGroupName);
+                context.CacheSecurityGroupNames = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             context.Engine = this.Engine;
@@ -317,17 +317,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.PreferredAvailabilityZone = this.PreferredAvailabilityZone;
             if (this.PreferredAvailabilityZoneSet != null)
             {
-                context.PreferredAvailabilityZoneSet = new List<String>(this.PreferredAvailabilityZoneSet);
+                context.PreferredAvailabilityZoneSet = new List<System.String>(this.PreferredAvailabilityZoneSet);
             }
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.ReplicationGroupId = this.ReplicationGroupId;
             if (this.SecurityGroupId != null)
             {
-                context.SecurityGroupIds = new List<String>(this.SecurityGroupId);
+                context.SecurityGroupIds = new List<System.String>(this.SecurityGroupId);
             }
             if (this.SnapshotArn != null)
             {
-                context.SnapshotArns = new List<String>(this.SnapshotArn);
+                context.SnapshotArns = new List<System.String>(this.SnapshotArn);
             }
             context.SnapshotName = this.SnapshotName;
             if (ParameterWasBound("SnapshotRetentionLimit"))
@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.SnapshotWindow = this.SnapshotWindow;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCacheClusterRequest();
+            var request = new Amazon.ElastiCache.Model.CreateCacheClusterRequest();
             
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
@@ -473,28 +473,28 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AutoMinorVersionUpgrade { get; set; }
-            public AZMode AZMode { get; set; }
-            public String CacheClusterId { get; set; }
-            public String CacheNodeType { get; set; }
-            public String CacheParameterGroupName { get; set; }
-            public List<String> CacheSecurityGroupNames { get; set; }
-            public String CacheSubnetGroupName { get; set; }
-            public String Engine { get; set; }
-            public String EngineVersion { get; set; }
-            public String NotificationTopicArn { get; set; }
-            public Int32? NumCacheNodes { get; set; }
-            public Int32? Port { get; set; }
-            public String PreferredAvailabilityZone { get; set; }
-            public List<String> PreferredAvailabilityZoneSet { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public String ReplicationGroupId { get; set; }
-            public List<String> SecurityGroupIds { get; set; }
-            public List<String> SnapshotArns { get; set; }
-            public String SnapshotName { get; set; }
-            public Int32? SnapshotRetentionLimit { get; set; }
-            public String SnapshotWindow { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public Amazon.ElastiCache.AZMode AZMode { get; set; }
+            public System.String CacheClusterId { get; set; }
+            public System.String CacheNodeType { get; set; }
+            public System.String CacheParameterGroupName { get; set; }
+            public List<System.String> CacheSecurityGroupNames { get; set; }
+            public System.String CacheSubnetGroupName { get; set; }
+            public System.String Engine { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.String NotificationTopicArn { get; set; }
+            public System.Int32? NumCacheNodes { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String PreferredAvailabilityZone { get; set; }
+            public List<System.String> PreferredAvailabilityZoneSet { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public System.String ReplicationGroupId { get; set; }
+            public List<System.String> SecurityGroupIds { get; set; }
+            public List<System.String> SnapshotArns { get; set; }
+            public System.String SnapshotName { get; set; }
+            public System.Int32? SnapshotRetentionLimit { get; set; }
+            public System.String SnapshotWindow { get; set; }
+            public List<Amazon.ElastiCache.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AcceptVpcPeeringConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AcceptVpcPeeringConnection"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcPeeringConnection",
         "This cmdlet returns a VpcPeeringConnection object.",
-        "The service call response (type AcceptVpcPeeringConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AcceptVpcPeeringConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ApproveEC2VpcPeeringConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String VpcPeeringConnectionId { get; set; }
+        public System.String VpcPeeringConnectionId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AcceptVpcPeeringConnectionRequest();
+            var request = new Amazon.EC2.Model.AcceptVpcPeeringConnectionRequest();
             
             if (cmdletContext.VpcPeeringConnectionId != null)
             {
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VpcPeeringConnectionId { get; set; }
+            public System.String VpcPeeringConnectionId { get; set; }
         }
         
     }

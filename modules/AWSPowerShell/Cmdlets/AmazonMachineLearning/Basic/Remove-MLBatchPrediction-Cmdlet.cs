@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the DeleteBatchPrediction operation against Amazon Machine Learning.", Operation = new[] {"DeleteBatchPrediction"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.DeleteBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String BatchPredictionId { get; set; }
+        public System.String BatchPredictionId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteBatchPredictionRequest();
+            var request = new Amazon.MachineLearning.Model.DeleteBatchPredictionRequest();
             
             if (cmdletContext.BatchPredictionId != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BatchPredictionId { get; set; }
+            public System.String BatchPredictionId { get; set; }
         }
         
     }

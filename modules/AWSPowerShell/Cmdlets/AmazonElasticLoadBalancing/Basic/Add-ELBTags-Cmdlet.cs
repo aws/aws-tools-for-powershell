@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the AddTags operation against Elastic Load Balancing.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancing.Model.Tag",
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -101,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.LoadBalancerName != null)
             {
-                context.LoadBalancerNames = new List<String>(this.LoadBalancerName);
+                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
             }
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElasticLoadBalancing.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.AddTagsRequest();
             
             if (cmdletContext.LoadBalancerNames != null)
             {
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> LoadBalancerNames { get; set; }
-            public List<Tag> Tags { get; set; }
+            public List<System.String> LoadBalancerNames { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.Tag> Tags { get; set; }
         }
         
     }

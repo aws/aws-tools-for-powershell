@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeConfigurationSettings operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeConfigurationSettings"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ConfigurationSettingsDescription",
         "This cmdlet returns a collection of ConfigurationSettingsDescription objects.",
-        "The service call response (type DescribeConfigurationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeConfigurationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBConfigurationSettingCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String TemplateName { get; set; }
+        public System.String TemplateName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConfigurationSettingsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeConfigurationSettingsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -155,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String EnvironmentName { get; set; }
-            public String TemplateName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public System.String TemplateName { get; set; }
         }
         
     }

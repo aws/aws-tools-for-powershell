@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the DeleteVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"DeleteVirtualInterface"})]
     [AWSCmdletOutput("Amazon.DirectConnect.VirtualInterfaceState",
         "This cmdlet returns a VirtualInterfaceState object.",
-        "The service call response (type DeleteVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DeleteVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDCVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VirtualInterfaceId { get; set; }
+        public System.String VirtualInterfaceId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteVirtualInterfaceRequest();
+            var request = new Amazon.DirectConnect.Model.DeleteVirtualInterfaceRequest();
             
             if (cmdletContext.VirtualInterfaceId != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VirtualInterfaceId { get; set; }
+            public System.String VirtualInterfaceId { get; set; }
         }
         
     }

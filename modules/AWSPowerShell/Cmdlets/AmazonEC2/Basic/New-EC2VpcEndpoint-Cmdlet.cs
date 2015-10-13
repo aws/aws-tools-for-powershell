@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateVpcEndpointResponse")]
     [AWSCmdlet("Invokes the CreateVpcEndpoint operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpcEndpoint"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateVpcEndpointResponse",
-        "This cmdlet returns a CreateVpcEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.CreateVpcEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceName { get; set; }
+        public System.String ServiceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.PolicyDocument = this.PolicyDocument;
             if (this.RouteTableId != null)
             {
-                context.RouteTableIds = new List<String>(this.RouteTableId);
+                context.RouteTableIds = new List<System.String>(this.RouteTableId);
             }
             context.ServiceName = this.ServiceName;
             context.VpcId = this.VpcId;
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpcEndpointRequest();
+            var request = new Amazon.EC2.Model.CreateVpcEndpointRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -194,11 +194,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String PolicyDocument { get; set; }
-            public List<String> RouteTableIds { get; set; }
-            public String ServiceName { get; set; }
-            public String VpcId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public List<System.String> RouteTableIds { get; set; }
+            public System.String ServiceName { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

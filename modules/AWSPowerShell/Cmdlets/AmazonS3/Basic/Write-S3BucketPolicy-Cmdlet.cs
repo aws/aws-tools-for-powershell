@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketPolicy operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketPolicyCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContentMD5 { get; set; }
+        public System.String ContentMD5 { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
         
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketPolicyRequest();
+            var request = new Amazon.S3.Model.PutBucketPolicyRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -161,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String ContentMD5 { get; set; }
-            public String Policy { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String ContentMD5 { get; set; }
+            public System.String Policy { get; set; }
         }
         
     }

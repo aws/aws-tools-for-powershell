@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the DescribeKey operation against AWS Key Management Service.", Operation = new[] {"DescribeKey"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.KeyMetadata",
         "This cmdlet returns a KeyMetadata object.",
-        "The service call response (type DescribeKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.DescribeKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeKeyRequest();
+            var request = new Amazon.KeyManagementService.Model.DescribeKeyRequest();
             
             if (cmdletContext.KeyId != null)
             {
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyId { get; set; }
+            public System.String KeyId { get; set; }
         }
         
     }

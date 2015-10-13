@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"UpdateSAMLProvider"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateSAMLProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UpdateSAMLProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SAMLMetadataDocument { get; set; }
+        public System.String SAMLMetadataDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SAMLProviderArn { get; set; }
+        public System.String SAMLProviderArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateSAMLProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateSAMLProviderRequest();
             
             if (cmdletContext.SAMLMetadataDocument != null)
             {
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SAMLMetadataDocument { get; set; }
-            public String SAMLProviderArn { get; set; }
+            public System.String SAMLMetadataDocument { get; set; }
+            public System.String SAMLProviderArn { get; set; }
         }
         
     }

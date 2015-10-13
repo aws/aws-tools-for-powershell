@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the GetRule operation against AWS WAF.", Operation = new[] {"GetRule"})]
     [AWSCmdletOutput("Amazon.WAF.Model.Rule",
         "This cmdlet returns a Rule object.",
-        "The service call response (type GetRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RuleId { get; set; }
+        public System.String RuleId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetRuleRequest();
+            var request = new Amazon.WAF.Model.GetRuleRequest();
             
             if (cmdletContext.RuleId != null)
             {
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RuleId { get; set; }
+            public System.String RuleId { get; set; }
         }
         
     }

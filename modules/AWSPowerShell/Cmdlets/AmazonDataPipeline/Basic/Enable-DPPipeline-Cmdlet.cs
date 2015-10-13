@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the ActivatePipeline operation against AWS Data Pipeline.", Operation = new[] {"ActivatePipeline"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ActivatePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.ActivatePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTimestamp { get; set; }
+        public System.DateTime StartTimestamp { get; set; }
         
         /// <summary>
         /// Returns the value passed to the PipelineId parameter.
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
             if (this.ParameterValue != null)
             {
-                context.ParameterValues = new List<ParameterValue>(this.ParameterValue);
+                context.ParameterValues = new List<Amazon.DataPipeline.Model.ParameterValue>(this.ParameterValue);
             }
             context.PipelineId = this.PipelineId;
             if (ParameterWasBound("StartTimestamp"))
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ActivatePipelineRequest();
+            var request = new Amazon.DataPipeline.Model.ActivatePipelineRequest();
             
             if (cmdletContext.ParameterValues != null)
             {
@@ -176,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<ParameterValue> ParameterValues { get; set; }
-            public String PipelineId { get; set; }
-            public DateTime? StartTimestamp { get; set; }
+            public List<Amazon.DataPipeline.Model.ParameterValue> ParameterValues { get; set; }
+            public System.String PipelineId { get; set; }
+            public System.DateTime? StartTimestamp { get; set; }
         }
         
     }

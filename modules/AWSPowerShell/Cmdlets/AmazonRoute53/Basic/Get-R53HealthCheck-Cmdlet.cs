@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [AWSCmdlet("Invokes the GetHealthCheck operation against AWS Route 53.", Operation = new[] {"GetHealthCheck"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HealthCheck",
         "This cmdlet returns a HealthCheck object.",
-        "The service call response (type GetHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HealthCheckId { get; set; }
+        public System.String HealthCheckId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetHealthCheckRequest();
+            var request = new Amazon.Route53.Model.GetHealthCheckRequest();
             
             if (cmdletContext.HealthCheckId != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HealthCheckId { get; set; }
+            public System.String HealthCheckId { get; set; }
         }
         
     }

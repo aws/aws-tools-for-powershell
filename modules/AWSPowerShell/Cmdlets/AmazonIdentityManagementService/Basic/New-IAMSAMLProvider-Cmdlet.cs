@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"CreateSAMLProvider"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateSAMLProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateSAMLProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SAMLMetadataDocument { get; set; }
+        public System.String SAMLMetadataDocument { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSAMLProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateSAMLProviderRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -164,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
-            public String SAMLMetadataDocument { get; set; }
+            public System.String Name { get; set; }
+            public System.String SAMLMetadataDocument { get; set; }
         }
         
     }

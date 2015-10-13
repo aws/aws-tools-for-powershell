@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DeleteExpression operation against Amazon CloudSearch.", Operation = new[] {"DeleteExpression"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ExpressionStatus",
         "This cmdlet returns a ExpressionStatus object.",
-        "The service call response (type DeleteExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCSExpressionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ExpressionName { get; set; }
+        public System.String ExpressionName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteExpressionRequest();
+            var request = new Amazon.CloudSearch.Model.DeleteExpressionRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String ExpressionName { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String ExpressionName { get; set; }
         }
         
     }

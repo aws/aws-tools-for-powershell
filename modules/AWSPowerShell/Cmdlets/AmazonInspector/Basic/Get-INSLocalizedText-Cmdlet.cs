@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [OutputType("Amazon.Inspector.Model.LocalizeTextResponse")]
     [AWSCmdlet("Invokes the LocalizeText operation against Amazon Inspector.", Operation = new[] {"LocalizeText"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.LocalizeTextResponse",
-        "This cmdlet returns a LocalizeTextResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Inspector.Model.LocalizeTextResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSLocalizedTextCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Locale { get; set; }
+        public System.String Locale { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             context.Locale = this.Locale;
             if (this.LocalizedText != null)
             {
-                context.LocalizedTexts = new List<LocalizedText>(this.LocalizedText);
+                context.LocalizedTexts = new List<Amazon.Inspector.Model.LocalizedText>(this.LocalizedText);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new LocalizeTextRequest();
+            var request = new Amazon.Inspector.Model.LocalizeTextRequest();
             
             if (cmdletContext.Locale != null)
             {
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Locale { get; set; }
-            public List<LocalizedText> LocalizedTexts { get; set; }
+            public System.String Locale { get; set; }
+            public List<Amazon.Inspector.Model.LocalizedText> LocalizedTexts { get; set; }
         }
         
     }

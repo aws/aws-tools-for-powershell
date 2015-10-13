@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the DeleteAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteAssociation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteAssociationRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String Name { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

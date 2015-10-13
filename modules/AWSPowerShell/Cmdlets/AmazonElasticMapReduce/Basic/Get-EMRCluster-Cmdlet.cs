@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the DescribeCluster operation against Amazon Elastic MapReduce.", Operation = new[] {"DescribeCluster"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type DescribeClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.DescribeClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEMRClusterCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterId { get; set; }
+        public System.String ClusterId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeClusterRequest();
+            var request = new Amazon.ElasticMapReduce.Model.DescribeClusterRequest();
             
             if (cmdletContext.ClusterId != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterId { get; set; }
+            public System.String ClusterId { get; set; }
         }
         
     }

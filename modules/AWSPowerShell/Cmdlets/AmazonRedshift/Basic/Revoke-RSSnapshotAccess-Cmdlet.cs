@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the RevokeSnapshotAccess operation against Amazon Redshift.", Operation = new[] {"RevokeSnapshotAccess"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type RevokeSnapshotAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.RevokeSnapshotAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RevokeRSSnapshotAccessCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String AccountWithRestoreAccess { get; set; }
+        public System.String AccountWithRestoreAccess { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotClusterIdentifier { get; set; }
+        public System.String SnapshotClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RevokeSnapshotAccessRequest();
+            var request = new Amazon.Redshift.Model.RevokeSnapshotAccessRequest();
             
             if (cmdletContext.AccountWithRestoreAccess != null)
             {
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AccountWithRestoreAccess { get; set; }
-            public String SnapshotClusterIdentifier { get; set; }
-            public String SnapshotIdentifier { get; set; }
+            public System.String AccountWithRestoreAccess { get; set; }
+            public System.String SnapshotClusterIdentifier { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
         }
         
     }

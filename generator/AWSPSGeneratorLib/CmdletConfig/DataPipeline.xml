@@ -6,10 +6,6 @@
   <ServiceClient>AmazonDataPipelineClient</ServiceClient>
   <ServiceNamespace>Amazon.DataPipeline</ServiceNamespace>
 
-  <RetainFullTypeNames>
-    <TypeName>Amazon.DataPipeline.Model.ParameterAttribute</TypeName> <!-- avoid collision with System.Management.Automation.ParameterAttribute -->
-  </RetainFullTypeNames>
-
   <PositionalParameters>PipelineId</PositionalParameters>
   <PipelineParameter>PipelineId</PipelineParameter>
 

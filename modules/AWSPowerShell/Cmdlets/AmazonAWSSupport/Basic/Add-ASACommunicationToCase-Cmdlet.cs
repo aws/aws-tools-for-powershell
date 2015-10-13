@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the AddCommunicationToCase operation against AWS Support API.", Operation = new[] {"AddCommunicationToCase"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type AddCommunicationToCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.AddCommunicationToCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddASACommunicationToCaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AttachmentSetId { get; set; }
+        public System.String AttachmentSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CaseId { get; set; }
+        public System.String CaseId { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String CommunicationBody { get; set; }
+        public System.String CommunicationBody { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             context.CaseId = this.CaseId;
             if (this.CcEmailAddress != null)
             {
-                context.CcEmailAddresses = new List<String>(this.CcEmailAddress);
+                context.CcEmailAddresses = new List<System.String>(this.CcEmailAddress);
             }
             context.CommunicationBody = this.CommunicationBody;
             
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddCommunicationToCaseRequest();
+            var request = new Amazon.AWSSupport.Model.AddCommunicationToCaseRequest();
             
             if (cmdletContext.AttachmentSetId != null)
             {
@@ -180,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttachmentSetId { get; set; }
-            public String CaseId { get; set; }
-            public List<String> CcEmailAddresses { get; set; }
-            public String CommunicationBody { get; set; }
+            public System.String AttachmentSetId { get; set; }
+            public System.String CaseId { get; set; }
+            public List<System.String> CcEmailAddresses { get; set; }
+            public System.String CommunicationBody { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the ListInvalidations operation against Amazon CloudFront.", Operation = new[] {"ListInvalidations"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.InvalidationList",
         "This cmdlet returns a InvalidationList object.",
-        "The service call response (type ListInvalidationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListInvalidationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFInvalidationsCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DistributionId { get; set; }
+        public System.String DistributionId { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public String MaxItem { get; set; }
+        public System.String MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListInvalidationsRequest();
+            var request = new Amazon.CloudFront.Model.ListInvalidationsRequest();
             
             if (cmdletContext.DistributionId != null)
             {
@@ -145,9 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DistributionId { get; set; }
-            public String Marker { get; set; }
-            public String MaxItems { get; set; }
+            public System.String DistributionId { get; set; }
+            public System.String Marker { get; set; }
+            public System.String MaxItems { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the DeleteTapeArchive operation against AWS Storage Gateway.", Operation = new[] {"DeleteTapeArchive"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteTapeArchiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DeleteTapeArchiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSGTapeArchiveCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TapeARN { get; set; }
+        public System.String TapeARN { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTapeArchiveRequest();
+            var request = new Amazon.StorageGateway.Model.DeleteTapeArchiveRequest();
             
             if (cmdletContext.TapeARN != null)
             {
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TapeARN { get; set; }
+            public System.String TapeARN { get; set; }
         }
         
     }

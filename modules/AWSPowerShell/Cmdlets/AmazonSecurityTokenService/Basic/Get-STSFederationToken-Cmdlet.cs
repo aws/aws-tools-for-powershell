@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.SecurityToken.Model.GetFederationTokenResponse")]
     [AWSCmdlet("Invokes the GetFederationToken operation against AWS Security Token Service.", Operation = new[] {"GetFederationToken"})]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.GetFederationTokenResponse",
-        "This cmdlet returns a GetFederationTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SecurityToken.Model.GetFederationTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSTSFederationTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("DurationSeconds")]
-        public Int32 DurationInSeconds { get; set; }
+        public System.Int32 DurationInSeconds { get; set; }
         
         /// <summary>
         /// <para>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
         
         
         protected override void ProcessRecord()
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetFederationTokenRequest();
+            var request = new Amazon.SecurityToken.Model.GetFederationTokenRequest();
             
             if (cmdletContext.DurationInSeconds != null)
             {
@@ -218,9 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DurationInSeconds { get; set; }
-            public String Name { get; set; }
-            public String Policy { get; set; }
+            public System.Int32? DurationInSeconds { get; set; }
+            public System.String Name { get; set; }
+            public System.String Policy { get; set; }
         }
         
     }

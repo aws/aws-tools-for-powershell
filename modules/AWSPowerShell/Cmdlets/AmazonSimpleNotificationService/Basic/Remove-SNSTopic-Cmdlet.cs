@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the DeleteTopic operation against Amazon Simple Notification Service.", Operation = new[] {"DeleteTopic"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TopicArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.DeleteTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSNSTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the TopicArn parameter.
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTopicRequest();
+            var request = new Amazon.SimpleNotificationService.Model.DeleteTopicRequest();
             
             if (cmdletContext.TopicArn != null)
             {
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TopicArn { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

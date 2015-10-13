@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DefineExpression operation against Amazon CloudSearch.", Operation = new[] {"DefineExpression"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ExpressionStatus",
         "This cmdlet returns a ExpressionStatus object.",
-        "The service call response (type DefineExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DefineExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetCSExpressionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Expression_ExpressionName { get; set; }
+        public System.String Expression_ExpressionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Expression_ExpressionValue { get; set; }
+        public System.String Expression_ExpressionValue { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DefineExpressionRequest();
+            var request = new Amazon.CloudSearch.Model.DefineExpressionRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
             
              // populate Expression
             bool requestExpressionIsNull = true;
-            request.Expression = new Expression();
-            String requestExpression_expression_ExpressionName = null;
+            request.Expression = new Amazon.CloudSearch.Model.Expression();
+            System.String requestExpression_expression_ExpressionName = null;
             if (cmdletContext.Expression_ExpressionName != null)
             {
                 requestExpression_expression_ExpressionName = cmdletContext.Expression_ExpressionName;
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.Expression.ExpressionName = requestExpression_expression_ExpressionName;
                 requestExpressionIsNull = false;
             }
-            String requestExpression_expression_ExpressionValue = null;
+            System.String requestExpression_expression_ExpressionValue = null;
             if (cmdletContext.Expression_ExpressionValue != null)
             {
                 requestExpression_expression_ExpressionValue = cmdletContext.Expression_ExpressionValue;
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String Expression_ExpressionName { get; set; }
-            public String Expression_ExpressionValue { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String Expression_ExpressionName { get; set; }
+            public System.String Expression_ExpressionValue { get; set; }
         }
         
     }

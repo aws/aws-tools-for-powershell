@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the CreateCase operation against AWS Support API.", Operation = new[] {"CreateCase"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.CreateCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewASACaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AttachmentSetId { get; set; }
+        public System.String AttachmentSetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String CategoryCode { get; set; }
+        public System.String CategoryCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String CommunicationBody { get; set; }
+        public System.String CommunicationBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IssueType { get; set; }
+        public System.String IssueType { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Language { get; set; }
+        public System.String Language { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ServiceCode { get; set; }
+        public System.String ServiceCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SeverityCode { get; set; }
+        public System.String SeverityCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Subject { get; set; }
+        public System.String Subject { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             context.CategoryCode = this.CategoryCode;
             if (this.CcEmailAddress != null)
             {
-                context.CcEmailAddresses = new List<String>(this.CcEmailAddress);
+                context.CcEmailAddresses = new List<System.String>(this.CcEmailAddress);
             }
             context.CommunicationBody = this.CommunicationBody;
             context.IssueType = this.IssueType;
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCaseRequest();
+            var request = new Amazon.AWSSupport.Model.CreateCaseRequest();
             
             if (cmdletContext.AttachmentSetId != null)
             {
@@ -269,15 +269,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttachmentSetId { get; set; }
-            public String CategoryCode { get; set; }
-            public List<String> CcEmailAddresses { get; set; }
-            public String CommunicationBody { get; set; }
-            public String IssueType { get; set; }
-            public String Language { get; set; }
-            public String ServiceCode { get; set; }
-            public String SeverityCode { get; set; }
-            public String Subject { get; set; }
+            public System.String AttachmentSetId { get; set; }
+            public System.String CategoryCode { get; set; }
+            public List<System.String> CcEmailAddresses { get; set; }
+            public System.String CommunicationBody { get; set; }
+            public System.String IssueType { get; set; }
+            public System.String Language { get; set; }
+            public System.String ServiceCode { get; set; }
+            public System.String SeverityCode { get; set; }
+            public System.String Subject { get; set; }
         }
         
     }

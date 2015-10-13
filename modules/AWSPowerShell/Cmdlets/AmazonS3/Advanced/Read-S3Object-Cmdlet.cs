@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [Cmdlet("Read", "S3Object", DefaultParameterSetName = "LocalFileParamSet")]
     [OutputType(new Type[] { typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) })]
     [AWSCmdlet("Downloads one or more objects from an S3 bucket to the local file system.")]
-    [AWSCmdletOutput("FileInfo instance if reading a single object or DirectoryInfo instance for multi-object read.",
-        "Returns a FileInfo instance representing the local file if reading a single object or a DirectoryInfo instance to the root parent folder if reading multiple objects."
+    [AWSCmdletOutput("System.IO.FileInfo instance if reading a single object or System.IO.DirectoryInfo instance for multi-object read.",
+        "Returns a System.IO.FileInfo instance representing the local file if reading a single object or a System.IO.DirectoryInfo instance to the root parent folder if reading multiple objects."
     )]
     public class ReadS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Name of the bucket that holds the content to be downloaded
         /// </summary>
         [Parameter(Position = 0, Mandatory = true, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public string BucketName { get; set; }
+        public System.String BucketName { get; set; }
 
         #endregion
 
@@ -61,19 +61,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The key that identifies the single object in S3.
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_ToLocalFile, Mandatory = true, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
 
         /// <summary>
         /// The full path to the local file that will be created.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_ToLocalFile, Mandatory = true)]
-        public String File { get; set; }
+        public System.String File { get; set; }
 
         /// <summary>
         /// If specified, the specific version of the S3 object is returned.
         /// </summary>
         [Parameter(Position = 3, ParameterSetName = ParamSet_ToLocalFile)]
-        public string Version { get; set; }
+        public System.String Version { get; set; }
 
         #endregion
 
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Alias("Prefix")]
         [Parameter(Position = 1, ParameterSetName = ParamSet_ToLocalFolder, ValueFromPipelineByPropertyName = true)]
-        public String KeyPrefix { get; set; }
+        public System.String KeyPrefix { get; set; }
 
         /// <summary>
         /// The full path to a local folder; all downloaded content will be placed under this folder,
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Alias("Directory")]
         [Parameter(Position = 2, ParameterSetName = ParamSet_ToLocalFolder, Mandatory = true)]
-        public String Folder { get; set; }
+        public System.String Folder { get; set; }
 
         #endregion
 
@@ -108,32 +108,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// If specified, only  objects that have been modified since this date will be downloaded.
         /// </summary>
         [Parameter]
-        public DateTime ModifiedSinceDate { get; set; }
+        public System.DateTime ModifiedSinceDate { get; set; }
 
         /// <summary>
         /// If specified, only objects that have not been modified since this date will be downloaded.
         /// </summary>
         [Parameter]
-        public DateTime UnmodifiedSinceDate { get; set; }
+        public System.DateTime UnmodifiedSinceDate { get; set; }
 
         /// <summary>
         /// Specifies the server-side encryption algorithm to be used with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerMethod { get; set; }
+        public System.String ServerSideEncryptionCustomerMethod { get; set; }
 
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 to use to decrypt the object.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerProvidedKey { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
 
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
 
         #endregion
 

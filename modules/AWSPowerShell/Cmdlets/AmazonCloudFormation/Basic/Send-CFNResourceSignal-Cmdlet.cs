@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the SignalResource operation against AWS CloudFormation.", Operation = new[] {"SignalResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SignalResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.SignalResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendCFNResourceSignalCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String LogicalResourceId { get; set; }
+        public System.String LogicalResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ResourceSignalStatus Status { get; set; }
+        public Amazon.CloudFormation.ResourceSignalStatus Status { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String UniqueId { get; set; }
+        public System.String UniqueId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the StackName parameter.
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SignalResourceRequest();
+            var request = new Amazon.CloudFormation.Model.SignalResourceRequest();
             
             if (cmdletContext.LogicalResourceId != null)
             {
@@ -183,10 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LogicalResourceId { get; set; }
-            public String StackName { get; set; }
-            public ResourceSignalStatus Status { get; set; }
-            public String UniqueId { get; set; }
+            public System.String LogicalResourceId { get; set; }
+            public System.String StackName { get; set; }
+            public Amazon.CloudFormation.ResourceSignalStatus Status { get; set; }
+            public System.String UniqueId { get; set; }
         }
         
     }

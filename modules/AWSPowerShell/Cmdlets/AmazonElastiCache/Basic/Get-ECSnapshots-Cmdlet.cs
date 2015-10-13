@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeSnapshots operation against Amazon ElastiCache.", Operation = new[] {"DescribeSnapshots"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot",
         "This cmdlet returns a collection of Snapshot objects.",
-        "The service call response (type DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElastiCache.Model.DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetECSnapshotsCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheClusterId { get; set; }
+        public System.String CacheClusterId { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnapshotName { get; set; }
+        public System.String SnapshotName { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotSource { get; set; }
+        public System.String SnapshotSource { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeSnapshotsRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeSnapshotsRequest();
             if (cmdletContext.CacheClusterId != null)
             {
                 request.CacheClusterId = cmdletContext.CacheClusterId;
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -223,11 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheClusterId { get; set; }
-            public String Marker { get; set; }
+            public System.String CacheClusterId { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String SnapshotName { get; set; }
-            public String SnapshotSource { get; set; }
+            public System.String SnapshotName { get; set; }
+            public System.String SnapshotSource { get; set; }
         }
         
     }

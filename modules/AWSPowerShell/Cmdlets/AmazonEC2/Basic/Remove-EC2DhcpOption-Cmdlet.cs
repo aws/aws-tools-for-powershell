@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteDhcpOptions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteDhcpOptions"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DhcpOptionsId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDhcpOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteDhcpOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DhcpOptionsId { get; set; }
+        public System.String DhcpOptionsId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DhcpOptionsId parameter.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDhcpOptionsRequest();
+            var request = new Amazon.EC2.Model.DeleteDhcpOptionsRequest();
             
             if (cmdletContext.DhcpOptionsId != null)
             {
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DhcpOptionsId { get; set; }
+            public System.String DhcpOptionsId { get; set; }
         }
         
     }

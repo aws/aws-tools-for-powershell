@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DetachVolume operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DetachVolume"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeAttachment",
         "This cmdlet returns a VolumeAttachment object.",
-        "The service call response (type DetachVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DetachVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DismountEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Device { get; set; }
+        public System.String Device { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ForceDismount { get; set; }
+        public System.Boolean ForceDismount { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DetachVolumeRequest();
+            var request = new Amazon.EC2.Model.DetachVolumeRequest();
             
             if (cmdletContext.Device != null)
             {
@@ -184,10 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Device { get; set; }
-            public Boolean? ForceDismount { get; set; }
-            public String InstanceId { get; set; }
-            public String VolumeId { get; set; }
+            public System.String Device { get; set; }
+            public System.Boolean? ForceDismount { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

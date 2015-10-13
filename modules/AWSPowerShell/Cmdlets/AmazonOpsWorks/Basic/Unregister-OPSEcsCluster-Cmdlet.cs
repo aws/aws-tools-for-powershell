@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeregisterEcsCluster operation against AWS OpsWorks.", Operation = new[] {"DeregisterEcsCluster"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EcsClusterArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeregisterEcsClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterEcsClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String EcsClusterArn { get; set; }
+        public System.String EcsClusterArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the EcsClusterArn parameter.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterEcsClusterRequest();
+            var request = new Amazon.OpsWorks.Model.DeregisterEcsClusterRequest();
             
             if (cmdletContext.EcsClusterArn != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EcsClusterArn { get; set; }
+            public System.String EcsClusterArn { get; set; }
         }
         
     }

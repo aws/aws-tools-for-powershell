@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.PublishVersionResponse")]
     [AWSCmdlet("Invokes the PublishVersion operation against Amazon Lambda.", Operation = new[] {"PublishVersion"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.PublishVersionResponse",
-        "This cmdlet returns a PublishVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.PublishVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class PublishLMVersionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CodeSha256 { get; set; }
+        public System.String CodeSha256 { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PublishVersionRequest();
+            var request = new Amazon.Lambda.Model.PublishVersionRequest();
             
             if (cmdletContext.CodeSha256 != null)
             {
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CodeSha256 { get; set; }
-            public String Description { get; set; }
-            public String FunctionName { get; set; }
+            public System.String CodeSha256 { get; set; }
+            public System.String Description { get; set; }
+            public System.String FunctionName { get; set; }
         }
         
     }

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBClusterSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
         "This cmdlet returns a DBClusterSnapshot object.",
-        "The service call response (type CreateDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterSnapshotIdentifier { get; set; }
+        public System.String DBClusterSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBClusterSnapshotRequest();
+            var request = new Amazon.RDS.Model.CreateDBClusterSnapshotRequest();
             
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterIdentifier { get; set; }
-            public String DBClusterSnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

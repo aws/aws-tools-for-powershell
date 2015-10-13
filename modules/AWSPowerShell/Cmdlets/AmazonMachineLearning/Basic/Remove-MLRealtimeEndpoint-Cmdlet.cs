@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse")]
     [AWSCmdlet("Invokes the DeleteRealtimeEndpoint operation against Amazon Machine Learning.", Operation = new[] {"DeleteRealtimeEndpoint"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse",
-        "This cmdlet returns a DeleteRealtimeEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.MachineLearning.Model.DeleteRealtimeEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveMLRealtimeEndpointCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteRealtimeEndpointRequest();
+            var request = new Amazon.MachineLearning.Model.DeleteRealtimeEndpointRequest();
             
             if (cmdletContext.MLModelId != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MLModelId { get; set; }
+            public System.String MLModelId { get; set; }
         }
         
     }

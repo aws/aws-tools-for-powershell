@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the DescribeResourceGroup operation against Amazon Inspector.", Operation = new[] {"DescribeResourceGroup"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.ResourceGroup",
         "This cmdlet returns a ResourceGroup object.",
-        "The service call response (type DescribeResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.DescribeResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceGroupArn { get; set; }
+        public System.String ResourceGroupArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeResourceGroupRequest();
+            var request = new Amazon.Inspector.Model.DescribeResourceGroupRequest();
             
             if (cmdletContext.ResourceGroupArn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceGroupArn { get; set; }
+            public System.String ResourceGroupArn { get; set; }
         }
         
     }

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"DeleteClusterParameterGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ParameterGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        public System.String ParameterGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ParameterGroupName parameter.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteClusterParameterGroupRequest();
+            var request = new Amazon.Redshift.Model.DeleteClusterParameterGroupRequest();
             
             if (cmdletContext.ParameterGroupName != null)
             {
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ParameterGroupName { get; set; }
+            public System.String ParameterGroupName { get; set; }
         }
         
     }

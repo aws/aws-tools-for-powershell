@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the ReportTaskRunnerHeartbeat operation against AWS Data Pipeline.", Operation = new[] {"ReportTaskRunnerHeartbeat"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type ReportTaskRunnerHeartbeatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateDPTaskRunnerHeartbeatCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Hostname { get; set; }
+        public System.String Hostname { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TaskrunnerId { get; set; }
+        public System.String TaskrunnerId { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String WorkerGroup { get; set; }
+        public System.String WorkerGroup { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReportTaskRunnerHeartbeatRequest();
+            var request = new Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatRequest();
             
             if (cmdletContext.Hostname != null)
             {
@@ -161,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Hostname { get; set; }
-            public String TaskrunnerId { get; set; }
-            public String WorkerGroup { get; set; }
+            public System.String Hostname { get; set; }
+            public System.String TaskrunnerId { get; set; }
+            public System.String WorkerGroup { get; set; }
         }
         
     }

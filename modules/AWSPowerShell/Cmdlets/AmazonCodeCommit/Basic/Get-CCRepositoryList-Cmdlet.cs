@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the ListRepositories operation against AWS CodeCommit.", Operation = new[] {"ListRepositories"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryNameIdPair",
         "This cmdlet returns a collection of RepositoryNameIdPair objects.",
-        "The service call response (type ListRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeCommit.Model.ListRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCCRepositoryListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public OrderEnum Order { get; set; }
+        public Amazon.CodeCommit.OrderEnum Order { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SortByEnum SortBy { get; set; }
+        public Amazon.CodeCommit.SortByEnum SortBy { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListRepositoriesRequest();
+            var request = new Amazon.CodeCommit.Model.ListRepositoriesRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -142,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public OrderEnum Order { get; set; }
-            public SortByEnum SortBy { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CodeCommit.OrderEnum Order { get; set; }
+            public Amazon.CodeCommit.SortByEnum SortBy { get; set; }
         }
         
     }

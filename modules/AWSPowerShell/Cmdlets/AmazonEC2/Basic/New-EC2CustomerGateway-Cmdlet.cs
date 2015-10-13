@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateCustomerGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateCustomerGateway"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CustomerGateway",
         "This cmdlet returns a CustomerGateway object.",
-        "The service call response (type CreateCustomerGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateCustomerGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2CustomerGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 BgpAsn { get; set; }
+        public System.Int32 BgpAsn { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("IpAddress")]
-        public String PublicIp { get; set; }
+        public System.String PublicIp { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public GatewayType Type { get; set; }
+        public Amazon.EC2.GatewayType Type { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCustomerGatewayRequest();
+            var request = new Amazon.EC2.Model.CreateCustomerGatewayRequest();
             
             if (cmdletContext.BgpAsn != null)
             {
@@ -180,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? BgpAsn { get; set; }
-            public String PublicIp { get; set; }
-            public GatewayType Type { get; set; }
+            public System.Int32? BgpAsn { get; set; }
+            public System.String PublicIp { get; set; }
+            public Amazon.EC2.GatewayType Type { get; set; }
         }
         
     }

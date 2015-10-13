@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [OutputType("Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse")]
     [AWSCmdlet("Invokes the DescribeCrossAccountAccessRole operation against Amazon Inspector.", Operation = new[] {"DescribeCrossAccountAccessRole"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse",
-        "This cmdlet returns a DescribeCrossAccountAccessRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSCrossAccountAccessRoleCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeCrossAccountAccessRoleRequest();
+            var request = new Amazon.Inspector.Model.DescribeCrossAccountAccessRoleRequest();
             
             
             CmdletOutput output;

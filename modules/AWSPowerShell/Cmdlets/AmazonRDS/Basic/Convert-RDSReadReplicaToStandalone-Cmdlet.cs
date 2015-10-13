@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the PromoteReadReplica operation against Amazon Relational Database Service.", Operation = new[] {"PromoteReadReplica"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type PromoteReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.PromoteReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConvertRDSReadReplicaToStandaloneCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BackupRetentionPeriod { get; set; }
+        public System.Int32 BackupRetentionPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredBackupWindow { get; set; }
+        public System.String PreferredBackupWindow { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PromoteReadReplicaRequest();
+            var request = new Amazon.RDS.Model.PromoteReadReplicaRequest();
             
             if (cmdletContext.BackupRetentionPeriod != null)
             {
@@ -167,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? BackupRetentionPeriod { get; set; }
-            public String DBInstanceIdentifier { get; set; }
-            public String PreferredBackupWindow { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
         }
         
     }

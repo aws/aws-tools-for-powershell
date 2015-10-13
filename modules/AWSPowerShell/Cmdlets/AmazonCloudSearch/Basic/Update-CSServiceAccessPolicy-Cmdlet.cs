@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the UpdateServiceAccessPolicies operation against Amazon CloudSearch.", Operation = new[] {"UpdateServiceAccessPolicies"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AccessPoliciesStatus",
         "This cmdlet returns a AccessPoliciesStatus object.",
-        "The service call response (type UpdateServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.UpdateServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCSServiceAccessPolicyCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("AccessPolicies")]
-        public String AccessPolicy { get; set; }
+        public System.String AccessPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateServiceAccessPoliciesRequest();
+            var request = new Amazon.CloudSearch.Model.UpdateServiceAccessPoliciesRequest();
             
             if (cmdletContext.AccessPolicies != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AccessPolicies { get; set; }
-            public String DomainName { get; set; }
+            public System.String AccessPolicies { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the SetTaskStatus operation against AWS Data Pipeline.", Operation = new[] {"SetTaskStatus"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TaskId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetTaskStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.SetTaskStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetDPTaskStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String ErrorId { get; set; }
+        public System.String ErrorId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String ErrorMessage { get; set; }
+        public System.String ErrorMessage { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String ErrorStackTrace { get; set; }
+        public System.String ErrorStackTrace { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TaskId { get; set; }
+        public System.String TaskId { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public TaskStatus TaskStatus { get; set; }
+        public Amazon.DataPipeline.TaskStatus TaskStatus { get; set; }
         
         /// <summary>
         /// Returns the value passed to the TaskId parameter.
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetTaskStatusRequest();
+            var request = new Amazon.DataPipeline.Model.SetTaskStatusRequest();
             
             if (cmdletContext.ErrorId != null)
             {
@@ -198,11 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ErrorId { get; set; }
-            public String ErrorMessage { get; set; }
-            public String ErrorStackTrace { get; set; }
-            public String TaskId { get; set; }
-            public TaskStatus TaskStatus { get; set; }
+            public System.String ErrorId { get; set; }
+            public System.String ErrorMessage { get; set; }
+            public System.String ErrorStackTrace { get; set; }
+            public System.String TaskId { get; set; }
+            public Amazon.DataPipeline.TaskStatus TaskStatus { get; set; }
         }
         
     }

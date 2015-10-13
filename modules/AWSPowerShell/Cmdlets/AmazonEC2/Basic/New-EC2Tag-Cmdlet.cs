@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateTags operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateTags"})]
     [AWSCmdletOutput("None or Amazon.EC2.Model.Tag",
         "Returns the collection of Tag objects that were created when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2TagCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -101,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Resource != null)
             {
-                context.Resources = new List<String>(this.Resource);
+                context.Resources = new List<System.String>(this.Resource);
             }
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.EC2.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateTagsRequest();
+            var request = new Amazon.EC2.Model.CreateTagsRequest();
             
             if (cmdletContext.Resources != null)
             {
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Resources { get; set; }
-            public List<Tag> Tags { get; set; }
+            public List<System.String> Resources { get; set; }
+            public List<Amazon.EC2.Model.Tag> Tags { get; set; }
         }
         
     }

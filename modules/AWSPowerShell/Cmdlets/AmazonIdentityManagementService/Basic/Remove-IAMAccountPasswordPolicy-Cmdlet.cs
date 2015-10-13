@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeleteAccountPasswordPolicy operation against AWS Identity and Access Management.", Operation = new[] {"DeleteAccountPasswordPolicy"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type DeleteAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMAccountPasswordPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteAccountPasswordPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteAccountPasswordPolicyRequest();
             
             
             CmdletOutput output;

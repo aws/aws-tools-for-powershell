@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the DeleteTopicRule operation against AWS IoT.", Operation = new[] {"DeleteTopicRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeleteTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RuleName { get; set; }
+        public System.String RuleName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RuleName parameter.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTopicRuleRequest();
+            var request = new Amazon.IoT.Model.DeleteTopicRuleRequest();
             
             if (cmdletContext.RuleName != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RuleName { get; set; }
+            public System.String RuleName { get; set; }
         }
         
     }

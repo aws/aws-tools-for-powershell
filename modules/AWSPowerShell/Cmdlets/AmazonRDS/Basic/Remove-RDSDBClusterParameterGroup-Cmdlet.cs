@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBClusterParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBClusterParameterGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBClusterParameterGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDBClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBClusterParameterGroupName { get; set; }
+        public System.String DBClusterParameterGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DBClusterParameterGroupName parameter.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBClusterParameterGroupRequest();
+            var request = new Amazon.RDS.Model.DeleteDBClusterParameterGroupRequest();
             
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterParameterGroupName { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
         }
         
     }

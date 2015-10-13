@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the ListAssessments operation against Amazon Inspector.", Operation = new[] {"ListAssessments"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListAssessmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.Inspector.Model.ListAssessmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetINSAssessmentListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Filter_DataCollected { get; set; }
+        public System.Boolean Filter_DataCollected { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_DurationRange_Maximum")]
-        public Int32 DurationRange_Maximum { get; set; }
+        public System.Int32 DurationRange_Maximum { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_EndTimeRange_Maximum")]
-        public DateTime EndTimeRange_Maximum { get; set; }
+        public System.DateTime EndTimeRange_Maximum { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_StartTimeRange_Maximum")]
-        public DateTime StartTimeRange_Maximum { get; set; }
+        public System.DateTime StartTimeRange_Maximum { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_DurationRange_Minimum")]
-        public Int32 DurationRange_Minimum { get; set; }
+        public System.Int32 DurationRange_Minimum { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_EndTimeRange_Minimum")]
-        public DateTime EndTimeRange_Minimum { get; set; }
+        public System.DateTime EndTimeRange_Minimum { get; set; }
         
         /// <summary>
         /// <para>
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_StartTimeRange_Minimum")]
-        public DateTime StartTimeRange_Minimum { get; set; }
+        public System.DateTime StartTimeRange_Minimum { get; set; }
         
         /// <summary>
         /// <para>
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -171,15 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.INS
             
             if (this.ApplicationArn != null)
             {
-                context.ApplicationArns = new List<String>(this.ApplicationArn);
+                context.ApplicationArns = new List<System.String>(this.ApplicationArn);
             }
             if (this.Filter_AssessmentNamePattern != null)
             {
-                context.Filter_AssessmentNamePatterns = new List<String>(this.Filter_AssessmentNamePattern);
+                context.Filter_AssessmentNamePatterns = new List<System.String>(this.Filter_AssessmentNamePattern);
             }
             if (this.Filter_AssessmentState != null)
             {
-                context.Filter_AssessmentStates = new List<String>(this.Filter_AssessmentState);
+                context.Filter_AssessmentStates = new List<System.String>(this.Filter_AssessmentState);
             }
             if (ParameterWasBound("Filter_DataCollected"))
                 context.Filter_DataCollected = this.Filter_DataCollected;
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListAssessmentsRequest();
+            var request = new Amazon.Inspector.Model.ListAssessmentsRequest();
             if (cmdletContext.ApplicationArns != null)
             {
                 request.ApplicationArns = cmdletContext.ApplicationArns;
@@ -218,8 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
             
              // populate Filter
             bool requestFilterIsNull = true;
-            request.Filter = new AssessmentsFilter();
-            List<String> requestFilter_filter_AssessmentNamePattern = null;
+            request.Filter = new Amazon.Inspector.Model.AssessmentsFilter();
+            List<System.String> requestFilter_filter_AssessmentNamePattern = null;
             if (cmdletContext.Filter_AssessmentNamePatterns != null)
             {
                 requestFilter_filter_AssessmentNamePattern = cmdletContext.Filter_AssessmentNamePatterns;
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.AssessmentNamePatterns = requestFilter_filter_AssessmentNamePattern;
                 requestFilterIsNull = false;
             }
-            List<String> requestFilter_filter_AssessmentState = null;
+            List<System.String> requestFilter_filter_AssessmentState = null;
             if (cmdletContext.Filter_AssessmentStates != null)
             {
                 requestFilter_filter_AssessmentState = cmdletContext.Filter_AssessmentStates;
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.AssessmentStates = requestFilter_filter_AssessmentState;
                 requestFilterIsNull = false;
             }
-            Boolean? requestFilter_filter_DataCollected = null;
+            System.Boolean? requestFilter_filter_DataCollected = null;
             if (cmdletContext.Filter_DataCollected != null)
             {
                 requestFilter_filter_DataCollected = cmdletContext.Filter_DataCollected.Value;
@@ -249,12 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.DataCollected = requestFilter_filter_DataCollected.Value;
                 requestFilterIsNull = false;
             }
-            DurationRange requestFilter_filter_DurationRange = null;
+            Amazon.Inspector.Model.DurationRange requestFilter_filter_DurationRange = null;
             
              // populate DurationRange
             bool requestFilter_filter_DurationRangeIsNull = true;
-            requestFilter_filter_DurationRange = new DurationRange();
-            Int32? requestFilter_filter_DurationRange_durationRange_Maximum = null;
+            requestFilter_filter_DurationRange = new Amazon.Inspector.Model.DurationRange();
+            System.Int32? requestFilter_filter_DurationRange_durationRange_Maximum = null;
             if (cmdletContext.Filter_DurationRange_Maximum != null)
             {
                 requestFilter_filter_DurationRange_durationRange_Maximum = cmdletContext.Filter_DurationRange_Maximum.Value;
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 requestFilter_filter_DurationRange.Maximum = requestFilter_filter_DurationRange_durationRange_Maximum.Value;
                 requestFilter_filter_DurationRangeIsNull = false;
             }
-            Int32? requestFilter_filter_DurationRange_durationRange_Minimum = null;
+            System.Int32? requestFilter_filter_DurationRange_durationRange_Minimum = null;
             if (cmdletContext.Filter_DurationRange_Minimum != null)
             {
                 requestFilter_filter_DurationRange_durationRange_Minimum = cmdletContext.Filter_DurationRange_Minimum.Value;
@@ -284,12 +284,12 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.DurationRange = requestFilter_filter_DurationRange;
                 requestFilterIsNull = false;
             }
-            TimestampRange requestFilter_filter_EndTimeRange = null;
+            Amazon.Inspector.Model.TimestampRange requestFilter_filter_EndTimeRange = null;
             
              // populate EndTimeRange
             bool requestFilter_filter_EndTimeRangeIsNull = true;
-            requestFilter_filter_EndTimeRange = new TimestampRange();
-            DateTime? requestFilter_filter_EndTimeRange_endTimeRange_Maximum = null;
+            requestFilter_filter_EndTimeRange = new Amazon.Inspector.Model.TimestampRange();
+            System.DateTime? requestFilter_filter_EndTimeRange_endTimeRange_Maximum = null;
             if (cmdletContext.Filter_EndTimeRange_Maximum != null)
             {
                 requestFilter_filter_EndTimeRange_endTimeRange_Maximum = cmdletContext.Filter_EndTimeRange_Maximum.Value;
@@ -299,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 requestFilter_filter_EndTimeRange.Maximum = requestFilter_filter_EndTimeRange_endTimeRange_Maximum.Value;
                 requestFilter_filter_EndTimeRangeIsNull = false;
             }
-            DateTime? requestFilter_filter_EndTimeRange_endTimeRange_Minimum = null;
+            System.DateTime? requestFilter_filter_EndTimeRange_endTimeRange_Minimum = null;
             if (cmdletContext.Filter_EndTimeRange_Minimum != null)
             {
                 requestFilter_filter_EndTimeRange_endTimeRange_Minimum = cmdletContext.Filter_EndTimeRange_Minimum.Value;
@@ -319,12 +319,12 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 request.Filter.EndTimeRange = requestFilter_filter_EndTimeRange;
                 requestFilterIsNull = false;
             }
-            TimestampRange requestFilter_filter_StartTimeRange = null;
+            Amazon.Inspector.Model.TimestampRange requestFilter_filter_StartTimeRange = null;
             
              // populate StartTimeRange
             bool requestFilter_filter_StartTimeRangeIsNull = true;
-            requestFilter_filter_StartTimeRange = new TimestampRange();
-            DateTime? requestFilter_filter_StartTimeRange_startTimeRange_Maximum = null;
+            requestFilter_filter_StartTimeRange = new Amazon.Inspector.Model.TimestampRange();
+            System.DateTime? requestFilter_filter_StartTimeRange_startTimeRange_Maximum = null;
             if (cmdletContext.Filter_StartTimeRange_Maximum != null)
             {
                 requestFilter_filter_StartTimeRange_startTimeRange_Maximum = cmdletContext.Filter_StartTimeRange_Maximum.Value;
@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 requestFilter_filter_StartTimeRange.Maximum = requestFilter_filter_StartTimeRange_startTimeRange_Maximum.Value;
                 requestFilter_filter_StartTimeRangeIsNull = false;
             }
-            DateTime? requestFilter_filter_StartTimeRange_startTimeRange_Minimum = null;
+            System.DateTime? requestFilter_filter_StartTimeRange_startTimeRange_Minimum = null;
             if (cmdletContext.Filter_StartTimeRange_Minimum != null)
             {
                 requestFilter_filter_StartTimeRange_startTimeRange_Minimum = cmdletContext.Filter_StartTimeRange_Minimum.Value;
@@ -361,7 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -446,18 +446,18 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ApplicationArns { get; set; }
-            public List<String> Filter_AssessmentNamePatterns { get; set; }
-            public List<String> Filter_AssessmentStates { get; set; }
-            public Boolean? Filter_DataCollected { get; set; }
-            public Int32? Filter_DurationRange_Maximum { get; set; }
-            public Int32? Filter_DurationRange_Minimum { get; set; }
-            public DateTime? Filter_EndTimeRange_Maximum { get; set; }
-            public DateTime? Filter_EndTimeRange_Minimum { get; set; }
-            public DateTime? Filter_StartTimeRange_Maximum { get; set; }
-            public DateTime? Filter_StartTimeRange_Minimum { get; set; }
+            public List<System.String> ApplicationArns { get; set; }
+            public List<System.String> Filter_AssessmentNamePatterns { get; set; }
+            public List<System.String> Filter_AssessmentStates { get; set; }
+            public System.Boolean? Filter_DataCollected { get; set; }
+            public System.Int32? Filter_DurationRange_Maximum { get; set; }
+            public System.Int32? Filter_DurationRange_Minimum { get; set; }
+            public System.DateTime? Filter_EndTimeRange_Maximum { get; set; }
+            public System.DateTime? Filter_EndTimeRange_Minimum { get; set; }
+            public System.DateTime? Filter_StartTimeRange_Maximum { get; set; }
+            public System.DateTime? Filter_StartTimeRange_Minimum { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

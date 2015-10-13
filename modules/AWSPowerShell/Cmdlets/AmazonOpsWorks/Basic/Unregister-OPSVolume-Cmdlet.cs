@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeregisterVolume operation against AWS OpsWorks.", Operation = new[] {"DeregisterVolume"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeregisterVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeregisterVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VolumeId parameter.
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterVolumeRequest();
+            var request = new Amazon.OpsWorks.Model.DeregisterVolumeRequest();
             
             if (cmdletContext.VolumeId != null)
             {
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VolumeId { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

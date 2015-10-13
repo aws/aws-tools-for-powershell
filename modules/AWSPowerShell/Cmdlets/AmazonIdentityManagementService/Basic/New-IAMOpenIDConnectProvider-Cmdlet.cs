@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"CreateOpenIDConnectProvider"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateOpenIDConnectProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateOpenIDConnectProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Url { get; set; }
+        public System.String Url { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -128,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             if (this.ClientIDList != null)
             {
-                context.ClientIDList = new List<String>(this.ClientIDList);
+                context.ClientIDList = new List<System.String>(this.ClientIDList);
             }
             if (this.ThumbprintList != null)
             {
-                context.ThumbprintList = new List<String>(this.ThumbprintList);
+                context.ThumbprintList = new List<System.String>(this.ThumbprintList);
             }
             context.Url = this.Url;
             
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateOpenIDConnectProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateOpenIDConnectProviderRequest();
             
             if (cmdletContext.ClientIDList != null)
             {
@@ -195,9 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ClientIDList { get; set; }
-            public List<String> ThumbprintList { get; set; }
-            public String Url { get; set; }
+            public List<System.String> ClientIDList { get; set; }
+            public List<System.String> ThumbprintList { get; set; }
+            public System.String Url { get; set; }
         }
         
     }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyInstanceAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyInstanceAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyInstanceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifyInstanceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2InstanceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public InstanceAttributeName Attribute { get; set; }
+        public Amazon.EC2.InstanceAttributeName Attribute { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean DisableApiTermination { get; set; }
+        public System.Boolean DisableApiTermination { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EbsOptimized { get; set; }
+        public System.Boolean EbsOptimized { get; set; }
         
         /// <summary>
         /// <para>
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceInitiatedShutdownBehavior { get; set; }
+        public System.String InstanceInitiatedShutdownBehavior { get; set; }
         
         /// <summary>
         /// <para>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceType { get; set; }
+        public System.String InstanceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Kernel { get; set; }
+        public System.String Kernel { get; set; }
         
         /// <summary>
         /// <para>
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Ramdisk { get; set; }
+        public System.String Ramdisk { get; set; }
         
         /// <summary>
         /// <para>
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SourceDestCheck { get; set; }
+        public System.Boolean SourceDestCheck { get; set; }
         
         /// <summary>
         /// <para>
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SriovNetSupport { get; set; }
+        public System.String SriovNetSupport { get; set; }
         
         /// <summary>
         /// <para>
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String UserData { get; set; }
+        public System.String UserData { get; set; }
         
         /// <summary>
         /// <para>
@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Value { get; set; }
+        public System.String Value { get; set; }
         
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Attribute = this.Attribute;
             if (this.BlockDeviceMapping != null)
             {
-                context.BlockDeviceMappings = new List<InstanceBlockDeviceMappingSpecification>(this.BlockDeviceMapping);
+                context.BlockDeviceMappings = new List<Amazon.EC2.Model.InstanceBlockDeviceMappingSpecification>(this.BlockDeviceMapping);
             }
             if (ParameterWasBound("DisableApiTermination"))
                 context.DisableApiTermination = this.DisableApiTermination;
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.EbsOptimized = this.EbsOptimized;
             if (this.Group != null)
             {
-                context.Groups = new List<String>(this.Group);
+                context.Groups = new List<System.String>(this.Group);
             }
             context.InstanceId = this.InstanceId;
             context.InstanceInitiatedShutdownBehavior = this.InstanceInitiatedShutdownBehavior;
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyInstanceAttributeRequest();
+            var request = new Amazon.EC2.Model.ModifyInstanceAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -343,20 +343,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public InstanceAttributeName Attribute { get; set; }
-            public List<InstanceBlockDeviceMappingSpecification> BlockDeviceMappings { get; set; }
-            public Boolean? DisableApiTermination { get; set; }
-            public Boolean? EbsOptimized { get; set; }
-            public List<String> Groups { get; set; }
-            public String InstanceId { get; set; }
-            public String InstanceInitiatedShutdownBehavior { get; set; }
-            public String InstanceType { get; set; }
-            public String Kernel { get; set; }
-            public String Ramdisk { get; set; }
-            public Boolean? SourceDestCheck { get; set; }
-            public String SriovNetSupport { get; set; }
-            public String UserData { get; set; }
-            public String Value { get; set; }
+            public Amazon.EC2.InstanceAttributeName Attribute { get; set; }
+            public List<Amazon.EC2.Model.InstanceBlockDeviceMappingSpecification> BlockDeviceMappings { get; set; }
+            public System.Boolean? DisableApiTermination { get; set; }
+            public System.Boolean? EbsOptimized { get; set; }
+            public List<System.String> Groups { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String InstanceInitiatedShutdownBehavior { get; set; }
+            public System.String InstanceType { get; set; }
+            public System.String Kernel { get; set; }
+            public System.String Ramdisk { get; set; }
+            public System.Boolean? SourceDestCheck { get; set; }
+            public System.String SriovNetSupport { get; set; }
+            public System.String UserData { get; set; }
+            public System.String Value { get; set; }
         }
         
     }

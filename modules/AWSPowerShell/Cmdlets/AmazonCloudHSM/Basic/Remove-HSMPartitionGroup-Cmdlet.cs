@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the DeleteHapg operation against AWS Cloud HSM.", Operation = new[] {"DeleteHapg"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteHapgResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.DeleteHapgResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HapgArn { get; set; }
+        public System.String HapgArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteHapgRequest();
+            var request = new Amazon.CloudHSM.Model.DeleteHapgRequest();
             
             if (cmdletContext.HapgArn != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HapgArn { get; set; }
+            public System.String HapgArn { get; set; }
         }
         
     }

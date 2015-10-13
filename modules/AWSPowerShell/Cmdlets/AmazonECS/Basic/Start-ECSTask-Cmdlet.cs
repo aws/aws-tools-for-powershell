@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.StartTaskResponse")]
     [AWSCmdlet("Invokes the StartTask operation against Amazon EC2 Container Service.", Operation = new[] {"StartTask"})]
     [AWSCmdletOutput("Amazon.ECS.Model.StartTaskResponse",
-        "This cmdlet returns a StartTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ECS.Model.StartTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartedBy { get; set; }
+        public System.String StartedBy { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TaskDefinition { get; set; }
+        public System.String TaskDefinition { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -123,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             if (this.ContainerInstance != null)
             {
-                context.ContainerInstances = new List<String>(this.ContainerInstance);
+                context.ContainerInstances = new List<System.String>(this.ContainerInstance);
             }
             if (this.Overrides_ContainerOverride != null)
             {
-                context.Overrides_ContainerOverrides = new List<ContainerOverride>(this.Overrides_ContainerOverride);
+                context.Overrides_ContainerOverrides = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
             }
             context.StartedBy = this.StartedBy;
             context.TaskDefinition = this.TaskDefinition;
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StartTaskRequest();
+            var request = new Amazon.ECS.Model.StartTaskRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
              // populate Overrides
             bool requestOverridesIsNull = true;
-            request.Overrides = new TaskOverride();
-            List<ContainerOverride> requestOverrides_overrides_ContainerOverride = null;
+            request.Overrides = new Amazon.ECS.Model.TaskOverride();
+            List<Amazon.ECS.Model.ContainerOverride> requestOverrides_overrides_ContainerOverride = null;
             if (cmdletContext.Overrides_ContainerOverrides != null)
             {
                 requestOverrides_overrides_ContainerOverride = cmdletContext.Overrides_ContainerOverrides;
@@ -214,11 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public List<String> ContainerInstances { get; set; }
-            public List<ContainerOverride> Overrides_ContainerOverrides { get; set; }
-            public String StartedBy { get; set; }
-            public String TaskDefinition { get; set; }
+            public System.String Cluster { get; set; }
+            public List<System.String> ContainerInstances { get; set; }
+            public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverrides { get; set; }
+            public System.String StartedBy { get; set; }
+            public System.String TaskDefinition { get; set; }
         }
         
     }

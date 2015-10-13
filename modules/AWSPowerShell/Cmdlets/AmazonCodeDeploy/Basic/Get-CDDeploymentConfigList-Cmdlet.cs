@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the ListDeploymentConfigs operation against AWS CodeDeploy.", Operation = new[] {"ListDeploymentConfigs"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListDeploymentConfigsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeDeploy.Model.ListDeploymentConfigsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCDDeploymentConfigListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDeploymentConfigsRequest();
+            var request = new Amazon.CodeDeploy.Model.ListDeploymentConfigsRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

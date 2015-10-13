@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateRdsDbInstance operation against AWS OpsWorks.", Operation = new[] {"UpdateRdsDbInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RdsDbInstanceArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DbPassword { get; set; }
+        public System.String DbPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DbUser { get; set; }
+        public System.String DbUser { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RdsDbInstanceArn { get; set; }
+        public System.String RdsDbInstanceArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RdsDbInstanceArn parameter.
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateRdsDbInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateRdsDbInstanceRequest();
             
             if (cmdletContext.DbPassword != null)
             {
@@ -167,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DbPassword { get; set; }
-            public String DbUser { get; set; }
-            public String RdsDbInstanceArn { get; set; }
+            public System.String DbPassword { get; set; }
+            public System.String DbUser { get; set; }
+            public System.String RdsDbInstanceArn { get; set; }
         }
         
     }

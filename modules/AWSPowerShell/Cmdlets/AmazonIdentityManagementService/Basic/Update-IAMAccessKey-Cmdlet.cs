@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateAccessKey operation against AWS Identity and Access Management.", Operation = new[] {"UpdateAccessKey"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateAccessKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateAccessKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMAccessKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String AccessKeyId { get; set; }
+        public System.String AccessKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public StatusType Status { get; set; }
+        public Amazon.IdentityManagement.StatusType Status { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the UserName parameter.
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAccessKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateAccessKeyRequest();
             
             if (cmdletContext.AccessKeyId != null)
             {
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AccessKeyId { get; set; }
-            public StatusType Status { get; set; }
-            public String UserName { get; set; }
+            public System.String AccessKeyId { get; set; }
+            public Amazon.IdentityManagement.StatusType Status { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

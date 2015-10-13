@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the UpdateCertificate operation against AWS IoT.", Operation = new[] {"UpdateCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.UpdateCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CertificateId { get; set; }
+        public System.String CertificateId { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public CertificateStatus NewStatus { get; set; }
+        public Amazon.IoT.CertificateStatus NewStatus { get; set; }
         
         /// <summary>
         /// Returns the value passed to the CertificateId parameter.
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateCertificateRequest();
+            var request = new Amazon.IoT.Model.UpdateCertificateRequest();
             
             if (cmdletContext.CertificateId != null)
             {
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CertificateId { get; set; }
-            public CertificateStatus NewStatus { get; set; }
+            public System.String CertificateId { get; set; }
+            public Amazon.IoT.CertificateStatus NewStatus { get; set; }
         }
         
     }

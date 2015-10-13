@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeCacheEngineVersions operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheEngineVersions"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheEngineVersion",
         "This cmdlet returns a collection of CacheEngineVersion objects.",
-        "The service call response (type DescribeCacheEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetECCacheEngineVersionsCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String CacheParameterGroupFamily { get; set; }
+        public System.String CacheParameterGroupFamily { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean DefaultOnly { get; set; }
+        public System.Boolean DefaultOnly { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeCacheEngineVersionsRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeCacheEngineVersionsRequest();
             if (cmdletContext.CacheParameterGroupFamily != null)
             {
                 request.CacheParameterGroupFamily = cmdletContext.CacheParameterGroupFamily;
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -232,11 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheParameterGroupFamily { get; set; }
-            public Boolean? DefaultOnly { get; set; }
-            public String Engine { get; set; }
-            public String EngineVersion { get; set; }
-            public String Marker { get; set; }
+            public System.String CacheParameterGroupFamily { get; set; }
+            public System.Boolean? DefaultOnly { get; set; }
+            public System.String Engine { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

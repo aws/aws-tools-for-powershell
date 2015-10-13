@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Invokes the RebuildWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"RebuildWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest",
         "This cmdlet returns a collection of FailedWorkspaceChangeRequest objects.",
-        "The service call response (type RebuildWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WorkSpaces.Model.RebuildWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (this.Request != null)
             {
-                context.Request = new List<RebuildRequest>(this.Request);
+                context.Request = new List<Amazon.WorkSpaces.Model.RebuildRequest>(this.Request);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RebuildWorkspacesRequest();
+            var request = new Amazon.WorkSpaces.Model.RebuildWorkspacesRequest();
             
             if (cmdletContext.Request != null)
             {
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<RebuildRequest> Request { get; set; }
+            public List<Amazon.WorkSpaces.Model.RebuildRequest> Request { get; set; }
         }
         
     }

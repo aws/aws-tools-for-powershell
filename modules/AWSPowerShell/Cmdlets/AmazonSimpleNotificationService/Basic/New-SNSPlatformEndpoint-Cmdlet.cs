@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the CreatePlatformEndpoint operation against Amazon Simple Notification Service.", Operation = new[] {"CreatePlatformEndpoint"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreatePlatformEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.CreatePlatformEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSNSPlatformEndpointCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String CustomUserData { get; set; }
+        public System.String CustomUserData { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PlatformApplicationArn { get; set; }
+        public System.String PlatformApplicationArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Token { get; set; }
+        public System.String Token { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             
             if (this.Attribute != null)
             {
-                context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
                     context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePlatformEndpointRequest();
+            var request = new Amazon.SimpleNotificationService.Model.CreatePlatformEndpointRequest();
             
             if (cmdletContext.Attributes != null)
             {
@@ -195,10 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> Attributes { get; set; }
-            public String CustomUserData { get; set; }
-            public String PlatformApplicationArn { get; set; }
-            public String Token { get; set; }
+            public Dictionary<System.String, System.String> Attributes { get; set; }
+            public System.String CustomUserData { get; set; }
+            public System.String PlatformApplicationArn { get; set; }
+            public System.String Token { get; set; }
         }
         
     }

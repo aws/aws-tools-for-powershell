@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Invokes the DescribeWorkspaceDirectories operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspaceDirectories"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceDirectory",
         "This cmdlet returns a collection of WorkspaceDirectory objects.",
-        "The service call response (type DescribeWorkspaceDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetWKSWorkspaceDirectoriesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (this.DirectoryId != null)
             {
-                context.DirectoryIds = new List<String>(this.DirectoryId);
+                context.DirectoryIds = new List<System.String>(this.DirectoryId);
             }
             context.NextToken = this.NextToken;
             
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeWorkspaceDirectoriesRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesRequest();
             
             if (cmdletContext.DirectoryIds != null)
             {
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DirectoryIds { get; set; }
-            public String NextToken { get; set; }
+            public List<System.String> DirectoryIds { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

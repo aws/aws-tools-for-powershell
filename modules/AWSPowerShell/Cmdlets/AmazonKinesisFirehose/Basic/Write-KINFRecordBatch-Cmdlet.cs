@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     [OutputType("Amazon.KinesisFirehose.Model.PutRecordBatchResponse")]
     [AWSCmdlet("Invokes the PutRecordBatch operation against Amazon Kinesis Firehose.", Operation = new[] {"PutRecordBatch"})]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.PutRecordBatchResponse",
-        "This cmdlet returns a PutRecordBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.KinesisFirehose.Model.PutRecordBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteKINFRecordBatchCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryStreamName { get; set; }
+        public System.String DeliveryStreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.DeliveryStreamName = this.DeliveryStreamName;
             if (this.Record != null)
             {
-                context.Records = new List<Record>(this.Record);
+                context.Records = new List<Amazon.KinesisFirehose.Model.Record>(this.Record);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutRecordBatchRequest();
+            var request = new Amazon.KinesisFirehose.Model.PutRecordBatchRequest();
             
             if (cmdletContext.DeliveryStreamName != null)
             {
@@ -199,8 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryStreamName { get; set; }
-            public List<Record> Records { get; set; }
+            public System.String DeliveryStreamName { get; set; }
+            public List<Amazon.KinesisFirehose.Model.Record> Records { get; set; }
         }
         
     }

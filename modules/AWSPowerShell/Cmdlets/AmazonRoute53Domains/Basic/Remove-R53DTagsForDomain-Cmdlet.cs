@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     [AWSCmdlet("Invokes the DeleteTagsForDomain operation against AWS Route 53 Domains.", Operation = new[] {"DeleteTagsForDomain"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Domains.Model.DeleteTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.DomainName = this.DomainName;
             if (this.TagsToDelete != null)
             {
-                context.TagsToDelete = new List<String>(this.TagsToDelete);
+                context.TagsToDelete = new List<System.String>(this.TagsToDelete);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTagsForDomainRequest();
+            var request = new Amazon.Route53Domains.Model.DeleteTagsForDomainRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public List<String> TagsToDelete { get; set; }
+            public System.String DomainName { get; set; }
+            public List<System.String> TagsToDelete { get; set; }
         }
         
     }

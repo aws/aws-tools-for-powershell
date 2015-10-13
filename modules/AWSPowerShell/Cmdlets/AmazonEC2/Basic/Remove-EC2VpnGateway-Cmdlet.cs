@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteVpnGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteVpnGateway"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpnGatewayId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteVpnGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteVpnGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2VpnGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpnGatewayId { get; set; }
+        public System.String VpnGatewayId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VpnGatewayId parameter.
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteVpnGatewayRequest();
+            var request = new Amazon.EC2.Model.DeleteVpnGatewayRequest();
             
             if (cmdletContext.VpnGatewayId != null)
             {
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VpnGatewayId { get; set; }
+            public System.String VpnGatewayId { get; set; }
         }
         
     }

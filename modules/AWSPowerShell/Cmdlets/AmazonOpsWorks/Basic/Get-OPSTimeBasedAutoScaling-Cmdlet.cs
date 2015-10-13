@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeTimeBasedAutoScaling operation against AWS OpsWorks.", Operation = new[] {"DescribeTimeBasedAutoScaling"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.TimeBasedAutoScalingConfiguration",
         "This cmdlet returns a collection of TimeBasedAutoScalingConfiguration objects.",
-        "The service call response (type DescribeTimeBasedAutoScalingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeTimeBasedAutoScalingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSTimeBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.InstanceId != null)
             {
-                context.InstanceIds = new List<String>(this.InstanceId);
+                context.InstanceIds = new List<System.String>(this.InstanceId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTimeBasedAutoScalingRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeTimeBasedAutoScalingRequest();
             
             if (cmdletContext.InstanceIds != null)
             {
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> InstanceIds { get; set; }
+            public List<System.String> InstanceIds { get; set; }
         }
         
     }

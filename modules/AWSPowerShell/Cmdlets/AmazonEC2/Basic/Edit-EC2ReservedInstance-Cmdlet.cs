@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyReservedInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyReservedInstances"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyReservedInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyReservedInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,11 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             if (this.ReservedInstancesId != null)
             {
-                context.ReservedInstancesIds = new List<String>(this.ReservedInstancesId);
+                context.ReservedInstancesIds = new List<System.String>(this.ReservedInstancesId);
             }
             if (this.TargetConfiguration != null)
             {
-                context.TargetConfigurations = new List<ReservedInstancesConfiguration>(this.TargetConfiguration);
+                context.TargetConfigurations = new List<Amazon.EC2.Model.ReservedInstancesConfiguration>(this.TargetConfiguration);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyReservedInstancesRequest();
+            var request = new Amazon.EC2.Model.ModifyReservedInstancesRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -170,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public List<String> ReservedInstancesIds { get; set; }
-            public List<ReservedInstancesConfiguration> TargetConfigurations { get; set; }
+            public System.String ClientToken { get; set; }
+            public List<System.String> ReservedInstancesIds { get; set; }
+            public List<Amazon.EC2.Model.ReservedInstancesConfiguration> TargetConfigurations { get; set; }
         }
         
     }

@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the DescribeDirectories operation against AWS Directory Service.", Operation = new[] {"DescribeDirectories"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.DirectoryDescription",
         "This cmdlet returns a collection of DirectoryDescription objects.",
-        "The service call response (type DescribeDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.DirectoryService.Model.DescribeDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             
             if (this.DirectoryId != null)
             {
-                context.DirectoryIds = new List<String>(this.DirectoryId);
+                context.DirectoryIds = new List<System.String>(this.DirectoryId);
             }
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDirectoriesRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeDirectoriesRequest();
             
             if (cmdletContext.DirectoryIds != null)
             {
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DirectoryIds { get; set; }
-            public Int32? Limit { get; set; }
-            public String NextToken { get; set; }
+            public List<System.String> DirectoryIds { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

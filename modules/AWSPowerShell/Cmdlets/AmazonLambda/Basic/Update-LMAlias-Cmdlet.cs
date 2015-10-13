@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateAliasResponse")]
     [AWSCmdlet("Invokes the UpdateAlias operation against Amazon Lambda.", Operation = new[] {"UpdateAlias"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateAliasResponse",
-        "This cmdlet returns a UpdateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.UpdateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FunctionVersion { get; set; }
+        public System.String FunctionVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAliasRequest();
+            var request = new Amazon.Lambda.Model.UpdateAliasRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -168,10 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String FunctionName { get; set; }
-            public String FunctionVersion { get; set; }
-            public String Name { get; set; }
+            public System.String Description { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String FunctionVersion { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

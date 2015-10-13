@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the AddTags operation against AWS Data Pipeline.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddDPTagsCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             context.PipelineId = this.PipelineId;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.DataPipeline.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsRequest();
+            var request = new Amazon.DataPipeline.Model.AddTagsRequest();
             
             if (cmdletContext.PipelineId != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PipelineId { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String PipelineId { get; set; }
+            public List<Amazon.DataPipeline.Model.Tag> Tags { get; set; }
         }
         
     }

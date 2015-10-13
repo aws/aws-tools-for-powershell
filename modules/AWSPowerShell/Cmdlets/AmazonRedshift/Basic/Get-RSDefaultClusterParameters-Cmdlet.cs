@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeDefaultClusterParameters operation against Amazon Redshift.", Operation = new[] {"DescribeDefaultClusterParameters"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.DefaultClusterParameters",
         "This cmdlet returns a DefaultClusterParameters object.",
-        "The service call response (type DescribeDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DescribeDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRSDefaultClusterParametersCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ParameterGroupFamily { get; set; }
+        public System.String ParameterGroupFamily { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDefaultClusterParametersRequest();
+            var request = new Amazon.Redshift.Model.DescribeDefaultClusterParametersRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -155,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String ParameterGroupFamily { get; set; }
+            public System.String ParameterGroupFamily { get; set; }
         }
         
     }

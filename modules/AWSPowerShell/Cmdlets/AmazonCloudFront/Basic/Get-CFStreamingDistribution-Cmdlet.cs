@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the GetStreamingDistribution operation against Amazon CloudFront.", Operation = new[] {"GetStreamingDistribution"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.StreamingDistribution",
         "This cmdlet returns a StreamingDistribution object.",
-        "The service call response (type GetStreamingDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type String)"
+        "The service call response (type Amazon.CloudFront.Model.GetStreamingDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type System.String)"
     )]
     public class GetCFStreamingDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetStreamingDistributionRequest();
+            var request = new Amazon.CloudFront.Model.GetStreamingDistributionRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

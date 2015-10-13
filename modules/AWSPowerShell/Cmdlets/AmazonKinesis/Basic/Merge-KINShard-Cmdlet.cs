@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [AWSCmdlet("Invokes the MergeShards operation against AWS Kinesis.", Operation = new[] {"MergeShards"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type MergeShardsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Kinesis.Model.MergeShardsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class MergeKINShardCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AdjacentShardToMerge { get; set; }
+        public System.String AdjacentShardToMerge { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ShardToMerge { get; set; }
+        public System.String ShardToMerge { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamName { get; set; }
+        public System.String StreamName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the StreamName parameter.
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new MergeShardsRequest();
+            var request = new Amazon.Kinesis.Model.MergeShardsRequest();
             
             if (cmdletContext.AdjacentShardToMerge != null)
             {
@@ -197,9 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AdjacentShardToMerge { get; set; }
-            public String ShardToMerge { get; set; }
-            public String StreamName { get; set; }
+            public System.String AdjacentShardToMerge { get; set; }
+            public System.String ShardToMerge { get; set; }
+            public System.String StreamName { get; set; }
         }
         
     }

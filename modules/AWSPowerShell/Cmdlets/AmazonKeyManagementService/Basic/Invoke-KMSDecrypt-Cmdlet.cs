@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [OutputType("Amazon.KeyManagementService.Model.DecryptResponse")]
     [AWSCmdlet("Invokes the Decrypt operation against AWS Key Management Service.", Operation = new[] {"Decrypt"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.DecryptResponse",
-        "This cmdlet returns a DecryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.KeyManagementService.Model.DecryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeKMSDecryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             context.CiphertextBlob = this.CiphertextBlob;
             if (this.EncryptionContext != null)
             {
-                context.EncryptionContext = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EncryptionContext.Keys)
                 {
                     context.EncryptionContext.Add((String)hashKey, (String)(this.EncryptionContext[hashKey]));
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             if (this.GrantToken != null)
             {
-                context.GrantTokens = new List<String>(this.GrantToken);
+                context.GrantTokens = new List<System.String>(this.GrantToken);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DecryptRequest();
+            var request = new Amazon.KeyManagementService.Model.DecryptRequest();
             
             if (cmdletContext.CiphertextBlob != null)
             {
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal class CmdletContext : ExecutorContext
         {
             public System.IO.MemoryStream CiphertextBlob { get; set; }
-            public Dictionary<String, String> EncryptionContext { get; set; }
-            public List<String> GrantTokens { get; set; }
+            public Dictionary<System.String, System.String> EncryptionContext { get; set; }
+            public List<System.String> GrantTokens { get; set; }
         }
         
     }

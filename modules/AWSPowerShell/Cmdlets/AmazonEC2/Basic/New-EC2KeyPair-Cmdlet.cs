@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateKeyPair operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateKeyPair"})]
     [AWSCmdletOutput("Amazon.EC2.Model.KeyPair",
         "This cmdlet returns a KeyPair object.",
-        "The service call response (type CreateKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String KeyName { get; set; }
+        public System.String KeyName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateKeyPairRequest();
+            var request = new Amazon.EC2.Model.CreateKeyPairRequest();
             
             if (cmdletContext.KeyName != null)
             {
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyName { get; set; }
+            public System.String KeyName { get; set; }
         }
         
     }

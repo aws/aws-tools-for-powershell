@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the DeleteDocument operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteDocument"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDocumentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// Returns the value passed to the Name parameter.
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteDocumentRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

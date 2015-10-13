@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the GetChangeToken operation against AWS WAF.", Operation = new[] {"GetChangeToken"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type GetChangeTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.GetChangeTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetWAFChangeTokenCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetChangeTokenRequest();
+            var request = new Amazon.WAF.Model.GetChangeTokenRequest();
             
             
             CmdletOutput output;

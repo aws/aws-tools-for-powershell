@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the DescribeConnections operation against AWS Direct Connect.", Operation = new[] {"DescribeConnections"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Connection",
         "This cmdlet returns a collection of Connection objects.",
-        "The service call response (type DescribeConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ConnectionId { get; set; }
+        public System.String ConnectionId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConnectionsRequest();
+            var request = new Amazon.DirectConnect.Model.DescribeConnectionsRequest();
             
             if (cmdletContext.ConnectionId != null)
             {
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConnectionId { get; set; }
+            public System.String ConnectionId { get; set; }
         }
         
     }

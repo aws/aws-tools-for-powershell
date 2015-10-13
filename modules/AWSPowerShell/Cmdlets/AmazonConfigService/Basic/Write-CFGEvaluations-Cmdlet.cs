@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the PutEvaluations operation against Amazon Config.", Operation = new[] {"PutEvaluations"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.Evaluation",
         "This cmdlet returns a collection of Evaluation objects.",
-        "The service call response (type PutEvaluationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.PutEvaluationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCFGEvaluationsCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResultToken { get; set; }
+        public System.String ResultToken { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.Evaluation != null)
             {
-                context.Evaluations = new List<Evaluation>(this.Evaluation);
+                context.Evaluations = new List<Amazon.ConfigService.Model.Evaluation>(this.Evaluation);
             }
             context.ResultToken = this.ResultToken;
             
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutEvaluationsRequest();
+            var request = new Amazon.ConfigService.Model.PutEvaluationsRequest();
             
             if (cmdletContext.Evaluations != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Evaluation> Evaluations { get; set; }
-            public String ResultToken { get; set; }
+            public List<Amazon.ConfigService.Model.Evaluation> Evaluations { get; set; }
+            public System.String ResultToken { get; set; }
         }
         
     }

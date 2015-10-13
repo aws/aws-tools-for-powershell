@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the CreateApp operation against AWS OpsWorks.", Operation = new[] {"CreateApp"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CreateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewOPSAppCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SslConfiguration_Certificate { get; set; }
+        public System.String SslConfiguration_Certificate { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SslConfiguration_Chain { get; set; }
+        public System.String SslConfiguration_Chain { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EnableSsl { get; set; }
+        public System.Boolean EnableSsl { get; set; }
         
         /// <summary>
         /// <para>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AppSource_Password { get; set; }
+        public System.String AppSource_Password { get; set; }
         
         /// <summary>
         /// <para>
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SslConfiguration_PrivateKey { get; set; }
+        public System.String SslConfiguration_PrivateKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AppSource_Revision { get; set; }
+        public System.String AppSource_Revision { get; set; }
         
         /// <summary>
         /// <para>
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Shortname { get; set; }
+        public System.String Shortname { get; set; }
         
         /// <summary>
         /// <para>
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AppSource_SshKey { get; set; }
+        public System.String AppSource_SshKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         /// <summary>
         /// <para>
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SourceType AppSource_Type { get; set; }
+        public Amazon.OpsWorks.SourceType AppSource_Type { get; set; }
         
         /// <summary>
         /// <para>
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public AppType Type { get; set; }
+        public Amazon.OpsWorks.AppType Type { get; set; }
         
         /// <summary>
         /// <para>
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AppSource_Url { get; set; }
+        public System.String AppSource_Url { get; set; }
         
         /// <summary>
         /// <para>
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AppSource_Username { get; set; }
+        public System.String AppSource_Username { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.AppSource_Username = this.AppSource_Username;
             if (this.Attribute != null)
             {
-                context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
                     context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
@@ -265,18 +265,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             }
             if (this.DataSource != null)
             {
-                context.DataSources = new List<DataSource>(this.DataSource);
+                context.DataSources = new List<Amazon.OpsWorks.Model.DataSource>(this.DataSource);
             }
             context.Description = this.Description;
             if (this.Domain != null)
             {
-                context.Domains = new List<String>(this.Domain);
+                context.Domains = new List<System.String>(this.Domain);
             }
             if (ParameterWasBound("EnableSsl"))
                 context.EnableSsl = this.EnableSsl;
             if (this.Environment != null)
             {
-                context.Environment = new List<EnvironmentVariable>(this.Environment);
+                context.Environment = new List<Amazon.OpsWorks.Model.EnvironmentVariable>(this.Environment);
             }
             context.Name = this.Name;
             context.Shortname = this.Shortname;
@@ -296,13 +296,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAppRequest();
+            var request = new Amazon.OpsWorks.Model.CreateAppRequest();
             
             
              // populate AppSource
             bool requestAppSourceIsNull = true;
-            request.AppSource = new Source();
-            String requestAppSource_appSource_Password = null;
+            request.AppSource = new Amazon.OpsWorks.Model.Source();
+            System.String requestAppSource_appSource_Password = null;
             if (cmdletContext.AppSource_Password != null)
             {
                 requestAppSource_appSource_Password = cmdletContext.AppSource_Password;
@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AppSource.Password = requestAppSource_appSource_Password;
                 requestAppSourceIsNull = false;
             }
-            String requestAppSource_appSource_Revision = null;
+            System.String requestAppSource_appSource_Revision = null;
             if (cmdletContext.AppSource_Revision != null)
             {
                 requestAppSource_appSource_Revision = cmdletContext.AppSource_Revision;
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AppSource.Revision = requestAppSource_appSource_Revision;
                 requestAppSourceIsNull = false;
             }
-            String requestAppSource_appSource_SshKey = null;
+            System.String requestAppSource_appSource_SshKey = null;
             if (cmdletContext.AppSource_SshKey != null)
             {
                 requestAppSource_appSource_SshKey = cmdletContext.AppSource_SshKey;
@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AppSource.SshKey = requestAppSource_appSource_SshKey;
                 requestAppSourceIsNull = false;
             }
-            SourceType requestAppSource_appSource_Type = null;
+            Amazon.OpsWorks.SourceType requestAppSource_appSource_Type = null;
             if (cmdletContext.AppSource_Type != null)
             {
                 requestAppSource_appSource_Type = cmdletContext.AppSource_Type;
@@ -342,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AppSource.Type = requestAppSource_appSource_Type;
                 requestAppSourceIsNull = false;
             }
-            String requestAppSource_appSource_Url = null;
+            System.String requestAppSource_appSource_Url = null;
             if (cmdletContext.AppSource_Url != null)
             {
                 requestAppSource_appSource_Url = cmdletContext.AppSource_Url;
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AppSource.Url = requestAppSource_appSource_Url;
                 requestAppSourceIsNull = false;
             }
-            String requestAppSource_appSource_Username = null;
+            System.String requestAppSource_appSource_Username = null;
             if (cmdletContext.AppSource_Username != null)
             {
                 requestAppSource_appSource_Username = cmdletContext.AppSource_Username;
@@ -402,8 +402,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate SslConfiguration
             bool requestSslConfigurationIsNull = true;
-            request.SslConfiguration = new SslConfiguration();
-            String requestSslConfiguration_sslConfiguration_Certificate = null;
+            request.SslConfiguration = new Amazon.OpsWorks.Model.SslConfiguration();
+            System.String requestSslConfiguration_sslConfiguration_Certificate = null;
             if (cmdletContext.SslConfiguration_Certificate != null)
             {
                 requestSslConfiguration_sslConfiguration_Certificate = cmdletContext.SslConfiguration_Certificate;
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.SslConfiguration.Certificate = requestSslConfiguration_sslConfiguration_Certificate;
                 requestSslConfigurationIsNull = false;
             }
-            String requestSslConfiguration_sslConfiguration_Chain = null;
+            System.String requestSslConfiguration_sslConfiguration_Chain = null;
             if (cmdletContext.SslConfiguration_Chain != null)
             {
                 requestSslConfiguration_sslConfiguration_Chain = cmdletContext.SslConfiguration_Chain;
@@ -423,7 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.SslConfiguration.Chain = requestSslConfiguration_sslConfiguration_Chain;
                 requestSslConfigurationIsNull = false;
             }
-            String requestSslConfiguration_sslConfiguration_PrivateKey = null;
+            System.String requestSslConfiguration_sslConfiguration_PrivateKey = null;
             if (cmdletContext.SslConfiguration_PrivateKey != null)
             {
                 requestSslConfiguration_sslConfiguration_PrivateKey = cmdletContext.SslConfiguration_PrivateKey;
@@ -481,25 +481,25 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AppSource_Password { get; set; }
-            public String AppSource_Revision { get; set; }
-            public String AppSource_SshKey { get; set; }
-            public SourceType AppSource_Type { get; set; }
-            public String AppSource_Url { get; set; }
-            public String AppSource_Username { get; set; }
-            public Dictionary<String, String> Attributes { get; set; }
-            public List<DataSource> DataSources { get; set; }
-            public String Description { get; set; }
-            public List<String> Domains { get; set; }
-            public Boolean? EnableSsl { get; set; }
-            public List<EnvironmentVariable> Environment { get; set; }
-            public String Name { get; set; }
-            public String Shortname { get; set; }
-            public String SslConfiguration_Certificate { get; set; }
-            public String SslConfiguration_Chain { get; set; }
-            public String SslConfiguration_PrivateKey { get; set; }
-            public String StackId { get; set; }
-            public AppType Type { get; set; }
+            public System.String AppSource_Password { get; set; }
+            public System.String AppSource_Revision { get; set; }
+            public System.String AppSource_SshKey { get; set; }
+            public Amazon.OpsWorks.SourceType AppSource_Type { get; set; }
+            public System.String AppSource_Url { get; set; }
+            public System.String AppSource_Username { get; set; }
+            public Dictionary<System.String, System.String> Attributes { get; set; }
+            public List<Amazon.OpsWorks.Model.DataSource> DataSources { get; set; }
+            public System.String Description { get; set; }
+            public List<System.String> Domains { get; set; }
+            public System.Boolean? EnableSsl { get; set; }
+            public List<Amazon.OpsWorks.Model.EnvironmentVariable> Environment { get; set; }
+            public System.String Name { get; set; }
+            public System.String Shortname { get; set; }
+            public System.String SslConfiguration_Certificate { get; set; }
+            public System.String SslConfiguration_Chain { get; set; }
+            public System.String SslConfiguration_PrivateKey { get; set; }
+            public System.String StackId { get; set; }
+            public Amazon.OpsWorks.AppType Type { get; set; }
         }
         
     }

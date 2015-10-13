@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse")]
     [AWSCmdlet("Invokes the CreateSnapshotFromVolumeRecoveryPoint operation against AWS Storage Gateway.", Operation = new[] {"CreateSnapshotFromVolumeRecoveryPoint"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse",
-        "This cmdlet returns a CreateSnapshotFromVolumeRecoveryPointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSGSnapshotFromVolumeRecoveryPointCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SnapshotDescription { get; set; }
+        public System.String SnapshotDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeARN { get; set; }
+        public System.String VolumeARN { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSnapshotFromVolumeRecoveryPointRequest();
+            var request = new Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointRequest();
             
             if (cmdletContext.SnapshotDescription != null)
             {
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotDescription { get; set; }
-            public String VolumeARN { get; set; }
+            public System.String SnapshotDescription { get; set; }
+            public System.String VolumeARN { get; set; }
         }
         
     }

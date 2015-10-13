@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the ListKeys operation against AWS Key Management Service.", Operation = new[] {"ListKeys"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.KeyListEntry",
         "This cmdlet returns a collection of KeyListEntry objects.",
-        "The service call response (type ListKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String), Truncated (type Boolean)"
+        "The service call response (type Amazon.KeyManagementService.Model.ListKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String), Truncated (type System.Boolean)"
     )]
     public class GetKMSKeysCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -88,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListKeysRequest();
+            var request = new Amazon.KeyManagementService.Model.ListKeysRequest();
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the RegisterApplicationRevision operation against AWS CodeDeploy.", Operation = new[] {"RegisterApplicationRevision"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RegisterApplicationRevisionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterCDApplicationRevisionCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Bucket")]
-        public String S3Location_Bucket { get; set; }
+        public System.String S3Location_Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_BundleType")]
-        public BundleType S3Location_BundleType { get; set; }
+        public Amazon.CodeDeploy.BundleType S3Location_BundleType { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_GitHubLocation_CommitId")]
-        public String GitHubLocation_CommitId { get; set; }
+        public System.String GitHubLocation_CommitId { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Key")]
-        public String S3Location_Key { get; set; }
+        public System.String S3Location_Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_GitHubLocation_Repository")]
-        public String GitHubLocation_Repository { get; set; }
+        public System.String GitHubLocation_Repository { get; set; }
         
         /// <summary>
         /// <para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RevisionLocationType Revision_RevisionType { get; set; }
+        public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Version")]
-        public String S3Location_Version { get; set; }
+        public System.String S3Location_Version { get; set; }
         
         /// <summary>
         /// <para>
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_ETag")]
-        public String S3Location_ETag { get; set; }
+        public System.String S3Location_ETag { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ApplicationName parameter.
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterApplicationRevisionRequest();
+            var request = new Amazon.CodeDeploy.Model.RegisterApplicationRevisionRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -200,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
              // populate Revision
             bool requestRevisionIsNull = true;
-            request.Revision = new RevisionLocation();
-            RevisionLocationType requestRevision_revision_RevisionType = null;
+            request.Revision = new Amazon.CodeDeploy.Model.RevisionLocation();
+            Amazon.CodeDeploy.RevisionLocationType requestRevision_revision_RevisionType = null;
             if (cmdletContext.Revision_RevisionType != null)
             {
                 requestRevision_revision_RevisionType = cmdletContext.Revision_RevisionType;
@@ -211,12 +211,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.Revision.RevisionType = requestRevision_revision_RevisionType;
                 requestRevisionIsNull = false;
             }
-            GitHubLocation requestRevision_revision_GitHubLocation = null;
+            Amazon.CodeDeploy.Model.GitHubLocation requestRevision_revision_GitHubLocation = null;
             
              // populate GitHubLocation
             bool requestRevision_revision_GitHubLocationIsNull = true;
-            requestRevision_revision_GitHubLocation = new GitHubLocation();
-            String requestRevision_revision_GitHubLocation_gitHubLocation_CommitId = null;
+            requestRevision_revision_GitHubLocation = new Amazon.CodeDeploy.Model.GitHubLocation();
+            System.String requestRevision_revision_GitHubLocation_gitHubLocation_CommitId = null;
             if (cmdletContext.Revision_GitHubLocation_CommitId != null)
             {
                 requestRevision_revision_GitHubLocation_gitHubLocation_CommitId = cmdletContext.Revision_GitHubLocation_CommitId;
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 requestRevision_revision_GitHubLocation.CommitId = requestRevision_revision_GitHubLocation_gitHubLocation_CommitId;
                 requestRevision_revision_GitHubLocationIsNull = false;
             }
-            String requestRevision_revision_GitHubLocation_gitHubLocation_Repository = null;
+            System.String requestRevision_revision_GitHubLocation_gitHubLocation_Repository = null;
             if (cmdletContext.Revision_GitHubLocation_Repository != null)
             {
                 requestRevision_revision_GitHubLocation_gitHubLocation_Repository = cmdletContext.Revision_GitHubLocation_Repository;
@@ -246,12 +246,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.Revision.GitHubLocation = requestRevision_revision_GitHubLocation;
                 requestRevisionIsNull = false;
             }
-            S3Location requestRevision_revision_S3Location = null;
+            Amazon.CodeDeploy.Model.S3Location requestRevision_revision_S3Location = null;
             
              // populate S3Location
             bool requestRevision_revision_S3LocationIsNull = true;
-            requestRevision_revision_S3Location = new S3Location();
-            String requestRevision_revision_S3Location_s3Location_Bucket = null;
+            requestRevision_revision_S3Location = new Amazon.CodeDeploy.Model.S3Location();
+            System.String requestRevision_revision_S3Location_s3Location_Bucket = null;
             if (cmdletContext.Revision_S3Location_Bucket != null)
             {
                 requestRevision_revision_S3Location_s3Location_Bucket = cmdletContext.Revision_S3Location_Bucket;
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 requestRevision_revision_S3Location.Bucket = requestRevision_revision_S3Location_s3Location_Bucket;
                 requestRevision_revision_S3LocationIsNull = false;
             }
-            BundleType requestRevision_revision_S3Location_s3Location_BundleType = null;
+            Amazon.CodeDeploy.BundleType requestRevision_revision_S3Location_s3Location_BundleType = null;
             if (cmdletContext.Revision_S3Location_BundleType != null)
             {
                 requestRevision_revision_S3Location_s3Location_BundleType = cmdletContext.Revision_S3Location_BundleType;
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 requestRevision_revision_S3Location.BundleType = requestRevision_revision_S3Location_s3Location_BundleType;
                 requestRevision_revision_S3LocationIsNull = false;
             }
-            String requestRevision_revision_S3Location_s3Location_ETag = null;
+            System.String requestRevision_revision_S3Location_s3Location_ETag = null;
             if (cmdletContext.Revision_S3Location_ETag != null)
             {
                 requestRevision_revision_S3Location_s3Location_ETag = cmdletContext.Revision_S3Location_ETag;
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 requestRevision_revision_S3Location.ETag = requestRevision_revision_S3Location_s3Location_ETag;
                 requestRevision_revision_S3LocationIsNull = false;
             }
-            String requestRevision_revision_S3Location_s3Location_Key = null;
+            System.String requestRevision_revision_S3Location_s3Location_Key = null;
             if (cmdletContext.Revision_S3Location_Key != null)
             {
                 requestRevision_revision_S3Location_s3Location_Key = cmdletContext.Revision_S3Location_Key;
@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 requestRevision_revision_S3Location.Key = requestRevision_revision_S3Location_s3Location_Key;
                 requestRevision_revision_S3LocationIsNull = false;
             }
-            String requestRevision_revision_S3Location_s3Location_Version = null;
+            System.String requestRevision_revision_S3Location_s3Location_Version = null;
             if (cmdletContext.Revision_S3Location_Version != null)
             {
                 requestRevision_revision_S3Location_s3Location_Version = cmdletContext.Revision_S3Location_Version;
@@ -353,16 +353,16 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String Description { get; set; }
-            public String Revision_GitHubLocation_CommitId { get; set; }
-            public String Revision_GitHubLocation_Repository { get; set; }
-            public RevisionLocationType Revision_RevisionType { get; set; }
-            public String Revision_S3Location_Bucket { get; set; }
-            public BundleType Revision_S3Location_BundleType { get; set; }
-            public String Revision_S3Location_ETag { get; set; }
-            public String Revision_S3Location_Key { get; set; }
-            public String Revision_S3Location_Version { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String Description { get; set; }
+            public System.String Revision_GitHubLocation_CommitId { get; set; }
+            public System.String Revision_GitHubLocation_Repository { get; set; }
+            public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
+            public System.String Revision_S3Location_Bucket { get; set; }
+            public Amazon.CodeDeploy.BundleType Revision_S3Location_BundleType { get; set; }
+            public System.String Revision_S3Location_ETag { get; set; }
+            public System.String Revision_S3Location_Key { get; set; }
+            public System.String Revision_S3Location_Version { get; set; }
         }
         
     }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the DescribeCachediSCSIVolumes operation against AWS Storage Gateway.", Operation = new[] {"DescribeCachediSCSIVolumes"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CachediSCSIVolume",
         "This cmdlet returns a collection of CachediSCSIVolume objects.",
-        "The service call response (type DescribeCachediSCSIVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             
             if (this.VolumeARNs != null)
             {
-                context.VolumeARNs = new List<String>(this.VolumeARNs);
+                context.VolumeARNs = new List<System.String>(this.VolumeARNs);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeCachediSCSIVolumesRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeCachediSCSIVolumesRequest();
             
             if (cmdletContext.VolumeARNs != null)
             {
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> VolumeARNs { get; set; }
+            public List<System.String> VolumeARNs { get; set; }
         }
         
     }

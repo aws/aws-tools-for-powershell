@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifySpotFleetRequest operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifySpotFleetRequest"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type ModifySpotFleetRequestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifySpotFleetRequestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2SpotFleetRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
+        public Amazon.EC2.ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 TargetCapacity { get; set; }
+        public System.Int32 TargetCapacity { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SpotFleetRequestId { get; set; }
+        public System.String SpotFleetRequestId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifySpotFleetRequestRequest();
+            var request = new Amazon.EC2.Model.ModifySpotFleetRequestRequest();
             
             if (cmdletContext.ExcessCapacityTerminationPolicy != null)
             {
@@ -176,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
-            public String SpotFleetRequestId { get; set; }
-            public Int32? TargetCapacity { get; set; }
+            public Amazon.EC2.ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
+            public System.String SpotFleetRequestId { get; set; }
+            public System.Int32? TargetCapacity { get; set; }
         }
         
     }

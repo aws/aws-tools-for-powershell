@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateSecurityGroup operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSecurityGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2SecurityGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("GroupDescription")]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSecurityGroupRequest();
+            var request = new Amazon.EC2.Model.CreateSecurityGroupRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -179,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String GroupName { get; set; }
-            public String VpcId { get; set; }
+            public System.String Description { get; set; }
+            public System.String GroupName { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

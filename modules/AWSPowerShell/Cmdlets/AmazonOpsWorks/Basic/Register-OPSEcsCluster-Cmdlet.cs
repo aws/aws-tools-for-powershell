@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the RegisterEcsCluster operation against AWS OpsWorks.", Operation = new[] {"RegisterEcsCluster"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RegisterEcsClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.RegisterEcsClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EcsClusterArn { get; set; }
+        public System.String EcsClusterArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterEcsClusterRequest();
+            var request = new Amazon.OpsWorks.Model.RegisterEcsClusterRequest();
             
             if (cmdletContext.EcsClusterArn != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EcsClusterArn { get; set; }
-            public String StackId { get; set; }
+            public System.String EcsClusterArn { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

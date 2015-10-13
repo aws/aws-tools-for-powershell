@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreatePolicy operation against AWS Identity and Access Management.", Operation = new[] {"CreatePolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ManagedPolicy",
         "This cmdlet returns a ManagedPolicy object.",
-        "The service call response (type CreatePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreatePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.CreatePolicyRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -178,10 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String Path { get; set; }
-            public String PolicyDocument { get; set; }
-            public String PolicyName { get; set; }
+            public System.String Description { get; set; }
+            public System.String Path { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResponse")]
     [AWSCmdlet("Invokes the UpdateFunctionCode operation against Amazon Lambda.", Operation = new[] {"UpdateFunctionCode"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResponse",
-        "This cmdlet returns a UpdateFunctionCodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.UpdateFunctionCodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Publish { get; set; }
+        public System.Boolean Publish { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String S3Bucket { get; set; }
+        public System.String S3Bucket { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String S3Key { get; set; }
+        public System.String S3Key { get; set; }
         
         /// <summary>
         /// <para>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String S3ObjectVersion { get; set; }
+        public System.String S3ObjectVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateFunctionCodeRequest();
+            var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -204,11 +204,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public Boolean? Publish { get; set; }
-            public String S3Bucket { get; set; }
-            public String S3Key { get; set; }
-            public String S3ObjectVersion { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.Boolean? Publish { get; set; }
+            public System.String S3Bucket { get; set; }
+            public System.String S3Key { get; set; }
+            public System.String S3ObjectVersion { get; set; }
             public System.IO.MemoryStream ZipFile { get; set; }
         }
         

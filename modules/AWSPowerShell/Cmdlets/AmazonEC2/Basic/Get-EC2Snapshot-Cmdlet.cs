@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeSnapshots operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSnapshots"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Snapshot",
         "This cmdlet returns a collection of Snapshot objects.",
-        "The service call response (type DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -169,22 +169,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.OwnerId != null)
             {
-                context.OwnerIds = new List<String>(this.OwnerId);
+                context.OwnerIds = new List<System.String>(this.OwnerId);
             }
             if (this.RestorableByUserId != null)
             {
-                context.RestorableByUserIds = new List<String>(this.RestorableByUserId);
+                context.RestorableByUserIds = new List<System.String>(this.RestorableByUserId);
             }
             if (this.SnapshotId != null)
             {
-                context.SnapshotIds = new List<String>(this.SnapshotId);
+                context.SnapshotIds = new List<System.String>(this.SnapshotId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeSnapshotsRequest();
+            var request = new Amazon.EC2.Model.DescribeSnapshotsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -302,12 +302,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public List<String> OwnerIds { get; set; }
-            public List<String> RestorableByUserIds { get; set; }
-            public List<String> SnapshotIds { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> OwnerIds { get; set; }
+            public List<System.String> RestorableByUserIds { get; set; }
+            public List<System.String> SnapshotIds { get; set; }
         }
         
     }

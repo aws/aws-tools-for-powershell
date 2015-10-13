@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the GetPolicy operation against Amazon Lambda.", Operation = new[] {"GetPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetLMPolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public System.String Qualifier { get; set; }
         
         
         protected override void ProcessRecord()
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPolicyRequest();
+            var request = new Amazon.Lambda.Model.GetPolicyRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
         }
         
     }

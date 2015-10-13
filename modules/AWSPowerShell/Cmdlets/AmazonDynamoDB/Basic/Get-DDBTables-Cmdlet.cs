@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Invokes the ListTables operation against Amazon DynamoDB.", Operation = new[] {"ListTables"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: LastEvaluatedTableName (type String)"
+        "The service call response (type Amazon.DynamoDBv2.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: LastEvaluatedTableName (type System.String)"
     )]
     public class GetDDBTablesCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
-        public String ExclusiveStartTableName { get; set; }
+        public System.String ExclusiveStartTableName { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListTablesRequest();
+            var request = new Amazon.DynamoDBv2.Model.ListTablesRequest();
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.ExclusiveStartTableName))
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ExclusiveStartTableName { get; set; }
+            public System.String ExclusiveStartTableName { get; set; }
             public int? Limit { get; set; }
         }
         

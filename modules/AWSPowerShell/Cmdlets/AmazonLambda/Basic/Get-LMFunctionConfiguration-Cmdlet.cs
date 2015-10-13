@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetFunctionConfigurationResponse")]
     [AWSCmdlet("Invokes the GetFunctionConfiguration operation against Amazon Lambda.", Operation = new[] {"GetFunctionConfiguration"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionConfigurationResponse",
-        "This cmdlet returns a GetFunctionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.GetFunctionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Qualifier { get; set; }
+        public System.String Qualifier { get; set; }
         
         
         protected override void ProcessRecord()
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetFunctionConfigurationRequest();
+            var request = new Amazon.Lambda.Model.GetFunctionConfigurationRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String Qualifier { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
         }
         
     }

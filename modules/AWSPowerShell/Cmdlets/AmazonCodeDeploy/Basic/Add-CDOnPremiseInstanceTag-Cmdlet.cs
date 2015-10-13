@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the AddTagsToOnPremisesInstances operation against AWS CodeDeploy.", Operation = new[] {"AddTagsToOnPremisesInstances"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type AddTagsToOnPremisesInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -85,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
             if (this.InstanceName != null)
             {
-                context.InstanceNames = new List<String>(this.InstanceName);
+                context.InstanceNames = new List<System.String>(this.InstanceName);
             }
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.CodeDeploy.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsToOnPremisesInstancesRequest();
+            var request = new Amazon.CodeDeploy.Model.AddTagsToOnPremisesInstancesRequest();
             
             if (cmdletContext.InstanceNames != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> InstanceNames { get; set; }
-            public List<Tag> Tags { get; set; }
+            public List<System.String> InstanceNames { get; set; }
+            public List<Amazon.CodeDeploy.Model.Tag> Tags { get; set; }
         }
         
     }

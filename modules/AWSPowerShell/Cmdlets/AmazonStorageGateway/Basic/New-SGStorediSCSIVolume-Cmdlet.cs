@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse")]
     [AWSCmdlet("Invokes the CreateStorediSCSIVolume operation against AWS Storage Gateway.", Operation = new[] {"CreateStorediSCSIVolume"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse",
-        "This cmdlet returns a CreateStorediSCSIVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.CreateStorediSCSIVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSGStorediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DiskId { get; set; }
+        public System.String DiskId { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PreserveExistingData { get; set; }
+        public System.Boolean PreserveExistingData { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
         
         /// <summary>
         /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String TargetName { get; set; }
+        public System.String TargetName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateStorediSCSIVolumeRequest();
+            var request = new Amazon.StorageGateway.Model.CreateStorediSCSIVolumeRequest();
             
             if (cmdletContext.DiskId != null)
             {
@@ -215,12 +215,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DiskId { get; set; }
-            public String GatewayARN { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public Boolean? PreserveExistingData { get; set; }
-            public String SnapshotId { get; set; }
-            public String TargetName { get; set; }
+            public System.String DiskId { get; set; }
+            public System.String GatewayARN { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.Boolean? PreserveExistingData { get; set; }
+            public System.String SnapshotId { get; set; }
+            public System.String TargetName { get; set; }
         }
         
     }

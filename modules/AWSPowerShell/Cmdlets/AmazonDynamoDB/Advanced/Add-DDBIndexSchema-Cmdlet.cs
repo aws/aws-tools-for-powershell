@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [Cmdlet("Add", "DDBIndexSchema", DefaultParameterSetName = LocalIndexParameterSet)]
     [OutputType("TableSchema")]
     [AWSCmdlet("Adds a new Amazon DynamoDB global or local secondary index schema property to the supplied TableSchema object.")]
-    [AWSCmdletOutput("TableSchema", "This cmdlet returns an updated Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object to the pipeline.")]
+    [AWSCmdletOutput("Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema", "This cmdlet returns an updated Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object to the pipeline.")]
     public class AddDDBIndexSchemaCmdlet : BaseCmdlet
     {
         const string LocalIndexParameterSet = "LocalIndexParameterSet";
@@ -46,14 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// A previously constructed TableSchema object to which the new index schema element will be added.
         /// </summary>
         [Parameter(ValueFromPipeline = true, Mandatory = true)]
-        public TableSchema Schema { get; set; }
+        public Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema Schema { get; set; }
 
         /// <summary>
         /// The name of the secondary index. Must be unique only for this table that will be created.
         /// If an index with the same name already exists on the pipelined object an error is thrown.
         /// </summary>
         [Parameter(Position = 0, Mandatory = true)]
-        public string IndexName { get; set; }
+        public System.String IndexName { get; set; }
 
         /// <summary>
         /// The name of the range key to add to the secondary index. This is a mandatory parameter for
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [Parameter(ParameterSetName = LocalIndexParameterSet, Mandatory = true)]
         [Parameter(ParameterSetName = GlobalIndexParameterSet)]
-        public string RangeKeyName { get; set; }
+        public System.String RangeKeyName { get; set; }
 
         /// <summary>
         /// The data type of the range key as specified by the Amazon DynamoDB api. 
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [Parameter(ParameterSetName = LocalIndexParameterSet, Mandatory = true)]
         [Parameter(ParameterSetName = GlobalIndexParameterSet)]
-        public string RangeKeyDataType { get; set; }
+        public System.String RangeKeyDataType { get; set; }
 
         /// <summary>
         /// Specifies attributes that are copied (projected) from the table into the index. These are in addition 
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// ALL       - All of the table attributes are projected into the index.
         /// </summary>
         [Parameter]
-        public string ProjectionType { get; set; }
+        public System.String ProjectionType { get; set; }
 
         /// <summary>
         /// A collection of one or more non-key attribute names that are projected into the index. The total count of attributes 
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// attribute into two different indexes, this counts as two distinct attributes when determining the total.
         /// </summary>
         [Parameter]
-        public string[] NonKeyAttribute { get; set; }
+        public System.String[] NonKeyAttribute { get; set; }
 
         /// <summary>
         /// If set, specifies that the index components described by the parameters should be
@@ -105,27 +105,27 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// The name of the hash key for the global secondary index.
         /// </summary>
         [Parameter(ParameterSetName = GlobalIndexParameterSet)]
-        public string HashKeyName { get; set; }
+        public System.String HashKeyName { get; set; }
 
         /// <summary>
         /// The data type of the hash key for the global index, as specified by the Amazon DynamoDB api. 
         /// </summary>
         [Parameter(ParameterSetName = GlobalIndexParameterSet)]
-        public string HashKeyDataType { get; set; }
+        public System.String HashKeyDataType { get; set; }
 
         /// <summary>
         /// The provisioned throughput setting for read operations on the secondary index if the index is global (the -Global
         /// switch is specified). Ignored for local secondary indexes (the default).
         /// </summary>
         [Parameter(ParameterSetName = GlobalIndexParameterSet)]
-        public Int64? ReadCapacity { get; set; }
+        public System.Int64? ReadCapacity { get; set; }
 
         /// <summary>
         /// The provisioned throughput setting for write operations on the secondary index if the index is global (the -Global
         /// switch is specified). Ignored for local secondary indexes (the default).
         /// </summary>
         [Parameter(ParameterSetName = GlobalIndexParameterSet)]
-        public Int64? WriteCapacity { get; set; }
+        public System.Int64? WriteCapacity { get; set; }
 
         protected override void ProcessRecord()
         {

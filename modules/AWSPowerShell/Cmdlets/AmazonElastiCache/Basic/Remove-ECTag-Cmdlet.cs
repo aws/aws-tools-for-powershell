@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the RemoveTagsFromResource operation against Amazon ElastiCache.", Operation = new[] {"RemoveTagsFromResource"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.ResourceName = this.ResourceName;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsFromResourceRequest();
+            var request = new Amazon.ElastiCache.Model.RemoveTagsFromResourceRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String ResourceName { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UnassignVolume operation against AWS OpsWorks.", Operation = new[] {"UnassignVolume"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UnassignVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UnassignVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VolumeId parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UnassignVolumeRequest();
+            var request = new Amazon.OpsWorks.Model.UnassignVolumeRequest();
             
             if (cmdletContext.VolumeId != null)
             {
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VolumeId { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

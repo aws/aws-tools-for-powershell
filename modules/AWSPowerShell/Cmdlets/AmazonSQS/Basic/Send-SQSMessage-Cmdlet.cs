@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [OutputType("Amazon.SQS.Model.SendMessageResponse")]
     [AWSCmdlet("Invokes the SendMessage operation against Amazon Simple Queue Service.", Operation = new[] {"SendMessage"})]
     [AWSCmdletOutput("Amazon.SQS.Model.SendMessageResponse",
-        "This cmdlet returns a SendMessageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SQS.Model.SendMessageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("DelaySeconds")]
-        public Int32 DelayInSeconds { get; set; }
+        public System.Int32 DelayInSeconds { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String MessageBody { get; set; }
+        public System.String MessageBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.DelayInSeconds = this.DelayInSeconds;
             if (this.MessageAttribute != null)
             {
-                context.MessageAttributes = new Dictionary<String, MessageAttributeValue>(StringComparer.Ordinal);
+                context.MessageAttributes = new Dictionary<System.String, Amazon.SQS.Model.MessageAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageAttribute.Keys)
                 {
                     context.MessageAttributes.Add((String)hashKey, (MessageAttributeValue)(this.MessageAttribute[hashKey]));
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SendMessageRequest();
+            var request = new Amazon.SQS.Model.SendMessageRequest();
             
             if (cmdletContext.DelayInSeconds != null)
             {
@@ -191,10 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DelayInSeconds { get; set; }
-            public Dictionary<String, MessageAttributeValue> MessageAttributes { get; set; }
-            public String MessageBody { get; set; }
-            public String QueueUrl { get; set; }
+            public System.Int32? DelayInSeconds { get; set; }
+            public Dictionary<System.String, Amazon.SQS.Model.MessageAttributeValue> MessageAttributes { get; set; }
+            public System.String MessageBody { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

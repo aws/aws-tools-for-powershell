@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreateKeysAndCertificateResponse")]
     [AWSCmdlet("Invokes the CreateKeysAndCertificate operation against AWS IoT.", Operation = new[] {"CreateKeysAndCertificate"})]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateKeysAndCertificateResponse",
-        "This cmdlet returns a CreateKeysAndCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IoT.Model.CreateKeysAndCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIOTKeysAndCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SetAsActive { get; set; }
+        public System.Boolean SetAsActive { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateKeysAndCertificateRequest();
+            var request = new Amazon.IoT.Model.CreateKeysAndCertificateRequest();
             
             if (cmdletContext.SetAsActive != null)
             {
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? SetAsActive { get; set; }
+            public System.Boolean? SetAsActive { get; set; }
         }
         
     }

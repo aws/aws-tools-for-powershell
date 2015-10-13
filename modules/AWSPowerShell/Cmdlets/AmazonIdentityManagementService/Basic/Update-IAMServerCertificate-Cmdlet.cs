@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateServerCertificate operation against AWS Identity and Access Management.", Operation = new[] {"UpdateServerCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServerCertificateName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateServerCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateServerCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String NewPath { get; set; }
+        public System.String NewPath { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String NewServerCertificateName { get; set; }
+        public System.String NewServerCertificateName { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ServerCertificateName { get; set; }
+        public System.String ServerCertificateName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ServerCertificateName parameter.
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateServerCertificateRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateServerCertificateRequest();
             
             if (cmdletContext.NewPath != null)
             {
@@ -171,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NewPath { get; set; }
-            public String NewServerCertificateName { get; set; }
-            public String ServerCertificateName { get; set; }
+            public System.String NewPath { get; set; }
+            public System.String NewServerCertificateName { get; set; }
+            public System.String ServerCertificateName { get; set; }
         }
         
     }

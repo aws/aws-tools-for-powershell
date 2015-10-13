@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the UpdateMaintenanceStartTime operation against AWS Storage Gateway.", Operation = new[] {"UpdateMaintenanceStartTime"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateMaintenanceStartTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSGMaintenanceStartTimeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public Int32 DayOfWeek { get; set; }
+        public System.Int32 DayOfWeek { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 HourOfDay { get; set; }
+        public System.Int32 HourOfDay { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 MinuteOfHour { get; set; }
+        public System.Int32 MinuteOfHour { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateMaintenanceStartTimeRequest();
+            var request = new Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeRequest();
             
             if (cmdletContext.DayOfWeek != null)
             {
@@ -172,10 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DayOfWeek { get; set; }
-            public String GatewayARN { get; set; }
-            public Int32? HourOfDay { get; set; }
-            public Int32? MinuteOfHour { get; set; }
+            public System.Int32? DayOfWeek { get; set; }
+            public System.String GatewayARN { get; set; }
+            public System.Int32? HourOfDay { get; set; }
+            public System.Int32? MinuteOfHour { get; set; }
         }
         
     }

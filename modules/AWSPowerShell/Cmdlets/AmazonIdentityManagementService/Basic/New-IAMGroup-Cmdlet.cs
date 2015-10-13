@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateGroup operation against AWS Identity and Access Management.", Operation = new[] {"CreateGroup"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Group",
         "This cmdlet returns a Group object.",
-        "The service call response (type CreateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateGroupRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateGroupRequest();
             
             if (cmdletContext.GroupName != null)
             {
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupName { get; set; }
-            public String Path { get; set; }
+            public System.String GroupName { get; set; }
+            public System.String Path { get; set; }
         }
         
     }

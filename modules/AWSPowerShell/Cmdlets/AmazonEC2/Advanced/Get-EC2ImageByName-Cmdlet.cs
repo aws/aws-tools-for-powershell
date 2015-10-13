@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             + "is output. To see all available versions of the image matching the name, use the -AllAvailable switch. "
             + "If more than one value is supplied to the -Name parameter, all images matching the set of name patterns are output (irrespective of "
             + "whether the names are built-in or custom). ",
-        "The service calls(s) made by the cmdlet to obtain the Image collection (type DescribeImagesResponse) are added to the cmdlet entry in the $AWSHistory stack."
+        "The service calls(s) made by the cmdlet to obtain the Image collection (type Amazon.EC2.Model.DescribeImagesResponse) are added to the cmdlet entry in the $AWSHistory stack."
     )]
     [AWSCmdletOutput("string", "If no parameters are supplied the cmdlet emits the built-in logical names that can be used with the -Name parameter.")]
     public class GetEC2ImageByNameCmdlet : AmazonEC2ClientCmdlet, IExecutor
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Alias("FilterNames","Names")]
         [Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
-        public string[] Name { get; set; }
+        public System.String[] Name { get; set; }
 
         /// <summary>
         /// If set, the cmdlet emits the actual name pattern used to filter the machine images.

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeInternetGateways operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeInternetGateways"})]
     [AWSCmdletOutput("Amazon.EC2.Model.InternetGateway",
         "This cmdlet returns a collection of InternetGateway objects.",
-        "The service call response (type DescribeInternetGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeInternetGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2InternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -78,11 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.InternetGatewayId != null)
             {
-                context.InternetGatewayIds = new List<String>(this.InternetGatewayId);
+                context.InternetGatewayIds = new List<System.String>(this.InternetGatewayId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeInternetGatewaysRequest();
+            var request = new Amazon.EC2.Model.DescribeInternetGatewaysRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> InternetGatewayIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> InternetGatewayIds { get; set; }
         }
         
     }

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateTags operation against Amazon Redshift.", Operation = new[] {"CreateTags"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSTagsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ResourceName = this.ResourceName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateTagsRequest();
+            var request = new Amazon.Redshift.Model.CreateTagsRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceName { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

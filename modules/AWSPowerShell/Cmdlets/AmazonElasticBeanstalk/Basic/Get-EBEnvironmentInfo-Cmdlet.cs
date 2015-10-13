@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the RetrieveEnvironmentInfo operation against AWS Elastic Beanstalk.", Operation = new[] {"RetrieveEnvironmentInfo"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentInfoDescription",
         "This cmdlet returns a collection of EnvironmentInfoDescription objects.",
-        "The service call response (type RetrieveEnvironmentInfoResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.RetrieveEnvironmentInfoResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBEnvironmentInfoCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public EnvironmentInfoType InfoType { get; set; }
+        public Amazon.ElasticBeanstalk.EnvironmentInfoType InfoType { get; set; }
         
         
         protected override void ProcessRecord()
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RetrieveEnvironmentInfoRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.RetrieveEnvironmentInfoRequest();
             
             if (cmdletContext.EnvironmentId != null)
             {
@@ -149,9 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
-            public EnvironmentInfoType InfoType { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public Amazon.ElasticBeanstalk.EnvironmentInfoType InfoType { get; set; }
         }
         
     }

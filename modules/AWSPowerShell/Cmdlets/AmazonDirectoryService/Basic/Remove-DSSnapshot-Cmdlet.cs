@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the DeleteSnapshot operation against AWS Directory Service.", Operation = new[] {"DeleteSnapshot"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSnapshotRequest();
+            var request = new Amazon.DirectoryService.Model.DeleteSnapshotRequest();
             
             if (cmdletContext.SnapshotId != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotId { get; set; }
+            public System.String SnapshotId { get; set; }
         }
         
     }

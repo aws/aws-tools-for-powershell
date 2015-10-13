@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the GetDirectoryLimits operation against AWS Directory Service.", Operation = new[] {"GetDirectoryLimits"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.DirectoryLimits",
         "This cmdlet returns a DirectoryLimits object.",
-        "The service call response (type GetDirectoryLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.GetDirectoryLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDSDirectoryLimitCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDirectoryLimitsRequest();
+            var request = new Amazon.DirectoryService.Model.GetDirectoryLimitsRequest();
             
             
             CmdletOutput output;

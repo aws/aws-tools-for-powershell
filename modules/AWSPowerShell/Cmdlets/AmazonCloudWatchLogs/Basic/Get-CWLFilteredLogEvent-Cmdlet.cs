@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [OutputType("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse")]
     [AWSCmdlet("Invokes the FilterLogEvents operation against Amazon CloudWatch Logs.", Operation = new[] {"FilterLogEvents"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse",
-        "This cmdlet returns a FilterLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudWatchLogs.Model.FilterLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCWLFilteredLogEventCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 EndTime { get; set; }
+        public System.Int64 EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FilterPattern { get; set; }
+        public System.String FilterPattern { get; set; }
         
         /// <summary>
         /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Interleaved { get; set; }
+        public System.Boolean Interleaved { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 StartTime { get; set; }
+        public System.Int64 StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.LogGroupName = this.LogGroupName;
             if (this.LogStreamName != null)
             {
-                context.LogStreamNames = new List<String>(this.LogStreamName);
+                context.LogStreamNames = new List<System.String>(this.LogStreamName);
             }
             context.NextToken = this.NextToken;
             if (ParameterWasBound("StartTime"))
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new FilterLogEventsRequest();
+            var request = new Amazon.CloudWatchLogs.Model.FilterLogEventsRequest();
             
             if (cmdletContext.EndTime != null)
             {
@@ -234,14 +234,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int64? EndTime { get; set; }
-            public String FilterPattern { get; set; }
-            public Boolean? Interleaved { get; set; }
+            public System.Int64? EndTime { get; set; }
+            public System.String FilterPattern { get; set; }
+            public System.Boolean? Interleaved { get; set; }
             public int? Limit { get; set; }
-            public String LogGroupName { get; set; }
-            public List<String> LogStreamNames { get; set; }
-            public String NextToken { get; set; }
-            public Int64? StartTime { get; set; }
+            public System.String LogGroupName { get; set; }
+            public List<System.String> LogStreamNames { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Int64? StartTime { get; set; }
         }
         
     }

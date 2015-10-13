@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the PutIdentityPolicy operation against Amazon Simple Email Service.", Operation = new[] {"PutIdentityPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Policy parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutIdentityPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.PutIdentityPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteSESIdentityPolicyCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Identity { get; set; }
+        public System.String Identity { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the Policy parameter.
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutIdentityPolicyRequest();
+            var request = new Amazon.SimpleEmail.Model.PutIdentityPolicyRequest();
             
             if (cmdletContext.Identity != null)
             {
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Identity { get; set; }
-            public String Policy { get; set; }
-            public String PolicyName { get; set; }
+            public System.String Identity { get; set; }
+            public System.String Policy { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

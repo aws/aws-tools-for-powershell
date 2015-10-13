@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.UpdateEventSourceMappingResponse")]
     [AWSCmdlet("Invokes the UpdateEventSourceMapping operation against Amazon Lambda.", Operation = new[] {"UpdateEventSourceMapping"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateEventSourceMappingResponse",
-        "This cmdlet returns a UpdateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.UpdateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BatchSize { get; set; }
+        public System.Int32 BatchSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String UUID { get; set; }
+        public System.String UUID { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateEventSourceMappingRequest();
+            var request = new Amazon.Lambda.Model.UpdateEventSourceMappingRequest();
             
             if (cmdletContext.BatchSize != null)
             {
@@ -180,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? BatchSize { get; set; }
-            public Boolean? Enabled { get; set; }
-            public String FunctionName { get; set; }
-            public String UUID { get; set; }
+            public System.Int32? BatchSize { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String UUID { get; set; }
         }
         
     }

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the GetIdentityNotificationAttributes operation against Amazon Simple Email Service.", Operation = new[] {"GetIdentityNotificationAttributes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type GetIdentityNotificationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityNotificationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESIdentityNotificationAttributeCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.Identity != null)
             {
-                context.Identities = new List<String>(this.Identity);
+                context.Identities = new List<System.String>(this.Identity);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetIdentityNotificationAttributesRequest();
+            var request = new Amazon.SimpleEmail.Model.GetIdentityNotificationAttributesRequest();
             
             if (cmdletContext.Identities != null)
             {
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Identities { get; set; }
+            public List<System.String> Identities { get; set; }
         }
         
     }

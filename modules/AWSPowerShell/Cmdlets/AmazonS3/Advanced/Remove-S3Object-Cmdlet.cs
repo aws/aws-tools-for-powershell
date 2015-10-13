@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [Cmdlet("Remove", "S3Object", DefaultParameterSetName = ParamSet_SingleObject, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType(new Type[] { typeof(DeleteObjectResponse), typeof(DeleteObjectsResponse) })]
     [AWSCmdlet("Invokes the DeleteObjects operation against Amazon S3.", Operation = new [] {"DeleteObjects"})]
-    [AWSCmdletOutput("DeleteObjectResponse instance if deleting a single object or DeleteObjectsResponse instance for multi-object delete.")]
+    [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectResponse instance if deleting a single object or Amazon.S3.Model.DeleteObjectsResponse instance for multi-object delete.")]
     public class RemoveS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         const string ParamSet_SingleObject = "SingleObjDeleteSet";
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The name of the bucket containing the object(s) to be removed.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
 
         #region Single Object Delete Parameters
 
@@ -51,13 +51,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Key value identifying a single object in S3 to remove.
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_SingleObject, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
 
         /// <summary>
         /// If specified, the specific version of the S3 object is removed.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_SingleObject)]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
 
         #endregion
 
@@ -68,21 +68,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ParameterSetName = Paramset_MultipleObject)]
         [Alias("VersionKeys")]
-        public KeyVersion[] VersionKey { get; set; }
+        public Amazon.S3.Model.KeyVersion[] VersionKey { get; set; }
 
         /// <summary>
         /// Collection of S3Object instances describing the S3 objects to be deleted.
         /// </summary>
         [Parameter(ParameterSetName = Paramset_MultipleObject, ValueFromPipeline = true)]
         [Alias("InputObjects")]
-        public S3Object[] InputObject { get; set; }
+        public Amazon.S3.Model.S3Object[] InputObject { get; set; }
 
         /// <summary>
         /// Collection of key names describing the S3 objects to be deleted.
         /// </summary>
         [Parameter(ParameterSetName = Paramset_MultipleObject)]
         [Alias("Keys")]
-        public string[] KeyCollection { get; set; }
+        public System.String[] KeyCollection { get; set; }
 
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         [Alias("MfaCodes_First")]
-        public String SerialNumber { get; set; }
+        public System.String SerialNumber { get; set; }
 
         /// <summary>
         /// <para>
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         [Alias("MfaCodes_Second")]
-        public String AuthenticationValue { get; set; }
+        public System.String AuthenticationValue { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

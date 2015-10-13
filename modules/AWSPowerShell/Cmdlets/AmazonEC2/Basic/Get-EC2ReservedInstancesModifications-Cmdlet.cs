@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeReservedInstancesModifications operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeReservedInstancesModifications"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesModification",
         "This cmdlet returns a collection of ReservedInstancesModification objects.",
-        "The service call response (type DescribeReservedInstancesModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2ReservedInstancesModificationsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -95,12 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             context.NextToken = this.NextToken;
             if (this.ReservedInstancesModificationId != null)
             {
-                context.ReservedInstancesModificationIds = new List<String>(this.ReservedInstancesModificationId);
+                context.ReservedInstancesModificationIds = new List<System.String>(this.ReservedInstancesModificationId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeReservedInstancesModificationsRequest();
+            var request = new Amazon.EC2.Model.DescribeReservedInstancesModificationsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -164,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public String NextToken { get; set; }
-            public List<String> ReservedInstancesModificationIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ReservedInstancesModificationIds { get; set; }
         }
         
     }

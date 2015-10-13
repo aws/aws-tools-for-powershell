@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the DescribeEvaluations operation against Amazon Machine Learning.", Operation = new[] {"DescribeEvaluations"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.Evaluation",
         "This cmdlet returns a collection of Evaluation objects.",
-        "The service call response (type DescribeEvaluationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.MachineLearning.Model.DescribeEvaluationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetMLEvaluationsCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EQ { get; set; }
+        public System.String EQ { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EvaluationFilterVariable FilterVariable { get; set; }
+        public Amazon.MachineLearning.EvaluationFilterVariable FilterVariable { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GE { get; set; }
+        public System.String GE { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GT { get; set; }
+        public System.String GT { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LE { get; set; }
+        public System.String LE { get; set; }
         
         /// <summary>
         /// <para>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LT { get; set; }
+        public System.String LT { get; set; }
         
         /// <summary>
         /// <para>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NE { get; set; }
+        public System.String NE { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Prefix { get; set; }
+        public System.String Prefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SortOrder SortOrder { get; set; }
+        public Amazon.MachineLearning.SortOrder SortOrder { get; set; }
         
         /// <summary>
         /// <para>
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeEvaluationsRequest();
+            var request = new Amazon.MachineLearning.Model.DescribeEvaluationsRequest();
             if (cmdletContext.EQ != null)
             {
                 request.EQ = cmdletContext.EQ;
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -339,17 +339,17 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EQ { get; set; }
-            public EvaluationFilterVariable FilterVariable { get; set; }
-            public String GE { get; set; }
-            public String GT { get; set; }
-            public String LE { get; set; }
+            public System.String EQ { get; set; }
+            public Amazon.MachineLearning.EvaluationFilterVariable FilterVariable { get; set; }
+            public System.String GE { get; set; }
+            public System.String GT { get; set; }
+            public System.String LE { get; set; }
             public int? Limit { get; set; }
-            public String LT { get; set; }
-            public String NE { get; set; }
-            public String NextToken { get; set; }
-            public String Prefix { get; set; }
-            public SortOrder SortOrder { get; set; }
+            public System.String LT { get; set; }
+            public System.String NE { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String Prefix { get; set; }
+            public Amazon.MachineLearning.SortOrder SortOrder { get; set; }
         }
         
     }

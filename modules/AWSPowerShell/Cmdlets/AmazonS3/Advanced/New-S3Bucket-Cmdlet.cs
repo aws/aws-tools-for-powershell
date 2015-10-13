@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.S3Bucket")]
     [AWSCmdlet("Invokes the PutBucket operation against Amazon S3.", Operation = new [] {"PutBucket"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket",
-        "Returns an S3Bucket instance representing the new bucket.",
-        "The service response (type PutBucketResponse) is added to the cmdlet entry in the $AWSHistory stack."
+        "Returns an Amazon.S3.Model.S3Bucket instance representing the new bucket.",
+        "The service response (type Amazon.S3.Model.PutBucketResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -40,14 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// unique across Amazon S3.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// Specifies the name of the canned ACL (access control list) of permissions to be applied to the S3 bucket.
         /// Please refer to <see cref="T:Amazon.S3.Model.S3CannedACL" /> for information on S3 Canned ACLs.
         /// </summary>
         [Parameter]
-        public string CannedACLName { get; set; }
+        public System.String CannedACLName { get; set; }
 
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-only permissions

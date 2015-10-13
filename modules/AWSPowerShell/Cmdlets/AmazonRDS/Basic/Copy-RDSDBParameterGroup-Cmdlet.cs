@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CopyDBParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"CopyDBParameterGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBParameterGroup",
         "This cmdlet returns a DBParameterGroup object.",
-        "The service call response (type CopyDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CopyDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceDBParameterGroupIdentifier { get; set; }
+        public System.String SourceDBParameterGroupIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String TargetDBParameterGroupDescription { get; set; }
+        public System.String TargetDBParameterGroupDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetDBParameterGroupIdentifier { get; set; }
+        public System.String TargetDBParameterGroupIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SourceDBParameterGroupIdentifier = this.SourceDBParameterGroupIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBParameterGroupDescription = this.TargetDBParameterGroupDescription;
             context.TargetDBParameterGroupIdentifier = this.TargetDBParameterGroupIdentifier;
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyDBParameterGroupRequest();
+            var request = new Amazon.RDS.Model.CopyDBParameterGroupRequest();
             
             if (cmdletContext.SourceDBParameterGroupIdentifier != null)
             {
@@ -176,10 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceDBParameterGroupIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TargetDBParameterGroupDescription { get; set; }
-            public String TargetDBParameterGroupIdentifier { get; set; }
+            public System.String SourceDBParameterGroupIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TargetDBParameterGroupDescription { get; set; }
+            public System.String TargetDBParameterGroupIdentifier { get; set; }
         }
         
     }

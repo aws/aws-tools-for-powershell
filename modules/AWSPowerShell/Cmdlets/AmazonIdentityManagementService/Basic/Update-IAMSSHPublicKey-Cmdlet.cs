@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateSSHPublicKey operation against AWS Identity and Access Management.", Operation = new[] {"UpdateSSHPublicKey"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SSHPublicKeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateSSHPublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateSSHPublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SSHPublicKeyId { get; set; }
+        public System.String SSHPublicKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StatusType Status { get; set; }
+        public Amazon.IdentityManagement.StatusType Status { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SSHPublicKeyId parameter.
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateSSHPublicKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateSSHPublicKeyRequest();
             
             if (cmdletContext.SSHPublicKeyId != null)
             {
@@ -172,9 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SSHPublicKeyId { get; set; }
-            public StatusType Status { get; set; }
-            public String UserName { get; set; }
+            public System.String SSHPublicKeyId { get; set; }
+            public Amazon.IdentityManagement.StatusType Status { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

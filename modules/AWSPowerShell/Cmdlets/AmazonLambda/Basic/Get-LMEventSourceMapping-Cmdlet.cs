@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetEventSourceMappingResponse")]
     [AWSCmdlet("Invokes the GetEventSourceMapping operation against Amazon Lambda.", Operation = new[] {"GetEventSourceMapping"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetEventSourceMappingResponse",
-        "This cmdlet returns a GetEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.GetEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UUID { get; set; }
+        public System.String UUID { get; set; }
         
         
         protected override void ProcessRecord()
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetEventSourceMappingRequest();
+            var request = new Amazon.Lambda.Model.GetEventSourceMappingRequest();
             
             if (cmdletContext.UUID != null)
             {
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String UUID { get; set; }
+            public System.String UUID { get; set; }
         }
         
     }

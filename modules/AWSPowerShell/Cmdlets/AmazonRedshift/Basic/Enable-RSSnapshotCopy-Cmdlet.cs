@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the EnableSnapshotCopy operation against Amazon Redshift.", Operation = new[] {"EnableSnapshotCopy"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type EnableSnapshotCopyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.EnableSnapshotCopyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableRSSnapshotCopyCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationRegion { get; set; }
+        public System.String DestinationRegion { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 RetentionPeriod { get; set; }
+        public System.Int32 RetentionPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotCopyGrantName { get; set; }
+        public System.String SnapshotCopyGrantName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableSnapshotCopyRequest();
+            var request = new Amazon.Redshift.Model.EnableSnapshotCopyRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -170,10 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
-            public String DestinationRegion { get; set; }
-            public Int32? RetentionPeriod { get; set; }
-            public String SnapshotCopyGrantName { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String DestinationRegion { get; set; }
+            public System.Int32? RetentionPeriod { get; set; }
+            public System.String SnapshotCopyGrantName { get; set; }
         }
         
     }

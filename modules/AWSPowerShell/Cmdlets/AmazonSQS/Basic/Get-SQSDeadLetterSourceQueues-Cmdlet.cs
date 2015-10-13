@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the ListDeadLetterSourceQueues operation against Amazon Simple Queue Service.", Operation = new[] {"ListDeadLetterSourceQueues"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListDeadLetterSourceQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSQSDeadLetterSourceQueuesCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
         
         
         protected override void ProcessRecord()
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDeadLetterSourceQueuesRequest();
+            var request = new Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest();
             
             if (cmdletContext.QueueUrl != null)
             {
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String QueueUrl { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

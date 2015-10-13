@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Invokes the CreateElasticsearchDomain operation against Amazon Elasticsearch.", Operation = new[] {"CreateElasticsearchDomain"})]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus",
         "This cmdlet returns a ElasticsearchDomainStatus object.",
-        "The service call response (type CreateElasticsearchDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.CreateElasticsearchDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewESDomainCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AccessPolicies")]
-        public String AccessPolicy { get; set; }
+        public System.String AccessPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+        public System.Int32 SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
+        public System.Int32 ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
+        public System.Boolean ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
+        public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EBSOptions_EBSEnabled { get; set; }
+        public System.Boolean EBSOptions_EBSEnabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 ElasticsearchClusterConfig_InstanceCount { get; set; }
+        public System.Int32 ElasticsearchClusterConfig_InstanceCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
+        public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 EBSOptions_Iops { get; set; }
+        public System.Int32 EBSOptions_Iops { get; set; }
         
         /// <summary>
         /// <para>
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 EBSOptions_VolumeSize { get; set; }
+        public System.Int32 EBSOptions_VolumeSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public VolumeType EBSOptions_VolumeType { get; set; }
+        public Amazon.Elasticsearch.VolumeType EBSOptions_VolumeType { get; set; }
         
         /// <summary>
         /// <para>
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
+        public System.Boolean ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.AccessPolicies = this.AccessPolicy;
             if (this.AdvancedOption != null)
             {
-                context.AdvancedOptions = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AdvancedOptions = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AdvancedOption.Keys)
                 {
                     context.AdvancedOptions.Add((String)hashKey, (String)(this.AdvancedOption[hashKey]));
@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateElasticsearchDomainRequest();
+            var request = new Amazon.Elasticsearch.Model.CreateElasticsearchDomainRequest();
             
             if (cmdletContext.AccessPolicies != null)
             {
@@ -242,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
             
              // populate EBSOptions
             bool requestEBSOptionsIsNull = true;
-            request.EBSOptions = new EBSOptions();
-            Boolean? requestEBSOptions_eBSOptions_EBSEnabled = null;
+            request.EBSOptions = new Amazon.Elasticsearch.Model.EBSOptions();
+            System.Boolean? requestEBSOptions_eBSOptions_EBSEnabled = null;
             if (cmdletContext.EBSOptions_EBSEnabled != null)
             {
                 requestEBSOptions_eBSOptions_EBSEnabled = cmdletContext.EBSOptions_EBSEnabled.Value;
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.EBSOptions.EBSEnabled = requestEBSOptions_eBSOptions_EBSEnabled.Value;
                 requestEBSOptionsIsNull = false;
             }
-            Int32? requestEBSOptions_eBSOptions_Iops = null;
+            System.Int32? requestEBSOptions_eBSOptions_Iops = null;
             if (cmdletContext.EBSOptions_Iops != null)
             {
                 requestEBSOptions_eBSOptions_Iops = cmdletContext.EBSOptions_Iops.Value;
@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.EBSOptions.Iops = requestEBSOptions_eBSOptions_Iops.Value;
                 requestEBSOptionsIsNull = false;
             }
-            Int32? requestEBSOptions_eBSOptions_VolumeSize = null;
+            System.Int32? requestEBSOptions_eBSOptions_VolumeSize = null;
             if (cmdletContext.EBSOptions_VolumeSize != null)
             {
                 requestEBSOptions_eBSOptions_VolumeSize = cmdletContext.EBSOptions_VolumeSize.Value;
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.EBSOptions.VolumeSize = requestEBSOptions_eBSOptions_VolumeSize.Value;
                 requestEBSOptionsIsNull = false;
             }
-            VolumeType requestEBSOptions_eBSOptions_VolumeType = null;
+            Amazon.Elasticsearch.VolumeType requestEBSOptions_eBSOptions_VolumeType = null;
             if (cmdletContext.EBSOptions_VolumeType != null)
             {
                 requestEBSOptions_eBSOptions_VolumeType = cmdletContext.EBSOptions_VolumeType;
@@ -291,8 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
             
              // populate ElasticsearchClusterConfig
             bool requestElasticsearchClusterConfigIsNull = true;
-            request.ElasticsearchClusterConfig = new ElasticsearchClusterConfig();
-            Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount = null;
+            request.ElasticsearchClusterConfig = new Amazon.Elasticsearch.Model.ElasticsearchClusterConfig();
+            System.Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount = null;
             if (cmdletContext.ElasticsearchClusterConfig_DedicatedMasterCount != null)
             {
                 requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount = cmdletContext.ElasticsearchClusterConfig_DedicatedMasterCount.Value;
@@ -302,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.DedicatedMasterCount = requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterCount.Value;
                 requestElasticsearchClusterConfigIsNull = false;
             }
-            Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled = null;
+            System.Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled = null;
             if (cmdletContext.ElasticsearchClusterConfig_DedicatedMasterEnabled != null)
             {
                 requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled = cmdletContext.ElasticsearchClusterConfig_DedicatedMasterEnabled.Value;
@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.DedicatedMasterEnabled = requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterEnabled.Value;
                 requestElasticsearchClusterConfigIsNull = false;
             }
-            ESPartitionInstanceType requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType = null;
+            Amazon.Elasticsearch.ESPartitionInstanceType requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType = null;
             if (cmdletContext.ElasticsearchClusterConfig_DedicatedMasterType != null)
             {
                 requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType = cmdletContext.ElasticsearchClusterConfig_DedicatedMasterType;
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.DedicatedMasterType = requestElasticsearchClusterConfig_elasticsearchClusterConfig_DedicatedMasterType;
                 requestElasticsearchClusterConfigIsNull = false;
             }
-            Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount = null;
+            System.Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount = null;
             if (cmdletContext.ElasticsearchClusterConfig_InstanceCount != null)
             {
                 requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount = cmdletContext.ElasticsearchClusterConfig_InstanceCount.Value;
@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.InstanceCount = requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceCount.Value;
                 requestElasticsearchClusterConfigIsNull = false;
             }
-            ESPartitionInstanceType requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType = null;
+            Amazon.Elasticsearch.ESPartitionInstanceType requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType = null;
             if (cmdletContext.ElasticsearchClusterConfig_InstanceType != null)
             {
                 requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType = cmdletContext.ElasticsearchClusterConfig_InstanceType;
@@ -342,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.InstanceType = requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType;
                 requestElasticsearchClusterConfigIsNull = false;
             }
-            Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled = null;
+            System.Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled = null;
             if (cmdletContext.ElasticsearchClusterConfig_ZoneAwarenessEnabled != null)
             {
                 requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled = cmdletContext.ElasticsearchClusterConfig_ZoneAwarenessEnabled.Value;
@@ -360,8 +360,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
             
              // populate SnapshotOptions
             bool requestSnapshotOptionsIsNull = true;
-            request.SnapshotOptions = new SnapshotOptions();
-            Int32? requestSnapshotOptions_snapshotOptions_AutomatedSnapshotStartHour = null;
+            request.SnapshotOptions = new Amazon.Elasticsearch.Model.SnapshotOptions();
+            System.Int32? requestSnapshotOptions_snapshotOptions_AutomatedSnapshotStartHour = null;
             if (cmdletContext.SnapshotOptions_AutomatedSnapshotStartHour != null)
             {
                 requestSnapshotOptions_snapshotOptions_AutomatedSnapshotStartHour = cmdletContext.SnapshotOptions_AutomatedSnapshotStartHour.Value;
@@ -411,20 +411,20 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AccessPolicies { get; set; }
-            public Dictionary<String, String> AdvancedOptions { get; set; }
-            public String DomainName { get; set; }
-            public Boolean? EBSOptions_EBSEnabled { get; set; }
-            public Int32? EBSOptions_Iops { get; set; }
-            public Int32? EBSOptions_VolumeSize { get; set; }
-            public VolumeType EBSOptions_VolumeType { get; set; }
-            public Int32? ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
-            public Boolean? ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
-            public ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
-            public Int32? ElasticsearchClusterConfig_InstanceCount { get; set; }
-            public ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
-            public Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
-            public Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+            public System.String AccessPolicies { get; set; }
+            public Dictionary<System.String, System.String> AdvancedOptions { get; set; }
+            public System.String DomainName { get; set; }
+            public System.Boolean? EBSOptions_EBSEnabled { get; set; }
+            public System.Int32? EBSOptions_Iops { get; set; }
+            public System.Int32? EBSOptions_VolumeSize { get; set; }
+            public Amazon.Elasticsearch.VolumeType EBSOptions_VolumeType { get; set; }
+            public System.Int32? ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
+            public System.Boolean? ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
+            public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
+            public System.Int32? ElasticsearchClusterConfig_InstanceCount { get; set; }
+            public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
+            public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
+            public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
         }
         
     }

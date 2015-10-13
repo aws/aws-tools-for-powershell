@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.DescribeTasksResponse")]
     [AWSCmdlet("Invokes the DescribeTasks operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeTasks"})]
     [AWSCmdletOutput("Amazon.ECS.Model.DescribeTasksResponse",
-        "This cmdlet returns a DescribeTasksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ECS.Model.DescribeTasksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSTaskDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             if (this.Task != null)
             {
-                context.Tasks = new List<String>(this.Task);
+                context.Tasks = new List<System.String>(this.Task);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTasksRequest();
+            var request = new Amazon.ECS.Model.DescribeTasksRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public List<String> Tasks { get; set; }
+            public System.String Cluster { get; set; }
+            public List<System.String> Tasks { get; set; }
         }
         
     }

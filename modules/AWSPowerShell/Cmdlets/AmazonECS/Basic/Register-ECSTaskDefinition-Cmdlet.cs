@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the RegisterTaskDefinition operation against Amazon EC2 Container Service.", Operation = new[] {"RegisterTaskDefinition"})]
     [AWSCmdletOutput("Amazon.ECS.Model.TaskDefinition",
         "This cmdlet returns a TaskDefinition object.",
-        "The service call response (type RegisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.RegisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Family { get; set; }
+        public System.String Family { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,12 +100,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
             if (this.ContainerDefinition != null)
             {
-                context.ContainerDefinitions = new List<ContainerDefinition>(this.ContainerDefinition);
+                context.ContainerDefinitions = new List<Amazon.ECS.Model.ContainerDefinition>(this.ContainerDefinition);
             }
             context.Family = this.Family;
             if (this.Volume != null)
             {
-                context.Volumes = new List<Volume>(this.Volume);
+                context.Volumes = new List<Amazon.ECS.Model.Volume>(this.Volume);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterTaskDefinitionRequest();
+            var request = new Amazon.ECS.Model.RegisterTaskDefinitionRequest();
             
             if (cmdletContext.ContainerDefinitions != null)
             {
@@ -167,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<ContainerDefinition> ContainerDefinitions { get; set; }
-            public String Family { get; set; }
-            public List<Volume> Volumes { get; set; }
+            public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinitions { get; set; }
+            public System.String Family { get; set; }
+            public List<Amazon.ECS.Model.Volume> Volumes { get; set; }
         }
         
     }

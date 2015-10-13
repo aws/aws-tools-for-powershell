@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribeReservedDBInstances operation against Amazon Relational Database Service.", Operation = new[] {"DescribeReservedDBInstances"})]
     [AWSCmdletOutput("Amazon.RDS.Model.ReservedDBInstance",
         "This cmdlet returns a collection of ReservedDBInstance objects.",
-        "The service call response (type DescribeReservedDBInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.RDS.Model.DescribeReservedDBInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRDSReservedDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceClass { get; set; }
+        public System.String DBInstanceClass { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Duration { get; set; }
+        public System.String Duration { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean MultiAZ { get; set; }
+        public System.Boolean MultiAZ { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OfferingType { get; set; }
+        public System.String OfferingType { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ProductDescription { get; set; }
+        public System.String ProductDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedDBInstanceId { get; set; }
+        public System.String ReservedDBInstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String ReservedDBInstancesOfferingId { get; set; }
+        public System.String ReservedDBInstancesOfferingId { get; set; }
         
         /// <summary>
         /// <para>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Duration = this.Duration;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeReservedDBInstancesRequest();
+            var request = new Amazon.RDS.Model.DescribeReservedDBInstancesRequest();
             if (cmdletContext.DBInstanceClass != null)
             {
                 request.DBInstanceClass = cmdletContext.DBInstanceClass;
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -293,16 +293,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceClass { get; set; }
-            public String Duration { get; set; }
-            public List<Filter> Filters { get; set; }
-            public String Marker { get; set; }
+            public System.String DBInstanceClass { get; set; }
+            public System.String Duration { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public Boolean? MultiAZ { get; set; }
-            public String OfferingType { get; set; }
-            public String ProductDescription { get; set; }
-            public String ReservedDBInstanceId { get; set; }
-            public String ReservedDBInstancesOfferingId { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
+            public System.String OfferingType { get; set; }
+            public System.String ProductDescription { get; set; }
+            public System.String ReservedDBInstanceId { get; set; }
+            public System.String ReservedDBInstancesOfferingId { get; set; }
         }
         
     }

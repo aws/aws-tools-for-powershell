@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the DeleteTags operation against Amazon Elastic File System.", Operation = new[] {"DeleteTags"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FileSystemId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FileSystemId { get; set; }
+        public System.String FileSystemId { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             context.FileSystemId = this.FileSystemId;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTagsRequest();
+            var request = new Amazon.ElasticFileSystem.Model.DeleteTagsRequest();
             
             if (cmdletContext.FileSystemId != null)
             {
@@ -160,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FileSystemId { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String FileSystemId { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResponse")]
     [AWSCmdlet("Invokes the DownloadDBLogFilePortion operation against Amazon Relational Database Service.", Operation = new[] {"DownloadDBLogFilePortion"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DownloadDBLogFilePortionResponse",
-        "This cmdlet returns a DownloadDBLogFilePortionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.RDS.Model.DownloadDBLogFilePortionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRDSDBLogFilePortionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String LogFileName { get; set; }
+        public System.String LogFileName { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 NumberOfLines { get; set; }
+        public System.Int32 NumberOfLines { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DownloadDBLogFilePortionRequest();
+            var request = new Amazon.RDS.Model.DownloadDBLogFilePortionRequest();
             
             if (cmdletContext.DBInstanceIdentifier != null)
             {
@@ -165,10 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceIdentifier { get; set; }
-            public String LogFileName { get; set; }
-            public String Marker { get; set; }
-            public Int32? NumberOfLines { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String LogFileName { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? NumberOfLines { get; set; }
         }
         
     }

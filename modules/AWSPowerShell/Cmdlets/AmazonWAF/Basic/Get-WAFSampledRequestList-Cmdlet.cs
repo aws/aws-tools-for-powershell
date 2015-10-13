@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [OutputType("Amazon.WAF.Model.GetSampledRequestsResponse")]
     [AWSCmdlet("Invokes the GetSampledRequests operation against AWS WAF.", Operation = new[] {"GetSampledRequests"})]
     [AWSCmdletOutput("Amazon.WAF.Model.GetSampledRequestsResponse",
-        "This cmdlet returns a GetSampledRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.WAF.Model.GetSampledRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetWAFSampledRequestListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime TimeWindow_EndTime { get; set; }
+        public System.DateTime TimeWindow_EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RuleId { get; set; }
+        public System.String RuleId { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime TimeWindow_StartTime { get; set; }
+        public System.DateTime TimeWindow_StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String WebAclId { get; set; }
+        public System.String WebAclId { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public Int64 MaxItem { get; set; }
+        public System.Int64 MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetSampledRequestsRequest();
+            var request = new Amazon.WAF.Model.GetSampledRequestsRequest();
             
             if (cmdletContext.MaxItems != null)
             {
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             
              // populate TimeWindow
             bool requestTimeWindowIsNull = true;
-            request.TimeWindow = new TimeWindow();
-            DateTime? requestTimeWindow_timeWindow_EndTime = null;
+            request.TimeWindow = new Amazon.WAF.Model.TimeWindow();
+            System.DateTime? requestTimeWindow_timeWindow_EndTime = null;
             if (cmdletContext.TimeWindow_EndTime != null)
             {
                 requestTimeWindow_timeWindow_EndTime = cmdletContext.TimeWindow_EndTime.Value;
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 request.TimeWindow.EndTime = requestTimeWindow_timeWindow_EndTime.Value;
                 requestTimeWindowIsNull = false;
             }
-            DateTime? requestTimeWindow_timeWindow_StartTime = null;
+            System.DateTime? requestTimeWindow_timeWindow_StartTime = null;
             if (cmdletContext.TimeWindow_StartTime != null)
             {
                 requestTimeWindow_timeWindow_StartTime = cmdletContext.TimeWindow_StartTime.Value;
@@ -209,11 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int64? MaxItems { get; set; }
-            public String RuleId { get; set; }
-            public DateTime? TimeWindow_EndTime { get; set; }
-            public DateTime? TimeWindow_StartTime { get; set; }
-            public String WebAclId { get; set; }
+            public System.Int64? MaxItems { get; set; }
+            public System.String RuleId { get; set; }
+            public System.DateTime? TimeWindow_EndTime { get; set; }
+            public System.DateTime? TimeWindow_StartTime { get; set; }
+            public System.String WebAclId { get; set; }
         }
         
     }

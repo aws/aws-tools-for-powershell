@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the GetQueueUrl operation against Amazon Simple Queue Service.", Operation = new[] {"GetQueueUrl"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type GetQueueUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.GetQueueUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSQSQueueUrlCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueName { get; set; }
+        public System.String QueueName { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String QueueOwnerAWSAccountId { get; set; }
+        public System.String QueueOwnerAWSAccountId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetQueueUrlRequest();
+            var request = new Amazon.SQS.Model.GetQueueUrlRequest();
             
             if (cmdletContext.QueueName != null)
             {
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String QueueName { get; set; }
-            public String QueueOwnerAWSAccountId { get; set; }
+            public System.String QueueName { get; set; }
+            public System.String QueueOwnerAWSAccountId { get; set; }
         }
         
     }

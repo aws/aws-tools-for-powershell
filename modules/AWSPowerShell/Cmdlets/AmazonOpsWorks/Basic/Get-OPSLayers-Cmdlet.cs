@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeLayers operation against AWS OpsWorks.", Operation = new[] {"DescribeLayers"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Layer",
         "This cmdlet returns a collection of Layer objects.",
-        "The service call response (type DescribeLayersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeLayersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSLayersCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.LayerId != null)
             {
-                context.LayerIds = new List<String>(this.LayerId);
+                context.LayerIds = new List<System.String>(this.LayerId);
             }
             context.StackId = this.StackId;
             
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLayersRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeLayersRequest();
             
             if (cmdletContext.LayerIds != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> LayerIds { get; set; }
-            public String StackId { get; set; }
+            public List<System.String> LayerIds { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

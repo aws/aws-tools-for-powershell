@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeApplications operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeApplications"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationDescription",
         "This cmdlet returns a collection of ApplicationDescription objects.",
-        "The service call response (type DescribeApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
             if (this.ApplicationName != null)
             {
-                context.ApplicationNames = new List<String>(this.ApplicationName);
+                context.ApplicationNames = new List<System.String>(this.ApplicationName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeApplicationsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeApplicationsRequest();
             
             if (cmdletContext.ApplicationNames != null)
             {
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ApplicationNames { get; set; }
+            public List<System.String> ApplicationNames { get; set; }
         }
         
     }

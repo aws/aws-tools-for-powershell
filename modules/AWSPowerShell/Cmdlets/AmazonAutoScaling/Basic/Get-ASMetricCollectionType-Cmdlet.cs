@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [OutputType("Amazon.AutoScaling.Model.DescribeMetricCollectionTypesResponse")]
     [AWSCmdlet("Invokes the DescribeMetricCollectionTypes operation against Auto Scaling.", Operation = new[] {"DescribeMetricCollectionTypes"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.DescribeMetricCollectionTypesResponse",
-        "This cmdlet returns a DescribeMetricCollectionTypesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.AutoScaling.Model.DescribeMetricCollectionTypesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASMetricCollectionTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeMetricCollectionTypesRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeMetricCollectionTypesRequest();
             
             
             CmdletOutput output;

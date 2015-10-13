@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.GetEvaluationResponse")]
     [AWSCmdlet("Invokes the GetEvaluation operation against Amazon Machine Learning.", Operation = new[] {"GetEvaluation"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetEvaluationResponse",
-        "This cmdlet returns a GetEvaluationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.MachineLearning.Model.GetEvaluationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String EvaluationId { get; set; }
+        public System.String EvaluationId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetEvaluationRequest();
+            var request = new Amazon.MachineLearning.Model.GetEvaluationRequest();
             
             if (cmdletContext.EvaluationId != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EvaluationId { get; set; }
+            public System.String EvaluationId { get; set; }
         }
         
     }

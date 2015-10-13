@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     [OutputType("Amazon.CloudSearchDomain.Model.UploadDocumentsResult")]
     [AWSCmdlet("Invokes the UploadDocuments operation against Amazon CloudSearchDomain.", Operation = new [] {"UploadDocuments"})]
     [AWSCmdletOutput("Amazon.CloudSearchDomain.Model.UploadDocumentsResult",
-        "This cmdlet returns a UploadDocumentsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudSearchDomain.Model.UploadDocumentsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCSDDocumentsCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
-        public String ServiceUrl { get; set; }
+        public System.String ServiceUrl { get; set; }
 
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(Mandatory = true)]
-        public ContentType ContentType { get; set; }
+        public Amazon.CloudSearchDomain.ContentType ContentType { get; set; }
         
         /// <summary>
         /// <para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_FromLocalFile, Mandatory = true)]
-        public String FilePath { get; set; }
+        public System.String FilePath { get; set; }
 
         /// <summary>
         /// If set, the cmdlet calls the service operation using anonymous credentials.

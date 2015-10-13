@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeReservedInstancesListings operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeReservedInstancesListings"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
         "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type DescribeReservedInstancesListingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesListingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ReservedInstancesId { get; set; }
+        public System.String ReservedInstancesId { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedInstancesListingId { get; set; }
+        public System.String ReservedInstancesListingId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             context.ReservedInstancesId = this.ReservedInstancesId;
             context.ReservedInstancesListingId = this.ReservedInstancesListingId;
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeReservedInstancesListingsRequest();
+            var request = new Amazon.EC2.Model.DescribeReservedInstancesListingsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -163,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public String ReservedInstancesId { get; set; }
-            public String ReservedInstancesListingId { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public System.String ReservedInstancesId { get; set; }
+            public System.String ReservedInstancesListingId { get; set; }
         }
         
     }

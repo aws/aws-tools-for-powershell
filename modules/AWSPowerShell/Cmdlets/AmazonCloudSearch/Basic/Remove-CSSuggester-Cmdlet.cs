@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DeleteSuggester operation against Amazon CloudSearch.", Operation = new[] {"DeleteSuggester"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.SuggesterStatus",
         "This cmdlet returns a SuggesterStatus object.",
-        "The service call response (type DeleteSuggesterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteSuggesterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCSSuggesterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SuggesterName { get; set; }
+        public System.String SuggesterName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSuggesterRequest();
+            var request = new Amazon.CloudSearch.Model.DeleteSuggesterRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String SuggesterName { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String SuggesterName { get; set; }
         }
         
     }

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetPolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"GetPolicyVersion"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.PolicyVersion",
         "This cmdlet returns a PolicyVersion object.",
-        "The service call response (type GetPolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetPolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPolicyVersionRequest();
+            var request = new Amazon.IdentityManagement.Model.GetPolicyVersionRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
-            public String VersionId { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

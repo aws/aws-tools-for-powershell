@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the DescribeStackResources operation against AWS CloudFormation.", Operation = new[] {"DescribeStackResources"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResource",
         "This cmdlet returns a collection of StackResource objects.",
-        "The service call response (type DescribeStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFNStackResourcesCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String LogicalResourceId { get; set; }
+        public System.String LogicalResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String PhysicalResourceId { get; set; }
+        public System.String PhysicalResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStackResourcesRequest();
+            var request = new Amazon.CloudFormation.Model.DescribeStackResourcesRequest();
             
             if (cmdletContext.LogicalResourceId != null)
             {
@@ -161,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LogicalResourceId { get; set; }
-            public String PhysicalResourceId { get; set; }
-            public String StackName { get; set; }
+            public System.String LogicalResourceId { get; set; }
+            public System.String PhysicalResourceId { get; set; }
+            public System.String StackName { get; set; }
         }
         
     }

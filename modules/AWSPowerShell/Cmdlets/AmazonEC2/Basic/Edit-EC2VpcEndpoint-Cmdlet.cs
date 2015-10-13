@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyVpcEndpoint operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyVpcEndpoint"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcEndpointId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyVpcEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifyVpcEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ResetPolicy { get; set; }
+        public System.Boolean ResetPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String VpcEndpointId { get; set; }
+        public System.String VpcEndpointId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VpcEndpointId parameter.
@@ -118,12 +118,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.AddRouteTableId != null)
             {
-                context.AddRouteTableIds = new List<String>(this.AddRouteTableId);
+                context.AddRouteTableIds = new List<System.String>(this.AddRouteTableId);
             }
             context.PolicyDocument = this.PolicyDocument;
             if (this.RemoveRouteTableId != null)
             {
-                context.RemoveRouteTableIds = new List<String>(this.RemoveRouteTableId);
+                context.RemoveRouteTableIds = new List<System.String>(this.RemoveRouteTableId);
             }
             if (ParameterWasBound("ResetPolicy"))
                 context.ResetPolicy = this.ResetPolicy;
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyVpcEndpointRequest();
+            var request = new Amazon.EC2.Model.ModifyVpcEndpointRequest();
             
             if (cmdletContext.AddRouteTableIds != null)
             {
@@ -198,11 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AddRouteTableIds { get; set; }
-            public String PolicyDocument { get; set; }
-            public List<String> RemoveRouteTableIds { get; set; }
-            public Boolean? ResetPolicy { get; set; }
-            public String VpcEndpointId { get; set; }
+            public List<System.String> AddRouteTableIds { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public List<System.String> RemoveRouteTableIds { get; set; }
+            public System.Boolean? ResetPolicy { get; set; }
+            public System.String VpcEndpointId { get; set; }
         }
         
     }

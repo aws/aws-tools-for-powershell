@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.CreateCertificateFromCsrResponse")]
     [AWSCmdlet("Invokes the CreateCertificateFromCsr operation against AWS IoT.", Operation = new[] {"CreateCertificateFromCsr"})]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateCertificateFromCsrResponse",
-        "This cmdlet returns a CreateCertificateFromCsrResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IoT.Model.CreateCertificateFromCsrResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIOTCertificateFromCsrCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CertificateSigningRequest { get; set; }
+        public System.String CertificateSigningRequest { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SetAsActive { get; set; }
+        public System.Boolean SetAsActive { get; set; }
         
         
         protected override void ProcessRecord()
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCertificateFromCsrRequest();
+            var request = new Amazon.IoT.Model.CreateCertificateFromCsrRequest();
             
             if (cmdletContext.CertificateSigningRequest != null)
             {
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CertificateSigningRequest { get; set; }
-            public Boolean? SetAsActive { get; set; }
+            public System.String CertificateSigningRequest { get; set; }
+            public System.Boolean? SetAsActive { get; set; }
         }
         
     }

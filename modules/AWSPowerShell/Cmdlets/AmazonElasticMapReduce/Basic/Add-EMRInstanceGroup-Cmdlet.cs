@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [OutputType("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse")]
     [AWSCmdlet("Invokes the AddInstanceGroups operation against Amazon Elastic MapReduce.", Operation = new[] {"AddInstanceGroups"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse",
-        "This cmdlet returns a AddInstanceGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String JobFlowId { get; set; }
+        public System.String JobFlowId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.InstanceGroup != null)
             {
-                context.InstanceGroups = new List<InstanceGroupConfig>(this.InstanceGroup);
+                context.InstanceGroups = new List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig>(this.InstanceGroup);
             }
             context.JobFlowId = this.JobFlowId;
             
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddInstanceGroupsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.AddInstanceGroupsRequest();
             
             if (cmdletContext.InstanceGroups != null)
             {
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<InstanceGroupConfig> InstanceGroups { get; set; }
-            public String JobFlowId { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig> InstanceGroups { get; set; }
+            public System.String JobFlowId { get; set; }
         }
         
     }

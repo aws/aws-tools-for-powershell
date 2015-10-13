@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the RetireGrant operation against AWS Key Management Service.", Operation = new[] {"RetireGrant"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type RetireGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.RetireGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GrantId { get; set; }
+        public System.String GrantId { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GrantToken { get; set; }
+        public System.String GrantToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RetireGrantRequest();
+            var request = new Amazon.KeyManagementService.Model.RetireGrantRequest();
             
             if (cmdletContext.GrantId != null)
             {
@@ -162,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GrantId { get; set; }
-            public String GrantToken { get; set; }
-            public String KeyId { get; set; }
+            public System.String GrantId { get; set; }
+            public System.String GrantToken { get; set; }
+            public System.String KeyId { get; set; }
         }
         
     }

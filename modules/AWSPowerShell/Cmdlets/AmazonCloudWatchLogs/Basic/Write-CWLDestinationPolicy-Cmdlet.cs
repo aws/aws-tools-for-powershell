@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the PutDestinationPolicy operation against Amazon CloudWatch Logs.", Operation = new[] {"PutDestinationPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DestinationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutDestinationPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.PutDestinationPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCWLDestinationPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AccessPolicy { get; set; }
+        public System.String AccessPolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DestinationName { get; set; }
+        public System.String DestinationName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DestinationName parameter.
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutDestinationPolicyRequest();
+            var request = new Amazon.CloudWatchLogs.Model.PutDestinationPolicyRequest();
             
             if (cmdletContext.AccessPolicy != null)
             {
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AccessPolicy { get; set; }
-            public String DestinationName { get; set; }
+            public System.String AccessPolicy { get; set; }
+            public System.String DestinationName { get; set; }
         }
         
     }

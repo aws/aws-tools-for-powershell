@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the CreateCustomActionType operation against AWS CodePipeline.", Operation = new[] {"CreateCustomActionType"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ActionType",
         "This cmdlet returns a ActionType object.",
-        "The service call response (type CreateCustomActionTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.CreateCustomActionTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCPCustomActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ActionCategory Category { get; set; }
+        public Amazon.CodePipeline.ActionCategory Category { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Settings_EntityUrlTemplate { get; set; }
+        public System.String Settings_EntityUrlTemplate { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Settings_ExecutionUrlTemplate { get; set; }
+        public System.String Settings_ExecutionUrlTemplate { get; set; }
         
         /// <summary>
         /// <para>
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 InputArtifactDetails_MaximumCount { get; set; }
+        public System.Int32 InputArtifactDetails_MaximumCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 OutputArtifactDetails_MaximumCount { get; set; }
+        public System.Int32 OutputArtifactDetails_MaximumCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 InputArtifactDetails_MinimumCount { get; set; }
+        public System.Int32 InputArtifactDetails_MinimumCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 OutputArtifactDetails_MinimumCount { get; set; }
+        public System.Int32 OutputArtifactDetails_MinimumCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Provider { get; set; }
+        public System.String Provider { get; set; }
         
         /// <summary>
         /// <para>
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Settings_RevisionUrlTemplate { get; set; }
+        public System.String Settings_RevisionUrlTemplate { get; set; }
         
         /// <summary>
         /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Settings_ThirdPartyConfigurationUrl { get; set; }
+        public System.String Settings_ThirdPartyConfigurationUrl { get; set; }
         
         /// <summary>
         /// <para>
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Version { get; set; }
+        public System.String Version { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             context.Category = this.Category;
             if (this.ConfigurationProperty != null)
             {
-                context.ConfigurationProperties = new List<ActionConfigurationProperty>(this.ConfigurationProperty);
+                context.ConfigurationProperties = new List<Amazon.CodePipeline.Model.ActionConfigurationProperty>(this.ConfigurationProperty);
             }
             if (ParameterWasBound("InputArtifactDetails_MaximumCount"))
                 context.InputArtifactDetails_MaximumCount = this.InputArtifactDetails_MaximumCount;
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCustomActionTypeRequest();
+            var request = new Amazon.CodePipeline.Model.CreateCustomActionTypeRequest();
             
             if (cmdletContext.Category != null)
             {
@@ -213,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate InputArtifactDetails
             bool requestInputArtifactDetailsIsNull = true;
-            request.InputArtifactDetails = new ArtifactDetails();
-            Int32? requestInputArtifactDetails_inputArtifactDetails_MaximumCount = null;
+            request.InputArtifactDetails = new Amazon.CodePipeline.Model.ArtifactDetails();
+            System.Int32? requestInputArtifactDetails_inputArtifactDetails_MaximumCount = null;
             if (cmdletContext.InputArtifactDetails_MaximumCount != null)
             {
                 requestInputArtifactDetails_inputArtifactDetails_MaximumCount = cmdletContext.InputArtifactDetails_MaximumCount.Value;
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.InputArtifactDetails.MaximumCount = requestInputArtifactDetails_inputArtifactDetails_MaximumCount.Value;
                 requestInputArtifactDetailsIsNull = false;
             }
-            Int32? requestInputArtifactDetails_inputArtifactDetails_MinimumCount = null;
+            System.Int32? requestInputArtifactDetails_inputArtifactDetails_MinimumCount = null;
             if (cmdletContext.InputArtifactDetails_MinimumCount != null)
             {
                 requestInputArtifactDetails_inputArtifactDetails_MinimumCount = cmdletContext.InputArtifactDetails_MinimumCount.Value;
@@ -242,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate OutputArtifactDetails
             bool requestOutputArtifactDetailsIsNull = true;
-            request.OutputArtifactDetails = new ArtifactDetails();
-            Int32? requestOutputArtifactDetails_outputArtifactDetails_MaximumCount = null;
+            request.OutputArtifactDetails = new Amazon.CodePipeline.Model.ArtifactDetails();
+            System.Int32? requestOutputArtifactDetails_outputArtifactDetails_MaximumCount = null;
             if (cmdletContext.OutputArtifactDetails_MaximumCount != null)
             {
                 requestOutputArtifactDetails_outputArtifactDetails_MaximumCount = cmdletContext.OutputArtifactDetails_MaximumCount.Value;
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.OutputArtifactDetails.MaximumCount = requestOutputArtifactDetails_outputArtifactDetails_MaximumCount.Value;
                 requestOutputArtifactDetailsIsNull = false;
             }
-            Int32? requestOutputArtifactDetails_outputArtifactDetails_MinimumCount = null;
+            System.Int32? requestOutputArtifactDetails_outputArtifactDetails_MinimumCount = null;
             if (cmdletContext.OutputArtifactDetails_MinimumCount != null)
             {
                 requestOutputArtifactDetails_outputArtifactDetails_MinimumCount = cmdletContext.OutputArtifactDetails_MinimumCount.Value;
@@ -275,8 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate Settings
             bool requestSettingsIsNull = true;
-            request.Settings = new ActionTypeSettings();
-            String requestSettings_settings_EntityUrlTemplate = null;
+            request.Settings = new Amazon.CodePipeline.Model.ActionTypeSettings();
+            System.String requestSettings_settings_EntityUrlTemplate = null;
             if (cmdletContext.Settings_EntityUrlTemplate != null)
             {
                 requestSettings_settings_EntityUrlTemplate = cmdletContext.Settings_EntityUrlTemplate;
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.Settings.EntityUrlTemplate = requestSettings_settings_EntityUrlTemplate;
                 requestSettingsIsNull = false;
             }
-            String requestSettings_settings_ExecutionUrlTemplate = null;
+            System.String requestSettings_settings_ExecutionUrlTemplate = null;
             if (cmdletContext.Settings_ExecutionUrlTemplate != null)
             {
                 requestSettings_settings_ExecutionUrlTemplate = cmdletContext.Settings_ExecutionUrlTemplate;
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.Settings.ExecutionUrlTemplate = requestSettings_settings_ExecutionUrlTemplate;
                 requestSettingsIsNull = false;
             }
-            String requestSettings_settings_RevisionUrlTemplate = null;
+            System.String requestSettings_settings_RevisionUrlTemplate = null;
             if (cmdletContext.Settings_RevisionUrlTemplate != null)
             {
                 requestSettings_settings_RevisionUrlTemplate = cmdletContext.Settings_RevisionUrlTemplate;
@@ -306,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.Settings.RevisionUrlTemplate = requestSettings_settings_RevisionUrlTemplate;
                 requestSettingsIsNull = false;
             }
-            String requestSettings_settings_ThirdPartyConfigurationUrl = null;
+            System.String requestSettings_settings_ThirdPartyConfigurationUrl = null;
             if (cmdletContext.Settings_ThirdPartyConfigurationUrl != null)
             {
                 requestSettings_settings_ThirdPartyConfigurationUrl = cmdletContext.Settings_ThirdPartyConfigurationUrl;
@@ -360,18 +360,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public ActionCategory Category { get; set; }
-            public List<ActionConfigurationProperty> ConfigurationProperties { get; set; }
-            public Int32? InputArtifactDetails_MaximumCount { get; set; }
-            public Int32? InputArtifactDetails_MinimumCount { get; set; }
-            public Int32? OutputArtifactDetails_MaximumCount { get; set; }
-            public Int32? OutputArtifactDetails_MinimumCount { get; set; }
-            public String Provider { get; set; }
-            public String Settings_EntityUrlTemplate { get; set; }
-            public String Settings_ExecutionUrlTemplate { get; set; }
-            public String Settings_RevisionUrlTemplate { get; set; }
-            public String Settings_ThirdPartyConfigurationUrl { get; set; }
-            public String Version { get; set; }
+            public Amazon.CodePipeline.ActionCategory Category { get; set; }
+            public List<Amazon.CodePipeline.Model.ActionConfigurationProperty> ConfigurationProperties { get; set; }
+            public System.Int32? InputArtifactDetails_MaximumCount { get; set; }
+            public System.Int32? InputArtifactDetails_MinimumCount { get; set; }
+            public System.Int32? OutputArtifactDetails_MaximumCount { get; set; }
+            public System.Int32? OutputArtifactDetails_MinimumCount { get; set; }
+            public System.String Provider { get; set; }
+            public System.String Settings_EntityUrlTemplate { get; set; }
+            public System.String Settings_ExecutionUrlTemplate { get; set; }
+            public System.String Settings_RevisionUrlTemplate { get; set; }
+            public System.String Settings_ThirdPartyConfigurationUrl { get; set; }
+            public System.String Version { get; set; }
         }
         
     }

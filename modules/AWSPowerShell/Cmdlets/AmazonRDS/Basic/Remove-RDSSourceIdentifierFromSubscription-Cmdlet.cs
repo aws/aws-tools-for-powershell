@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the RemoveSourceIdentifierFromSubscription operation against Amazon Relational Database Service.", Operation = new[] {"RemoveSourceIdentifierFromSubscription"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type RemoveSourceIdentifierFromSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RemoveSourceIdentifierFromSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSSourceIdentifierFromSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SourceIdentifier { get; set; }
+        public System.String SourceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveSourceIdentifierFromSubscriptionRequest();
+            var request = new Amazon.RDS.Model.RemoveSourceIdentifierFromSubscriptionRequest();
             
             if (cmdletContext.SourceIdentifier != null)
             {
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceIdentifier { get; set; }
-            public String SubscriptionName { get; set; }
+            public System.String SourceIdentifier { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

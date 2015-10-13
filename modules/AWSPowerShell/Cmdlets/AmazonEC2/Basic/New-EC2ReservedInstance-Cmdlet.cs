@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the PurchaseReservedInstancesOffering operation against Amazon Elastic Compute Cloud.", Operation = new[] {"PurchaseReservedInstancesOffering"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type PurchaseReservedInstancesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.PurchaseReservedInstancesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Double LimitPrice_Amount { get; set; }
+        public System.Double LimitPrice_Amount { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public CurrencyCodeValues LimitPrice_CurrencyCode { get; set; }
+        public Amazon.EC2.CurrencyCodeValues LimitPrice_CurrencyCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 InstanceCount { get; set; }
+        public System.Int32 InstanceCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedInstancesOfferingId { get; set; }
+        public System.String ReservedInstancesOfferingId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedInstancesOfferingRequest();
+            var request = new Amazon.EC2.Model.PurchaseReservedInstancesOfferingRequest();
             
             if (cmdletContext.InstanceCount != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate LimitPrice
             bool requestLimitPriceIsNull = true;
-            request.LimitPrice = new ReservedInstanceLimitPrice();
-            Double? requestLimitPrice_limitPrice_Amount = null;
+            request.LimitPrice = new Amazon.EC2.Model.ReservedInstanceLimitPrice();
+            System.Double? requestLimitPrice_limitPrice_Amount = null;
             if (cmdletContext.LimitPrice_Amount != null)
             {
                 requestLimitPrice_limitPrice_Amount = cmdletContext.LimitPrice_Amount.Value;
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LimitPrice.Amount = requestLimitPrice_limitPrice_Amount.Value;
                 requestLimitPriceIsNull = false;
             }
-            CurrencyCodeValues requestLimitPrice_limitPrice_CurrencyCode = null;
+            Amazon.EC2.CurrencyCodeValues requestLimitPrice_limitPrice_CurrencyCode = null;
             if (cmdletContext.LimitPrice_CurrencyCode != null)
             {
                 requestLimitPrice_limitPrice_CurrencyCode = cmdletContext.LimitPrice_CurrencyCode;
@@ -203,10 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? InstanceCount { get; set; }
-            public Double? LimitPrice_Amount { get; set; }
-            public CurrencyCodeValues LimitPrice_CurrencyCode { get; set; }
-            public String ReservedInstancesOfferingId { get; set; }
+            public System.Int32? InstanceCount { get; set; }
+            public System.Double? LimitPrice_Amount { get; set; }
+            public Amazon.EC2.CurrencyCodeValues LimitPrice_CurrencyCode { get; set; }
+            public System.String ReservedInstancesOfferingId { get; set; }
         }
         
     }

@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the DescribeAlarms operation against Amazon CloudWatch.", Operation = new[] {"DescribeAlarms"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.MetricAlarm",
         "This cmdlet returns a collection of MetricAlarm objects.",
-        "The service call response (type DescribeAlarmsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ActionPrefix { get; set; }
+        public System.String ActionPrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AlarmNamePrefix { get; set; }
+        public System.String AlarmNamePrefix { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StateValue StateValue { get; set; }
+        public Amazon.CloudWatch.StateValue StateValue { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.AlarmNamePrefix = this.AlarmNamePrefix;
             if (this.AlarmName != null)
             {
-                context.AlarmNames = new List<String>(this.AlarmName);
+                context.AlarmNames = new List<System.String>(this.AlarmName);
             }
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeAlarmsRequest();
+            var request = new Amazon.CloudWatch.Model.DescribeAlarmsRequest();
             if (cmdletContext.ActionPrefix != null)
             {
                 request.ActionPrefix = cmdletContext.ActionPrefix;
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -231,12 +231,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ActionPrefix { get; set; }
-            public String AlarmNamePrefix { get; set; }
-            public List<String> AlarmNames { get; set; }
+            public System.String ActionPrefix { get; set; }
+            public System.String AlarmNamePrefix { get; set; }
+            public List<System.String> AlarmNames { get; set; }
             public int? MaxRecords { get; set; }
-            public String NextToken { get; set; }
-            public StateValue StateValue { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CloudWatch.StateValue StateValue { get; set; }
         }
         
     }

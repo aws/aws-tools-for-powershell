@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteSpotDatafeedSubscription operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteSpotDatafeedSubscription"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type DeleteSpotDatafeedSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2SpotDatafeedSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSpotDatafeedSubscriptionRequest();
+            var request = new Amazon.EC2.Model.DeleteSpotDatafeedSubscriptionRequest();
             
             
             CmdletOutput output;

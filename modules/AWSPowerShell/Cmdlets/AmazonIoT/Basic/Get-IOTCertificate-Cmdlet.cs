@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the DescribeCertificate operation against AWS IoT.", Operation = new[] {"DescribeCertificate"})]
     [AWSCmdletOutput("Amazon.IoT.Model.CertificateDescription",
         "This cmdlet returns a CertificateDescription object.",
-        "The service call response (type DescribeCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.DescribeCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CertificateId { get; set; }
+        public System.String CertificateId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeCertificateRequest();
+            var request = new Amazon.IoT.Model.DescribeCertificateRequest();
             
             if (cmdletContext.CertificateId != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CertificateId { get; set; }
+            public System.String CertificateId { get; set; }
         }
         
     }

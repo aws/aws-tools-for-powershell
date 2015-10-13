@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the CreateReceiptFilter operation against Amazon Simple Email Service.", Operation = new[] {"CreateReceiptFilter"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type CreateReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.CreateReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_IpFilter_Cidr")]
-        public String IpFilter_Cidr { get; set; }
+        public System.String IpFilter_Cidr { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Filter_Name { get; set; }
+        public System.String Filter_Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_IpFilter_Policy")]
-        public ReceiptFilterPolicy IpFilter_Policy { get; set; }
+        public Amazon.SimpleEmail.ReceiptFilterPolicy IpFilter_Policy { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -117,13 +117,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateReceiptFilterRequest();
+            var request = new Amazon.SimpleEmail.Model.CreateReceiptFilterRequest();
             
             
              // populate Filter
             bool requestFilterIsNull = true;
-            request.Filter = new ReceiptFilter();
-            String requestFilter_filter_Name = null;
+            request.Filter = new Amazon.SimpleEmail.Model.ReceiptFilter();
+            System.String requestFilter_filter_Name = null;
             if (cmdletContext.Filter_Name != null)
             {
                 requestFilter_filter_Name = cmdletContext.Filter_Name;
@@ -133,12 +133,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Filter.Name = requestFilter_filter_Name;
                 requestFilterIsNull = false;
             }
-            ReceiptIpFilter requestFilter_filter_IpFilter = null;
+            Amazon.SimpleEmail.Model.ReceiptIpFilter requestFilter_filter_IpFilter = null;
             
              // populate IpFilter
             bool requestFilter_filter_IpFilterIsNull = true;
-            requestFilter_filter_IpFilter = new ReceiptIpFilter();
-            String requestFilter_filter_IpFilter_ipFilter_Cidr = null;
+            requestFilter_filter_IpFilter = new Amazon.SimpleEmail.Model.ReceiptIpFilter();
+            System.String requestFilter_filter_IpFilter_ipFilter_Cidr = null;
             if (cmdletContext.Filter_IpFilter_Cidr != null)
             {
                 requestFilter_filter_IpFilter_ipFilter_Cidr = cmdletContext.Filter_IpFilter_Cidr;
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 requestFilter_filter_IpFilter.Cidr = requestFilter_filter_IpFilter_ipFilter_Cidr;
                 requestFilter_filter_IpFilterIsNull = false;
             }
-            ReceiptFilterPolicy requestFilter_filter_IpFilter_ipFilter_Policy = null;
+            Amazon.SimpleEmail.ReceiptFilterPolicy requestFilter_filter_IpFilter_ipFilter_Policy = null;
             if (cmdletContext.Filter_IpFilter_Policy != null)
             {
                 requestFilter_filter_IpFilter_ipFilter_Policy = cmdletContext.Filter_IpFilter_Policy;
@@ -208,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Filter_IpFilter_Cidr { get; set; }
-            public ReceiptFilterPolicy Filter_IpFilter_Policy { get; set; }
-            public String Filter_Name { get; set; }
+            public System.String Filter_IpFilter_Cidr { get; set; }
+            public Amazon.SimpleEmail.ReceiptFilterPolicy Filter_IpFilter_Policy { get; set; }
+            public System.String Filter_Name { get; set; }
         }
         
     }

@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the GetResourceConfigHistory operation against Amazon Config.", Operation = new[] {"GetResourceConfigHistory"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationItem",
         "This cmdlet returns a collection of ConfigurationItem objects.",
-        "The service call response (type GetResourceConfigHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.ConfigService.Model.GetResourceConfigHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCFGResourceConfigHistoryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ChronologicalOrder ChronologicalOrder { get; set; }
+        public Amazon.ConfigService.ChronologicalOrder ChronologicalOrder { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EarlierTime { get; set; }
+        public System.DateTime EarlierTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime LaterTime { get; set; }
+        public System.DateTime LaterTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ResourceType ResourceType { get; set; }
+        public Amazon.ConfigService.ResourceType ResourceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetResourceConfigHistoryRequest();
+            var request = new Amazon.ConfigService.Model.GetResourceConfigHistoryRequest();
             
             if (cmdletContext.ChronologicalOrder != null)
             {
@@ -215,13 +215,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public ChronologicalOrder ChronologicalOrder { get; set; }
-            public DateTime? EarlierTime { get; set; }
-            public DateTime? LaterTime { get; set; }
-            public Int32? Limit { get; set; }
-            public String NextToken { get; set; }
-            public String ResourceId { get; set; }
-            public ResourceType ResourceType { get; set; }
+            public Amazon.ConfigService.ChronologicalOrder ChronologicalOrder { get; set; }
+            public System.DateTime? EarlierTime { get; set; }
+            public System.DateTime? LaterTime { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String ResourceId { get; set; }
+            public Amazon.ConfigService.ResourceType ResourceType { get; set; }
         }
         
     }

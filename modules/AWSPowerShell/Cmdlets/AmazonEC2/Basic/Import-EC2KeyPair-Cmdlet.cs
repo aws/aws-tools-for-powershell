@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ImportKeyPairResponse")]
     [AWSCmdlet("Invokes the ImportKeyPair operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ImportKeyPair"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
-        "This cmdlet returns a ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String KeyName { get; set; }
+        public System.String KeyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String PublicKeyMaterial { get; set; }
+        public System.String PublicKeyMaterial { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ImportKeyPairRequest();
+            var request = new Amazon.EC2.Model.ImportKeyPairRequest();
             
             if (cmdletContext.KeyName != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyName { get; set; }
-            public String PublicKeyMaterial { get; set; }
+            public System.String KeyName { get; set; }
+            public System.String PublicKeyMaterial { get; set; }
         }
         
     }

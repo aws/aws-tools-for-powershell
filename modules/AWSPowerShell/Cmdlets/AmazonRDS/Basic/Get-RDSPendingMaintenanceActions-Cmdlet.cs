@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribePendingMaintenanceActions operation against Amazon Relational Database Service.", Operation = new[] {"DescribePendingMaintenanceActions"})]
     [AWSCmdletOutput("Amazon.RDS.Model.ResourcePendingMaintenanceActions",
         "This cmdlet returns a collection of ResourcePendingMaintenanceActions objects.",
-        "The service call response (type DescribePendingMaintenanceActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.RDS.Model.DescribePendingMaintenanceActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRDSPendingMaintenanceActionsCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceIdentifier { get; set; }
+        public System.String ResourceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribePendingMaintenanceActionsRequest();
+            var request = new Amazon.RDS.Model.DescribePendingMaintenanceActionsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -210,10 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public String Marker { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String ResourceIdentifier { get; set; }
+            public System.String ResourceIdentifier { get; set; }
         }
         
     }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the DescribeReceiptRule operation against Amazon Simple Email Service.", Operation = new[] {"DescribeReceiptRule"})]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.ReceiptRule",
         "This cmdlet returns a ReceiptRule object.",
-        "The service call response (type DescribeReceiptRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.DescribeReceiptRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RuleName { get; set; }
+        public System.String RuleName { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleSetName { get; set; }
+        public System.String RuleSetName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeReceiptRuleRequest();
+            var request = new Amazon.SimpleEmail.Model.DescribeReceiptRuleRequest();
             
             if (cmdletContext.RuleName != null)
             {
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RuleName { get; set; }
-            public String RuleSetName { get; set; }
+            public System.String RuleName { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

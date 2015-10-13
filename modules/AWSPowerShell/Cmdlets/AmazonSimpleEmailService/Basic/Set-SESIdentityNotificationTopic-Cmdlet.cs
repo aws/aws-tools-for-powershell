@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the SetIdentityNotificationTopic operation against Amazon Simple Email Service.", Operation = new[] {"SetIdentityNotificationTopic"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetIdentityNotificationTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.SetIdentityNotificationTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSESIdentityNotificationTopicCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Identity { get; set; }
+        public System.String Identity { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public NotificationType NotificationType { get; set; }
+        public Amazon.SimpleEmail.NotificationType NotificationType { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SnsTopic { get; set; }
+        public System.String SnsTopic { get; set; }
         
         /// <summary>
         /// Returns the value passed to the Identity parameter.
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetIdentityNotificationTopicRequest();
+            var request = new Amazon.SimpleEmail.Model.SetIdentityNotificationTopicRequest();
             
             if (cmdletContext.Identity != null)
             {
@@ -175,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Identity { get; set; }
-            public NotificationType NotificationType { get; set; }
-            public String SnsTopic { get; set; }
+            public System.String Identity { get; set; }
+            public Amazon.SimpleEmail.NotificationType NotificationType { get; set; }
+            public System.String SnsTopic { get; set; }
         }
         
     }

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [OutputType("Amazon.DataPipeline.Model.GetPipelineDefinitionResponse")]
     [AWSCmdlet("Invokes the GetPipelineDefinition operation against AWS Data Pipeline.", Operation = new[] {"GetPipelineDefinition"})]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.GetPipelineDefinitionResponse",
-        "This cmdlet returns a GetPipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DataPipeline.Model.GetPipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
         
         /// <summary>
         /// <para>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Version { get; set; }
+        public System.String Version { get; set; }
         
         
         protected override void ProcessRecord()
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPipelineDefinitionRequest();
+            var request = new Amazon.DataPipeline.Model.GetPipelineDefinitionRequest();
             
             if (cmdletContext.PipelineId != null)
             {
@@ -126,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PipelineId { get; set; }
-            public String Version { get; set; }
+            public System.String PipelineId { get; set; }
+            public System.String Version { get; set; }
         }
         
     }

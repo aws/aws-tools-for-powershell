@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the UpdateService operation against Amazon EC2 Container Service.", Operation = new[] {"UpdateService"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Service",
         "This cmdlet returns a Service object.",
-        "The service call response (type UpdateServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.UpdateServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DesiredCount { get; set; }
+        public System.Int32 DesiredCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Service { get; set; }
+        public System.String Service { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TaskDefinition { get; set; }
+        public System.String TaskDefinition { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateServiceRequest();
+            var request = new Amazon.ECS.Model.UpdateServiceRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -194,10 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public Int32? DesiredCount { get; set; }
-            public String Service { get; set; }
-            public String TaskDefinition { get; set; }
+            public System.String Cluster { get; set; }
+            public System.Int32? DesiredCount { get; set; }
+            public System.String Service { get; set; }
+            public System.String TaskDefinition { get; set; }
         }
         
     }

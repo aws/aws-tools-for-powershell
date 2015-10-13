@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DisableVgwRoutePropagation operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DisableVgwRoutePropagation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RouteTableId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DisableVgwRoutePropagationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DisableVgwRoutePropagationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableEC2VgwRoutePropagationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String GatewayId { get; set; }
+        public System.String GatewayId { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RouteTableId { get; set; }
+        public System.String RouteTableId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the RouteTableId parameter.
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableVgwRoutePropagationRequest();
+            var request = new Amazon.EC2.Model.DisableVgwRoutePropagationRequest();
             
             if (cmdletContext.GatewayId != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayId { get; set; }
-            public String RouteTableId { get; set; }
+            public System.String GatewayId { get; set; }
+            public System.String RouteTableId { get; set; }
         }
         
     }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the DescribeEndpoint operation against AWS IoT.", Operation = new[] {"DescribeEndpoint"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DescribeEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IoT.Model.DescribeEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTEndpointCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEndpointRequest();
+            var request = new Amazon.IoT.Model.DescribeEndpointRequest();
             
             
             CmdletOutput output;

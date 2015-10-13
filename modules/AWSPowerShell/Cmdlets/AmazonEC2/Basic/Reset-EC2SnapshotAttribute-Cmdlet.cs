@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ResetSnapshotAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ResetSnapshotAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ResetSnapshotAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ResetSnapshotAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetEC2SnapshotAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public SnapshotAttributeName Attribute { get; set; }
+        public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SnapshotId parameter.
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetSnapshotAttributeRequest();
+            var request = new Amazon.EC2.Model.ResetSnapshotAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public SnapshotAttributeName Attribute { get; set; }
-            public String SnapshotId { get; set; }
+            public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
+            public System.String SnapshotId { get; set; }
         }
         
     }

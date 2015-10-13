@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeClassicLinkInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeClassicLinkInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ClassicLinkInstance",
         "This cmdlet returns a collection of ClassicLinkInstance objects.",
-        "The service call response (type DescribeClassicLinkInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeClassicLinkInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2ClassicLinkInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.InstanceId != null)
             {
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeClassicLinkInstancesRequest();
+            var request = new Amazon.EC2.Model.DescribeClassicLinkInstancesRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -220,10 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> InstanceIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> InstanceIds { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

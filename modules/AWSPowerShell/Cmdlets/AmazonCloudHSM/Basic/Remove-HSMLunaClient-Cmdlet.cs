@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the DeleteLunaClient operation against AWS Cloud HSM.", Operation = new[] {"DeleteLunaClient"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.DeleteLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ClientArn { get; set; }
+        public System.String ClientArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteLunaClientRequest();
+            var request = new Amazon.CloudHSM.Model.DeleteLunaClientRequest();
             
             if (cmdletContext.ClientArn != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientArn { get; set; }
+            public System.String ClientArn { get; set; }
         }
         
     }

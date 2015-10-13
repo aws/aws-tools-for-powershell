@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the DescribeAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeAssociation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
         "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type DescribeAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         
         protected override void ProcessRecord()
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DescribeAssociationRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String Name { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

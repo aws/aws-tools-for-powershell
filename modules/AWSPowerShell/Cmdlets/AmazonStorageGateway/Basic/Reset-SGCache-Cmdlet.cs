@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the ResetCache operation against AWS Storage Gateway.", Operation = new[] {"ResetCache"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GatewayARN parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ResetCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.StorageGateway.Model.ResetCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetSGCacheCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
         
         /// <summary>
         /// Returns the value passed to the GatewayARN parameter.
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetCacheRequest();
+            var request = new Amazon.StorageGateway.Model.ResetCacheRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
+            public System.String GatewayARN { get; set; }
         }
         
     }

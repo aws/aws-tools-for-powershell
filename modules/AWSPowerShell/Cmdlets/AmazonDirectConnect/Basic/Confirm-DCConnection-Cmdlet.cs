@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the ConfirmConnection operation against AWS Direct Connect.", Operation = new[] {"ConfirmConnection"})]
     [AWSCmdletOutput("Amazon.DirectConnect.ConnectionState",
         "This cmdlet returns a ConnectionState object.",
-        "The service call response (type ConfirmConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.ConfirmConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ConnectionId { get; set; }
+        public System.String ConnectionId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConfirmConnectionRequest();
+            var request = new Amazon.DirectConnect.Model.ConfirmConnectionRequest();
             
             if (cmdletContext.ConnectionId != null)
             {
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConnectionId { get; set; }
+            public System.String ConnectionId { get; set; }
         }
         
     }

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Invokes the DeleteIdentityPool operation against Amazon Cognito Identity.", Operation = new[] {"DeleteIdentityPool"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IdentityPoolId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteIdentityPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentity.Model.DeleteIdentityPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IdentityPoolId { get; set; }
+        public System.String IdentityPoolId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the IdentityPoolId parameter.
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteIdentityPoolRequest();
+            var request = new Amazon.CognitoIdentity.Model.DeleteIdentityPoolRequest();
             
             if (cmdletContext.IdentityPoolId != null)
             {
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IdentityPoolId { get; set; }
+            public System.String IdentityPoolId { get; set; }
         }
         
     }

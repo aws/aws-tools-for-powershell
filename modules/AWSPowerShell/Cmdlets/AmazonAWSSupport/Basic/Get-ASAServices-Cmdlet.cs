@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeServices operation against AWS Support API.", Operation = new[] {"DescribeServices"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.Service",
         "This cmdlet returns a collection of Service objects.",
-        "The service call response (type DescribeServicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeServicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASAServicesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Language { get; set; }
+        public System.String Language { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             context.Language = this.Language;
             if (this.ServiceCodeList != null)
             {
-                context.ServiceCodeList = new List<String>(this.ServiceCodeList);
+                context.ServiceCodeList = new List<System.String>(this.ServiceCodeList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeServicesRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeServicesRequest();
             
             if (cmdletContext.Language != null)
             {
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Language { get; set; }
-            public List<String> ServiceCodeList { get; set; }
+            public System.String Language { get; set; }
+            public List<System.String> ServiceCodeList { get; set; }
         }
         
     }

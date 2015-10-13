@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the RestoreFromSnapshot operation against AWS Directory Service.", Operation = new[] {"RestoreFromSnapshot"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RestoreFromSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.RestoreFromSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreDSFromSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SnapshotId parameter.
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreFromSnapshotRequest();
+            var request = new Amazon.DirectoryService.Model.RestoreFromSnapshotRequest();
             
             if (cmdletContext.SnapshotId != null)
             {
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotId { get; set; }
+            public System.String SnapshotId { get; set; }
         }
         
     }

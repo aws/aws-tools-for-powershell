@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the ReceiveMessage operation against Amazon Simple Queue Service.", Operation = new[] {"ReceiveMessage"})]
     [AWSCmdletOutput("Amazon.SQS.Model.Message",
         "This cmdlet returns a collection of Message objects.",
-        "The service call response (type ReceiveMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.ReceiveMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ReceiveSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("MaxNumberOfMessages")]
-        public Int32 MessageCount { get; set; }
+        public System.Int32 MessageCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
         
         /// <summary>
         /// <para>
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 VisibilityTimeout { get; set; }
+        public System.Int32 VisibilityTimeout { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         [Alias("WaitTimeSeconds")]
-        public Int32 WaitTimeInSeconds { get; set; }
+        public System.Int32 WaitTimeInSeconds { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -181,13 +181,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.AttributeName != null)
             {
-                context.AttributeNames = new List<String>(this.AttributeName);
+                context.AttributeNames = new List<System.String>(this.AttributeName);
             }
             if (ParameterWasBound("MessageCount"))
                 context.MessageCount = this.MessageCount;
             if (this.MessageAttributeName != null)
             {
-                context.MessageAttributeNames = new List<String>(this.MessageAttributeName);
+                context.MessageAttributeNames = new List<System.String>(this.MessageAttributeName);
             }
             context.QueueUrl = this.QueueUrl;
             if (ParameterWasBound("VisibilityTimeout"))
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReceiveMessageRequest();
+            var request = new Amazon.SQS.Model.ReceiveMessageRequest();
             
             if (cmdletContext.AttributeNames != null)
             {
@@ -266,12 +266,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AttributeNames { get; set; }
-            public Int32? MessageCount { get; set; }
-            public List<String> MessageAttributeNames { get; set; }
-            public String QueueUrl { get; set; }
-            public Int32? VisibilityTimeout { get; set; }
-            public Int32? WaitTimeInSeconds { get; set; }
+            public List<System.String> AttributeNames { get; set; }
+            public System.Int32? MessageCount { get; set; }
+            public List<System.String> MessageAttributeNames { get; set; }
+            public System.String QueueUrl { get; set; }
+            public System.Int32? VisibilityTimeout { get; set; }
+            public System.Int32? WaitTimeInSeconds { get; set; }
         }
         
     }

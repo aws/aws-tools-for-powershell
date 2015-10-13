@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the AttachElasticLoadBalancer operation against AWS OpsWorks.", Operation = new[] {"AttachElasticLoadBalancer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ElasticLoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AttachElasticLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.AttachElasticLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddOPSElasticLoadBalancerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ElasticLoadBalancerName { get; set; }
+        public System.String ElasticLoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LayerId { get; set; }
+        public System.String LayerId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ElasticLoadBalancerName parameter.
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachElasticLoadBalancerRequest();
+            var request = new Amazon.OpsWorks.Model.AttachElasticLoadBalancerRequest();
             
             if (cmdletContext.ElasticLoadBalancerName != null)
             {
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ElasticLoadBalancerName { get; set; }
-            public String LayerId { get; set; }
+            public System.String ElasticLoadBalancerName { get; set; }
+            public System.String LayerId { get; set; }
         }
         
     }

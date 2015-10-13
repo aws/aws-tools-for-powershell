@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the GrantAccess operation against AWS OpsWorks.", Operation = new[] {"GrantAccess"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.TemporaryCredential",
         "This cmdlet returns a TemporaryCredential object.",
-        "The service call response (type GrantAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.GrantAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GrantOPSAccessCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ValidForInMinutes")]
-        public Int32 ValidForInMinute { get; set; }
+        public System.Int32 ValidForInMinute { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GrantAccessRequest();
+            var request = new Amazon.OpsWorks.Model.GrantAccessRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public Int32? ValidForInMinutes { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Int32? ValidForInMinutes { get; set; }
         }
         
     }

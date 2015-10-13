@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the CreateOrUpdateTags operation against Auto Scaling.", Operation = new[] {"CreateOrUpdateTags"})]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.Tag",
         "Returns the collection of Tag objects that were created or updated when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateOrUpdateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CreateOrUpdateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetASTagCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.AutoScaling.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateOrUpdateTagsRequest();
+            var request = new Amazon.AutoScaling.Model.CreateOrUpdateTagsRequest();
             
             if (cmdletContext.Tags != null)
             {
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Tag> Tags { get; set; }
+            public List<Amazon.AutoScaling.Model.Tag> Tags { get; set; }
         }
         
     }

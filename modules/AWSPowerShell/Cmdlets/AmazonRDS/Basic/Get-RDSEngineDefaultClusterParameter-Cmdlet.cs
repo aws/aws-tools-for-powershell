@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribeEngineDefaultClusterParameters operation against Amazon Relational Database Service.", Operation = new[] {"DescribeEngineDefaultClusterParameters"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EngineDefaults",
         "This cmdlet returns a EngineDefaults object.",
-        "The service call response (type DescribeEngineDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DescribeEngineDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRDSEngineDefaultClusterParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBParameterGroupFamily { get; set; }
+        public System.String DBParameterGroupFamily { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBParameterGroupFamily = this.DBParameterGroupFamily;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEngineDefaultClusterParametersRequest();
+            var request = new Amazon.RDS.Model.DescribeEngineDefaultClusterParametersRequest();
             
             if (cmdletContext.DBParameterGroupFamily != null)
             {
@@ -168,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBParameterGroupFamily { get; set; }
-            public List<Filter> Filters { get; set; }
-            public String Marker { get; set; }
+            public System.String DBParameterGroupFamily { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

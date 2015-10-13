@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateEventSubscription operation against Amazon Redshift.", Operation = new[] {"CreateEventSubscription"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSEventSubscriptionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Severity { get; set; }
+        public System.String Severity { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnsTopicArn { get; set; }
+        public System.String SnsTopicArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceType { get; set; }
+        public System.String SourceType { get; set; }
         
         /// <summary>
         /// <para>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -171,19 +171,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.Enabled = this.Enabled;
             if (this.EventCategory != null)
             {
-                context.EventCategories = new List<String>(this.EventCategory);
+                context.EventCategories = new List<System.String>(this.EventCategory);
             }
             context.Severity = this.Severity;
             context.SnsTopicArn = this.SnsTopicArn;
             if (this.SourceId != null)
             {
-                context.SourceIds = new List<String>(this.SourceId);
+                context.SourceIds = new List<System.String>(this.SourceId);
             }
             context.SourceType = this.SourceType;
             context.SubscriptionName = this.SubscriptionName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateEventSubscriptionRequest();
+            var request = new Amazon.Redshift.Model.CreateEventSubscriptionRequest();
             
             if (cmdletContext.Enabled != null)
             {
@@ -265,14 +265,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Enabled { get; set; }
-            public List<String> EventCategories { get; set; }
-            public String Severity { get; set; }
-            public String SnsTopicArn { get; set; }
-            public List<String> SourceIds { get; set; }
-            public String SourceType { get; set; }
-            public String SubscriptionName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public List<System.String> EventCategories { get; set; }
+            public System.String Severity { get; set; }
+            public System.String SnsTopicArn { get; set; }
+            public List<System.String> SourceIds { get; set; }
+            public System.String SourceType { get; set; }
+            public System.String SubscriptionName { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

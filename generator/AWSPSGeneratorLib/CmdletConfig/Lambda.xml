@@ -8,11 +8,6 @@
 
   <PipelineParameter>FunctionName</PipelineParameter>
   
-  <RetainFullTypeNames>
-    <!-- avoid collision with Amazon.Runtime -->
-    <TypeName>Amazon.Lambda.Runtime</TypeName>
-  </RetainFullTypeNames>  
-
     <VerbMappings>
     <Map From="List" To="Get" />
     <Map From="Upload" To="Publish" />

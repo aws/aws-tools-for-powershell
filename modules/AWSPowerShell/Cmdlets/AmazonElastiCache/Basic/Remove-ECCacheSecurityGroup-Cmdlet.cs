@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DeleteCacheSecurityGroup operation against Amazon ElastiCache.", Operation = new[] {"DeleteCacheSecurityGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CacheSecurityGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteCacheSecurityGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElastiCache.Model.DeleteCacheSecurityGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECCacheSecurityGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheSecurityGroupName { get; set; }
+        public System.String CacheSecurityGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the CacheSecurityGroupName parameter.
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteCacheSecurityGroupRequest();
+            var request = new Amazon.ElastiCache.Model.DeleteCacheSecurityGroupRequest();
             
             if (cmdletContext.CacheSecurityGroupName != null)
             {
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheSecurityGroupName { get; set; }
+            public System.String CacheSecurityGroupName { get; set; }
         }
         
     }

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeleteApp operation against AWS OpsWorks.", Operation = new[] {"DeleteApp"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AppId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeleteAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveOPSAppCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AppId { get; set; }
+        public System.String AppId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AppId parameter.
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteAppRequest();
+            var request = new Amazon.OpsWorks.Model.DeleteAppRequest();
             
             if (cmdletContext.AppId != null)
             {
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AppId { get; set; }
+            public System.String AppId { get; set; }
         }
         
     }

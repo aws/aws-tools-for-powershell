@@ -12,10 +12,6 @@
     <Map From="Deregister" To="Unregister" />
   </VerbMappings>
   
-  <RetainFullTypeNames>
-    <TypeName>Amazon.CodeDeploy.Model.IllegalOperationException</TypeName>
-  </RetainFullTypeNames>
-
   <ServiceOperations>
     <ServiceOperation MethodName="BatchGetApplications" Verb="Get" Noun="Applications"/>
     <ServiceOperation MethodName="BatchGetDeployments"  Verb="Get" Noun="Deployments"/>

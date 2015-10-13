@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateHsmConfiguration operation against Amazon Redshift.", Operation = new[] {"CreateHsmConfiguration"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.HsmConfiguration",
         "This cmdlet returns a HsmConfiguration object.",
-        "The service call response (type CreateHsmConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateHsmConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSHsmConfigurationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String HsmConfigurationIdentifier { get; set; }
+        public System.String HsmConfigurationIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmIpAddress { get; set; }
+        public System.String HsmIpAddress { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmPartitionName { get; set; }
+        public System.String HsmPartitionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmPartitionPassword { get; set; }
+        public System.String HsmPartitionPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmServerPublicCertificate { get; set; }
+        public System.String HsmServerPublicCertificate { get; set; }
         
         /// <summary>
         /// <para>
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.HsmServerPublicCertificate = this.HsmServerPublicCertificate;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateHsmConfigurationRequest();
+            var request = new Amazon.Redshift.Model.CreateHsmConfigurationRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -218,13 +218,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String HsmConfigurationIdentifier { get; set; }
-            public String HsmIpAddress { get; set; }
-            public String HsmPartitionName { get; set; }
-            public String HsmPartitionPassword { get; set; }
-            public String HsmServerPublicCertificate { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String Description { get; set; }
+            public System.String HsmConfigurationIdentifier { get; set; }
+            public System.String HsmIpAddress { get; set; }
+            public System.String HsmPartitionName { get; set; }
+            public System.String HsmPartitionPassword { get; set; }
+            public System.String HsmServerPublicCertificate { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

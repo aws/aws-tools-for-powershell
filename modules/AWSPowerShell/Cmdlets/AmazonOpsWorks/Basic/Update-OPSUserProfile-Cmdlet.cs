@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateUserProfile operation against AWS OpsWorks.", Operation = new[] {"UpdateUserProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IamUserArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowSelfManagement { get; set; }
+        public System.Boolean AllowSelfManagement { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String IamUserArn { get; set; }
+        public System.String IamUserArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshPublicKey { get; set; }
+        public System.String SshPublicKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshUsername { get; set; }
+        public System.String SshUsername { get; set; }
         
         /// <summary>
         /// Returns the value passed to the IamUserArn parameter.
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateUserProfileRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateUserProfileRequest();
             
             if (cmdletContext.AllowSelfManagement != null)
             {
@@ -187,10 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowSelfManagement { get; set; }
-            public String IamUserArn { get; set; }
-            public String SshPublicKey { get; set; }
-            public String SshUsername { get; set; }
+            public System.Boolean? AllowSelfManagement { get; set; }
+            public System.String IamUserArn { get; set; }
+            public System.String SshPublicKey { get; set; }
+            public System.String SshUsername { get; set; }
         }
         
     }

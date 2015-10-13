@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeEcsClusters operation against AWS OpsWorks.", Operation = new[] {"DescribeEcsClusters"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.EcsCluster",
         "This cmdlet returns a collection of EcsCluster objects.",
-        "The service call response (type DescribeEcsClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.OpsWorks.Model.DescribeEcsClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxResults")]
-        public Int32 MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.EcsClusterArn != null)
             {
-                context.EcsClusterArns = new List<String>(this.EcsClusterArn);
+                context.EcsClusterArns = new List<System.String>(this.EcsClusterArn);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEcsClustersRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeEcsClustersRequest();
             
             if (cmdletContext.EcsClusterArns != null)
             {
@@ -178,10 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> EcsClusterArns { get; set; }
-            public Int32? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public String StackId { get; set; }
+            public List<System.String> EcsClusterArns { get; set; }
+            public System.Int32? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

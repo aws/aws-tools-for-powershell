@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [AWSCmdlet("Invokes the UpdateWebACL operation against AWS WAF.", Operation = new[] {"UpdateWebACL"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.WAF.Model.UpdateWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public WafActionType DefaultAction_Type { get; set; }
+        public Amazon.WAF.WafActionType DefaultAction_Type { get; set; }
         
         /// <summary>
         /// <para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String WebACLId { get; set; }
+        public System.String WebACLId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             context.DefaultAction_Type = this.DefaultAction_Type;
             if (this.Update != null)
             {
-                context.Updates = new List<WebACLUpdate>(this.Update);
+                context.Updates = new List<Amazon.WAF.Model.WebACLUpdate>(this.Update);
             }
             context.WebACLId = this.WebACLId;
             
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateWebACLRequest();
+            var request = new Amazon.WAF.Model.UpdateWebACLRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             
              // populate DefaultAction
             bool requestDefaultActionIsNull = true;
-            request.DefaultAction = new WafAction();
-            WafActionType requestDefaultAction_defaultAction_Type = null;
+            request.DefaultAction = new Amazon.WAF.Model.WafAction();
+            Amazon.WAF.WafActionType requestDefaultAction_defaultAction_Type = null;
             if (cmdletContext.DefaultAction_Type != null)
             {
                 requestDefaultAction_defaultAction_Type = cmdletContext.DefaultAction_Type;
@@ -224,10 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public WafActionType DefaultAction_Type { get; set; }
-            public List<WebACLUpdate> Updates { get; set; }
-            public String WebACLId { get; set; }
+            public System.String ChangeToken { get; set; }
+            public Amazon.WAF.WafActionType DefaultAction_Type { get; set; }
+            public List<Amazon.WAF.Model.WebACLUpdate> Updates { get; set; }
+            public System.String WebACLId { get; set; }
         }
         
     }

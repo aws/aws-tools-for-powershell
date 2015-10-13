@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the ListDeployments operation against AWS CodeDeploy.", Operation = new[] {"ListDeployments"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeDeploy.Model.ListDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCDDeploymentListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentGroupName { get; set; }
+        public System.String DeploymentGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime CreateTimeRange_End { get; set; }
+        public System.DateTime CreateTimeRange_End { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime CreateTimeRange_Start { get; set; }
+        public System.DateTime CreateTimeRange_Start { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.DeploymentGroupName = this.DeploymentGroupName;
             if (this.IncludeOnlyStatus != null)
             {
-                context.IncludeOnlyStatuses = new List<String>(this.IncludeOnlyStatus);
+                context.IncludeOnlyStatuses = new List<System.String>(this.IncludeOnlyStatus);
             }
             context.NextToken = this.NextToken;
             
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDeploymentsRequest();
+            var request = new Amazon.CodeDeploy.Model.ListDeploymentsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
              // populate CreateTimeRange
             bool requestCreateTimeRangeIsNull = true;
-            request.CreateTimeRange = new TimeRange();
-            DateTime? requestCreateTimeRange_createTimeRange_End = null;
+            request.CreateTimeRange = new Amazon.CodeDeploy.Model.TimeRange();
+            System.DateTime? requestCreateTimeRange_createTimeRange_End = null;
             if (cmdletContext.CreateTimeRange_End != null)
             {
                 requestCreateTimeRange_createTimeRange_End = cmdletContext.CreateTimeRange_End.Value;
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.CreateTimeRange.End = requestCreateTimeRange_createTimeRange_End.Value;
                 requestCreateTimeRangeIsNull = false;
             }
-            DateTime? requestCreateTimeRange_createTimeRange_Start = null;
+            System.DateTime? requestCreateTimeRange_createTimeRange_Start = null;
             if (cmdletContext.CreateTimeRange_Start != null)
             {
                 requestCreateTimeRange_createTimeRange_Start = cmdletContext.CreateTimeRange_Start.Value;
@@ -213,12 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public DateTime? CreateTimeRange_End { get; set; }
-            public DateTime? CreateTimeRange_Start { get; set; }
-            public String DeploymentGroupName { get; set; }
-            public List<String> IncludeOnlyStatuses { get; set; }
-            public String NextToken { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.DateTime? CreateTimeRange_End { get; set; }
+            public System.DateTime? CreateTimeRange_Start { get; set; }
+            public System.String DeploymentGroupName { get; set; }
+            public List<System.String> IncludeOnlyStatuses { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

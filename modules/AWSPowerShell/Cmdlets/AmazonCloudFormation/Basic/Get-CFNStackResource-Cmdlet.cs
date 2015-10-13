@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the DescribeStackResource operation against AWS CloudFormation.", Operation = new[] {"DescribeStackResource"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResourceDetail",
         "This cmdlet returns a StackResourceDetail object.",
-        "The service call response (type DescribeStackResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFNStackResourceCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LogicalResourceId { get; set; }
+        public System.String LogicalResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStackResourceRequest();
+            var request = new Amazon.CloudFormation.Model.DescribeStackResourceRequest();
             
             if (cmdletContext.LogicalResourceId != null)
             {
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LogicalResourceId { get; set; }
-            public String StackName { get; set; }
+            public System.String LogicalResourceId { get; set; }
+            public System.String StackName { get; set; }
         }
         
     }

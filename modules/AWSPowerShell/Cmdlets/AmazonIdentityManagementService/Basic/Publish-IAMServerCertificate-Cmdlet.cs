@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UploadServerCertificate operation against AWS Identity and Access Management.", Operation = new[] {"UploadServerCertificate"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServerCertificateMetadata",
         "This cmdlet returns a ServerCertificateMetadata object.",
-        "The service call response (type UploadServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UploadServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class PublishIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String CertificateBody { get; set; }
+        public System.String CertificateBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String CertificateChain { get; set; }
+        public System.String CertificateChain { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String PrivateKey { get; set; }
+        public System.String PrivateKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ServerCertificateName { get; set; }
+        public System.String ServerCertificateName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UploadServerCertificateRequest();
+            var request = new Amazon.IdentityManagement.Model.UploadServerCertificateRequest();
             
             if (cmdletContext.CertificateBody != null)
             {
@@ -197,11 +197,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CertificateBody { get; set; }
-            public String CertificateChain { get; set; }
-            public String Path { get; set; }
-            public String PrivateKey { get; set; }
-            public String ServerCertificateName { get; set; }
+            public System.String CertificateBody { get; set; }
+            public System.String CertificateChain { get; set; }
+            public System.String Path { get; set; }
+            public System.String PrivateKey { get; set; }
+            public System.String ServerCertificateName { get; set; }
         }
         
     }

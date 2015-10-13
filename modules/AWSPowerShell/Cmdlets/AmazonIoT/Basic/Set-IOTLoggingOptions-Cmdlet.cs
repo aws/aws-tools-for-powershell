@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the SetLoggingOptions operation against AWS IoT.", Operation = new[] {"SetLoggingOptions"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type SetLoggingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.SetLoggingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetIOTLoggingOptionsCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public LogLevel LoggingOptionsPayload_LogLevel { get; set; }
+        public Amazon.IoT.LogLevel LoggingOptionsPayload_LogLevel { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LoggingOptionsPayload_RoleArn { get; set; }
+        public System.String LoggingOptionsPayload_RoleArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -93,13 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetLoggingOptionsRequest();
+            var request = new Amazon.IoT.Model.SetLoggingOptionsRequest();
             
             
              // populate LoggingOptionsPayload
             bool requestLoggingOptionsPayloadIsNull = true;
-            request.LoggingOptionsPayload = new LoggingOptionsPayload();
-            LogLevel requestLoggingOptionsPayload_loggingOptionsPayload_LogLevel = null;
+            request.LoggingOptionsPayload = new Amazon.IoT.Model.LoggingOptionsPayload();
+            Amazon.IoT.LogLevel requestLoggingOptionsPayload_loggingOptionsPayload_LogLevel = null;
             if (cmdletContext.LoggingOptionsPayload_LogLevel != null)
             {
                 requestLoggingOptionsPayload_loggingOptionsPayload_LogLevel = cmdletContext.LoggingOptionsPayload_LogLevel;
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.LoggingOptionsPayload.LogLevel = requestLoggingOptionsPayload_loggingOptionsPayload_LogLevel;
                 requestLoggingOptionsPayloadIsNull = false;
             }
-            String requestLoggingOptionsPayload_loggingOptionsPayload_RoleArn = null;
+            System.String requestLoggingOptionsPayload_loggingOptionsPayload_RoleArn = null;
             if (cmdletContext.LoggingOptionsPayload_RoleArn != null)
             {
                 requestLoggingOptionsPayload_loggingOptionsPayload_RoleArn = cmdletContext.LoggingOptionsPayload_RoleArn;
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public LogLevel LoggingOptionsPayload_LogLevel { get; set; }
-            public String LoggingOptionsPayload_RoleArn { get; set; }
+            public Amazon.IoT.LogLevel LoggingOptionsPayload_LogLevel { get; set; }
+            public System.String LoggingOptionsPayload_RoleArn { get; set; }
         }
         
     }

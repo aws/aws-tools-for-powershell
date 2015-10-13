@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the ListPrincipalPolicies operation against AWS IoT.", Operation = new[] {"ListPrincipalPolicies"})]
     [AWSCmdletOutput("Amazon.IoT.Model.Policy",
         "This cmdlet returns a collection of Policy objects.",
-        "The service call response (type ListPrincipalPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
+        "The service call response (type Amazon.IoT.Model.ListPrincipalPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetIOTPrincipalPolicyListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 PageSize { get; set; }
+        public System.Int32 PageSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Principal { get; set; }
+        public System.String Principal { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AscendingOrder { get; set; }
+        public System.Boolean AscendingOrder { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListPrincipalPoliciesRequest();
+            var request = new Amazon.IoT.Model.ListPrincipalPoliciesRequest();
             
             if (cmdletContext.AscendingOrder != null)
             {
@@ -159,10 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AscendingOrder { get; set; }
-            public String Marker { get; set; }
-            public Int32? PageSize { get; set; }
-            public String Principal { get; set; }
+            public System.Boolean? AscendingOrder { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? PageSize { get; set; }
+            public System.String Principal { get; set; }
         }
         
     }

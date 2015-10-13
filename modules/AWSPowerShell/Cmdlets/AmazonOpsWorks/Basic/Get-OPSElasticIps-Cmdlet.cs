@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeElasticIps operation against AWS OpsWorks.", Operation = new[] {"DescribeElasticIps"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.ElasticIp",
         "This cmdlet returns a collection of ElasticIp objects.",
-        "The service call response (type DescribeElasticIpsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeElasticIpsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSElasticIpsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
         
         
         protected override void ProcessRecord()
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.InstanceId = this.InstanceId;
             if (this.Ip != null)
             {
-                context.Ips = new List<String>(this.Ip);
+                context.Ips = new List<System.String>(this.Ip);
             }
             context.StackId = this.StackId;
             
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeElasticIpsRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeElasticIpsRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -154,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public List<String> Ips { get; set; }
-            public String StackId { get; set; }
+            public System.String InstanceId { get; set; }
+            public List<System.String> Ips { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

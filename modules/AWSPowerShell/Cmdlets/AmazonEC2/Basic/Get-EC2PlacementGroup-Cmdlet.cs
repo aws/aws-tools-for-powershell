@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribePlacementGroups operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribePlacementGroups"})]
     [AWSCmdletOutput("Amazon.EC2.Model.PlacementGroup",
         "This cmdlet returns a collection of PlacementGroup objects.",
-        "The service call response (type DescribePlacementGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribePlacementGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2PlacementGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -73,11 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.GroupName != null)
             {
-                context.GroupNames = new List<String>(this.GroupName);
+                context.GroupNames = new List<System.String>(this.GroupName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribePlacementGroupsRequest();
+            var request = new Amazon.EC2.Model.DescribePlacementGroupsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> GroupNames { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> GroupNames { get; set; }
         }
         
     }

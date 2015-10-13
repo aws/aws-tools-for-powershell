@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyVolumeAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyVolumeAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyVolumeAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifyVolumeAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2VolumeAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean AutoEnableIO { get; set; }
+        public System.Boolean AutoEnableIO { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the VolumeId parameter.
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyVolumeAttributeRequest();
+            var request = new Amazon.EC2.Model.ModifyVolumeAttributeRequest();
             
             if (cmdletContext.AutoEnableIO != null)
             {
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AutoEnableIO { get; set; }
-            public String VolumeId { get; set; }
+            public System.Boolean? AutoEnableIO { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

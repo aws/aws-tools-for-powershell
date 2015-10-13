@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the ListTopicRules operation against AWS IoT.", Operation = new[] {"ListTopicRules"})]
     [AWSCmdletOutput("Amazon.IoT.Model.TopicRuleListItem",
         "This cmdlet returns a collection of TopicRuleListItem objects.",
-        "The service call response (type ListTopicRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
+        "The service call response (type Amazon.IoT.Model.ListTopicRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetIOTTopicRuleListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RuleDisabled { get; set; }
+        public System.Boolean RuleDisabled { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Topic { get; set; }
+        public System.String Topic { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxResults")]
-        public Int32 MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         
         
         protected override void ProcessRecord()
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTopicRulesRequest();
+            var request = new Amazon.IoT.Model.ListTopicRulesRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -157,10 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public Int32? MaxResults { get; set; }
-            public Boolean? RuleDisabled { get; set; }
-            public String Topic { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxResults { get; set; }
+            public System.Boolean? RuleDisabled { get; set; }
+            public System.String Topic { get; set; }
         }
         
     }

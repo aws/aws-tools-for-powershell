@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [OutputType("Amazon.WAF.Model.CreateIPSetResponse")]
     [AWSCmdlet("Invokes the CreateIPSet operation against AWS WAF.", Operation = new[] {"CreateIPSet"})]
     [AWSCmdletOutput("Amazon.WAF.Model.CreateIPSetResponse",
-        "This cmdlet returns a CreateIPSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.WAF.Model.CreateIPSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewWAFIPSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateIPSetRequest();
+            var request = new Amazon.WAF.Model.CreateIPSetRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public String Name { get; set; }
+            public System.String ChangeToken { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

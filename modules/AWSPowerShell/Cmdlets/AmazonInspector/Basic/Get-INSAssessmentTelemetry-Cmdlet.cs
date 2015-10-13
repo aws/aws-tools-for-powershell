@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the GetAssessmentTelemetry operation against Amazon Inspector.", Operation = new[] {"GetAssessmentTelemetry"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.Telemetry",
         "This cmdlet returns a collection of Telemetry objects.",
-        "The service call response (type GetAssessmentTelemetryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.GetAssessmentTelemetryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSAssessmentTelemetryCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AssessmentArn { get; set; }
+        public System.String AssessmentArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetAssessmentTelemetryRequest();
+            var request = new Amazon.Inspector.Model.GetAssessmentTelemetryRequest();
             
             if (cmdletContext.AssessmentArn != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssessmentArn { get; set; }
+            public System.String AssessmentArn { get; set; }
         }
         
     }

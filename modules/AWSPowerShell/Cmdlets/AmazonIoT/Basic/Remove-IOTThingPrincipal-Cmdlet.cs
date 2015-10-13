@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the DetachThingPrincipal operation against AWS IoT.", Operation = new[] {"DetachThingPrincipal"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DetachThingPrincipalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DetachThingPrincipalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIOTThingPrincipalCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Principal { get; set; }
+        public System.String Principal { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ThingName { get; set; }
+        public System.String ThingName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ThingName parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DetachThingPrincipalRequest();
+            var request = new Amazon.IoT.Model.DetachThingPrincipalRequest();
             
             if (cmdletContext.Principal != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Principal { get; set; }
-            public String ThingName { get; set; }
+            public System.String Principal { get; set; }
+            public System.String ThingName { get; set; }
         }
         
     }

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the DescribeTags operation against Amazon Elastic File System.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), NextMarker (type String)"
+        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), NextMarker (type System.String)"
     )]
     public class GetEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String FileSystemId { get; set; }
+        public System.String FileSystemId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,14 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeTagsRequest();
+            var request = new Amazon.ElasticFileSystem.Model.DescribeTagsRequest();
             if (cmdletContext.FileSystemId != null)
             {
                 request.FileSystemId = cmdletContext.FileSystemId;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -197,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FileSystemId { get; set; }
-            public String Marker { get; set; }
+            public System.String FileSystemId { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
         }
         

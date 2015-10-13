@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeRegions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeRegions"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Region",
         "This cmdlet returns a collection of Region objects.",
-        "The service call response (type DescribeRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2RegionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -76,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.RegionName != null)
             {
-                context.RegionNames = new List<String>(this.RegionName);
+                context.RegionNames = new List<System.String>(this.RegionName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeRegionsRequest();
+            var request = new Amazon.EC2.Model.DescribeRegionsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> RegionNames { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> RegionNames { get; set; }
         }
         
     }

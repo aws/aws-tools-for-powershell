@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [OutputType("Amazon.ImportExport.Model.CreateJobResponse")]
     [AWSCmdlet("Invokes the CreateJob operation against AWS Import/Export.", Operation = new[] {"CreateJob"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.CreateJobResponse",
-        "This cmdlet returns a CreateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ImportExport.Model.CreateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String APIVersion { get; set; }
+        public System.String APIVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public JobType JobType { get; set; }
+        public Amazon.ImportExport.JobType JobType { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Manifest { get; set; }
+        public System.String Manifest { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String ManifestAddendum { get; set; }
+        public System.String ManifestAddendum { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public Boolean ValidateOnly { get; set; }
+        public System.Boolean ValidateOnly { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateJobRequest();
+            var request = new Amazon.ImportExport.Model.CreateJobRequest();
             
             if (cmdletContext.APIVersion != null)
             {
@@ -181,11 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         internal class CmdletContext : ExecutorContext
         {
-            public String APIVersion { get; set; }
-            public JobType JobType { get; set; }
-            public String Manifest { get; set; }
-            public String ManifestAddendum { get; set; }
-            public Boolean? ValidateOnly { get; set; }
+            public System.String APIVersion { get; set; }
+            public Amazon.ImportExport.JobType JobType { get; set; }
+            public System.String Manifest { get; set; }
+            public System.String ManifestAddendum { get; set; }
+            public System.Boolean? ValidateOnly { get; set; }
         }
         
     }

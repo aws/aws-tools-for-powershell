@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the ModifyCacheSubnetGroup operation against Amazon ElastiCache.", Operation = new[] {"ModifyCacheSubnetGroup"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSubnetGroup",
         "This cmdlet returns a CacheSubnetGroup object.",
-        "The service call response (type ModifyCacheSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ModifyCacheSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditECCacheSubnetGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CacheSubnetGroupDescription { get; set; }
+        public System.String CacheSubnetGroupDescription { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheSubnetGroupName { get; set; }
+        public System.String CacheSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             if (this.SubnetId != null)
             {
-                context.SubnetIds = new List<String>(this.SubnetId);
+                context.SubnetIds = new List<System.String>(this.SubnetId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyCacheSubnetGroupRequest();
+            var request = new Amazon.ElastiCache.Model.ModifyCacheSubnetGroupRequest();
             
             if (cmdletContext.CacheSubnetGroupDescription != null)
             {
@@ -155,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheSubnetGroupDescription { get; set; }
-            public String CacheSubnetGroupName { get; set; }
-            public List<String> SubnetIds { get; set; }
+            public System.String CacheSubnetGroupDescription { get; set; }
+            public System.String CacheSubnetGroupName { get; set; }
+            public List<System.String> SubnetIds { get; set; }
         }
         
     }

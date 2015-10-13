@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the AddClientIDToOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"AddClientIDToOpenIDConnectProvider"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type AddClientIDToOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddIAMClientIDToOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientID { get; set; }
+        public System.String ClientID { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OpenIDConnectProviderArn { get; set; }
+        public System.String OpenIDConnectProviderArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddClientIDToOpenIDConnectProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderRequest();
             
             if (cmdletContext.ClientID != null)
             {
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientID { get; set; }
-            public String OpenIDConnectProviderArn { get; set; }
+            public System.String ClientID { get; set; }
+            public System.String OpenIDConnectProviderArn { get; set; }
         }
         
     }

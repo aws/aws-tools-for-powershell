@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [OutputType("Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse")]
     [AWSCmdlet("Invokes the ChangeMessageVisibilityBatch operation against Amazon Simple Queue Service.", Operation = new[] {"ChangeMessageVisibilityBatch"})]
     [AWSCmdletOutput("Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse",
-        "This cmdlet returns a ChangeMessageVisibilityBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SQS.Model.ChangeMessageVisibilityBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditSQSMessageVisibilityBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.Entry != null)
             {
-                context.Entries = new List<ChangeMessageVisibilityBatchRequestEntry>(this.Entry);
+                context.Entries = new List<Amazon.SQS.Model.ChangeMessageVisibilityBatchRequestEntry>(this.Entry);
             }
             context.QueueUrl = this.QueueUrl;
             
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ChangeMessageVisibilityBatchRequest();
+            var request = new Amazon.SQS.Model.ChangeMessageVisibilityBatchRequest();
             
             if (cmdletContext.Entries != null)
             {
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<ChangeMessageVisibilityBatchRequestEntry> Entries { get; set; }
-            public String QueueUrl { get; set; }
+            public List<Amazon.SQS.Model.ChangeMessageVisibilityBatchRequestEntry> Entries { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

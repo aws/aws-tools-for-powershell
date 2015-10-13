@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the GetComplianceSummaryByResourceType operation against Amazon Config.", Operation = new[] {"GetComplianceSummaryByResourceType"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceSummaryByResourceType",
         "This cmdlet returns a collection of ComplianceSummaryByResourceType objects.",
-        "The service call response (type GetComplianceSummaryByResourceTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGComplianceSummaryByResourceTypeCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.ResourceType != null)
             {
-                context.ResourceTypes = new List<String>(this.ResourceType);
+                context.ResourceTypes = new List<System.String>(this.ResourceType);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetComplianceSummaryByResourceTypeRequest();
+            var request = new Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeRequest();
             
             if (cmdletContext.ResourceTypes != null)
             {
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ResourceTypes { get; set; }
+            public List<System.String> ResourceTypes { get; set; }
         }
         
     }

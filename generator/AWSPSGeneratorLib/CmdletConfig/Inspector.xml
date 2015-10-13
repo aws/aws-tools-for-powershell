@@ -90,22 +90,9 @@
     <ServiceOperation MethodName="UpdateAssessment" 
         PipelineParameter="AssessmentArn"/>
        
-    <!--
-        TODO: These have temporarily been moved to Advanced because of 
-        the Model.Attribute type conflicting with System.Attribute.
-        Below are the original entries. jimfl
-        
     <ServiceOperation MethodName="AddAttributesToFindings" Noun="FindingAttribute" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="ListFindings"
-        Noun="FindingList"
-        PipelineParameter="RunArns"/>
-    <ServiceOperation MethodName="CreateAssessment"
-        PipelineParameter="ApplicationArn"/>
-    -->        
-    <ServiceOperation Exclude="true" MethodName="AddAttributesToFindings" />
-    <ServiceOperation Exclude="true" MethodName="ListFindings" />
-    <ServiceOperation Exclude="true" MethodName="CreateAssessment" />       
-        
+    <ServiceOperation MethodName="ListFindings" Noun="FindingList" PipelineParameter="RunArns"/>
+    <ServiceOperation MethodName="CreateAssessment" PipelineParameter="ApplicationArn"/>
 
   </ServiceOperations>
   

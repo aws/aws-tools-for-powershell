@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the DeletePolicyVersion operation against AWS IoT.", Operation = new[] {"DeletePolicyVersion"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PolicyName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeletePolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DeletePolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIOTPolicyVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicyVersionId { get; set; }
+        public System.String PolicyVersionId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the PolicyName parameter.
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeletePolicyVersionRequest();
+            var request = new Amazon.IoT.Model.DeletePolicyVersionRequest();
             
             if (cmdletContext.PolicyName != null)
             {
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyName { get; set; }
-            public String PolicyVersionId { get; set; }
+            public System.String PolicyName { get; set; }
+            public System.String PolicyVersionId { get; set; }
         }
         
     }

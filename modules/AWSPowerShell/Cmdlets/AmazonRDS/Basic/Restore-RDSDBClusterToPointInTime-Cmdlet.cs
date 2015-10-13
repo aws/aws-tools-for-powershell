@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the RestoreDBClusterToPointInTime operation against Amazon Relational Database Service.", Operation = new[] {"RestoreDBClusterToPointInTime"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type RestoreDBClusterToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RestoreDBClusterToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreRDSDBClusterToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime RestoreToTime { get; set; }
+        public System.DateTime RestoreToTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceDBClusterIdentifier { get; set; }
+        public System.String SourceDBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean UseLatestRestorableTime { get; set; }
+        public System.Boolean UseLatestRestorableTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -163,13 +163,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             if (ParameterWasBound("UseLatestRestorableTime"))
                 context.UseLatestRestorableTime = this.UseLatestRestorableTime;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreDBClusterToPointInTimeRequest();
+            var request = new Amazon.RDS.Model.RestoreDBClusterToPointInTimeRequest();
             
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -255,15 +255,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterIdentifier { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public DateTime? RestoreToTime { get; set; }
-            public String SourceDBClusterIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public Boolean? UseLatestRestorableTime { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.DateTime? RestoreToTime { get; set; }
+            public System.String SourceDBClusterIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.Boolean? UseLatestRestorableTime { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

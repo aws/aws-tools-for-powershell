@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the DeleteHsm operation against AWS Cloud HSM.", Operation = new[] {"DeleteHsm"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.DeleteHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HsmArn { get; set; }
+        public System.String HsmArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteHsmRequest();
+            var request = new Amazon.CloudHSM.Model.DeleteHsmRequest();
             
             if (cmdletContext.HsmArn != null)
             {
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HsmArn { get; set; }
+            public System.String HsmArn { get; set; }
         }
         
     }

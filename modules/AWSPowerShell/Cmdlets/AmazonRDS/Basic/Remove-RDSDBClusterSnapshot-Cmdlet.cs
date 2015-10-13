@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBClusterSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
         "This cmdlet returns a DBClusterSnapshot object.",
-        "The service call response (type DeleteDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBClusterSnapshotIdentifier { get; set; }
+        public System.String DBClusterSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBClusterSnapshotRequest();
+            var request = new Amazon.RDS.Model.DeleteDBClusterSnapshotRequest();
             
             if (cmdletContext.DBClusterSnapshotIdentifier != null)
             {
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterSnapshotIdentifier { get; set; }
+            public System.String DBClusterSnapshotIdentifier { get; set; }
         }
         
     }

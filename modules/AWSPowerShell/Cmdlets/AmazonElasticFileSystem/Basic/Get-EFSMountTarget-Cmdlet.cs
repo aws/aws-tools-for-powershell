@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the DescribeMountTargets operation against Amazon Elastic File System.", Operation = new[] {"DescribeMountTargets"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.MountTargetDescription",
         "This cmdlet returns a collection of MountTargetDescription objects.",
-        "The service call response (type DescribeMountTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), NextMarker (type String)"
+        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeMountTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), NextMarker (type System.String)"
     )]
     public class GetEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String FileSystemId { get; set; }
+        public System.String FileSystemId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MountTargetId { get; set; }
+        public System.String MountTargetId { get; set; }
         
         /// <summary>
         /// <para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeMountTargetsRequest();
+            var request = new Amazon.ElasticFileSystem.Model.DescribeMountTargetsRequest();
             if (cmdletContext.FileSystemId != null)
             {
                 request.FileSystemId = cmdletContext.FileSystemId;
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -213,10 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FileSystemId { get; set; }
-            public String Marker { get; set; }
+            public System.String FileSystemId { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public String MountTargetId { get; set; }
+            public System.String MountTargetId { get; set; }
         }
         
     }

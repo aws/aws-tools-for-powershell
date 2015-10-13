@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [OutputType("Amazon.CloudHSM.Model.DescribeHapgResponse")]
     [AWSCmdlet("Invokes the DescribeHapg operation against AWS Cloud HSM.", Operation = new[] {"DescribeHapg"})]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHapgResponse",
-        "This cmdlet returns a DescribeHapgResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudHSM.Model.DescribeHapgResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HapgArn { get; set; }
+        public System.String HapgArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeHapgRequest();
+            var request = new Amazon.CloudHSM.Model.DescribeHapgRequest();
             
             if (cmdletContext.HapgArn != null)
             {
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HapgArn { get; set; }
+            public System.String HapgArn { get; set; }
         }
         
     }

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the PurchaseReservedCacheNodesOffering operation against Amazon ElastiCache.", Operation = new[] {"PurchaseReservedCacheNodesOffering"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReservedCacheNode",
         "This cmdlet returns a ReservedCacheNode object.",
-        "The service call response (type PurchaseReservedCacheNodesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 CacheNodeCount { get; set; }
+        public System.Int32 CacheNodeCount { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ReservedCacheNodeId { get; set; }
+        public System.String ReservedCacheNodeId { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedCacheNodesOfferingId { get; set; }
+        public System.String ReservedCacheNodesOfferingId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedCacheNodesOfferingRequest();
+            var request = new Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingRequest();
             
             if (cmdletContext.CacheNodeCount != null)
             {
@@ -153,9 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? CacheNodeCount { get; set; }
-            public String ReservedCacheNodeId { get; set; }
-            public String ReservedCacheNodesOfferingId { get; set; }
+            public System.Int32? CacheNodeCount { get; set; }
+            public System.String ReservedCacheNodeId { get; set; }
+            public System.String ReservedCacheNodesOfferingId { get; set; }
         }
         
     }

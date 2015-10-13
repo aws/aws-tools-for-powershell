@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the CancelCertificateTransfer operation against AWS IoT.", Operation = new[] {"CancelCertificateTransfer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CancelCertificateTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.CancelCertificateTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopIOTCertificateTransferCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CertificateId { get; set; }
+        public System.String CertificateId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the CertificateId parameter.
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelCertificateTransferRequest();
+            var request = new Amazon.IoT.Model.CancelCertificateTransferRequest();
             
             if (cmdletContext.CertificateId != null)
             {
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CertificateId { get; set; }
+            public System.String CertificateId { get; set; }
         }
         
     }

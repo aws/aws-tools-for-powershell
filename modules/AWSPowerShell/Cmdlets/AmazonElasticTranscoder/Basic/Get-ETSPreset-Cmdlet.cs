@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the ListPresets operation against Amazon Elastic Transcoder.", Operation = new[] {"ListPresets"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Preset",
         "This cmdlet returns a collection of Preset objects.",
-        "The service call response (type ListPresetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type String)"
+        "The service call response (type Amazon.ElasticTranscoder.Model.ListPresetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
     public class GetETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Ascending { get; set; }
+        public System.String Ascending { get; set; }
         
         /// <summary>
         /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String PageToken { get; set; }
+        public System.String PageToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListPresetsRequest();
+            var request = new Amazon.ElasticTranscoder.Model.ListPresetsRequest();
             
             if (cmdletContext.Ascending != null)
             {
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.PageToken))
             {
@@ -163,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Ascending { get; set; }
-            public String PageToken { get; set; }
+            public System.String Ascending { get; set; }
+            public System.String PageToken { get; set; }
         }
         
     }

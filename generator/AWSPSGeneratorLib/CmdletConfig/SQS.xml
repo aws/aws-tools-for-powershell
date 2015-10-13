@@ -6,10 +6,6 @@
   <ServiceClient>AmazonSQSClient</ServiceClient>
   <ServiceNamespace>Amazon.SQS</ServiceNamespace>
 
-  <RetainFullTypeNames>
-    <TypeName>Amazon.SQS.Model.Attribute</TypeName> <!-- avoid collision with System.Attribute -->
-  </RetainFullTypeNames>
-
   <PositionalParameters>QueueUrl</PositionalParameters>
   <PipelineParameter>QueueUrl</PipelineParameter>
 

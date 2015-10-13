@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type ModifyDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 AllocatedStorage { get; set; }
+        public System.Int32 AllocatedStorage { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowMajorVersionUpgrade { get; set; }
+        public System.Boolean AllowMajorVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ApplyImmediately { get; set; }
+        public System.Boolean ApplyImmediately { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoMinorVersionUpgrade { get; set; }
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BackupRetentionPeriod { get; set; }
+        public System.Int32 BackupRetentionPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CACertificateIdentifier { get; set; }
+        public System.String CACertificateIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTagsToSnapshot { get; set; }
+        public System.Boolean CopyTagsToSnapshot { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceClass { get; set; }
+        public System.String DBInstanceClass { get; set; }
         
         /// <summary>
         /// <para>
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBParameterGroupName { get; set; }
+        public System.String DBParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Iops { get; set; }
+        public System.Int32 Iops { get; set; }
         
         /// <summary>
         /// <para>
@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MasterUserPassword { get; set; }
+        public System.String MasterUserPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean MultiAZ { get; set; }
+        public System.Boolean MultiAZ { get; set; }
         
         /// <summary>
         /// <para>
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewDBInstanceIdentifier { get; set; }
+        public System.String NewDBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredBackupWindow { get; set; }
+        public System.String PreferredBackupWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -321,7 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StorageType { get; set; }
+        public System.String StorageType { get; set; }
         
         /// <summary>
         /// <para>
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialArn { get; set; }
+        public System.String TdeCredentialArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialPassword { get; set; }
+        public System.String TdeCredentialPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -395,7 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBParameterGroupName = this.DBParameterGroupName;
             if (this.DBSecurityGroup != null)
             {
-                context.DBSecurityGroups = new List<String>(this.DBSecurityGroup);
+                context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
@@ -412,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.TdeCredentialPassword = this.TdeCredentialPassword;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -425,7 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyDBInstanceRequest();
+            var request = new Amazon.RDS.Model.ModifyDBInstanceRequest();
             
             if (cmdletContext.AllocatedStorage != null)
             {
@@ -554,29 +554,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? AllocatedStorage { get; set; }
-            public Boolean? AllowMajorVersionUpgrade { get; set; }
-            public Boolean? ApplyImmediately { get; set; }
-            public Boolean? AutoMinorVersionUpgrade { get; set; }
-            public Int32? BackupRetentionPeriod { get; set; }
-            public String CACertificateIdentifier { get; set; }
-            public Boolean? CopyTagsToSnapshot { get; set; }
-            public String DBInstanceClass { get; set; }
-            public String DBInstanceIdentifier { get; set; }
-            public String DBParameterGroupName { get; set; }
-            public List<String> DBSecurityGroups { get; set; }
-            public String EngineVersion { get; set; }
-            public Int32? Iops { get; set; }
-            public String MasterUserPassword { get; set; }
-            public Boolean? MultiAZ { get; set; }
-            public String NewDBInstanceIdentifier { get; set; }
-            public String OptionGroupName { get; set; }
-            public String PreferredBackupWindow { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public String StorageType { get; set; }
-            public String TdeCredentialArn { get; set; }
-            public String TdeCredentialPassword { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Int32? AllocatedStorage { get; set; }
+            public System.Boolean? AllowMajorVersionUpgrade { get; set; }
+            public System.Boolean? ApplyImmediately { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String CACertificateIdentifier { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String DBInstanceClass { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String DBParameterGroupName { get; set; }
+            public List<System.String> DBSecurityGroups { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.Int32? Iops { get; set; }
+            public System.String MasterUserPassword { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
+            public System.String NewDBInstanceIdentifier { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public System.String StorageType { get; set; }
+            public System.String TdeCredentialArn { get; set; }
+            public System.String TdeCredentialPassword { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

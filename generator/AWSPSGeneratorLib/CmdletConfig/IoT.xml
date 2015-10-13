@@ -126,21 +126,13 @@
     <ServiceOperation MethodName="UpdateThing"
         PipelineParameter="ThingName"
         Output="Void"/>
-    <!--  TODO: Temporarily moved these to Advanced because Action
-                conflicts with System.Action. Need to fully-qualify
-                references to model types. jimfl
-    
     <ServiceOperation MethodName="CreateTopicRule"
         NoPipelineParameter="true"
         Output="Void"/>
-        
     <ServiceOperation MethodName="ReplaceTopicRule"
         Verb="Set"
         PipelineParameter="RuleName"
         Output="Void"/>
-    -->
-        <ServiceOperation Exclude="true" MethodName="CreateTopicRule" />
-        <ServiceOperation Exclude="true" MethodName="ReplaceTopicRule" />
         
   </ServiceOperations>
   

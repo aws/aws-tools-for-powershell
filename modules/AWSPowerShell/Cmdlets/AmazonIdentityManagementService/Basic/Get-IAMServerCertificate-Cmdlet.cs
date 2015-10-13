@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetServerCertificate operation against AWS Identity and Access Management.", Operation = new[] {"GetServerCertificate"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServerCertificate",
         "This cmdlet returns a ServerCertificate object.",
-        "The service call response (type GetServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ServerCertificateName { get; set; }
+        public System.String ServerCertificateName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetServerCertificateRequest();
+            var request = new Amazon.IdentityManagement.Model.GetServerCertificateRequest();
             
             if (cmdletContext.ServerCertificateName != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ServerCertificateName { get; set; }
+            public System.String ServerCertificateName { get; set; }
         }
         
     }

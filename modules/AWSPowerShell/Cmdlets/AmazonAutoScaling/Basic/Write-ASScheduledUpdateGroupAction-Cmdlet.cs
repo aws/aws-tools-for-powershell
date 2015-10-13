@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the PutScheduledUpdateGroupAction operation against Auto Scaling.", Operation = new[] {"PutScheduledUpdateGroupAction"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutScheduledUpdateGroupActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteASScheduledUpdateGroupActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DesiredCapacity { get; set; }
+        public System.Int32 DesiredCapacity { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MaxSize { get; set; }
+        public System.Int32 MaxSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MinSize { get; set; }
+        public System.Int32 MinSize { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Recurrence { get; set; }
+        public System.String Recurrence { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ScheduledActionName { get; set; }
+        public System.String ScheduledActionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
         
         /// <summary>
         /// <para>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime Time { get; set; }
+        public System.DateTime Time { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutScheduledUpdateGroupActionRequest();
+            var request = new Amazon.AutoScaling.Model.PutScheduledUpdateGroupActionRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -259,15 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public Int32? DesiredCapacity { get; set; }
-            public DateTime? EndTime { get; set; }
-            public Int32? MaxSize { get; set; }
-            public Int32? MinSize { get; set; }
-            public String Recurrence { get; set; }
-            public String ScheduledActionName { get; set; }
-            public DateTime? StartTime { get; set; }
-            public DateTime? Time { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.Int32? DesiredCapacity { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public System.Int32? MaxSize { get; set; }
+            public System.Int32? MinSize { get; set; }
+            public System.String Recurrence { get; set; }
+            public System.String ScheduledActionName { get; set; }
+            public System.DateTime? StartTime { get; set; }
+            public System.DateTime? Time { get; set; }
         }
         
     }

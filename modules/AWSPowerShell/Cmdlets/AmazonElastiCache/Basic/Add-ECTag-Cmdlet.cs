@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the AddTagsToResource operation against Amazon ElastiCache.", Operation = new[] {"AddTagsToResource"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
         
         /// <summary>
         /// <para>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.ResourceName = this.ResourceName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsToResourceRequest();
+            var request = new Amazon.ElastiCache.Model.AddTagsToResourceRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceName { get; set; }
+            public List<Amazon.ElastiCache.Model.Tag> Tags { get; set; }
         }
         
     }

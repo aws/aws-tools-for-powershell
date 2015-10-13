@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ApplyPendingMaintenanceAction operation against Amazon Relational Database Service.", Operation = new[] {"ApplyPendingMaintenanceAction"})]
     [AWSCmdletOutput("Amazon.RDS.Model.ResourcePendingMaintenanceActions",
         "This cmdlet returns a ResourcePendingMaintenanceActions object.",
-        "The service call response (type ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SubmitRDSPendingMaintenanceActionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ApplyAction { get; set; }
+        public System.String ApplyAction { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OptInType { get; set; }
+        public System.String OptInType { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceIdentifier { get; set; }
+        public System.String ResourceIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ApplyPendingMaintenanceActionRequest();
+            var request = new Amazon.RDS.Model.ApplyPendingMaintenanceActionRequest();
             
             if (cmdletContext.ApplyAction != null)
             {
@@ -156,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplyAction { get; set; }
-            public String OptInType { get; set; }
-            public String ResourceIdentifier { get; set; }
+            public System.String ApplyAction { get; set; }
+            public System.String OptInType { get; set; }
+            public System.String ResourceIdentifier { get; set; }
         }
         
     }

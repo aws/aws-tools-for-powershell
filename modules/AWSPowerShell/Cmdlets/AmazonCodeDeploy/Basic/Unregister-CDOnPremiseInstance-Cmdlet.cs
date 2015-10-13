@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the DeregisterOnPremisesInstance operation against AWS CodeDeploy.", Operation = new[] {"DeregisterOnPremisesInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeregisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.DeregisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String InstanceName { get; set; }
+        public System.String InstanceName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the InstanceName parameter.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeregisterOnPremisesInstanceRequest();
+            var request = new Amazon.CodeDeploy.Model.DeregisterOnPremisesInstanceRequest();
             
             if (cmdletContext.InstanceName != null)
             {
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceName { get; set; }
+            public System.String InstanceName { get; set; }
         }
         
     }

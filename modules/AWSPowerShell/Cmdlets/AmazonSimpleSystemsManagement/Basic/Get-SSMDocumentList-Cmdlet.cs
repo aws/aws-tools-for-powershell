@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the ListDocuments operation against Amazon Simple Systems Management.", Operation = new[] {"ListDocuments"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier",
         "This cmdlet returns a collection of DocumentIdentifier objects.",
-        "The service call response (type ListDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSSMDocumentListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             if (this.DocumentFilterList != null)
             {
-                context.DocumentFilterList = new List<DocumentFilter>(this.DocumentFilterList);
+                context.DocumentFilterList = new List<Amazon.SimpleSystemsManagement.Model.DocumentFilter>(this.DocumentFilterList);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -97,14 +97,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListDocumentsRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.ListDocumentsRequest();
             if (cmdletContext.DocumentFilterList != null)
             {
                 request.DocumentFilterList = cmdletContext.DocumentFilterList;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 25;
@@ -219,9 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<DocumentFilter> DocumentFilterList { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.DocumentFilter> DocumentFilterList { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

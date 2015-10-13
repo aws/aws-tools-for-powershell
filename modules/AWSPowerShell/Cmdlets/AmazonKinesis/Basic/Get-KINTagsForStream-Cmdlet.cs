@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     [OutputType("Amazon.Kinesis.Model.ListTagsForStreamResponse")]
     [AWSCmdlet("Invokes the ListTagsForStream operation against AWS Kinesis.", Operation = new[] {"ListTagsForStream"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.ListTagsForStreamResponse",
-        "This cmdlet returns a ListTagsForStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Kinesis.Model.ListTagsForStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINTagsForStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExclusiveStartTagKey { get; set; }
+        public System.String ExclusiveStartTagKey { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamName { get; set; }
+        public System.String StreamName { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         
         
         protected override void ProcessRecord()
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsForStreamRequest();
+            var request = new Amazon.Kinesis.Model.ListTagsForStreamRequest();
             
             if (cmdletContext.ExclusiveStartTagKey != null)
             {
@@ -142,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ExclusiveStartTagKey { get; set; }
-            public Int32? Limit { get; set; }
-            public String StreamName { get; set; }
+            public System.String ExclusiveStartTagKey { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String StreamName { get; set; }
         }
         
     }

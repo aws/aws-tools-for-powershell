@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Invokes the RemoveTags operation against Amazon Elasticsearch.", Operation = new[] {"RemoveTags"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagKey parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Elasticsearch.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveESTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ARN { get; set; }
+        public System.String ARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.ARN = this.ARN;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsRequest();
+            var request = new Amazon.Elasticsearch.Model.RemoveTagsRequest();
             
             if (cmdletContext.ARN != null)
             {
@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ARN { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String ARN { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

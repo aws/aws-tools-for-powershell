@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DetachNetworkInterface operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DetachNetworkInterface"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AttachmentId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DetachNetworkInterfaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DetachNetworkInterfaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DismountEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AttachmentId { get; set; }
+        public System.String AttachmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ForceDismount { get; set; }
+        public System.Boolean ForceDismount { get; set; }
         
         /// <summary>
         /// Returns the value passed to the AttachmentId parameter.
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DetachNetworkInterfaceRequest();
+            var request = new Amazon.EC2.Model.DetachNetworkInterfaceRequest();
             
             if (cmdletContext.AttachmentId != null)
             {
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttachmentId { get; set; }
-            public Boolean? ForceDismount { get; set; }
+            public System.String AttachmentId { get; set; }
+            public System.Boolean? ForceDismount { get; set; }
         }
         
     }

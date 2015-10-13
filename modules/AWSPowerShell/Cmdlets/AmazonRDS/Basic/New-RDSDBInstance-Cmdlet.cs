@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type CreateDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 AllocatedStorage { get; set; }
+        public System.Int32 AllocatedStorage { get; set; }
         
         /// <summary>
         /// <para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoMinorVersionUpgrade { get; set; }
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BackupRetentionPeriod { get; set; }
+        public System.Int32 BackupRetentionPeriod { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CharacterSetName { get; set; }
+        public System.String CharacterSetName { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTagsToSnapshot { get; set; }
+        public System.Boolean CopyTagsToSnapshot { get; set; }
         
         /// <summary>
         /// <para>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceClass { get; set; }
+        public System.String DBInstanceClass { get; set; }
         
         /// <summary>
         /// <para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBName { get; set; }
+        public System.String DBName { get; set; }
         
         /// <summary>
         /// <para>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBParameterGroupName { get; set; }
+        public System.String DBParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
         
         /// <summary>
         /// <para>
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Iops { get; set; }
+        public System.Int32 Iops { get; set; }
         
         /// <summary>
         /// <para>
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
         
         /// <summary>
         /// <para>
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LicenseModel { get; set; }
+        public System.String LicenseModel { get; set; }
         
         /// <summary>
         /// <para>
@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MasterUsername { get; set; }
+        public System.String MasterUsername { get; set; }
         
         /// <summary>
         /// <para>
@@ -264,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MasterUserPassword { get; set; }
+        public System.String MasterUserPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean MultiAZ { get; set; }
+        public System.Boolean MultiAZ { get; set; }
         
         /// <summary>
         /// <para>
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
         
         /// <summary>
         /// <para>
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredBackupWindow { get; set; }
+        public System.String PreferredBackupWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
         
         /// <summary>
         /// <para>
@@ -338,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PubliclyAccessible { get; set; }
+        public System.Boolean PubliclyAccessible { get; set; }
         
         /// <summary>
         /// <para>
@@ -346,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean StorageEncrypted { get; set; }
+        public System.Boolean StorageEncrypted { get; set; }
         
         /// <summary>
         /// <para>
@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StorageType { get; set; }
+        public System.String StorageType { get; set; }
         
         /// <summary>
         /// <para>
@@ -374,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialArn { get; set; }
+        public System.String TdeCredentialArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -383,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialPassword { get; set; }
+        public System.String TdeCredentialPassword { get; set; }
         
         /// <summary>
         /// <para>
@@ -436,7 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBParameterGroupName = this.DBParameterGroupName;
             if (this.DBSecurityGroup != null)
             {
-                context.DBSecurityGroups = new List<String>(this.DBSecurityGroup);
+                context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Engine = this.Engine;
@@ -461,13 +461,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -480,7 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBInstanceRequest();
+            var request = new Amazon.RDS.Model.CreateDBInstanceRequest();
             
             if (cmdletContext.AllocatedStorage != null)
             {
@@ -645,38 +645,38 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? AllocatedStorage { get; set; }
-            public Boolean? AutoMinorVersionUpgrade { get; set; }
-            public String AvailabilityZone { get; set; }
-            public Int32? BackupRetentionPeriod { get; set; }
-            public String CharacterSetName { get; set; }
-            public Boolean? CopyTagsToSnapshot { get; set; }
-            public String DBClusterIdentifier { get; set; }
-            public String DBInstanceClass { get; set; }
-            public String DBInstanceIdentifier { get; set; }
-            public String DBName { get; set; }
-            public String DBParameterGroupName { get; set; }
-            public List<String> DBSecurityGroups { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public String Engine { get; set; }
-            public String EngineVersion { get; set; }
-            public Int32? Iops { get; set; }
-            public String KmsKeyId { get; set; }
-            public String LicenseModel { get; set; }
-            public String MasterUsername { get; set; }
-            public String MasterUserPassword { get; set; }
-            public Boolean? MultiAZ { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public String PreferredBackupWindow { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public Boolean? PubliclyAccessible { get; set; }
-            public Boolean? StorageEncrypted { get; set; }
-            public String StorageType { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TdeCredentialArn { get; set; }
-            public String TdeCredentialPassword { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Int32? AllocatedStorage { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String CharacterSetName { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBInstanceClass { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String DBName { get; set; }
+            public System.String DBParameterGroupName { get; set; }
+            public List<System.String> DBSecurityGroups { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public System.String Engine { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.Int32? Iops { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String LicenseModel { get; set; }
+            public System.String MasterUsername { get; set; }
+            public System.String MasterUserPassword { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
+            public System.Boolean? StorageEncrypted { get; set; }
+            public System.String StorageType { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TdeCredentialArn { get; set; }
+            public System.String TdeCredentialPassword { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

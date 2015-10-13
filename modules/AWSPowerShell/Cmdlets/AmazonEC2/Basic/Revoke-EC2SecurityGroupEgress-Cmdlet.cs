@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the RevokeSecurityGroupEgress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RevokeSecurityGroupEgress"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RevokeSecurityGroupEgressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.RevokeSecurityGroupEgressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RevokeEC2SecurityGroupEgressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GroupId { get; set; }
+        public System.String GroupId { get; set; }
         
         /// <summary>
         /// <para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.GroupId = this.GroupId;
             if (this.IpPermission != null)
             {
-                context.IpPermissions = new List<IpPermission>(this.IpPermission);
+                context.IpPermissions = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RevokeSecurityGroupEgressRequest();
+            var request = new Amazon.EC2.Model.RevokeSecurityGroupEgressRequest();
             
             if (cmdletContext.GroupId != null)
             {
@@ -164,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupId { get; set; }
-            public List<IpPermission> IpPermissions { get; set; }
+            public System.String GroupId { get; set; }
+            public List<Amazon.EC2.Model.IpPermission> IpPermissions { get; set; }
         }
         
     }

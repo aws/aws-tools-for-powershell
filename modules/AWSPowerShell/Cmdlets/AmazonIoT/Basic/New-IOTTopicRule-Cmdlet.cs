@@ -28,16 +28,16 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Replaces the specified rule. You must specify all parameters for the new rule.
+    /// Creates a rule.
     /// </summary>
-    [Cmdlet("Set", "IOTTopicRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ReplaceTopicRule operation against AWS IoT.", Operation = new[] {"ReplaceTopicRule"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ReplaceTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "IOTTopicRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Invokes the CreateTopicRule operation against AWS IoT.", Operation = new[] {"CreateTopicRule"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type Amazon.IoT.Model.CreateTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class SetIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class NewIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TopicRulePayload_Description { get; set; }
+        public System.String TopicRulePayload_Description { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,15 +62,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean TopicRulePayload_RuleDisabled { get; set; }
+        public System.Boolean TopicRulePayload_RuleDisabled { get; set; }
         
         /// <summary>
         /// <para>
         /// <para>The name of the rule.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RuleName { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String RuleName { get; set; }
         
         /// <summary>
         /// <para>
@@ -79,14 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TopicRulePayload_Sql { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the RuleName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String TopicRulePayload_Sql { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RuleName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-IOTTopicRule (ReplaceTopicRule)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTTopicRule (CreateTopicRule)"))
             {
                 return;
             }
@@ -133,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReplaceTopicRuleRequest();
+            var request = new Amazon.IoT.Model.CreateTopicRuleRequest();
             
             if (cmdletContext.RuleName != null)
             {
@@ -142,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
              // populate TopicRulePayload
             bool requestTopicRulePayloadIsNull = true;
-            request.TopicRulePayload = new TopicRulePayload();
+            request.TopicRulePayload = new Amazon.IoT.Model.TopicRulePayload();
             List<Amazon.IoT.Model.Action> requestTopicRulePayload_topicRulePayload_Action = null;
             if (cmdletContext.TopicRulePayload_Actions != null)
             {
@@ -153,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.TopicRulePayload.Actions = requestTopicRulePayload_topicRulePayload_Action;
                 requestTopicRulePayloadIsNull = false;
             }
-            String requestTopicRulePayload_topicRulePayload_Description = null;
+            System.String requestTopicRulePayload_topicRulePayload_Description = null;
             if (cmdletContext.TopicRulePayload_Description != null)
             {
                 requestTopicRulePayload_topicRulePayload_Description = cmdletContext.TopicRulePayload_Description;
@@ -163,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.TopicRulePayload.Description = requestTopicRulePayload_topicRulePayload_Description;
                 requestTopicRulePayloadIsNull = false;
             }
-            Boolean? requestTopicRulePayload_topicRulePayload_RuleDisabled = null;
+            System.Boolean? requestTopicRulePayload_topicRulePayload_RuleDisabled = null;
             if (cmdletContext.TopicRulePayload_RuleDisabled != null)
             {
                 requestTopicRulePayload_topicRulePayload_RuleDisabled = cmdletContext.TopicRulePayload_RuleDisabled.Value;
@@ -173,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.TopicRulePayload.RuleDisabled = requestTopicRulePayload_topicRulePayload_RuleDisabled.Value;
                 requestTopicRulePayloadIsNull = false;
             }
-            String requestTopicRulePayload_topicRulePayload_Sql = null;
+            System.String requestTopicRulePayload_topicRulePayload_Sql = null;
             if (cmdletContext.TopicRulePayload_Sql != null)
             {
                 requestTopicRulePayload_topicRulePayload_Sql = cmdletContext.TopicRulePayload_Sql;
@@ -195,11 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ReplaceTopicRule(request);
+                var response = client.CreateTopicRule(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.RuleName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -225,11 +216,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RuleName { get; set; }
+            public System.String RuleName { get; set; }
             public List<Amazon.IoT.Model.Action> TopicRulePayload_Actions { get; set; }
-            public String TopicRulePayload_Description { get; set; }
-            public Boolean? TopicRulePayload_RuleDisabled { get; set; }
-            public String TopicRulePayload_Sql { get; set; }
+            public System.String TopicRulePayload_Description { get; set; }
+            public System.Boolean? TopicRulePayload_RuleDisabled { get; set; }
+            public System.String TopicRulePayload_Sql { get; set; }
         }
         
     }

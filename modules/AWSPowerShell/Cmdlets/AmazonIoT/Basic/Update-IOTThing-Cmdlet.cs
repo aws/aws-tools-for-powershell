@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdlet("Invokes the UpdateThing operation against AWS IoT.", Operation = new[] {"UpdateThing"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.UpdateThingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ThingName { get; set; }
+        public System.String ThingName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the ThingName parameter.
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             
             if (this.AttributePayload_Attribute != null)
             {
-                context.AttributePayload_Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AttributePayload_Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AttributePayload_Attribute.Keys)
                 {
                     context.AttributePayload_Attributes.Add((String)hashKey, (String)(this.AttributePayload_Attribute[hashKey]));
@@ -108,13 +108,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateThingRequest();
+            var request = new Amazon.IoT.Model.UpdateThingRequest();
             
             
              // populate AttributePayload
             bool requestAttributePayloadIsNull = true;
-            request.AttributePayload = new AttributePayload();
-            Dictionary<String, String> requestAttributePayload_attributePayload_Attribute = null;
+            request.AttributePayload = new Amazon.IoT.Model.AttributePayload();
+            Dictionary<System.String, System.String> requestAttributePayload_attributePayload_Attribute = null;
             if (cmdletContext.AttributePayload_Attributes != null)
             {
                 requestAttributePayload_attributePayload_Attribute = cmdletContext.AttributePayload_Attributes;
@@ -170,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> AttributePayload_Attributes { get; set; }
-            public String ThingName { get; set; }
+            public Dictionary<System.String, System.String> AttributePayload_Attributes { get; set; }
+            public System.String ThingName { get; set; }
         }
         
     }

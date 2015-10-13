@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the PutSubscriptionFilter operation against Amazon CloudWatch Logs.", Operation = new[] {"PutSubscriptionFilter"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutSubscriptionFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.PutSubscriptionFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCWLSubscriptionFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationArn { get; set; }
+        public System.String DestinationArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String FilterName { get; set; }
+        public System.String FilterName { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String FilterPattern { get; set; }
+        public System.String FilterPattern { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RoleArn { get; set; }
+        public System.String RoleArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LogGroupName parameter.
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutSubscriptionFilterRequest();
+            var request = new Amazon.CloudWatchLogs.Model.PutSubscriptionFilterRequest();
             
             if (cmdletContext.DestinationArn != null)
             {
@@ -203,11 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DestinationArn { get; set; }
-            public String FilterName { get; set; }
-            public String FilterPattern { get; set; }
-            public String LogGroupName { get; set; }
-            public String RoleArn { get; set; }
+            public System.String DestinationArn { get; set; }
+            public System.String FilterName { get; set; }
+            public System.String FilterPattern { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String RoleArn { get; set; }
         }
         
     }

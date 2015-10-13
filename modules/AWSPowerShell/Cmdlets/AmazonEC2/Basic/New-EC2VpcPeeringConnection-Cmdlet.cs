@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateVpcPeeringConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpcPeeringConnection"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcPeeringConnection",
         "This cmdlet returns a VpcPeeringConnection object.",
-        "The service call response (type CreateVpcPeeringConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVpcPeeringConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpcPeeringConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PeerOwnerId { get; set; }
+        public System.String PeerOwnerId { get; set; }
         
         /// <summary>
         /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String PeerVpcId { get; set; }
+        public System.String PeerVpcId { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpcPeeringConnectionRequest();
+            var request = new Amazon.EC2.Model.CreateVpcPeeringConnectionRequest();
             
             if (cmdletContext.PeerOwnerId != null)
             {
@@ -163,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PeerOwnerId { get; set; }
-            public String PeerVpcId { get; set; }
-            public String VpcId { get; set; }
+            public System.String PeerOwnerId { get; set; }
+            public System.String PeerVpcId { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

@@ -448,14 +448,6 @@ namespace AWSPowerShellGenerator.CmdletConfig
         }
 
         /// <summary>
-        /// Collection of fully-qualified type names from service model that we
-        /// should never attempt to shorten by removing the namespace, otherwise
-        /// a collision with other types will ensure (eg System.Attribute)
-        /// </summary>
-        [XmlArrayItem("TypeName")]
-        public List<string> RetainFullTypeNames = new List<string>();
-
-        /// <summary>
         /// List of additional namespaces to be included as 'using' statements in the cmdlet
         /// and therefore assumed when referencing types. The service root namespace plus
         /// '.Model' variant will be automatically added to the namespaces defined in 

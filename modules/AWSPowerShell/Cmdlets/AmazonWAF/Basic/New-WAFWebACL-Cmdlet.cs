@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [OutputType("Amazon.WAF.Model.CreateWebACLResponse")]
     [AWSCmdlet("Invokes the CreateWebACL operation against AWS WAF.", Operation = new[] {"CreateWebACL"})]
     [AWSCmdletOutput("Amazon.WAF.Model.CreateWebACLResponse",
-        "This cmdlet returns a CreateWebACLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.WAF.Model.CreateWebACLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MetricName { get; set; }
+        public System.String MetricName { get; set; }
         
         /// <summary>
         /// <para>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public WafActionType DefaultAction_Type { get; set; }
+        public Amazon.WAF.WafActionType DefaultAction_Type { get; set; }
         
         
         protected override void ProcessRecord()
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateWebACLRequest();
+            var request = new Amazon.WAF.Model.CreateWebACLRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             
              // populate DefaultAction
             bool requestDefaultActionIsNull = true;
-            request.DefaultAction = new WafAction();
-            WafActionType requestDefaultAction_defaultAction_Type = null;
+            request.DefaultAction = new Amazon.WAF.Model.WafAction();
+            Amazon.WAF.WafActionType requestDefaultAction_defaultAction_Type = null;
             if (cmdletContext.DefaultAction_Type != null)
             {
                 requestDefaultAction_defaultAction_Type = cmdletContext.DefaultAction_Type;
@@ -198,10 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public WafActionType DefaultAction_Type { get; set; }
-            public String MetricName { get; set; }
-            public String Name { get; set; }
+            public System.String ChangeToken { get; set; }
+            public Amazon.WAF.WafActionType DefaultAction_Type { get; set; }
+            public System.String MetricName { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

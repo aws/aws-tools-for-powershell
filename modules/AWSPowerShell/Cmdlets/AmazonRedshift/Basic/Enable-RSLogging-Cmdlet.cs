@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.EnableLoggingResponse")]
     [AWSCmdlet("Invokes the EnableLogging operation against Amazon Redshift.", Operation = new[] {"EnableLogging"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.EnableLoggingResponse",
-        "This cmdlet returns a EnableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Redshift.Model.EnableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
         
         /// <summary>
         /// <para>
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         
         /// <summary>
         /// <para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String S3KeyPrefix { get; set; }
+        public System.String S3KeyPrefix { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableLoggingRequest();
+            var request = new Amazon.Redshift.Model.EnableLoggingRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -154,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String ClusterIdentifier { get; set; }
-            public String S3KeyPrefix { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String S3KeyPrefix { get; set; }
         }
         
     }

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateCloudFrontOriginAccessIdentityResponse")]
     [AWSCmdlet("Invokes the CreateCloudFrontOriginAccessIdentity operation against Amazon CloudFront.", Operation = new[] {"CreateCloudFrontOriginAccessIdentity"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateCloudFrontOriginAccessIdentityResponse",
-        "This cmdlet returns a CreateCloudFrontOriginAccessIdentityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudFront.Model.CreateCloudFrontOriginAccessIdentityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCFCloudFrontOriginAccessIdentityCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
+        public System.String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
         
         /// <summary>
         /// <para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
+        public System.String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,13 +102,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCloudFrontOriginAccessIdentityRequest();
+            var request = new Amazon.CloudFront.Model.CreateCloudFrontOriginAccessIdentityRequest();
             
             
              // populate CloudFrontOriginAccessIdentityConfig
             bool requestCloudFrontOriginAccessIdentityConfigIsNull = true;
-            request.CloudFrontOriginAccessIdentityConfig = new CloudFrontOriginAccessIdentityConfig();
-            String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference = null;
+            request.CloudFrontOriginAccessIdentityConfig = new Amazon.CloudFront.Model.CloudFrontOriginAccessIdentityConfig();
+            System.String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference = null;
             if (cmdletContext.CloudFrontOriginAccessIdentityConfig_CallerReference != null)
             {
                 requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference = cmdletContext.CloudFrontOriginAccessIdentityConfig_CallerReference;
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.CloudFrontOriginAccessIdentityConfig.CallerReference = requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_CallerReference;
                 requestCloudFrontOriginAccessIdentityConfigIsNull = false;
             }
-            String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_Comment = null;
+            System.String requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_Comment = null;
             if (cmdletContext.CloudFrontOriginAccessIdentityConfig_Comment != null)
             {
                 requestCloudFrontOriginAccessIdentityConfig_cloudFrontOriginAccessIdentityConfig_Comment = cmdletContext.CloudFrontOriginAccessIdentityConfig_Comment;
@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
-            public String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
+            public System.String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
+            public System.String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
         }
         
     }

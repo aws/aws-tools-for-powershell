@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DescribeScalingActivities operation against Auto Scaling.", Operation = new[] {"DescribeScalingActivities"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
-        "The service call response (type DescribeScalingActivitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.AutoScaling.Model.DescribeScalingActivitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetASScalingActivityCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             
             if (this.ActivityId != null)
             {
-                context.ActivityIds = new List<String>(this.ActivityId);
+                context.ActivityIds = new List<System.String>(this.ActivityId);
             }
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (ParameterWasBound("MaxRecord"))
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeScalingActivitiesRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeScalingActivitiesRequest();
             if (cmdletContext.ActivityIds != null)
             {
                 request.ActivityIds = cmdletContext.ActivityIds;
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -209,10 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ActivityIds { get; set; }
-            public String AutoScalingGroupName { get; set; }
+            public List<System.String> ActivityIds { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
             public int? MaxRecords { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the AddPermission operation against Amazon Simple Notification Service.", Operation = new[] {"AddPermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TopicArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddSNSPermissionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Label { get; set; }
+        public System.String Label { get; set; }
         
         /// <summary>
         /// <para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the TopicArn parameter.
@@ -110,11 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             
             if (this.ActionName != null)
             {
-                context.ActionName = new List<String>(this.ActionName);
+                context.ActionName = new List<System.String>(this.ActionName);
             }
             if (this.AWSAccountId != null)
             {
-                context.AWSAccountId = new List<String>(this.AWSAccountId);
+                context.AWSAccountId = new List<System.String>(this.AWSAccountId);
             }
             context.Label = this.Label;
             context.TopicArn = this.TopicArn;
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddPermissionRequest();
+            var request = new Amazon.SimpleNotificationService.Model.AddPermissionRequest();
             
             if (cmdletContext.ActionName != null)
             {
@@ -184,10 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ActionName { get; set; }
-            public List<String> AWSAccountId { get; set; }
-            public String Label { get; set; }
-            public String TopicArn { get; set; }
+            public List<System.String> ActionName { get; set; }
+            public List<System.String> AWSAccountId { get; set; }
+            public System.String Label { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

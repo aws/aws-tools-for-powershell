@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.ListGeoLocationsResponse")]
     [AWSCmdlet("Invokes the ListGeoLocations operation against AWS Route 53.", Operation = new[] {"ListGeoLocations"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ListGeoLocationsResponse",
-        "This cmdlet returns a ListGeoLocationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.ListGeoLocationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53GeoLocationsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartContinentCode { get; set; }
+        public System.String StartContinentCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartCountryCode { get; set; }
+        public System.String StartCountryCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartSubdivisionCode { get; set; }
+        public System.String StartSubdivisionCode { get; set; }
         
         /// <summary>
         /// <para>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListGeoLocationsRequest();
+            var request = new Amazon.Route53.Model.ListGeoLocationsRequest();
             
             if (cmdletContext.StartContinentCode != null)
             {
@@ -174,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StartContinentCode { get; set; }
-            public String StartCountryCode { get; set; }
-            public String StartSubdivisionCode { get; set; }
+            public System.String StartContinentCode { get; set; }
+            public System.String StartCountryCode { get; set; }
+            public System.String StartSubdivisionCode { get; set; }
             public int? MaxItems { get; set; }
         }
         

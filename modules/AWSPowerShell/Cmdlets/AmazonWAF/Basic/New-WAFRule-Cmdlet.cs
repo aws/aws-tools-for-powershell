@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     [OutputType("Amazon.WAF.Model.CreateRuleResponse")]
     [AWSCmdlet("Invokes the CreateRule operation against AWS WAF.", Operation = new[] {"CreateRule"})]
     [AWSCmdletOutput("Amazon.WAF.Model.CreateRuleResponse",
-        "This cmdlet returns a CreateRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.WAF.Model.CreateRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChangeToken { get; set; }
+        public System.String ChangeToken { get; set; }
         
         /// <summary>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MetricName { get; set; }
+        public System.String MetricName { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         
         protected override void ProcessRecord()
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateRuleRequest();
+            var request = new Amazon.WAF.Model.CreateRuleRequest();
             
             if (cmdletContext.ChangeToken != null)
             {
@@ -163,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ChangeToken { get; set; }
-            public String MetricName { get; set; }
-            public String Name { get; set; }
+            public System.String ChangeToken { get; set; }
+            public System.String MetricName { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

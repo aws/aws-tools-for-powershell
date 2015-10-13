@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the ModifyCacheParameterGroup operation against Amazon ElastiCache.", Operation = new[] {"ModifyCacheParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.ModifyCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheParameterGroupName { get; set; }
+        public System.String CacheParameterGroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheParameterGroupName = this.CacheParameterGroupName;
             if (this.ParameterNameValue != null)
             {
-                context.ParameterNameValues = new List<ParameterNameValue>(this.ParameterNameValue);
+                context.ParameterNameValues = new List<Amazon.ElastiCache.Model.ParameterNameValue>(this.ParameterNameValue);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyCacheParameterGroupRequest();
+            var request = new Amazon.ElastiCache.Model.ModifyCacheParameterGroupRequest();
             
             if (cmdletContext.CacheParameterGroupName != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheParameterGroupName { get; set; }
-            public List<ParameterNameValue> ParameterNameValues { get; set; }
+            public System.String CacheParameterGroupName { get; set; }
+            public List<Amazon.ElastiCache.Model.ParameterNameValue> ParameterNameValues { get; set; }
         }
         
     }

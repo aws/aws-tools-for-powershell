@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBSecurityGroup operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBSecurityGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBSecurityGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDBSecurityGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.RDS.Model.DeleteDBSecurityGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBSecurityGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
+        public System.String DBSecurityGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DBSecurityGroupName parameter.
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBSecurityGroupRequest();
+            var request = new Amazon.RDS.Model.DeleteDBSecurityGroupRequest();
             
             if (cmdletContext.DBSecurityGroupName != null)
             {
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSecurityGroupName { get; set; }
+            public System.String DBSecurityGroupName { get; set; }
         }
         
     }

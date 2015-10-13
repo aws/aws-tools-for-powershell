@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DeleteDeliveryChannel operation against Amazon Config.", Operation = new[] {"DeleteDeliveryChannel"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryChannelName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeliveryChannelName { get; set; }
+        public System.String DeliveryChannelName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the DeliveryChannelName parameter.
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDeliveryChannelRequest();
+            var request = new Amazon.ConfigService.Model.DeleteDeliveryChannelRequest();
             
             if (cmdletContext.DeliveryChannelName != null)
             {
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryChannelName { get; set; }
+            public System.String DeliveryChannelName { get; set; }
         }
         
     }

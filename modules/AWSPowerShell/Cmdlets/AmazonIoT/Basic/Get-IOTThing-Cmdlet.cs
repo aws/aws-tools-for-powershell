@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [OutputType("Amazon.IoT.Model.DescribeThingResponse")]
     [AWSCmdlet("Invokes the DescribeThing operation against AWS IoT.", Operation = new[] {"DescribeThing"})]
     [AWSCmdletOutput("Amazon.IoT.Model.DescribeThingResponse",
-        "This cmdlet returns a DescribeThingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IoT.Model.DescribeThingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ThingName { get; set; }
+        public System.String ThingName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeThingRequest();
+            var request = new Amazon.IoT.Model.DescribeThingRequest();
             
             if (cmdletContext.ThingName != null)
             {
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ThingName { get; set; }
+            public System.String ThingName { get; set; }
         }
         
     }

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the DeletePipeline operation against AWS Data Pipeline.", Operation = new[] {"DeletePipeline"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeletePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.DeletePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the PipelineId parameter.
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeletePipelineRequest();
+            var request = new Amazon.DataPipeline.Model.DeletePipelineRequest();
             
             if (cmdletContext.PipelineId != null)
             {
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PipelineId { get; set; }
+            public System.String PipelineId { get; set; }
         }
         
     }

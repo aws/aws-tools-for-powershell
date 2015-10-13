@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DeleteCacheSubnetGroup operation against Amazon ElastiCache.", Operation = new[] {"DeleteCacheSubnetGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CacheSubnetGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteCacheSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElastiCache.Model.DeleteCacheSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECCacheSubnetGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheSubnetGroupName { get; set; }
+        public System.String CacheSubnetGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the CacheSubnetGroupName parameter.
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteCacheSubnetGroupRequest();
+            var request = new Amazon.ElastiCache.Model.DeleteCacheSubnetGroupRequest();
             
             if (cmdletContext.CacheSubnetGroupName != null)
             {
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheSubnetGroupName { get; set; }
+            public System.String CacheSubnetGroupName { get; set; }
         }
         
     }

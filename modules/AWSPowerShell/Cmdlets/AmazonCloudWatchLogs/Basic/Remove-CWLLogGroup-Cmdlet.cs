@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DeleteLogGroup operation against Amazon CloudWatch Logs.", Operation = new[] {"DeleteLogGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.DeleteLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCWLLogGroupCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LogGroupName parameter.
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteLogGroupRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DeleteLogGroupRequest();
             
             if (cmdletContext.LogGroupName != null)
             {
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LogGroupName { get; set; }
+            public System.String LogGroupName { get; set; }
         }
         
     }

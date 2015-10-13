@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the ConfirmSubscription operation against Amazon Simple Notification Service.", Operation = new[] {"ConfirmSubscription"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ConfirmSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AuthenticateOnUnsubscribe { get; set; }
+        public System.String AuthenticateOnUnsubscribe { get; set; }
         
         /// <summary>
         /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Token { get; set; }
+        public System.String Token { get; set; }
         
         /// <summary>
         /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConfirmSubscriptionRequest();
+            var request = new Amazon.SimpleNotificationService.Model.ConfirmSubscriptionRequest();
             
             if (cmdletContext.AuthenticateOnUnsubscribe != null)
             {
@@ -158,9 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AuthenticateOnUnsubscribe { get; set; }
-            public String Token { get; set; }
-            public String TopicArn { get; set; }
+            public System.String AuthenticateOnUnsubscribe { get; set; }
+            public System.String Token { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

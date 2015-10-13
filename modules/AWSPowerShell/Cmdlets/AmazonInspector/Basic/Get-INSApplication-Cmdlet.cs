@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     [AWSCmdlet("Invokes the DescribeApplication operation against Amazon Inspector.", Operation = new[] {"DescribeApplication"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.Application",
         "This cmdlet returns a Application object.",
-        "The service call response (type DescribeApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Inspector.Model.DescribeApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetINSApplicationCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationArn { get; set; }
+        public System.String ApplicationArn { get; set; }
         
         
         protected override void ProcessRecord()
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeApplicationRequest();
+            var request = new Amazon.Inspector.Model.DescribeApplicationRequest();
             
             if (cmdletContext.ApplicationArn != null)
             {
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationArn { get; set; }
+            public System.String ApplicationArn { get; set; }
         }
         
     }

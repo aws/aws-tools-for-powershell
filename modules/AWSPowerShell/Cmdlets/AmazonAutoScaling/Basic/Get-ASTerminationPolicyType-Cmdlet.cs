@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DescribeTerminationPolicyTypes operation against Auto Scaling.", Operation = new[] {"DescribeTerminationPolicyTypes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type DescribeTerminationPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASTerminationPolicyTypeCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTerminationPolicyTypesRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeTerminationPolicyTypesRequest();
             
             
             CmdletOutput output;

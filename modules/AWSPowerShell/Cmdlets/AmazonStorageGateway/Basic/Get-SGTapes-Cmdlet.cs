@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the DescribeTapes operation against AWS Storage Gateway.", Operation = new[] {"DescribeTapes"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.Tape",
         "This cmdlet returns a collection of Tape objects.",
-        "The service call response (type DescribeTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.StorageGateway.Model.DescribeTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetSGTapesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.Marker = this.Marker;
             if (this.TapeARNs != null)
             {
-                context.TapeARNs = new List<String>(this.TapeARNs);
+                context.TapeARNs = new List<System.String>(this.TapeARNs);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeTapesRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeTapesRequest();
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -206,10 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
+            public System.String GatewayARN { get; set; }
             public int? Limit { get; set; }
-            public String Marker { get; set; }
-            public List<String> TapeARNs { get; set; }
+            public System.String Marker { get; set; }
+            public List<System.String> TapeARNs { get; set; }
         }
         
     }

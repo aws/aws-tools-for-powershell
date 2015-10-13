@@ -40,19 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The name of the bucket containing multipart uploads.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
 
         /// <summary>
         /// The date before which the multipart uploads were initiated.
         /// </summary>
         [Parameter(Position = 1, Mandatory = true, ParameterSetName = AbsoluteParameterSetName)]
-        public DateTime InitiatedDate { get; set; }
+        public System.DateTime InitiatedDate { get; set; }
 
         /// <summary>
         /// The number of days ago that the multipart uploads were initiated.
         /// </summary>
         [Parameter(Position = 1, Mandatory = true, ParameterSetName = RelativeParameterSetName)]
-        public int DaysBefore { get; set; }
+        public System.Int32 DaysBefore { get; set; }
 
         /// <summary>
         /// This parameter overrides confirmation prompts to force 

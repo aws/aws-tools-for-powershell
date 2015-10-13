@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the CreateProject operation against AWS Device Farm.", Operation = new[] {"CreateProject"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Project",
         "This cmdlet returns a Project object.",
-        "The service call response (type CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDFProjectCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateProjectRequest();
+            var request = new Amazon.DeviceFarm.Model.CreateProjectRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

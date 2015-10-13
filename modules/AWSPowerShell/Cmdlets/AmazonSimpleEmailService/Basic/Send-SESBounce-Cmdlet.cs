@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the SendBounce operation against Amazon Simple Email Service.", Operation = new[] {"SendBounce"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type SendBounceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.SendBounceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendSESBounceCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime MessageDsn_ArrivalDate { get; set; }
+        public System.DateTime MessageDsn_ArrivalDate { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BounceSender { get; set; }
+        public System.String BounceSender { get; set; }
         
         /// <summary>
         /// <para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BounceSenderArn { get; set; }
+        public System.String BounceSenderArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Explanation { get; set; }
+        public System.String Explanation { get; set; }
         
         /// <summary>
         /// <para>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OriginalMessageId { get; set; }
+        public System.String OriginalMessageId { get; set; }
         
         /// <summary>
         /// <para>
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MessageDsn_ReportingMta { get; set; }
+        public System.String MessageDsn_ReportingMta { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.BouncedRecipientInfoList != null)
             {
-                context.BouncedRecipientInfoList = new List<BouncedRecipientInfo>(this.BouncedRecipientInfoList);
+                context.BouncedRecipientInfoList = new List<Amazon.SimpleEmail.Model.BouncedRecipientInfo>(this.BouncedRecipientInfoList);
             }
             context.BounceSender = this.BounceSender;
             context.BounceSenderArn = this.BounceSenderArn;
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 context.MessageDsn_ArrivalDate = this.MessageDsn_ArrivalDate;
             if (this.MessageDsn_ExtensionField != null)
             {
-                context.MessageDsn_ExtensionFields = new List<ExtensionField>(this.MessageDsn_ExtensionField);
+                context.MessageDsn_ExtensionFields = new List<Amazon.SimpleEmail.Model.ExtensionField>(this.MessageDsn_ExtensionField);
             }
             context.MessageDsn_ReportingMta = this.MessageDsn_ReportingMta;
             context.OriginalMessageId = this.OriginalMessageId;
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SendBounceRequest();
+            var request = new Amazon.SimpleEmail.Model.SendBounceRequest();
             
             if (cmdletContext.BouncedRecipientInfoList != null)
             {
@@ -197,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
              // populate MessageDsn
             bool requestMessageDsnIsNull = true;
-            request.MessageDsn = new MessageDsn();
-            DateTime? requestMessageDsn_messageDsn_ArrivalDate = null;
+            request.MessageDsn = new Amazon.SimpleEmail.Model.MessageDsn();
+            System.DateTime? requestMessageDsn_messageDsn_ArrivalDate = null;
             if (cmdletContext.MessageDsn_ArrivalDate != null)
             {
                 requestMessageDsn_messageDsn_ArrivalDate = cmdletContext.MessageDsn_ArrivalDate.Value;
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.MessageDsn.ArrivalDate = requestMessageDsn_messageDsn_ArrivalDate.Value;
                 requestMessageDsnIsNull = false;
             }
-            List<ExtensionField> requestMessageDsn_messageDsn_ExtensionField = null;
+            List<Amazon.SimpleEmail.Model.ExtensionField> requestMessageDsn_messageDsn_ExtensionField = null;
             if (cmdletContext.MessageDsn_ExtensionFields != null)
             {
                 requestMessageDsn_messageDsn_ExtensionField = cmdletContext.MessageDsn_ExtensionFields;
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.MessageDsn.ExtensionFields = requestMessageDsn_messageDsn_ExtensionField;
                 requestMessageDsnIsNull = false;
             }
-            String requestMessageDsn_messageDsn_ReportingMta = null;
+            System.String requestMessageDsn_messageDsn_ReportingMta = null;
             if (cmdletContext.MessageDsn_ReportingMta != null)
             {
                 requestMessageDsn_messageDsn_ReportingMta = cmdletContext.MessageDsn_ReportingMta;
@@ -272,14 +272,14 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<BouncedRecipientInfo> BouncedRecipientInfoList { get; set; }
-            public String BounceSender { get; set; }
-            public String BounceSenderArn { get; set; }
-            public String Explanation { get; set; }
-            public DateTime? MessageDsn_ArrivalDate { get; set; }
-            public List<ExtensionField> MessageDsn_ExtensionFields { get; set; }
-            public String MessageDsn_ReportingMta { get; set; }
-            public String OriginalMessageId { get; set; }
+            public List<Amazon.SimpleEmail.Model.BouncedRecipientInfo> BouncedRecipientInfoList { get; set; }
+            public System.String BounceSender { get; set; }
+            public System.String BounceSenderArn { get; set; }
+            public System.String Explanation { get; set; }
+            public System.DateTime? MessageDsn_ArrivalDate { get; set; }
+            public List<Amazon.SimpleEmail.Model.ExtensionField> MessageDsn_ExtensionFields { get; set; }
+            public System.String MessageDsn_ReportingMta { get; set; }
+            public System.String OriginalMessageId { get; set; }
         }
         
     }

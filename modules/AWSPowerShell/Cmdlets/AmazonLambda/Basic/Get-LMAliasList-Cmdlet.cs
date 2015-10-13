@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the ListAliases operation against Amazon Lambda.", Operation = new[] {"ListAliases"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.AliasConfiguration",
         "This cmdlet returns a collection of AliasConfiguration objects.",
-        "The service call response (type ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
+        "The service call response (type Amazon.Lambda.Model.ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetLMAliasListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FunctionVersion { get; set; }
+        public System.String FunctionVersion { get; set; }
         
         /// <summary>
         /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public Int32 MaxItem { get; set; }
+        public System.Int32 MaxItem { get; set; }
         
         
         protected override void ProcessRecord()
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListAliasesRequest();
+            var request = new Amazon.Lambda.Model.ListAliasesRequest();
             
             if (cmdletContext.FunctionName != null)
             {
@@ -164,10 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String FunctionVersion { get; set; }
-            public String Marker { get; set; }
-            public Int32? MaxItems { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String FunctionVersion { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxItems { get; set; }
         }
         
     }

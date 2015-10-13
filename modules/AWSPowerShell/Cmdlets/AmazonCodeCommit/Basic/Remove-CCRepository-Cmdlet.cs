@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the DeleteRepository operation against AWS CodeCommit.", Operation = new[] {"DeleteRepository"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RepositoryName { get; set; }
+        public System.String RepositoryName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteRepositoryRequest();
+            var request = new Amazon.CodeCommit.Model.DeleteRepositoryRequest();
             
             if (cmdletContext.RepositoryName != null)
             {
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RepositoryName { get; set; }
+            public System.String RepositoryName { get; set; }
         }
         
     }

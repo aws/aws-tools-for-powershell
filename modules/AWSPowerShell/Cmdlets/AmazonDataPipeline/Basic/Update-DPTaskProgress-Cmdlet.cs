@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the ReportTaskProgress operation against AWS Data Pipeline.", Operation = new[] {"ReportTaskProgress"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type ReportTaskProgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.ReportTaskProgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateDPTaskProgressCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TaskId { get; set; }
+        public System.String TaskId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
             if (this.Field != null)
             {
-                context.Fields = new List<Field>(this.Field);
+                context.Fields = new List<Amazon.DataPipeline.Model.Field>(this.Field);
             }
             context.TaskId = this.TaskId;
             
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReportTaskProgressRequest();
+            var request = new Amazon.DataPipeline.Model.ReportTaskProgressRequest();
             
             if (cmdletContext.Fields != null)
             {
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Field> Fields { get; set; }
-            public String TaskId { get; set; }
+            public List<Amazon.DataPipeline.Model.Field> Fields { get; set; }
+            public System.String TaskId { get; set; }
         }
         
     }

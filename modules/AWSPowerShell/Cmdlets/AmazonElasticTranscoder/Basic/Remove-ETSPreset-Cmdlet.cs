@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the DeletePreset operation against Amazon Elastic Transcoder.", Operation = new[] {"DeletePreset"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeletePresetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticTranscoder.Model.DeletePresetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
         
         /// <summary>
         /// Returns the value passed to the Id parameter.
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeletePresetRequest();
+            var request = new Amazon.ElasticTranscoder.Model.DeletePresetRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

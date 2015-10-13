@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the SetLoadBalancerPoliciesForBackendServer operation against Elastic Load Balancing.", Operation = new[] {"SetLoadBalancerPoliciesForBackendServer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetLoadBalancerPoliciesForBackendServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.SetLoadBalancerPoliciesForBackendServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetELBLoadBalancerPolicyForBackendServerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 InstancePort { get; set; }
+        public System.Int32 InstancePort { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// <para>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             context.LoadBalancerName = this.LoadBalancerName;
             if (this.PolicyName != null)
             {
-                context.PolicyNames = new List<String>(this.PolicyName);
+                context.PolicyNames = new List<System.String>(this.PolicyName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetLoadBalancerPoliciesForBackendServerRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.SetLoadBalancerPoliciesForBackendServerRequest();
             
             if (cmdletContext.InstancePort != null)
             {
@@ -179,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? InstancePort { get; set; }
-            public String LoadBalancerName { get; set; }
-            public List<String> PolicyNames { get; set; }
+            public System.Int32? InstancePort { get; set; }
+            public System.String LoadBalancerName { get; set; }
+            public List<System.String> PolicyNames { get; set; }
         }
         
     }

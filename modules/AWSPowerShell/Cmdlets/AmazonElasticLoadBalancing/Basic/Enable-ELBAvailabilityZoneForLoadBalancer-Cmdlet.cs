@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the EnableAvailabilityZonesForLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"EnableAvailabilityZonesForLoadBalancer"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type EnableAvailabilityZonesForLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableELBAvailabilityZoneForLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.AvailabilityZone != null)
             {
-                context.AvailabilityZones = new List<String>(this.AvailabilityZone);
+                context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
             }
             context.LoadBalancerName = this.LoadBalancerName;
             
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableAvailabilityZonesForLoadBalancerRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerRequest();
             
             if (cmdletContext.AvailabilityZones != null)
             {
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AvailabilityZones { get; set; }
-            public String LoadBalancerName { get; set; }
+            public List<System.String> AvailabilityZones { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

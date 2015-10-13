@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.DeleteConnectionResponse")]
     [AWSCmdlet("Invokes the DeleteConnection operation against AWS Direct Connect.", Operation = new[] {"DeleteConnection"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DeleteConnectionResponse",
-        "This cmdlet returns a DeleteConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DirectConnect.Model.DeleteConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDCConnectionCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ConnectionId { get; set; }
+        public System.String ConnectionId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteConnectionRequest();
+            var request = new Amazon.DirectConnect.Model.DeleteConnectionRequest();
             
             if (cmdletContext.ConnectionId != null)
             {
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConnectionId { get; set; }
+            public System.String ConnectionId { get; set; }
         }
         
     }

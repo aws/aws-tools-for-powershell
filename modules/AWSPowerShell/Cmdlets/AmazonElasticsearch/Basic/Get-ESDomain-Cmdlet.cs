@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Invokes the DescribeElasticsearchDomain operation against Amazon Elasticsearch.", Operation = new[] {"DescribeElasticsearchDomain"})]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus",
         "This cmdlet returns a ElasticsearchDomainStatus object.",
-        "The service call response (type DescribeElasticsearchDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DescribeElasticsearchDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetESDomainCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeElasticsearchDomainRequest();
+            var request = new Amazon.Elasticsearch.Model.DescribeElasticsearchDomainRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

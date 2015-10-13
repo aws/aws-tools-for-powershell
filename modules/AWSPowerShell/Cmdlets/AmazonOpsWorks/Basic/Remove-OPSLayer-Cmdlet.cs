@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeleteLayer operation against AWS OpsWorks.", Operation = new[] {"DeleteLayer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LayerId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteLayerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeleteLayerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveOPSLayerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LayerId { get; set; }
+        public System.String LayerId { get; set; }
         
         /// <summary>
         /// Returns the value passed to the LayerId parameter.
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteLayerRequest();
+            var request = new Amazon.OpsWorks.Model.DeleteLayerRequest();
             
             if (cmdletContext.LayerId != null)
             {
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LayerId { get; set; }
+            public System.String LayerId { get; set; }
         }
         
     }

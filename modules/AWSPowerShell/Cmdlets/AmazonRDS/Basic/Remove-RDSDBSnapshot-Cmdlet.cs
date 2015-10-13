@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshot",
         "This cmdlet returns a DBSnapshot object.",
-        "The service call response (type DeleteDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSnapshotIdentifier { get; set; }
+        public System.String DBSnapshotIdentifier { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBSnapshotRequest();
+            var request = new Amazon.RDS.Model.DeleteDBSnapshotRequest();
             
             if (cmdletContext.DBSnapshotIdentifier != null)
             {
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSnapshotIdentifier { get; set; }
+            public System.String DBSnapshotIdentifier { get; set; }
         }
         
     }

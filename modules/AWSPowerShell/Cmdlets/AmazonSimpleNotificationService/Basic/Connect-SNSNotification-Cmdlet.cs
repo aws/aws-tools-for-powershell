@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the Subscribe operation against Amazon Simple Notification Service.", Operation = new[] {"Subscribe"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type SubscribeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.SubscribeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConnectSNSNotificationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Endpoint { get; set; }
+        public System.String Endpoint { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Protocol { get; set; }
+        public System.String Protocol { get; set; }
         
         /// <summary>
         /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SubscribeRequest();
+            var request = new Amazon.SimpleNotificationService.Model.SubscribeRequest();
             
             if (cmdletContext.Endpoint != null)
             {
@@ -165,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Endpoint { get; set; }
-            public String Protocol { get; set; }
-            public String TopicArn { get; set; }
+            public System.String Endpoint { get; set; }
+            public System.String Protocol { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

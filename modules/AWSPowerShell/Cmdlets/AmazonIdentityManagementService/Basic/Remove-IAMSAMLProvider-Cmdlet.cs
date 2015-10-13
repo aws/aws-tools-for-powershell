@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeleteSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"DeleteSAMLProvider"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SAMLProviderArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteSAMLProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteSAMLProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SAMLProviderArn { get; set; }
+        public System.String SAMLProviderArn { get; set; }
         
         /// <summary>
         /// Returns the value passed to the SAMLProviderArn parameter.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSAMLProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteSAMLProviderRequest();
             
             if (cmdletContext.SAMLProviderArn != null)
             {
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SAMLProviderArn { get; set; }
+            public System.String SAMLProviderArn { get; set; }
         }
         
     }

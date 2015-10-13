@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DescribeAnalysisSchemes operation against Amazon CloudSearch.", Operation = new[] {"DescribeAnalysisSchemes"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AnalysisSchemeStatus",
         "This cmdlet returns a collection of AnalysisSchemeStatus objects.",
-        "The service call response (type DescribeAnalysisSchemesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeAnalysisSchemesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Deployed { get; set; }
+        public System.Boolean Deployed { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
             
             if (this.AnalysisSchemeName != null)
             {
-                context.AnalysisSchemeNames = new List<String>(this.AnalysisSchemeName);
+                context.AnalysisSchemeNames = new List<System.String>(this.AnalysisSchemeName);
             }
             if (ParameterWasBound("Deployed"))
                 context.Deployed = this.Deployed;
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAnalysisSchemesRequest();
+            var request = new Amazon.CloudSearch.Model.DescribeAnalysisSchemesRequest();
             
             if (cmdletContext.AnalysisSchemeNames != null)
             {
@@ -149,9 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AnalysisSchemeNames { get; set; }
-            public Boolean? Deployed { get; set; }
-            public String DomainName { get; set; }
+            public List<System.String> AnalysisSchemeNames { get; set; }
+            public System.Boolean? Deployed { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

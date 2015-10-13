@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the DeleteQueue operation against Amazon Simple Queue Service.", Operation = new[] {"DeleteQueue"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.DeleteQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSQSQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
         
         /// <summary>
         /// Returns the value passed to the QueueUrl parameter.
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteQueueRequest();
+            var request = new Amazon.SQS.Model.DeleteQueueRequest();
             
             if (cmdletContext.QueueUrl != null)
             {
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String QueueUrl { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

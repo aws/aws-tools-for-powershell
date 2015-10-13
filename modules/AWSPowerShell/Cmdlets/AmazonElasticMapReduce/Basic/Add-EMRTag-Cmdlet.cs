@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the AddTags operation against Amazon Elastic MapReduce.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.Tag",
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEMRTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
         
         /// <summary>
         /// <para>
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.ResourceId = this.ResourceId;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElasticMapReduce.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.AddTagsRequest();
             
             if (cmdletContext.ResourceId != null)
             {
@@ -157,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceId { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceId { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.Tag> Tags { get; set; }
         }
         
     }

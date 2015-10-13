@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the ListStackResources operation against AWS CloudFormation.", Operation = new[] {"ListStackResources"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResourceSummary",
         "This cmdlet returns a collection of StackResourceSummary objects.",
-        "The service call response (type ListStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudFormation.Model.ListStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCFNStackResourceSummaryCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
         
         /// <summary>
         /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListStackResourcesRequest();
+            var request = new Amazon.CloudFormation.Model.ListStackResourcesRequest();
             
             if (cmdletContext.StackName != null)
             {
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public String StackName { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String StackName { get; set; }
         }
         
     }

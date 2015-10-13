@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreatePolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"CreatePolicyVersion"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.PolicyVersion",
         "This cmdlet returns a PolicyVersion object.",
-        "The service call response (type CreatePolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreatePolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
         
         /// <summary>
         /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SetAsDefault { get; set; }
+        public System.Boolean SetAsDefault { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePolicyVersionRequest();
+            var request = new Amazon.IdentityManagement.Model.CreatePolicyVersionRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -168,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
-            public String PolicyDocument { get; set; }
-            public Boolean? SetAsDefault { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public System.Boolean? SetAsDefault { get; set; }
         }
         
     }

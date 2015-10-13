@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UploadSSHPublicKey operation against AWS Identity and Access Management.", Operation = new[] {"UploadSSHPublicKey"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SSHPublicKey",
         "This cmdlet returns a SSHPublicKey object.",
-        "The service call response (type UploadSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UploadSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class PublishIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SSHPublicKeyBody { get; set; }
+        public System.String SSHPublicKeyBody { get; set; }
         
         /// <summary>
         /// <para>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UploadSSHPublicKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.UploadSSHPublicKeyRequest();
             
             if (cmdletContext.SSHPublicKeyBody != null)
             {
@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SSHPublicKeyBody { get; set; }
-            public String UserName { get; set; }
+            public System.String SSHPublicKeyBody { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

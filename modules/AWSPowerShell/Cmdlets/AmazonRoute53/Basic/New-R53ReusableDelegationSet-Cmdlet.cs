@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.CreateReusableDelegationSetResponse")]
     [AWSCmdlet("Invokes the CreateReusableDelegationSet operation against AWS Route 53.", Operation = new[] {"CreateReusableDelegationSet"})]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateReusableDelegationSetResponse",
-        "This cmdlet returns a CreateReusableDelegationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.CreateReusableDelegationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CallerReference { get; set; }
+        public System.String CallerReference { get; set; }
         
         /// <summary>
         /// <para>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HostedZoneId { get; set; }
+        public System.String HostedZoneId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateReusableDelegationSetRequest();
+            var request = new Amazon.Route53.Model.CreateReusableDelegationSetRequest();
             
             if (cmdletContext.CallerReference != null)
             {
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CallerReference { get; set; }
-            public String HostedZoneId { get; set; }
+            public System.String CallerReference { get; set; }
+            public System.String HostedZoneId { get; set; }
         }
         
     }

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     [AWSCmdlet("Invokes the DescribeConfigRuleEvaluationStatus operation against Amazon Config.", Operation = new[] {"DescribeConfigRuleEvaluationStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigRuleEvaluationStatus",
         "This cmdlet returns a collection of ConfigRuleEvaluationStatus objects.",
-        "The service call response (type DescribeConfigRuleEvaluationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGConfigRuleEvaluationStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.ConfigRuleName != null)
             {
-                context.ConfigRuleNames = new List<String>(this.ConfigRuleName);
+                context.ConfigRuleNames = new List<System.String>(this.ConfigRuleName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConfigRuleEvaluationStatusRequest();
+            var request = new Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusRequest();
             
             if (cmdletContext.ConfigRuleNames != null)
             {
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ConfigRuleNames { get; set; }
+            public List<System.String> ConfigRuleNames { get; set; }
         }
         
     }

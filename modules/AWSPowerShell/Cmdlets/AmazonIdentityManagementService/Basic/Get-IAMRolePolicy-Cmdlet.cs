@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetRolePolicyResponse")]
     [AWSCmdlet("Invokes the GetRolePolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetRolePolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetRolePolicyResponse",
-        "This cmdlet returns a GetRolePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetRolePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMRolePolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
         
         /// <summary>
         /// <para>
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RoleName { get; set; }
+        public System.String RoleName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetRolePolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.GetRolePolicyRequest();
             
             if (cmdletContext.PolicyName != null)
             {
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyName { get; set; }
-            public String RoleName { get; set; }
+            public System.String PolicyName { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

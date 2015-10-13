@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeEnvironmentResources operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeEnvironmentResources"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentResourceDescription",
         "This cmdlet returns a EnvironmentResourceDescription object.",
-        "The service call response (type DescribeEnvironmentResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBEnvironmentResourceCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
         
         /// <summary>
         /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
         
         
         protected override void ProcessRecord()
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEnvironmentResourcesRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeEnvironmentResourcesRequest();
             
             if (cmdletContext.EnvironmentId != null)
             {
@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
         }
         
     }
