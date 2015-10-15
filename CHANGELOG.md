@@ -1,3 +1,7 @@
+### 3.1.20.0 (2015-10-15)
+  * KeyManagementService
+    - Add support for deleting Customer Master Keys, including two new APIs for scheduling and canceling key deletion.
+
 ### 3.1.19.1 (2015-10-11)
   * AWS IoT
     - AWS IoT offering enables our users to leverage the AWS Cloud for their Internet of things use-cases. Cmdlets for the service are identified with a noun prefix code of 'IOT'.
