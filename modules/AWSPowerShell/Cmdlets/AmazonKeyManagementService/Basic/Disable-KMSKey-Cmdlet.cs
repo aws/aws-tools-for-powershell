@@ -28,7 +28,11 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Marks a key as disabled, thereby preventing its use.
+    /// Sets the state of a master key to disabled, thereby preventing its use for cryptographic
+    /// operations. For more information about how key state affects the use of a master key,
+    /// go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// Key State Affects the Use of a Customer Master Key</a> in the <i>AWS Key Management
+    /// Service Developer Guide</i>.
     /// </summary>
     [Cmdlet("Disable", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

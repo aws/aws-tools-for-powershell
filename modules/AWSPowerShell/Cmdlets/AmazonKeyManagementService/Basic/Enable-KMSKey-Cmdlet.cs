@@ -28,8 +28,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Marks a key as enabled, thereby permitting its use. You can have up to 25 enabled
-    /// keys at one time.
+    /// Marks a key as enabled, thereby permitting its use.
     /// </summary>
     [Cmdlet("Enable", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

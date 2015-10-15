@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
-        /// Tokens</a>. </para>
+        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

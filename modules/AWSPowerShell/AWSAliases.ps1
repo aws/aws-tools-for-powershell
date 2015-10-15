@@ -1568,8 +1568,13 @@ Set-Alias -Name KINF-PutRecord -Value Write-KINFRecord
 Set-Alias -Name Put-KINFRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-PutRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-UpdateDestination -Value Update-KINFDestination
+Set-Alias -Name KMS-RetireGrant -Value Disable-KMSGrant
+Set-Alias -Name KMS-RevokeGrant -Value Revoke-KMSGrant
+Set-Alias -Name KMS-ScheduleKeyDeletion -Value Request-KMSKeyDeletion
 Set-Alias -Name KMS-UpdateAlias -Value Update-KMSAlias
 Set-Alias -Name KMS-UpdateKeyDescription -Value Update-KMSKeyDescription
+Set-Alias -Name Cancel-KMSKeyDeletion -Value Stop-KMSKeyDeletion
+Set-Alias -Name KMS-CancelKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name Create-KMSAlias -Value New-KMSAlias
 Set-Alias -Name KMS-CreateAlias -Value New-KMSAlias
 Set-Alias -Name Create-KMSGrant -Value New-KMSGrant
@@ -1602,11 +1607,10 @@ Set-Alias -Name List-KMSKeyPolicies -Value Get-KMSKeyPolicies
 Set-Alias -Name KMS-ListKeyPolicies -Value Get-KMSKeyPolicies
 Set-Alias -Name List-KMSKeys -Value Get-KMSKeys
 Set-Alias -Name KMS-ListKeys -Value Get-KMSKeys
+Set-Alias -Name KMS-ListRetirableGrants -Value Get-KMSRetirableGrant
 Set-Alias -Name Put-KMSKeyPolicy -Value Write-KMSKeyPolicy
 Set-Alias -Name KMS-PutKeyPolicy -Value Write-KMSKeyPolicy
 Set-Alias -Name KMS-ReEncrypt -Value Invoke-KMSReEncrypt
-Set-Alias -Name KMS-RetireGrant -Value Disable-KMSGrant
-Set-Alias -Name KMS-RevokeGrant -Value Revoke-KMSGrant
 Set-Alias -Name LM-AddPermission -Value Add-LMPermission
 Set-Alias -Name Create-LMAlias -Value New-LMAlias
 Set-Alias -Name LM-CreateAlias -Value New-LMAlias

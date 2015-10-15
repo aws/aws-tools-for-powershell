@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     {
         /// <summary>
         /// <para>
+        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("GrantTokens")]
+        public System.String[] GrantToken { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>A unique identifier for the customer master key. This value can be a globally unique
         /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
         /// by "alias/". <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li><li>Alias
@@ -61,6 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.GrantToken != null)
+            {
+                context.GrantTokens = new List<System.String>(this.GrantToken);
+            }
             context.KeyId = this.KeyId;
             
             var output = Execute(context) as CmdletOutput;
@@ -75,6 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request
             var request = new Amazon.KeyManagementService.Model.DescribeKeyRequest();
             
+            if (cmdletContext.GrantTokens != null)
+            {
+                request.GrantTokens = cmdletContext.GrantTokens;
+            }
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
@@ -114,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> GrantTokens { get; set; }
             public System.String KeyId { get; set; }
         }
         

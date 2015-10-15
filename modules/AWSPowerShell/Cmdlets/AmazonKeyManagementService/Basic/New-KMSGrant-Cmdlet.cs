@@ -28,11 +28,14 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Adds a grant to a key to specify who can access the key and under what conditions.
-    /// Grants are alternate permission mechanisms to key policies. For more information about
-    /// grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
-    /// in the developer guide. If a grant is absent, access to the key is evaluated based
-    /// on IAM policies attached to the user. <ol><li><a>ListGrants</a></li><li><a>RetireGrant</a></li><li><a>RevokeGrant</a></li></ol>
+    /// Adds a grant to a key to specify who can use the key and under what conditions. Grants
+    /// are alternate permission mechanisms to key policies.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
+    /// in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KMSGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.CreateGrantResponse")]
@@ -44,8 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     {
         /// <summary>
         /// <para>
-        /// The constraint contains additional
-        /// key/value pairs that serve to further limit the grant.
+        /// <para>Contains a list of key-value pairs that must be present in the encryption context
+        /// of a subsequent operation permitted by the grant. When a subsequent operation permitted
+        /// by the grant includes an encryption context that matches this list, the grant allows
+        /// the operation. Otherwise, the operation is not allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,8 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// The constraint equals the full
-        /// encryption context.
+        /// <para>Contains a list of key-value pairs, a subset of which must be present in the encryption
+        /// context of a subsequent operation permitted by the grant. When a subsequent operation
+        /// permitted by the grant includes an encryption context that matches this list or is
+        /// a subset of this list, the grant allows the operation. Otherwise, the operation is
+        /// not allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,8 +71,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Principal given permission by the grant to use the key identified by the <code>keyId</code>
-        /// parameter.</para>
+        /// <para>The principal that is given permission to perform the operations that the grant permits.</para><para>To specify the principal, use the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of an AWS principal. Valid AWS principals include AWS accounts
+        /// (root), IAM users, federated users, and assumed role users. For examples of the ARN
+        /// syntax to use for specifying a principal, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS
+        /// Identity and Access Management (IAM)</a> in the Example ARNs section of the <i>AWS
+        /// General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
-        /// Tokens</a>. </para>
+        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier or the fully specified ARN to a key. <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li></ul></para>
+        /// <para>The unique identifier for the customer master key (CMK) that the grant applies to.</para><para>To specify this value, use the globally unique key ID or the Amazon Resource Name
+        /// (ARN) of the key. Examples: <ul><li>Globally unique key ID: 12345678-1234-1234-1234-123456789012</li><li>Key ARN: arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,8 +103,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>List of operations permitted by the grant. This can be any combination of one or more
-        /// of the following values: <ol><li>Decrypt</li><li>Encrypt</li><li>GenerateDataKey</li><li>GenerateDataKeyWithoutPlaintext</li><li>ReEncryptFrom</li><li>ReEncryptTo</li><li>CreateGrant</li><li>RetireGrant</li></ol></para>
+        /// <para>A friendly name for identifying the grant. Use this value to prevent unintended creation
+        /// of duplicate grants when retrying this request.</para><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
+        /// with a unique <code>GrantId</code> even if all the supplied parameters are identical.
+        /// This can result in unintended duplicates when you retry the <code>CreateGrant</code>
+        /// request.</para><para>When this value is present, you can retry a <code>CreateGrant</code> request with
+        /// identical parameters; if the grant already exists, the original <code>GrantId</code>
+        /// is returned without creating a new grant. Note that the returned grant token is unique
+        /// with every <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code>
+        /// is returned. All grant tokens obtained in this way can be used interchangeably.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of operations that the grant permits. The list can contain any combination
+        /// of one or more of the following values: <ul><li>Decrypt</li><li>Encrypt</li><li>GenerateDataKey</li><li>GenerateDataKeyWithoutPlaintext</li><li>ReEncryptFrom</li><li>ReEncryptTo</li><li>CreateGrant</li><li>RetireGrant</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,7 +129,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Principal given permission to retire the grant. For more information, see <a>RetireGrant</a>.</para>
+        /// <para>The principal that is given permission to retire the grant by using <a>RetireGrant</a>
+        /// operation.</para><para>To specify the principal, use the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of an AWS principal. Valid AWS principals include AWS accounts
+        /// (root), IAM users, federated users, and assumed role users. For examples of the ARN
+        /// syntax to use for specifying a principal, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS
+        /// Identity and Access Management (IAM)</a> in the Example ARNs section of the <i>AWS
+        /// General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.GrantTokens = new List<System.String>(this.GrantToken);
             }
             context.KeyId = this.KeyId;
+            context.Name = this.Name;
             if (this.Operation != null)
             {
                 context.Operations = new List<System.String>(this.Operation);
@@ -213,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             {
                 request.KeyId = cmdletContext.KeyId;
             }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
             if (cmdletContext.Operations != null)
             {
                 request.Operations = cmdletContext.Operations;
@@ -261,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public System.String GranteePrincipal { get; set; }
             public List<System.String> GrantTokens { get; set; }
             public System.String KeyId { get; set; }
+            public System.String Name { get; set; }
             public List<System.String> Operations { get; set; }
             public System.String RetiringPrincipal { get; set; }
         }

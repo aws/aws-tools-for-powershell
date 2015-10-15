@@ -28,7 +28,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Deletes the specified alias. To associate an alias with a different key, call <a>UpdateAlias</a>.
+    /// Deletes the specified alias. To map an alias to a different key, call <a>UpdateAlias</a>.
     /// </summary>
     [Cmdlet("Remove", "KMSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

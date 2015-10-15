@@ -28,49 +28,32 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Attaches a policy to the specified key.
+    /// Cancels the deletion of a customer master key (CMK). When this operation is successful,
+    /// the CMK is set to the <code>Disabled</code> state. To enable a CMK, use <a>EnableKey</a>.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about scheduling and canceling deletion of a CMK, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting
+    /// Customer Master Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Write", "KMSKeyPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutKeyPolicy operation against AWS Key Management Service.", Operation = new[] {"PutKeyPolicy"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.KeyManagementService.Model.PutKeyPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "KMSKeyDeletion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the CancelKeyDeletion operation against AWS Key Management Service.", Operation = new[] {"CancelKeyDeletion"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.KeyManagementService.Model.CancelKeyDeletionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class WriteKMSKeyPolicyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public class StopKMSKeyDeletionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier or the fully specified ARN to a key. <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li></ul></para>
+        /// <para>The unique identifier for the customer master key (CMK) for which to cancel deletion.</para><para>To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of
+        /// the CMK. Examples: <ul><li>Unique key ID: 1234abcd-12ab-34cd-56ef-1234567890ab</li><li>Key ARN: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</li></ul></para><para>To obtain the unique key ID and key ARN for a given CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String KeyId { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>The policy to attach to the key. This is required and delegates back to the account.
-        /// The key is the root of trust. The policy size limit is 32 KiB (32768 bytes). </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Policy { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>Name of the policy to be attached. Currently, the only supported name is "default".</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String PolicyName { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the KeyId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -86,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("KeyId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-KMSKeyPolicy (PutKeyPolicy)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-KMSKeyDeletion (CancelKeyDeletion)"))
             {
                 return;
             }
@@ -98,8 +81,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             };
             
             context.KeyId = this.KeyId;
-            context.Policy = this.Policy;
-            context.PolicyName = this.PolicyName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -111,19 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KeyManagementService.Model.PutKeyPolicyRequest();
+            var request = new Amazon.KeyManagementService.Model.CancelKeyDeletionRequest();
             
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
-            }
-            if (cmdletContext.Policy != null)
-            {
-                request.Policy = cmdletContext.Policy;
-            }
-            if (cmdletContext.PolicyName != null)
-            {
-                request.PolicyName = cmdletContext.PolicyName;
             }
             
             CmdletOutput output;
@@ -132,11 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.PutKeyPolicy(request);
+                var response = client.CancelKeyDeletion(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.KeyId;
+                object pipelineOutput = response.KeyId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -163,8 +134,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal class CmdletContext : ExecutorContext
         {
             public System.String KeyId { get; set; }
-            public System.String Policy { get; set; }
-            public System.String PolicyName { get; set; }
         }
         
     }

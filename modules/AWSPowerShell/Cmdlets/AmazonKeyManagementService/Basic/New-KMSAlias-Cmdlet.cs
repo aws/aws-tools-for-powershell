@@ -37,9 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// To associate an alias with a different key, call <a>UpdateAlias</a>.
+    /// The alias and the key it is mapped to must be in the same AWS account and the same
+    /// region.
     /// </para><para>
-    /// Note that you cannot create or update an alias that represents a key in another account.
+    /// To map an alias to a different key, call <a>UpdateAlias</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KMSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

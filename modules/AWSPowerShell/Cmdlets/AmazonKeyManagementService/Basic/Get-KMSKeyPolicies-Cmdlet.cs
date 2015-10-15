@@ -53,10 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Specify this parameter only when paginating results to indicate the maximum number
-        /// of policies you want listed in the response. If there are additional policies beyond
-        /// the maximum you specify, the <code>Truncated</code> response element will be set to
-        /// <code>true.</code></para>
+        /// <para>When paginating results, specify the maximum number of items to return in the response.
+        /// If additional items exist beyond the number you specify, the <code>Truncated</code>
+        /// element in the response is set to true.</para><para>This value is optional. If you include a value, it must be between 1 and 1000, inclusive.
+        /// If you do not include a value, it defaults to 100.</para><para>Currently only 1 policy can be attached to a key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Use this parameter only when paginating results, and only in a subsequent request
-        /// after you've received a response where the results are truncated. Set it to the value
-        /// of the <code>NextMarker</code> in the response you just received. </para>
+        /// <para>Use this parameter only when paginating results and only in a subsequent request after
+        /// you've received a response with truncated results. Set it to the value of <code>NextMarker</code>
+        /// from the response you just received.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

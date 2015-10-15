@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         /// <summary>
         /// <para>
-        /// <para>Policy to be attached to the key. This is required and delegates back to the account.
-        /// The key is the root of trust. </para>
+        /// <para>Policy to attach to the key. This is required and delegates back to the account. The
+        /// key is the root of trust. The policy size limit is 32 KiB (32768 bytes). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

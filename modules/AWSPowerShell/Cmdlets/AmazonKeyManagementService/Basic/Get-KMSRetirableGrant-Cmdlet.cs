@@ -28,26 +28,37 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// List the grants for a specified key.
+    /// Returns a list of all grants for which the grant's <code>RetiringPrincipal</code>
+    /// matches the one specified.
+    /// 
+    ///  
+    /// <para>
+    /// A typical use is to list all grants that you are able to retire. To retire a grant,
+    /// use <a>RetireGrant</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "KMSGrants")]
+    [Cmdlet("Get", "KMSRetirableGrant")]
     [OutputType("Amazon.KeyManagementService.Model.GrantListEntry")]
-    [AWSCmdlet("Invokes the ListGrants operation against AWS Key Management Service.", Operation = new[] {"ListGrants"})]
+    [AWSCmdlet("Invokes the ListRetirableGrants operation against AWS Key Management Service.", Operation = new[] {"ListRetirableGrants"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GrantListEntry",
         "This cmdlet returns a collection of GrantListEntry objects.",
-        "The service call response (type Amazon.KeyManagementService.Model.ListGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "The service call response (type Amazon.KeyManagementService.Model.ListRetirableGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String), Truncated (type System.Boolean)"
     )]
-    public class GetKMSGrantsCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public class GetKMSRetirableGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier or the fully specified ARN to a key. <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li></ul></para>
+        /// <para>The retiring principal for which to list grants.</para><para>To specify the retiring principal, use the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of an AWS principal. Valid AWS principals include AWS accounts
+        /// (root), IAM users, federated users, and assumed role users. For examples of the ARN
+        /// syntax for specifying a principal, go to <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS
+        /// Identity and Access Management (IAM)</a> in the Example ARNs section of the <i>Amazon
+        /// Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String KeyId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String RetiringPrincipal { get; set; }
         
         /// <summary>
         /// <para>
@@ -83,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
-            context.KeyId = this.KeyId;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
+            context.RetiringPrincipal = this.RetiringPrincipal;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -99,10 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.KeyManagementService.Model.ListGrantsRequest();
-            if (cmdletContext.KeyId != null)
+            var request = new Amazon.KeyManagementService.Model.ListRetirableGrantsRequest();
+            if (cmdletContext.RetiringPrincipal != null)
             {
-                request.KeyId = cmdletContext.KeyId;
+                request.RetiringPrincipal = cmdletContext.RetiringPrincipal;
             }
             
             // Initialize loop variants and commence piping
@@ -136,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     try
                     {
                         
-                        var response = client.ListGrants(request);
+                        var response = client.ListRetirableGrants(request);
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Grants;
                         notes = new Dictionary<string, object>();
@@ -192,9 +203,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String KeyId { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
+            public System.String RetiringPrincipal { get; set; }
         }
         
     }
