@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para> The instance type of the EC2 instance. For information about available instance types,
         /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">
-        /// Available Instance Types</a> in the <i>Amazon Elastic Cloud Compute User Guide.</i></para>
+        /// Available Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
