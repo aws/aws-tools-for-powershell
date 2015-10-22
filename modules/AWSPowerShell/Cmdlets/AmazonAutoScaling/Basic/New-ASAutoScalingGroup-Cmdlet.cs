@@ -70,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
-        /// scaling activity can start.</para><para>If this parameter is not specified, the default value is 300. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
+        /// scaling activity can start.</para><para>The default is 300. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
         /// Auto Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -108,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The service to use for the health checks. The valid values are <code>EC2</code> and
         /// <code>ELB</code>.</para><para>By default, health checks use Amazon EC2 instance status checks to determine the health
         /// of an instance. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
-        /// Checks</a>.</para>
+        /// Checks</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

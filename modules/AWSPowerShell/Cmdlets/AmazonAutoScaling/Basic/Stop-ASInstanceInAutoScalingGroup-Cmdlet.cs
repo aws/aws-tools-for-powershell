@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// This call simply makes a termination request. The instances is not terminated immediately.
+    /// This call simply makes a termination request. The instance is not terminated immediately.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "ASInstanceInAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, terminating this instance also decrements the size of the Auto
+        /// <para>If <code>true</code>, terminating the instance also decrements the size of the Auto
         /// Scaling group.</para>
         /// </para>
         /// </summary>

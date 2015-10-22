@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
         /// scaling activity can start. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
-        /// Auto Scaling Cooldowns</a>.</para>
+        /// Auto Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, that Auto Scaling waits before checking the health
         /// status of an instance. The grace period begins when the instance passes the system
-        /// status and instance status checks from Amazon EC2. For more information, see <a href=""></a>.
-        /// </para>
+        /// status and instance status checks from Amazon EC2. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
+        /// Checks</a> in the <i>Auto Scaling Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The name of the placement group into which you'll launch your instances, if any. For
         /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
-        /// Groups</a>.</para>
+        /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
