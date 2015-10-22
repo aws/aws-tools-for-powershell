@@ -24,6 +24,14 @@
     <ServiceOperation MethodName="ListAssociations" Verb="Get" Noun="AssociationList" />
     <ServiceOperation MethodName="ListDocuments" Verb="Get" Noun="DocumentList" />
     <ServiceOperation MethodName="UpdateAssociationStatus" />
+	
+	<!-- RunCommand apis -->
+    <ServiceOperation MethodName="CancelCommand" ShouldProcessTarget="InstanceIds" Output="Void" />
+    <ServiceOperation MethodName="ListCommandInvocations" Noun="CommandInvocation" Verb="Get" />
+    <ServiceOperation MethodName="ListCommands" Verb="Get" Noun="Command" />
+    <ServiceOperation MethodName="SendCommand" ShouldProcessTarget="InstanceIds"/>
+    <ServiceOperation MethodName="DescribeInstanceInformation" />
+	
   </ServiceOperations>
 
   <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map

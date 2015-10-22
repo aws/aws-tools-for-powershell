@@ -28,37 +28,54 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the associations for the specified SSM document or instance.
+    /// Attempts to cancel the command specified by the Command ID. There is no guarantee
+    /// that the command will be terminated and the underlying process stopped.
     /// </summary>
-    [Cmdlet("Get", "SSMAssociation")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Invokes the DescribeAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeAssociation"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
-        "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Invokes the CancelCommand operation against Amazon Simple Systems Management.", Operation = new[] {"CancelCommand"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type Amazon.SimpleSystemsManagement.Model.CancelCommandResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public class StopSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance.</para>
+        /// The ID of the command you want to cancel.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String CommandId { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>(Optional) A list of instance IDs on which you want to cancel the command. If not
+        /// provided, the command is canceled on every instance on which it was requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [Alias("InstanceIds")]
+        public System.String[] InstanceId { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-SSMCommand (CancelCommand)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -66,8 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
-            context.InstanceId = this.InstanceId;
-            context.Name = this.Name;
+            context.CommandId = this.CommandId;
+            if (this.InstanceId != null)
+            {
+                context.InstanceIds = new List<System.String>(this.InstanceId);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -79,15 +99,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.CancelCommandRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.CommandId != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.CommandId = cmdletContext.CommandId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.InstanceIds != null)
             {
-                request.Name = cmdletContext.Name;
+                request.InstanceIds = cmdletContext.InstanceIds;
             }
             
             CmdletOutput output;
@@ -96,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeAssociation(request);
+                var response = client.CancelCommand(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AssociationDescription;
+                object pipelineOutput = null;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -124,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
+            public System.String CommandId { get; set; }
+            public List<System.String> InstanceIds { get; set; }
         }
         
     }

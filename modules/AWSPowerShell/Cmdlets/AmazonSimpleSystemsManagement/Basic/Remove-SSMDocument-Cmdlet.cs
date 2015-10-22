@@ -28,12 +28,12 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Deletes the specified configuration document.
+    /// Deletes the SSM document and all instance associations to the document.
     /// 
     ///  
     /// <para>
-    /// You must use <a>DeleteAssociation</a> to disassociate all instances that are associated
-    /// with the configuration document before you can delete it.
+    /// Before you delete the SSM document, we recommend that you use DeleteAssociation to
+    /// disassociate all instances that are associated with the document.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

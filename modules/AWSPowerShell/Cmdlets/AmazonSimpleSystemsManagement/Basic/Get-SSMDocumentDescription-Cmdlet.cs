@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified configuration document.
+    /// Describes the specified SSM document.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentDescription")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     {
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

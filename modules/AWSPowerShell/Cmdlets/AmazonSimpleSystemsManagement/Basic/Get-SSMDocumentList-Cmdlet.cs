@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes one or more of your configuration documents.
+    /// Describes one or more of your SSM documents.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier")]

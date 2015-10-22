@@ -28,12 +28,12 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Creates a configuration document.
+    /// Creates an SSM document.
     /// 
     ///  
     /// <para>
-    /// After you create a configuration document, you can use <a>CreateAssociation</a> to
-    /// associate it with one or more running instances.
+    /// After you create an SSM document, you can use <a>CreateAssociation</a> to associate
+    /// it with one or more running instances.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     {
         /// <summary>
         /// <para>
-        /// <para>A valid JSON file. For more information about the contents of this file, see <a href="http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html">Configuration
+        /// <para>A valid JSON string. For more information about the contents of this string, see <a href="http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html">SSM
         /// Document</a>.</para>
         /// </para>
         /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         /// <summary>
         /// <para>
-        /// <para>A name for the configuration document.</para>
+        /// <para>A name for the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
