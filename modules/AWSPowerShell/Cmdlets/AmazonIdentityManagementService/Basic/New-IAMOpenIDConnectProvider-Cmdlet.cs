@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// keys at "https://keys.server.example.com/openid-connect", the thumbprint string would
         /// be the hex-encoded SHA-1 hash value of the certificate used by https://keys.server.example.com.
         /// </para><para>For more information about obtaining the OIDC provider's thumbprint, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
-        /// the Thumbprint for an OpenID Connect Provider</a> in the <i>Using IAM</i> guide. </para>
+        /// the Thumbprint for an OpenID Connect Provider</a> in the <i>IAM User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

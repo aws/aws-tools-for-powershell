@@ -44,10 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// management software that is used as your organization's IdP. 
     /// </para><note> This operation requires <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4</a>. </note><para>
-    ///  For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html">Giving
-    /// Console Access Using SAML</a> and <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html">Creating
-    /// Temporary Security Credentials for SAML Federation</a> in the <i>Using Temporary Credentials</i>
-    /// guide. 
+    ///  For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling
+    /// SAML 2.0 Federated Users to Access the AWS Management Console</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
+    /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMSAMLProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,9 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// document includes the issuer's name, expiration information, and keys that can be
         /// used to validate the SAML authentication response (assertions) that are received from
         /// the IdP. You must generate the metadata document using the identity management software
-        /// that is used as your organization's IdP. </para><para>For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html">Creating
-        /// Temporary Security Credentials for SAML Federation</a> in the <i>Using Temporary Security
-        /// Credentials</i> guide. </para>
+        /// that is used as your organization's IdP. </para><para>For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
+        /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

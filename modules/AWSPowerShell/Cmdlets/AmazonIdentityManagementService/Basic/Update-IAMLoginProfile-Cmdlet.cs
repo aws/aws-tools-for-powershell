@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// Users can change their own passwords by calling <a>ChangePassword</a>. For more information
     /// about modifying passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
-    /// Passwords</a> in the <i>Using IAM</i> guide. 
+    /// Passwords</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMLoginProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

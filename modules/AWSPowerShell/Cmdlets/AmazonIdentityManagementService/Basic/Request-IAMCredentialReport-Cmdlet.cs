@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Generates a credential report for the AWS account. For more information about the
     /// credential report, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting
-    /// Credential Reports</a> in the <i>Using IAM</i> guide.
+    /// Credential Reports</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Request", "IAMCredentialReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.GenerateCredentialReportResponse")]

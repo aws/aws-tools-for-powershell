@@ -28,25 +28,25 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Simulate a set of IAM policies against a list of API actions and AWS resources to
-    /// determine the policies' effective permissions. The policies are provided as a list
-    /// of strings.
+    /// Simulate how a set of IAM policies and optionally a resource-based policy works with
+    /// a list of API actions and AWS resources to determine the policies' effective permissions.
+    /// The policies are provided as strings.
     /// 
     ///  
     /// <para>
-    /// The simulation does not perform the API actions, it only checks the authorization
+    /// The simulation does not perform the API actions; it only checks the authorization
     /// to determine if the simulated policies allow or deny the actions.
     /// </para><para>
     /// If you want to simulate existing policies attached to an IAM user, group, or role,
     /// use <a>SimulatePrincipalPolicy</a> instead.
     /// </para><para>
     /// Context keys are variables maintained by AWS and its services that provide details
-    /// about the context of an API query request, and can be evaluated by using the <code>Condition</code>
-    /// element of an IAM policy. To get the list of context keys required by the policies
-    /// to simulate them correctly, use <a>GetContextKeysForCustomPolicy</a>.
+    /// about the context of an API query request. You can use the <code>Condition</code>
+    /// element of an IAM policy to evaluate context keys. To get the list of context keys
+    /// that the policies require for correct simulation, use <a>GetContextKeysForCustomPolicy</a>.
     /// </para><para>
-    /// If the output is long, you can paginate the results using the <code>MaxItems</code>
-    /// and <code>Marker</code> parameters.
+    /// If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters
+    /// to paginate the results.
     /// </para>
     /// </summary>
     [Cmdlet("Test", "IAMCustomPolicy")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of names of API actions to evaluate in the simulation. Each action is evaluated
-        /// for each resource. Each action must include the service identifier, such as <code>iam:CreateUser</code>.</para>
+        /// against each resource. Each action must include the service identifier, such as <code>iam:CreateUser</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,7 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         /// <summary>
         /// <para>
-        /// <para>A list of context keys and corresponding values that are used by the simulation. Whenever
+        /// <para>The ARN of the user that you want to use as the simulated caller of the APIs. <code>CallerArn</code>
+        /// is required if you include a <code>ResourcePolicy</code> so that the policy's <code>Principal</code>
+        /// element has a value to use in evaluating the policy.</para><para>You can specify only the ARN of an IAM user. You cannot specify the ARN of an assumed
+        /// role, federated user, or a service principal.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String CallerArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of context keys and corresponding values for the simulation to use. Whenever
         /// a context key is evaluated by a <code>Condition</code> element in one of the simulated
         /// IAM permission policies, the corresponding value is supplied.</para>
         /// </para>
@@ -83,7 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of policy documents to include in the simulation. Each document is specified
-        /// as a string containing the complete, valid JSON text of an IAM policy.</para>
+        /// as a string containing the complete, valid JSON text of an IAM policy. Do not include
+        /// any resource-based policies in this parameter. Any resource-based policy must be submitted
+        /// with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down"
+        /// policies, such as you could include in a call to <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
+        /// or one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
+        /// APIs to restrict what a user can do while using the temporary credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,12 +111,40 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// not provided then the value defaults to <code>*</code> (all resources). Each API in
         /// the <code>ActionNames</code> parameter is evaluated for each resource in this list.
         /// The simulation determines the access result (allowed or denied) of each combination
-        /// and reports it in the response.</para>
+        /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
+        /// If you want to include a resource policy in the simulation, then you must include
+        /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of
+        /// the resources included in the simulation or you receive an invalid input error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ResourceArns")]
         public System.String[] ResourceArn { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>An AWS account ID that specifies the owner of any simulated resource that does not
+        /// identify its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code>
+        /// is specified, it is also used as the account owner of any <code>ResourcePolicy</code>
+        /// included in the simulation. If the <code>ResourceOwner</code> parameter is not specified,
+        /// then the owner of the resources and the resource policy defaults to the account of
+        /// the identity provided in <code>CallerArn</code>. This parameter is required only if
+        /// you specify a resource-based policy and account that owns the resource is different
+        /// from the account that owns the simulated calling user <code>CallerArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ResourceOwner { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A resource-based policy to include in the simulation provided as a string. Each resource
+        /// in the simulation is treated as if it had this policy attached. You can include only
+        /// one resource-based policy in a simulation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public String ResourcePolicy { get; set; }
         
         /// <summary>
         /// <para>
@@ -117,7 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If there are additional items beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100.</para>
+        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. If this
+        /// is the case, the <code>IsTruncated</code> response element returns <code>true</code>
+        /// and <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 context.ActionNames = new List<System.String>(this.ActionName);
             }
+            context.CallerArn = this.CallerArn;
             if (this.ContextEntry != null)
             {
                 context.ContextEntries = new List<Amazon.IdentityManagement.Model.ContextEntry>(this.ContextEntry);
@@ -154,6 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 context.ResourceArns = new List<System.String>(this.ResourceArn);
             }
+            context.ResourceOwner = this.ResourceOwner;
+            context.ResourcePolicy = this.ResourcePolicy;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -171,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 request.ActionNames = cmdletContext.ActionNames;
             }
+            if (cmdletContext.CallerArn != null)
+            {
+                request.CallerArn = cmdletContext.CallerArn;
+            }
             if (cmdletContext.ContextEntries != null)
             {
                 request.ContextEntries = cmdletContext.ContextEntries;
@@ -182,6 +237,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.ResourceArns != null)
             {
                 request.ResourceArns = cmdletContext.ResourceArns;
+            }
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
+            }
+            if (cmdletContext.ResourcePolicy != null)
+            {
+                request.ResourcePolicy = cmdletContext.ResourcePolicy;
             }
             
             // Initialize loop variants and commence piping
@@ -271,12 +334,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> ActionNames { get; set; }
+            public List<String> ActionNames { get; set; }
+            public String CallerArn { get; set; }
             public List<Amazon.IdentityManagement.Model.ContextEntry> ContextEntries { get; set; }
-            public System.String Marker { get; set; }
+            public String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public List<System.String> PolicyInputList { get; set; }
-            public List<System.String> ResourceArns { get; set; }
+            public List<String> PolicyInputList { get; set; }
+            public List<String> ResourceArns { get; set; }
+            public String ResourceOwner { get; set; }
+            public String ResourcePolicy { get; set; }
         }
         
     }

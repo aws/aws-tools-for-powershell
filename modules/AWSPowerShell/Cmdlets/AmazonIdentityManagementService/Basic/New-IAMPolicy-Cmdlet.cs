@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// This operation creates a policy version with a version identifier of <code>v1</code>
     /// and sets v1 as the policy's default version. For more information about policy versions,
     /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>Using IAM</i> guide. 
+    /// for Managed Policies</a> in the <i>IAM User Guide</i>. 
     /// </para><para>
     /// For more information about managed policies in general, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The path for the policy. </para><para>For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>Using IAM</i> guide. </para><para>This parameter is optional. If it is not included, it defaults to a slash (/). </para>
+        /// Identifiers</a> in the <i>IAM User Guide</i>. </para><para>This parameter is optional. If it is not included, it defaults to a slash (/). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

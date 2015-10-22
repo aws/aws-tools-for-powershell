@@ -93,7 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If there are additional items beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100.</para>
+        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. If this
+        /// is the case, the <code>IsTruncated</code> response element returns <code>true</code>
+        /// and <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

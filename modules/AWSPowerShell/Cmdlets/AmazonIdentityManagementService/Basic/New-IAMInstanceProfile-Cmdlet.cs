@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     ///  For information about the number of instance profiles you can create, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>Using IAM</i> guide. 
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

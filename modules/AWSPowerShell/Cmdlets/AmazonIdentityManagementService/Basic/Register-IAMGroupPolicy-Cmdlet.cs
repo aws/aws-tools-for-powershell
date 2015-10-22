@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// in a group, use <a>PutGroupPolicy</a>. 
     /// </para><para>
     /// For more information about policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Register", "IAMGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

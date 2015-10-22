@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  <important> You should understand the implications of changing a server certificate's
     /// path or name. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html">Managing
-    /// Server Certificates</a> in the <i>Using IAM</i> guide. </important><note>To change
+    /// Server Certificates</a> in the <i>IAM User Guide</i>. </important><note>To change
     /// a server certificate name the requester must have appropriate permissions on both
     /// the source object and the target object. For example, to change the name from ProductionCert
     /// to ProdCert, the entity making the request must have permission on ProductionCert

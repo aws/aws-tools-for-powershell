@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// default version in the next step of the process. </li><li>Delete the policy (this
     /// automatically deletes the policy's default version) using this API. </li></ol></para><para>
     /// For information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

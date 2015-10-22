@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// A user can also have managed policies attached to it. To list the managed policies
     /// that are attached to a user, use <a>ListAttachedUserPolicies</a>. For more information
     /// about policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters. If there are no inline policies embedded with the specified user, the
@@ -75,7 +75,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
         /// want in the response. If there are additional items beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100.</para>
+        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. If this
+        /// is the case, the <code>IsTruncated</code> response element returns <code>true</code>
+        /// and <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

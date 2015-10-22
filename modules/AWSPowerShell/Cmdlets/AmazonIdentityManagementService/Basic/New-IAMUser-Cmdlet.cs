@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     ///  For information about limitations on the number of users you can create, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>Using IAM</i> guide. 
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

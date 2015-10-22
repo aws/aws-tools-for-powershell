@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// even if the AWS account has no associated users. 
     /// </para><para>
     /// For information about rotating keys, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing
-    /// Keys and Certificates</a> in the <i>Using IAM</i> guide. 
+    /// Keys and Certificates</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// users, groups, and roles that the policy is attached to. 
     /// </para><para>
     /// For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>Using IAM</i> guide. 
+    /// for Managed Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>Specifies whether to set this version as the policy's default version.</para><para>When this parameter is <code>true</code>, the new policy version becomes the operative
         /// version; that is, the version that is in effect for the IAM users, groups, and roles
         /// that the policy is attached to.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-        /// for Managed Policies</a> in the <i>Using IAM</i> guide. </para>
+        /// for Managed Policies</a> in the <i>IAM User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

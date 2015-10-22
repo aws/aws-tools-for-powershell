@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// A user can also have a managed policy attached to it. To attach a managed policy to
     /// a user, use <a>AttachUserPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
     /// For information about policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para><para>
     /// For information about limits on the number of inline policies that you can embed in
     /// a user, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>Using IAM</i> guide. 
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
     /// </para><note>Because policy documents can be large, you should use POST rather than GET
     /// when calling <code>PutUserPolicy</code>. For general information about using the Query
     /// API with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making

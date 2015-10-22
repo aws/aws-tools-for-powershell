@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// API. 
     /// </para><para>
     /// For information about managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Set", "IAMDefaultPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The version of the policy to set as the default (operative) version.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-        /// for Managed Policies</a> in the <i>Using IAM</i> guide. </para>
+        /// for Managed Policies</a> in the <i>IAM User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
