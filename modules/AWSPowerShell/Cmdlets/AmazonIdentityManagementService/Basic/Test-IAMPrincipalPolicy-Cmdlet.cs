@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CallerArn { get; set; }
+        public System.String CallerArn { get; set; }
         
         /// <summary>
         /// <para>
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceOwner { get; set; }
+        public System.String ResourceOwner { get; set; }
         
         /// <summary>
         /// <para>
@@ -165,13 +165,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourcePolicy { get; set; }
+        public System.String ResourcePolicy { get; set; }
         
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
         /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
-        /// element in the response you received to inform the next call about where to start.</para>
+        /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -181,11 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
-        /// want in the response. If there are additional items beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
-        /// IAM might return fewer results, even when there are more results available. If this
-        /// is the case, the <code>IsTruncated</code> response element returns <code>true</code>
-        /// and <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. In that
+        /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
+        /// <code>Marker</code> contains a value to include in the subsequent call that tells
         /// the service where to continue from. </para>
         /// </para>
         /// </summary>
@@ -360,16 +360,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ActionNames { get; set; }
-            public String CallerArn { get; set; }
+            public List<System.String> ActionNames { get; set; }
+            public System.String CallerArn { get; set; }
             public List<Amazon.IdentityManagement.Model.ContextEntry> ContextEntries { get; set; }
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public List<String> PolicyInputList { get; set; }
-            public String PolicySourceArn { get; set; }
-            public List<String> ResourceArns { get; set; }
-            public String ResourceOwner { get; set; }
-            public String ResourcePolicy { get; set; }
+            public List<System.String> PolicyInputList { get; set; }
+            public System.String PolicySourceArn { get; set; }
+            public List<System.String> ResourceArns { get; set; }
+            public System.String ResourceOwner { get; set; }
+            public System.String ResourcePolicy { get; set; }
         }
         
     }
