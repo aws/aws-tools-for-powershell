@@ -1563,8 +1563,6 @@ Set-Alias -Name KINF-DeleteDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name Describe-KINFDeliveryStream -Value Get-KINFDeliveryStream
 Set-Alias -Name KINF-DescribeDeliveryStream -Value Get-KINFDeliveryStream
 Set-Alias -Name KINF-ListDeliveryStreams -Value Get-KINFDeliveryStreamList
-Set-Alias -Name Put-KINFRecord -Value Write-KINFRecord
-Set-Alias -Name KINF-PutRecord -Value Write-KINFRecord
 Set-Alias -Name Put-KINFRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-PutRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-UpdateDestination -Value Update-KINFDestination

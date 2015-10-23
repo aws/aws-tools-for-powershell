@@ -24,6 +24,7 @@ using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.KinesisFirehose;
 using Amazon.KinesisFirehose.Model;
+using System.IO;
 
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
@@ -86,7 +87,15 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream Record_Data { get; set; }
-        
+
+        /// <summary>
+        /// Text string containing the data to send. Use this parameter, or
+        /// Record_Data, to define the data to be written.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+
+        public System.String Record_Text { get; set; }
+
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream.</para>
@@ -119,9 +128,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 Region = this.Region,
                 Credentials = this.CurrentCredentials
             };
-            
+
             context.DeliveryStreamName = this.DeliveryStreamName;
-            context.Record_Data = this.Record_Data;
+            if (ParameterWasBound("Record_Text"))
+                context.Record_Text = Record_Text;
+            else
+                context.Record_Data = this.Record_Data;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -144,10 +156,20 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             bool requestRecordIsNull = true;
             request.Record = new Amazon.KinesisFirehose.Model.Record();
             System.IO.MemoryStream requestRecord_record_Data = null;
-            if (cmdletContext.Record_Data != null)
+            if (cmdletContext.Record_Text != null)
+            {
+                var ms = new MemoryStream();
+                var stringBytes = System.Text.Encoding.UTF8.GetBytes(cmdletContext.Record_Text);
+                ms.Write(stringBytes, 0, stringBytes.Length);
+                ms.Seek(0, SeekOrigin.Begin);
+
+                requestRecord_record_Data = ms;
+            }
+            else if (cmdletContext.Record_Data != null)
             {
                 requestRecord_record_Data = cmdletContext.Record_Data;
             }
+
             if (requestRecord_record_Data != null)
             {
                 request.Record.Data = requestRecord_record_Data;
@@ -195,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             public System.String DeliveryStreamName { get; set; }
             public System.IO.MemoryStream Record_Data { get; set; }
+            public System.String Record_Text { get; set; }
         }
         
     }
