@@ -1,3 +1,11 @@
+### 3.1.21.0 (2015-10-22)
+  * AutoScaling
+    - Adding support for EBS encryption in block device mappings.
+  * IdentityManagement
+    - Enable Policy Simulator API to do simulation with resource-based policies.
+  * Get-AWSCmdletName
+    - Added support for listing all cmdlets for services matching the name/prefix supplied to the -Service parameter.
+
 ### 3.1.20.0 (2015-10-15)
   * KeyManagementService
     - Add support for deleting Customer Master Keys, including two new APIs for scheduling and canceling key deletion.
