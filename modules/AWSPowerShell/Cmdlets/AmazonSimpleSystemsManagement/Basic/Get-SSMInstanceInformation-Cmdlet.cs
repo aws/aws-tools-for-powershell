@@ -28,30 +28,37 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the associations for the specified SSM document or instance.
+    /// Describes one or more of your instances. You can use this to get information about
+    /// instances like the operating system platform, the SSM agent version, status etc. If
+    /// you specify one or more instance IDs, it returns information for those instances.
+    /// If you do not specify instance IDs, it returns information for all your instances.
+    /// If you specify an instance ID that is not valid or an instance that you do not own,
+    /// you receive an error.
     /// </summary>
-    [Cmdlet("Get", "SSMAssociationList")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.Association")]
-    [AWSCmdlet("Invokes the ListAssociations operation against Amazon Simple Systems Management.", Operation = new[] {"ListAssociations"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Association",
-        "This cmdlet returns a collection of Association objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMInstanceInformation")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceInformation")]
+    [AWSCmdlet("Invokes the DescribeInstanceInformation operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeInstanceInformation"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstanceInformation",
+        "This cmdlet returns a collection of InstanceInformation objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetSSMAssociationListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public class GetSSMInstanceInformationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// One or more filters. Use
+        /// a filter to return a more specific list of instances.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public Amazon.SimpleSystemsManagement.Model.AssociationFilter[] AssociationFilterList { get; set; }
+        public Amazon.SimpleSystemsManagement.Model.InstanceInformationFilter[] InstanceInformationFilterList { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this call. The call also returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para>
+        /// The maximum number of items to return for this
+        /// call. The call also returns a token that you can specify in a subsequent call to get
+        /// the next set of results.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para>
+        /// The token for the next set of items to return.
+        /// (You received this token from a previous call.)
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.AssociationFilterList != null)
+            if (this.InstanceInformationFilterList != null)
             {
-                context.AssociationFilterList = new List<Amazon.SimpleSystemsManagement.Model.AssociationFilter>(this.AssociationFilterList);
+                context.InstanceInformationFilterList = new List<Amazon.SimpleSystemsManagement.Model.InstanceInformationFilter>(this.InstanceInformationFilterList);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -97,10 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.ListAssociationsRequest();
-            if (cmdletContext.AssociationFilterList != null)
+            var request = new Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationRequest();
+            if (cmdletContext.InstanceInformationFilterList != null)
             {
-                request.AssociationFilterList = cmdletContext.AssociationFilterList;
+                request.InstanceInformationFilterList = cmdletContext.InstanceInformationFilterList;
             }
             
             // Initialize loop variants and commence piping
@@ -155,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     try
                     {
                         
-                        var response = client.ListAssociations(request);
+                        var response = client.DescribeInstanceInformation(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Associations;
+                        object pipelineOutput = response.InstanceInformationList;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -166,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Associations.Count;
+                        int _receivedThisCall = response.InstanceInformationList.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -219,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleSystemsManagement.Model.AssociationFilter> AssociationFilterList { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.InstanceInformationFilter> InstanceInformationFilterList { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

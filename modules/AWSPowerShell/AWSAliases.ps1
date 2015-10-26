@@ -2280,6 +2280,8 @@ Set-Alias -Name SQS-SendMessage -Value Send-SQSMessage
 Set-Alias -Name SQS-SendMessageBatch -Value Send-SQSMessageBatch
 Set-Alias -Name Set-SQSQueueAttributes -Value Set-SQSQueueAttribute
 Set-Alias -Name SQS-SetQueueAttributes -Value Set-SQSQueueAttribute
+Set-Alias -Name Cancel-SSMCommand -Value Stop-SSMCommand
+Set-Alias -Name SSM-CancelCommand -Value Stop-SSMCommand
 Set-Alias -Name Create-SSMAssociation -Value New-SSMAssociation
 Set-Alias -Name SSM-CreateAssociation -Value New-SSMAssociation
 Set-Alias -Name Create-SSMAssociationFromBatch -Value New-SSMAssociationFromBatch
@@ -2294,9 +2296,14 @@ Set-Alias -Name Describe-SSMAssociation -Value Get-SSMAssociation
 Set-Alias -Name SSM-DescribeAssociation -Value Get-SSMAssociation
 Set-Alias -Name Describe-SSMDocumentDescription -Value Get-SSMDocumentDescription
 Set-Alias -Name SSM-DescribeDocument -Value Get-SSMDocumentDescription
+Set-Alias -Name Describe-SSMInstanceInformation -Value Get-SSMInstanceInformation
+Set-Alias -Name SSM-DescribeInstanceInformation -Value Get-SSMInstanceInformation
 Set-Alias -Name SSM-GetDocument -Value Get-SSMDocument
 Set-Alias -Name SSM-ListAssociations -Value Get-SSMAssociationList
+Set-Alias -Name SSM-ListCommandInvocations -Value Get-SSMCommandInvocation
+Set-Alias -Name SSM-ListCommands -Value Get-SSMCommand
 Set-Alias -Name SSM-ListDocuments -Value Get-SSMDocumentList
+Set-Alias -Name SSM-SendCommand -Value Send-SSMCommand
 Set-Alias -Name SSM-UpdateAssociationStatus -Value Update-SSMAssociationStatus
 Set-Alias -Name Describe-SGTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints
 Set-Alias -Name SG-DescribeTapeRecoveryPoints -Value Get-SGTapeRecoveryPoints

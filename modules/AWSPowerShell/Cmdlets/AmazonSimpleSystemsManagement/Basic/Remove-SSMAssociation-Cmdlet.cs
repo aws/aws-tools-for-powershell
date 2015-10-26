@@ -28,14 +28,14 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Disassociates the specified configuration document from the specified instance.
+    /// Disassociates the specified SSM document from the specified instance.
     /// 
     ///  
     /// <para>
-    /// When you disassociate a configuration document from an instance, it does not change
-    /// the configuration of the instance. To change the configuration state of an instance
-    /// after you disassociate a configuration document, you must create a new configuration
-    /// document with the desired configuration and associate it with the instance.
+    /// When you disassociate an SSM document from an instance, it does not change the configuration
+    /// of the instance. To change the configuration state of an instance after you disassociate
+    /// a document, you must create a new document with the desired configuration and associate
+    /// it with the instance.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

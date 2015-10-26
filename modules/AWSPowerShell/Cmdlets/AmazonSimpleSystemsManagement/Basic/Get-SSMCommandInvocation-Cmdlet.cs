@@ -28,30 +28,65 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the associations for the specified SSM document or instance.
+    /// An invocation is copy of a command sent to a specific instance. A command can apply
+    /// to one or more instances. A command invocation applies to one instance. For example,
+    /// if a user executes SendCommand against three instances, then a command invocation
+    /// is created for each requested instance ID. ListCommandInvocations provide status about
+    /// command execution.
     /// </summary>
-    [Cmdlet("Get", "SSMAssociationList")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.Association")]
-    [AWSCmdlet("Invokes the ListAssociations operation against Amazon Simple Systems Management.", Operation = new[] {"ListAssociations"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Association",
-        "This cmdlet returns a collection of Association objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMCommandInvocation")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.CommandInvocation")]
+    [AWSCmdlet("Invokes the ListCommandInvocations operation against Amazon Simple Systems Management.", Operation = new[] {"ListCommandInvocations"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CommandInvocation",
+        "This cmdlet returns a collection of CommandInvocation objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class GetSSMAssociationListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public class GetSSMCommandInvocationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// (Optional) The invocations for a specific command
+        /// ID.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public Amazon.SimpleSystemsManagement.Model.AssociationFilter[] AssociationFilterList { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String CommandId { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return for this call. The call also returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para>
+        /// (Optional) If set this returns the response of
+        /// the command executions. By default this is set to False.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Details")]
+        public System.Boolean Detail { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// (Optional) One or more filters. Use a filter to
+        /// return a more specific list of results.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.SimpleSystemsManagement.Model.CommandFilter[] Filter { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// (Optional) The command execution details for
+        /// a specific instance ID.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String InstanceId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// (Optional) The maximum number of items to return
+        /// for this call. The call also returns a token that you can specify in a subsequent
+        /// call to get the next set of results.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para>
+        /// (Optional) The token for the next set of items
+        /// to return. (You received this token from a previous call.)
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,10 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.AssociationFilterList != null)
+            context.CommandId = this.CommandId;
+            if (ParameterWasBound("Detail"))
+                context.Details = this.Detail;
+            if (this.Filter != null)
             {
-                context.AssociationFilterList = new List<Amazon.SimpleSystemsManagement.Model.AssociationFilter>(this.AssociationFilterList);
+                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.CommandFilter>(this.Filter);
             }
+            context.InstanceId = this.InstanceId;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -97,10 +136,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.ListAssociationsRequest();
-            if (cmdletContext.AssociationFilterList != null)
+            var request = new Amazon.SimpleSystemsManagement.Model.ListCommandInvocationsRequest();
+            if (cmdletContext.CommandId != null)
             {
-                request.AssociationFilterList = cmdletContext.AssociationFilterList;
+                request.CommandId = cmdletContext.CommandId;
+            }
+            if (cmdletContext.Details != null)
+            {
+                request.Details = cmdletContext.Details.Value;
+            }
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             // Initialize loop variants and commence piping
@@ -155,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     try
                     {
                         
-                        var response = client.ListAssociations(request);
+                        var response = client.ListCommandInvocations(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Associations;
+                        object pipelineOutput = response.CommandInvocations;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -166,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Associations.Count;
+                        int _receivedThisCall = response.CommandInvocations.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -219,7 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleSystemsManagement.Model.AssociationFilter> AssociationFilterList { get; set; }
+            public System.String CommandId { get; set; }
+            public System.Boolean? Details { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.CommandFilter> Filters { get; set; }
+            public System.String InstanceId { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

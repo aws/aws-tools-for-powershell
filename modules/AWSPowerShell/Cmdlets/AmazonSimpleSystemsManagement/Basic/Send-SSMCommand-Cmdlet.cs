@@ -28,50 +28,82 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Associates the specified SSM document with the specified instance.
-    /// 
-    ///  
-    /// <para>
-    /// When you associate an SSM document with an instance, the configuration agent on the
-    /// instance processes the document and configures the instance as specified.
-    /// </para><para>
-    /// If you associate a document with an instance that already has an associated document,
-    /// the system throws the AssociationAlreadyExists exception.
-    /// </para>
+    /// Executes commands on one or more remote instances.
     /// </summary>
-    [Cmdlet("New", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Invokes the CreateAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"CreateAssociation"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
-        "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Send", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
+    [AWSCmdlet("Invokes the SendCommand operation against Amazon Simple Systems Management.", Operation = new[] {"SendCommand"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Command",
+        "This cmdlet returns a Command object.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.SendCommandResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public class SendSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// User-specified information about the command,
+        /// such as a brief description of what the command should do.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String InstanceId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String Comment { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// Required. The name of the SSM document to
+        /// execute. This can be an SSM public document or a custom document.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DocumentName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Required. The instance IDs where the command
+        /// should execute.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [Alias("InstanceIds")]
+        public System.String[] InstanceId { get; set; }
         
         /// <summary>
         /// <para>
-        /// The parameters for the document’s runtime configuration.
+        /// The name of the S3 bucket where command
+        /// execution responses should be stored.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OutputS3BucketName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The directory structure within the S3
+        /// bucket where the responses should be stored.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OutputS3KeyPrefix { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// The required and optional parameters specified
+        /// in the SSM document being executed.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public System.Collections.Hashtable Parameter { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// If this time is reached and the command
+        /// has not already started executing, it will not execute.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TimeoutSeconds")]
+        public System.Int32 TimeoutSecond { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -87,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SSMAssociation (CreateAssociation)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SSMCommand (SendCommand)"))
             {
                 return;
             }
@@ -98,8 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Credentials = this.CurrentCredentials
             };
             
-            context.InstanceId = this.InstanceId;
-            context.Name = this.Name;
+            context.Comment = this.Comment;
+            context.DocumentName = this.DocumentName;
+            if (this.InstanceId != null)
+            {
+                context.InstanceIds = new List<System.String>(this.InstanceId);
+            }
+            context.OutputS3BucketName = this.OutputS3BucketName;
+            context.OutputS3KeyPrefix = this.OutputS3KeyPrefix;
             if (this.Parameter != null)
             {
                 context.Parameters = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
@@ -120,6 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.Parameters.Add((String)hashKey, valueSet);
                 }
             }
+            if (ParameterWasBound("TimeoutSecond"))
+                context.TimeoutSeconds = this.TimeoutSecond;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -131,19 +171,35 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.SendCommandRequest();
             
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.Comment != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.Comment = cmdletContext.Comment;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.DocumentName != null)
             {
-                request.Name = cmdletContext.Name;
+                request.DocumentName = cmdletContext.DocumentName;
+            }
+            if (cmdletContext.InstanceIds != null)
+            {
+                request.InstanceIds = cmdletContext.InstanceIds;
+            }
+            if (cmdletContext.OutputS3BucketName != null)
+            {
+                request.OutputS3BucketName = cmdletContext.OutputS3BucketName;
+            }
+            if (cmdletContext.OutputS3KeyPrefix != null)
+            {
+                request.OutputS3KeyPrefix = cmdletContext.OutputS3KeyPrefix;
             }
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.TimeoutSeconds != null)
+            {
+                request.TimeoutSeconds = cmdletContext.TimeoutSeconds.Value;
             }
             
             CmdletOutput output;
@@ -152,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateAssociation(request);
+                var response = client.SendCommand(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AssociationDescription;
+                object pipelineOutput = response.Command;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -180,9 +236,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
+            public System.String Comment { get; set; }
+            public System.String DocumentName { get; set; }
+            public List<System.String> InstanceIds { get; set; }
+            public System.String OutputS3BucketName { get; set; }
+            public System.String OutputS3KeyPrefix { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
+            public System.Int32? TimeoutSeconds { get; set; }
         }
         
     }
