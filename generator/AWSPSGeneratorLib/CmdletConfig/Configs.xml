@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <ConfigModelCollection>
   <Configs>
+    <Path>APIGateway.xml</Path>
     <Path>AutoScaling.xml</Path>
     <Path>AWSSupport.xml</Path>
     <Path>Beanstalk.xml</Path>
@@ -37,13 +38,13 @@
     <Path>IAM.xml</Path>
     <Path>IoT.xml</Path>
     <Path>ImportExport.xml</Path>
-	<Path>Inspector.xml</Path>
+    <Path>Inspector.xml</Path>
     <Path>KMS.xml</Path>
     <Path>Kinesis.xml</Path>
     <Path>KinesisFirehose.xml</Path>
     <Path>Lambda.xml</Path>
     <Path>ML.xml</Path>
-	<Path>MCA.xml</Path>
+    <Path>MCA.xml</Path>
     <Path>OpsWorks.xml</Path>
     <Path>RDS.xml</Path>
     <Path>Redshift.xml</Path>
@@ -61,6 +62,7 @@
   </Configs>
 
   <ClientNames>
+    <Map From="AG" To="Amazon API Gateway" />
     <Map From="AS" To="Auto Scaling" />
     <Map From="EB" To="AWS Elastic Beanstalk" />
     <Map From="CFN" To="AWS CloudFormation" />
@@ -91,13 +93,13 @@
     <Map From="IAM" To="AWS Identity and Access Management" />
     <Map From="IOT" To="AWS IoT" />
     <Map From="IE" To="AWS Import/Export" />
-	<Map From="INS" To="Amazon Inspector" />
+    <Map From="INS" To="Amazon Inspector" />
     <Map From="KMS" To="AWS Key Management Service" />
     <Map From="KIN" To="AWS Kinesis" />
     <Map From="KINF" To="Amazon Kinesis Firehose" />
     <Map From="LM" To="Amazon Lambda" />
     <Map From="ML" To="Amazon Machine Learning" />
-	<Map From="MCA" To="AWS Marketplace Commerce Analytics" />
+    <Map From="MCA" To="AWS Marketplace Commerce Analytics" />
     <Map From="RDS" To="Amazon Relational Database Service" />
     <Map From="R53" To="AWS Route 53" />
     <Map From="R53D" To="AWS Route 53 Domains" />

@@ -1,0 +1,132 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.APIGateway;
+using Amazon.APIGateway.Model;
+
+namespace Amazon.PowerShell.Cmdlets.AG
+{
+    /// <summary>
+    /// Gets information about one or more <a>Stage</a> resources.
+    /// </summary>
+    [Cmdlet("Get", "AGStageList")]
+    [OutputType("Amazon.APIGateway.Model.Stage")]
+    [AWSCmdlet("Invokes the GetStages operation against Amazon API Gateway.", Operation = new[] {"GetStages"})]
+    [AWSCmdletOutput("Amazon.APIGateway.Model.Stage",
+        "This cmdlet returns a collection of Stage objects.",
+        "The service call response (type Amazon.APIGateway.Model.GetStagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetAGStageListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
+    {
+        /// <summary>
+        /// <para>
+        /// <para>The stages' deployment identifiers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The stages' API identifiers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String RestApiId { get; set; }
+        
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.DeploymentId = this.DeploymentId;
+            context.RestApiId = this.RestApiId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.APIGateway.Model.GetStagesRequest();
+            
+            if (cmdletContext.DeploymentId != null)
+            {
+                request.DeploymentId = cmdletContext.DeploymentId;
+            }
+            if (cmdletContext.RestApiId != null)
+            {
+                request.RestApiId = cmdletContext.RestApiId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.GetStages(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Item;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String DeploymentId { get; set; }
+            public System.String RestApiId { get; set; }
+        }
+        
+    }
+}

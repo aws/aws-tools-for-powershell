@@ -95,7 +95,9 @@
   <ItemGroup>
     <None Include="CmdletConfig\Configs.xml" />
     <None Include="CmdletConfig\DataPipeline.xml" />
-    <None Include="CmdletConfig\DynamoDB.xml" />
+    <None Include="CmdletConfig\DynamoDB.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="FormatConfig\Configs.xml" />
     <None Include="CmdletConfig\EC2.xml" />
     <None Include="CmdletConfig\ECS.xml" />
@@ -145,7 +147,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="CmdletConfig\HSM.xml" />
-    <None Include="CmdletConfig\ML.xml" />
+    <None Include="CmdletConfig\ML.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="CmdletConfig\DirectoryService.xml" />
     <None Include="CmdletConfig\EFS.xml" />
     <None Include="CmdletConfig\WKS.xml" />
@@ -162,6 +166,7 @@
     <None Include="CmdletConfig\WAF.xml" />
     <None Include="CmdletConfig\Inspector.xml" />
     <None Include="CmdletConfig\IoT.xml" />
+    <Content Include="CmdletConfig\APIGateway.xml" />
     <Content Include="CmdletConfig\KinesisFirehose.xml">
       <SubType>Designer</SubType>
     </Content>

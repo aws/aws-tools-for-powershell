@@ -57,6 +57,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="AWSSDK.APIGateway">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.APIGateway.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
