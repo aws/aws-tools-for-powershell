@@ -1,3 +1,9 @@
+### 3.1.22.0 (2015-10-26)
+  * Amazon EC2 Simple Systems Management
+    - Added support for EC2 Run Command APIs, a new EC2 feature that enables you to securely and remotely manage the configuration of your Amazon EC2 Windows instances. Run Command provides a simple way of automating common administrative tasks like executing scripts, running PowerShell commands, installing software or patches and more. 
+  * Amazon Kinesis Firehose
+    - Added parameter 'Record_Text' to the Write-KINFRecord cmdlet to enable write of simple text records to the service.
+
 ### 3.1.21.0 (2015-10-22)
   * AutoScaling
     - Adding support for EBS encryption in block device mappings.
