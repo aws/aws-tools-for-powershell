@@ -1,3 +1,7 @@
+### 3.1.23.0 (2015-10-27)
+  * Amazon API Gateway
+    - Added support for Amazon API Gateway, a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. The noun prefix for cmdlets belonging to the service is 'AG'.
+
 ### 3.1.22.0 (2015-10-26)
   * Amazon EC2 Simple Systems Management
     - Added support for EC2 Run Command APIs, a new EC2 feature that enables you to securely and remotely manage the configuration of your Amazon EC2 Windows instances. Run Command provides a simple way of automating common administrative tasks like executing scripts, running PowerShell commands, installing software or patches and more. 
