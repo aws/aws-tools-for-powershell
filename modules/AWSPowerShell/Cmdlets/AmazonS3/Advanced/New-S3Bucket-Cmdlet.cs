@@ -41,10 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         public System.String BucketName { get; set; }
-        
+
         /// <summary>
         /// Specifies the name of the canned ACL (access control list) of permissions to be applied to the S3 bucket.
-        /// Please refer to <see cref="T:Amazon.S3.Model.S3CannedACL" /> for information on S3 Canned ACLs.
+        /// Please refer to <a href="http://docs.aws.amazon.com/sdkfornet/v3/apidocs/Index.html?page=S3/TS3_S3CannedACL.html&tocid=Amazon_S3_S3CannedACL">Amazon.S3.Model.S3CannedACL</a> for information on S3 Canned ACLs.
         /// </summary>
         [Parameter]
         public System.String CannedACLName { get; set; }
