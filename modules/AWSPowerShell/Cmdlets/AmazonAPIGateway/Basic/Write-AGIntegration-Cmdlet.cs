@@ -65,11 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         /// <summary>
         /// <para>
-        /// <para>Specifies a put integration HTTP method.</para>
+        /// <para>Specifies a put integration request's HTTP method.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HttpMethod { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a put integration HTTP method.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String IntegrationHttpMethod { get; set; }
         
         /// <summary>
         /// <para>
@@ -161,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.CacheNamespace = this.CacheNamespace;
             context.TargetCredential = this.TargetCredential;
             context.HttpMethod = this.HttpMethod;
+            context.IntegrationHttpMethod = this.IntegrationHttpMethod;
             if (this.RequestParameter != null)
             {
                 context.RequestParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -209,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.HttpMethod != null)
             {
                 request.HttpMethod = cmdletContext.HttpMethod;
+            }
+            if (cmdletContext.IntegrationHttpMethod != null)
+            {
+                request.IntegrationHttpMethod = cmdletContext.IntegrationHttpMethod;
             }
             if (cmdletContext.RequestParameters != null)
             {
@@ -273,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String CacheNamespace { get; set; }
             public System.String TargetCredential { get; set; }
             public System.String HttpMethod { get; set; }
+            public System.String IntegrationHttpMethod { get; set; }
             public Dictionary<System.String, System.String> RequestParameters { get; set; }
             public Dictionary<System.String, System.String> RequestTemplates { get; set; }
             public System.String ResourceId { get; set; }
