@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of policies for which you want list of context keys used in <code>Condition</code>
-        /// elements.</para>
+        /// elements. Each document is specified as a string containing the complete, valid JSON
+        /// text of an IAM policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

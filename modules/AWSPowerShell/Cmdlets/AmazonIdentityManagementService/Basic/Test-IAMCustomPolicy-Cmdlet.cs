@@ -123,6 +123,25 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         /// <summary>
         /// <para>
+        /// <para>Specifies the type of simulation to run. Different APIs that support resource-based
+        /// policies require different combinations of resources. By specifying the type of simulation
+        /// to run, you enable the policy simulator to enforce the presence of the required resources
+        /// to ensure reliable simulation results. If your simulation does not match one of the
+        /// following scenarios, then you can omit this parameter. The following list shows each
+        /// of the supported scenario values and the resources that you must define to run the
+        /// simulation.</para><para>Each of the EC2 scenarios requires that you specify instance, image, and security-group
+        /// resources. If your scenario includes an EBS volume, then you must specify that volume
+        /// as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface
+        /// resource. If it includes an IP subnet, then you must specify the subnet resource.
+        /// For more information on the EC2 scenario options, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// Platforms</a> in the <i>AWS EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security-group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security-group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security-group, network-interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security-group, network-interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security-group, network-interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security-group, network-interface, subnet, volume</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ResourceHandlingOption { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>An AWS account ID that specifies the owner of any simulated resource that does not
         /// identify its owner in the resource ARN, such as an S3 bucket or object. If <code>ResourceOwner</code>
         /// is specified, it is also used as the account owner of any <code>ResourcePolicy</code>
@@ -203,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 context.ResourceArns = new List<System.String>(this.ResourceArn);
             }
+            context.ResourceHandlingOption = this.ResourceHandlingOption;
             context.ResourceOwner = this.ResourceOwner;
             context.ResourcePolicy = this.ResourcePolicy;
             
@@ -237,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.ResourceArns != null)
             {
                 request.ResourceArns = cmdletContext.ResourceArns;
+            }
+            if (cmdletContext.ResourceHandlingOption != null)
+            {
+                request.ResourceHandlingOption = cmdletContext.ResourceHandlingOption;
             }
             if (cmdletContext.ResourceOwner != null)
             {
@@ -341,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public int? MaxItems { get; set; }
             public List<System.String> PolicyInputList { get; set; }
             public List<System.String> ResourceArns { get; set; }
+            public System.String ResourceHandlingOption { get; set; }
             public System.String ResourceOwner { get; set; }
             public System.String ResourcePolicy { get; set; }
         }
