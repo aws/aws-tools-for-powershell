@@ -1,3 +1,9 @@
+### 3.1.24.0 (2015-11-02)
+  * AWS Identity and Access Management
+    - Updated cmdlets for the IAM policy simulator to help test, verify, and understand resource-level permissions.
+  * Amazon API Gateway
+    - Updated the Write-AGIntegration cmdlet to fix an issue with incorrect marshalling of requests to the service.
+
 ### 3.1.23.0 (2015-10-27)
   * Amazon API Gateway
     - Added support for Amazon API Gateway, a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. The noun prefix for cmdlets belonging to the service is 'AG'.
