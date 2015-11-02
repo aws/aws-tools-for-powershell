@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Unregister", "R53VPCFromHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the DisassociateVPCFromHostedZone operation against AWS Route 53.", Operation = new[] {"DisassociateVPCFromHostedZone"})]
+    [AWSCmdlet("Invokes the DisassociateVPCFromHostedZone operation against Amazon Route 53.", Operation = new[] {"DisassociateVPCFromHostedZone"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
         "The service call response (type Amazon.Route53.Model.DisassociateVPCFromHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

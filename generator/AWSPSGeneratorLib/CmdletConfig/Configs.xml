@@ -101,8 +101,8 @@
     <Map From="ML" To="Amazon Machine Learning" />
     <Map From="MCA" To="AWS Marketplace Commerce Analytics" />
     <Map From="RDS" To="Amazon Relational Database Service" />
-    <Map From="R53" To="AWS Route 53" />
-    <Map From="R53D" To="AWS Route 53 Domains" />
+    <Map From="R53" To="Amazon Route 53" />
+    <Map From="R53D" To="Amazon Route 53 Domains" />
     <Map From="S3" To="Amazon Simple Storage Service" />
     <Map From="SES" To="Amazon Simple Email Service" />
     <Map From="SNS" To="Amazon Simple Notification Service" />

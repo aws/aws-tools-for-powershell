@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53ReusableDelegationSets")]
     [OutputType("Amazon.Route53.Model.DelegationSet")]
-    [AWSCmdlet("Invokes the ListReusableDelegationSets operation against AWS Route 53.", Operation = new[] {"ListReusableDelegationSets"})]
+    [AWSCmdlet("Invokes the ListReusableDelegationSets operation against Amazon Route 53.", Operation = new[] {"ListReusableDelegationSets"})]
     [AWSCmdletOutput("Amazon.Route53.Model.DelegationSet",
         "This cmdlet returns a collection of DelegationSet objects.",
         "The service call response (type Amazon.Route53.Model.ListReusableDelegationSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

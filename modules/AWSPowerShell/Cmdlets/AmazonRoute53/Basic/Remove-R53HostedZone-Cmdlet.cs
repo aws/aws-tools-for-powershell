@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Remove", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the DeleteHostedZone operation against AWS Route 53.", Operation = new[] {"DeleteHostedZone"})]
+    [AWSCmdlet("Invokes the DeleteHostedZone operation against Amazon Route 53.", Operation = new[] {"DeleteHostedZone"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
         "The service call response (type Amazon.Route53.Model.DeleteHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

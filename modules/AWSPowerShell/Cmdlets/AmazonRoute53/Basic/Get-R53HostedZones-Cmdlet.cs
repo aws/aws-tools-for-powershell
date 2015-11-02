@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53HostedZones")]
     [OutputType("Amazon.Route53.Model.HostedZone")]
-    [AWSCmdlet("Invokes the ListHostedZones operation against AWS Route 53.", Operation = new[] {"ListHostedZones"})]
+    [AWSCmdlet("Invokes the ListHostedZones operation against Amazon Route 53.", Operation = new[] {"ListHostedZones"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZone",
         "This cmdlet returns a collection of HostedZone objects.",
         "The service call response (type Amazon.Route53.Model.ListHostedZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

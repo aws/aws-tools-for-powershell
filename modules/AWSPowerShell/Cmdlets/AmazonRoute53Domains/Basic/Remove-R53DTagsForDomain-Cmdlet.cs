@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Remove", "R53DTagsForDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteTagsForDomain operation against AWS Route 53 Domains.", Operation = new[] {"DeleteTagsForDomain"})]
+    [AWSCmdlet("Invokes the DeleteTagsForDomain operation against Amazon Route 53 Domains.", Operation = new[] {"DeleteTagsForDomain"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Route53Domains.Model.DeleteTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

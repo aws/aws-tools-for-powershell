@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckLastFailureReason")]
     [OutputType("Amazon.Route53.Model.HealthCheckObservation")]
-    [AWSCmdlet("Invokes the GetHealthCheckLastFailureReason operation against AWS Route 53.", Operation = new[] {"GetHealthCheckLastFailureReason"})]
+    [AWSCmdlet("Invokes the GetHealthCheckLastFailureReason operation against Amazon Route 53.", Operation = new[] {"GetHealthCheckLastFailureReason"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HealthCheckObservation",
         "This cmdlet returns a collection of HealthCheckObservation objects.",
         "The service call response (type Amazon.Route53.Model.GetHealthCheckLastFailureReasonResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

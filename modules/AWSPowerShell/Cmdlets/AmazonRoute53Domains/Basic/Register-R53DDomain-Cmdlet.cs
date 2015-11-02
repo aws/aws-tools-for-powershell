@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Register", "R53DDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RegisterDomain operation against AWS Route 53 Domains.", Operation = new[] {"RegisterDomain"})]
+    [AWSCmdlet("Invokes the RegisterDomain operation against Amazon Route 53 Domains.", Operation = new[] {"RegisterDomain"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Route53Domains.Model.RegisterDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -27,7 +27,7 @@ using Amazon.Route53.Model;
 
 namespace Amazon.PowerShell.Cmdlets.R53
 {
-    [AWSClientCmdlet("AWS Route 53", "R53", "2013-04-01")]
+    [AWSClientCmdlet("Amazon Route 53", "R53", "2013-04-01")]
     public abstract class AmazonRoute53ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRoute53 Client { get; private set; }

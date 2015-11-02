@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DDomains")]
     [OutputType("Amazon.Route53Domains.Model.DomainSummary")]
-    [AWSCmdlet("Invokes the ListDomains operation against AWS Route 53 Domains.", Operation = new[] {"ListDomains"})]
+    [AWSCmdlet("Invokes the ListDomains operation against Amazon Route 53 Domains.", Operation = new[] {"ListDomains"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.DomainSummary",
         "This cmdlet returns a collection of DomainSummary objects.",
         "The service call response (type Amazon.Route53Domains.Model.ListDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

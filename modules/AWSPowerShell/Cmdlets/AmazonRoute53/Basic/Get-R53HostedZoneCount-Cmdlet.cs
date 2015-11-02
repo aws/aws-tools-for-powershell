@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53HostedZoneCount")]
     [OutputType("System.Int64")]
-    [AWSCmdlet("Invokes the GetHostedZoneCount operation against AWS Route 53.", Operation = new[] {"GetHostedZoneCount"})]
+    [AWSCmdlet("Invokes the GetHostedZoneCount operation against Amazon Route 53.", Operation = new[] {"GetHostedZoneCount"})]
     [AWSCmdletOutput("System.Int64",
         "This cmdlet returns a Int64 object.",
         "The service call response (type Amazon.Route53.Model.GetHostedZoneCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

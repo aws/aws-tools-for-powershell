@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53GeoLocation")]
     [OutputType("Amazon.Route53.Model.GeoLocationDetails")]
-    [AWSCmdlet("Invokes the GetGeoLocation operation against AWS Route 53.", Operation = new[] {"GetGeoLocation"})]
+    [AWSCmdlet("Invokes the GetGeoLocation operation against Amazon Route 53.", Operation = new[] {"GetGeoLocation"})]
     [AWSCmdletOutput("Amazon.Route53.Model.GeoLocationDetails",
         "This cmdlet returns a GeoLocationDetails object.",
         "The service call response (type Amazon.Route53.Model.GetGeoLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

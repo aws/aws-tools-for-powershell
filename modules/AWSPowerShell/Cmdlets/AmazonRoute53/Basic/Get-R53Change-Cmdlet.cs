@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53Change")]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the GetChange operation against AWS Route 53.", Operation = new[] {"GetChange"})]
+    [AWSCmdlet("Invokes the GetChange operation against Amazon Route 53.", Operation = new[] {"GetChange"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
         "The service call response (type Amazon.Route53.Model.GetChangeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

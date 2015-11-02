@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Edit", "R53TagsForResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ChangeTagsForResource operation against AWS Route 53.", Operation = new[] {"ChangeTagsForResource"})]
+    [AWSCmdlet("Invokes the ChangeTagsForResource operation against Amazon Route 53.", Operation = new[] {"ChangeTagsForResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Route53.Model.ChangeTagsForResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

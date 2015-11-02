@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53HealthCheck")]
     [OutputType("Amazon.Route53.Model.HealthCheck")]
-    [AWSCmdlet("Invokes the GetHealthCheck operation against AWS Route 53.", Operation = new[] {"GetHealthCheck"})]
+    [AWSCmdlet("Invokes the GetHealthCheck operation against Amazon Route 53.", Operation = new[] {"GetHealthCheck"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HealthCheck",
         "This cmdlet returns a HealthCheck object.",
         "The service call response (type Amazon.Route53.Model.GetHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
