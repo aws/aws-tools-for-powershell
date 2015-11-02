@@ -61,7 +61,7 @@ PS C:\> $change1.ResourceRecordSet.AliasTarget.EvaluateTargetHealth = $false
 PS C:\> $params = @{
     HostedZoneId="Z222222222"
 	ChangeBatch_Comment="This change batch creates two alias resource record sets, one for the zone apex, example.com, and one for www.example.com, that both point to example-load-balancer-1111111111.us-east-1.elb.amazonaws.com."
-	ChangeBatch_Change=$change1,$change2	
+	ChangeBatch_Change=$change1,$change2
 }
 
 PS C:\> Edit-R53ResourceRecordSet @params
