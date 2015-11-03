@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Common
             if (ParameterSetName.Equals(ByApiOperationOrServiceParameterSet))
             {
                 if (!string.IsNullOrEmpty(Service))
-                    servicePrefixes = DiscoverServicePrefixes(Service);
+                    servicePrefixes = MatchPrefixesOrNames(Service);
                 operationName = ApiOperation;
             }
             else
@@ -159,12 +159,12 @@ namespace Amazon.PowerShell.Common
                 string awsCliServiceName;
                 ParseAwsCliCommand(AwsCliCommand, out awsCliServiceName, out operationName);
                 if (string.IsNullOrEmpty(awsCliServiceName) || string.IsNullOrEmpty(operationName))
-                    ThrowExecutionError("Unable to extract service and/or operation name from command. Expected text format of 'aws [options] <command> <subcommand>'.", this.AwsCliCommand);
+                    ThrowArgumentError("Unable to extract service and/or operation name from command. Expected text format of 'aws [options] <command> <subcommand>'.", this.AwsCliCommand);
 
                 // this should only yield one match; if none we've already errored out
-                servicePrefixes = DiscoverServicePrefixes(awsCliServiceName);
+                servicePrefixes = MatchCliPrefixesOrNames(awsCliServiceName);
                 if (servicePrefixes.Count() > 1)
-                    ThrowExecutionError("Unable to determine the specific service based on the supplied AWS CLI command.", this);
+                    ThrowExecutionError("The supplied command unexpectedly matched multiple services.", this);
             }
 
             // If we are in 'simple' mode, then apply anchors to the operation value
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Common
         IEnumerable<PSObject> FindCmdletsByService()
         {
             var foundCmdlets = new List<PSObject>();
-            var servicePrefixes = DiscoverServicePrefixes(Service);
+            var servicePrefixes = MatchPrefixesOrNames(Service);
             foreach (var servicePrefix in servicePrefixes)
             {
                 var serviceCmdlets = DiscoverServiceCmdlets(servicePrefix);
@@ -262,14 +262,16 @@ namespace Amazon.PowerShell.Common
         }
 
         /// <summary>
-        /// Searches the set of base service client classes using either service name or 
-        /// deconstructed aws cli command to discover the prefix code for the service.
-        /// If the user has supplied us with partial name data, we attempt to match as
-        /// many services as possible.
+        /// Searches the set of base service client classes to find a matching PowerShell prefix 
+        /// or service name.
         /// </summary>
-        /// <paramref name="serviceName"/>
-        /// <returns></returns>
-        IEnumerable<string> DiscoverServicePrefixes(string serviceName)
+        /// <param name="searchText">The search text to match against</param>
+        /// <returns>Collection of prefixes that matched the search</returns>
+        /// <remarks>
+        /// When matching for non-AWS CLI commands, we attempt to match simultaneously
+        /// on the prefix or words in the service name.
+        /// </remarks>
+        IEnumerable<string> MatchPrefixesOrNames(string searchText)
         {
             var servicePrefixes = new HashSet<string>();
 
@@ -279,9 +281,9 @@ namespace Amazon.PowerShell.Common
                             .ToList();
 
             const RegexOptions options = RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline;
-            var regex = new Regex(serviceName, options);
+            var regex = new Regex(searchText, options);
 
-            WriteVerbose("Looking for cmdlets using service name/prefix search pattern: " + serviceName);
+            WriteVerbose("...attempting to match cmdlet prefixes or service names against search pattern: " + searchText);
 
             foreach (var scb in serviceClientTypes)
             {
@@ -289,17 +291,70 @@ namespace Amazon.PowerShell.Common
                 if (awsClientCmdletAttribute == null)
                     continue;
 
-                // if we're attempting to match an aws cli command, some of its service names are actually our prefixes so
-                // either field may match
-                if (regex.IsMatch(awsClientCmdletAttribute.ServiceName)
-                        || awsClientCmdletAttribute.ServicePrefix.Equals(serviceName, StringComparison.OrdinalIgnoreCase))
+                if (awsClientCmdletAttribute.ServicePrefix.Equals(searchText, StringComparison.OrdinalIgnoreCase)
+                        || regex.IsMatch(awsClientCmdletAttribute.ServiceName))
                 {
                     servicePrefixes.Add(awsClientCmdletAttribute.ServicePrefix);
                 }
             }
 
             if (servicePrefixes.Count == 0)
-                ThrowExecutionError("Unable to determine possible service(s) based on the supplied name or AWS CLI command.", this);
+                ThrowArgumentError("Unable to determine possible service(s) based on the supplied parameters.", this);
+
+            return servicePrefixes;
+        }
+
+        /// <summary>
+        /// Searches the set of base service client classes to discover the PowerShell prefix 
+        /// code for a service parsed as part of an AWS CLI command.
+        /// </summary>
+        /// <param name="searchText">The search text to match against</param>
+        /// <returns>Collection of prefixes that matched the search</returns>
+        /// <remarks>
+        /// When matching for a CLI command priority is given to matching on prefix code only.
+        /// Service names will only be inspected if we could not match prefixes (as AWS CLI 
+        /// prefixes do not always match our prefixes).
+        /// </remarks>
+        IEnumerable<string> MatchCliPrefixesOrNames(string searchText)
+        {
+            var servicePrefixes = new HashSet<string>();
+
+            var serviceClientTypes = AwsPowerShellAssembly.GetTypes()
+                            .Where(t => t.IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
+                            .OrderBy(t => t.FullName)
+                            .ToList();
+
+            WriteVerbose("...attempting to match cmdlet prefixes against search pattern: " + searchText);
+            foreach (var scb in serviceClientTypes)
+            {
+                var awsClientCmdletAttribute = scb.GetCustomAttributes(typeof(AWSClientCmdletAttribute), true).FirstOrDefault() as AWSClientCmdletAttribute;
+                if (awsClientCmdletAttribute == null)
+                    continue;
+
+                if (awsClientCmdletAttribute.ServicePrefix.Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                    servicePrefixes.Add(awsClientCmdletAttribute.ServicePrefix);
+            }
+
+            if (servicePrefixes.Count == 0)
+            {
+                WriteVerbose("...no prefix match, attempting to match service names against search pattern: " + searchText);
+
+                const RegexOptions options = RegexOptions.CultureInvariant | RegexOptions.IgnoreCase | RegexOptions.Singleline;
+                var regex = new Regex(searchText, options);
+
+                foreach (var scb in serviceClientTypes)
+                {
+                    var awsClientCmdletAttribute = scb.GetCustomAttributes(typeof(AWSClientCmdletAttribute), true).FirstOrDefault() as AWSClientCmdletAttribute;
+                    if (awsClientCmdletAttribute == null)
+                        continue;
+
+                    if (regex.IsMatch(awsClientCmdletAttribute.ServiceName))
+                        servicePrefixes.Add(awsClientCmdletAttribute.ServicePrefix);
+                }
+            }
+
+            if (servicePrefixes.Count == 0)
+                ThrowArgumentError("Unable to determine possible service based on the supplied AWS CLI command string.", this.AwsCliCommand);
 
             return servicePrefixes;
         }
@@ -380,7 +435,7 @@ namespace Amazon.PowerShell.Common
             }
 
             if (!cmdletsForService.Any())
-                ThrowExecutionError("Unable to find cmdlet(s) for the specified service prefix.", servicePrefix);
+                ThrowArgumentError("Unable to find cmdlet(s) for the specified service prefix.", servicePrefix);
 
             return cmdletsForService;
         }
