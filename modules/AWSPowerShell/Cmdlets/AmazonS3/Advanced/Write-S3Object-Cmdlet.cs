@@ -174,19 +174,37 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ContentType { get; set; }
 
         /// <summary>
+        /// Specifies the storage class for the object.
+        /// Please refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> for information on S3 storage classes.
+        /// </summary>
+        [Parameter]
+        [ValidateSet("REDUCED_REDUNDANCY", "STANDARD", "STANDARD_IA")]
+        public Amazon.S3.S3StorageClass StorageClass { get; set; }
+
+        /// <summary>
+        /// <para>
         /// Specifies the STANDARD storage class, which is the default storage class for S3 objects.
         /// Provides a 99.999999999% durability guarantee.
+        /// </para>
+        /// <para>
+        /// This parameter is deprecated. Please use the StorageClass parameter instead.
+        /// </para>
         /// </summary>
         [Parameter]
         public SwitchParameter StandardStorage { get; set; }
 
         /// <summary>
+        /// <para>
         /// Specifies S3 should use REDUCED_REDUNDANCY storage class for the object. This
         /// provides a reduced (99.99%) durability guarantee at a lower
         /// cost as compared to the STANDARD storage class. Use this
         /// storage class for non-mission critical data or for data
         /// that doesn’t require the higher level of durability that S3
         /// provides with the STANDARD storage class.
+        /// </para>
+        /// <para>
+        /// This parameter is deprecated. Please use the StorageClass parameter instead.
+        /// </para>
         /// </summary>
         [Parameter]
         public SwitchParameter ReducedRedundancyStorage { get; set; }
@@ -310,11 +328,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.CannedACL = S3CannedACL.PublicReadWrite;
 
             context.ContentType = this.ContentType;
-            
-            if (this.StandardStorage.IsPresent)
-                context.StorageClass = S3StorageClass.Standard;
-            else if (this.ReducedRedundancyStorage.IsPresent)
-                context.StorageClass = S3StorageClass.ReducedRedundancy;
+
+            if (ParameterWasBound("StorageClass"))
+                context.StorageClass = this.StorageClass;
+            else
+            {
+                if (this.StandardStorage.IsPresent)
+                    context.StorageClass = S3StorageClass.Standard;
+                else if (this.ReducedRedundancyStorage.IsPresent)
+                    context.StorageClass = S3StorageClass.ReducedRedundancy;
+            }
 
             if (!string.IsNullOrEmpty(this.ServerSideEncryption))
             {
