@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class RequestKMSKeyDeletionCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the customer master key (CMK) to delete.</para><para>To specify this value, use the unique key ID or the Amazon Resource Name (ARN) of
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter PendingWindowInDay
         /// <summary>
         /// <para>
         /// <para>The waiting period, specified in number of days. After the waiting period ends, AWS
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("PendingWindowInDays")]
         public System.Int32 PendingWindowInDay { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

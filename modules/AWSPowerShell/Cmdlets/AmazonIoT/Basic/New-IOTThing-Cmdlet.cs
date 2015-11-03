@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class NewIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributePayload_Attribute
         /// <summary>
         /// <para>
         /// <para>A JSON string containing up to three key-value pair in JSON format.</para><para>For example: {\"attributes\":{\"string1\":\"string2\”}}</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("AttributePayload_Attributes")]
         public System.Collections.Hashtable AttributePayload_Attribute { get; set; }
+        #endregion
         
+        #region Parameter ThingName
         /// <summary>
         /// <para>
         /// <para>The name of the thing.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ThingName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class GetSESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RuleSetName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule set to describe.</para>
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RuleSetName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

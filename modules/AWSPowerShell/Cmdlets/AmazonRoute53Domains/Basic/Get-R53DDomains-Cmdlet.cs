@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     )]
     public class GetR53DDomainsCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>For an initial request for a list of domains, omit this element. If the number of
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Number of domains to be returned.</para><para>Type: Integer</para><para>Default: 20</para><para>Constraints: A numeral between 1 and 100.</para><para>Required: No</para>
@@ -63,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.Int32 MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

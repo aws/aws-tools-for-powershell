@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
 
             // allow for user possibly defining keys in any order; DDB requires the primary hash key to be first
             // and there may be multiple hash keys allowed in future.
-            if (!HasDefinedKeys || keyType.Equals(DDBSchemaCmdletHelper.KeyType_Range, StringComparison.Ordinal))
+            if (!HasDefinedKeys || keyType.Equals(Amazon.DynamoDBv2.KeyType.RANGE, StringComparison.OrdinalIgnoreCase))
                 KeySchema.Add(keyElement);
             else if (KeySchema[0].KeyType.Equals(Amazon.DynamoDBv2.KeyType.HASH))
                 KeySchema.Add(keyElement);
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
                 AttributeSchema.Add(new AttributeDefinition { AttributeName = rangeKeyName, AttributeType = rangeKeyDataType });
             }
 
-            lsi.KeySchema.Add(new KeySchemaElement { AttributeName = rangeKeyName, KeyType = DDBSchemaCmdletHelper.KeyType_Range });
+            lsi.KeySchema.Add(new KeySchemaElement { AttributeName = rangeKeyName, KeyType = Amazon.DynamoDBv2.KeyType.RANGE });
 
             if (!string.IsNullOrEmpty(projectionType))
             {
@@ -369,7 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
                     AttributeSchema.Add(new AttributeDefinition { AttributeName = hashKeyName, AttributeType = hashKeyDataType });
                 }
 
-                gsi.KeySchema.Add(new KeySchemaElement { AttributeName = hashKeyName, KeyType = DDBSchemaCmdletHelper.KeyType_Hash });
+                gsi.KeySchema.Add(new KeySchemaElement { AttributeName = hashKeyName, KeyType = Amazon.DynamoDBv2.KeyType.HASH });
             }
 
             // for global indexes, range key is optional (assuming a hash key has been specified); for local indexes the range key is
@@ -382,7 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB.Model
                     AttributeSchema.Add(new AttributeDefinition { AttributeName = rangeKeyName, AttributeType = rangeKeyDataType });
                 }
 
-                gsi.KeySchema.Add(new KeySchemaElement { AttributeName = rangeKeyName, KeyType = DDBSchemaCmdletHelper.KeyType_Range });
+                gsi.KeySchema.Add(new KeySchemaElement { AttributeName = rangeKeyName, KeyType = Amazon.DynamoDBv2.KeyType.RANGE });
             }
 
             gsi.ProvisionedThroughput = new ProvisionedThroughput

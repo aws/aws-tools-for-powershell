@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class SubmitCFGConfigSnapshotDeliveryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery channel through which the snapshot is delivered.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DeliveryChannelName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

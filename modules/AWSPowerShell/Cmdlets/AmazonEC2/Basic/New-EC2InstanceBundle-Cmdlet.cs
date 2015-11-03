@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2InstanceBundleCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter S3_AWSAccessKeyId
         /// <summary>
         /// <para>
         /// <para>The access key ID of the owner of the bucket. Before you specify a value for your
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Storage_S3_AWSAccessKeyId")]
         public System.String S3_AWSAccessKeyId { get; set; }
+        #endregion
         
+        #region Parameter S3_Bucket
         /// <summary>
         /// <para>
         /// <para>The bucket in which to store the AMI. You can specify a bucket that you already own
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Storage_S3_Bucket")]
         public System.String S3_Bucket { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance to bundle.</para><para>Type: String</para><para>Default: None</para><para>Required: Yes</para>
@@ -80,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter S3_Prefix
         /// <summary>
         /// <para>
         /// <para>The beginning of the file name of the AMI.</para>
@@ -89,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Storage_S3_Prefix")]
         public System.String S3_Prefix { get; set; }
+        #endregion
         
+        #region Parameter S3_UploadPolicy
         /// <summary>
         /// <para>
         /// <para>A Base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to upload
@@ -99,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Storage_S3_UploadPolicy")]
         public System.String S3_UploadPolicy { get; set; }
+        #endregion
         
+        #region Parameter S3_UploadPolicySignature
         /// <summary>
         /// <para>
         /// <para>The signature of the Base64 encoded JSON document.</para>
@@ -108,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Storage_S3_UploadPolicySignature")]
         public System.String S3_UploadPolicySignature { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -116,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

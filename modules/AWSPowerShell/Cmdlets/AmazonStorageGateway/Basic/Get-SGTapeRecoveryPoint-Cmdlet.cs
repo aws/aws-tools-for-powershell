@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGTapeRecoveryPointCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter TapeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TapeARN { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

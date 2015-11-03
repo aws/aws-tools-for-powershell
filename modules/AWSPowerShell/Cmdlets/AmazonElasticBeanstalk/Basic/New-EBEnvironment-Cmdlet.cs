@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class NewEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application that contains the version to be deployed. </para><para> If no application is found with this name, <code>CreateEnvironment</code> returns
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter CNAMEPrefix
         /// <summary>
         /// <para>
         /// <para> If specified, the environment attempts to use this value as the prefix for the CNAME.
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CNAMEPrefix { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Describes this environment.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> A unique name for the deployment environment. Used in the application URL. </para><para>Constraint: Must be from 4 to 23 characters in length. The name can contain only letters,
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group to which the target environment belongs. Specify a group name
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String GroupName { get; set; }
+        #endregion
         
+        #region Parameter Tier_Name
         /// <summary>
         /// <para>
         /// <para>The name of this environment tier.</para>
@@ -95,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Tier_Name { get; set; }
+        #endregion
         
+        #region Parameter OptionSetting
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk sets the specified configuration options to the
@@ -106,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("OptionSettings")]
         public Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting[] OptionSetting { get; set; }
+        #endregion
         
+        #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
         /// <para> A list of custom user-defined configuration options to remove from the configuration
@@ -115,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] OptionsToRemove { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para> This specifies the tags applied to resources in the environment. </para>
@@ -124,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.ElasticBeanstalk.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para> The name of the configuration template to use in deployment. If no configuration
@@ -137,7 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TemplateName { get; set; }
+        #endregion
         
+        #region Parameter Tier_Type
         /// <summary>
         /// <para>
         /// <para>The type of this environment tier.</para>
@@ -145,7 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Tier_Type { get; set; }
+        #endregion
         
+        #region Parameter Tier_Version
         /// <summary>
         /// <para>
         /// <para>The version of this environment tier.</para>
@@ -153,7 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Tier_Version { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para>The name of the application version to deploy.</para><para> If the specified application has no associated application versions, AWS Elastic
@@ -164,7 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
+        #endregion
         
+        #region Parameter SolutionStackName
         /// <summary>
         /// <para>
         /// <para> This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
@@ -177,7 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SolutionStackName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -185,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

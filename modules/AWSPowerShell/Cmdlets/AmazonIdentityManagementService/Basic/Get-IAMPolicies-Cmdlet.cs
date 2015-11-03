@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMPoliciesCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter OnlyAttached
         /// <summary>
         /// <para>
         /// <para>A flag to filter the results to only the attached policies. </para><para>When <code>OnlyAttached</code> is <code>true</code>, the returned list contains only
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean OnlyAttached { get; set; }
+        #endregion
         
+        #region Parameter PathPrefix
         /// <summary>
         /// <para>
         /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PathPrefix { get; set; }
+        #endregion
         
+        #region Parameter Scope
         /// <summary>
         /// <para>
         /// <para>The scope to use for filtering the results. </para><para>To list only AWS managed policies, set <code>Scope</code> to <code>AWS</code>. To
@@ -83,8 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IdentityManagement.PolicyScopeType")]
         public Amazon.IdentityManagement.PolicyScopeType Scope { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
@@ -95,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
@@ -110,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

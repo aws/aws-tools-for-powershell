@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class AddASACommunicationToCaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
         /// <para>The ID of a set of one or more attachments for the communication to add to the case.
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AttachmentSetId { get; set; }
+        #endregion
         
+        #region Parameter CaseId
         /// <summary>
         /// <para>
         /// <para>The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CaseId { get; set; }
+        #endregion
         
+        #region Parameter CcEmailAddress
         /// <summary>
         /// <para>
         /// <para>The email addresses in the CC line of an email to be added to the support case.</para>
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("CcEmailAddresses")]
         public System.String[] CcEmailAddress { get; set; }
+        #endregion
         
+        #region Parameter CommunicationBody
         /// <summary>
         /// <para>
         /// <para>The body of an email communication to add to the support case.</para>
@@ -83,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String CommunicationBody { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

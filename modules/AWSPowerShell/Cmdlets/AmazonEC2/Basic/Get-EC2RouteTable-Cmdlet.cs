@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>association.route-table-association-id</code> - The ID of an association ID
@@ -78,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter RouteTableId
         /// <summary>
         /// <para>
         /// <para>One or more route table IDs.</para><para>Default: Describes all your route tables.</para>
@@ -87,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("RouteTableIds")]
         public System.String[] RouteTableId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

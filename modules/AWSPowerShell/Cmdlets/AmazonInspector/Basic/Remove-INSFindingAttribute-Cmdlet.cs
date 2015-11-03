@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class RemoveINSFindingAttributeCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeKey
         /// <summary>
         /// <para>
         /// <para>The array of attribute keys that you want to remove from specified findings.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("AttributeKeys")]
         public System.String[] AttributeKey { get; set; }
+        #endregion
         
+        #region Parameter FindingArn
         /// <summary>
         /// <para>
         /// <para>The ARNs specifying the findings that you want to remove attributes from.</para>
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("FindingArns")]
         public System.String[] FindingArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -65,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

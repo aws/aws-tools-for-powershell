@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFWebACLListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies the number of <code>WebACL</code> objects that you want AWS WAF to return
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextMarker
         /// <summary>
         /// <para>
         /// <para>If you specify a value for <code>Limit</code> and you have more <code>WebACL</code>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String NextMarker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

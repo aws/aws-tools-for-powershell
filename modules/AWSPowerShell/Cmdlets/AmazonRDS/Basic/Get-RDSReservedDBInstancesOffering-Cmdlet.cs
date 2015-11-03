@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSReservedDBInstancesOfferingCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceCount
         /// <summary>
         /// <para>
         /// <para> The number of instances to reserve. </para><para>Default: <code>1</code></para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DBInstanceCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedDBInstanceId
         /// <summary>
         /// <para>
         /// <para> Customer-specified identifier to track this reservation. </para><para>Example: myreservationID</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ReservedDBInstanceId { get; set; }
+        #endregion
         
+        #region Parameter ReservedDBInstancesOfferingId
         /// <summary>
         /// <para>
         /// <para> The ID of the Reserved DB instance offering to purchase. </para><para>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedDBInstancesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

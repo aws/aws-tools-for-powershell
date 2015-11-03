@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class GetSESIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter IdentityType
         /// <summary>
         /// <para>
         /// <para>The type of the identities to list. Possible values are "EmailAddress" and "Domain".
@@ -53,8 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmail.IdentityType")]
         public Amazon.SimpleEmail.IdentityType IdentityType { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of identities per page. Possible values are 1-1000 inclusive.</para>
@@ -63,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to use for pagination.</para>
@@ -71,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

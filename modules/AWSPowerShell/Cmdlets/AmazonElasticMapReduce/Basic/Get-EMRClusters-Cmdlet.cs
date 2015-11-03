@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class GetEMRClustersCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterState
         /// <summary>
         /// <para>
         /// <para>The cluster state filters to apply when listing clusters. </para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("ClusterStates")]
         public System.String[] ClusterState { get; set; }
+        #endregion
         
+        #region Parameter CreatedAfter
         /// <summary>
         /// <para>
         /// <para>The creation date and time beginning value filter for listing clusters .</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CreatedAfter { get; set; }
+        #endregion
         
+        #region Parameter CreatedBefore
         /// <summary>
         /// <para>
         /// <para>The creation date and time end value filter for listing clusters .</para>
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CreatedBefore { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The pagination token that indicates the next set of results to retrieve. </para>
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class NewMLDataSourceFromS3Cmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComputeStatistic
         /// <summary>
         /// <para>
         /// <para>The compute statistics for a <code>DataSource</code>. The statistics are generated
@@ -84,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("ComputeStatistics")]
         public System.Boolean ComputeStatistic { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_DataLocationS3
         /// <summary>
         /// <para>
         /// <para>The location of the data file(s) used by a <code>DataSource</code>. The URI specifies
@@ -94,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_DataLocationS3 { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_DataRearrangement
         /// <summary>
         /// <para>
         /// <para> Describes the splitting requirement of a <code>Datasource</code>.</para>
@@ -102,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_DataRearrangement { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_DataSchema
         /// <summary>
         /// <para>
         /// <para> A JSON string that represents the schema for an Amazon S3 <code>DataSource</code>.
@@ -118,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_DataSchema { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_DataSchemaLocationS3
         /// <summary>
         /// <para>
         /// <para>Describes the schema Location in Amazon S3.</para>
@@ -126,7 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_DataSchemaLocationS3 { get; set; }
+        #endregion
         
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>A user-supplied identifier that uniquely identifies the <code>DataSource</code>. </para>
@@ -134,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter DataSourceName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>DataSource</code>. </para>
@@ -142,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSourceName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -150,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

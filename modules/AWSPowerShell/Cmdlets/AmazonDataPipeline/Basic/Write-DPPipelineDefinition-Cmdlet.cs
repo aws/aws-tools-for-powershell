@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class WriteDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterObject
         /// <summary>
         /// <para>
         /// <para>The parameter objects used with the pipeline.</para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("ParameterObjects")]
         public Amazon.DataPipeline.Model.ParameterObject[] ParameterObject { get; set; }
+        #endregion
         
+        #region Parameter ParameterValue
         /// <summary>
         /// <para>
         /// <para>The parameter values used with the pipeline.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("ParameterValues")]
         public Amazon.DataPipeline.Model.ParameterValue[] ParameterValue { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter PipelineObject
         /// <summary>
         /// <para>
         /// <para>The objects that define the pipeline. These objects overwrite the existing pipeline
@@ -85,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("PipelineObjects")]
         public Amazon.DataPipeline.Model.PipelineObject[] PipelineObject { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -93,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

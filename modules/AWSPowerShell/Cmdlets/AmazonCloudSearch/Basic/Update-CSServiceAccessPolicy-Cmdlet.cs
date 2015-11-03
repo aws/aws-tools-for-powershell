@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class UpdateCSServiceAccessPolicyCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccessPolicy
         /// <summary>
         /// <para>
         /// <para>The access rules you want to configure. These rules replace any existing rules. </para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("AccessPolicies")]
         public System.String AccessPolicy { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

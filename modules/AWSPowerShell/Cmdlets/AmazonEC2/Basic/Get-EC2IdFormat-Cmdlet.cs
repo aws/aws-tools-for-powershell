@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2IdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Resource
         /// <summary>
         /// <para>
         /// <para>The type of resource.</para>
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Resource { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

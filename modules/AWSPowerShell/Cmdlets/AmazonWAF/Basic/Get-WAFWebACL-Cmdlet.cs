@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter WebACLId
         /// <summary>
         /// <para>
         /// <para>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get. <code>WebACLId</code>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String WebACLId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

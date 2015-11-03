@@ -18,6 +18,13 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
     /// </summary>
     internal class CmdletSourceWriter : BaseSourceCodeWriter
     {
+        public const string AWSConstantClassSourceAttributeName = "AWSConstantClassSource";
+        public const string ValidateSetAttributeName = "ValidateSet";
+        public const string AllowEmptyStringAttributeName = "AllowEmptyString";
+
+        public const string ParameterRegionMarker = "#region Parameter";
+        public const string EndRegionMarker = "#endregion";
+
         public ConfigModel ServiceConfig { get; private set; }
         public ServiceOperation Operation { get; private set; }
         public OperationAnalyzer MethodAnalysis { get; private set; }
@@ -115,6 +122,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         if (paramCustomization != null && paramCustomization.Exclude)
                             continue;
 
+                        // wrap the parameter in a region so that if we need to parse the raw source
+                        // file we can easily find them
+                        writer.WriteLine();
+                        writer.WriteLine("{0} {1}", ParameterRegionMarker, property.CmdletParameterName);
                         var p = FindCustomEmitterForParam(property);
                         if (p == null)
                             WriteParam(writer, property, paramCustomization, ref usedPositionalCount);
@@ -123,7 +134,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             customParamEmitters.Add(p);
                             p.WriteParams(writer, MethodAnalysis, property, paramCustomization, ref usedPositionalCount);
                         }
-                        writer.WriteLine();
+                        writer.WriteLine("#endregion");
                     }
 
                     if (MethodAnalysis.RequiresPassThruGeneration)
@@ -133,20 +144,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         WriteAnonymousCredentialsProperty(writer);
 
                     if (requiresSupportsShouldProcess)
-                    {
                         WriteForceSwitchParam(writer);
-
-                        // strobe -- only needed if we choose to implement a call to ShouldContinue
-                        // after ShouldProcess returns true
-                        /*
-                        writer.WriteLine();
-                        writer.WriteLine("#region Private Data");
-                        writer.WriteLine();
-                        writer.WriteLine("private bool yesToAll, noToAll;");
-                        writer.WriteLine();
-                        writer.WriteLine("#endregion");
-                        */
-                    }
 
                     writer.WriteLine();
 
@@ -362,6 +360,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="writer"></param>
         public static void WriteForceSwitchParam(IndentedTextWriter writer)
         {
+            // wrap the parameter in a region so that if we need to parse the raw source
+            // file we can easily find them
+            writer.WriteLine();
+            writer.WriteLine("#region Parameter Force");
             writer.WriteLine("/// <summary>");
             writer.WriteLine("/// This parameter overrides confirmation prompts to force ");
             writer.WriteLine("/// the cmdlet to continue its operation. This parameter should always");
@@ -369,7 +371,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("/// </summary>");
             writer.WriteLine("[System.Management.Automation.Parameter]");
             writer.WriteLine("public SwitchParameter Force { get; set; }");
-            writer.WriteLine();
+            writer.WriteLine("#endregion");
         }
 
         /// <summary>
@@ -393,13 +395,17 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 documentation = string.Format("Returns the value passed to the {0} parameter.", methodAnalysis.AnalyzedResult.PassThruParameter.CmdletParameterName);
             }
 
+            // wrap the parameter in a region so that if we need to parse the raw source
+            // file we can easily find them
+            writer.WriteLine();
+            writer.WriteLine("#region Parameter PassThru");
             writer.WriteLine("/// <summary>");
             writer.WriteLine("/// {0}", documentation);
             writer.WriteLine("/// {0}", StringConstants.NoCmdletOutputText);
             writer.WriteLine("/// </summary>");
             writer.WriteLine("[System.Management.Automation.Parameter]");
             writer.WriteLine("public SwitchParameter PassThru { get; set; }");
-            writer.WriteLine();
+            writer.WriteLine("#endregion");
         }
 
         /// <summary>
@@ -409,12 +415,16 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="writer"></param>
         private static void WriteAnonymousCredentialsProperty(IndentedTextWriter writer)
         {
+            // wrap the parameter in a region so that if we need to parse the raw source
+            // file we can easily find them
+            writer.WriteLine();
+            writer.WriteLine("#region Parameter UseAnonymousCredentials");
             writer.WriteLine("/// <summary>");
             writer.WriteLine("/// If set, the cmdlet calls the service operation using anonymous credentials.");
             writer.WriteLine("/// </summary>");
             writer.WriteLine("[System.Management.Automation.Parameter]");
             writer.WriteLine("public bool UseAnonymousCredentials { get; set; }");
-            writer.WriteLine();
+            writer.WriteLine("#endregion");
         }
 
         /// <summary>
@@ -433,6 +443,16 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         {
             WriteParamAttribute(writer, MethodAnalysis, property, paramCustomization, ref usedPositionalCount);
             WriteParamAliases(writer, MethodAnalysis, property);
+
+            if (property.IsConstrainedToSet)
+            {
+                // apply our marker attribute so that if the cmdlet ever becomes hand-maintained the
+                // generator can detect and update the set members by simple text parsing
+                writer.WriteLine("[{0}(\"{1}\")]", AWSConstantClassSourceAttributeName, property.PropertyTypeName);
+
+                var members = property.ConstrainedSetMembers;
+                AddValidateSetAttribution(writer, members);
+            }
 
             if (property.CollectionType == SimplePropertyInfo.PropertyCollectionType.NoCollection || property.GenericCollectionTypes == null)
                 writer.WriteLine("public {0} {1} {{ get; set; }}", property.PropertyTypeName, property.CmdletParameterName);
@@ -455,6 +475,50 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Writes the ValidateSet, plus optional AllowEmptyString, parameters onto a
+        /// parameter.
+        /// </summary>
+        /// <remarks>
+        /// Currently disabled while we investigate other approaches that may allow us
+        /// to generate the intellisense without forcing updates when new enumeration
+        /// values get added.
+        /// </remarks>
+        internal static void AddValidateSetAttribution(IndentedTextWriter writer, IEnumerable<string> members)
+        {/*
+            var validateSetAttribute = BuildValidateSetAttribute(members);
+            var hasEmptyStringMember = RequiresEmptyValueAttribution(members);
+
+            writer.WriteLine(validateSetAttribute);
+            if (hasEmptyStringMember)
+                writer.WriteLine("[{0}]", AllowEmptyStringAttributeName);
+        */}
+
+        internal static bool RequiresEmptyValueAttribution(IEnumerable<string> setMembers)
+        {
+            foreach (var m in setMembers)
+            {
+                if (m == string.Empty) // this is usually arranged to be the first member btw
+                    return true;
+            }
+
+            return false;
+        }
+
+        internal static string BuildValidateSetAttribute(IEnumerable<string> members)
+        {
+            var sb = new StringBuilder();
+
+            foreach (var m in members)
+            {
+                if (sb.Length > 0)
+                    sb.Append(",");
+                sb.AppendFormat("\"{0}\"", m);
+            }
+
+            return string.Format("[{0}({1})]", ValidateSetAttributeName, sb);
         }
 
         /// <summary>

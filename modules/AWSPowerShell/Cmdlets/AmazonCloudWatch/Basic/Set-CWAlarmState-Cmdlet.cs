@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     )]
     public class SetCWAlarmStateCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter AlarmName
         /// <summary>
         /// <para>
         /// <para> The descriptive name for the alarm. This name must be unique within the user's AWS
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AlarmName { get; set; }
+        #endregion
         
+        #region Parameter StateReason
         /// <summary>
         /// <para>
         /// <para> The reason that this alarm is set to this specific state (in human-readable text
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String StateReason { get; set; }
+        #endregion
         
+        #region Parameter StateReasonData
         /// <summary>
         /// <para>
         /// <para> The reason that this alarm is set to this specific state (in machine-readable JSON
@@ -68,22 +74,29 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String StateReasonData { get; set; }
+        #endregion
         
+        #region Parameter StateValue
         /// <summary>
         /// <para>
         /// <para> The value of the state. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.CloudWatch.StateValue")]
         public Amazon.CloudWatch.StateValue StateValue { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AlarmName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

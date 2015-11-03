@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2AccountAttributesCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeName
         /// <summary>
         /// <para>
         /// <para>One or more account attribute names.</para>
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("AccountAttributeNames","AttributeNames")]
         public System.String[] AttributeName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

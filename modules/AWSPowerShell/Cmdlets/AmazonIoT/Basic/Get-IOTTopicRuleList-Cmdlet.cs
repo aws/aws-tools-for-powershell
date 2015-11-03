@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTTopicRuleListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter RuleDisabled
         /// <summary>
         /// <para>
         /// <para>Specifies whether the rule is disabled.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean RuleDisabled { get; set; }
+        #endregion
         
+        #region Parameter Topic
         /// <summary>
         /// <para>
         /// <para>The topic.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Topic { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>A token used to retrieve the next value.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return.</para>
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

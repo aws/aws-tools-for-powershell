@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     )]
     public class GetKINStreamsCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream to start the list with.</para>
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ExclusiveStartStreamName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of streams to list.</para>
@@ -70,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

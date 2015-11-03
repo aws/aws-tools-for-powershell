@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>fingerprint</code> - The fingerprint of the key pair.</para></li><li><para><code>key-name</code> - The name of the key pair.</para></li></ul>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter KeyName
         /// <summary>
         /// <para>
         /// <para>One or more key pair names.</para><para>Default: Describes all your key pairs.</para>
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("KeyNames")]
         public System.String[] KeyName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

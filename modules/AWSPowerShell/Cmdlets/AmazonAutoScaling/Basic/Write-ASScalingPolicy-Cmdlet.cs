@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class WriteASScalingPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdjustmentType
         /// <summary>
         /// <para>
         /// <para>The adjustment type. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdjustmentType { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the group.</para>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter Cooldown
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes and before the
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Cooldown { get; set; }
+        #endregion
         
+        #region Parameter EstimatedInstanceWarmup
         /// <summary>
         /// <para>
         /// <para>The estimated time, in seconds, until a newly launched instance can contribute to
@@ -87,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 EstimatedInstanceWarmup { get; set; }
+        #endregion
         
+        #region Parameter MetricAggregationType
         /// <summary>
         /// <para>
         /// <para>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>,
@@ -97,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MetricAggregationType { get; set; }
+        #endregion
         
+        #region Parameter MinAdjustmentMagnitude
         /// <summary>
         /// <para>
         /// <para>The minimum number of instances to scale. If the value of <code>AdjustmentType</code>
@@ -108,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MinAdjustmentMagnitude { get; set; }
+        #endregion
         
+        #region Parameter MinAdjustmentStep
         /// <summary>
         /// <para>
         /// <para>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code> instead.</para>
@@ -116,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MinAdjustmentStep { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy.</para>
@@ -124,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PolicyType
         /// <summary>
         /// <para>
         /// <para>The policy type. Valid values are <code>SimpleScaling</code> and <code>StepScaling</code>.
@@ -133,7 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyType { get; set; }
+        #endregion
         
+        #region Parameter ScalingAdjustment
         /// <summary>
         /// <para>
         /// <para>The amount by which to scale, based on the specified adjustment type. A positive value
@@ -143,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ScalingAdjustment { get; set; }
+        #endregion
         
+        #region Parameter StepAdjustment
         /// <summary>
         /// <para>
         /// <para>A set of adjustments that enable you to scale based on the size of the alarm breach.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
@@ -153,7 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("StepAdjustments")]
         public Amazon.AutoScaling.Model.StepAdjustment[] StepAdjustment { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -161,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

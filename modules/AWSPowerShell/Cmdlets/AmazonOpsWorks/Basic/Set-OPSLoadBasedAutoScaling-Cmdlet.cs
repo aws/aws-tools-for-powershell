@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class SetOPSLoadBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter DownScaling_Alarm
         /// <summary>
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("DownScaling_Alarms")]
         public System.String[] DownScaling_Alarm { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_Alarm
         /// <summary>
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
@@ -78,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("UpScaling_Alarms")]
         public System.String[] UpScaling_Alarm { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_CpuThreshold
         /// <summary>
         /// <para>
         /// <para>The CPU utilization threshold, as a percent of the available CPU.</para>
@@ -86,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double DownScaling_CpuThreshold { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_CpuThreshold
         /// <summary>
         /// <para>
         /// <para>The CPU utilization threshold, as a percent of the available CPU.</para>
@@ -94,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double UpScaling_CpuThreshold { get; set; }
+        #endregion
         
+        #region Parameter Enable
         /// <summary>
         /// <para>
         /// <para>Enables load-based auto scaling for the layer.</para>
@@ -102,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Boolean Enable { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_IgnoreMetricsTime
         /// <summary>
         /// <para>
         /// <para>The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should
@@ -116,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DownScaling_IgnoreMetricsTime { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_IgnoreMetricsTime
         /// <summary>
         /// <para>
         /// <para>The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should
@@ -130,7 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 UpScaling_IgnoreMetricsTime { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of instances to add or remove when the load exceeds a threshold.</para>
@@ -138,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DownScaling_InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of instances to add or remove when the load exceeds a threshold.</para>
@@ -146,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 UpScaling_InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The layer ID.</para>
@@ -154,7 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LayerId { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_LoadThreshold
         /// <summary>
         /// <para>
         /// <para>The load threshold. For more information about how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
@@ -163,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double DownScaling_LoadThreshold { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_LoadThreshold
         /// <summary>
         /// <para>
         /// <para>The load threshold. For more information about how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
@@ -172,7 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double UpScaling_LoadThreshold { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_MemoryThreshold
         /// <summary>
         /// <para>
         /// <para>The memory utilization threshold, as a percent of the available memory.</para>
@@ -180,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double DownScaling_MemoryThreshold { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_MemoryThreshold
         /// <summary>
         /// <para>
         /// <para>The memory utilization threshold, as a percent of the available memory.</para>
@@ -188,7 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double UpScaling_MemoryThreshold { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_ThresholdsWaitTime
         /// <summary>
         /// <para>
         /// <para>The amount of time, in minutes, that the load must exceed a threshold before more
@@ -197,7 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DownScaling_ThresholdsWaitTime { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_ThresholdsWaitTime
         /// <summary>
         /// <para>
         /// <para>The amount of time, in minutes, that the load must exceed a threshold before more
@@ -206,14 +238,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 UpScaling_ThresholdsWaitTime { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LayerId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -221,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

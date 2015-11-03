@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class RemoveRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster to be deleted. </para><para>Constraints:</para><ul><li>Must contain lowercase characters.</li><li>Must contain from 1 to 63 alphanumeric
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter FinalClusterSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the final snapshot that is to be created immediately before deleting
@@ -76,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FinalClusterSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SkipFinalClusterSnapshot
         /// <summary>
         /// <para>
         /// <para> Determines whether a final snapshot of the cluster is created before Amazon Redshift
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SkipFinalClusterSnapshot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

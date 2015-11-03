@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFIPSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter IPSetId
         /// <summary>
         /// <para>
         /// <para>The <code>IPSetId</code> of the <a>IPSet</a> that you want to get. <code>IPSetId</code>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String IPSetId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

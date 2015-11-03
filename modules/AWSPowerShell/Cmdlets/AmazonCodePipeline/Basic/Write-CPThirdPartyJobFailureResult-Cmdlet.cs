@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class WriteCPThirdPartyJobFailureResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>The clientToken portion of the clientId and clientToken pair used to verify that the
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter FailureDetails_ExternalExecutionId
         /// <summary>
         /// <para>
         /// <para>The external ID of the run of the action that failed.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FailureDetails_ExternalExecutionId { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The ID of the job that failed. This is the same ID returned from PollForThirdPartyJobs.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String JobId { get; set; }
+        #endregion
         
+        #region Parameter FailureDetails_Message
         /// <summary>
         /// <para>
         /// <para>The message about the failure.</para>
@@ -72,22 +80,29 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FailureDetails_Message { get; set; }
+        #endregion
         
+        #region Parameter FailureDetails_Type
         /// <summary>
         /// <para>
         /// <para>The type of the failure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.FailureType")]
         public Amazon.CodePipeline.FailureType FailureDetails_Type { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

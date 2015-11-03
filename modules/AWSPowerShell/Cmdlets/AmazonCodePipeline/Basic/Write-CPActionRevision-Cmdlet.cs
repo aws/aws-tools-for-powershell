@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class WriteCPActionRevisionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionName
         /// <summary>
         /// <para>
         /// <para>The name of the action that will process the revision.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ActionName { get; set; }
+        #endregion
         
+        #region Parameter ActionRevision_Created
         /// <summary>
         /// <para>
         /// <para>The date and time when the most recent version of the action was created, in timestamp
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ActionRevision_Created { get; set; }
+        #endregion
         
+        #region Parameter PipelineName
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline that will start processing the revision to the source.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PipelineName { get; set; }
+        #endregion
         
+        #region Parameter ActionRevision_RevisionChangeId
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the change that set the state to this revision, for example
@@ -71,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ActionRevision_RevisionChangeId { get; set; }
+        #endregion
         
+        #region Parameter ActionRevision_RevisionId
         /// <summary>
         /// <para>
         /// <para>The system-generated unique ID that identifies the revision number of the action.</para>
@@ -79,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ActionRevision_RevisionId { get; set; }
+        #endregion
         
+        #region Parameter StageName
         /// <summary>
         /// <para>
         /// <para>The name of the stage that contains the action that will act upon the revision.</para>
@@ -87,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StageName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

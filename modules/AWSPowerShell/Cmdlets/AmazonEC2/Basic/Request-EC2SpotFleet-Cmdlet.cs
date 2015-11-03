@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RequestEC2SpotFleetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter SpotFleetRequestConfig_AllocationStrategy
         /// <summary>
         /// <para>
         /// <para>Indicates how to allocate the target capacity across the Spot pools specified by the
@@ -64,8 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.AllocationStrategy")]
         public Amazon.EC2.AllocationStrategy SpotFleetRequestConfig_AllocationStrategy { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_ClientToken
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier you provide to ensure idempotency of your listings.
@@ -75,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SpotFleetRequestConfig_ClientToken { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_ExcessCapacityTerminationPolicy
         /// <summary>
         /// <para>
         /// <para>Indicates whether running Spot instances should be terminated if the target capacity
@@ -83,8 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.ExcessCapacityTerminationPolicy")]
         public Amazon.EC2.ExcessCapacityTerminationPolicy SpotFleetRequestConfig_ExcessCapacityTerminationPolicy { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_IamFleetRole
         /// <summary>
         /// <para>
         /// <para>Grants the Spot fleet permission to terminate Spot instances on your behalf when you
@@ -94,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_LaunchSpecification
         /// <summary>
         /// <para>
         /// <para>Information about the launch specifications for the Spot fleet request.</para>
@@ -103,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("SpotFleetRequestConfig_LaunchSpecifications")]
         public Amazon.EC2.Model.SpotFleetLaunchSpecification[] SpotFleetRequestConfig_LaunchSpecification { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_SpotPrice
         /// <summary>
         /// <para>
         /// <para>The bid price per unit hour.</para>
@@ -111,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_TargetCapacity
         /// <summary>
         /// <para>
         /// <para>The number of units to request. You can choose to set the target capacity in terms
@@ -121,7 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 SpotFleetRequestConfig_TargetCapacity { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_TerminateInstancesWithExpiration
         /// <summary>
         /// <para>
         /// <para>Indicates whether running Spot instances should be terminated when the Spot fleet
@@ -130,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_ValidFrom
         /// <summary>
         /// <para>
         /// <para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -139,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime SpotFleetRequestConfig_ValidFrom { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestConfig_ValidUntil
         /// <summary>
         /// <para>
         /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
@@ -149,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime SpotFleetRequestConfig_ValidUntil { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -157,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

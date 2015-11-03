@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class NewLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter BatchSize
         /// <summary>
         /// <para>
         /// <para>The largest number of records that AWS Lambda will retrieve from your event source
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 BatchSize { get; set; }
+        #endregion
         
+        #region Parameter Enabled
         /// <summary>
         /// <para>
         /// <para>Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code>
@@ -77,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter EventSourceArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EventSourceArn { get; set; }
+        #endregion
         
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The Lambda function to invoke when AWS Lambda detects an event on the stream.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -100,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter StartingPosition
         /// <summary>
         /// <para>
         /// <para>The position in the stream where AWS Lambda should start reading. For more information,
@@ -109,8 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Lambda.EventSourcePosition")]
         public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -118,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

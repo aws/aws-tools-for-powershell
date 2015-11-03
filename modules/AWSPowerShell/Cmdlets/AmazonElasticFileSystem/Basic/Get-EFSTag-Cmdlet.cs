@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class GetEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>The ID of the file system whose tag set you want to retrieve.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FileSystemId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Optional. String. Opaque pagination token returned from a previous <code>DescribeTags</code>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Optional. Maximum number of file system tags to return in the response. It must be
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

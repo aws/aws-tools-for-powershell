@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class UpdateCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter Capability
         /// <summary>
         /// <para>
         /// <para>A list of capabilities that you must specify before AWS CloudFormation can create
@@ -75,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Capabilities")]
         public System.String[] Capability { get; set; }
+        #endregion
         
+        #region Parameter NotificationARNs
         /// <summary>
         /// <para>
         /// <para>Update the ARNs for the Amazon SNS topics that are associated with the stack.</para>
@@ -83,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] NotificationARNs { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of <code>Parameter</code> structures that specify input parameters for the
@@ -94,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.CloudFormation.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The template resource types that you have permissions to work with for this update
@@ -109,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("ResourceTypes")]
         public System.String[] ResourceType { get; set; }
+        #endregion
         
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or unique stack ID of the stack to update.</para>
@@ -117,7 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyBody
         /// <summary>
         /// <para>
         /// <para>Structure containing a new stack policy body. You can specify either the <code>StackPolicyBody</code>
@@ -128,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StackPolicyBody { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyDuringUpdateBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the temporary overriding stack policy body. You can specify either
@@ -140,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StackPolicyDuringUpdateBody { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyDuringUpdateURL
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the temporary overriding stack policy. The URL must
@@ -153,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StackPolicyDuringUpdateURL { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyURL
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the updated stack policy. The URL must point to a policy
@@ -166,7 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StackPolicyURL { get; set; }
+        #endregion
         
+        #region Parameter TemplateBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -177,7 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TemplateBody { get; set; }
+        #endregion
         
+        #region Parameter TemplateURL
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template that
@@ -188,7 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TemplateURL { get; set; }
+        #endregion
         
+        #region Parameter UsePreviousTemplate
         /// <summary>
         /// <para>
         /// <para>Reuse the existing template that is associated with the stack that you are updating.</para>
@@ -196,7 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean UsePreviousTemplate { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -204,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

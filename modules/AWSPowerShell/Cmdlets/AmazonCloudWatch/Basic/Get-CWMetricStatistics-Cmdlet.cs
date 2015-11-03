@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     )]
     public class GetCWMetricStatisticsCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter Dimension
         /// <summary>
         /// <para>
         /// <para> A list of dimensions describing qualities of the metric. </para>
@@ -73,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Dimensions")]
         public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> The time stamp to use for determining the last datapoint to return. The value specified
@@ -82,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// <para> The name of the metric, with or without spaces. </para>
@@ -90,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String MetricName { get; set; }
+        #endregion
         
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// <para> The namespace of the metric, with or without spaces. </para>
@@ -98,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Namespace { get; set; }
+        #endregion
         
+        #region Parameter Period
         /// <summary>
         /// <para>
         /// <para> The granularity, in seconds, of the returned datapoints. <code>Period</code> must
@@ -107,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Period { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> The time stamp to use for determining the first datapoint to return. The value specified
@@ -116,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Statistic
         /// <summary>
         /// <para>
         /// <para> The metric statistics to return. For information about specific statistics returned
@@ -127,15 +141,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("Statistics")]
         public System.String[] Statistic { get; set; }
+        #endregion
         
+        #region Parameter Unit
         /// <summary>
         /// <para>
         /// <para> The unit for the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudWatch.StandardUnit")]
         public Amazon.CloudWatch.StandardUnit Unit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

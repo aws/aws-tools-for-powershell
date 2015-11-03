@@ -79,6 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class WriteKINFRecordCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        #region Parameter Record_Data
         /// <summary>
         /// <para>
         /// <para>The data blob, which is base64-encoded when the blob is serialized. The maximum size
@@ -87,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream Record_Data { get; set; }
+        #endregion
 
+        #region Parameter Record_Text 
         /// <summary>
         /// Text string containing the data to send. Use this parameter, or
         /// Record_Data, to define the data to be written.
@@ -95,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter]
 
         public System.String Record_Text { get; set; }
+        #endregion
 
+        #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream.</para>
@@ -103,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryStreamName { get; set; }
-        
+        #endregion
+
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -111,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
-        
+        #endregion
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

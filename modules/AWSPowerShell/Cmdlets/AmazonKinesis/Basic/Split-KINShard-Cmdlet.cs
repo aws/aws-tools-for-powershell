@@ -87,6 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     )]
     public class SplitKINShardCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewStartingHashKey
         /// <summary>
         /// <para>
         /// <para>A hash key value for the starting hash key of one of the child shards created by the
@@ -100,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String NewStartingHashKey { get; set; }
+        #endregion
         
+        #region Parameter ShardToSplit
         /// <summary>
         /// <para>
         /// <para>The shard ID of the shard to split.</para>
@@ -108,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ShardToSplit { get; set; }
+        #endregion
         
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream for the shard split.</para>
@@ -116,14 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StreamName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -131,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

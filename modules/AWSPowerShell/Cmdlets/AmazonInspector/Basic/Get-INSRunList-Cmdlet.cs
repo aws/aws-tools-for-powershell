@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSRunListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssessmentArn
         /// <summary>
         /// <para>
         /// <para>The ARNs specifying the assessments whose runs you want to list.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("AssessmentArns")]
         public System.String[] AssessmentArn { get; set; }
+        #endregion
         
+        #region Parameter CompletionTime_Maximum
         /// <summary>
         /// <para>
         /// <para>The maximum value of the timestamp range.</para>
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_CompletionTime_Maximum")]
         public System.DateTime CompletionTime_Maximum { get; set; }
+        #endregion
         
+        #region Parameter CreationTime_Maximum
         /// <summary>
         /// <para>
         /// <para>The maximum value of the timestamp range.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_CreationTime_Maximum")]
         public System.DateTime CreationTime_Maximum { get; set; }
+        #endregion
         
+        #region Parameter CompletionTime_Minimum
         /// <summary>
         /// <para>
         /// <para>The minimum value of the timestamp range.</para>
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_CompletionTime_Minimum")]
         public System.DateTime CompletionTime_Minimum { get; set; }
+        #endregion
         
+        #region Parameter CreationTime_Minimum
         /// <summary>
         /// <para>
         /// <para>The minimum value of the timestamp range.</para>
@@ -85,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_CreationTime_Minimum")]
         public System.DateTime CreationTime_Minimum { get; set; }
+        #endregion
         
+        #region Parameter Filter_RulesPackage
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -96,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_RulesPackages")]
         public System.String[] Filter_RulesPackage { get; set; }
+        #endregion
         
+        #region Parameter Filter_RunNamePattern
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, an explicit value or a string containing a wildcard
@@ -107,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_RunNamePatterns")]
         public System.String[] Filter_RunNamePattern { get; set; }
+        #endregion
         
+        #region Parameter Filter_RunState
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -118,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_RunStates")]
         public System.String[] Filter_RunState { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>You can use this parameter to indicate the maximum number of items you want in the
@@ -128,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
@@ -139,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

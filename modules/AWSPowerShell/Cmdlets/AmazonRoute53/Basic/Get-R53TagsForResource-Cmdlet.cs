@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53TagsForResourceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the resource for which you want to retrieve tags.</para>
@@ -46,15 +48,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The type of the resource.</para><para>- The resource type for health checks is <code>healthcheck</code>.</para><para>- The resource type for hosted zones is <code>hostedzone</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.TagResourceType")]
         public Amazon.Route53.TagResourceType ResourceType { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSStacksCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("StackIds")]
         public System.String[] StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

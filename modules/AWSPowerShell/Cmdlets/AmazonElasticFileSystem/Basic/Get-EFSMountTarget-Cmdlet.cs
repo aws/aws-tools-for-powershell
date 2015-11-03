@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class GetEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>Optional. String. The ID of the file system whose mount targets you want to list.
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FileSystemId { get; set; }
+        #endregion
         
+        #region Parameter MountTargetId
         /// <summary>
         /// <para>
         /// <para>Optional. String. The ID of the mount target that you want to have described. It must
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MountTargetId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Optional. String. Opaque pagination token returned from a previous <code>DescribeMountTargets</code>
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Optional. Maximum number of mount targets to return in the response. It must be an
@@ -87,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

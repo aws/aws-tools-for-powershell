@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class GetDPPipelineDescriptionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("PipelineIds")]
         public System.String[] PipelineId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class RemoveASTagCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>Each tag should be defined by its resource type, resource ID, key, value, and a propagate
@@ -49,14 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Tags")]
         public Amazon.AutoScaling.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Tag parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

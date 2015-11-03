@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class WriteCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigSnapshotDeliveryProperties_DeliveryFrequency
         /// <summary>
         /// <para>
         /// <para>The frequency with which a AWS Config recurringly delivers configuration snapshots.</para>
@@ -58,8 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency")]
+        [AWSConstantClassSource("Amazon.ConfigService.MaximumExecutionFrequency")]
         public Amazon.ConfigService.MaximumExecutionFrequency ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
+        #endregion
         
+        #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery channel. By default, AWS Config automatically assigns the
@@ -70,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DeliveryChannel_Name")]
         public System.String DeliveryChannelName { get; set; }
+        #endregion
         
+        #region Parameter DeliveryChannel_S3BucketName
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket used to store configuration history for the delivery
@@ -79,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryChannel_S3BucketName { get; set; }
+        #endregion
         
+        #region Parameter DeliveryChannel_S3KeyPrefix
         /// <summary>
         /// <para>
         /// <para>The prefix for the specified Amazon S3 bucket.</para>
@@ -87,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryChannel_S3KeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter DeliveryChannel_SnsTopicARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers notifications
@@ -96,14 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryChannel_SnsTopicARN { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DeliveryChannelName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -111,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

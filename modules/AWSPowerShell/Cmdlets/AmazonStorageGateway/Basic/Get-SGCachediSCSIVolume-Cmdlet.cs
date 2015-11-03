@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter VolumeARNs
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] VolumeARNs { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

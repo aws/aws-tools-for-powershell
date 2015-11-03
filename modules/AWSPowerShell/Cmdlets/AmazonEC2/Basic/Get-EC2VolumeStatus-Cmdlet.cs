@@ -73,6 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VolumeStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>action.code</code> - The action code for the event (for example, <code>enable-volume-io</code>).</para></li><li><para><code>action.description</code> - A description of the action.</para></li><li><para><code>action.event-id</code> - The event ID associated with the action.</para></li><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.event-id</code> - The event ID.</para></li><li><para><code>event.event-type</code> - The event type (for <code>io-enabled</code>: <code>passed</code>
@@ -87,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VolumeId
         /// <summary>
         /// <para>
         /// <para>One or more volume IDs.</para><para>Default: Describes all your volumes.</para>
@@ -96,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("VolumeIds")]
         public System.String[] VolumeId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of volume results returned by <code>DescribeVolumeStatus</code>
@@ -113,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value to include in a future <code>DescribeVolumeStatus</code>
@@ -124,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

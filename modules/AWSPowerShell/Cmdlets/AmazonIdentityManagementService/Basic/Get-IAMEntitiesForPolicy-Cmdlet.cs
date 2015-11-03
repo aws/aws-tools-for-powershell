@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMEntitiesForPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter EntityFilter
         /// <summary>
         /// <para>
         /// <para>The entity type to use for filtering the results. </para><para>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that
@@ -59,8 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IdentityManagement.EntityType")]
         public Amazon.IdentityManagement.EntityType EntityFilter { get; set; }
+        #endregion
         
+        #region Parameter PathPrefix
         /// <summary>
         /// <para>
         /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
@@ -69,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PathPrefix { get; set; }
+        #endregion
         
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -77,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String PolicyArn { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
@@ -88,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
@@ -103,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.Int32 MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class UpdateAGApiKeyCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApiKey
         /// <summary>
         /// <para>
         /// <para>The identifier of the <a>ApiKey</a> resource to be updated.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ApiKey { get; set; }
+        #endregion
         
+        #region Parameter PatchOperation
         /// <summary>
         /// <para>
         /// <para>A list of operations describing the updates to apply to the specified resource. The
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("PatchOperations")]
         public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

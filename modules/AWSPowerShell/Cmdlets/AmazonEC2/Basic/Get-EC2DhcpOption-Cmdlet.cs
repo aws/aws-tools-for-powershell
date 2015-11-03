@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DhcpOptionsId
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more DHCP options sets.</para><para>Default: Describes all your DHCP options sets.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("DhcpOptionsIds")]
         public System.String[] DhcpOptionsId { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>dhcp-options-id</code> - The ID of a set of DHCP options.</para></li><li><para><code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</para></li><li><para><code>value</code> - The value for one of the options.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

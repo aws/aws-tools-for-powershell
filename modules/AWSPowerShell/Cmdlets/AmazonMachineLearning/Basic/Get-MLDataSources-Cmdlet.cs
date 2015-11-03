@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class GetMLDataSourcesCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter EQ
         /// <summary>
         /// <para>
         /// <para>The equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EQ { get; set; }
+        #endregion
         
+        #region Parameter FilterVariable
         /// <summary>
         /// <para>
         /// <para>Use one of the following variables to filter a list of <code>DataSource</code>:</para><ul><li><code>CreatedAt</code> - Sets the search criteria to <code>DataSource</code>
@@ -62,8 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MachineLearning.DataSourceFilterVariable")]
         public Amazon.MachineLearning.DataSourceFilterVariable FilterVariable { get; set; }
+        #endregion
         
+        #region Parameter GE
         /// <summary>
         /// <para>
         /// <para>The greater than or equal to operator. The <code>DataSource</code> results will have
@@ -73,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String GE { get; set; }
+        #endregion
         
+        #region Parameter GT
         /// <summary>
         /// <para>
         /// <para>The greater than operator. The <code>DataSource</code> results will have <code>FilterVariable</code>
@@ -82,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String GT { get; set; }
+        #endregion
         
+        #region Parameter LE
         /// <summary>
         /// <para>
         /// <para>The less than or equal to operator. The <code>DataSource</code> results will have
@@ -92,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LE { get; set; }
+        #endregion
         
+        #region Parameter LT
         /// <summary>
         /// <para>
         /// <para>The less than operator. The <code>DataSource</code> results will have <code>FilterVariable</code>
@@ -101,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LT { get; set; }
+        #endregion
         
+        #region Parameter NE
         /// <summary>
         /// <para>
         /// <para>The not equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code>
@@ -110,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NE { get; set; }
+        #endregion
         
+        #region Parameter Prefix
         /// <summary>
         /// <para>
         /// <para>A string that is found at the beginning of a variable, such as <code>Name</code> or
@@ -121,15 +138,20 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Prefix { get; set; }
+        #endregion
         
+        #region Parameter SortOrder
         /// <summary>
         /// <para>
         /// <para>A two-value parameter that determines the sequence of the resulting list of <code>DataSource</code>.</para><ul><li><code>asc</code> - Arranges the list in ascending order (A-Z, 0-9).</li><li><code>dsc</code> - Arranges the list in descending order (Z-A, 9-0).</li></ul><para>Results are sorted by <code>FilterVariable</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MachineLearning.SortOrder")]
         public Amazon.MachineLearning.SortOrder SortOrder { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of <code>DataSource</code> to include in the result.</para>
@@ -138,7 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The ID of the page in the paginated results.</para>
@@ -146,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

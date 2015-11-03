@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class EnableDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPublicVirtualInterfaceAllocation_AmazonAddress
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPublicVirtualInterfaceAllocation_AmazonAddress { get; set; }
+        #endregion
         
+        #region Parameter NewPublicVirtualInterfaceAllocation_Asn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NewPublicVirtualInterfaceAllocation_Asn { get; set; }
+        #endregion
         
+        #region Parameter NewPublicVirtualInterfaceAllocation_AuthKey
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPublicVirtualInterfaceAllocation_AuthKey { get; set; }
+        #endregion
         
+        #region Parameter ConnectionId
         /// <summary>
         /// <para>
         /// <para>The connection ID on which the public virtual interface is provisioned.</para><para>Default: None</para>
@@ -80,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ConnectionId { get; set; }
+        #endregion
         
+        #region Parameter NewPublicVirtualInterfaceAllocation_CustomerAddress
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -88,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPublicVirtualInterfaceAllocation_CustomerAddress { get; set; }
+        #endregion
         
+        #region Parameter OwnerAccount
         /// <summary>
         /// <para>
         /// <para>The AWS account that will own the new public virtual interface.</para><para>Default: None</para>
@@ -96,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String OwnerAccount { get; set; }
+        #endregion
         
+        #region Parameter NewPublicVirtualInterfaceAllocation_RouteFilterPrefix
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -105,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         [System.Management.Automation.Parameter]
         [Alias("NewPublicVirtualInterfaceAllocation_RouteFilterPrefixes")]
         public Amazon.DirectConnect.Model.RouteFilterPrefix[] NewPublicVirtualInterfaceAllocation_RouteFilterPrefix { get; set; }
+        #endregion
         
+        #region Parameter NewPublicVirtualInterfaceAllocation_VirtualInterfaceName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -113,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPublicVirtualInterfaceAllocation_VirtualInterfaceName { get; set; }
+        #endregion
         
+        #region Parameter NewPublicVirtualInterfaceAllocation_Vlan
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -121,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NewPublicVirtualInterfaceAllocation_Vlan { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -129,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class UpdateWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeToken
         /// <summary>
         /// <para>
         /// <para>The value returned by the most recent call to <a>GetChangeToken</a>.</para>
@@ -72,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ChangeToken { get; set; }
+        #endregion
         
+        #region Parameter RuleId
         /// <summary>
         /// <para>
         /// <para>The <code>RuleId</code> of the <code>Rule</code> that you want to update. <code>RuleId</code>
@@ -81,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RuleId { get; set; }
+        #endregion
         
+        #region Parameter Update
         /// <summary>
         /// <para>
         /// <para>An array of <code>RuleUpdate</code> objects that you want to insert into or delete
@@ -92,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter]
         [Alias("Updates")]
         public Amazon.WAF.Model.RuleUpdate[] Update { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -100,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

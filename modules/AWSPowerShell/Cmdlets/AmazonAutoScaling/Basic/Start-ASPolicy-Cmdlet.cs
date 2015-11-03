@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class StartASPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the Auto Scaling group.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter BreachThreshold
         /// <summary>
         /// <para>
         /// <para>The breach threshold for the alarm.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double BreachThreshold { get; set; }
+        #endregion
         
+        #region Parameter HonorCooldown
         /// <summary>
         /// <para>
         /// <para>If this parameter is true, Auto Scaling waits for the cooldown period to complete
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Boolean HonorCooldown { get; set; }
+        #endregion
         
+        #region Parameter MetricValue
         /// <summary>
         /// <para>
         /// <para>The metric value to compare to <code>BreachThreshold</code>. This enables you to execute
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double MetricValue { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the policy.</para>
@@ -87,14 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -44,14 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoPlacement
         /// <summary>
         /// <para>
         /// <para>Specify whether to enable or disable auto-placement.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.AutoPlacement")]
         public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
+        #endregion
         
+        #region Parameter HostId
         /// <summary>
         /// <para>
         /// <para>The host IDs of the Dedicated hosts you want to modify.</para>
@@ -60,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("HostIds")]
         public System.String[] HostId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

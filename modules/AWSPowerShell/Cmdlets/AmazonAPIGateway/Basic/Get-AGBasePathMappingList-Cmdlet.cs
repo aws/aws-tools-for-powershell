@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGBasePathMappingListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The domain name of a <a>BasePathMapping</a> resource.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of <a>BasePathMapping</a> resources in the collection to get information
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Position
         /// <summary>
         /// <para>
         /// <para>The position of the current <a>BasePathMapping</a> resource in the collection to get
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Position { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

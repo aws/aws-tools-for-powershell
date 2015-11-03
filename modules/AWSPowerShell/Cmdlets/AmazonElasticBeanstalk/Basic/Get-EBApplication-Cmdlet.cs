@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ApplicationNames")]
         public System.String[] ApplicationName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

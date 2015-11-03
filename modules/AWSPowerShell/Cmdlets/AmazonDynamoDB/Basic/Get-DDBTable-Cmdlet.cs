@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class GetDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para> The name of the table to describe.</para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TableName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

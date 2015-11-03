@@ -44,14 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2SpotFleetRequestHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter EventType
         /// <summary>
         /// <para>
         /// <para>The type of events to describe. By default, all events are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.EventType")]
         public Amazon.EC2.EventType EventType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
@@ -59,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. Specify a value between
@@ -70,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public System.Int32 MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results.</para>
@@ -78,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
         /// <para>The ID of the Spot fleet request.</para>
@@ -86,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SpotFleetRequestId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class GetCFNStackSummaryCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackStatusFilter
         /// <summary>
         /// <para>
         /// <para>Stack status to use as a filter. Specify one or more stack status codes to list only
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] StackStatusFilter { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>String that identifies the start of the next list of stacks, if there is one.</para><para>Default: There is no default value.</para>
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

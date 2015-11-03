@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class TestCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter FilterPattern
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FilterPattern { get; set; }
+        #endregion
         
+        #region Parameter LogEventMessage
         /// <summary>
         /// <para>
         /// <para>A list of log event messages to test.</para>
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("LogEventMessages")]
         public System.String[] LogEventMessage { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

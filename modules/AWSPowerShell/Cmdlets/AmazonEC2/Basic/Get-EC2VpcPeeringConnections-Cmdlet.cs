@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VpcPeeringConnectionsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The CIDR block of the peer VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the peer
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
         /// <para>One or more VPC peering connection IDs.</para><para>Default: Describes all your VPC peering connections.</para>
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("VpcPeeringConnectionIds")]
         public System.String[] VpcPeeringConnectionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

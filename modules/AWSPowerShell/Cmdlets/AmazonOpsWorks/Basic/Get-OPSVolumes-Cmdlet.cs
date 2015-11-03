@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSVolumesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID. If you use this parameter, <code>DescribeVolumes</code> returns descriptions
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter RaidArrayId
         /// <summary>
         /// <para>
         /// <para>The RAID array ID. If you use this parameter, <code>DescribeVolumes</code> returns
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String RaidArrayId { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>A stack ID. The action describes the stack's registered Amazon EBS volumes.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter VolumeId
         /// <summary>
         /// <para>
         /// <para>Am array of volume IDs. If you use this parameter, <code>DescribeVolumes</code> returns
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("VolumeIds")]
         public System.String[] VolumeId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

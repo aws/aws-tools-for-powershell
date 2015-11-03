@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class EditRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> If <code>true</code>, major version upgrades will be applied automatically to the
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AllowVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AutomatedSnapshotRetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days that automated snapshots are retained. If the value is 0, automated
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 AutomatedSnapshotRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the cluster to be modified. </para><para>Example: <code>examplecluster</code></para>
@@ -80,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the cluster parameter group to apply to this cluster. This change is
@@ -91,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter ClusterSecurityGroup
         /// <summary>
         /// <para>
         /// <para> A list of cluster security groups to be authorized on this cluster. This change is
@@ -103,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("ClusterSecurityGroups")]
         public System.String[] ClusterSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter ClusterType
         /// <summary>
         /// <para>
         /// <para> The new cluster type. </para><para> When you submit your cluster resize request, your existing cluster goes into a read-only
@@ -115,7 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClusterType { get; set; }
+        #endregion
         
+        #region Parameter ClusterVersion
         /// <summary>
         /// <para>
         /// <para> The new version number of the Amazon Redshift engine to upgrade to. </para><para> For major version upgrades, if a non-default cluster parameter group is currently
@@ -129,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClusterVersion { get; set; }
+        #endregion
         
+        #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses
@@ -138,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmClientCertificateIdentifier { get; set; }
+        #endregion
         
+        #region Parameter HsmConfigurationIdentifier
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the HSM configuration that contains the information the Amazon
@@ -147,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HsmConfigurationIdentifier { get; set; }
+        #endregion
         
+        #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para> The new password for the cluster master user. This change is asynchronously applied
@@ -162,7 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MasterUserPassword { get; set; }
+        #endregion
         
+        #region Parameter NewClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The new identifier for the cluster.</para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>Alphabetic
@@ -173,7 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter NodeType
         /// <summary>
         /// <para>
         /// <para> The new node type of the cluster. If you specify a new node type, you must also specify
@@ -188,7 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NodeType { get; set; }
+        #endregion
         
+        #region Parameter NumberOfNodes
         /// <summary>
         /// <para>
         /// <para> The new number of nodes of the cluster. If you specify a new number of nodes, you
@@ -202,7 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NumberOfNodes { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para> The weekly time range (in UTC) during which system maintenance can occur, if necessary.
@@ -214,7 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A list of virtual private cloud (VPC) security groups to be associated with the cluster.
@@ -224,7 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -232,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

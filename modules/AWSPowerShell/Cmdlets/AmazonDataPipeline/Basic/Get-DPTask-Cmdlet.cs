@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class GetDPTaskCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceIdentity_Document
         /// <summary>
         /// <para>
         /// <para>A description of an EC2 instance that is generated when the instance is launched and
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceIdentity_Document { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The public DNS name of the calling task runner.</para>
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter InstanceIdentity_Signature
         /// <summary>
         /// <para>
         /// <para>A signature which can be used to verify the accuracy and authenticity of the information
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceIdentity_Signature { get; set; }
+        #endregion
         
+        #region Parameter WorkerGroup
         /// <summary>
         /// <para>
         /// <para>The type of task the task runner is configured to accept and process. The worker group
@@ -93,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String WorkerGroup { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

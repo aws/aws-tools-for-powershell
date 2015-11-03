@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class GetHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter HsmArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the HSM. Either the <i>HsmArn</i> or the <i>SerialNumber</i> parameter
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String HsmArn { get; set; }
+        #endregion
         
+        #region Parameter HsmSerialNumber
         /// <summary>
         /// <para>
         /// <para>The serial number of the HSM. Either the <i>HsmArn</i> or the <i>HsmSerialNumber</i>
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmSerialNumber { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

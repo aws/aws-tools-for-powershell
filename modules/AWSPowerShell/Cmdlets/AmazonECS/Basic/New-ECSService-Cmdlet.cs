@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class NewECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster on which to run your
@@ -78,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter DesiredCount
         /// <summary>
         /// <para>
         /// <para>The number of instantiations of the specified task definition to place and keep running
@@ -87,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DesiredCount { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancer
         /// <summary>
         /// <para>
         /// <para>A list of load balancer objects, containing the load balancer name, the container
@@ -98,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancers")]
         public Amazon.ECS.Model.LoadBalancer[] LoadBalancer { get; set; }
+        #endregion
         
+        #region Parameter Role
         /// <summary>
         /// <para>
         /// <para>The name or full Amazon Resource Name (ARN) of the IAM role that allows your Amazon
@@ -108,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Role { get; set; }
+        #endregion
         
+        #region Parameter ServiceName
         /// <summary>
         /// <para>
         /// <para>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, hyphens,
@@ -119,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceName { get; set; }
+        #endregion
         
+        #region Parameter TaskDefinition
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -130,7 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TaskDefinition { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -138,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

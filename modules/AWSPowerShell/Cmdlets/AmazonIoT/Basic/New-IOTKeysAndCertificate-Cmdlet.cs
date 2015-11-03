@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class NewIOTKeysAndCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter SetAsActive
         /// <summary>
         /// <para>
         /// <para>Specifies whether the certificate is active.</para>
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SetAsActive { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

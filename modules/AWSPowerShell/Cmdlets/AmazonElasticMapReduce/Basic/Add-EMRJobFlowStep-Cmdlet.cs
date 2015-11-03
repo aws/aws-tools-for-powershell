@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class AddEMRJobFlowStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
         /// <para>A string that uniquely identifies the job flow. This identifier is returned by <a>RunJobFlow</a>
@@ -71,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String JobFlowId { get; set; }
+        #endregion
         
+        #region Parameter Step
         /// <summary>
         /// <para>
         /// <para> A list of <a>StepConfig</a> to be executed by the job flow. </para>
@@ -80,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Steps")]
         public Amazon.ElasticMapReduce.Model.StepConfig[] Step { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBEventCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter RequestId
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the described events to include only
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RequestId { get; set; }
+        #endregion
         
+        #region Parameter Severity
         /// <summary>
         /// <para>
         /// <para> If specified, limits the events returned from this call to include only those with
@@ -95,8 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.EventSeverity")]
         public Amazon.ElasticBeanstalk.EventSeverity Severity { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
@@ -105,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
@@ -114,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TemplateName { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
@@ -123,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> Specifies the maximum number of events that can be returned, beginning with the most
@@ -133,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> Pagination token. If specified, the events return the next batch of results. </para>
@@ -141,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class GetMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>DataSource</code> at creation.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter VerboseResponse
         /// <summary>
         /// <para>
         /// <para>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</para><para>If true, <code>DataSourceSchema</code> is returned.</para><para>If false, <code>DataSourceSchema</code> is not returned.</para>
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean VerboseResponse { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class WriteAGMethodResponseCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter HttpMethod
         /// <summary>
         /// <para>
         /// <para>The HTTP verb that identifies the <a>Method</a> resource.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HttpMethod { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The <a>Resource</a> identifier for the <a>Method</a> resource.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResponseModel
         /// <summary>
         /// <para>
         /// <para>Specifies the <a>Model</a> resources used for the response's content type. Response
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("ResponseModels")]
         public System.Collections.Hashtable ResponseModel { get; set; }
+        #endregion
         
+        #region Parameter ResponseParameter
         /// <summary>
         /// <para>
         /// <para>Represents response parameters that can be sent back to the caller by Amazon API Gateway.
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("ResponseParameters")]
         public System.Collections.Hashtable ResponseParameter { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The <a>RestApi</a> identifier for the <a>Method</a> resource.</para>
@@ -86,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter StatusCode
         /// <summary>
         /// <para>
         /// <para>The method response's status code.</para>
@@ -94,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StatusCode { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

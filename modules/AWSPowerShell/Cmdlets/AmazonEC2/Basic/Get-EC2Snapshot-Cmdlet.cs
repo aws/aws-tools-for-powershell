@@ -81,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>description</code> - A description of the snapshot.</para></li><li><para><code>owner-alias</code> - The AWS account alias (for example, <code>amazon</code>)
@@ -99,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter OwnerId
         /// <summary>
         /// <para>
         /// <para>Returns the snapshots owned by the specified owner. Multiple owners can be specified.</para>
@@ -108,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("OwnerIds")]
         public System.String[] OwnerId { get; set; }
+        #endregion
         
+        #region Parameter RestorableByUserId
         /// <summary>
         /// <para>
         /// <para>One or more AWS accounts IDs that can create volumes from the snapshot.</para>
@@ -117,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("RestorableByUserIds")]
         public System.String[] RestorableByUserId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>One or more snapshot IDs.</para><para>Default: Describes snapshots for which you have launch permissions.</para>
@@ -126,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("SnapshotIds")]
         public System.String[] SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of snapshot results returned by <code>DescribeSnapshots</code>
@@ -143,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value returned from a previous paginated <code>DescribeSnapshots</code>
@@ -155,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

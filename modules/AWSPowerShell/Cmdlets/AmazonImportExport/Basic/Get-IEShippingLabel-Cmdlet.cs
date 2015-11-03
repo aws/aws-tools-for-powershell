@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IE
     )]
     public class GetIEShippingLabelCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
+        
+        #region Parameter APIVersion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String APIVersion { get; set; }
+        #endregion
         
+        #region Parameter City
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String City { get; set; }
+        #endregion
         
+        #region Parameter Company
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Company { get; set; }
+        #endregion
         
+        #region Parameter Country
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -71,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Country { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -80,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobIds")]
         public System.String[] JobId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -88,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter PhoneNumber
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -96,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PhoneNumber { get; set; }
+        #endregion
         
+        #region Parameter PostalCode
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -104,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PostalCode { get; set; }
+        #endregion
         
+        #region Parameter StateOrProvince
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -112,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StateOrProvince { get; set; }
+        #endregion
         
+        #region Parameter Street1
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -120,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Street1 { get; set; }
+        #endregion
         
+        #region Parameter Street2
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -128,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Street2 { get; set; }
+        #endregion
         
+        #region Parameter Street3
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -136,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Street3 { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

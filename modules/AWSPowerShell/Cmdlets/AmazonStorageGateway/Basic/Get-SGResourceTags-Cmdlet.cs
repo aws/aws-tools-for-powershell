@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGResourceTagsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the list of tags returned be limited to the specified number of items.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An opaque string that indicates the position at which to begin returning the list
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceARN { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

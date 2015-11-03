@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDApplicationRevisionListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter Deployed
         /// <summary>
         /// <para>
         /// <para>Whether to list revisions based on whether the revision is the target revision of
@@ -57,8 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.ListStateFilterAction")]
         public Amazon.CodeDeploy.ListStateFilterAction Deployed { get; set; }
+        #endregion
         
+        #region Parameter S3Bucket
         /// <summary>
         /// <para>
         /// <para>A specific Amazon S3 bucket name to limit the search for revisions.</para><para>If set to null, then all of the user's buckets will be searched.</para>
@@ -66,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String S3Bucket { get; set; }
+        #endregion
         
+        #region Parameter S3KeyPrefix
         /// <summary>
         /// <para>
         /// <para>A specific key prefix for the set of Amazon S3 objects to limit the search for revisions.</para>
@@ -74,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String S3KeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter SortBy
         /// <summary>
         /// <para>
         /// <para>The column name to sort the list results by:</para><ul><li>registerTime: Sort the list results by when the revisions were registered
@@ -84,8 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.ApplicationRevisionSortBy")]
         public Amazon.CodeDeploy.ApplicationRevisionSortBy SortBy { get; set; }
+        #endregion
         
+        #region Parameter SortOrder
         /// <summary>
         /// <para>
         /// <para>The order to sort the list results by:</para><ul><li>ascending: Sort the list of results in ascending order.</li><li>descending:
@@ -93,8 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.SortOrder")]
         public Amazon.CodeDeploy.SortOrder SortOrder { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list application revisions call,
@@ -103,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGDeliveryChannelsCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
         /// <para>A list of delivery channel names.</para>
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DeliveryChannelNames")]
         public System.String[] DeliveryChannelName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

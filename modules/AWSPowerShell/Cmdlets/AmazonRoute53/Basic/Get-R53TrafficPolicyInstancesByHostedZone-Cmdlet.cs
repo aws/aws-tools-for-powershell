@@ -73,6 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53TrafficPolicyInstancesByHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
         /// <para>The ID of the hosted zone for which you want to list traffic policy instances.</para>
@@ -80,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter TrafficPolicyInstanceNameMarker
         /// <summary>
         /// <para>
         /// <para>For the first request to <code>ListTrafficPolicyInstancesByHostedZone</code>, omit
@@ -93,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TrafficPolicyInstanceNameMarker { get; set; }
+        #endregion
         
+        #region Parameter TrafficPolicyInstanceTypeMarker
         /// <summary>
         /// <para>
         /// <para>For the first request to <code>ListTrafficPolicyInstancesByHostedZone</code>, omit
@@ -104,8 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.RRType")]
         public Amazon.Route53.RRType TrafficPolicyInstanceTypeMarker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of traffic policy instances to be included in the response body
@@ -119,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.String MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

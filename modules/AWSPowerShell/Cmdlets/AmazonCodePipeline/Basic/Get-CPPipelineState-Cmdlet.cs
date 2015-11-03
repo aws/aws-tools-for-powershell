@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class GetCPPipelineStateCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline about which you want to get information.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

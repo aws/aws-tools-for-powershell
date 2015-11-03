@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ContainerDefinition
         /// <summary>
         /// <para>
         /// <para>A list of container definitions in JSON format that describe the different containers
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("ContainerDefinitions")]
         public Amazon.ECS.Model.ContainerDefinition[] ContainerDefinition { get; set; }
+        #endregion
         
+        #region Parameter Family
         /// <summary>
         /// <para>
         /// <para>You must specify a <code>family</code> for a task definition, which allows you to
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Family { get; set; }
+        #endregion
         
+        #region Parameter Volume
         /// <summary>
         /// <para>
         /// <para>A list of volume definitions in JSON format that containers in your task may use.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("Volumes")]
         public Amazon.ECS.Model.Volume[] Volume { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSTagForResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ResourceName
         /// <summary>
         /// <para>
         /// <para>The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name
@@ -63,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ResourceName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

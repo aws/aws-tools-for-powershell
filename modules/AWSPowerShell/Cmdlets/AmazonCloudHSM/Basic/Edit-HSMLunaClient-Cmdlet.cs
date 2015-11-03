@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class EditHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter Certificate
         /// <summary>
         /// <para>
         /// <para>The new certificate for the client. </para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Certificate { get; set; }
+        #endregion
         
+        #region Parameter ClientArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the client.</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ClientArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

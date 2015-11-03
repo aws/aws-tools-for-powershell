@@ -1,4 +1,4 @@
-﻿/*******************************************************************************
+/*******************************************************************************
  *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
@@ -47,51 +47,62 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Bucket Params
 
+        #region Parameter BucketName
         /// <summary>
         /// Name of the bucket that holds the content to be downloaded
         /// </summary>
         [Parameter(Position = 0, Mandatory = true, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
 
         #endregion
 
         #region File Download Parameters
 
+        #region Parameter Key
         /// <summary>
         /// The key that identifies the single object in S3.
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_ToLocalFile, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         public System.String Key { get; set; }
+        #endregion
 
+        #region Parameter File
         /// <summary>
         /// The full path to the local file that will be created.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_ToLocalFile, Mandatory = true)]
         public System.String File { get; set; }
+        #endregion
 
+        #region Parameter Version
         /// <summary>
         /// If specified, the specific version of the S3 object is returned.
         /// </summary>
         [Parameter(Position = 3, ParameterSetName = ParamSet_ToLocalFile)]
         public System.String Version { get; set; }
+        #endregion
 
         #endregion
 
         #region Folder Download Parameters
 
+        #region Parameter KeyPrefix
         /// <summary>
-		/// <para>
+        /// <para>
         /// The key prefix that identifies the set of S3 objects to be downloaded. The
-		/// key structure is preserved as the folder hierarchy under the destination folder.
-		/// </para>
-		/// <para>
-		/// To indicate that all content in the bucket is to be downloaded, values of 
-		/// '/', '\', '*', '/*' or '\*' may be used for this parameter.
+        /// key structure is preserved as the folder hierarchy under the destination folder.
+        /// </para>
+        /// <para>
+        /// To indicate that all content in the bucket is to be downloaded, values of 
+        /// '/', '\', '*', '/*' or '\*' may be used for this parameter.
         /// </summary>
         [Alias("Prefix")]
         [Parameter(Position = 1, ParameterSetName = ParamSet_ToLocalFolder, ValueFromPipelineByPropertyName = true)]
         public System.String KeyPrefix { get; set; }
+        #endregion
 
+        #region Parameter Folder
         /// <summary>
         /// The full path to a local folder; all downloaded content will be placed under this folder,
         /// with subfolders maintaining the S3 object key hierarchies.
@@ -99,41 +110,53 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Alias("Directory")]
         [Parameter(Position = 2, ParameterSetName = ParamSet_ToLocalFolder, Mandatory = true)]
         public System.String Folder { get; set; }
+        #endregion
 
         #endregion
 
         #region Common Optional Parameters
 
+        #region Parameter ModifiedSinceDate
         /// <summary>
         /// If specified, only  objects that have been modified since this date will be downloaded.
         /// </summary>
         [Parameter]
         public System.DateTime ModifiedSinceDate { get; set; }
+        #endregion
 
+        #region Parameter UnmodifiedSinceDate
         /// <summary>
         /// If specified, only objects that have not been modified since this date will be downloaded.
         /// </summary>
         [Parameter]
         public System.DateTime UnmodifiedSinceDate { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// Specifies the server-side encryption algorithm to be used with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
         [Parameter]
-        public System.String ServerSideEncryptionCustomerMethod { get; set; }
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
+        public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerProvidedKey
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 to use to decrypt the object.
         /// </summary>
         [Parameter]
         public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
         [Parameter]
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        #endregion
 
         #endregion
 
@@ -168,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (ParameterWasBound("UnmodifiedSinceDate"))
                 UnmodifiedSinceDate = this.UnmodifiedSinceDate;
 
-            if (!string.IsNullOrEmpty(this.ServerSideEncryptionCustomerMethod))
-            {
-                context.ServerSideEncryptionCustomerMethod = Amazon.S3.ServerSideEncryptionCustomerMethod.FindValue(this.ServerSideEncryptionCustomerMethod);
-            }
+            if (ParameterWasBound("ServerSideEncryptionCustomerMethod"))
+                context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
+
             context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
             context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
             

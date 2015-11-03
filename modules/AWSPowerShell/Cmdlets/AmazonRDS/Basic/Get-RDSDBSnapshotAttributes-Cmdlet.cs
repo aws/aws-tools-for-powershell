@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSDBSnapshotAttributesCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier for the DB snapshot to modify the attributes for.</para>
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBSnapshotIdentifier { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

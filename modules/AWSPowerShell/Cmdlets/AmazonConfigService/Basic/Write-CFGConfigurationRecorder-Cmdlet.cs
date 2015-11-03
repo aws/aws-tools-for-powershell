@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class WriteCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RecordingGroup_AllSupported
         /// <summary>
         /// <para>
         /// <para>Records all supported resource types in the recording group. For a list of supported
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationRecorder_RecordingGroup_AllSupported")]
         public System.Boolean RecordingGroup_AllSupported { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
         /// <para>The name of the recorder. By default, AWS Config automatically assigns the name "default"
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ConfigurationRecorder_Name")]
         public System.String ConfigurationRecorderName { get; set; }
+        #endregion
         
+        #region Parameter RecordingGroup_ResourceType
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of strings representing valid AWS resource types (for example,
@@ -86,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationRecorder_RecordingGroup_ResourceTypes")]
         public System.String[] RecordingGroup_ResourceType { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationRecorder_RoleARN
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated
@@ -95,14 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigurationRecorder_RoleARN { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ConfigurationRecorderName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -110,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

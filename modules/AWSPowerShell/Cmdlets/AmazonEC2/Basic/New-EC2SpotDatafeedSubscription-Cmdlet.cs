@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2SpotDatafeedSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Bucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket in which to store the Spot instance data feed.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Bucket { get; set; }
+        #endregion
         
+        #region Parameter Prefix
         /// <summary>
         /// <para>
         /// <para>A prefix for the data feed file names.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Prefix { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

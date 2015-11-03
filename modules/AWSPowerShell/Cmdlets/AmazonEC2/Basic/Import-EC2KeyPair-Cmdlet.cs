@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyName
         /// <summary>
         /// <para>
         /// <para>A unique name for the key pair.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String KeyName { get; set; }
+        #endregion
         
+        #region Parameter PublicKeyMaterial
         /// <summary>
         /// <para>
         /// <para>The public key. You must base64 encode the public key material before sending it to
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String PublicKeyMaterial { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

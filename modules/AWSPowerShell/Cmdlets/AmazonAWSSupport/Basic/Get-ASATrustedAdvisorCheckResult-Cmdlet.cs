@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class GetASATrustedAdvisorCheckResultCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter CheckId
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the Trusted Advisor check.</para>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CheckId { get; set; }
+        #endregion
         
+        #region Parameter Language
         /// <summary>
         /// <para>
         /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
@@ -67,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Language { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class CopyRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter CopyTag
         /// <summary>
         /// <para>
         /// <para>True to copy all tags from the source DB snapshot to the target DB snapshot; otherwise
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("CopyTags")]
         public System.Boolean CopyTag { get; set; }
+        #endregion
         
+        #region Parameter SourceDBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier for the source DB snapshot. </para><para>If you are copying from a shared manual DB snapshot, this must be the ARN of the shared
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TargetDBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier for the copied snapshot. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank</li><li>Must contain from 1 to 255 alphanumeric
@@ -87,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String TargetDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

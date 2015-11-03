@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGConfigurationRecorderStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
         /// <para>The name(s) of the configuration recorder. If the name is not specified, the action
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationRecorderNames")]
         public System.String[] ConfigurationRecorderName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

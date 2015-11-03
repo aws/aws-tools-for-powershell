@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class GetCFDistributionListByWebACLIdCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter WebACLId
         /// <summary>
         /// <para>
         /// The Id of the AWS WAF web ACL for which you want
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String WebACLId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// Use Marker and MaxItems to control pagination of
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// The maximum number of distributions that you
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.String MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

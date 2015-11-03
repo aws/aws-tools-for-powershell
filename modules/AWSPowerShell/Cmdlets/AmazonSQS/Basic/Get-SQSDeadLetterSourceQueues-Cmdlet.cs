@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class GetSQSDeadLetterSourceQueuesCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// The queue URL of a dead letter queue.
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueUrl { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

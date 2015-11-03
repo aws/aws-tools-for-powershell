@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class GetDDBTablesCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartTableName
         /// <summary>
         /// <para>
         /// <para>The first table name that this operation will evaluate. Use the value that was returned
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
         public System.String ExclusiveStartTableName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> A maximum number of table names to return. If this parameter is not specified, the
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

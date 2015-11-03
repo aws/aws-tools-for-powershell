@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class GetSESReceiptRuleSetsCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

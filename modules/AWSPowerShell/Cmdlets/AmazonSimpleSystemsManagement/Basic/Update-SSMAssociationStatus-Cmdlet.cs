@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public class UpdateSSMAssociationStatusCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationStatus_AdditionalInfo
         /// <summary>
         /// <para>
         /// <para>A user-defined string.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AssociationStatus_AdditionalInfo { get; set; }
+        #endregion
         
+        #region Parameter AssociationStatus_Date
         /// <summary>
         /// <para>
         /// <para>The date when the status changed.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime AssociationStatus_Date { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter AssociationStatus_Message
         /// <summary>
         /// <para>
         /// <para>The reason for the status.</para>
@@ -70,15 +78,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AssociationStatus_Message { get; set; }
+        #endregion
         
+        #region Parameter AssociationStatus_Name
         /// <summary>
         /// <para>
         /// <para>The status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.AssociationStatusName")]
         public Amazon.SimpleSystemsManagement.AssociationStatusName AssociationStatus_Name { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the SSM document.</para>
@@ -86,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

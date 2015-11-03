@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class GetDFTestCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
         /// <summary>
         /// <para>
         /// <para>The test's ARN.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Arn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

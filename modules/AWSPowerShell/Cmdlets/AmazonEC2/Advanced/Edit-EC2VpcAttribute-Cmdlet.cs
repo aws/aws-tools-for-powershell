@@ -37,37 +37,54 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         const string ParamSet_DnsSupport = "DnsSupportParamSet";
         const string ParamSet_DnsHostnames = "DnsHostnamesParamSet";
 
+        #region Parameter VpcId
         /// <summary>
-        /// <para>
-        /// VPC ID to modify.
-        /// </para>
+        /// The ID of the VPC to modify.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName=true, ValueFromPipeline = true, Mandatory = true)]
         public System.String VpcId { get; set; }
-        
+        #endregion
+
+        #region Parameter EnableDnsSupport
         /// <summary>
         /// <para>
-        /// Whether Dns is supported.
+        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon 
+        /// provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC 
+        /// network range "plus two" will succeed. If disabled, the Amazon provided DNS service in the VPC that 
+        /// resolves public DNS hostnames to IP addresses is not enabled.
+        /// </para>
+        /// <para>
+        /// You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate 
+        /// requests for each attribute.
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_DnsSupport, Mandatory = true)]
         public System.Boolean? EnableDnsSupport { get; set; }
-        
+        #endregion
+
+        #region Parameter EnableDnsHostnames
         /// <summary>
         /// <para>
-        /// Whether Dns hostnames are enabled.
+        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the 
+        /// VPC get DNS hostnames; otherwise, they do not.
+        /// </para>
+        /// <para>
+        /// You cannot modify the DNS resolution and DNS hostnames attributes in the same request.Use separate requests for 
+        /// each attribute. Additionally you can only enable DNS hostnames if you've enabled DNS support.
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_DnsHostnames, Mandatory = true)]
         public System.Boolean? EnableDnsHostnames { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// This parameter overrides confirmation prompts to force the cmdlet to continue its operation. T
+        /// his parameter should always be used with caution.
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

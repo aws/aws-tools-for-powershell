@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBEnvironmentResourceCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para> The ID of the environment to retrieve AWS resource usage data. </para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the environment to retrieve AWS resource usage data. </para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

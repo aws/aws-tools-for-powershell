@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class NewDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The description for the pipeline.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name for the pipeline. You can use the same name for multiple pipelines associated
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tags to associate with the pipeline at creation. Tags let you control access
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.DataPipeline.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter UniqueId
         /// <summary>
         /// <para>
         /// <para>A unique identifier. This identifier is not the same as the pipeline identifier assigned
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String UniqueId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

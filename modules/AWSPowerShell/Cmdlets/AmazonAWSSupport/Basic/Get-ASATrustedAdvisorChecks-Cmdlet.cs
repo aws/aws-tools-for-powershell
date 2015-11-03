@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class GetASATrustedAdvisorChecksCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter Language
         /// <summary>
         /// <para>
         /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Language { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

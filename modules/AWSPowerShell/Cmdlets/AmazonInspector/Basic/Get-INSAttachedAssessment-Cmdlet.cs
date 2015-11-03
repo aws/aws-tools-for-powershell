@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSAttachedAssessmentCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter_AssessmentNamePattern
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, an explicit value or a string containing a wildcard
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_AssessmentNamePatterns")]
         public System.String[] Filter_AssessmentNamePattern { get; set; }
+        #endregion
         
+        #region Parameter Filter_AssessmentState
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_AssessmentStates")]
         public System.String[] Filter_AssessmentState { get; set; }
+        #endregion
         
+        #region Parameter Filter_DataCollected
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Filter_DataCollected { get; set; }
+        #endregion
         
+        #region Parameter DurationRange_Maximum
         /// <summary>
         /// <para>
         /// <para>The maximum value of the duration range. Must be less than or equal to 604800 seconds
@@ -82,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_DurationRange_Maximum")]
         public System.Int32 DurationRange_Maximum { get; set; }
+        #endregion
         
+        #region Parameter EndTimeRange_Maximum
         /// <summary>
         /// <para>
         /// <para>The maximum value of the timestamp range.</para>
@@ -91,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_EndTimeRange_Maximum")]
         public System.DateTime EndTimeRange_Maximum { get; set; }
+        #endregion
         
+        #region Parameter StartTimeRange_Maximum
         /// <summary>
         /// <para>
         /// <para>The maximum value of the timestamp range.</para>
@@ -100,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_StartTimeRange_Maximum")]
         public System.DateTime StartTimeRange_Maximum { get; set; }
+        #endregion
         
+        #region Parameter DurationRange_Minimum
         /// <summary>
         /// <para>
         /// <para>The minimum value of the duration range. Must be greater than zero.</para>
@@ -109,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_DurationRange_Minimum")]
         public System.Int32 DurationRange_Minimum { get; set; }
+        #endregion
         
+        #region Parameter EndTimeRange_Minimum
         /// <summary>
         /// <para>
         /// <para>The minimum value of the timestamp range.</para>
@@ -118,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_EndTimeRange_Minimum")]
         public System.DateTime EndTimeRange_Minimum { get; set; }
+        #endregion
         
+        #region Parameter StartTimeRange_Minimum
         /// <summary>
         /// <para>
         /// <para>The minimum value of the timestamp range.</para>
@@ -127,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_StartTimeRange_Minimum")]
         public System.DateTime StartTimeRange_Minimum { get; set; }
+        #endregion
         
+        #region Parameter RulesPackageArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the rules package whose assessments you want to list.</para>
@@ -135,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RulesPackageArn { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>You can use this parameter to indicate the maximum number of items you want in the
@@ -145,7 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
@@ -156,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

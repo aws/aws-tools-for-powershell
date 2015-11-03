@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class GetECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceName
         /// <summary>
         /// <para>
         /// <para>The name of the resource for which you want the list of tags, for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>.</para>
@@ -56,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

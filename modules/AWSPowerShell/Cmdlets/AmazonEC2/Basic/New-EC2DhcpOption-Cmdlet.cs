@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DhcpConfiguration
         /// <summary>
         /// <para>
         /// <para>A DHCP configuration option.</para>
@@ -76,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DhcpConfigurations")]
         public Amazon.EC2.Model.DhcpConfiguration[] DhcpConfiguration { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

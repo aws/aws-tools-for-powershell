@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class InvokeKMSDecryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter CiphertextBlob
         /// <summary>
         /// <para>
         /// <para>Ciphertext to be decrypted. The blob includes metadata.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream CiphertextBlob { get; set; }
+        #endregion
         
+        #region Parameter EncryptionContext
         /// <summary>
         /// <para>
         /// <para>The encryption context. If this was specified in the <a>Encrypt</a> function, it must
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable EncryptionContext { get; set; }
+        #endregion
         
+        #region Parameter GrantToken
         /// <summary>
         /// <para>
         /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("GrantTokens")]
         public System.String[] GrantToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

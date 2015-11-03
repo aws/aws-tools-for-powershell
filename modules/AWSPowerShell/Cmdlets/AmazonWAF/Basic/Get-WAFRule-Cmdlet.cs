@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter RuleId
         /// <summary>
         /// <para>
         /// <para>The <code>RuleId</code> of the <a>Rule</a> that you want to get. <code>RuleId</code>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RuleId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

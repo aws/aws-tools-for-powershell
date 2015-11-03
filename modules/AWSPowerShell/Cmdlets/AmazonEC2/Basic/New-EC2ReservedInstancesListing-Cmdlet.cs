@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of your listings.
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of instances that are a part of a Reserved instance account to be listed
@@ -78,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter PriceSchedule
         /// <summary>
         /// <para>
         /// <para>A list specifying the price of the Reserved instance for each month remaining in the
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("PriceSchedules","PricingSchedules")]
         public Amazon.EC2.Model.PriceScheduleSpecification[] PriceSchedule { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
         /// <para>The ID of the active Reserved instance.</para>
@@ -96,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedInstancesId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -104,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

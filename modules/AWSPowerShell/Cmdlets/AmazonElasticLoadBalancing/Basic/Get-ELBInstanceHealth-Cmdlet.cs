@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class GetELBInstanceHealthCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Instance
         /// <summary>
         /// <para>
         /// <para>The IDs of the instances.</para>
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Instances")]
         public Amazon.ElasticLoadBalancing.Model.Instance[] Instance { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -37,58 +37,76 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class SetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        #region Parameter BucketName 
         /// <summary>
         /// The name of the bucket. If an object key is not specified, the ACLs are applied to the bucket.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         public System.String BucketName { get; set; }
+        #endregion
 
+        #region Parameter Key
         /// <summary>
         /// The key of an S3 object. If not specified, the ACLs are applied to the bucket.
         /// </summary>
         [Parameter(Position = 1, ValueFromPipelineByPropertyName=true)]
         public System.String Key { get; set; }
+        #endregion
 
+        #region Parameter CannedACLName
         /// <summary>
         /// Specifies the canned ACL (access control list) of permissions to be applied to the S3 bucket.
         /// Please refer to <a href="http://docs.aws.amazon.com/sdkfornet/v3/apidocs/Index.html?page=S3/TS3_S3CannedACL.html&tocid=Amazon_S3_S3CannedACL">Amazon.S3.Model.S3CannedACL</a> for information on S3 Canned ACLs.
         /// </summary>
         [Parameter]
-        public System.String CannedACLName { get; set; }
-        
+        [AWSConstantClassSource("Amazon.S3.S3CannedACL")]
+        public Amazon.S3.S3CannedACL CannedACLName { get; set; }
+        #endregion
+
+        #region Parameter PublicReadOnly
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-only permissions
         /// </summary>
         [Parameter]
         public SwitchParameter PublicReadOnly { get; set; }
-        
+        #endregion
+
+        #region Parameter PublicReadWrite
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-write permissions
         /// </summary>
         [Parameter]
         public SwitchParameter PublicReadWrite { get; set; }
-        
+        #endregion
+
+        #region Parameter OwnerId
         /// <summary>
         /// The unique identifier of the bucket owner.
         /// </summary>
         [Parameter(Position = 3)]
         [Alias("ACL_Owner_Id")]
         public System.String OwnerId { get; set; }
-        
+        #endregion
+
+        #region Parameter OwnerDisplayName
         /// <summary>
         /// The display name of the bucket owner.
         /// </summary>
         [Parameter(Position = 4)]
         [Alias("ACL_Owner_DisplayName")]
         public System.String OwnerDisplayName { get; set; }
-        
+        #endregion
+
+        #region Parameter Grant 
         /// <summary>
         /// A collection of grants, where each Grant is a Grantee and a Permission.
         /// </summary>
         [Parameter(Position = 5)]
         [Alias("ACL_Grants,Grants")]
         public System.Collections.Generic.List<Amazon.S3.Model.S3Grant> Grant { get; set; }
-        
+        #endregion
+
+        #region Parameter VersionId
         /// <summary>
         /// If set and an object key has been specified, the ACLs are applied
         /// to the specific version of the object.
@@ -96,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(Position = 6)]
         public System.String VersionId { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -104,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

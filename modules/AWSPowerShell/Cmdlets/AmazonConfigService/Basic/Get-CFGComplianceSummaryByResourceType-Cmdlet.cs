@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGComplianceSummaryByResourceTypeCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>Specify one or more resource types to get the number of resources that are compliant
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ResourceTypes")]
         public System.String[] ResourceType { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

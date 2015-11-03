@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMContextKeysForPrincipalPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyInputList
         /// <summary>
         /// <para>
         /// <para>A optional list of additional policies for which you want list of context keys used
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] PolicyInputList { get; set; }
+        #endregion
         
+        #region Parameter PolicySourceArn
         /// <summary>
         /// <para>
         /// <para>The ARN of a user, group, or role whose policies contain the context keys that you
@@ -79,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicySourceArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

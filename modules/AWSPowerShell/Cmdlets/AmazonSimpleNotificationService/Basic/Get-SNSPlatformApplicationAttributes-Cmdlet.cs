@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class GetSNSPlatformApplicationAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PlatformApplicationArn
         /// <summary>
         /// <para>
         /// <para>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</para>
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PlatformApplicationArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class NewDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// The Directory ID of the Microsoft AD in the
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter RemoteDomainName
         /// <summary>
         /// <para>
         /// The Fully Qualified Domain Name (FQDN)
@@ -66,15 +70,20 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RemoteDomainName { get; set; }
+        #endregion
         
+        #region Parameter TrustDirection
         /// <summary>
         /// <para>
         /// The direction of the trust relationship.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.TrustDirection")]
         public Amazon.DirectoryService.TrustDirection TrustDirection { get; set; }
+        #endregion
         
+        #region Parameter TrustPassword
         /// <summary>
         /// <para>
         /// The trust password. The must be the same
@@ -83,15 +92,20 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TrustPassword { get; set; }
+        #endregion
         
+        #region Parameter TrustType
         /// <summary>
         /// <para>
         /// The trust relationship type.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.TrustType")]
         public Amazon.DirectoryService.TrustType TrustType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -99,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PolicyArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

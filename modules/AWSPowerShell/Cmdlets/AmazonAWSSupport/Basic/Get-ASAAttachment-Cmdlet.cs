@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class GetASAAttachmentCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttachmentId
         /// <summary>
         /// <para>
         /// <para>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a>
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AttachmentId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

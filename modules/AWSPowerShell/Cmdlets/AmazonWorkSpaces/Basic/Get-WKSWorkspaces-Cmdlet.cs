@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     )]
     public class GetWKSWorkspacesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter BundleId
         /// <summary>
         /// <para>
         /// <para>The identifier of a bundle to obtain the WorkSpaces for. All WorkSpaces that are created
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BundleId { get; set; }
+        #endregion
         
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// <para>Specifies the directory identifier to which to limit the WorkSpaces. Optionally, you
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>Used with the <code>DirectoryId</code> parameter to specify the directory user for
@@ -79,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
         /// <para>An array of strings that contain the identifiers of the WorkSpaces for which to retrieve
@@ -91,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("WorkspaceIds")]
         public System.String[] WorkspaceId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return.</para>
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
@@ -109,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

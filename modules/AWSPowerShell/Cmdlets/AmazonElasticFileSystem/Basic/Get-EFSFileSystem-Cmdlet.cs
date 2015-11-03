@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class GetEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter CreationToken
         /// <summary>
         /// <para>
         /// <para> Optional string. Restricts the list to the file system with this creation token (you
@@ -76,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CreationToken { get; set; }
+        #endregion
         
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>Optional string. File system ID whose description you want to retrieve. </para>
@@ -84,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FileSystemId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> Optional string. Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
@@ -95,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Optional integer. Specifies the maximum number of file systems to return in the response.
@@ -107,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

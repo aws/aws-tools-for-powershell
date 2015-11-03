@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     )]
     public class GetCWAlarmForMetricCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter Dimension
         /// <summary>
         /// <para>
         /// <para> The list of dimensions associated with the metric. </para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("Dimensions")]
         public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
+        #endregion
         
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// <para> The name of the metric. </para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String MetricName { get; set; }
+        #endregion
         
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// <para> The namespace of the metric. </para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String Namespace { get; set; }
+        #endregion
         
+        #region Parameter Period
         /// <summary>
         /// <para>
         /// <para> The period in seconds over which the statistic is applied. </para>
@@ -72,23 +80,29 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Period { get; set; }
+        #endregion
         
+        #region Parameter Statistic
         /// <summary>
         /// <para>
         /// <para> The statistic for the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
+        [AWSConstantClassSource("Amazon.CloudWatch.Statistic")]
         public Amazon.CloudWatch.Statistic Statistic { get; set; }
+        #endregion
         
+        #region Parameter Unit
         /// <summary>
         /// <para>
         /// <para> The unit for the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudWatch.StandardUnit")]
         public Amazon.CloudWatch.StandardUnit Unit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

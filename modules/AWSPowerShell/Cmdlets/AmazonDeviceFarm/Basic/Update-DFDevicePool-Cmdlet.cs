@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class UpdateDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resourc Name (ARN) of the Device Farm device pool you wish to update.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Arn { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description of the device pool you wish to update.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>A string representing the name of the device pool you wish to update.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Rule
         /// <summary>
         /// <para>
         /// <para>Represents the rules you wish to modify for the device pool. Updating rules is optional;
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Rules")]
         public Amazon.DeviceFarm.Model.Rule[] Rule { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class UpdateMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter BatchPredictionId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>BatchPrediction</code> during creation.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BatchPredictionId { get; set; }
+        #endregion
         
+        #region Parameter BatchPredictionName
         /// <summary>
         /// <para>
         /// <para>A new user-supplied name or description of the <code>BatchPrediction</code>.</para>
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("Name")]
         public System.String BatchPredictionName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

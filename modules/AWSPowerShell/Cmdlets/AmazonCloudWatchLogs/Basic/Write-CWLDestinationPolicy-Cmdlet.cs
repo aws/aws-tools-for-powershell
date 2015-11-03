@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class WriteCWLDestinationPolicyCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccessPolicy
         /// <summary>
         /// <para>
         /// <para>An IAM policy document that authorizes cross-account users to deliver their log events
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AccessPolicy { get; set; }
+        #endregion
         
+        #region Parameter DestinationName
         /// <summary>
         /// <para>
         /// <para>A name for an existing destination.</para>
@@ -58,14 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DestinationName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DestinationName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

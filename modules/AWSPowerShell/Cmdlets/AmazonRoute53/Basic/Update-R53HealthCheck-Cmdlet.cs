@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class UpdateR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChildHealthCheck
         /// <summary>
         /// <para>
         /// <para>For a specified parent health check, a list of <code>HealthCheckId</code> values for
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("ChildHealthChecks")]
         public System.String[] ChildHealthCheck { get; set; }
+        #endregion
         
+        #region Parameter FailureThreshold
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health checks that an endpoint must pass or fail for Amazon
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 FailureThreshold { get; set; }
+        #endregion
         
+        #region Parameter FullyQualifiedDomainName
         /// <summary>
         /// <para>
         /// <para>Fully qualified domain name of the instance to be health checked.</para><para>Specify this value only if you want to change it.</para>
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FullyQualifiedDomainName { get; set; }
+        #endregion
         
+        #region Parameter HealthCheckId
         /// <summary>
         /// <para>
         /// <para>The ID of the health check to update.</para>
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HealthCheckId { get; set; }
+        #endregion
         
+        #region Parameter HealthCheckVersion
         /// <summary>
         /// <para>
         /// <para>Optional. When you specify a health check version, Amazon Route 53 compares this value
@@ -95,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 HealthCheckVersion { get; set; }
+        #endregion
         
+        #region Parameter HealthThreshold
         /// <summary>
         /// <para>
         /// <para>The minimum number of child health checks that must be healthy for Amazon Route 53
@@ -105,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 HealthThreshold { get; set; }
+        #endregion
         
+        #region Parameter Inverted
         /// <summary>
         /// <para>
         /// <para>A boolean value that indicates whether the status of health check should be inverted.
@@ -115,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Inverted { get; set; }
+        #endregion
         
+        #region Parameter IPAddress
         /// <summary>
         /// <para>
         /// <para>The IP address of the resource that you want to check.</para><para>Specify this value only if you want to change it.</para>
@@ -123,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IPAddress { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para>The port on which you want Amazon Route 53 to open a connection to perform health
@@ -132,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter ResourcePath
         /// <summary>
         /// <para>
         /// <para>The path that you want Amazon Route 53 to request when performing health checks. The
@@ -143,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourcePath { get; set; }
+        #endregion
         
+        #region Parameter SearchString
         /// <summary>
         /// <para>
         /// <para>If the value of <code>Type</code> is <code>HTTP_STR_MATCH</code> or <code>HTTP_STR_MATCH</code>,
@@ -154,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SearchString { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -162,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

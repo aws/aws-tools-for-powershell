@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class SetCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter AnalysisOptions_AlgorithmicStemming
         /// <summary>
         /// <para>
         /// <para>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>,
@@ -52,16 +54,22 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_AlgorithmicStemming")]
+        [AWSConstantClassSource("Amazon.CloudSearch.AlgorithmicStemming")]
         public Amazon.CloudSearch.AlgorithmicStemming AnalysisOptions_AlgorithmicStemming { get; set; }
+        #endregion
         
+        #region Parameter AnalysisScheme_AnalysisSchemeLanguage
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudSearch.AnalysisSchemeLanguage")]
         public Amazon.CloudSearch.AnalysisSchemeLanguage AnalysisScheme_AnalysisSchemeLanguage { get; set; }
+        #endregion
         
+        #region Parameter AnalysisScheme_AnalysisSchemeName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -69,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AnalysisScheme_AnalysisSchemeName { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -77,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_JapaneseTokenizationDictionary
         /// <summary>
         /// <para>
         /// <para>A JSON array that contains a collection of terms, tokens, readings and part of speech
@@ -89,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary")]
         public System.String AnalysisOptions_JapaneseTokenizationDictionary { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_StemmingDictionary
         /// <summary>
         /// <para>
         /// <para>A JSON object that contains a collection of string:value pairs that each map a term
@@ -103,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_StemmingDictionary")]
         public System.String AnalysisOptions_StemmingDictionary { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_Stopword
         /// <summary>
         /// <para>
         /// <para>A JSON array of terms to ignore during indexing and searching. For example, <code>["a",
@@ -114,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_Stopwords")]
         public System.String AnalysisOptions_Stopword { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_Synonym
         /// <summary>
         /// <para>
         /// <para>A JSON object that defines synonym groups and aliases. A synonym group is an array
@@ -130,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_Synonyms")]
         public System.String AnalysisOptions_Synonym { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -138,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

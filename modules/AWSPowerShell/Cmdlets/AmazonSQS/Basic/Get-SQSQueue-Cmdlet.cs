@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class GetSQSQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter QueueNamePrefix
         /// <summary>
         /// <para>
         /// <para>A string to use for filtering the list results. Only those queues whose name begins
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String QueueNamePrefix { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

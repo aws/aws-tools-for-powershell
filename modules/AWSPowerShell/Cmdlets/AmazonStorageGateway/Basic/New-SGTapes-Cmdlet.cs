@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class NewSGTapesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>A unique identifier that you use to retry a request. If you retry a request, use the
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// <para>The unique Amazon Resource Name(ARN) that represents the gateway to associate the
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter NumTapesToCreate
         /// <summary>
         /// <para>
         /// <para>The number of virtual tapes you want to create.</para>
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NumTapesToCreate { get; set; }
+        #endregion
         
+        #region Parameter TapeBarcodePrefix
         /// <summary>
         /// <para>
         /// <para>A prefix you append to the barcode of the virtual tape you are creating. This makes
@@ -80,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TapeBarcodePrefix { get; set; }
+        #endregion
         
+        #region Parameter TapeSizeInBytes
         /// <summary>
         /// <para>
         /// <para>The size, in bytes, of the virtual tapes you want to create.</para><note>The size must be gigabyte (1024*1024*1024 byte) aligned.</note>
@@ -88,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 TapeSizeInBytes { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceGroupArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the resource group that you want to describe.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceGroupArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

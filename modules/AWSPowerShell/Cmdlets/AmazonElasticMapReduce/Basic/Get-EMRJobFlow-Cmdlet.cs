@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class GetEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter CreatedAfter
         /// <summary>
         /// <para>
         /// <para>Return only job flows created after this date and time.</para>
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CreatedAfter { get; set; }
+        #endregion
         
+        #region Parameter CreatedBefore
         /// <summary>
         /// <para>
         /// <para>Return only job flows created before this date and time.</para>
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CreatedBefore { get; set; }
+        #endregion
         
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
         /// <para>Return only job flows whose job flow ID is contained in this list. </para>
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("JobFlowIds")]
         public System.String[] JobFlowId { get; set; }
+        #endregion
         
+        #region Parameter JobFlowState
         /// <summary>
         /// <para>
         /// <para>Return only job flows whose state is contained in this list.</para>
@@ -91,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("JobFlowStates")]
         public System.String[] JobFlowState { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

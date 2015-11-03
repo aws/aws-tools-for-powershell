@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class GetHSMConfigCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the client.</para>
@@ -46,15 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ClientArn { get; set; }
+        #endregion
         
+        #region Parameter ClientVersion
         /// <summary>
         /// <para>
         /// <para>The client version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudHSM.ClientVersion")]
         public Amazon.CloudHSM.ClientVersion ClientVersion { get; set; }
+        #endregion
         
+        #region Parameter HapgList
         /// <summary>
         /// <para>
         /// <para>A list of ARNs that identify the high-availability partition groups that are associated
@@ -63,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] HapgList { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

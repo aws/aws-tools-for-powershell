@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2IdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Resource
         /// <summary>
         /// <para>
         /// <para>The type of resource.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Resource { get; set; }
+        #endregion
         
+        #region Parameter UseLongId
         /// <summary>
         /// <para>
         /// <para>Indicate whether the resource should use longer IDs (17-character IDs).</para>
@@ -65,14 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("UseLongIds")]
         public System.Boolean UseLongId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Resource parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

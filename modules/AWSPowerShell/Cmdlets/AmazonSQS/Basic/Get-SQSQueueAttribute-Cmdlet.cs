@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class GetSQSQueueAttributeCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeName
         /// <summary>
         /// <para>
         /// <para>A list of attributes to retrieve information for. </para>
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("AttributeNames")]
         public System.String[] AttributeName { get; set; }
+        #endregion
         
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
@@ -77,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueUrl { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

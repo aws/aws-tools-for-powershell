@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     )]
     public class SetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
+        
+        #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
         /// <para>An identity pool ID in the format REGION:GUID.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String IdentityPoolId { get; set; }
+        #endregion
         
+        #region Parameter Role
         /// <summary>
         /// <para>
         /// <para>The map of roles associated with this pool. For a given role, the key will be either
@@ -62,14 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         [System.Management.Automation.Parameter]
         [Alias("Roles")]
         public System.Collections.Hashtable Role { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the IdentityPoolId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

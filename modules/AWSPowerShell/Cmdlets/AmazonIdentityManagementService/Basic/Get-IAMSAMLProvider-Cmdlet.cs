@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SAMLProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SAML provider to get information about.</para>
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SAMLProviderArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

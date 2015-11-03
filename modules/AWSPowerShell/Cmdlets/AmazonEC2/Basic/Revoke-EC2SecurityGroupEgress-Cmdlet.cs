@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RevokeEC2SecurityGroupEgressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupId
         /// <summary>
         /// <para>
         /// <para>The ID of the security group.</para>
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GroupId { get; set; }
+        #endregion
         
+        #region Parameter IpPermission
         /// <summary>
         /// <para>
         /// <para>A set of IP permissions. You can't specify a destination security group and a CIDR
@@ -69,14 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("IpPermissions")]
         public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the GroupId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

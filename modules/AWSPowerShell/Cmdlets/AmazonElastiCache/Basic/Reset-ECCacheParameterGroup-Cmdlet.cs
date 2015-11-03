@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class ResetECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the cache parameter group to reset.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter ParameterNameValue
         /// <summary>
         /// <para>
         /// <para>An array of parameter names to be reset. If you are not resetting the entire cache
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("ParameterNameValues")]
         public Amazon.ElastiCache.Model.ParameterNameValue[] ParameterNameValue { get; set; }
+        #endregion
         
+        #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
         /// <para>If <i>true</i>, all parameters in the cache parameter group will be reset to default
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("ResetAllParameters")]
         public System.Boolean ResetAllParameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

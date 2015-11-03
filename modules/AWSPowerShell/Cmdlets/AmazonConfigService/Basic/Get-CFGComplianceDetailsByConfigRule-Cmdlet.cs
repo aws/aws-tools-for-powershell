@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGComplianceDetailsByConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComplianceType
         /// <summary>
         /// <para>
         /// <para>Specify to filter the results by compliance. The valid values are <code>Compliant</code>,
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ComplianceTypes")]
         public System.String[] ComplianceType { get; set; }
+        #endregion
         
+        #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
         /// <para>The name of the AWS Config rule for which you want compliance information.</para>
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigRuleName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of evaluation results returned on each page. The default is 10.
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

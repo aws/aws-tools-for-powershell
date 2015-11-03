@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>reserved-instances-id</code> - The ID of the Reserved instances.</para></li><li><para><code>reserved-instances-listing-id</code> - The ID of the Reserved instances listing.</para></li><li><para><code>status</code> - The status of the Reserved instance listing (<code>pending</code>
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
         /// <para>One or more Reserved instance IDs.</para>
@@ -77,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ReservedInstancesId { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesListingId
         /// <summary>
         /// <para>
         /// <para>One or more Reserved instance Listing IDs.</para>
@@ -85,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedInstancesListingId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

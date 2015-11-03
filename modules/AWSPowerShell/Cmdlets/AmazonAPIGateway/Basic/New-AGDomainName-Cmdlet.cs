@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class NewAGDomainNameCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateBody
         /// <summary>
         /// <para>
         /// <para>The body of the server certificate provided by your certificate authority.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CertificateBody { get; set; }
+        #endregion
         
+        #region Parameter CertificateChain
         /// <summary>
         /// <para>
         /// <para>The intermediate certificates and optionally the root certificate, one after the other
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CertificateChain { get; set; }
+        #endregion
         
+        #region Parameter CertificateName
         /// <summary>
         /// <para>
         /// <para>The name of the certificate.</para>
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CertificateName { get; set; }
+        #endregion
         
+        #region Parameter CertificatePrivateKey
         /// <summary>
         /// <para>
         /// <para>Your certificate's private key.</para>
@@ -73,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CertificatePrivateKey { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of the <a>DomainName</a> resource.</para>
@@ -81,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -89,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The existing Lambda function name whose code you want to replace.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Publish
         /// <summary>
         /// <para>
         /// <para>This boolean parameter can be used to request AWS Lambda to update the Lambda function
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Publish { get; set; }
+        #endregion
         
+        #region Parameter S3Bucket
         /// <summary>
         /// <para>
         /// <para>Amazon S3 bucket name where the .zip file containing your deployment package is stored.
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String S3Bucket { get; set; }
+        #endregion
         
+        #region Parameter S3Key
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 object (the deployment package) key name you want to upload. </para>
@@ -83,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String S3Key { get; set; }
+        #endregion
         
+        #region Parameter S3ObjectVersion
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 object (the deployment package) version you want to upload.</para>
@@ -91,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String S3ObjectVersion { get; set; }
+        #endregion
         
+        #region Parameter ZipFile
         /// <summary>
         /// <para>
         /// <para>Based64-encoded .zip file containing your packaged source code.</para>
@@ -99,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream ZipFile { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -107,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

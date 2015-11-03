@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class GetETSJobsByPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Ascending
         /// <summary>
         /// <para>
         /// <para> To list jobs in chronological order by the date and time that they were submitted,
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Ascending { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para> The ID of the pipeline for which you want to get job information. </para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter PageToken
         /// <summary>
         /// <para>
         /// <para> When Elastic Transcoder returns more than one page of results, use <code>pageToken</code>
@@ -73,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String PageToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

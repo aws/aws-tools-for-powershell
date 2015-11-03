@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class NewDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The device pool's description.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The device pool's name.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter ProjectArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the project for the device pool.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ProjectArn { get; set; }
+        #endregion
         
+        #region Parameter Rule
         /// <summary>
         /// <para>
         /// <para>The device pool's rules.</para>
@@ -71,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Rules")]
         public Amazon.DeviceFarm.Model.Rule[] Rule { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

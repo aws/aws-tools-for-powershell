@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class GetCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter TrailNameList
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Name")]
         public System.String[] TrailNameList { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

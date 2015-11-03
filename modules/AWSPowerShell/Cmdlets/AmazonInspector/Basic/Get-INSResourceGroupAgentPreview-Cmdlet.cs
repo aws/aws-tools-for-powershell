@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSResourceGroupAgentPreviewCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceGroupArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the resource group that is used to create an application.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceGroupArn { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>You can use this parameter to indicate the maximum number of items you want in the
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

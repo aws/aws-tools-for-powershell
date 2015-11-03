@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBInstanceHealthCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeName
         /// <summary>
         /// <para>
         /// <para>Specifies the response elements you wish to receive. If no attribute names are specified,
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("AttributeNames")]
         public System.String[] AttributeName { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para>Specifies the AWS Elastic Beanstalk environment ID.</para>
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para>Specifies the AWS Elastic Beanstalk environment name.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Specifies the next token of the request.</para>
@@ -75,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

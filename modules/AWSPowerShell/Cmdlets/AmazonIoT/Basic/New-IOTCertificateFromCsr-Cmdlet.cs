@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class NewIOTCertificateFromCsrCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateSigningRequest
         /// <summary>
         /// <para>
         /// <para>The certificate signing request (CSR).</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CertificateSigningRequest { get; set; }
+        #endregion
         
+        #region Parameter SetAsActive
         /// <summary>
         /// <para>
         /// <para>Specifies whether the certificate is active.</para>
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SetAsActive { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

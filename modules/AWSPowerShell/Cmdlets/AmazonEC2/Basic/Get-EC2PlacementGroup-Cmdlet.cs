@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2PlacementGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>group-name</code> - The name of the placement group.</para></li><li><para><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>One or more placement group names.</para><para>Default: Describes all your placement groups, or only those otherwise specified.</para>
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("GroupNames")]
         public System.String[] GroupName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

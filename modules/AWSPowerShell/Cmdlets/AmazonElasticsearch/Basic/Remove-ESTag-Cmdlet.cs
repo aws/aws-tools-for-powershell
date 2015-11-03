@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     )]
     public class RemoveESTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter ARN
         /// <summary>
         /// <para>
         /// <para>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ARN { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>Specifies the <code>TagKey</code> list which you want to remove from the Elasticsearch
@@ -57,14 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TagKey parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class ConnectDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConnectSettings_CustomerDnsIp
         /// <summary>
         /// <para>
         /// <para>A list of one or more IP addresses of DNS servers or domain controllers in the on-premises
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("ConnectSettings_CustomerDnsIps")]
         public System.String[] ConnectSettings_CustomerDnsIp { get; set; }
+        #endregion
         
+        #region Parameter ConnectSettings_CustomerUserName
         /// <summary>
         /// <para>
         /// <para>The username of an account in the on-premises directory that is used to connect to
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConnectSettings_CustomerUserName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A textual description for the directory.</para>
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.</para>
@@ -74,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password for the on-premises user account.</para>
@@ -82,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter ShortName
         /// <summary>
         /// <para>
         /// <para>The NetBIOS name of the on-premises directory, such as <code>CORP</code>.</para>
@@ -90,15 +102,20 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ShortName { get; set; }
+        #endregion
         
+        #region Parameter Size
         /// <summary>
         /// <para>
         /// <para>The size of the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.DirectorySize")]
         public Amazon.DirectoryService.DirectorySize Size { get; set; }
+        #endregion
         
+        #region Parameter ConnectSettings_SubnetId
         /// <summary>
         /// <para>
         /// <para>A list of subnet identifiers in the VPC in which the AD Connector is created.</para>
@@ -107,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("ConnectSettings_SubnetIds")]
         public System.String[] ConnectSettings_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter ConnectSettings_VpcId
         /// <summary>
         /// <para>
         /// <para>The identifier of the VPC in which the AD Connector is created.</para>
@@ -115,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConnectSettings_VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -123,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     )]
     public class NewMCADataSetCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DataSetPublicationDate
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -54,15 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime DataSetPublicationDate { get; set; }
+        #endregion
         
+        #region Parameter DataSetType
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AWSMarketplaceCommerceAnalytics.DataSetType")]
         public Amazon.AWSMarketplaceCommerceAnalytics.DataSetType DataSetType { get; set; }
+        #endregion
         
+        #region Parameter DestinationS3BucketName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -70,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String DestinationS3BucketName { get; set; }
+        #endregion
         
+        #region Parameter DestinationS3Prefix
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -78,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DestinationS3Prefix { get; set; }
+        #endregion
         
+        #region Parameter RoleNameArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -86,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String RoleNameArn { get; set; }
+        #endregion
         
+        #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -94,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String SnsTopicArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

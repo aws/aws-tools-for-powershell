@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class GetCFCloudFrontOriginAccessIdentitiesCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// Use this when paginating results to indicate where
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// The maximum number of origin access identities
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.String MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2NetworkAclEntryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CidrBlock
         /// <summary>
         /// <para>
         /// <para>The network range to allow or deny, in CIDR notation (for example <code>172.16.0.0/24</code>).</para>
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CidrBlock { get; set; }
+        #endregion
         
+        #region Parameter IcmpTypeCode_Code
         /// <summary>
         /// <para>
         /// <para>The ICMP type. A value of -1 means all types.</para>
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 IcmpTypeCode_Code { get; set; }
+        #endregion
         
+        #region Parameter Egress
         /// <summary>
         /// <para>
         /// <para>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</para>
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Egress { get; set; }
+        #endregion
         
+        #region Parameter PortRange_From
         /// <summary>
         /// <para>
         /// <para>The first port in the range.</para>
@@ -89,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 PortRange_From { get; set; }
+        #endregion
         
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>The ID of the network ACL.</para>
@@ -97,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NetworkAclId { get; set; }
+        #endregion
         
+        #region Parameter Protocol
         /// <summary>
         /// <para>
         /// <para>The protocol. A value of -1 means all protocols.</para>
@@ -105,15 +117,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Protocol { get; set; }
+        #endregion
         
+        #region Parameter RuleAction
         /// <summary>
         /// <para>
         /// <para>Indicates whether to allow or deny the traffic that matches the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.RuleAction")]
         public Amazon.EC2.RuleAction RuleAction { get; set; }
+        #endregion
         
+        #region Parameter RuleNumber
         /// <summary>
         /// <para>
         /// <para>The rule number for the entry (for example, 100). ACL entries are processed in ascending
@@ -122,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 RuleNumber { get; set; }
+        #endregion
         
+        #region Parameter PortRange_To
         /// <summary>
         /// <para>
         /// <para>The last port in the range.</para>
@@ -130,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 PortRange_To { get; set; }
+        #endregion
         
+        #region Parameter IcmpTypeCode_Type
         /// <summary>
         /// <para>
         /// <para>The ICMP code. A value of -1 means all codes for the specified ICMP type.</para>
@@ -138,14 +159,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 IcmpTypeCode_Type { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the NetworkAclId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -153,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

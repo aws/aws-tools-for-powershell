@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class GetCFInvalidationsCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter DistributionId
         /// <summary>
         /// <para>
         /// The distribution's id.
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DistributionId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// Use this parameter when paginating results to indicate
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// The maximum number of invalidation batches you
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.String MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

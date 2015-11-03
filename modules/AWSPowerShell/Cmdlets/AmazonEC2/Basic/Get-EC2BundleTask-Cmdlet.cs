@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2BundleTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BundleId
         /// <summary>
         /// <para>
         /// <para>One or more bundle task IDs.</para><para>Default: Describes all your bundle tasks.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("BundleIds")]
         public System.String[] BundleId { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>bundle-id</code> - The ID of the bundle task.</para></li><li><para><code>error-code</code> - If the task failed, the error code returned.</para></li><li><para><code>error-message</code> - If the task failed, the error message returned.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>progress</code> - The level of task completion, as a percentage (for example,
@@ -66,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

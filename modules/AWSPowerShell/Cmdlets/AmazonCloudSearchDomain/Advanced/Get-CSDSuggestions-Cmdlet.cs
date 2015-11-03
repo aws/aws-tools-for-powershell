@@ -56,55 +56,45 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     )]
     public class GetCSDSuggestionsCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
+        #region Parameter ServiceUrl
         /// <summary>
-        /// <para>
-        /// Gets and sets the property ServiceUrl. 
-        /// <para>
         /// Specifies the Search or Document service endpoint.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
         public System.String ServiceUrl { get; set; }
+        #endregion
 
+        #region Parameter Query
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Query. 
-        /// <para>
         /// Specifies the string for which you want to get suggestions.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Mandatory = true,Position = 1)]
         public System.String Query { get; set; }
-        
+        #endregion
+
+        #region Parameter Size
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Size. 
-        /// <para>
         /// Specifies the maximum number of suggestions to return. 
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
         public System.Int64? Size { get; set; }
-        
+        #endregion
+
+        #region Parameter Suggester
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Suggester. 
-        /// <para>
         /// Specifies the name of the suggester to use to find suggested matches.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 2)]
         public System.String Suggester { get; set; }
+        #endregion
 
+        #region Parameter UseAnonymousCredentials
         /// <summary>
         /// If set, the cmdlet calls the service operation using anonymous credentials.
         /// </summary>
         [Parameter]
         public SwitchParameter UseAnonymousCredentials { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class TestEBConfigurationSettingCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application that the configuration template or environment belongs
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the environment to validate the settings against. </para><para> Condition: You cannot specify both this and a configuration template name. </para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter OptionSetting
         /// <summary>
         /// <para>
         /// <para> A list of the options and desired values to evaluate. </para>
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("OptionSettings")]
         public Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting[] OptionSetting { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para> The name of the configuration template to validate the settings against. </para><para> Condition: You cannot specify both this and an environment name. </para>
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TemplateName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

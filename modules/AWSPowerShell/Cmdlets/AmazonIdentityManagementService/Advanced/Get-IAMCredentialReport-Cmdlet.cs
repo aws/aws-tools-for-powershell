@@ -46,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public class GetIAMCredentialReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
 
+        #region Parameter AsTextArray
         /// <summary>
         /// If set the cmdlet will process the the memory stream contained in the service response
         /// to the pipeline as a series of lines of text.
@@ -53,13 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [Parameter]
         [Alias("SplitLines")]
         public SwitchParameter AsTextArray { get; set; }
+        #endregion
 
+        #region Parameter Raw
         /// <summary>
         /// If set the cmdlet output will be a single string containing all of the lines in the
         /// report/
         /// </summary>
         [Parameter]
         public SwitchParameter Raw { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

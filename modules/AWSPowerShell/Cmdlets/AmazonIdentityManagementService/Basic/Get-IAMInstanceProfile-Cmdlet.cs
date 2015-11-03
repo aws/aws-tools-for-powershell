@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
         /// <para>The name of the instance profile to get information about.</para>
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceProfileName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

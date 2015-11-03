@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53ChangeBatchesByRRSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndDate
         /// <summary>
         /// <para>
         /// <para>The end of the time period you want to see changes for.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EndDate { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
         /// <para>The ID of the hosted zone that you want to see changes for.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the RRSet that you want to see changes for.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter SetIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the RRSet that you want to see changes for.</para>
@@ -72,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SetIdentifier { get; set; }
+        #endregion
         
+        #region Parameter StartDate
         /// <summary>
         /// <para>
         /// <para>The start of the time period you want to see changes for.</para>
@@ -80,15 +90,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartDate { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The type of the RRSet that you want to see changes for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.RRType")]
         public Amazon.Route53.RRType Type { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The page marker.</para>
@@ -97,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of items on a page.</para>
@@ -106,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

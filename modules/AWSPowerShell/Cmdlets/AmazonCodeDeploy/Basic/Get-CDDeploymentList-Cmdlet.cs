@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDDeploymentListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The name of an existing deployment group for the specified application.</para>
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentGroupName { get; set; }
+        #endregion
         
+        #region Parameter CreateTimeRange_End
         /// <summary>
         /// <para>
         /// <para>The time range's end time.</para><note>Specify null to leave the time range's end time open-ended.</note>
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CreateTimeRange_End { get; set; }
+        #endregion
         
+        #region Parameter IncludeOnlyStatus
         /// <summary>
         /// <para>
         /// <para>A subset of deployments to list, by status:</para><ul><li>Created: Include in the resulting list created deployments.</li><li>Queued:
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("IncludeOnlyStatuses")]
         public System.String[] IncludeOnlyStatus { get; set; }
+        #endregion
         
+        #region Parameter CreateTimeRange_Start
         /// <summary>
         /// <para>
         /// <para>The time range's start time.</para><note>Specify null to leave the time range's start time open-ended.</note>
@@ -86,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CreateTimeRange_Start { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list deployments call, which can
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateId
         /// <summary>
         /// <para>
         /// <para>The ID of the certificate.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CertificateId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class SetEC2NetworkAclAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationId
         /// <summary>
         /// <para>
         /// <para>The ID of the current association between the original network ACL and the subnet.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AssociationId { get; set; }
+        #endregion
         
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>The ID of the new network ACL to associate with the subnet.</para>
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String NetworkAclId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -65,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

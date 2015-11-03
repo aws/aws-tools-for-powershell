@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGRestApiListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of <a>RestApi</a> resources in the collection to get information
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Position
         /// <summary>
         /// <para>
         /// <para>The position of the current <a>RestApis</a> resource in the collection to get information
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Position { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

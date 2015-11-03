@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTPrincipalThingListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The principal.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Principal { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

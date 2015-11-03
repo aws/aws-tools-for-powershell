@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class FindCTEventsCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>Specifies that only events that occur before or at the specified time are returned.
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter LookupAttribute
         /// <summary>
         /// <para>
         /// <para>Contains a list of lookup attributes. Currently the list can contain only one item.</para>
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.Parameter]
         [Alias("LookupAttributes")]
         public Amazon.CloudTrail.Model.LookupAttribute[] LookupAttribute { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>Specifies that only events that occur after or at the specified time are returned.
@@ -79,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The number of events to return. Possible values are 1 through 50. The default is 10.</para>
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.Parameter]
         [Alias("MaxResults")]
         public System.Int32 MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to use to get the next page of results after a previous API call. This token
@@ -99,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSTaskDefinitionsCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter FamilyPrefix
         /// <summary>
         /// <para>
         /// <para>The full family name with which to filter the <code>ListTaskDefinitions</code> results.
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FamilyPrefix { get; set; }
+        #endregion
         
+        #region Parameter Sort
         /// <summary>
         /// <para>
         /// <para>The order in which to sort the results. Valid values are <code>ASC</code> and <code>DESC</code>.
@@ -63,8 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.SortOrder")]
         public Amazon.ECS.SortOrder Sort { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The task definition status with which to filter the <code>ListTaskDefinitions</code>
@@ -76,8 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.TaskDefinitionStatus")]
         public Amazon.ECS.TaskDefinitionStatus Status { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of task definition results returned by <code>ListTaskDefinitions</code>
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListTaskDefinitions</code>
@@ -104,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

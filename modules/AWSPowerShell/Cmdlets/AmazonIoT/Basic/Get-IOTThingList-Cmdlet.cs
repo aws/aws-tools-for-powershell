@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTThingListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeName
         /// <summary>
         /// <para>
         /// <para>The attribute name.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AttributeName { get; set; }
+        #endregion
         
+        #region Parameter AttributeValue
         /// <summary>
         /// <para>
         /// <para>The attribute value.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AttributeValue { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The token for the next value.</para>
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results.</para>
@@ -74,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

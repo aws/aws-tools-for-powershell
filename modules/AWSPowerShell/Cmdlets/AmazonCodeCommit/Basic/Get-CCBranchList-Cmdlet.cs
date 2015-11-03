@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     )]
     public class GetCCBranchListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The name of the repository that contains the branches.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RepositoryName { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An enumeration token that allows the operation to batch the results. </para>
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

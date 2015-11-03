@@ -103,6 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     )]
     public class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
         /// <para>The duration, in seconds, of the role session. The value can range from 900 seconds
@@ -113,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("DurationSeconds")]
         public System.Int32 DurationInSeconds { get; set; }
+        #endregion
         
+        #region Parameter ExternalId
         /// <summary>
         /// <para>
         /// <para>A unique identifier that is used by third parties when assuming roles in their customers'
@@ -129,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public System.String ExternalId { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// <para>An IAM policy in JSON format.</para><para>This parameter is optional. If you pass a policy, the temporary security credentials
@@ -148,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Policy { get; set; }
+        #endregion
         
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the role to assume.</para>
@@ -156,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RoleArn { get; set; }
+        #endregion
         
+        #region Parameter RoleSessionName
         /// <summary>
         /// <para>
         /// <para>An identifier for the assumed role session. </para><para>Use the role session name to uniquely identity a session when the same role is assumed
@@ -169,7 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String RoleSessionName { get; set; }
+        #endregion
         
+        #region Parameter SerialNumber
         /// <summary>
         /// <para>
         /// <para>The identification number of the MFA device that is associated with the user who is
@@ -181,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SerialNumber { get; set; }
+        #endregion
         
+        #region Parameter TokenCode
         /// <summary>
         /// <para>
         /// <para>The value provided by the MFA device, if the trust policy of the role being assumed
@@ -192,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TokenCode { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -200,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class GetCSAvailabilityOptionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter Deployed
         /// <summary>
         /// <para>
         /// <para>Whether to display the deployed configuration (<code>true</code>) or include any pending
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Deployed { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of the domain you want to describe.</para>
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

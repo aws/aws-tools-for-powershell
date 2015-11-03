@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class UpdateDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeDefinition
         /// <summary>
         /// <para>
         /// <para>An array of attributes that describe the key schema for the table and indexes. If
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("AttributeDefinitions")]
         public Amazon.DynamoDBv2.Model.AttributeDefinition[] AttributeDefinition { get; set; }
+        #endregion
         
+        #region Parameter GlobalSecondaryIndexUpdate
         /// <summary>
         /// <para>
         /// <para>An array of one or more global secondary indexes for the table. For each index in
@@ -80,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("GlobalSecondaryIndexUpdates")]
         public Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate[] GlobalSecondaryIndexUpdate { get; set; }
+        #endregion
         
+        #region Parameter ReadCapacity
         /// <summary>
         /// <para>
         /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
@@ -91,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("ProvisionedThroughput_ReadCapacityUnits")]
         public System.Int64 ReadCapacity { get; set; }
+        #endregion
         
+        #region Parameter StreamSpecification_StreamEnabled
         /// <summary>
         /// <para>
         /// <para>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.</para>
@@ -99,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean StreamSpecification_StreamEnabled { get; set; }
+        #endregion
         
+        #region Parameter StreamSpecification_StreamViewType
         /// <summary>
         /// <para>
         /// <para>The DynamoDB Streams settings for the table. These settings consist of:</para><ul><li><para><i>StreamEnabled</i> - Indicates whether DynamoDB Streams is enabled (true) or disabled
@@ -113,8 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.StreamViewType")]
         public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
+        #endregion
         
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para>The name of the table to be updated.</para>
@@ -122,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TableName { get; set; }
+        #endregion
         
+        #region Parameter WriteCapacity
         /// <summary>
         /// <para>
         /// <para>The maximum number of writes consumed per second before DynamoDB returns a <i>ThrottlingException</i>.
@@ -133,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("ProvisionedThroughput_WriteCapacityUnits")]
         public System.Int64 WriteCapacity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -141,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

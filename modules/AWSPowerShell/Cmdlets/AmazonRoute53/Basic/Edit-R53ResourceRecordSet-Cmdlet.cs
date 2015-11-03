@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class EditR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeBatch_Change
         /// <summary>
         /// <para>
         /// <para>A complex type that contains one <code>Change</code> element for each resource record
@@ -72,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("ChangeBatch_Changes")]
         public Amazon.Route53.Model.Change[] ChangeBatch_Change { get; set; }
+        #endregion
         
+        #region Parameter ChangeBatch_Comment
         /// <summary>
         /// <para>
         /// <para><i>Optional:</i> Any comments you want to include about a change batch request.</para>
@@ -80,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ChangeBatch_Comment { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
         /// <para>The ID of the hosted zone that contains the resource record sets that you want to
@@ -89,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -97,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -84,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class NewKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream.</para>
@@ -91,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryStreamName { get; set; }
+        #endregion
         
+        #region Parameter RedshiftDestinationConfiguration
         /// <summary>
         /// <para>
         /// <para>The destination in Amazon Redshift. This value cannot be specified if Amazon S3 is
@@ -100,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
+        #endregion
         
+        #region Parameter S3DestinationConfiguration
         /// <summary>
         /// <para>
         /// <para>The destination in Amazon S3. This value must be specified if <code>RedshiftDestinationConfiguration</code>
@@ -109,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -117,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

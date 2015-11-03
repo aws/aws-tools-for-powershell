@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class SendSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DelayInSeconds
         /// <summary>
         /// <para>
         /// <para> The number of seconds (0 to 900 - 15 minutes) to delay a specific message. Messages
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("DelaySeconds")]
         public System.Int32 DelayInSeconds { get; set; }
+        #endregion
         
+        #region Parameter MessageAttribute
         /// <summary>
         /// <para>
         /// <para>Each message attribute consists of a Name, Type, and Value. For more information,
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter]
         [Alias("MessageAttributes")]
         public System.Collections.Hashtable MessageAttribute { get; set; }
+        #endregion
         
+        #region Parameter MessageBody
         /// <summary>
         /// <para>
         /// <para>The message to send. String maximum 256 KB in size. For a list of allowed characters,
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String MessageBody { get; set; }
+        #endregion
         
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
@@ -89,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -97,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class UpdateCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The application name corresponding to the deployment group to update.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingGroup
         /// <summary>
         /// <para>
         /// <para>The replacement list of Auto Scaling groups to be included in the deployment group,
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("AutoScalingGroups")]
         public System.String[] AutoScalingGroup { get; set; }
+        #endregion
         
+        #region Parameter CurrentDeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The current name of the existing deployment group.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CurrentDeploymentGroupName { get; set; }
+        #endregion
         
+        #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
         /// <para>The replacement deployment configuration name to use, if you want to change it.</para>
@@ -72,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentConfigName { get; set; }
+        #endregion
         
+        #region Parameter Ec2TagFilter
         /// <summary>
         /// <para>
         /// <para>The replacement set of Amazon EC2 tags to filter on, if you want to change them.</para>
@@ -81,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Ec2TagFilters")]
         public Amazon.CodeDeploy.Model.EC2TagFilter[] Ec2TagFilter { get; set; }
+        #endregion
         
+        #region Parameter NewDeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The new name of the deployment group, if you want to change it.</para>
@@ -89,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewDeploymentGroupName { get; set; }
+        #endregion
         
+        #region Parameter OnPremisesInstanceTagFilter
         /// <summary>
         /// <para>
         /// <para>The replacement set of on-premises instance tags for filter on, if you want to change
@@ -99,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("OnPremisesInstanceTagFilters")]
         public Amazon.CodeDeploy.Model.TagFilter[] OnPremisesInstanceTagFilter { get; set; }
+        #endregion
         
+        #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
         /// <para>A replacement service role's ARN, if you want to change it.</para>
@@ -107,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRoleArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

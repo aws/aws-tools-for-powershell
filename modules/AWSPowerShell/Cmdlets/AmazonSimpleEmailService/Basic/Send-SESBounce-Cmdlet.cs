@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class SendSESBounceCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter MessageDsn_ArrivalDate
         /// <summary>
         /// <para>
         /// <para>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime MessageDsn_ArrivalDate { get; set; }
+        #endregion
         
+        #region Parameter BouncedRecipientInfoList
         /// <summary>
         /// <para>
         /// <para>A list of recipients of the bounced message, including the information required to
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public Amazon.SimpleEmail.Model.BouncedRecipientInfo[] BouncedRecipientInfoList { get; set; }
+        #endregion
         
+        #region Parameter BounceSender
         /// <summary>
         /// <para>
         /// <para>The address to use in the "From" header of the bounce message. This must be an identity
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BounceSender { get; set; }
+        #endregion
         
+        #region Parameter BounceSenderArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BounceSenderArn { get; set; }
+        #endregion
         
+        #region Parameter Explanation
         /// <summary>
         /// <para>
         /// <para>Human-readable text for the bounce message to explain the failure. If not specified,
@@ -97,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Explanation { get; set; }
+        #endregion
         
+        #region Parameter MessageDsn_ExtensionField
         /// <summary>
         /// <para>
         /// <para>Additional X-headers to include in the DSN.</para>
@@ -106,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("MessageDsn_ExtensionFields")]
         public Amazon.SimpleEmail.Model.ExtensionField[] MessageDsn_ExtensionField { get; set; }
+        #endregion
         
+        #region Parameter OriginalMessageId
         /// <summary>
         /// <para>
         /// <para>The message ID of the message to be bounced.</para>
@@ -114,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OriginalMessageId { get; set; }
+        #endregion
         
+        #region Parameter MessageDsn_ReportingMta
         /// <summary>
         /// <para>
         /// <para>The reporting MTA that attempted to deliver the message, formatted as specified in
@@ -124,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MessageDsn_ReportingMta { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -132,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

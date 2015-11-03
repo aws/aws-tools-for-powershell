@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class AddLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter Action
         /// <summary>
         /// <para>
         /// <para>The AWS Lambda action you want to allow in this statement. Each Lambda action is a
@@ -67,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Action { get; set; }
+        #endregion
         
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>Name of the Lambda function whose resource policy you are updating by adding a new
@@ -80,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The principal who is getting this permission. It can be Amazon S3 service Principal
@@ -92,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Principal { get; set; }
+        #endregion
         
+        #region Parameter Qualifier
         /// <summary>
         /// <para>
         /// <para>You can specify this optional query parameter to specify function version or alias
@@ -105,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Qualifier { get; set; }
+        #endregion
         
+        #region Parameter SourceAccount
         /// <summary>
         /// <para>
         /// <para>The AWS account ID (without a hyphen) of the source owner. For example, if the <code>SourceArn</code>
@@ -118,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceAccount { get; set; }
+        #endregion
         
+        #region Parameter SourceArn
         /// <summary>
         /// <para>
         /// <para>This is optional; however, when granting Amazon S3 permission to invoke your function,
@@ -131,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceArn { get; set; }
+        #endregion
         
+        #region Parameter StatementId
         /// <summary>
         /// <para>
         /// <para>A unique statement identifier.</para>
@@ -139,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StatementId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -147,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

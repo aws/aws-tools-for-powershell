@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class SubmitRDSPendingMaintenanceActionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplyAction
         /// <summary>
         /// <para>
         /// <para>The pending maintenance action to apply to this resource.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ApplyAction { get; set; }
+        #endregion
         
+        #region Parameter OptInType
         /// <summary>
         /// <para>
         /// <para>A value that specifies the type of opt-in request, or undoes an opt-in request. An
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OptInType { get; set; }
+        #endregion
         
+        #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
         /// <para>The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

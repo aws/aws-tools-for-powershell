@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class UpdateINSApplicationCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationArn
         /// <summary>
         /// <para>
         /// <para>Application ARN that you want to update.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationArn { get; set; }
+        #endregion
         
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>Application name that you want to update.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter ResourceGroupArn
         /// <summary>
         /// <para>
         /// <para>The resource group ARN that you want to update.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceGroupArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

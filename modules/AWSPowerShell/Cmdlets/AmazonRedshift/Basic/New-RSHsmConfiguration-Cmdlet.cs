@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class NewRSHsmConfigurationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A text description of the HSM configuration to be created.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter HsmConfigurationIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier to be assigned to the new Amazon Redshift HSM configuration.</para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HsmConfigurationIdentifier { get; set; }
+        #endregion
         
+        #region Parameter HsmIpAddress
         /// <summary>
         /// <para>
         /// <para>The IP address that the Amazon Redshift cluster must use to access the HSM.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmIpAddress { get; set; }
+        #endregion
         
+        #region Parameter HsmPartitionName
         /// <summary>
         /// <para>
         /// <para>The name of the partition in the HSM where the Amazon Redshift clusters will store
@@ -81,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmPartitionName { get; set; }
+        #endregion
         
+        #region Parameter HsmPartitionPassword
         /// <summary>
         /// <para>
         /// <para>The password required to access the HSM partition.</para>
@@ -89,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmPartitionPassword { get; set; }
+        #endregion
         
+        #region Parameter HsmServerPublicCertificate
         /// <summary>
         /// <para>
         /// <para>The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.</para>
@@ -97,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmServerPublicCertificate { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -106,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -114,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class ResetRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the cluster parameter group to be reset. </para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para> An array of names of parameters to be reset. If <i>ResetAllParameters</i> option
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.Redshift.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
         /// <para> If <code>true</code>, all parameters in the specified parameter group will be reset
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("ResetAllParameters")]
         public System.Boolean ResetAllParameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

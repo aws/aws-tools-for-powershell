@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53HealthChecksCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>If the request returned more than one page of results, submit another request and
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Specify the maximum number of health checks to return per page of results.</para>
@@ -68,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

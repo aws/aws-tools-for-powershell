@@ -96,6 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     )]
     public class GetSTSFederationTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
         /// <para>The duration, in seconds, that the session should last. Acceptable durations for federation
@@ -109,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("DurationSeconds")]
         public System.Int32 DurationInSeconds { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the federated user. The name is used as an identifier for the temporary
@@ -120,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// <para>An IAM policy in JSON format that is passed with the <code>GetFederationToken</code>
@@ -142,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Policy { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

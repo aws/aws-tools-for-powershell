@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     )]
     public class GetCCBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter BranchName
         /// <summary>
         /// <para>
         /// <para>The name of the branch for which you want to retrieve information.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BranchName { get; set; }
+        #endregion
         
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RepositoryName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

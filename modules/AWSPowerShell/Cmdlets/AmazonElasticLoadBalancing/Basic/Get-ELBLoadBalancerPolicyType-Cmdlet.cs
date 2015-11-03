@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class GetELBLoadBalancerPolicyTypeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyTypeName
         /// <summary>
         /// <para>
         /// <para>The names of the policy types. If no names are specified, describes all policy types
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("PolicyTypeNames")]
         public System.String[] PolicyTypeName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

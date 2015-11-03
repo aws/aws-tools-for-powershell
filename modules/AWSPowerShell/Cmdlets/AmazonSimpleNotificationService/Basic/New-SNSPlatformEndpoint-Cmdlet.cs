@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class NewSNSPlatformEndpointCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>For a list of attributes, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</para>
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter CustomUserData
         /// <summary>
         /// <para>
         /// <para>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data.
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String CustomUserData { get; set; }
+        #endregion
         
+        #region Parameter PlatformApplicationArn
         /// <summary>
         /// <para>
         /// <para>PlatformApplicationArn returned from CreatePlatformApplication is used to create a
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PlatformApplicationArn { get; set; }
+        #endregion
         
+        #region Parameter Token
         /// <summary>
         /// <para>
         /// <para>Unique identifier created by the notification service for an app on a device.    
@@ -94,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Token { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

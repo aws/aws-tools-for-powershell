@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class GetCPThirdPartyJobDetailsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>The clientToken portion of the clientId and clientToken pair used to verify that the
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID used for identifying the job.</para>
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String JobId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

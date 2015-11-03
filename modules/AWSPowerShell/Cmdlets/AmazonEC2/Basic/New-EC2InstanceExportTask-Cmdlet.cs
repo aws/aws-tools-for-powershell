@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2InstanceExportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExportToS3Task_ContainerFormat
         /// <summary>
         /// <para>
         /// <para>The container format used to combine disk images with metadata (such as OVF). If absent,
@@ -53,8 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.ContainerFormat")]
         public Amazon.EC2.ContainerFormat ExportToS3Task_ContainerFormat { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the conversion task or the resource being exported. The maximum
@@ -63,15 +68,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter ExportToS3Task_DiskImageFormat
         /// <summary>
         /// <para>
         /// <para>The format for the exported image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.DiskImageFormat")]
         public Amazon.EC2.DiskImageFormat ExportToS3Task_DiskImageFormat { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
@@ -79,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter ExportToS3Task_S3Bucket
         /// <summary>
         /// <para>
         /// <para>The S3 bucket for the destination image. The destination bucket must exist and grant
@@ -88,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExportToS3Task_S3Bucket { get; set; }
+        #endregion
         
+        #region Parameter ExportToS3Task_S3Prefix
         /// <summary>
         /// <para>
         /// <para>The image is written to a single object in the S3 bucket at the S3 key s3prefix +
@@ -97,15 +111,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExportToS3Task_S3Prefix { get; set; }
+        #endregion
         
+        #region Parameter TargetEnvironment
         /// <summary>
         /// <para>
         /// <para>The target virtualization environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.ExportEnvironment")]
         public Amazon.EC2.ExportEnvironment TargetEnvironment { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -113,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

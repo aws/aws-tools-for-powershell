@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class AddCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the trail to which one or more tags will be added. The format
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter TagsList
         /// <summary>
         /// <para>
         /// <para>Contains a list of CloudTrail tags, up to a limit of 10.</para>
@@ -58,14 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.CloudTrail.Model.Tag[] TagsList { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ResourceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

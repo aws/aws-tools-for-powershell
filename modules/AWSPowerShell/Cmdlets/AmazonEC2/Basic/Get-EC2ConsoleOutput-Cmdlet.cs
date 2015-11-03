@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ConsoleOutputCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
@@ -65,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

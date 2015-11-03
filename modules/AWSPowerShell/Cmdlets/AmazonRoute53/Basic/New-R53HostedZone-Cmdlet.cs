@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class NewR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CallerReference
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed <code>CreateHostedZone</code>
@@ -72,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String CallerReference { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneConfig_Comment
         /// <summary>
         /// <para>
         /// <para>An optional comment about your hosted zone. If you don't want to specify a comment,
@@ -82,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String HostedZoneConfig_Comment { get; set; }
+        #endregion
         
+        #region Parameter DelegationSetId
         /// <summary>
         /// <para>
         /// <para>The delegation set id of the reusable delgation set whose NS records you want to assign
@@ -91,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DelegationSetId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the domain. This must be a fully-specified domain, for example, www.example.com.
@@ -104,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneConfig_PrivateZone
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -112,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean HostedZoneConfig_PrivateZone { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -120,15 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VPC_VPCId { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.VPCRegion")]
         public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -136,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

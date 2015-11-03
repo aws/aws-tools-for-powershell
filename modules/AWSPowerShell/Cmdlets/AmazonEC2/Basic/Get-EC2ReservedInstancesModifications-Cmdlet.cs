@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ReservedInstancesModificationsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>client-token</code> - The idempotency token for the modification request.</para></li><li><para><code>create-date</code> - The time when the modification request was created.</para></li><li><para><code>effective-date</code> - The time when the modification becomes effective.</para></li><li><para><code>modification-result.reserved-instances-id</code> - The ID for the Reserved instances
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesModificationId
         /// <summary>
         /// <para>
         /// <para>IDs for the submitted modification request.</para>
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("ReservedInstancesModificationIds")]
         public System.String[] ReservedInstancesModificationId { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to retrieve the next page of results. </para>
@@ -81,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

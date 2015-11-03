@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2VpcPeeringConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter PeerOwnerId
         /// <summary>
         /// <para>
         /// <para>The AWS account ID of the owner of the peer VPC.</para><para>Default: Your AWS account ID</para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String PeerOwnerId { get; set; }
+        #endregion
         
+        #region Parameter PeerVpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC with which you are creating the VPC peering connection.</para>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String PeerVpcId { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the requester VPC.</para>
@@ -74,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

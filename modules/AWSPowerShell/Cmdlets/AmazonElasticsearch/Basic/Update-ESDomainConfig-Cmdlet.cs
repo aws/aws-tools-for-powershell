@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     )]
     public class UpdateESDomainConfigCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccessPolicy
         /// <summary>
         /// <para>
         /// <para>IAM access policy as a JSON-formatted string.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter]
         [Alias("AccessPolicies")]
         public System.String AccessPolicy { get; set; }
+        #endregion
         
+        #region Parameter AdvancedOption
         /// <summary>
         /// <para>
         /// <para>Modifies the advanced option to allow references to indices in an HTTP request body.
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter]
         [Alias("AdvancedOptions")]
         public System.Collections.Hashtable AdvancedOption { get; set; }
+        #endregion
         
+        #region Parameter SnapshotOptions_AutomatedSnapshotStartHour
         /// <summary>
         /// <para>
         /// <para>Specifies the time, in UTC format, when the service takes a daily automated snapshot
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+        #endregion
         
+        #region Parameter ElasticsearchClusterConfig_DedicatedMasterCount
         /// <summary>
         /// <para>
         /// <para>Total number of dedicated master nodes, active and on standby, for the cluster.</para>
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ElasticsearchClusterConfig_DedicatedMasterCount { get; set; }
+        #endregion
         
+        #region Parameter ElasticsearchClusterConfig_DedicatedMasterEnabled
         /// <summary>
         /// <para>
         /// <para>A boolean value to indicate whether a dedicated master node is enabled. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes" target="_blank">About Dedicated Master Nodes</a> for more information.</para>
@@ -84,15 +94,20 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ElasticsearchClusterConfig_DedicatedMasterEnabled { get; set; }
+        #endregion
         
+        #region Parameter ElasticsearchClusterConfig_DedicatedMasterType
         /// <summary>
         /// <para>
         /// <para>The instance type for a dedicated master node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Elasticsearch.ESPartitionInstanceType")]
         public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of the Elasticsearch domain that you are updating. </para>
@@ -100,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter EBSOptions_EBSEnabled
         /// <summary>
         /// <para>
         /// <para>Specifies whether EBS-based storage is enabled.</para>
@@ -108,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EBSOptions_EBSEnabled { get; set; }
+        #endregion
         
+        #region Parameter ElasticsearchClusterConfig_InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of instances in the specified domain cluster.</para>
@@ -116,15 +135,20 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ElasticsearchClusterConfig_InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter ElasticsearchClusterConfig_InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type for an Elasticsearch cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Elasticsearch.ESPartitionInstanceType")]
         public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
+        #endregion
         
+        #region Parameter EBSOptions_Iops
         /// <summary>
         /// <para>
         /// <para>Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).</para>
@@ -132,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 EBSOptions_Iops { get; set; }
+        #endregion
         
+        #region Parameter EBSOptions_VolumeSize
         /// <summary>
         /// <para>
         /// <para> Integer to specify the size of an EBS volume.</para>
@@ -140,15 +166,20 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 EBSOptions_VolumeSize { get; set; }
+        #endregion
         
+        #region Parameter EBSOptions_VolumeType
         /// <summary>
         /// <para>
         /// <para> Specifies the volume type for EBS-based storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Elasticsearch.VolumeType")]
         public Amazon.Elasticsearch.VolumeType EBSOptions_VolumeType { get; set; }
+        #endregion
         
+        #region Parameter ElasticsearchClusterConfig_ZoneAwarenessEnabled
         /// <summary>
         /// <para>
         /// <para>A boolean value to indicate whether zone awareness is enabled. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness" target="_blank">About Zone Awareness</a> for more information.</para>
@@ -156,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -164,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

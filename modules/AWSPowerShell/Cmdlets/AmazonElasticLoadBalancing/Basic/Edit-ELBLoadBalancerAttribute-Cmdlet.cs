@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class EditELBLoadBalancerAttributeCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerAttributes_AdditionalAttribute
         /// <summary>
         /// <para>
         /// <para>This parameter is reserved.</para>
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AdditionalAttributes")]
         public Amazon.ElasticLoadBalancing.Model.AdditionalAttribute[] LoadBalancerAttributes_AdditionalAttribute { get; set; }
+        #endregion
         
+        #region Parameter AccessLog_EmitInterval
         /// <summary>
         /// <para>
         /// <para>The interval for publishing the access logs. You can specify an interval of either
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_EmitInterval")]
         public System.Int32 AccessLog_EmitInterval { get; set; }
+        #endregion
         
+        #region Parameter AccessLog_Enabled
         /// <summary>
         /// <para>
         /// <para>Specifies whether access log is enabled for the load balancer.</para>
@@ -80,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_Enabled")]
         public System.Boolean AccessLog_Enabled { get; set; }
+        #endregion
         
+        #region Parameter ConnectionDraining_Enabled
         /// <summary>
         /// <para>
         /// <para>Specifies whether connection draining is enabled for the load balancer.</para>
@@ -89,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_ConnectionDraining_Enabled")]
         public System.Boolean ConnectionDraining_Enabled { get; set; }
+        #endregion
         
+        #region Parameter CrossZoneLoadBalancing_Enabled
         /// <summary>
         /// <para>
         /// <para>Specifies whether cross-zone load balancing is enabled for the load balancer.</para>
@@ -98,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_CrossZoneLoadBalancing_Enabled")]
         public System.Boolean CrossZoneLoadBalancing_Enabled { get; set; }
+        #endregion
         
+        #region Parameter ConnectionSettings_IdleTimeout
         /// <summary>
         /// <para>
         /// <para>The time, in seconds, that the connection is allowed to be idle (no data has been
@@ -108,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_ConnectionSettings_IdleTimeout")]
         public System.Int32 ConnectionSettings_IdleTimeout { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -116,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter AccessLog_S3BucketName
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket where the access logs are stored.</para>
@@ -125,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_S3BucketName")]
         public System.String AccessLog_S3BucketName { get; set; }
+        #endregion
         
+        #region Parameter AccessLog_S3BucketPrefix
         /// <summary>
         /// <para>
         /// <para>The logical hierarchy you created for your Amazon S3 bucket, for example <code>my-bucket-prefix/prod</code>.
@@ -135,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_AccessLog_S3BucketPrefix")]
         public System.String AccessLog_S3BucketPrefix { get; set; }
+        #endregion
         
+        #region Parameter ConnectionDraining_Timeout
         /// <summary>
         /// <para>
         /// <para>The maximum time, in seconds, to keep the existing connections open before deregistering
@@ -145,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerAttributes_ConnectionDraining_Timeout")]
         public System.Int32 ConnectionDraining_Timeout { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -153,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class NewETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter AlbumArt_Artwork
         /// <summary>
         /// <para>
         /// <para>The file to be used as album art. There can be multiple artworks associated with an
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_AlbumArt_Artwork")]
         public Amazon.ElasticTranscoder.Model.Artwork[] AlbumArt_Artwork { get; set; }
+        #endregion
         
+        #region Parameter Input_AspectRatio
         /// <summary>
         /// <para>
         /// <para> The aspect ratio of the input file. If you want Elastic Transcoder to automatically
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Input_AspectRatio { get; set; }
+        #endregion
         
+        #region Parameter Captions_CaptionFormat
         /// <summary>
         /// <para>
         /// <para>The array of file formats for the output captions. If you leave this value blank,
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Captions_CaptionFormats")]
         public Amazon.ElasticTranscoder.Model.CaptionFormat[] Captions_CaptionFormat { get; set; }
+        #endregion
         
+        #region Parameter Captions_CaptionSource
         /// <summary>
         /// <para>
         /// <para>Source files for the input sidecar captions used during the transcoding process. To
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Captions_CaptionSources")]
         public Amazon.ElasticTranscoder.Model.CaptionSource[] Captions_CaptionSource { get; set; }
+        #endregion
         
+        #region Parameter Output_Composition
         /// <summary>
         /// <para>
         /// <para>You can create an output file that contains an excerpt from the input file. This excerpt,
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.ElasticTranscoder.Model.Clip[] Output_Composition { get; set; }
+        #endregion
         
+        #region Parameter Input_Container
         /// <summary>
         /// <para>
         /// <para>The container type for the input file. If you want Elastic Transcoder to automatically
@@ -114,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Input_Container { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_DurationMilli
         /// <summary>
         /// <para>
         /// <para>The detected duration of the input file, in milliseconds.</para>
@@ -123,7 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_DurationMillis")]
         public System.Int64 DetectedProperties_DurationMilli { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_FileSize
         /// <summary>
         /// <para>
         /// <para>The detected file size of the input file, in bytes.</para>
@@ -132,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_FileSize")]
         public System.Int64 DetectedProperties_FileSize { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_FrameRate
         /// <summary>
         /// <para>
         /// <para>The detected frame rate of the input file, in frames per second.</para>
@@ -141,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_FrameRate")]
         public System.String DetectedProperties_FrameRate { get; set; }
+        #endregion
         
+        #region Parameter Input_FrameRate
         /// <summary>
         /// <para>
         /// <para>The frame rate of the input file. If you want Elastic Transcoder to automatically
@@ -153,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Input_FrameRate { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_Height
         /// <summary>
         /// <para>
         /// <para>The detected height of the input file, in pixels.</para>
@@ -162,7 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_Height")]
         public System.Int32 DetectedProperties_Height { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionInitializationVector
         /// <summary>
         /// <para>
         /// <para>The series of random bits created by a random bit generator, unique for every encryption
@@ -174,7 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_InitializationVector")]
         public System.String InputEncryptionInitializationVector { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionInitializationVector
         /// <summary>
         /// <para>
         /// <para>The series of random bits created by a random bit generator, unique for every encryption
@@ -186,7 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_InitializationVector")]
         public System.String OutputEncryptionInitializationVector { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_InitializationVector
         /// <summary>
         /// <para>
         /// <para>The series of random bits created by a random bit generator, unique for every encryption
@@ -198,7 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_InitializationVector")]
         public System.String ThumbnailEncryption_InitializationVector { get; set; }
+        #endregion
         
+        #region Parameter Input_Interlaced
         /// <summary>
         /// <para>
         /// <para>Whether the input file is interlaced. If you want Elastic Transcoder to automatically
@@ -209,7 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Input_Interlaced { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionKey
         /// <summary>
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
@@ -220,7 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_Key")]
         public System.String InputEncryptionKey { get; set; }
+        #endregion
         
+        #region Parameter Input_Key
         /// <summary>
         /// <para>
         /// <para> The name of the file to transcode. Elsewhere in the body of the JSON block is the
@@ -233,7 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Input_Key { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionKey
         /// <summary>
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
@@ -244,7 +280,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_Key")]
         public System.String OutputEncryptionKey { get; set; }
+        #endregion
         
+        #region Parameter Output_Key
         /// <summary>
         /// <para>
         /// <para> The name to assign to the transcoded file. Elastic Transcoder saves the file in the
@@ -255,7 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Output_Key { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_Key
         /// <summary>
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
@@ -266,7 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_Key")]
         public System.String ThumbnailEncryption_Key { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionKeyMd5
         /// <summary>
         /// <para>
         /// <para>The MD5 digest of the key that you used to encrypt your input file, or that you want
@@ -278,7 +320,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_KeyMd5")]
         public System.String InputEncryptionKeyMd5 { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionKeyMd5
         /// <summary>
         /// <para>
         /// <para>The MD5 digest of the key that you used to encrypt your input file, or that you want
@@ -290,7 +334,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_KeyMd5")]
         public System.String OutputEncryptionKeyMd5 { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_KeyMd5
         /// <summary>
         /// <para>
         /// <para>The MD5 digest of the key that you used to encrypt your input file, or that you want
@@ -302,7 +348,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_KeyMd5")]
         public System.String ThumbnailEncryption_KeyMd5 { get; set; }
+        #endregion
         
+        #region Parameter AlbumArt_MergePolicy
         /// <summary>
         /// <para>
         /// <para>A policy that determines how Elastic Transcoder will handle the existence of multiple
@@ -318,7 +366,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_AlbumArt_MergePolicy")]
         public System.String AlbumArt_MergePolicy { get; set; }
+        #endregion
         
+        #region Parameter Captions_MergePolicy
         /// <summary>
         /// <para>
         /// <para>A policy that determines how Elastic Transcoder handles the existence of multiple
@@ -336,7 +386,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Captions_MergePolicy")]
         public System.String Captions_MergePolicy { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionMode
         /// <summary>
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
@@ -356,7 +408,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_Mode")]
         public System.String InputEncryptionMode { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionMode
         /// <summary>
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
@@ -376,7 +430,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_Mode")]
         public System.String OutputEncryptionMode { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_Mode
         /// <summary>
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
@@ -396,7 +452,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_Mode")]
         public System.String ThumbnailEncryption_Mode { get; set; }
+        #endregion
         
+        #region Parameter OutputKeyPrefix
         /// <summary>
         /// <para>
         /// <para>The value, if any, that you want Elastic Transcoder to prepend to the names of all
@@ -405,7 +463,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OutputKeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter Output
         /// <summary>
         /// <para>
         /// <para> A section of the request body that provides information about the transcoded (target)
@@ -416,7 +476,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Outputs")]
         public Amazon.ElasticTranscoder.Model.CreateJobOutput[] Output { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding.
@@ -427,7 +489,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Playlist
         /// <summary>
         /// <para>
         /// <para>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code>
@@ -438,7 +502,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Playlists")]
         public Amazon.ElasticTranscoder.Model.CreateJobPlaylist[] Playlist { get; set; }
+        #endregion
         
+        #region Parameter Output_PresetId
         /// <summary>
         /// <para>
         /// <para> The <code>Id</code> of the preset to use for this job. The preset determines the
@@ -448,7 +514,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Output_PresetId { get; set; }
+        #endregion
         
+        #region Parameter Input_Resolution
         /// <summary>
         /// <para>
         /// <para>This value must be <code>auto</code>, which causes Elastic Transcoder to automatically
@@ -457,7 +525,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Input_Resolution { get; set; }
+        #endregion
         
+        #region Parameter Output_Rotate
         /// <summary>
         /// <para>
         /// <para> The number of degrees clockwise by which you want Elastic Transcoder to rotate the
@@ -469,7 +539,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Output_Rotate { get; set; }
+        #endregion
         
+        #region Parameter Output_SegmentDuration
         /// <summary>
         /// <para>
         /// <para><important>(Outputs in Fragmented MP4 or MPEG-TS format only.</important>If you specify
@@ -488,7 +560,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Output_SegmentDuration { get; set; }
+        #endregion
         
+        #region Parameter Output_ThumbnailPattern
         /// <summary>
         /// <para>
         /// <para>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so,
@@ -513,7 +587,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Output_ThumbnailPattern { get; set; }
+        #endregion
         
+        #region Parameter UserMetadata
         /// <summary>
         /// <para>
         /// <para>User-defined metadata that you want to associate with an Elastic Transcoder job. You
@@ -524,7 +600,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable UserMetadata { get; set; }
+        #endregion
         
+        #region Parameter Output_Watermark
         /// <summary>
         /// <para>
         /// <para>Information about the watermarks that you want Elastic Transcoder to add to the video
@@ -535,7 +613,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Watermarks")]
         public Amazon.ElasticTranscoder.Model.JobWatermark[] Output_Watermark { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_Width
         /// <summary>
         /// <para>
         /// <para>The detected width of the input file, in pixels.</para>
@@ -544,7 +624,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_Width")]
         public System.Int32 DetectedProperties_Width { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -552,7 +634,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     )]
     public class UpdateR53DDomainNameserversCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter FIAuthKey
         /// <summary>
         /// <para>
         /// <para>The authorization key for .fi domains</para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FIAuthKey { get; set; }
+        #endregion
         
+        #region Parameter Nameserver
         /// <summary>
         /// <para>
         /// <para>A list of new name servers for the domain.</para><para>Type: Complex</para><para>Children: <code>Name</code>, <code>GlueIps</code></para><para>Required: Yes</para>
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter]
         [Alias("Nameservers")]
         public Amazon.Route53Domains.Model.Nameserver[] Nameserver { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class AddASAAttachmentsToSetCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attachment
         /// <summary>
         /// <para>
         /// <para>One or more attachments to add to the set. The limit is 3 attachments per set, and
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("Attachments")]
         public Amazon.AWSSupport.Model.Attachment[] Attachment { get; set; }
+        #endregion
         
+        #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
         /// <para>The ID of the attachment set. If an <code>AttachmentSetId</code> is not specified,
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AttachmentSetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

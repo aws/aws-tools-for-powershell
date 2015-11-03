@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class ConfirmCPJobCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID of the job for which you want to confirm receipt.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String JobId { get; set; }
+        #endregion
         
+        #region Parameter Nonce
         /// <summary>
         /// <para>
         /// <para>A system-generated random number that AWS CodePipeline uses to ensure that the job
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Nonce { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class ConfirmSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuthenticateOnUnsubscribe
         /// <summary>
         /// <para>
         /// <para>Disallows unauthenticated unsubscribes of the subscription.     If the value of this
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String AuthenticateOnUnsubscribe { get; set; }
+        #endregion
         
+        #region Parameter Token
         /// <summary>
         /// <para>
         /// <para>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</para>
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Token { get; set; }
+        #endregion
         
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic for which you wish to confirm a subscription.</para>
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

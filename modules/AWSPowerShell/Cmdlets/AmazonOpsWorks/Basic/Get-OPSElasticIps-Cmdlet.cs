@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSElasticIpsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID. If you include this parameter, <code>DescribeElasticIps</code> returns
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Ip
         /// <summary>
         /// <para>
         /// <para>An array of Elastic IP addresses to be described. If you include this parameter, <code>DescribeElasticIps</code>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Ips")]
         public System.String[] Ip { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>A stack ID. If you include this parameter, <code>DescribeElasticIps</code> returns
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

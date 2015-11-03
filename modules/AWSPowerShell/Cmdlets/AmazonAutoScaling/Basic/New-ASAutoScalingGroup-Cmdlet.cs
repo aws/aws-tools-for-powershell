@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class NewASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group. This name must be unique within the scope of your AWS account.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>One or more Availability Zones for the group. This parameter is optional if you specify
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter DefaultCooldown
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DefaultCooldown { get; set; }
+        #endregion
         
+        #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
         /// <para>The number of EC2 instances that should be running in the group. This number must
@@ -86,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DesiredCapacity { get; set; }
+        #endregion
         
+        #region Parameter HealthCheckGracePeriod
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, that Auto Scaling waits before checking the health
@@ -97,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 HealthCheckGracePeriod { get; set; }
+        #endregion
         
+        #region Parameter HealthCheckType
         /// <summary>
         /// <para>
         /// <para>The service to use for the health checks. The valid values are <code>EC2</code> and
@@ -108,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HealthCheckType { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the EC2 instance used to create a launch configuration for the group. Alternatively,
@@ -121,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
         /// <para>The name of the launch configuration. Alternatively, use the <code>InstanceId</code>
@@ -130,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String LaunchConfigurationName { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>One or more load balancers.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html">Load
@@ -140,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancerNames")]
         public System.String[] LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter MaxSize
         /// <summary>
         /// <para>
         /// <para>The maximum size of the group.</para>
@@ -148,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.Int32 MaxSize { get; set; }
+        #endregion
         
+        #region Parameter MinSize
         /// <summary>
         /// <para>
         /// <para>The minimum size of the group.</para>
@@ -156,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 MinSize { get; set; }
+        #endregion
         
+        #region Parameter NewInstancesProtectedFromScaleIn
         /// <summary>
         /// <para>
         /// <para>Indicates whether newly launched instances are protected from termination by Auto
@@ -165,7 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean NewInstancesProtectedFromScaleIn { get; set; }
+        #endregion
         
+        #region Parameter PlacementGroup
         /// <summary>
         /// <para>
         /// <para>The name of the placement group into which you'll launch your instances, if any. For
@@ -175,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PlacementGroup { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>The tag to be created or updated. Each tag should be defined by its resource type,
@@ -187,7 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.AutoScaling.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TerminationPolicy
         /// <summary>
         /// <para>
         /// <para>One or more termination policies used to select the instance to terminate. These policies
@@ -199,7 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("TerminationPolicies")]
         public System.String[] TerminationPolicy { get; set; }
+        #endregion
         
+        #region Parameter VPCZoneIdentifier
         /// <summary>
         /// <para>
         /// <para>A comma-separated list of subnet identifiers for your virtual private cloud (VPC).</para><para>If you specify subnets and Availability Zones with this call, ensure that the subnets'
@@ -209,14 +241,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VPCZoneIdentifier { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -224,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

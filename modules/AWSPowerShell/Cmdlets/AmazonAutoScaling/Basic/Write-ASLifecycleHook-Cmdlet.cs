@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class WriteASLifecycleHookCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Auto Scaling group to which you want to assign the lifecycle hook.</para>
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter DefaultResult
         /// <summary>
         /// <para>
         /// <para>Defines the action the Auto Scaling group should take when the lifecycle hook timeout
@@ -80,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DefaultResult { get; set; }
+        #endregion
         
+        #region Parameter HeartbeatTimeout
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, that can elapse before the lifecycle hook times out.
@@ -92,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 HeartbeatTimeout { get; set; }
+        #endregion
         
+        #region Parameter LifecycleHookName
         /// <summary>
         /// <para>
         /// <para>The name of the lifecycle hook.</para>
@@ -100,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LifecycleHookName { get; set; }
+        #endregion
         
+        #region Parameter LifecycleTransition
         /// <summary>
         /// <para>
         /// <para>The instance state to which you want to attach the lifecycle hook. For a list of lifecycle
@@ -110,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LifecycleTransition { get; set; }
+        #endregion
         
+        #region Parameter NotificationMetadata
         /// <summary>
         /// <para>
         /// <para>Contains additional information that you want to include any time Auto Scaling sends
@@ -119,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NotificationMetadata { get; set; }
+        #endregion
         
+        #region Parameter NotificationTargetARN
         /// <summary>
         /// <para>
         /// <para>The ARN of the notification target that Auto Scaling will use to notify you when an
@@ -135,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NotificationTargetARN { get; set; }
+        #endregion
         
+        #region Parameter RoleARN
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
@@ -145,14 +161,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleARN { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -160,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

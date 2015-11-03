@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AddRouteTableId
         /// <summary>
         /// <para>
         /// <para>One or more route tables IDs to associate with the endpoint.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("AddRouteTableIds")]
         public System.String[] AddRouteTableId { get; set; }
+        #endregion
         
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
         /// <para>A policy document to attach to the endpoint. The policy must be in valid JSON format.
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter RemoveRouteTableId
         /// <summary>
         /// <para>
         /// <para>One or more route table IDs to disassociate from the endpoint.</para>
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("RemoveRouteTableIds")]
         public System.String[] RemoveRouteTableId { get; set; }
+        #endregion
         
+        #region Parameter ResetPolicy
         /// <summary>
         /// <para>
         /// <para>Specify <code>true</code> to reset the policy document to the default policy. The
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ResetPolicy { get; set; }
+        #endregion
         
+        #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
         /// <para>The ID of the endpoint.</para>
@@ -83,14 +93,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String VpcEndpointId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the VpcEndpointId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

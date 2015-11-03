@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocationId
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] One or more allocation IDs.</para><para>Default: Describes all your Elastic IP addresses.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("AllocationIds")]
         public System.String[] AllocationId { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</para></li><li><para><code>association-id</code> - [EC2-VPC] The association ID for the address.</para></li><li><para><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>)
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>[EC2-Classic] One or more Elastic IP addresses.</para><para>Default: Describes all your Elastic IP addresses.</para>
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("PublicIps")]
         public System.String[] PublicIp { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

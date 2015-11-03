@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter InputBucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket that contains media files to be transcoded. The action attempts
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String InputBucket { get; set; }
+        #endregion
         
+        #region Parameter OutputBucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket that Elastic Transcoder will write transcoded media files to.
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String OutputBucket { get; set; }
+        #endregion
         
+        #region Parameter Role
         /// <summary>
         /// <para>
         /// <para>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Role { get; set; }
+        #endregion
         
+        #region Parameter Topic
         /// <summary>
         /// <para>
         /// <para>The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("Topics")]
         public System.String[] Topic { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

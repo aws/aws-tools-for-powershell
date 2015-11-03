@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSDeploymentsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppId
         /// <summary>
         /// <para>
         /// <para>The app ID. If you include this parameter, <code>DescribeDeployments</code> returns
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String AppId { get; set; }
+        #endregion
         
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>An array of deployment IDs to be described. If you include this parameter, <code>DescribeDeployments</code>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         [Alias("DeploymentIds")]
         public System.String[] DeploymentId { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID. If you include this parameter, <code>DescribeDeployments</code> returns
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter LimitPrice_Amount
         /// <summary>
         /// <para>
         /// <para>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Double LimitPrice_Amount { get; set; }
+        #endregion
         
+        #region Parameter LimitPrice_CurrencyCode
         /// <summary>
         /// <para>
         /// <para>The currency in which the <code>limitPrice</code> amount is specified. At this time,
@@ -69,8 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
+        [AWSConstantClassSource("Amazon.EC2.CurrencyCodeValues")]
         public Amazon.EC2.CurrencyCodeValues LimitPrice_CurrencyCode { get; set; }
+        #endregion
         
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of Reserved instances to purchase.</para>
@@ -78,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesOfferingId
         /// <summary>
         /// <para>
         /// <para>The ID of the Reserved instance offering to purchase.</para>
@@ -86,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedInstancesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
