@@ -25,6 +25,10 @@
     <ServiceOperation MethodName="CreateDevicePool" PipelineParameter="Rules" ShouldProcessTarget="Name"/>
     <ServiceOperation MethodName="CreateProject"/>    
     <ServiceOperation MethodName="CreateUpload" PipelineParameter="Name" PositionalParameters="ProjectArn;Type;ContentType"/>
+    <ServiceOperation MethodName="DeleteDevicePool" Output="Void"/>
+    <ServiceOperation MethodName="DeleteProject" Output="Void"/>
+    <ServiceOperation MethodName="DeleteRun" Output="Void"/>
+    <ServiceOperation MethodName="DeleteUpload" Output="Void"/>
     <ServiceOperation MethodName="GetDevice"/>
     <ServiceOperation MethodName="GetDevicePool"/>
     <ServiceOperation MethodName="GetDevicePoolCompatibility" Output="Response"/>
@@ -47,6 +51,8 @@
     <ServiceOperation MethodName="ListUniqueProblems" Noun="UniqueProblemList"/>
     <ServiceOperation MethodName="ListUploads" Noun="UploadList"/>
     <ServiceOperation MethodName="ScheduleRun" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" />
+    <ServiceOperation MethodName="UpdateDevicePool"/>
+    <ServiceOperation MethodName="UpdateProject"/>
   </ServiceOperations>
   
 </ConfigModel>
