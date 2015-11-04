@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// one set of long-term credentials in one account and then use temporary security credentials
     /// to access all the other accounts by assuming roles in those accounts. For more information
     /// about roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM
-    /// Roles (Delegation and Federation)</a> in <i>Using IAM</i>. 
+    /// Roles (Delegation and Federation)</a> in the <i>Using IAM</i>. 
     /// </para><para>
     /// For federation, you can, for example, grant single sign-on access to the AWS Management
     /// Console. If you already have an identity and authentication system in your corporate
@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// <code>AssumeRole</code> (and specify the role with the appropriate permissions) to
     /// get temporary security credentials for that user. With those temporary security credentials,
     /// you construct a sign-in URL that users can use to access the console. For more information,
-    /// see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html">Scenarios
-    /// for Granting Temporary Access</a> in <i>Using Temporary Security Credentials</i>.
-    /// 
+    /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction">Common
+    /// Scenarios for Temporary Credentials</a> in the <i>Using IAM</i>.
     /// </para><para>
     /// The temporary security credentials are valid for the duration that you specified when
     /// calling <code>AssumeRole</code>, which can be from 900 seconds (15 minutes) to 3600
@@ -71,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// you pass. This gives you a way to further restrict the permissions for the resulting
     /// temporary security credentials. You cannot use the passed policy to grant permissions
     /// that are in excess of those allowed by the access policy of the role that is being
-    /// assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions
-    /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in <i>Using
-    /// Temporary Security Credentials</i>.
+    /// assumed. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
+    /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>Using
+    /// IAM</i>.
     /// </para><para>
     /// To assume a role, your AWS account must be trusted by the role. The trust relationship
     /// is defined in the role's trust policy when the role is created. You must also have
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// a trust policy that tests for MFA authentication might look like the following example.
     /// </para><para><code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code></para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring
-    /// MFA-Protected API Access</a> in <i>Using IAM</i> guide.
+    /// MFA-Protected API Access</a> in the <i>Using IAM</i> guide.
     /// </para><para>
     /// To use MFA with <code>AssumeRole</code>, you pass values for the <code>SerialNumber</code>
     /// and <code>TokenCode</code> parameters. The <code>SerialNumber</code> value identifies
@@ -123,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// party generated. Each time the third party assumes the role, they should pass the
         /// customer's external ID. The external ID is useful in order to help third parties bind
         /// a role to the customer who created it. For more information about the external ID,
-        /// see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html">How
-        /// to Use External ID When Granting Access to Your AWS Resources</a> in <i>Using Temporary
-        /// Security Credentials</i>.</para>
+        /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
+        /// to Use an External ID When Granting Access to Your AWS Resources to a Third Party</a>
+        /// in the <i>Using IAM</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -139,12 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// policy that you pass. This gives you a way to further restrict the permissions for
         /// the resulting temporary security credentials. You cannot use the passed policy to
         /// grant permissions that are in excess of those allowed by the access policy of the
-        /// role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions
-        /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in <i>Using
-        /// Temporary Security Credentials</i>. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
+        /// role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
+        /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>Using
+        /// IAM</i>.</para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
         /// compresses it into a packed binary format with a separate limit. The PackedPolicySize
         /// response element indicates by percentage how close to the upper size limit the policy
-        /// is, with 100% equaling the maximum allowed size. </note>
+        /// is, with 100% equaling the maximum allowed size.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

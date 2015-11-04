@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck">Health
-    /// Checks</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html">Configure
+    /// Health Checks</a> in the <i>Elastic Load Balancing Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBHealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// the linked EC2-Classic instances with the load balancer in the VPC.
     /// </para><para>
     /// Note that <code>RegisterInstanceWithLoadBalancer</code> completes when the request
-    /// has been registered. Instance registration happens shortly afterwards. To check the
-    /// state of the registered instances, use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.
+    /// has been registered. Instance registration takes a little time to complete. To check
+    /// the state of the registered instances, use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.
     /// </para><para>
     /// After the instance is registered, it starts receiving traffic and requests from the
     /// load balancer. Any instance that is not in one of the Availability Zones registered

@@ -33,22 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// If the call completes successfully, a new load balancer is created with a unique Domain
-    /// Name Service (DNS) name. The DNS name includes the name of the AWS region in which
-    /// the load balancer was created. For example, the DNS name might end with either of
-    /// the following:
-    /// </para><ul><li><code>us-east-1.elb.amazonaws.com</code></li><li><code>us-west-2.elb.amazonaws.com</code></li></ul><para>
-    /// For information about the AWS regions supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region">Regions
-    /// and Endpoints</a> in the <i>Amazon Web Services General Reference</i>.
+    /// Name Service (DNS) name. The load balancer receives incoming traffic and routes it
+    /// to the registered instances. For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/how-elb-works.html">How
+    /// Elastic Load Balancing Works</a> in the <i>Elastic Load Balancing Developer Guide</i>.
     /// </para><para>
     /// You can create up to 20 load balancers per region per account. You can request an
     /// increase for the number of load balancers for your account. For more information,
     /// see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html">Elastic
     /// Load Balancing Limits</a> in the <i>Elastic Load Balancing Developer Guide</i>.
-    /// </para><para>
-    /// Elastic Load Balancing supports load balancing your EC2 instances launched in either
-    /// the EC2-Classic or EC2-VPC platform. For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html">Elastic
-    /// Load Balancing in EC2-Classic</a> or <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html">Elastic
-    /// Load Balancing in a VPC</a> in the <i>Elastic Load Balancing Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELBLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,9 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         /// <summary>
         /// <para>
-        /// <para>The listeners.</para><para>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html">Listener
-        /// Configurations for Elastic Load Balancing</a> in the <i>Elastic Load Balancing Developer
-        /// Guide</i>.</para>
+        /// <para>The listeners.</para><para>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html">Listeners
+        /// for Your Load Balancer</a> in the <i>Elastic Load Balancing Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -83,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         /// <summary>
         /// <para>
-        /// <para>The name of the load balancer.</para><para>This name must be unique within your AWS account, must have a maximum of 32 characters,
-        /// must contain only alphanumeric characters or hyphens, and cannot begin or end with
-        /// a hyphen.</para>
+        /// <para>The name of the load balancer.</para><para>This name must be unique within your set of load balancers for the region, must have
+        /// a maximum of 32 characters, must contain only alphanumeric characters or hyphens,
+        /// and cannot begin or end with a hyphen.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// Each tag consists of a key and an optional value. If a tag with the same key is already
     /// associated with the load balancer, <code>AddTags</code> updates its value.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb">Tagging</a>
-    /// in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html">Tag
+    /// Your Load Balancer</a> in the <i>Elastic Load Balancing Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELBTags", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

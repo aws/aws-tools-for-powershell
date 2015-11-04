@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// user to that server. The validity of the cookie is based on the cookie expiration
     /// time, which is specified in the policy configuration.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsLBCookies">Duration-Based
+    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based
     /// Session Stickiness</a> in the <i>Elastic Load Balancing Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -78,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         /// <summary>
         /// <para>
-        /// <para>The name of the policy being created. This name must be unique within the set of policies
-        /// for this load balancer.</para>
+        /// <para>The name of the policy being created. Policy names must consist of alphanumeric characters
+        /// and dashes (-). This name must be unique within the set of policies for this load
+        /// balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
