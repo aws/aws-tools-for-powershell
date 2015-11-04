@@ -1,6 +1,6 @@
 ### 3.1.25.0 (2015-11-03)
-  *  AWS DeviceFarm
-     -Added new cmdlets to support the AWS Device Farm APIs to manage projects, device pools, runs, and uploads.
+  * AWS DeviceFarm
+    - Added new cmdlets to support the AWS Device Farm APIs to manage projects, device pools, runs, and uploads.
   * Amazon S3
     - Added a new parameter, -StorageClass, to the Write-S3Object cmdlet. This parameter enables support for selecting the STANDARD_IA storage class as well as STANDARD and REDUCED_REDUNDANCY classes. The existing switch parameters for specifying storage class, -StandardStorage and -ReducedRedundancyStorage, have been marked as deprecated.
   * Get-AWSCmdletName
