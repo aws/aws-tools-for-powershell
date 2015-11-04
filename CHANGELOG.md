@@ -1,3 +1,11 @@
+### 3.1.25.0 (2015-11-03)
+  *  AWS DeviceFarm
+     -Added new cmdlets to support the AWS Device Farm APIs to manage projects, device pools, runs, and uploads.
+  * Amazon S3
+    - Added a new parameter, -StorageClass, to the Write-S3Object cmdlet. This parameter enables support for selecting the STANDARD_IA storage class as well as STANDARD and REDUCED_REDUNDANCY classes. The existing switch parameters for specifying storage class, -StandardStorage and -ReducedRedundancyStorage, have been marked as deprecated.
+  * Get-AWSCmdletName
+    - Fixed an issue with the -AwsCliCommand option throwing errors if the service identifier parsed from the command matched more than one service by prefix or name (for example 'ec2' matches both Amazon EC2 by prefix and EC2 Container Service by name). The option now looks at the prefix codes in preference and will only attempt to match on name terms if the prefix lookup yields no results.
+
 ### 3.1.24.0 (2015-11-02)
   * AWS Identity and Access Management
     - Updated cmdlets for the IAM policy simulator to help test, verify, and understand resource-level permissions.
