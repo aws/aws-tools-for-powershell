@@ -111,56 +111,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         // maintains a redirect map of deprecated names and the current replacement
         static readonly Dictionary<string, string> DeprecatedNameSet = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-        // temp; will use reflection eventually
-        static readonly List<ImageUtilities.ImageDescriptor> KnownImages = new List<ImageUtilities.ImageDescriptor>
-        {
-            ImageUtilities.WINDOWS_2012R2_BASE,
-            ImageUtilities.WINDOWS_2012R2_SQL_SERVER_EXPRESS_2014,
-            ImageUtilities.WINDOWS_2012R2_SQL_SERVER_STANDARD_2014,
-			ImageUtilities.WINDOWS_2012R2_SQL_SERVER_WEB_2014,
-            ImageUtilities.WINDOWS_2012_BASE,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_EXPRESS_2014,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_STANDARD_2014,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_WEB_2014,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_EXPRESS_2012,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_STANDARD_2012,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_WEB_2012,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_EXPRESS_2008,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_STANDARD_2008,
-            ImageUtilities.WINDOWS_2012_SQL_SERVER_WEB_2008,
-            ImageUtilities.WINDOWS_2008R2_BASE,
-            ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2012,
-            ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2012,
-            ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2012,
-            ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2008,
-            ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2008,
-            ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2008,
-            ImageUtilities.WINDOWS_2008RTM_BASE,
-            ImageUtilities.WINDOWS_2008RTM_SQL_SERVER_EXPRESS_2008,
-            ImageUtilities.WINDOWS_2008RTM_SQL_SERVER_STANDARD_2008,
-            ImageUtilities.WINDOWS_2008_BEANSTALK_IIS75,
-            ImageUtilities.WINDOWS_2012_BEANSTALK_IIS8,
-            ImageUtilities.VPC_NAT
-        };
-
         static GetEC2ImageByNameCmdlet()
         {
-            DeprecatedNameSet.Add("Windows_Server-2012-RTM-English-64Bit-SQL_2012_RTM_Express*", ImageUtilities.WINDOWS_2012_SQL_SERVER_EXPRESS_2012.DefinitionKey);
-            DeprecatedNameSet.Add("Windows_Server-2012-RTM-English-64Bit-SQL_2012_RTM_Standard*", ImageUtilities.WINDOWS_2012_SQL_SERVER_STANDARD_2012.DefinitionKey);
-            DeprecatedNameSet.Add("Windows_Server-2012-RTM-English-64Bit-SQL_2012_RTM_Web*", ImageUtilities.WINDOWS_2012_SQL_SERVER_WEB_2012.DefinitionKey);
+            DeprecatedNameSet.Add("Windows_Server-2012-RTM-English-64Bit-SQL_2012_RTM_Express*", ImageUtilities.WINDOWS_2012_SQL_SERVER_EXPRESS_2012_KEY);
+            DeprecatedNameSet.Add("Windows_Server-2012-RTM-English-64Bit-SQL_2012_RTM_Standard*", ImageUtilities.WINDOWS_2012_SQL_SERVER_STANDARD_2012_KEY);
+            DeprecatedNameSet.Add("Windows_Server-2012-RTM-English-64Bit-SQL_2012_RTM_Web*", ImageUtilities.WINDOWS_2012_SQL_SERVER_WEB_2012_KEY);
 
-            DeprecatedNameSet.Add("Windows_Server-2008-R2_SP1-English-64Bit-SQL_2012_RTM_Express*", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2012.DefinitionKey);
-            DeprecatedNameSet.Add("Windows_Server-2008-R2_SP1-English-64Bit-SQL_2012_RTM_Standard*", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2012.DefinitionKey);
-            DeprecatedNameSet.Add("Windows_Server-2008-R2_SP1-English-64Bit-SQL_2012_RTM_Web*", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2012.DefinitionKey);
+            DeprecatedNameSet.Add("Windows_Server-2008-R2_SP1-English-64Bit-SQL_2012_RTM_Express*", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2012_KEY);
+            DeprecatedNameSet.Add("Windows_Server-2008-R2_SP1-English-64Bit-SQL_2012_RTM_Standard*", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2012_KEY);
+            DeprecatedNameSet.Add("Windows_Server-2008-R2_SP1-English-64Bit-SQL_2012_RTM_Web*", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2012_KEY);
 
             // these deprecations were added when 2008RTM was added and the existing 2008 image names remapped to 2008R2
             DeprecatedNameSet.Add("WINDOWS_2008_BASE", ImageUtilities.WINDOWS_2008R2_BASE.DefinitionKey);
-            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_EXPRESS_2012", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2012.DefinitionKey);
-            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_STANDARD_2012", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2012.DefinitionKey);
-            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_WEB_2012", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2012.DefinitionKey);
-            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_EXPRESS_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2008.DefinitionKey);
-            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_STANDARD_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2008.DefinitionKey);
-            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_WEB_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2008.DefinitionKey);
+            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_EXPRESS_2012", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2012_KEY);
+            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_STANDARD_2012", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2012_KEY);
+            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_WEB_2012", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2012_KEY);
+            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_EXPRESS_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_EXPRESS_2008_KEY);
+            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_STANDARD_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_STANDARD_2008_KEY);
+            DeprecatedNameSet.Add("WINDOWS_2008_SQL_SERVER_WEB_2008", ImageUtilities.WINDOWS_2008R2_SQL_SERVER_WEB_2008_KEY);
         }
 
         protected override void ProcessRecord()
@@ -191,13 +159,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
             if (cmdletContext.Names == null || cmdletContext.Names.Length == 0)
             {
+                IEnumerable<string> data;
+                if (!cmdletContext.ShowFilters)
+                    data = ImageUtilities.ImageKeys;
+                else
+                {
+                    var filters = new List<string>();
+                    foreach (var k in ImageUtilities.ImageKeys)
+                    {
+                        var descriptor = LookupDescriptorByKey(k);
+                        filters.Add(descriptor.NamePrefix);
+                    }
+
+                    data = filters;
+                }
+
                 output = new CmdletOutput
                 {
-                    PipelineOutput
-                        = KnownImages.Select(img => !cmdletContext.ShowFilters 
-                                                        ? img.DefinitionKey 
-                                                        : img.NamePrefix
-                                            ).ToList()
+                    PipelineOutput = data
                 };
             }
             else
@@ -208,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 {
                     // most preferable case - user gives us a service-pack/RTM designation-free 'logical' name,
                     // not affected by image deprecation
-                    var imageDescriptor = LookupUsingIndependentName(name);
+                    var imageDescriptor = LookupDescriptorByKey(name);
                     if (imageDescriptor != null)
                     {
                         patterns.Add(imageDescriptor.NamePrefix);
@@ -217,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
                     // if not an indepedent name, tell user they might want to update their script for
                     // better longevity
-                    imageDescriptor = LookupUsingVersionSpecificName(name);
+                    imageDescriptor = LookupDescriptorByName(name);
                     if (imageDescriptor != null)
                     {
                         var msg = string.Format("'{0}' may be deprecated at some future time.\r\nUse the version-independent replacement '{1}' to ensure your script always works.", 
@@ -233,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     // they might want to update their script
                     if (DeprecatedNameSet.ContainsKey(name))
                     {
-                        imageDescriptor = LookupUsingIndependentName(DeprecatedNameSet[name]);
+                        imageDescriptor = LookupDescriptorByKey(DeprecatedNameSet[name]);
                         var msg =
                             string.Format(
                                 "'{0}' has been deprecated.\r\nUsing '{1}' instead.\r\nUse the version-independent replacement '{2}' to ensure your script always works.",
@@ -297,16 +276,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             return output;
         }
 
-        static ImageUtilities.ImageDescriptor LookupUsingIndependentName(string name)
+        static ImageUtilities.ImageDescriptor LookupDescriptorByKey(string key)
         {
-            return KnownImages.FirstOrDefault(i => i.DefinitionKey.Equals(name, StringComparison.OrdinalIgnoreCase));
+            return ImageUtilities.DescriptorFromKey(key);
         }
 
-        static ImageUtilities.ImageDescriptor LookupUsingVersionSpecificName(string name)
+        static ImageUtilities.ImageDescriptor LookupDescriptorByName(string name)
         {
-            // check for null on name prefix in case we are working against an outdated
-            // set of stock amis (ie hosted file has not yet been pushed)
-            return KnownImages.FirstOrDefault(i => string.Equals(name, i.NamePrefix, StringComparison.OrdinalIgnoreCase));
+            var keys = ImageUtilities.ImageKeys;
+            foreach (var k in keys)
+            {
+                var descriptor = ImageUtilities.DescriptorFromKey(k);
+                if (descriptor.NamePrefix.Equals(name, StringComparison.OrdinalIgnoreCase))
+                    return descriptor;
+            }
+
+            return null;
         }
 
         public ExecutorContext CreateContext()
