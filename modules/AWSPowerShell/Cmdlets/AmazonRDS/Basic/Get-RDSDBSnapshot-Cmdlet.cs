@@ -75,8 +75,39 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The type of snapshots that will be returned. Values can be "automated" or "manual."
-        /// If not specified, the returned results will include all snapshots types. </para>
+        /// <para>True to include manual DB snapshots that are public and can be copied or restored
+        /// by any AWS account; otherwise false. The default is false.</para><para>An manual DB snapshot is shared as public by the <a>ModifyDBSnapshotAttribute</a>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludePublic { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>True to include shared manual DB snapshots from other AWS accounts that this AWS account
+        /// has been given permission to copy or restore; otherwise false. The default is false.</para><para>An AWS account is given permission to restore a manual DB snapshot from another AWS
+        /// account by the <a>ModifyDBSnapshotAttribute</a> API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludeShared { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The type of snapshots that will be returned. You can specify one of the following
+        /// values:</para><ul><li><code>automated</code> - Return all DB snapshots that have been automatically
+        /// taken by Amazon RDS for my AWS account.</li><li><code>manual</code> - Return all
+        /// DB snapshots that have been taken by my AWS account.</li><li><code>shared</code>
+        /// - Return all manual DB snapshots that have been shared to my AWS account.</li><li><code>public</code> - Return all DB snapshots that have been marked as public.</li></ul><para>If you do not specify a <code>SnapshotType</code>, then both automated and manual
+        /// snapshots are returned. You can include shared snapshots with these results by setting
+        /// the <code>IncludeShared</code> parameter to <code>true</code>. You can include public
+        /// snapshots with these results by setting the <code>IncludePublic</code> parameter to
+        /// <code>true</code>.</para><para>The <code>IncludeShared</code> and <code>IncludePublic</code> parameters do not apply
+        /// for <code>SnapshotType</code> values of <code>manual</code> or <code>automated</code>.
+        /// The <code>IncludePublic</code> paramter does not apply when <code>SnapshotType</code>
+        /// is set to <code>shared</code>. the <code>IncludeShared</code> parameter does not apply
+        /// when <code>SnapshotType</code> is set to <code>public</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -121,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
+            if (ParameterWasBound("IncludePublic"))
+                context.IncludePublic = this.IncludePublic;
+            if (ParameterWasBound("IncludeShared"))
+                context.IncludeShared = this.IncludeShared;
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
@@ -149,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.IncludePublic != null)
+            {
+                request.IncludePublic = cmdletContext.IncludePublic.Value;
+            }
+            if (cmdletContext.IncludeShared != null)
+            {
+                request.IncludeShared = cmdletContext.IncludeShared.Value;
             }
             if (cmdletContext.SnapshotType != null)
             {
@@ -244,6 +287,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBSnapshotIdentifier { get; set; }
             public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.Boolean? IncludePublic { get; set; }
+            public System.Boolean? IncludeShared { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
             public System.String SnapshotType { get; set; }

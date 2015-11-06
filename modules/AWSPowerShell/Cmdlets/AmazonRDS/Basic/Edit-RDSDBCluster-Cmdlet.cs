@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para>The number of days for which automated backups are retained. Setting this parameter
-        /// to a positive number enables backups. Setting this parameter to 0 disables automated
-        /// backups. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 0 to 35</li></ul>
+        /// <para>The number of days for which automated backups are retained. You must specify a minimum
+        /// value of 1. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 1 to 35</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

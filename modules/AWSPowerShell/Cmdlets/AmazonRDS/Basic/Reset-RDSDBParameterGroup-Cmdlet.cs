@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// arguments are optional. A maximum of 20 parameters can be modified in a single request.
         /// </para><para><b>MySQL</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
         /// value for both dynamic and static parameters, and changes are applied when DB instance
+        /// reboots.</para><para><b>MariaDB</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
+        /// value for both dynamic and static parameters, and changes are applied when DB instance
         /// reboots.</para><para><b>Oracle</b></para><para>Valid Values (for Apply method): <code>pending-reboot</code></para>
         /// </para>
         /// </summary>

@@ -45,6 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot
     /// action. The result is that you will replace the original DB instance with the DB instance
     /// created from the snapshot.
+    /// </para><para>
+    /// If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
+    /// must be the ARN of the shared DB snapshot.
     /// </para>
     /// </summary>
     [Cmdlet("Restore", "RDSDBInstanceFromDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -107,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The database name for the restored DB instance. </para><note><para>This parameter doesn't apply to the MySQL engine.</para></note>
+        /// <para> The database name for the restored DB instance. </para><note><para>This parameter doesn't apply to the MySQL or MariaDB engines.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The identifier for the DB snapshot to restore from. </para><para>Constraints:</para><ul><li>Must contain from 1 to 255 alphanumeric characters or hyphens</li><li>First
         /// character must be a letter</li><li>Cannot end with a hyphen or contain two consecutive
-        /// hyphens</li></ul>
+        /// hyphens</li></ul><para>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
+        /// must be the ARN of the shared DB snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -133,9 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>oracle-se1</code> | <code>oracle-se</code>
-        /// | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code> |
-        /// <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para>
+        /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
+        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

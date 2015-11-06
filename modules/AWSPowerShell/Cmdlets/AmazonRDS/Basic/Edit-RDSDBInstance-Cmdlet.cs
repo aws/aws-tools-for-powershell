@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// in an outage and the change is applied during the next maintenance window unless <code>ApplyImmediately</code>
         /// is set to <code>true</code> for this request. </para><para><b>MySQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
+        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>MariaDB</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
+        /// that are not at least 10% greater than the existing value are rounded up so that they
         /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>PostgreSQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
         /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>Oracle</b></para><para>Default: Uses existing setting</para><para>Valid Values: 10-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
@@ -234,8 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// except "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
-        /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL and Amazon Aurora), 8
-        /// to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).</para><note> Amazon RDS API actions never return the password, so this action provides
+        /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora),
+        /// 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL
+        /// Server).</para><note> Amazon RDS API actions never return the password, so this action provides
         /// a way to regain access to a primary instance user if the password is lost. This includes
         /// restoring privileges that might have been accidentally revoked. </note>
         /// </para>

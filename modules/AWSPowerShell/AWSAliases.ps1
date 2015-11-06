@@ -1893,6 +1893,8 @@ Set-Alias -Name Describe-OPSElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name OPS-DescribeElasticIps -Value Get-OPSElasticIps
 Set-Alias -Name Describe-OPSElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
 Set-Alias -Name OPS-DescribeElasticLoadBalancers -Value Get-OPSElasticLoadBalancers
+Set-Alias -Name Describe-RDSReservedDBInstances -Value Get-RDSReservedDBInstance
+Set-Alias -Name RDS-DescribeReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name Describe-RDSReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
 Set-Alias -Name RDS-DescribeReservedDBInstancesOfferings -Value Get-RDSReservedDBInstancesOfferings
 Set-Alias -Name Download-RDSDBLogFilePortion -Value Get-RDSDBLogFilePortion
@@ -1908,6 +1910,8 @@ Set-Alias -Name Modify-RDSDBInstance -Value Edit-RDSDBInstance
 Set-Alias -Name RDS-ModifyDBInstance -Value Edit-RDSDBInstance
 Set-Alias -Name Modify-RDSDBParameterGroup -Value Edit-RDSDBParameterGroup
 Set-Alias -Name RDS-ModifyDBParameterGroup -Value Edit-RDSDBParameterGroup
+Set-Alias -Name Modify-RDSDBSnapshotAttribute -Value Edit-RDSDBSnapshotAttribute
+Set-Alias -Name RDS-ModifyDBSnapshotAttribute -Value Edit-RDSDBSnapshotAttribute
 Set-Alias -Name Modify-RDSDBSubnetGroup -Value Edit-RDSDBSubnetGroup
 Set-Alias -Name RDS-ModifyDBSubnetGroup -Value Edit-RDSDBSubnetGroup
 Set-Alias -Name Modify-RDSEventSubscription -Value Edit-RDSEventSubscription
@@ -1952,6 +1956,8 @@ Set-Alias -Name Describe-RDSDBParameters -Value Get-RDSDBParameter
 Set-Alias -Name RDS-DescribeDBParameters -Value Get-RDSDBParameter
 Set-Alias -Name Describe-RDSDBSecurityGroups -Value Get-RDSDBSecurityGroup
 Set-Alias -Name RDS-DescribeDBSecurityGroups -Value Get-RDSDBSecurityGroup
+Set-Alias -Name Describe-RDSDBSnapshotAttributes -Value Get-RDSDBSnapshotAttributes
+Set-Alias -Name RDS-DescribeDBSnapshotAttributes -Value Get-RDSDBSnapshotAttributes
 Set-Alias -Name Describe-RDSDBSnapshots -Value Get-RDSDBSnapshot
 Set-Alias -Name RDS-DescribeDBSnapshots -Value Get-RDSDBSnapshot
 Set-Alias -Name Describe-RDSDBSubnetGroups -Value Get-RDSDBSubnetGroup
@@ -1974,8 +1980,6 @@ Set-Alias -Name Describe-RDSOrderableDBInstanceOptions -Value Get-RDSOrderableDB
 Set-Alias -Name RDS-DescribeOrderableDBInstanceOptions -Value Get-RDSOrderableDBInstanceOption
 Set-Alias -Name Describe-RDSPendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
 Set-Alias -Name RDS-DescribePendingMaintenanceActions -Value Get-RDSPendingMaintenanceActions
-Set-Alias -Name Describe-RDSReservedDBInstances -Value Get-RDSReservedDBInstance
-Set-Alias -Name RDS-DescribeReservedDBInstances -Value Get-RDSReservedDBInstance
 Set-Alias -Name RDS-AddSourceIdentifierToSubscription -Value Add-RDSSourceIdentifierToSubscription
 Set-Alias -Name RDS-AddTagsToResource -Value Add-RDSTagsToResource
 Set-Alias -Name RDS-ApplyPendingMaintenanceAction -Value Submit-RDSPendingMaintenanceAction

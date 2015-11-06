@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The amount of storage (in gigabytes) to be initially allocated for the database instance.
-        /// </para><para> Type: Integer</para><para><b>MySQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>PostgreSQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>Oracle</b></para><para> Constraints: Must be an integer from 10 to 6144.</para><para><b>SQL Server</b></para><para> Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise
+        /// </para><para> Type: Integer</para><para><b>MySQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>MariaDB</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>PostgreSQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>Oracle</b></para><para> Constraints: Must be an integer from 10 to 6144.</para><para><b>SQL Server</b></para><para> Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise
         /// Edition) or from 20 to 4096 (Express Edition and Web Edition)</para>
         /// </para>
         /// </summary>
@@ -132,6 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The meaning of this parameter differs according to the database engine you use.</para><para>Type: String</para><para><b>MySQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
         /// is not specified, no database is created in the DB instance. </para><para>Constraints:</para><ul><li>Must contain 1 to 64 alphanumeric characters</li><li>Cannot be a word reserved
+        /// by the specified database engine</li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// is not specified, no database is created in the DB instance. </para><para>Constraints:</para><ul><li>Must contain 1 to 64 alphanumeric characters</li><li>Cannot be a word reserved
         /// by the specified database engine</li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
         /// is not specified, the default "postgres" database is created in the DB instance. </para><para>Constraints:</para><ul><li>Must contain 1 to 63 alphanumeric characters</li><li>Must begin with a
         /// letter or an underscore. Subsequent characters can be letters, underscores, or digits
@@ -173,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The name of the database engine to be used for this instance. </para><para> Valid Values: <code>MySQL</code> | <code>oracle-se1</code> | <code>oracle-se</code>
-        /// | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code> |
-        /// <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para><para> Not every database engine is available for every AWS region. </para>
+        /// <para> The name of the database engine to be used for this instance. </para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
+        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para><para> Not every database engine is available for every AWS region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,7 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// us-west-2):</b><code> 5.5.40 | 5.5.40a</code></li><li><b>Version 5.5 (Available
         /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version
         /// 5.6 (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b |
-        /// 5.6.22 | 5.6.23</code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
+        /// 5.6.22 | 5.6.23</code></li></ul><para><b>MariaDB</b></para><ul><li><b>Version 10.0 (Available in all regions except AWS GovCloud (US) Region
+        /// (us-gov-west-1)):</b><code> 10.0.17 </code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
         /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
         /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Available in all regions):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 |
         /// 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4</code></li><li><b>Version
@@ -205,9 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// eu-central-1, us-west-1):</b><code> 12.1.0.1.v1 | 12.1.0.1.v2</code></li></ul><para><b>PostgreSQL</b></para><ul><li><b>Version 9.3 (Only available in the following regions: ap-northeast-1,
         /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
         /// 9.3.1 | 9.3.2</code></li><li><b>Version 9.3 (Available in all regions):</b><code>
-        /// 9.3.3 | 9.3.5 | 9.3.6</code></li><li><b>Version 9.4 (Available in all regions):</b><code> 9.4.1</code></li></ul><para><b>Microsoft SQL Server Enterprise Edition (sqlserver-ee)</b></para><ul><li><b>Version 10.50 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Only available
-        /// in the following regions: eu-central-1, us-west-1):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Express Edition (sqlserver-ex)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Standard Edition (sqlserver-se)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Web Edition (sqlserver-web)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul>
+        /// 9.3.3 | 9.3.5 | 9.3.6</code></li><li><b>Version 9.4 (Available in all regions):</b><code> 9.4.1</code></li></ul><para><b>Microsoft SQL Server Enterprise Edition (sqlserver-ee)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li></ul><para><b>Microsoft SQL Server Express Edition (sqlserver-ex)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li><li><b>Version 12.00 (Available in all regions):</b><code> 12.00.4422.0.v1</code></li></ul><para><b>Microsoft SQL Server Standard Edition (sqlserver-se)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li><li><b>Version 12.00 (Available in all regions):</b><code> 12.00.4422.0.v1</code></li></ul><para><b>Microsoft SQL Server Web Edition (sqlserver-web)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li><li><b>Version 12.00 (Available in all regions):</b><code> 12.00.4422.0.v1</code></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The name of master user for the client DB instance. </para><para><b>MySQL</b></para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>First character must be
-        /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para>Type: String</para><para><b>Oracle</b></para><para>Constraints:</para><ul><li>Must be 1 to 30 alphanumeric characters.</li><li>First character must be
+        /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para><b>MariaDB</b></para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>Cannot be a reserved word
+        /// for the chosen database engine.</li></ul><para>Type: String</para><para><b>Oracle</b></para><para>Constraints:</para><ul><li>Must be 1 to 30 alphanumeric characters.</li><li>First character must be
         /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para><b>SQL Server</b></para><para>Constraints:</para><ul><li>Must be 1 to 128 alphanumeric characters.</li><li>First character must
         /// be a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li>Must be 1 to 63 alphanumeric characters.</li><li>First character must be
         /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul>
@@ -260,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The password for the master database user. Can be any printable ASCII character except
-        /// "/", """, or "@". </para><para>Type: String</para><para><b>MySQL</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>Oracle</b></para><para> Constraints: Must contain from 8 to 30 characters. </para><para><b>SQL Server</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>PostgreSQL</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>Amazon Aurora</b></para><para> Constraints: Must contain from 8 to 41 characters. </para>
+        /// "/", """, or "@". </para><para>Type: String</para><para><b>MySQL</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>MariaDB</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>Oracle</b></para><para> Constraints: Must contain from 8 to 30 characters. </para><para><b>SQL Server</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>PostgreSQL</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>Amazon Aurora</b></para><para> Constraints: Must contain from 8 to 41 characters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -290,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The port number on which the database accepts connections. </para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
+        /// <para> The port number on which the database accepts connections. </para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
         /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
         /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para>
         /// </para>

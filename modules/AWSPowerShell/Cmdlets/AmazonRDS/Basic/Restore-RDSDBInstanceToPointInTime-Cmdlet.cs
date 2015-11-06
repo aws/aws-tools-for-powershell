@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The database name for the restored DB instance. </para><note><para>This parameter is not used for the MySQL engine.</para></note>
+        /// <para> The database name for the restored DB instance. </para><note><para>This parameter is not used for the MySQL or MariaDB engines.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -102,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>oracle-se1</code> | <code>oracle-se</code>
-        /// | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code> |
-        /// <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para>
+        /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
+        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

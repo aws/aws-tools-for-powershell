@@ -28,8 +28,14 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Copies the specified DBSnapshot. The source DBSnapshot must be in the "available"
-    /// state.
+    /// Copies the specified DBSnapshot. The source DB snapshot must be in the "available"
+    /// state. 
+    /// 
+    ///  
+    /// <para>
+    /// If you are copying from a shared manual DB snapshot, the <code>SourceDBSnapshotIdentifier</code>
+    /// must be the ARN of the shared DB snapshot.
+    /// </para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]
@@ -52,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
-        /// <para> The identifier for the source DB snapshot. </para><para>Constraints:</para><ul><li>Must specify a valid system snapshot in the "available" state.</li><li>If
+        /// <para> The identifier for the source DB snapshot. </para><para>If you are copying from a shared manual DB snapshot, this must be the ARN of the shared
+        /// DB snapshot.</para><para>Constraints:</para><ul><li>Must specify a valid system snapshot in the "available" state.</li><li>If
         /// the source snapshot is in the same region as the copy, specify a valid DB snapshot
         /// identifier.</li><li>If the source snapshot is in a different region than the copy,
         /// specify a valid DB snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
