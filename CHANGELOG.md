@@ -1,3 +1,7 @@
+### 3.1.26.0 (2015-11-07)
+  * AWS IoT
+    - Fixed an issue affecting New-IOTKeysAndCertificate, Update-IOTCertificate and others where 'signature mismatch' errors were being returned.
+
 ### 3.1.25.0 (2015-11-03)
   * AWS DeviceFarm
     - Added new cmdlets to support the AWS Device Farm APIs to manage projects, device pools, runs, and uploads.
