@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String StageName { get; set; }
         
         /// <summary>
+        /// <para>
+        /// <para>A map that defines the stage variables for the <a>Stage</a> resource that is associated
+        /// with the new deployment. Variable names can have alphabetic characters, and the values
+        /// must match [A-Za-z0-9-._~:/?#&amp;=,]+</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Variables")]
+        public System.Collections.Hashtable Variable { get; set; }
+        
+        /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
         /// be used with caution.
@@ -121,6 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.RestApiId = this.RestApiId;
             context.StageDescription = this.StageDescription;
             context.StageName = this.StageName;
+            if (this.Variable != null)
+            {
+                context.Variables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Variable.Keys)
+                {
+                    context.Variables.Add((String)hashKey, (String)(this.Variable[hashKey]));
+                }
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -157,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.StageName != null)
             {
                 request.StageName = cmdletContext.StageName;
+            }
+            if (cmdletContext.Variables != null)
+            {
+                request.Variables = cmdletContext.Variables;
             }
             
             CmdletOutput output;
@@ -199,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String RestApiId { get; set; }
             public System.String StageDescription { get; set; }
             public System.String StageName { get; set; }
+            public Dictionary<System.String, System.String> Variables { get; set; }
         }
         
     }

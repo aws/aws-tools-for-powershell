@@ -92,6 +92,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("StageVariables")]
+        public System.Collections.Hashtable StageVariable { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
         [Alias("Headers")]
         public System.Collections.Hashtable Header { get; set; }
         
@@ -120,6 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.PathWithQueryString = this.PathWithQueryString;
             context.ResourceId = this.ResourceId;
             context.RestApiId = this.RestApiId;
+            if (this.StageVariable != null)
+            {
+                context.StageVariables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.StageVariable.Keys)
+                {
+                    context.StageVariables.Add((String)hashKey, (String)(this.StageVariable[hashKey]));
+                }
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -160,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.RestApiId != null)
             {
                 request.RestApiId = cmdletContext.RestApiId;
+            }
+            if (cmdletContext.StageVariables != null)
+            {
+                request.StageVariables = cmdletContext.StageVariables;
             }
             
             CmdletOutput output;
@@ -203,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String PathWithQueryString { get; set; }
             public System.String ResourceId { get; set; }
             public System.String RestApiId { get; set; }
+            public Dictionary<System.String, System.String> StageVariables { get; set; }
         }
         
     }
