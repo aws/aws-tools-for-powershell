@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone for the subnet.</para><para>Default: Amazon EC2 selects one for you (recommended).</para>
+        /// <para>The Availability Zone for the subnet.</para><para>Default: AWS selects one for you. If you create more than one subnet in your VPC,
+        /// we may not necessarily select a different zone for each subnet. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// At the end of the duration period, Amazon EC2 marks the Spot instance for termination
         /// and provides a Spot instance termination notice, which gives the instance a two-minute
         /// warning before it terminates.</para><para>Note that you can't specify an Availability Zone group or a launch group if you specify
-        /// a required duration.</para>
+        /// a duration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
