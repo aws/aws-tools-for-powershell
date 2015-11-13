@@ -1,3 +1,7 @@
+### 3.1.28.0 (2015-11-13)
+  * Amazon RDS
+    - Updated the Edit-RDSDBInstance with a new parameter, -PubliclyAccessible, to support the new instance visibility service update. Also updated documentation on several cmdlets to note support for the new M4 instance types.
+
 ### 3.1.27.0 (2015-11-10)
   * Amazon API Gateway
     - Added suppport for stage variables to the New-AGDeployment, New-AGStage and Test-AGInvokeMethod cmdlets with a new parameter, -Variable, (of Hashtable type). Stage variables act like environment variables for use in your API setup and mapping templates and enable configuration of different deployment stages (e.g., alpha, beta, production) of your API.
