@@ -1,3 +1,6 @@
+### 3.1.29.0 (2015-11-19)
+  * This version contained updates to the underlying AWS SDK for .NET components and was only distributed in the downloadable AWS Tools for Windows msi installer.
+
 ### 3.1.28.0 (2015-11-13)
   * Amazon RDS
     - Updated the Edit-RDSDBInstance with a new parameter, -PubliclyAccessible, to support the new instance visibility service update. Also updated documentation on several cmdlets to note support for the new M4 instance types.
