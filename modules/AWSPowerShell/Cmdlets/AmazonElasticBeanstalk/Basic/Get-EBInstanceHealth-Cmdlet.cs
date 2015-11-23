@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>Specifies the response elements you wish to receive. If no attribute names are specified,
-        /// AWS Elastic Beanstalk returns all response elements.</para>
+        /// AWS Elastic Beanstalk only returns a list of instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

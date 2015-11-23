@@ -60,13 +60,19 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
+        /// <para>Terminates the target environment even if another environment in the same group is
+        /// dependent on it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ForceTerminate { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> Indicates whether the associated AWS resources should shut down when the environment
-        /// is terminated: </para><enumValues><value name="true"><para><code>true</code>: (default) The user AWS resources (for example, the Auto Scaling
-        /// group, LoadBalancer, etc.) are terminated along with the environment. </para></value><value name="false"><para><code>false</code>: The environment is removed from the AWS Elastic Beanstalk but
-        /// the AWS resources continue to operate. </para></value></enumValues><ul><li><code>true</code>: The specified environment as
-        /// well as the associated AWS resources, such as Auto Scaling group and LoadBalancer,
-        /// are terminated. </li><li><code>false</code>: AWS Elastic Beanstalk resource management
-        /// is removed from the environment, but the AWS resources continue to operate. </li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
+        /// is terminated: </para><ul><li><code>true</code>: The specified environment as well as the associated
+        /// AWS resources, such as Auto Scaling group and LoadBalancer, are terminated. </li><li><code>false</code>: AWS Elastic Beanstalk resource management is removed from
+        /// the environment, but the AWS resources continue to operate. </li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
         /// AWS Elastic Beanstalk User Guide. </a></para><para> Default: <code>true</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
@@ -101,6 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
+            if (ParameterWasBound("ForceTerminate"))
+                context.ForceTerminate = this.ForceTerminate;
             if (ParameterWasBound("TerminateResource"))
                 context.TerminateResources = this.TerminateResource;
             
@@ -123,6 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.EnvironmentName != null)
             {
                 request.EnvironmentName = cmdletContext.EnvironmentName;
+            }
+            if (cmdletContext.ForceTerminate != null)
+            {
+                request.ForceTerminate = cmdletContext.ForceTerminate.Value;
             }
             if (cmdletContext.TerminateResources != null)
             {
@@ -165,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             public System.String EnvironmentId { get; set; }
             public System.String EnvironmentName { get; set; }
+            public System.Boolean? ForceTerminate { get; set; }
             public System.Boolean? TerminateResources { get; set; }
         }
         

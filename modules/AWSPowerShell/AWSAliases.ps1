@@ -201,6 +201,8 @@ Set-Alias -Name Describe-ASATrustedAdvisorCheckSummaries -Value Get-ASATrustedAd
 Set-Alias -Name ASA-DescribeTrustedAdvisorCheckSummaries -Value Get-ASATrustedAdvisorCheckSummaries
 Set-Alias -Name ASA-RefreshTrustedAdvisorCheck -Value Request-ASATrustedAdvisorCheckRefresh
 Set-Alias -Name ASA-ResolveCase -Value Resolve-ASACase
+Set-Alias -Name Swap-EBEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
+Set-Alias -Name EB-SwapEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
 Set-Alias -Name Terminate-EBEnvironment -Value Stop-EBEnvironment
 Set-Alias -Name EB-TerminateEnvironment -Value Stop-EBEnvironment
 Set-Alias -Name EB-UpdateApplication -Value Update-EBApplication
@@ -212,6 +214,8 @@ Set-Alias -Name EB-ValidateConfigurationSettings -Value Test-EBConfigurationSett
 Set-Alias -Name EB-AbortEnvironmentUpdate -Value Stop-EBEnvironmentUpdate
 Set-Alias -Name Check-EBDNSAvailability -Value Get-EBDNSAvailability
 Set-Alias -Name EB-CheckDNSAvailability -Value Get-EBDNSAvailability
+Set-Alias -Name Group-EBEnvironments -Value Group-EBEnvironment
+Set-Alias -Name EB-ComposeEnvironments -Value Group-EBEnvironment
 Set-Alias -Name Create-EBApplication -Value New-EBApplication
 Set-Alias -Name EB-CreateApplication -Value New-EBApplication
 Set-Alias -Name Create-EBApplicationVersion -Value New-EBApplicationVersion
@@ -255,8 +259,6 @@ Set-Alias -Name EB-RequestEnvironmentInfo -Value Request-EBEnvironmentInfo
 Set-Alias -Name EB-RestartAppServer -Value Restart-EBAppServer
 Set-Alias -Name Retrieve-EBEnvironmentInfo -Value Get-EBEnvironmentInfo
 Set-Alias -Name EB-RetrieveEnvironmentInfo -Value Get-EBEnvironmentInfo
-Set-Alias -Name Swap-EBEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
-Set-Alias -Name EB-SwapEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
 Set-Alias -Name Cancel-CFNUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name CFN-CancelUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name Create-CFNStack -Value New-CFNStack

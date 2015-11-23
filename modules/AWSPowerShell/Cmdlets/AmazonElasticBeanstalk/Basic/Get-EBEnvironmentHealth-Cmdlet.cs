@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>Specifies the response elements you wish to receive. If no attribute names are specified,
-        /// AWS Elastic Beanstalk returns all response elements.</para>
+        /// AWS Elastic Beanstalk only returns the name of the environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Elastic Beanstalk environment ID.</para>
+        /// <para>Specifies the AWS Elastic Beanstalk environment ID.</para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
+        /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
+        /// error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para>Specifies the AWS Elastic Beanstalk environment name.</para>
+        /// <para>Specifies the AWS Elastic Beanstalk environment name.</para><para>Condition: You must specify either this or an EnvironmentId, or both. If you do not
+        /// specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
+        /// error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

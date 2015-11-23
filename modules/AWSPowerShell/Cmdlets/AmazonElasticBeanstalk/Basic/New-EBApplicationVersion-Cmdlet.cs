@@ -56,12 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para> Determines how the system behaves if the specified application for this version does
-        /// not already exist: </para><enumValues><value name="true"><para><code>true</code>: Automatically creates the specified application for this version
-        /// if it does not already exist. </para></value><value name="false"><para><code>false</code>: Returns an <code>InvalidParameterValue</code> if the specified
-        /// application for this version does not already exist. </para></value></enumValues><ul><li><code>true</code> : Automatically creates the specified
-        /// application for this release if it does not already exist. </li><li><code>false</code>
-        /// : Throws an <code>InvalidParameterValue</code> if the specified application for this
-        /// release does not already exist. </li></ul><para> Default: <code>false</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
+        /// not already exist: </para><ul><li><code>true</code> : Automatically creates the specified application for
+        /// this release if it does not already exist. </li><li><code>false</code> : Throws
+        /// an <code>InvalidParameterValue</code> if the specified application for this release
+        /// does not already exist. </li></ul><para> Default: <code>false</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Preprocesses and validates the environment manifest and configuration files in the
+        /// source bundle. Validating configuration files can identify issues prior to deploying
+        /// the application version to an environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Process { get; set; }
         
         /// <summary>
         /// <para>
@@ -130,6 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (ParameterWasBound("AutoCreateApplication"))
                 context.AutoCreateApplication = this.AutoCreateApplication;
             context.Description = this.Description;
+            if (ParameterWasBound("Process"))
+                context.Process = this.Process;
             context.SourceBundle_S3Bucket = this.SourceBundle_S3Bucket;
             context.SourceBundle_S3Key = this.SourceBundle_S3Key;
             context.VersionLabel = this.VersionLabel;
@@ -157,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Process != null)
+            {
+                request.Process = cmdletContext.Process.Value;
             }
             
              // populate SourceBundle
@@ -229,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String ApplicationName { get; set; }
             public System.Boolean? AutoCreateApplication { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? Process { get; set; }
             public System.String SourceBundle_S3Bucket { get; set; }
             public System.String SourceBundle_S3Key { get; set; }
             public System.String VersionLabel { get; set; }

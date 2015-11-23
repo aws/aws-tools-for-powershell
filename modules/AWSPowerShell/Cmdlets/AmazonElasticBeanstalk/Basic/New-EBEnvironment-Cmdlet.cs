@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
+        /// <para>The name of the group to which the target environment belongs. Specify a group name
+        /// only if the environment's name is specified in an environment manifest and not with
+        /// the environment name parameter. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml">Environment
+        /// Manifest (env.yaml)</a> for details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The name of this environment tier.</para>
         /// </para>
         /// </summary>
@@ -156,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para> This is an alternative to specifying a configuration name. If specified, AWS Elastic
-        /// Beanstalk sets the configuration values to the default values associated with the
-        /// specified solution stack. </para><para> Condition: You must specify either this or a <code>TemplateName</code>, but not both.
+        /// <para> This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
+        /// sets the configuration values to the default values associated with the specified
+        /// solution stack. </para><para> Condition: You must specify either this or a <code>TemplateName</code>, but not both.
         /// If you specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code>
         /// error. If you do not specify either, AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code>
         /// error. </para>
@@ -196,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.CNAMEPrefix = this.CNAMEPrefix;
             context.Description = this.Description;
             context.EnvironmentName = this.EnvironmentName;
+            context.GroupName = this.GroupName;
             if (this.OptionSetting != null)
             {
                 context.OptionSettings = new List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting>(this.OptionSetting);
@@ -242,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.EnvironmentName != null)
             {
                 request.EnvironmentName = cmdletContext.EnvironmentName;
+            }
+            if (cmdletContext.GroupName != null)
+            {
+                request.GroupName = cmdletContext.GroupName;
             }
             if (cmdletContext.OptionSettings != null)
             {
@@ -345,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String CNAMEPrefix { get; set; }
             public System.String Description { get; set; }
             public System.String EnvironmentName { get; set; }
+            public System.String GroupName { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> OptionsToRemove { get; set; }
             public System.String SolutionStackName { get; set; }

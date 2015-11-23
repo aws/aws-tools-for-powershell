@@ -53,8 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.EB
     {
         /// <summary>
         /// <para>
-        /// <para> If this parameter is specified, AWS Elastic Beanstalk updates the description of
-        /// this environment. </para>
+        /// <para>The name of the application with which the environment is associated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ApplicationName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>If this parameter is specified, AWS Elastic Beanstalk updates the description of this
+        /// environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
@@ -63,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The ID of the environment to update.</para><para> If no environment with this ID exists, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
-        /// error. </para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
+        /// error. </para><para>Condition: You must specify either this or an EnvironmentName, or both. If you do
         /// not specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>
@@ -74,13 +82,24 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <summary>
         /// <para>
         /// <para>The name of the environment to update. If no environment with this name exists, AWS
-        /// Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
+        /// Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>Condition: You must specify either this or an EnvironmentId, or both. If you do not
         /// specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
         /// error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The name of the group to which the target environment belongs. Specify a group name
+        /// only if the environment's name is specified in an environment manifest and not with
+        /// the environment name or environment ID parameters. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml">Environment
+        /// Manifest (env.yaml)</a> for details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GroupName { get; set; }
         
         /// <summary>
         /// <para>
@@ -92,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk updates the configuration set associated with
+        /// <para>If specified, AWS Elastic Beanstalk updates the configuration set associated with
         /// the running environment and sets the specified configuration options to the requested
         /// value. </para>
         /// </para>
@@ -103,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para> A list of custom user-defined configuration options to remove from the configuration
+        /// <para>A list of custom user-defined configuration options to remove from the configuration
         /// set for this environment. </para>
         /// </para>
         /// </summary>
@@ -112,9 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para> If this parameter is specified, AWS Elastic Beanstalk deploys this configuration
-        /// template to the environment. If no such configuration template is found, AWS Elastic
-        /// Beanstalk returns an <code>InvalidParameterValue</code> error. </para>
+        /// <para>If this parameter is specified, AWS Elastic Beanstalk deploys this configuration template
+        /// to the environment. If no such configuration template is found, AWS Elastic Beanstalk
+        /// returns an <code>InvalidParameterValue</code> error. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -138,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para> If this parameter is specified, AWS Elastic Beanstalk deploys the named application
+        /// <para>If this parameter is specified, AWS Elastic Beanstalk deploys the named application
         /// version to the environment. If no such application version is found, returns an <code>InvalidParameterValue</code>
         /// error. </para>
         /// </para>
@@ -148,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para> This specifies the platform version that the environment will run after the environment
+        /// <para>This specifies the platform version that the environment will run after the environment
         /// is updated. </para>
         /// </para>
         /// </summary>
@@ -180,9 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 Credentials = this.CurrentCredentials
             };
             
+            context.ApplicationName = this.ApplicationName;
             context.Description = this.Description;
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
+            context.GroupName = this.GroupName;
             if (this.OptionSetting != null)
             {
                 context.OptionSettings = new List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting>(this.OptionSetting);
@@ -210,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             // create request
             var request = new Amazon.ElasticBeanstalk.Model.UpdateEnvironmentRequest();
             
+            if (cmdletContext.ApplicationName != null)
+            {
+                request.ApplicationName = cmdletContext.ApplicationName;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -221,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.EnvironmentName != null)
             {
                 request.EnvironmentName = cmdletContext.EnvironmentName;
+            }
+            if (cmdletContext.GroupName != null)
+            {
+                request.GroupName = cmdletContext.GroupName;
             }
             if (cmdletContext.OptionSettings != null)
             {
@@ -316,9 +345,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ApplicationName { get; set; }
             public System.String Description { get; set; }
             public System.String EnvironmentId { get; set; }
             public System.String EnvironmentName { get; set; }
+            public System.String GroupName { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> OptionsToRemove { get; set; }
             public System.String SolutionStackName { get; set; }

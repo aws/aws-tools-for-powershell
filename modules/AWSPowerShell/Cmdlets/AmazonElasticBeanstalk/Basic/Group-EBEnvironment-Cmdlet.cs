@@ -28,22 +28,25 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Retrieve a list of application versions stored in your AWS Elastic Beanstalk storage
-    /// bucket.
+    /// Create or update a group of environments that each run a separate component of a single
+    /// application. Takes a list of version labels that specify application source bundles
+    /// for each of the environments to create or update. The name of each environment and
+    /// other required information must be included in the source bundles in an environment
+    /// manifest named <code>env.yaml</code>. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html">Compose
+    /// Environments</a> for details.
     /// </summary>
-    [Cmdlet("Get", "EBApplicationVersion")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
-    [AWSCmdlet("Invokes the DescribeApplicationVersions operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeApplicationVersions"})]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription",
-        "This cmdlet returns a collection of ApplicationVersionDescription objects.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Group", "EBEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticBeanstalk.Model.EnvironmentDescription")]
+    [AWSCmdlet("Invokes the ComposeEnvironments operation against AWS Elastic Beanstalk.", Operation = new[] {"ComposeEnvironments"})]
+    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentDescription",
+        "This cmdlet returns a collection of EnvironmentDescription objects.",
+        "The service call response (type Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public class GroupEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
-        /// ones that are associated with the specified application.</para>
+        /// <para>The name of the application to which the specified source bundles belong.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -51,18 +54,45 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         /// <summary>
         /// <para>
-        /// <para>If specified, restricts the returned descriptions to only include ones that have the
-        /// specified version labels.</para>
+        /// <para>The name of the group to which the target environments belong. Specify a group name
+        /// only if the environment name defined in each target environment's manifest ends with
+        /// a + (plus) character. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html#environment-mgmt-compose-envyaml">Environment
+        /// Manifest (env.yaml)</a> for details.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter]
+        public System.String GroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>A list of version labels, specifying one or more application source bundles that belong
+        /// to the target application. Each source bundle must include an environment manifest
+        /// that specifies the name of the environment and the name of the solution stack to use,
+        /// and optionally can specify environment links to create.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VersionLabels")]
         public System.String[] VersionLabel { get; set; }
+        
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Group-EBEnvironment (ComposeEnvironments)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -71,6 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             };
             
             context.ApplicationName = this.ApplicationName;
+            context.GroupName = this.GroupName;
             if (this.VersionLabel != null)
             {
                 context.VersionLabels = new List<System.String>(this.VersionLabel);
@@ -86,11 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.GroupName != null)
+            {
+                request.GroupName = cmdletContext.GroupName;
             }
             if (cmdletContext.VersionLabels != null)
             {
@@ -103,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeApplicationVersions(request);
+                var response = client.ComposeEnvironments(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ApplicationVersions;
+                object pipelineOutput = response.Environments;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -132,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
+            public System.String GroupName { get; set; }
             public List<System.String> VersionLabels { get; set; }
         }
         
