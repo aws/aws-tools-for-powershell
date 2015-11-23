@@ -30,14 +30,33 @@ using System.IO;
 namespace Amazon.PowerShell.Common
 {
     /// <summary>
-    /// Sets AWS default credentials and region for the shell if previously persisted. If not previously persisted,
-    /// requests the data from the interactive user. Persisted credentials are given the display/access name 'AWS PS Default'.
-    /// On exit, the defaults can be found in the $StoredAWSCredentials and $StoredAWSRegion shell variables.
+    /// <para>
+    /// Creates or updates the credential profile named 'default' and sets the profile active, plus a region, as active
+    /// in the current shell. The credential data to be stored in the 'default' profile can be provided from
+    /// <ul>
+    /// <li>Supplied access and secret key parameters</li>
+    /// <li>A pre-existing profile</li>
+    /// <li>A credentials object</li>
+    /// <li>Active credentials in the current shell (in the variable $StoredAWSCredentials)</li>
+    /// <li>EC2 role metadata (for instances launched with instance profiles)</li>
+    /// </ul>
+    /// A default region to assume when the default profile is active is also set using the -Region parameter or 
+    /// from a default region already set in the current shell. If a region setting cannot be determined from
+    /// a parameter or the shell you are prompted to select one.
+    /// </para>
+    /// <para>
+    /// In all cases a profile named 'default' will be created or updated to contain the specified credential and
+    /// region data. Note that if the credential source is another profile this cmdlet effectively copies the 
+    /// credential data from the source profile to the 'default' profile.
+    /// </para>
+    /// <para>
+    /// When the cmdlet exits the active credentials can be accessed in the shell via a variable named $StoredAWSCredentials. 
+    /// The active region can be found in the variable $StoredAWSRegion.
+    /// </para>
     /// </summary>
     [Cmdlet("Initialize", "AWSDefaults")]
-    [AWSCmdlet("Sets AWS default credentials and region for the shell if previously persisted. If not previously persisted, requests the data "
-                + "from the interactive user. Persisted credentials are given the display/access name 'AWS PS Default'. On exit, the defaults "
-                + "can be found in the $StoredAWSCredentials and $StoredAWSRegion shell variables.")]
+    [AWSCmdlet("Creates or updates the credential profile named 'default' using supplied keys, existing credentials or profile,"
+                + " or EC2 metadata. The profile and a default region is then set active in the current shell.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class InitializeDefaultsCmdlet : PSCmdlet, IDynamicParameters
