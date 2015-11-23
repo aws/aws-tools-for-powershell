@@ -28,49 +28,43 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels the specified Reserved instance listing in the Reserved Instance Marketplace.
+    /// <b>Important: This command is reserved for future use, and is currently not available
+    /// for you to use.</b><para>
+    /// Describes the ID format settings for your resources, for example, to view which resource
+    /// types are enabled for longer IDs. This request only returns information about resource
+    /// types whose ID formats can be modified; it does not return information about other
+    /// resource types. 
+    /// </para><para>
+    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>.
     /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
-    /// Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para><para>
+    /// These settings apply to the IAM user who makes the request; they do not apply to the
+    /// entire AWS account. By default, an IAM user defaults to the same settings as the root
+    /// user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a>
+    /// command. These settings are applied on a per-region basis.
     /// </para>
     /// </summary>
-    [Cmdlet("Stop", "EC2ReservedInstancesListing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ReservedInstancesListing")]
-    [AWSCmdlet("Invokes the CancelReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelReservedInstancesListing"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
-        "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type Amazon.EC2.Model.CancelReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2IdFormat")]
+    [OutputType("Amazon.EC2.Model.IdFormat")]
+    [AWSCmdlet("Invokes the DescribeIdFormat operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeIdFormat"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.IdFormat",
+        "This cmdlet returns a collection of IdFormat objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeIdFormatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class GetEC2IdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the Reserved instance listing.</para>
+        /// <para>The type of resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReservedInstancesListingId { get; set; }
-        
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Resource { get; set; }
         
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedInstancesListingId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EC2ReservedInstancesListing (CancelReservedInstancesListing)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -78,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.ReservedInstancesListingId = this.ReservedInstancesListingId;
+            context.Resource = this.Resource;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -90,11 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CancelReservedInstancesListingRequest();
+            var request = new Amazon.EC2.Model.DescribeIdFormatRequest();
             
-            if (cmdletContext.ReservedInstancesListingId != null)
+            if (cmdletContext.Resource != null)
             {
-                request.ReservedInstancesListingId = cmdletContext.ReservedInstancesListingId;
+                request.Resource = cmdletContext.Resource;
             }
             
             CmdletOutput output;
@@ -103,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelReservedInstancesListing(request);
+                var response = client.DescribeIdFormat(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedInstancesListings;
+                object pipelineOutput = response.Statuses;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -131,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ReservedInstancesListingId { get; set; }
+            public System.String Resource { get; set; }
         }
         
     }

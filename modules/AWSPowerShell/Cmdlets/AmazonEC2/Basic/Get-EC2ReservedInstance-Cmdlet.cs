@@ -28,11 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of the Reserved Instances that you purchased.
+    /// Describes one or more of the Reserved instances that you purchased.
     /// 
     ///  
     /// <para>
-    /// For more information about Reserved Instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
+    /// For more information about Reserved instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
     /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -47,11 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     {
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved Instance
-        /// can be used.</para></li><li><para><code>duration</code> - The duration of the Reserved Instance (one year or three years),
-        /// in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
-        /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type on which the Reserved Instance can
-        /// be used.</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
+        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved instance
+        /// can be used.</para></li><li><para><code>duration</code> - The duration of the Reserved instance (one year or three years),
+        /// in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>end</code> - The time when the Reserved instance expires (for example, 2015-08-07T11:54:42.000Z).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved instance (for example,
+        /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type on which the Reserved instance can
+        /// be used.</para></li><li><para><code>product-description</code> - The Reserved instance product platform description.
         /// Instances that include <code>(Amazon VPC)</code> in the product platform description
         /// will only be displayed to EC2-Classic account holders and are for use with Amazon
         /// VPC. (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// (Amazon VPC)</code> | <code>Windows with SQL Server Standard</code> | <code>Windows
         /// with SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code>
         /// | <code>Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL Server
-        /// Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instance.</para></li><li><para><code>start</code> - The time at which the Reserved Instance purchase request was
-        /// placed (for example, 2014-08-07T11:54:42.000Z).</para></li><li><para><code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
+        /// Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved instance.</para></li><li><para><code>start</code> - The time at which the Reserved instance purchase request was
+        /// placed (for example, 2014-08-07T11:54:42.000Z).</para></li><li><para><code>state</code> - The state of the Reserved instance (<code>payment-pending</code>
         /// | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent
         /// of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose"
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// (regardless of what the tag's value is), and the tag value X (regardless of what the
         /// tag's key is). If you want to list only resources where Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i>
         /// filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
-        /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
+        /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved instance, per hour (for
         /// example, 0.84).</para></li></ul>
         /// </para>
         /// </summary>
@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
+        /// <para>The Reserved instance offering type. If you are using tools that predate the 2011-11-01
         /// API version, you only have access to the <code>Medium Utilization</code> Reserved
-        /// Instance offering type. </para>
+        /// instance offering type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>One or more Reserved Instance IDs.</para><para>Default: Describes all your Reserved Instances, or only those otherwise specified.</para>
+        /// <para>One or more Reserved instance IDs.</para><para>Default: Describes all your Reserved instances, or only those otherwise specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

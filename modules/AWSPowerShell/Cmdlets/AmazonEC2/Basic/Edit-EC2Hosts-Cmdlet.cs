@@ -28,30 +28,38 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels the specified Reserved instance listing in the Reserved Instance Marketplace.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
-    /// Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para>
+    /// Modify the auto-placement setting of a Dedicated host. When auto-placement is enabled,
+    /// AWS will place instances that you launch with a tenancy of <code>host</code>, but
+    /// without targeting a specific host ID, onto any available Dedicated host in your account
+    /// which has auto-placement enabled. When auto-placement is disabled, you need to provide
+    /// a host ID if you want the instance to launch onto a specific host. If no host ID is
+    /// provided, the instance will be launched onto a suitable host which has auto-placement
+    /// enabled.
     /// </summary>
-    [Cmdlet("Stop", "EC2ReservedInstancesListing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ReservedInstancesListing")]
-    [AWSCmdlet("Invokes the CancelReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelReservedInstancesListing"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
-        "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type Amazon.EC2.Model.CancelReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "EC2Hosts", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.ModifyHostsResponse")]
+    [AWSCmdlet("Invokes the ModifyHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyHosts"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.ModifyHostsResponse",
+        "This cmdlet returns a Amazon.EC2.Model.ModifyHostsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class EditEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the Reserved instance listing.</para>
+        /// <para>Specify whether to enable or disable auto-placement.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReservedInstancesListingId { get; set; }
+        [System.Management.Automation.Parameter(Position = 1)]
+        public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The host IDs of the Dedicated hosts you want to modify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("HostIds")]
+        public System.String[] HostId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -66,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedInstancesListingId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EC2ReservedInstancesListing (CancelReservedInstancesListing)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HostId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2Hosts (ModifyHosts)"))
             {
                 return;
             }
@@ -78,7 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.ReservedInstancesListingId = this.ReservedInstancesListingId;
+            context.AutoPlacement = this.AutoPlacement;
+            if (this.HostId != null)
+            {
+                context.HostIds = new List<System.String>(this.HostId);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -90,11 +102,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CancelReservedInstancesListingRequest();
+            var request = new Amazon.EC2.Model.ModifyHostsRequest();
             
-            if (cmdletContext.ReservedInstancesListingId != null)
+            if (cmdletContext.AutoPlacement != null)
             {
-                request.ReservedInstancesListingId = cmdletContext.ReservedInstancesListingId;
+                request.AutoPlacement = cmdletContext.AutoPlacement;
+            }
+            if (cmdletContext.HostIds != null)
+            {
+                request.HostIds = cmdletContext.HostIds;
             }
             
             CmdletOutput output;
@@ -103,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelReservedInstancesListing(request);
+                var response = client.ModifyHosts(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedInstancesListings;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -131,7 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ReservedInstancesListingId { get; set; }
+            public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
+            public List<System.String> HostIds { get; set; }
         }
         
     }

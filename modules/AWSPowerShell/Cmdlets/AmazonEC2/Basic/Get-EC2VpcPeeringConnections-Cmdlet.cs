@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The CIDR block of the peer VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the peer
-        /// VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the peer VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The CIDR block of the requester's VPC.</para></li><li><para><code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the
+        /// VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the peer VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The CIDR block of the requester's
+        /// VPC.</para></li><li><para><code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the
         /// requester VPC.</para></li><li><para><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</para></li><li><para><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code>
         /// | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code>
         /// | <code>deleted</code> | <code>rejected</code>).</para></li><li><para><code>status-message</code> - A message that provides more information about the status

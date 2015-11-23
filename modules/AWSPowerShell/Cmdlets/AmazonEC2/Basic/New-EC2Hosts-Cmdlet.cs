@@ -28,31 +28,41 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the Availability Zone, instance count, instance type, or network platform
-    /// (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
-    /// modified must be identical, except for Availability Zone, network platform, and instance
-    /// type.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
-    /// Reserved Instances</a> in the Amazon Elastic Compute Cloud User Guide.
-    /// </para>
+    /// Allocates a Dedicated host to your account. At minimum you need to specify the instance
+    /// size type, Availability Zone, and quantity of hosts you want to allocate.
     /// </summary>
-    [Cmdlet("Edit", "EC2ReservedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "EC2Hosts", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ModifyReservedInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyReservedInstances"})]
+    [AWSCmdlet("Invokes the AllocateHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AllocateHosts"})]
     [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.EC2.Model.ModifyReservedInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.EC2.Model.AllocateHostsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class NewEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive token you provide to ensure idempotency of your modification
-        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
+        /// <para>This is enabled by default. This property allows instances to be automatically placed
+        /// onto available Dedicated hosts, when you are launching instances without specifying
+        /// a host ID.</para><para>Default: Enabled</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone for the Dedicated hosts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZone { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,21 +70,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Reserved instances to modify.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ReservedInstancesIds")]
-        public System.String[] ReservedInstancesId { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>The configuration settings for the Reserved instances to modify.</para>
+        /// <para>Specify the instance type that you want your Dedicated hosts to be configured for.
+        /// When you specify the instance type, that is the only instance type that you can launch
+        /// onto that host.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetConfigurations")]
-        public Amazon.EC2.Model.ReservedInstancesConfiguration[] TargetConfiguration { get; set; }
+        public System.String InstanceType { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The number of Dedicated hosts you want to allocate to your account with these parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Quantity { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -89,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedInstancesId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2ReservedInstance (ModifyReservedInstances)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("InstanceType", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2Hosts (AllocateHosts)"))
             {
                 return;
             }
@@ -101,15 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
+            context.AutoPlacement = this.AutoPlacement;
+            context.AvailabilityZone = this.AvailabilityZone;
             context.ClientToken = this.ClientToken;
-            if (this.ReservedInstancesId != null)
-            {
-                context.ReservedInstancesIds = new List<System.String>(this.ReservedInstancesId);
-            }
-            if (this.TargetConfiguration != null)
-            {
-                context.TargetConfigurations = new List<Amazon.EC2.Model.ReservedInstancesConfiguration>(this.TargetConfiguration);
-            }
+            context.InstanceType = this.InstanceType;
+            if (ParameterWasBound("Quantity"))
+                context.Quantity = this.Quantity;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -121,19 +128,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifyReservedInstancesRequest();
+            var request = new Amazon.EC2.Model.AllocateHostsRequest();
             
+            if (cmdletContext.AutoPlacement != null)
+            {
+                request.AutoPlacement = cmdletContext.AutoPlacement;
+            }
+            if (cmdletContext.AvailabilityZone != null)
+            {
+                request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.ReservedInstancesIds != null)
+            if (cmdletContext.InstanceType != null)
             {
-                request.ReservedInstancesIds = cmdletContext.ReservedInstancesIds;
+                request.InstanceType = cmdletContext.InstanceType;
             }
-            if (cmdletContext.TargetConfigurations != null)
+            if (cmdletContext.Quantity != null)
             {
-                request.TargetConfigurations = cmdletContext.TargetConfigurations;
+                request.Quantity = cmdletContext.Quantity.Value;
             }
             
             CmdletOutput output;
@@ -142,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ModifyReservedInstances(request);
+                var response = client.AllocateHosts(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedInstancesModificationId;
+                object pipelineOutput = response.HostIds;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -170,9 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
+            public System.String AvailabilityZone { get; set; }
             public System.String ClientToken { get; set; }
-            public List<System.String> ReservedInstancesIds { get; set; }
-            public List<Amazon.EC2.Model.ReservedInstancesConfiguration> TargetConfigurations { get; set; }
+            public System.String InstanceType { get; set; }
+            public System.Int32? Quantity { get; set; }
         }
         
     }

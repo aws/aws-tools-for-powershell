@@ -28,50 +28,50 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPC with the specified CIDR block.
-    /// 
-    ///  
-    /// <para>
-    /// The smallest VPC you can create uses a /28 netmask (16 IP addresses), and the largest
-    /// uses a /16 netmask (65,536 IP addresses). To help you decide how big to make your
-    /// VPC, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your
-    /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// <b>Important: This command is reserved for future use, and is currently not available
+    /// for you to use.</b><para>
+    /// Modifies the ID format for the specified resource. You can specify that resources
+    /// should receive longer IDs (17-character IDs) when they are created. The following
+    /// resource types support longer IDs: <code>instance</code> | <code>reservation</code>.
     /// </para><para>
-    /// By default, each instance you launch in the VPC has the default DHCP options, which
-    /// includes only a default DNS server that we provide (AmazonProvidedDNS). For more information
-    /// about DHCP options, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
-    /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// This setting applies to the IAM user who makes the request; it does not apply to the
+    /// entire AWS account. By default, an IAM user defaults to the same settings as the root
+    /// user, unless they explicitly override the settings by running this request. These
+    /// settings are applied on a per-region basis.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "EC2Vpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.Vpc")]
-    [AWSCmdlet("Invokes the CreateVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpc"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.Vpc",
-        "This cmdlet returns a Vpc object.",
-        "The service call response (type Amazon.EC2.Model.CreateVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "EC2IdFormat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the ModifyIdFormat operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyIdFormat"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Resource parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.EC2.Model.ModifyIdFormatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewEC2VpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class EditEC2IdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The network range for the VPC, in CIDR notation. For example, <code>10.0.0.0/16</code>.</para>
+        /// <para>The type of resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String CidrBlock { get; set; }
+        public System.String Resource { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The supported tenancy options for instances launched into the VPC. A value of <code>default</code>
-        /// means that instances can be launched with any tenancy; a value of <code>dedicated</code>
-        /// means all instances launched into the VPC are launched as dedicated tenancy instances
-        /// regardless of the tenancy assigned to the instance at launch. Dedicated tenancy instances
-        /// run on single-tenant hardware.</para><para><b>Important:</b> The <code>host</code> value cannot be used with this parameter.
-        /// Use the <code>default</code> or <code>dedicated</code> values only.</para><para>Default: <code>default</code></para>
+        /// <para>Indicate whether the resource should use longer IDs (17-character IDs).</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("UseLongIds")]
+        public System.Boolean UseLongId { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the Resource parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CidrBlock", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2Vpc (CreateVpc)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UseLongId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2IdFormat (ModifyIdFormat)"))
             {
                 return;
             }
@@ -98,8 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.CidrBlock = this.CidrBlock;
-            context.InstanceTenancy = this.InstanceTenancy;
+            context.Resource = this.Resource;
+            if (ParameterWasBound("UseLongId"))
+                context.UseLongIds = this.UseLongId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -111,15 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CreateVpcRequest();
+            var request = new Amazon.EC2.Model.ModifyIdFormatRequest();
             
-            if (cmdletContext.CidrBlock != null)
+            if (cmdletContext.Resource != null)
             {
-                request.CidrBlock = cmdletContext.CidrBlock;
+                request.Resource = cmdletContext.Resource;
             }
-            if (cmdletContext.InstanceTenancy != null)
+            if (cmdletContext.UseLongIds != null)
             {
-                request.InstanceTenancy = cmdletContext.InstanceTenancy;
+                request.UseLongIds = cmdletContext.UseLongIds.Value;
             }
             
             CmdletOutput output;
@@ -128,9 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateVpc(request);
+                var response = client.ModifyIdFormat(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Vpc;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.Resource;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -156,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CidrBlock { get; set; }
-            public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
+            public System.String Resource { get; set; }
+            public System.Boolean? UseLongIds { get; set; }
         }
         
     }

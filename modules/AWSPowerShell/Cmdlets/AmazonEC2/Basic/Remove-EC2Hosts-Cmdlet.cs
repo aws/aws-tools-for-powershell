@@ -28,30 +28,36 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels the specified Reserved instance listing in the Reserved Instance Marketplace.
+    /// When you no longer want to use a Dedicated host it can be released. On-Demand billing
+    /// is stopped and the host goes into "released" state. The host ID of Dedicated hosts
+    /// that have been released can no longer be specified in another request, e.g., ModifyHosts.
+    /// You must stop or terminate all instances on a host before it can be released.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
-    /// Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// When Dedicated hosts are released, it make take some time for them to stop counting
+    /// toward your limit and you may receive capacity errors when trying to allocate new
+    /// Dedicated hosts. Try waiting a few minutes, and then try again. 
+    /// </para><para>
+    /// Released hosts will still appear in a DescribeHosts response.
     /// </para>
     /// </summary>
-    [Cmdlet("Stop", "EC2ReservedInstancesListing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ReservedInstancesListing")]
-    [AWSCmdlet("Invokes the CancelReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelReservedInstancesListing"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
-        "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type Amazon.EC2.Model.CancelReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EC2Hosts", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EC2.Model.ReleaseHostsResponse")]
+    [AWSCmdlet("Invokes the ReleaseHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReleaseHosts"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.ReleaseHostsResponse",
+        "This cmdlet returns a Amazon.EC2.Model.ReleaseHostsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class RemoveEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the Reserved instance listing.</para>
+        /// <para>The IDs of the Dedicated hosts you want to release.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReservedInstancesListingId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("HostIds")]
+        public System.String[] HostId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -66,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedInstancesListingId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EC2ReservedInstancesListing (CancelReservedInstancesListing)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HostId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2Hosts (ReleaseHosts)"))
             {
                 return;
             }
@@ -78,7 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.ReservedInstancesListingId = this.ReservedInstancesListingId;
+            if (this.HostId != null)
+            {
+                context.HostIds = new List<System.String>(this.HostId);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -90,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CancelReservedInstancesListingRequest();
+            var request = new Amazon.EC2.Model.ReleaseHostsRequest();
             
-            if (cmdletContext.ReservedInstancesListingId != null)
+            if (cmdletContext.HostIds != null)
             {
-                request.ReservedInstancesListingId = cmdletContext.ReservedInstancesListingId;
+                request.HostIds = cmdletContext.HostIds;
             }
             
             CmdletOutput output;
@@ -103,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelReservedInstancesListing(request);
+                var response = client.ReleaseHosts(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedInstancesListings;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -131,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ReservedInstancesListingId { get; set; }
+            public List<System.String> HostIds { get; set; }
         }
         
     }

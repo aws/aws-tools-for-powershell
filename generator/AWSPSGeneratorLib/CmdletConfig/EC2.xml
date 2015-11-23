@@ -327,6 +327,14 @@
     <ServiceOperation MethodName="DetachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId"/>
     <ServiceOperation MethodName="DisableVpcClassicLink" />
     <ServiceOperation MethodName="EnableVpcClassicLink" />
+    
+    <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType"/>
+    <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="ModifyHosts" Output="Response" PipelineParameter="HostIds" PositionalParameters="AutoPlacement" />
+    <ServiceOperation MethodName="ModifyInstancePlacement"/>
+    <ServiceOperation MethodName="ReleaseHosts" Output="Response"/>
+    <ServiceOperation MethodName="DescribeIdFormat"/>
+    <ServiceOperation MethodName="ModifyIdFormat" Output="Void" PipelineParameter="Resource"/>
 
   </ServiceOperations>
 
