@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         /// <summary>
         /// <para>
+        /// <para>An optional message specified when a task is stopped. For example, if you are using
+        /// a custom scheduler, you can use this parameter to specify the reason for stopping
+        /// the task here, and the message will appear in subsequent <a>DescribeTasks</a> API
+        /// operations on this task. Up to 255 characters are allowed in this message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Reason { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The task ID or full Amazon Resource Name (ARN) entry of the task to stop.</para>
         /// </para>
         /// </summary>
@@ -91,6 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             };
             
             context.Cluster = this.Cluster;
+            context.Reason = this.Reason;
             context.Task = this.Task;
             
             var output = Execute(context) as CmdletOutput;
@@ -108,6 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
+            }
+            if (cmdletContext.Reason != null)
+            {
+                request.Reason = cmdletContext.Reason;
             }
             if (cmdletContext.Task != null)
             {
@@ -149,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal class CmdletContext : ExecutorContext
         {
             public System.String Cluster { get; set; }
+            public System.String Reason { get; set; }
             public System.String Task { get; set; }
         }
         

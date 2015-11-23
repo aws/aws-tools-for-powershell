@@ -51,7 +51,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// and a 30-second timeout, after which <code>SIGKILL</code> is sent and the containers
     /// are forcibly stopped. If the container handles the <code>SIGTERM</code> gracefully
     /// and exits within 30 seconds from receiving it, no <code>SIGKILL</code> is sent.
-    /// </para>
+    /// </para><para>
+    /// When the service scheduler launches new tasks, it attempts to balance them across
+    /// the Availability Zones in your cluster with the following logic:
+    /// </para><ul><li><para>
+    /// Determine which of the container instances in your cluster can support your service's
+    /// task definition (for example, they have the required CPU, memory, ports, and container
+    /// instance attributes).
+    /// </para></li><li><para>
+    /// Sort the valid container instances by the fewest number of running tasks for this
+    /// service in the same Availability Zone as the instance. For example, if zone A has
+    /// one running service task and zones B and C each have zero, valid container instances
+    /// in either zone B or C are considered optimal for placement.
+    /// </para></li><li><para>
+    /// Place the new service task on a valid container instance in an optimal Availability
+    /// Zone (based on the previous steps), favoring container instances with the fewest number
+    /// of running tasks for this service.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Service")]
