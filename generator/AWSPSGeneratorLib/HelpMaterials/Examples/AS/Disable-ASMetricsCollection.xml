@@ -1,17 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Disable-ASMetricsCollection -AutoScalingGroupName my-test-asg</code>
-    <description>Disables monitoring of all metrics for the group named 'my-test-asg'.</description>
+    <code>PS C:\> Disable-ASMetricsCollection -AutoScalingGroupName my-asg -Metric @("GroupMinSize", "GroupMaxSize")</code>
+    <description>This example disables monitoring of the specified metrics for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>
-PS C:\>$grouparn = "arn:aws:autoscaling:us-east-1:123456789012:autoScalingGroup:5d1ee7f3-f0f6-42bd-851e-0513f88c56b0:autoScalingGroupName/my-test-asg"    
-PS C:\>Disable-ASMetricsCollection -AutoScalingGroupName $grouparn</code>
-    <description>Disables monitoring of all metrics for the group identified by the specified ARN.</description>
-  </example>
-  <example>
-    <code>Disable-ASMetricsCollection -AutoScalingGroupName my-test-asg -Metric @("GroupMinSize", "GroupMaxSize")</code>
-    <description>Disables monitoring of the metrics 'GroupMinSize' and 'GroupMaxSize' for the group named 'my-test-asg'.</description>
+    <code>PS C:\> Disable-ASMetricsCollection -AutoScalingGroupName my-asg</code>
+    <description>This example disables monitoring of all metrics for the specified Auto Scaling group.</description>
   </example>
 </examples>

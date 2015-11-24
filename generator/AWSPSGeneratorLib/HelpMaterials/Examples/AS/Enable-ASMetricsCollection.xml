@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Enable-ASMetricsCollection -AutoScalingGroupName my-test-asg -Granularity 1Minute</code>
-    <description>Enables monitoring of all metrics for the group named 'my-test-asg'.</description>
+    <code>PS C:\> Enable-ASMetricsCollection  -Metric @("GroupMinSize", "GroupMaxSize") -AutoScalingGroupName my-asg -Granularity 1Minute</code>
+    <description>This example enables monitoring of the specified metrics for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>Enable-ASMetricsCollection -AutoScalingGroupName "arn:aws:autoscaling:us-east-1:123456789012:autoScalingGroup:5d1ee7f3-f0f6-42bd-851e-0513f88c56b0:autoScalingGroupName/my-test-asg" -Granularity 1Minute</code>
-    <description>Enables monitoring of all metrics for the group identified by the ARN 'arn:aws:autoscaling:us-east-1:123456789012:autoScalingGroup:5d1ee7f3-f0f6-42bd-851e-0513f88c56b0:autoScalingGroupName/my-test-asg'.</description>
-  </example>
-  <example>
-    <code>Enable-ASMetricsCollection -AutoScalingGroupName my-test-asg -Granularity 1Minute -Metric @("GroupMinSize", "GroupMaxSize")</code>
-    <description>Enables monitoring of the metrics 'GroupMinSize' and 'GroupMaxSize' for the group named 'my-test-asg'.</description>
+    <code>PS C:\> Enable-ASMetricsCollection -AutoScalingGroupName my-asg -Granularity 1Minute</code>
+    <description>This example enables monitoring of all metrics for the specified Auto Scaling group.</description>
   </example>
 </examples>

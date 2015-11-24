@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-ASLifecycleHookTypes
+    
+autoscaling:EC2_INSTANCE_LAUNCHING
+autoscaling:EC2_INSTANCE_TERMINATING</code>
+    <description>This example lists the lifecycle hook types supported by Auto Scaling.</description>
+  </example>
+</examples>

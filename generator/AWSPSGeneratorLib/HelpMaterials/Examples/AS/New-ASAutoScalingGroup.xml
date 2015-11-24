@@ -1,11 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>New-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -LaunchConfigurationName my-launch-cfg -MinSize 2 -MaxSize 4 -AvailabilityZone @("us-west-2a", "us-west-2b")</code>
-    <description>Creates a new Auto Scaling group with the specified name and other attributes.</description>
-  </example>
-  <example>
-    <code>New-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -LaunchConfigurationName my-launch-cfg -MinSize 2 -MaxSize 4 -AvailabilityZone @("us-west-2a", "us-west-2b") -Tag @( @{ Key="Key1"; Value="value1" }, @{ Key="Key2"; Value="value2" })</code>
-    <description>Creates a new Auto Scaling group with the specified name and other attributes.</description>
+    <code>PS C:\> New-ASAutoScalingGroup -AutoScalingGroupName my-asg -LaunchConfigurationName my-lc -MinSize 2 -MaxSize 6 -AvailabilityZone @("us-west-2a", "us-west-2b")</code>
+    <description>This example creates an Auto Scaling group with the specified name and attributes. The default desired capacity is the minimum size. Therefore, this Auto Scaling group launches two instances, one in each of the specified two Availability Zones.</description>
   </example>
 </examples>

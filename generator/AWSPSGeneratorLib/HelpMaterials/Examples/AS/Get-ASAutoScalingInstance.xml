@@ -1,29 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Get-ASAutoScalingInstance</code>
-    <description>Returns details of all Auto Scaling instances, up to a maximum of 50.</description>
+    <code>PS C:\> Get-ASAutoScalingInstance | format-table -property InstanceId
+    
+InstanceId
+----------
+i-12345678
+i-87654321
+i-abcd1234</code>
+    <description>This example lists the IDs of your Auto Scaling instances.</description>
   </example>
   <example>
-    <code>Get-ASAutoScalingInstance -InstanceId i-123456</code>
-    <description>Returns details of the Auto Scaling instance with id 'i-123456'.</description>
+    <code>PS C:\> Get-ASAutoScalingInstance -InstanceId i-12345678
+    
+AutoScalingGroupName    : my-asg
+AvailabilityZone        : us-west-2b
+HealthStatus            : HEALTHY
+InstanceId              : i-12345678
+LaunchConfigurationName : my-lc
+LifecycleState          : InService</code>
+    <description>This example describes the specified Auto Scaling instance.</description>
   </example>
   <example>
-    <code>Get-ASAutoScalingInstance -InstanceId @("i-123456", "i-654321")</code>
-    <description>Returns details of the Auto Scaling instances with ids 'i-123456' and 'i-654321'. Up to 50 instance ids may be supplied.</description>
+    <code>PS C:\> Get-ASAutoScalingInstance -InstanceId @("i-12345678", "i-87654321")</code>
+    <description>This example describes the specified two Auto Scaling instances.</description>
   </example>
   <example>
-    <code>Get-ASAutoScalingInstance -MaxRecord 5</code>
-    <description>Returns details of the first 5 Auto Scaling instances.</description>
+    <code>PS C:\> (Get-ASAutoScalingGroup -AutoScalingGroupName my-asg).Instances | Get-ASAutoScalingInstance</code>
+    <description>This example describes the Auto Scaling instances for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>
-$nextToken = $null
+    <code>PS C:\> Get-ASAutoScalingInstance</code>
+    <description>This example describes all your Auto Scaling instances.</description>
+  </example>
+  <example>
+    <code>$nextToken = $null
 do {
   Get-ASAutoScalingInstance -NextToken $nextToken -MaxRecord 10
   $nextToken = $AWSHistory.LastServiceResponse.NextToken
-} while ($nextToken -ne $null)
-    </code>
-    <description>Returns Auto Scaling instances (up to a maximum of 50 in total) using manual paging. The instance details are retrieved in batches of 10.</description>
+} while ($nextToken -ne $null)</code>
+    <description>This example describes all your Auto Scaling instances, in batches of 10.</description>
   </example>
 </examples>

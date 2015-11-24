@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>Remove-ASPolicy -AutoScalingGroupName my-test-asg `
-                -PolicyName "arn:aws:autoscaling:us-east-1:803981987763:scalingPolicy:b0dcf5e8-02e6-4e31-9719-0675d0dc31ae:autoScalingGroupName/my-test-asg:policyName/my-scaleout-policy"
-    </code>
-    <description>Deletes the specified policy for the Auto Scaling group named 'my-test-asg'. You are prompted for confirmation before the operation proceeds.</description>
+    <code>PS C:\>Remove-ASPolicy -AutoScalingGroupName my-asg -PolicyName myScaleInPolicy
+
+Confirm
+Are you sure you want to perform this action?
+Performing operation "Remove-ASPolicy (DeletePolicy)" on Target "myScaleInPolicy".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</code>
+    <description>This example deletes the specified policy for the specified Auto Scaling group. You are prompted for confirmation before the operation proceeds.</description>
   </example>
   <example>
-    <code>
-PS C:\>Remove-ASPolicy -AutoScalingGroupName my-test-asg `
-                -PolicyName "arn:aws:autoscaling:us-east-1:803981987763:scalingPolicy:b0dcf5e8-02e6-4e31-9719-0675d0dc31ae:autoScalingGroupName/my-test-asg:policyName/my-scaleout-policy" `
-                -Force
+    <code>PS C:\>Remove-ASPolicy -AutoScalingGroupName my-asg -PolicyName myScaleInPolicy -Force
     </code>
-    <description>Deletes the specified policy for the Auto Scaling group named 'my-test-asg'. You are not prompted for confirmation before the operation proceeds.</description>
+    <description>If you specify the Force parameter, you are not prompted for confirmation before the operation proceeds.</description>
   </example>
 </examples>

@@ -1,29 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Get-ASAutoScalingGroup</code>
-    <description>Returns details of all Auto Scaling groups.</description>
+    <code>PS C:\> Get-ASAutoScalingGroup | format-table -property AutoScalingGroupName
+
+AutoScalingGroupName
+--------------------
+my-asg-1
+my-asg-2
+my-asg-3
+my-asg-4
+my-asg-5
+my-asg-6</code>
+    <description>This example lists the names of your Auto Scaling groups.</description>
   </example>
   <example>
-    <code>Get-ASAutoScalingGroup -AutoScalingGroupName my-test-asg</code>
-    <description>Returns details of the Auto Scaling group named 'my-test-asg'.</description>
+    <code>PS C:\> Get-ASAutoScalingGroup -AutoScalingGroupName my-asg-1
+    
+AutoScalingGroupARN     : arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480
+                          f03:autoScalingGroupName/my-asg-1
+AutoScalingGroupName    : my-asg-1
+AvailabilityZones       : {us-west-2b, us-west-2a}
+CreatedTime             : 3/1/2015 9:05:31 AM
+DefaultCooldown         : 300
+DesiredCapacity         : 2
+EnabledMetrics          : {}
+HealthCheckGracePeriod  : 300
+HealthCheckType         : EC2
+Instances               : {my-lc}
+LaunchConfigurationName : my-lc
+LoadBalancerNames       : {}
+MaxSize                 : 0
+MinSize                 : 0
+PlacementGroup          :
+Status                  :
+SuspendedProcesses      : {}
+Tags                    : {}
+TerminationPolicies     : {Default}
+VPCZoneIdentifier       : subnet-e4f33493,subnet-5264e837</code>
+    <description>This example describes the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>Get-ASAutoScalingGroup -AutoScalingGroupName @("my-test-asg", "my-test-asg2")</code>
-    <description>Returns details of the Auto Scaling groups named 'my-test-asg' and 'my-test-asg2'.</description>
+    <code>PS C:\> Get-ASAutoScalingGroup -AutoScalingGroupName @("my-asg-1", "my-asg-2")</code>
+    <description>This example describes the specified two Auto Scaling groups.</description>
   </example>
   <example>
-    <code>Get-ASAutoScalingGroup -MaxRecord 5</code>
-    <description>Returns details of the first 5 Auto Scaling groups.</description>
+    <code>PS C:\> (Get-ASAutoScalingGroup -AutoScalingGroupName my-asg-1).Instances</code>
+    <description>This example describes the Auto Scaling instances for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>
-$nextToken = $null
+    <code>PS C:\> Get-ASAutoScalingGroup</code>
+    <description>This example describes all your Auto Scaling groups.</description>
+  </example>
+  <example>
+    <code>$nextToken = $null
 do {
   Get-ASAutoScalingGroup -NextToken $nextToken -MaxRecord 10
   $nextToken = $AWSHistory.LastServiceResponse.NextToken
-} while ($nextToken -ne $null)
-    </code>
-    <description>Returns all Auto Scaling groups using manual paging. The group details are retrieved in batches of 10.</description>
+} while ($nextToken -ne $null)</code>
+    <description>This example describes all your Auto Scaling groups, in batches of 10.</description>
   </example>
 </examples>

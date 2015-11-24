@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Add-ASLoadBalancer -LoadBalancerName my-lb -AutoScalingGroupName my-asg</code>
+	<description>This example attaches the specified load balancer to the specified Auto Scaling group.</description>
+  </example>
+</examples>
