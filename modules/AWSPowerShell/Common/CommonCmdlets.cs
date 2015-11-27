@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Common
 {
     /// <summary>
     /// <para>
-    /// Creates or updates the credential profile named 'default' and sets the profile active, plus a region, as active
-    /// in the current shell. The credential data to be stored in the 'default' profile can be provided from
+    /// Creates or updates the credential profile named 'default' and sets the profile, and optionally a region, 
+    /// as active in the current shell. The credential data to be stored in the 'default' profile can be provided 
+    /// from:
     /// <ul>
     /// <li>Supplied access and secret key parameters</li>
     /// <li>A pre-existing profile</li>
