@@ -406,7 +406,7 @@ namespace Amazon.PowerShell.Common
                 else
                 {
                     AWSPSCredentials awsPSCredentials;
-                    if (!commonArguments.TryGetCredentials(out awsPSCredentials))
+                    if (!commonArguments.TryGetCredentials(Host, out awsPSCredentials))
                         ThrowExecutionError("No credentials specified or obtained from persisted/shell defaults.", this);
 
                     CurrentCredentials = awsPSCredentials.Credentials;

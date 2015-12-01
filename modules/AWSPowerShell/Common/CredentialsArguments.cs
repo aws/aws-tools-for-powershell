@@ -21,11 +21,16 @@ using System.Linq;
 using System.Management.Automation;
 using System.Runtime.InteropServices;
 using System.Security;
-
-using Amazon.Runtime.Internal.Settings;
-using Amazon.Runtime;
+using System.Net;
+using System.Security.Authentication;
+using System.IO;
 using System.Text;
+using System.Management.Automation.Host;
+
+using Amazon.Runtime;
+using Amazon.Runtime.Internal.Settings;
 using Amazon.PowerShell.Utils;
+using Amazon.SecurityToken.SAML;
 using Amazon.Util;
 
 namespace Amazon.PowerShell.Common
@@ -40,12 +45,16 @@ namespace Amazon.PowerShell.Common
     internal interface IAWSCredentialsArguments
     {
         SessionState SessionState { get; }
+
+        string ProfileName { get; }
+        string ProfilesLocation { get; }
+
         string AccessKey { get; }
         string SecretKey { get; }
         string SessionToken { get; }
-        string ProfileName { get; }
-        string ProfilesLocation { get; }
         AWSCredentials Credential { get; }
+
+        PSCredential NetworkCredential { get; }
     }
 
     /// <summary>
@@ -78,31 +87,43 @@ namespace Amazon.PowerShell.Common
         private AWSPSCredentials() { }
     }
 
-    internal static class IAWSCredentialsArgumentsMethods
+    /// <summary>
+    /// Performs a search amongst a chain of credential parameters and provider methods to
+    /// arrive at at set of AWS credentials.
+    /// </summary>
+    internal static class ICredentialsArgumentsMethods
     {
-        public static bool TryGetCredentials(this IAWSCredentialsArguments self, out AWSPSCredentials credentials)
+        public static bool TryGetCredentials(this IAWSCredentialsArguments self, PSHost psHost, out AWSPSCredentials credentials)
         {
             if (self == null) throw new ArgumentNullException("self");
 
             credentials = null;
-
             AWSCredentials innerCredentials = null;
             string name = null;
-            CredentialsSource source = CredentialsSource.Unknown;
-            bool explicitStoredLookup = !string.IsNullOrEmpty(self.ProfileName) || !string.IsNullOrEmpty(self.ProfilesLocation);
+            var source = CredentialsSource.Unknown;
+            var userSpecifiedProfile = !string.IsNullOrEmpty(self.ProfileName) || !string.IsNullOrEmpty(self.ProfilesLocation);
 
             if (!string.IsNullOrEmpty(self.AccessKey) && !string.IsNullOrEmpty(self.SecretKey))
             {
                 innerCredentials = string.IsNullOrEmpty(self.SessionToken) ?
-                    new BasicAWSCredentials(self.AccessKey, self.SecretKey) as AWSCredentials :
+                    new BasicAWSCredentials(self.AccessKey, self.SecretKey) :
                     new SessionAWSCredentials(self.AccessKey, self.SecretKey, self.SessionToken) as AWSCredentials;
                 source = CredentialsSource.Strings;
                 name = "Supplied Key Parameters";
             }
 
-            // if profile or profile location explicitly specified, try lookup now
-            if (innerCredentials == null && explicitStoredLookup)
-                TryLoadStored(self, explicitStoredLookup, ref innerCredentials, ref name, ref source);
+            // if profile or profile location explicitly specified, try lookup now - could be an AWS or a SAML
+            // profile
+            if (innerCredentials == null && userSpecifiedProfile)
+            {
+                if (!ProfileManager.IsProfileKnown(self.ProfileName))
+                    throw new ArgumentException(string.Format("A profile with name {0} has not been registered.", self.ProfileName));
+
+                if (AWSCredentialsProfile.CanCreateFrom(self.ProfileName))
+                    LoadAWSCredentialProfile(self, userSpecifiedProfile, ref innerCredentials, ref name, ref source);
+                else if (SAMLRoleProfile.CanCreateFrom(self.ProfileName))
+                    LoadSAMLRoleProfile(self, userSpecifiedProfile, ref innerCredentials, ref name, ref source);
+            }
 
             if (innerCredentials == null && self.Credential != null)
             {
@@ -113,18 +134,23 @@ namespace Amazon.PowerShell.Common
 
             if (innerCredentials == null && self.SessionState != null)
             {
-                object variableValue = self.SessionState.PSVariable.GetValue(SessionKeys.AWSCredentialsVariableName);
+                var variableValue = self.SessionState.PSVariable.GetValue(SessionKeys.AWSCredentialsVariableName);
                 if (variableValue is AWSPSCredentials)
                 {
                     credentials = variableValue as AWSPSCredentials;
-                    innerCredentials = credentials.Credentials; // so remaining probes are skipped
                     source = CredentialsSource.Session;
+                    innerCredentials = credentials.Credentials; // so remaining probes are skipped
                 }
             }
 
             // if profile or profile location not specified, try lookup for defaults now
-            if (innerCredentials == null && !explicitStoredLookup)
-                TryLoadStored(self, explicitStoredLookup, ref innerCredentials, ref name, ref source);
+            if (innerCredentials == null && !userSpecifiedProfile && ProfileManager.IsProfileKnown(SettingsStore.PSDefaultSettingName))
+            {
+                if (AWSCredentialsProfile.CanCreateFrom(SettingsStore.PSDefaultSettingName))
+                    LoadAWSCredentialProfile(self, false, ref innerCredentials, ref name, ref source);
+                else if (SAMLRoleProfile.CanCreateFrom(SettingsStore.PSDefaultSettingName))
+                    LoadSAMLRoleProfile(self, false, ref innerCredentials, ref name, ref source);
+            }
 
             // load credentials from legacy settings store
             if (innerCredentials == null)
@@ -159,25 +185,63 @@ namespace Amazon.PowerShell.Common
                 credentials = new AWSPSCredentials(innerCredentials, name, source);
             }
 
+            if (credentials != null)
+            {
+                // if we have picked up a SAML-based credentials profile, make sure the callback
+                // to authenticate the user (if a non-default identity is configured in the profile)
+                // is set. We have no need of the callback, or state management, for role profiles that
+                // are configured to use default identity.
+                var samlCredentials = credentials.Credentials as StoredProfileSAMLCredentials;
+                if (samlCredentials != null && !samlCredentials.ProfileData.UseDefaultUserIdentity)
+                {
+                    if (samlCredentials.RequestUserCredentialCallback == null)
+                    {
+                        var state = new SAMLCredentialCallbackState
+                        {
+                            Host = psHost,
+                            CmdletNetworkCredentialParameter = self.NetworkCredential
+                        };
+
+                        samlCredentials.CustomCallbackState = state;
+                        samlCredentials.RequestUserCredentialCallback = UserCredentialCallbackHandler;
+                    }
+                    else
+                    {
+                        var callbackState = samlCredentials.CustomCallbackState as SAMLCredentialCallbackState;
+                        if (callbackState != null) // is our callback that's attached
+                            callbackState.CmdletNetworkCredentialParameter = self.NetworkCredential;
+                    }
+                }
+            }
+
             return (credentials != null); // && source != CredentialsSource.Unknown);
         }
 
-        private static void TryLoadStored(IAWSCredentialsArguments self, bool explicitStoredLookup, ref AWSCredentials innerCredentials, ref string name, ref CredentialsSource source)
+        private static void LoadAWSCredentialProfile(IAWSCredentialsArguments self,
+                                                     bool userSpecifiedProfile, 
+                                                     ref AWSCredentials innerCredentials, 
+                                                     ref string name, 
+                                                     ref CredentialsSource source)
         {
+            var profileName = userSpecifiedProfile ? self.ProfileName : SettingsStore.PSDefaultSettingName;
             try
             {
-                var storedCredentials = new StoredProfileAWSCredentials(self.ProfileName, self.ProfilesLocation);
+                var storedCredentials = new StoredProfileAWSCredentials(profileName, self.ProfilesLocation);
                 innerCredentials = storedCredentials.ToKeyedCredentials();
                 source = CredentialsSource.Saved;
-                name = string.IsNullOrEmpty(self.ProfileName) ? SettingsStore.PSDefaultSettingName : self.ProfileName;
+                name = profileName;
+            }
+            catch (InvalidCredentialException)
+            {
+                throw;
             }
             catch (Exception e)
             {
-                if (explicitStoredLookup)
+                if (userSpecifiedProfile)
                 {
-                    string message = "Error loading stored credentials";
-                    if (!string.IsNullOrEmpty(self.ProfileName))
-                        message += " from profile '" + self.ProfileName + "'";
+                    var message = "Error loading stored credentials";
+                    if (!string.IsNullOrEmpty(profileName))
+                        message += " from profile '" + profileName + "'";
                     if (!string.IsNullOrEmpty(self.ProfilesLocation))
                         message += ", (profile location = '" + self.ProfilesLocation + "')";
                     message += ".\r\nError: " + e.Message;
@@ -186,6 +250,94 @@ namespace Amazon.PowerShell.Common
                 }
             }
         }
+
+        public static void LoadSAMLRoleProfile(IAWSCredentialsArguments self,
+                                               bool userSpecifiedProfile,
+                                               ref AWSCredentials innerCredentials,
+                                               ref string name,
+                                               ref CredentialsSource source)
+        {
+            var profileName = userSpecifiedProfile ? self.ProfileName : SettingsStore.PSDefaultSettingName;
+            try
+            {
+                var storedCredentials = new StoredProfileSAMLCredentials(profileName, self.ProfilesLocation);
+                innerCredentials = storedCredentials;
+                source = CredentialsSource.Saved;
+                name = profileName;
+            }
+            catch (Exception e)  // bad data of some form, or profile not found
+            {
+                if (userSpecifiedProfile)
+                {
+                    var message = "Unable to load stored role details in ";
+                    if (!string.IsNullOrEmpty(profileName))
+                        message += "profile = [" + profileName + "], ";
+                    if (!string.IsNullOrEmpty(self.ProfilesLocation))
+                        message += "profile location = [" + self.ProfilesLocation + "]";
+                    throw new ArgumentException(message, e);
+                }
+            }
+        }
+
+        private static NetworkCredential UserCredentialCallbackHandler(CredentialCallbackArgs args)
+        {
+            var callbackContext = args.CustomState as SAMLCredentialCallbackState;
+            if (callbackContext == null) // not our callback, so don't attempt to handle
+                return null;
+
+            // if we are not retrying due to auth failure, did the user pre-supply a credential
+            // via the -NetworkCredential parameter to either the cmdlet or Set-AWSCredentials?
+            PSCredential psCredential = null;
+            string msgPrompt = null;
+            if (!args.PreviousAuthenticationFailed)
+            {
+                if (callbackContext.CmdletNetworkCredentialParameter != null)
+                {
+                    psCredential = callbackContext.CmdletNetworkCredentialParameter;
+                    callbackContext.CmdletNetworkCredentialParameter = null; // the cmdlet override is single use
+                }
+                else if (callbackContext.ShellNetworkCredentialParameter != null)
+                    psCredential = callbackContext.ShellNetworkCredentialParameter;
+                else
+                    msgPrompt = string.Format("Enter the password to obtain or refresh temporary credentials for user '{0}'.", args.UserIdentity);
+            }
+            else
+                msgPrompt = string.Format("Authentication failed. Enter the password for '{0}' to try again.", args.UserIdentity);
+
+            if (psCredential == null)
+                psCredential = callbackContext.Host.UI.PromptForCredential("Password Required", msgPrompt, args.UserIdentity, "");
+
+            return psCredential != null ? psCredential.GetNetworkCredential() : null;
+        }
+    }
+
+    /// <summary>
+    /// Captures the PSHost and executing cmdlet state for use in our credential callback
+    /// handler.
+    /// </summary>
+    internal class SAMLCredentialCallbackState
+    {
+        /// <summary>
+        /// The execution host, used to display credential prompts
+        /// </summary>
+        public PSHost Host { get; set; }
+
+        /// <summary>
+        /// Any PSCredential argument supplied to the current cmdlet invocation.
+        /// This overrides ShellNetworkCredentialParameter that may have been set 
+        /// in the shell when Set-AWSCredentials was invoked. The value is cleared
+        /// after use.
+        /// </summary>
+        public PSCredential CmdletNetworkCredentialParameter { get; set; }
+
+        /// <summary>
+        /// Null or the value of the NetworkCredential parameter that was supplied
+        /// when the role profile was set active in the shell via Set-AWSCredentials.
+        /// If set, this credential is used if a more local scope credential cannot
+        /// be found in SelfNetworkCredentialParameter. This value is retained after 
+        /// use.
+        /// </summary>
+        public PSCredential ShellNetworkCredentialParameter { get; set; }
     }
 
     #endregion
@@ -309,45 +461,69 @@ namespace Amazon.PowerShell.Common
         public SessionState SessionState { get; private set; }
 
         /// <summary>
-        /// The AWS access key for the user account
+        /// The AWS access key for the user account.
         /// </summary>
         [Alias("AK")]
         [Parameter]
         public string AccessKey { get; set; }
 
         /// <summary>
-        /// The AWS secret key for the user account
+        /// The AWS secret key for the user account.
         /// </summary>
         [Alias("SK")]
         [Parameter]
         public string SecretKey { get; set; }
 
         /// <summary>
-        /// Session Token
+        /// The session token if the access and secret keys are temporary session-based
+        /// credentials.
         /// </summary>
         [Alias("ST")]
         [Parameter]
         public string SessionToken { get; set; }
 
         /// <summary>
-        /// Retrieves credentials associated with the specified name from local storage
+        /// The user-defined name of an AWS credentials or SAML-based role profile containing
+        /// credential information. The profile is expected to be found in the secure credential
+        /// file shared with the AWS SDK for .NET and AWS Toolkit for Visual Studio. You can also
+        /// specify the name of a profile stored in the .ini-format credential file used with 
+        /// the AWS CLI and other AWS SDKs.
         /// </summary>
         [Parameter(Position = 200)]
         [Alias("StoredCredentials", "AWSProfileName")]
         public string ProfileName { get; set; }
 
         /// <summary>
-        /// Location of the credentials file to use.
+        /// <para>
+        /// When the profile specified in ProfileName references a profile held in the
+        /// ini-format credentials file shared with the AWS CLI and other AWS SDKs, contains
+        /// the name and location of the credential file if it is stored outside of the default
+        /// location (C:\Users\userid\.aws) or uses a non-default name ('credentials').
+        /// </para>
+        /// <para>
+        /// This parameter is not required when the credential file shared with the AWS SDK
+        /// for .NET and AWS Toolkit for Visual Studio is used.
+        /// </para>
         /// </summary>
         [Parameter(Position = 201)]
         [Alias("AWSProfilesLocation", "ProfileLocation")]
         public string ProfilesLocation { get; set; }
 
         /// <summary>
-        /// AWSCredentials object instance containing key information for the user account
+        /// An AWSCredentials object instance containing access and secret key information,
+        /// and optionally a token for session-based credentials.
         /// </summary>
         [Parameter]
         public AWSCredentials Credential { get; set; }
+
+        /// <summary>
+        /// Used with SAML-based authentication when ProfileName references a SAML role profile. 
+        /// Contains the network credentials to be supplied during authentication with the 
+        /// configured identity provider's endpoint. This parameter is not required if the
+        /// user's default network identity can or should be used during authentication .
+        /// </summary>
+        [Parameter]
+        public PSCredential NetworkCredential { get; set; }
 
         public AWSCredentialsArguments(SessionState sessionState)
         {
@@ -360,7 +536,9 @@ namespace Amazon.PowerShell.Common
         public SessionState SessionState { get; private set; }
 
         /// <summary>
-        /// Region for the command; the system name of the region or an AWSRegion instance
+        /// The system name of an AWS region or an AWSRegion instance. This governs
+        /// the sendpoint that will be used when calling service operations. Note that 
+        /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
         [Parameter(Mandatory = false, 
                     Position = 210, 
@@ -377,7 +555,9 @@ namespace Amazon.PowerShell.Common
     internal class AWSCommonArguments : IAWSCommonArguments
     {
         /// <summary>
-        /// Region for the command; the system name of the region or an AWSRegion instance
+        /// The system name of an AWS region or an AWSRegion instance. This governs
+        /// the sendpoint that will be used when calling service operations. Note that 
+        /// the AWS resources referenced in a call are usually region-specific.
         /// </summary>
         [Parameter(Mandatory = false, ValueFromPipelineByPropertyName = true)]
         public object Region { get; set; }
@@ -385,45 +565,69 @@ namespace Amazon.PowerShell.Common
         public SessionState SessionState { get; private set; }
 
         /// <summary>
-        /// The AWS access key for the user account
+        /// The AWS access key for the user account.
         /// </summary>
         [Alias("AK")]
         [Parameter]
         public string AccessKey { get; set; }
 
         /// <summary>
-        /// The AWS secret key for the user account
+        /// The AWS secret key for the user account.
         /// </summary>
         [Alias("SK")]
         [Parameter]
         public string SecretKey { get; set; }
 
         /// <summary>
-        /// Session Token
+        /// The session token if the access and secret keys are temporary session-based
+        /// credentials.
         /// </summary>
         [Alias("ST")]
         [Parameter]
         public string SessionToken { get; set; }
 
         /// <summary>
-        /// Retrieves credentials associated with the specified name from local storage
+        /// The user-defined name of an AWS credentials or SAML-based role profile containing
+        /// credential information. The profile is expected to be found in the secure credential
+        /// file shared with the AWS SDK for .NET and AWS Toolkit for Visual Studio. You can also
+        /// specify the name of a profile stored in the .ini-format credential file used with 
+        /// the AWS CLI and other AWS SDKs.
         /// </summary>
         [Parameter]
         [Alias("StoredCredentials", "AWSProfileName")]
         public string ProfileName { get; set; }
 
         /// <summary>
-        /// Location of the credentials file to use.
+        /// <para>
+        /// When the profile specified in ProfileName references a profile held in the
+        /// ini-format credentials file shared with the AWS CLI and other AWS SDKs, contains
+        /// the name and location of the credential file if it is stored outside of the default
+        /// location (C:\Users\userid\.aws) or uses a non-default name ('credentials').
+        /// </para>
+        /// <para>
+        /// This parameter is not required when the credential file shared with the AWS SDK
+        /// for .NET and AWS Toolkit for Visual Studio is used.
+        /// </para>
         /// </summary>
         [Parameter]
         [Alias("AWSProfilesLocation", "ProfileLocation")]
         public string ProfilesLocation { get; set; }
 
         /// <summary>
-        /// AWSCredentials object instance containing key information for the user account
+        /// An AWSCredentials object instance containing access and secret key information,
+        /// and optionally a token for session-based credentials.
         /// </summary>
         [Parameter]
         public AWSCredentials Credential { get; set; }
+
+        /// <summary>
+        /// Used with SAML-based authentication when ProfileName references a SAML role profile. 
+        /// Contains the network credentials to be supplied during authentication with the 
+        /// configured identity provider's endpoint. This parameter is not required if the
+        /// user's default network identity can or should be used during authentication .
+        /// </summary>
+        [Parameter]
+        public PSCredential NetworkCredential { get; set; }
 
         public AWSCommonArguments(SessionState sessionState)
         {
@@ -451,13 +655,27 @@ namespace Amazon.PowerShell.Common
         private const string CredentialsTypeField = "CredentialsType";
         private const string RegionField = "Region";
 
-        public static List<string> GetDisplayNames()
-        {
-            var settings = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
-            if (settings == null) return null;
+        private static readonly string[] _awsProfileKeys =
+        { 
+            SettingsConstants.AccessKeyField, 
+            SettingsConstants.SecretKeyField,
+            SettingsConstants.AccountNumberField,
+            SettingsConstants.Restrictions,
+            CredentialsTypeField
+        };
 
-            return settings.Select(s => s[SettingsConstants.DisplayNameField]).OrderBy(n => n).ToList();
+        private static readonly string[] _samlRoleProfileKeys =
+        {
+            SettingsConstants.UserIdentityField,
+            SettingsConstants.RoleArnField,
+            SettingsConstants.EndpointNameField
+        };
+
+        public static IEnumerable<string> GetDisplayNames()
+        {
+            return ProfileManager.ListProfileNames();
         }
+
         public static Settings Load(string name)
         {
             var settings = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
@@ -474,13 +692,15 @@ namespace Amazon.PowerShell.Common
             AWSCredentials credentials = null;
             string credentialsTypeString = setting[CredentialsTypeField];
             Type credentialsType = string.IsNullOrEmpty(credentialsTypeString) ? null : typeof(AWSCredentials).Assembly.GetType(credentialsTypeString);
-            if (credentialsType == null || credentialsType == typeof(BasicAWSCredentials))
-            {
-                credentials = new BasicAWSCredentials(setting[SettingsConstants.AccessKeyField], setting[SettingsConstants.SecretKeyField]);
-            }
-            else if (credentialsType == typeof(InstanceProfileAWSCredentials))
-            {
+            if (credentialsType == typeof(InstanceProfileAWSCredentials))
                 credentials = new InstanceProfileAWSCredentials();
+            else
+            {
+                 // could be SAML role data or AWS keys
+                if (SAMLRoleProfile.CanCreateFrom(setting))
+                    credentials = new StoredProfileSAMLCredentials(name, null);
+                else
+                    credentials = new BasicAWSCredentials(setting[SettingsConstants.AccessKeyField], setting[SettingsConstants.SecretKeyField]);
             }
 
             RegionEndpoint region = null;
@@ -495,69 +715,138 @@ namespace Amazon.PowerShell.Common
             return result;
         }
 
-        public static void Save(string name, AWSCredentials credentials, RegionEndpoint region)
+        /// <summary>
+        /// Copies settings from one profile to another. The profile manager automatically erases
+        /// any settings for the destination profile if it exists.
+        /// </summary>
+        /// <param name="sourceProfileName">The name of the profile to copy from</param>
+        /// <param name="destinationProfileName">The name of the profile to create or overwrite</param>
+        /// <param name="region">Optional region data to also save in the destination profile</param>
+        public static void SaveFromProfile(string sourceProfileName, string destinationProfileName, RegionEndpoint region)
+        {
+            ProfileManager.CopyProfileSettings(sourceProfileName, destinationProfileName);
+            if (region != null)
+                SetProfileRegion(destinationProfileName, region.SystemName);
+        }
+
+        /// <summary>
+        /// Creates or updates a profile to hold AWS credentials. As a precaution against mixing
+        /// profile data, this routine erases any pre-existing SAML credential data that may exist in
+        /// the updated now-AWS-credentials profile.
+        /// </summary>
+        /// <param name="name">The name of the profile to create/update</param>
+        /// <param name="credentials">The access and secret key data to store in the profile</param>
+        /// <param name="region">Optional region data to also store in the profile</param>
+        internal static void SaveAWSCredentialProfile(string name, AWSCredentials credentials, RegionEndpoint region)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
             if (credentials == null) throw new ArgumentNullException("credentials");
-            //if (region == null) throw new ArgumentNullException("region");
 
-            var settings = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
-            if (settings == null)
-            {
-                settings = new SettingsCollection();
-            }
+            var profileExisted = ProfileManager.IsProfileKnown(name);
+            var credentialKeys = ExtractCredentialKeys(credentials);  // throws if incompatible
 
-            var os = FindSetting(settings, name);
-            if (os == null)
-            {
-                var uniqueKey = Guid.NewGuid();
-                os = settings.NewObjectSettings(uniqueKey.ToString());
-                os[SettingsConstants.DisplayNameField] = name;
-            }
+            if (credentialKeys != null) // if instance profile, no keys to register
+                ProfileManager.RegisterProfile(name, credentialKeys.AccessKey, credentialKeys.SecretKey);
 
-            SetCredentials(os, credentials);
             if (region != null)
-            {
-                os[RegionField] = region.SystemName;
-            }
+                SetProfileRegion(name, region.SystemName);
 
-            PersistenceManager.Instance.SaveSettings(SettingsConstants.RegisteredProfiles, settings);
+            // if we just overwrote a SAML credential profile, remove any SAML-related keys that may be
+            // present so we avoid mixed data
+            if (profileExisted)
+                CleanKeys(name, _samlRoleProfileKeys);
         }
 
-        private static void SetCredentials(SettingsCollection.ObjectSettings os, AWSCredentials credentials)
+        /// <summary>
+        /// Creates or updates a SAML role profile.
+        /// </summary>
+        /// <param name="name">The name for the role profile</param>
+        /// <param name="endpointName">
+        /// The name of an existing endpoint settings collection containing the endpoint details.
+        /// </param>
+        /// <param name="roleArn">
+        /// The arn of the role that should be assumed when this profile is used
+        /// </param>
+        /// <param name="userIdentity">
+        /// Optional. Used if non-default network credentials should be used during authentication
+        /// </param>
+        /// <param name="region">A default region to assume</param>
+        public static void SaveSAMLRoleProfile(string name, 
+                                               string endpointName, 
+                                               string roleArn,
+                                               string userIdentity,
+                                               RegionEndpoint region)
         {
-            os[CredentialsTypeField] = credentials.GetType().FullName;
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
+            if (string.IsNullOrEmpty(endpointName)) throw new ArgumentNullException("endpointName");
+            if (string.IsNullOrEmpty(roleArn)) throw new ArgumentNullException("roleArn");
 
-            if (credentials is BasicAWSCredentials)
-            {
-                ImmutableCredentials creds = credentials.GetCredentials();
-                os[SettingsConstants.AccessKeyField] = creds.AccessKey;
-                os[SettingsConstants.SecretKeyField] = creds.SecretKey;
-            }
-            else if (credentials is InstanceProfileAWSCredentials)
-            { }
-            else if (credentials is SessionAWSCredentials)
-            {
-                throw new InvalidOperationException("Cannot save session credentials");
-            }
-            else if (credentials is EnvironmentAWSCredentials)
-            {
-                throw new InvalidOperationException("Cannot save environmental credentials");
-            }
-            else
-            {
-                throw new InvalidOperationException("Unrecognized credentials type");
-            }
+            var profileExisted = ProfileManager.IsProfileKnown(name);
+            ProfileManager.RegisterSAMLRoleProfile(name, endpointName, roleArn, userIdentity);
+
+            if (region != null)
+                SetProfileRegion(name, region.SystemName);
+
+            // if we just overwrote an AWS credential profile, remove any AWS-related keys that may be
+            // present so we avoid mixed data
+            if (profileExisted)
+                CleanKeys(name, _awsProfileKeys);
         }
+
+        /// <summary>
+        /// Removes one or more keys from a profile. Used on store of credentials to ensure if we wrote one
+        /// profile type over another we don't end up with a mixed bag of data. If we stored data that was
+        /// originally from a profile, the copy functions on the ProfileManager can be used to effect a
+        /// clean profile instance.
+        /// </summary>
+        /// <param name="profileName">The name of the profile to clean</param>
+        /// <param name="keysToRemove">The key(s) to remove</param>
+        private static void CleanKeys(string profileName, IEnumerable<string> keysToRemove)
+        {
+            var allSettings = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
+            var os = FindSetting(allSettings, profileName);
+
+            foreach (var k in keysToRemove)
+            {
+                os.Remove(k);
+            }
+
+            PersistenceManager.Instance.SaveSettings(SettingsConstants.RegisteredProfiles, allSettings);
+        }
+
+        /// <summary>
+        /// Pokes default region setting into a profile (direct access to the object settings is not
+        /// supported by the ProfileManager).
+        /// </summary>
+        /// <param name="profileName"></param>
+        /// <param name="region"></param>
+        private static void SetProfileRegion(string profileName, string region)
+        {
+            var allProfiles = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
+            var os = FindSetting(allProfiles, profileName);
+            os[RegionField] = region;
+            PersistenceManager.Instance.SaveSettings(SettingsConstants.RegisteredProfiles, allProfiles);
+        }
+
+        private static ImmutableCredentials ExtractCredentialKeys(AWSCredentials credentials)
+        {
+            if (credentials is BasicAWSCredentials)
+                return credentials.GetCredentials();
+
+            if (credentials is InstanceProfileAWSCredentials)
+                return null;
+
+            if (credentials is SessionAWSCredentials)
+                throw new InvalidOperationException("Cannot save session credentials");
+            else if (credentials is EnvironmentAWSCredentials)
+                throw new InvalidOperationException("Cannot save environmental credentials");
+            else
+                throw new InvalidOperationException("Unrecognized credentials type");
+        }
+
         public static void Delete(string name)
         {
-            var settings = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
-            if (settings == null) return;
-
-            var setting = FindSetting(settings, name);
-            if (setting == null) return;
-            settings.Remove(setting.UniqueKey);
-            PersistenceManager.Instance.SaveSettings(SettingsConstants.RegisteredProfiles, settings);
+            ProfileManager.UnregisterProfile(name);
         }
 
         private static SettingsCollection.ObjectSettings FindSetting(SettingsCollection settings, string name)
@@ -570,22 +859,6 @@ namespace Amazon.PowerShell.Common
                 return (string.Equals(displayName, name, StringComparison.OrdinalIgnoreCase));
             });
             return setting;
-        }
-        private static string GetClearSecretKey(SecureString secureSecretKey)
-        {
-            if (secureSecretKey == null)
-                throw new ArgumentNullException("securePassword");
-
-            IntPtr unmanagedString = IntPtr.Zero;
-            try
-            {
-                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(secureSecretKey);
-                return Marshal.PtrToStringUni(unmanagedString);
-            }
-            finally
-            {
-                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
-            }
         }
     }
 
