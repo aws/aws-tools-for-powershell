@@ -489,7 +489,7 @@ namespace AWSPowerShellGenerator.Generators
         //private static HashSet<string> XMLNodesToIgnore = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "b", "i", "c" };
         private static HashSet<string> XMLNodesToCopyAsIs = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
-            "list", "see", "istruncated", "copy", "a", "br", "b", "i", "c", "emphasis", "important", "code", "member", "title", "caution"
+            "list", "see", "istruncated", "copy", "a", "br", "b", "i", "c", "p", "emphasis", "important", "code", "member", "title", "caution"
         };
         private static HashSet<string> XMLNodesToNewline = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {

@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The name of the delivery channel. By default, AWS Config automatically assigns the
-        /// name "default" when creating the delivery channel. You cannot change the assigned
-        /// name. </para>
+        /// name "default" when creating the delivery channel. You cannot change the
+        /// assigned name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
