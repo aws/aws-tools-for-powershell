@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public abstract class AmazonAWSSupportClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSSupport Client { get; private set; }
+        protected override string DefaultRegion
+        {
+            get
+            {
+                return "us-east-1";
+            }
+        }
         protected IAmazonAWSSupport CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
             var config = new AmazonAWSSupportConfig { RegionEndpoint = region };

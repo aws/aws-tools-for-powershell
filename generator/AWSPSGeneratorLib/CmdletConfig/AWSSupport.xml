@@ -6,6 +6,8 @@
   <ServiceClient>AmazonAWSSupportClient</ServiceClient>
   <ServiceNamespace>Amazon.AWSSupport</ServiceNamespace>
 
+  <DefaultRegion>us-east-1</DefaultRegion>
+
   <AutoIterate Start="NextToken" EmitLimit="MaxResults" Next="NextToken" />
 
   <PositionalParameters>CaseId</PositionalParameters>
