@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  To update a health check, send a <code>POST</code> request to the <code>2013-04-01/healthcheck/<i>health
+    /// To update a health check, send a <code>POST</code> request to the <code>2013-04-01/healthcheck/<i>health
     /// check ID</i></code> resource. The request body must include an XML document with an
     /// <code>UpdateHealthCheckRequest</code> element. The response returns an <code>UpdateHealthCheckResponse</code>
     /// element, which contains metadata about the health check.
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
-        /// 53 to change the current status of the endpoint from unhealthy to healthy or vice
-        /// versa.</para><para>Valid values are integers between 1 and 10. For more information, see "How Amazon
+        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Amazon
+        /// Route 53 to change the current status of the endpoint from unhealthy to healthy or
+        /// vice versa.</para><para>Valid values are integers between 1 and 10. For more information, see "How Amazon
         /// Route 53 Determines Whether an Endpoint Is Healthy" in the Amazon Route 53 Developer
         /// Guide.</para><para>Specify this value only if you want to change it.</para>
         /// </para>
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>Optional. When you specify a health check version, Route 53 compares this value with
-        /// the current value in the health check, which prevents you from updating the health
+        /// <para>Optional. When you specify a health check version, Amazon Route 53 compares this value
+        /// with the current value in the health check, which prevents you from updating the health
         /// check when the versions don't match. Using <code>HealthCheckVersion</code> lets you
         /// prevent overwriting another change to the health check.</para>
         /// </para>
@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>The minimum number of child health checks that must be healthy for Route 53 to consider
-        /// the parent health check to be healthy. Valid values are integers between 0 and 256,
-        /// inclusive.</para><para>Specify this value only if you want to change it.</para>
+        /// <para>The minimum number of child health checks that must be healthy for Amazon Route 53
+        /// to consider the parent health check to be healthy. Valid values are integers between
+        /// 0 and 256, inclusive.</para><para>Specify this value only if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>A boolean value that indicates whether the status of health check should be inverted.
         /// For example, if a health check is healthy but <code>Inverted</code> is <code>True</code>,
-        /// then Route 53 considers the health check to be unhealthy.</para><para>Specify this value only if you want to change it.</para>
+        /// then Amazon Route 53 considers the health check to be unhealthy.</para><para>Specify this value only if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>The port on which you want Route 53 to open a connection to perform health checks.</para><para>Specify this value only if you want to change it.</para>
+        /// <para>The port on which you want Amazon Route 53 to open a connection to perform health
+        /// checks.</para><para>Specify this value only if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -146,9 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>If the value of <code>Type</code> is <code>HTTP_STR_MATCH</code> or <code>HTTP_STR_MATCH</code>,
-        /// the string that you want Route 53 to search for in the response body from the specified
-        /// resource. If the string appears in the response body, Route 53 considers the resource
-        /// healthy. </para><para>Specify this value only if you want to change it.</para>
+        /// the string that you want Amazon Route 53 to search for in the response body from the
+        /// specified resource. If the string appears in the response body, Amazon Route 53 considers
+        /// the resource healthy. </para><para>Specify this value only if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

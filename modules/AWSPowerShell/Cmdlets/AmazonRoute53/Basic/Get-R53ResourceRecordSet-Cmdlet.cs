@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     {
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone that contains the resource record sets that you want to
+        /// <para>The ID of the hosted zone that contains the resource record sets that you want to
         /// get.</para>
         /// </para>
         /// </summary>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>The DNS type at which to begin the listing of resource record sets. </para><para>Valid values: <code>A</code> | <code>AAAA</code> | <code>CNAME</code> | <code>MX</code>
         /// | <code>NS</code> | <code>PTR</code> | <code>SOA</code> | <code>SPF</code> | <code>SRV</code>
         /// | <code>TXT</code></para><para>Values for Weighted Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
-        /// | <code>TXT</code></para><para> Values for Regional Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
+        /// | <code>TXT</code></para><para>Values for Regional Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
         /// | <code>TXT</code></para><para>Values for Alias Resource Record Sets: <code>A</code> | <code>AAAA</code></para><para>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
         /// an <a>InvalidInput</a> error.</para>
         /// </para>

@@ -28,28 +28,24 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the delegation set for a hosted zone, send a <code>GET</code> request
-    /// to the <code>2013-04-01/hostedzone/<i>hosted zone ID</i></code> resource. The delegation
-    /// set is the four Amazon Route 53 name servers that were assigned to the hosted zone
-    /// when you created it.
+    /// Gets the number of traffic policy instances that are associated with the current AWS
+    /// account.
+    /// 
+    ///  
+    /// <para>
+    /// To get the number of traffic policy instances, send a <code>GET</code> request to
+    /// the <code>2013-04-01/trafficpolicyinstancecount</code> resource.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "R53HostedZone")]
-    [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]
-    [AWSCmdlet("Invokes the GetHostedZone operation against Amazon Route 53.", Operation = new[] {"GetHostedZone"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.GetHostedZoneResponse",
-        "This cmdlet returns a Amazon.Route53.Model.GetHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "R53TrafficPolicyInstanceCount")]
+    [OutputType("System.Int32")]
+    [AWSCmdlet("Invokes the GetTrafficPolicyInstanceCount operation against Amazon Route 53.", Operation = new[] {"GetTrafficPolicyInstanceCount"})]
+    [AWSCmdletOutput("System.Int32",
+        "This cmdlet returns a Int32 object.",
+        "The service call response (type Amazon.Route53.Model.GetTrafficPolicyInstanceCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class GetR53TrafficPolicyInstanceCountCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the hosted zone for which you want to get a list of the name servers in
-        /// the delegation set.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Id { get; set; }
-        
         
         protected override void ProcessRecord()
         {
@@ -61,7 +57,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
-            context.Id = this.Id;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -73,12 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.GetHostedZoneRequest();
+            var request = new Amazon.Route53.Model.GetTrafficPolicyInstanceCountRequest();
             
-            if (cmdletContext.Id != null)
-            {
-                request.Id = cmdletContext.Id;
-            }
             
             CmdletOutput output;
             
@@ -86,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetHostedZone(request);
+                var response = client.GetTrafficPolicyInstanceCount(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.TrafficPolicyInstanceCount;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -114,7 +105,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
         }
         
     }

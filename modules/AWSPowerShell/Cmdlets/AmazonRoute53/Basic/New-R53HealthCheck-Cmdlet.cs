@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  To create a new health check, send a <code>POST</code> request to the <code>2013-04-01/healthcheck</code>
+    /// To create a new health check, send a <code>POST</code> request to the <code>2013-04-01/healthcheck</code>
     /// resource. The request body must include an XML document with a <code>CreateHealthCheckRequest</code>
     /// element. The response returns the <code>CreateHealthCheckResponse</code> element that
     /// contains metadata about the health check.
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
-        /// 53 to change the current status of the endpoint from unhealthy to healthy or vice
-        /// versa.</para><para>Valid values are integers between 1 and 10. For more information, see "How Amazon
+        /// <para>The number of consecutive health checks that an endpoint must pass or fail for Amazon
+        /// Route 53 to change the current status of the endpoint from unhealthy to healthy or
+        /// vice versa.</para><para>Valid values are integers between 1 and 10. For more information, see "How Amazon
         /// Route 53 Determines Whether an Endpoint Is Healthy" in the Amazon Route 53 Developer
         /// Guide.</para>
         /// </para>
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>The minimum number of child health checks that must be healthy for Route 53 to consider
-        /// the parent health check to be healthy. Valid values are integers between 0 and 256,
-        /// inclusive.</para>
+        /// <para>The minimum number of child health checks that must be healthy for Amazon Route 53
+        /// to consider the parent health check to be healthy. Valid values are integers between
+        /// 0 and 256, inclusive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>A boolean value that indicates whether the status of health check should be inverted.
         /// For example, if a health check is healthy but <code>Inverted</code> is <code>True</code>,
-        /// then Route 53 considers the health check to be unhealthy.</para>
+        /// then Amazon Route 53 considers the health check to be unhealthy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that indicates whether you want Route 53 to measure the latency between
-        /// health checkers in multiple AWS regions and your endpoint and to display CloudWatch
-        /// latency graphs in the Route 53 console.</para>
+        /// <para>A Boolean value that indicates whether you want Amazon Route 53 to measure the latency
+        /// between health checkers in multiple AWS regions and your endpoint and to display CloudWatch
+        /// latency graphs in the Amazon Route 53 console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para>The number of seconds between the time that Route 53 gets a response from your endpoint
-        /// and the time that it sends the next health-check request.</para><para>Each Route 53 health checker makes requests at this interval. Valid values are 10
-        /// and 30. The default value is 30.</para>
+        /// <para>The number of seconds between the time that Amazon Route 53 gets a response from your
+        /// endpoint and the time that it sends the next health-check request.</para><para>Each Amazon Route 53 health checker makes requests at this interval. Valid values
+        /// are 10 and 30. The default value is 30.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>Path to ping on the instance to check the health. Required for HTTP, HTTPS, HTTP_STR_MATCH,
-        /// and HTTPS_STR_MATCH health checks, HTTP request is issued to the instance on the given
-        /// port and path.</para>
+        /// and HTTPS_STR_MATCH health checks. The HTTP request is issued to the instance on the
+        /// given port and path.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

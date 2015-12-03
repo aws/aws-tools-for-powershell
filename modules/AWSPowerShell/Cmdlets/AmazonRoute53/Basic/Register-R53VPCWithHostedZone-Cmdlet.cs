@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
+    /// To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
     /// zone ID</i>/associatevpc</code> resource. The request body must include an XML document
     /// with a <code>AssociateVPCWithHostedZoneRequest</code> element. The response returns
     /// the <code>AssociateVPCWithHostedZoneResponse</code> element that contains <code>ChangeInfo</code>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone you want to associate your VPC with.</para><para>Note that you cannot associate a VPC with a hosted zone that doesn't have an existing
+        /// <para>The ID of the hosted zone you want to associate your VPC with.</para><para>Note that you cannot associate a VPC with a hosted zone that doesn't have an existing
         /// VPC association.</para>
         /// </para>
         /// </summary>

@@ -28,35 +28,36 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action deletes a health check. To delete a health check, send a <code>DELETE</code>
-    /// request to the <code>2013-04-01/healthcheck/<i>health check ID</i></code> resource.
-    /// 
-    ///  <important> You can delete a health check only if there are no resource record sets
-    /// associated with this health check. If resource record sets are associated with this
-    /// health check, you must disassociate them before you can delete your health check.
-    /// If you try to delete a health check that is associated with resource record sets,
-    /// Amazon Route 53 will deny your request with a <code>HealthCheckInUse</code> error.
-    /// For information about disassociating the records from your health check, see <a>ChangeResourceRecordSets</a>.</important>
+    /// Deletes a traffic policy. To delete a traffic policy, send a <code>DELETE</code> request
+    /// to the <code>2013-04-01/trafficpolicy</code> resource.
     /// </summary>
-    [Cmdlet("Remove", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteHealthCheck operation against Amazon Route 53.", Operation = new[] {"DeleteHealthCheck"})]
+    [AWSCmdlet("Invokes the DeleteTrafficPolicy operation against Amazon Route 53.", Operation = new[] {"DeleteTrafficPolicy"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the HealthCheckId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Route53.Model.DeleteHealthCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.Route53.Model.DeleteTrafficPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class RemoveR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the health check to delete.</para>
+        /// <para>The ID of the traffic policy that you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String HealthCheckId { get; set; }
+        public System.String Id { get; set; }
         
         /// <summary>
-        /// Returns the value passed to the HealthCheckId parameter.
+        /// <para>
+        /// <para>The version number of the traffic policy that you want to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Version { get; set; }
+        
+        /// <summary>
+        /// Returns the value passed to the Id parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HealthCheckId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-R53HealthCheck (DeleteHealthCheck)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Id", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-R53TrafficPolicy (DeleteTrafficPolicy)"))
             {
                 return;
             }
@@ -87,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
-            context.HealthCheckId = this.HealthCheckId;
+            context.Id = this.Id;
+            if (ParameterWasBound("Version"))
+                context.Version = this.Version;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -99,11 +102,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.DeleteHealthCheckRequest();
+            var request = new Amazon.Route53.Model.DeleteTrafficPolicyRequest();
             
-            if (cmdletContext.HealthCheckId != null)
+            if (cmdletContext.Id != null)
             {
-                request.HealthCheckId = cmdletContext.HealthCheckId;
+                request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.Version != null)
+            {
+                request.Version = cmdletContext.Version.Value;
             }
             
             CmdletOutput output;
@@ -112,11 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteHealthCheck(request);
+                var response = client.DeleteTrafficPolicy(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.HealthCheckId;
+                    pipelineOutput = this.Id;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String HealthCheckId { get; set; }
+            public System.String Id { get; set; }
+            public System.Int32? Version { get; set; }
         }
         
     }

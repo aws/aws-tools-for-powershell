@@ -28,46 +28,83 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a list of your health checks, send a <code>GET</code> request to the <code>2013-04-01/healthcheck</code>
-    /// resource. The response to this request includes a <code>HealthChecks</code> element
-    /// with zero, one, or multiple <code>HealthCheck</code> child elements. By default, the
-    /// list of health checks is displayed on a single page. You can control the length of
-    /// the page that is displayed by using the <code>MaxItems</code> parameter. You can use
-    /// the <code>Marker</code> parameter to control the health check that the list begins
-    /// with. 
+    /// Gets information about all of the versions for a specified traffic policy. <code>ListTrafficPolicyVersions</code>
+    /// lists only versions that have not been deleted.
     /// 
-    ///  <note> Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value
-    /// greater than 100, Amazon Route 53 returns only the first 100.</note>
+    ///  
+    /// <para>
+    /// Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot
+    /// of traffic policies, you can use the <code>maxitems</code> parameter to list them
+    /// in groups of up to 100.
+    /// </para><para>
+    /// The response includes three values that help you navigate from one group of <code>maxitems</code>maxitems
+    /// traffic policies to the next:
+    /// </para><ul><li><b>IsTruncated</b></li><para>
+    /// If the value of <code>IsTruncated</code> in the response is <code>true</code>, there
+    /// are more traffic policy versions associated with the specified traffic policy.
+    /// </para><para>
+    /// If <code>IsTruncated</code> is <code>false</code>, this response includes the last
+    /// traffic policy version that is associated with the specified traffic policy.
+    /// </para><li><b>TrafficPolicyVersionMarker</b></li><para>
+    /// The ID of the next traffic policy version that is associated with the current AWS
+    /// account. If you want to list more traffic policies, make another call to <code>ListTrafficPolicyVersions</code>,
+    /// and specify the value of the <code>TrafficPolicyVersionMarker</code> element in the
+    /// <code>TrafficPolicyVersionMarker</code> request parameter.
+    /// </para><para>
+    /// If <code>IsTruncated</code> is <code>false</code>, Amazon Route 53 omits the <code>TrafficPolicyVersionMarker</code>
+    /// element from the response.
+    /// </para><li><b>MaxItems</b></li><para>
+    /// The value that you specified for the <code>MaxItems</code> parameter in the request
+    /// that produced the current response.
+    /// </para></ul>
     /// </summary>
-    [Cmdlet("Get", "R53HealthChecks")]
-    [OutputType("Amazon.Route53.Model.HealthCheck")]
-    [AWSCmdlet("Invokes the ListHealthChecks operation against Amazon Route 53.", Operation = new[] {"ListHealthChecks"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.HealthCheck",
-        "This cmdlet returns a collection of HealthCheck objects.",
-        "The service call response (type Amazon.Route53.Model.ListHealthChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
+    [Cmdlet("Get", "R53TrafficPolicyVersions")]
+    [OutputType("Amazon.Route53.Model.TrafficPolicy")]
+    [AWSCmdlet("Invokes the ListTrafficPolicyVersions operation against Amazon Route 53.", Operation = new[] {"ListTrafficPolicyVersions"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.TrafficPolicy",
+        "This cmdlet returns a collection of TrafficPolicy objects.",
+        "The service call response (type Amazon.Route53.Model.ListTrafficPolicyVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), TrafficPolicyVersionMarker (type System.String), MaxItems (type System.String)"
     )]
-    public class GetR53HealthChecksCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class GetR53TrafficPolicyVersionsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>If the request returned more than one page of results, submit another request and
-        /// specify the value of <code>NextMarker</code> from the last response in the <code>marker</code>
-        /// parameter to get the next page of results.</para>
+        /// <para>Specify the value of <code>Id</code> of the traffic policy for which you want to list
+        /// all versions.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("NextToken")]
-        public System.String Marker { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String Id { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>Specify the maximum number of health checks to return per page of results.</para>
+        /// <para>The maximum number of traffic policy versions that you want Amazon Route 53 to include
+        /// in the response body for this request. If the specified traffic policy has more than
+        /// <code>MaxItems</code> versions, the value of the <code>IsTruncated</code> element
+        /// in the response is <code>true</code>, and the value of the <code>TrafficPolicyVersionMarker</code>
+        /// element is the ID of the first version in the next group of <code>MaxItems</code>
+        /// traffic policy versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>For your first request to <code>ListTrafficPolicyVersions</code>, do not include the
+        /// <code>TrafficPolicyVersionMarker</code> parameter.</para><para>If you have more traffic policy versions than the value of <code>MaxItems</code>,
+        /// <code>ListTrafficPolicyVersions</code> returns only the first group of <code>MaxItems</code>
+        /// versions. To get the next group of <code>MaxItems</code> traffic policy versions,
+        /// submit another request to <code>ListTrafficPolicyVersions</code>. For the value of
+        /// <code>TrafficPolicyVersionMarker</code>, specify the value of the <code>TrafficPolicyVersionMarker</code>
+        /// element that was returned in the previous response.</para><para>Traffic policy versions are listed in sequential order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String TrafficPolicyVersionMarker { get; set; }
         
         
         protected override void ProcessRecord()
@@ -80,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
-            context.Marker = this.Marker;
+            context.Id = this.Id;
+            context.TrafficPolicyVersionMarker = this.TrafficPolicyVersionMarker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
             
@@ -95,16 +133,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Route53.Model.ListHealthChecksRequest();
+            var request = new Amazon.Route53.Model.ListTrafficPolicyVersionsRequest();
+            if (cmdletContext.Id != null)
+            {
+                request.Id = cmdletContext.Id;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
-            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            if (AutoIterationHelpers.HasValue(cmdletContext.TrafficPolicyVersionMarker))
             {
-                _nextMarker = cmdletContext.Marker;
+                _nextMarker = cmdletContext.TrafficPolicyVersionMarker;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
             {
@@ -116,14 +158,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.TrafficPolicyVersionMarker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
             bool _continueIteration = true;
             
             try
             {
                 do
                 {
-                    request.Marker = _nextMarker;
+                    request.TrafficPolicyVersionMarker = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
                         request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
@@ -149,13 +191,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     try
                     {
                         
-                        var response = client.ListHealthChecks(request);
+                        var response = client.ListTrafficPolicyVersions(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.HealthChecks;
+                        object pipelineOutput = response.TrafficPolicies;
                         notes = new Dictionary<string, object>();
-                        notes["Marker"] = response.Marker;
                         notes["IsTruncated"] = response.IsTruncated;
-                        notes["NextMarker"] = response.NextMarker;
+                        notes["TrafficPolicyVersionMarker"] = response.TrafficPolicyVersionMarker;
                         notes["MaxItems"] = response.MaxItems;
                         output = new CmdletOutput
                         {
@@ -163,13 +204,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.HealthChecks.Count;
+                        int _receivedThisCall = response.TrafficPolicies.Count;
                         if (_userControllingPaging)
                         {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.TrafficPolicyVersionMarker));
                         }
                         
-                        _nextMarker = response.NextMarker;
+                        _nextMarker = response.TrafficPolicyVersionMarker;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -216,7 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Marker { get; set; }
+            public System.String Id { get; set; }
+            public System.String TrafficPolicyVersionMarker { get; set; }
             public int? MaxItems { get; set; }
         }
         

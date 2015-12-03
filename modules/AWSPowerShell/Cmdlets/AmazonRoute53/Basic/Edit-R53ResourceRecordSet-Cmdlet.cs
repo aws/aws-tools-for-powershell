@@ -36,28 +36,23 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// Changes are a list of change items and are considered transactional. For more information
-    /// on transactional changes, also known as change batches, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/RRSchanges.html#RRSchanges_API">Creating,
-    /// Changing, and Deleting Resource Record Sets Using the Route 53 API</a> in the <i>Amazon
-    /// Route 53 Developer Guide</i>.
+    /// on transactional changes, also known as change batches, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/">POST
+    /// ChangeResourceRecordSets</a> in the <i>Amazon Route 53 API Reference</i>.
     /// </para><important>Due to the nature of transactional changes, you cannot delete the same
     /// resource record set more than once in a single change batch. If you attempt to delete
-    /// the same change batch more than once, Route 53 returns an <code>InvalidChangeBatch</code>
+    /// the same change batch more than once, Amazon Route 53 returns an <code>InvalidChangeBatch</code>
     /// error.</important><para>
     /// In response to a <code>ChangeResourceRecordSets</code> request, your DNS data is changed
-    /// on all Route 53 DNS servers. Initially, the status of a change is <code>PENDING</code>.
-    /// This means the change has not yet propagated to all the authoritative Route 53 DNS
-    /// servers. When the change is propagated to all hosts, the change returns a status of
-    /// <code>INSYNC</code>.
+    /// on all Amazon Route 53 DNS servers. Initially, the status of a change is <code>PENDING</code>.
+    /// This means the change has not yet propagated to all the authoritative Amazon Route
+    /// 53 DNS servers. When the change is propagated to all hosts, the change returns a status
+    /// of <code>INSYNC</code>.
     /// </para><para>
     /// Note the following limitations on a <code>ChangeResourceRecordSets</code> request:
-    /// </para><para>
-    /// - A request cannot contain more than 100 Change elements.
-    /// </para><para>
-    /// - A request cannot contain more than 1000 ResourceRecord elements.
-    /// </para><para>
-    /// The sum of the number of characters (including spaces) in all <code>Value</code> elements
-    /// in a request cannot exceed 32,000 characters.
-    /// </para>
+    /// </para><ul><li>A request cannot contain more than 100 Change elements.</li><li> A request
+    /// cannot contain more than 1000 ResourceRecord elements.</li><li>The sum of the number
+    /// of characters (including spaces) in all <code>Value</code> elements in a request cannot
+    /// exceed 32,000 characters.</li></ul>
     /// </summary>
     [Cmdlet("Edit", "R53ResourceRecordSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
@@ -88,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone that contains the resource record sets that you want to
+        /// <para>The ID of the hosted zone that contains the resource record sets that you want to
         /// change.</para>
         /// </para>
         /// </summary>

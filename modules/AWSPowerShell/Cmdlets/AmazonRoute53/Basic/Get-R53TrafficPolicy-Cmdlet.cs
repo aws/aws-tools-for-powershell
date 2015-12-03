@@ -28,27 +28,33 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the delegation set for a hosted zone, send a <code>GET</code> request
-    /// to the <code>2013-04-01/hostedzone/<i>hosted zone ID</i></code> resource. The delegation
-    /// set is the four Amazon Route 53 name servers that were assigned to the hosted zone
-    /// when you created it.
+    /// Gets information about a specific traffic policy version. To get the information,
+    /// send a <code>GET</code> request to the <code>2013-04-01/trafficpolicy</code> resource.
     /// </summary>
-    [Cmdlet("Get", "R53HostedZone")]
-    [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]
-    [AWSCmdlet("Invokes the GetHostedZone operation against Amazon Route 53.", Operation = new[] {"GetHostedZone"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.GetHostedZoneResponse",
-        "This cmdlet returns a Amazon.Route53.Model.GetHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "R53TrafficPolicy")]
+    [OutputType("Amazon.Route53.Model.TrafficPolicy")]
+    [AWSCmdlet("Invokes the GetTrafficPolicy operation against Amazon Route 53.", Operation = new[] {"GetTrafficPolicy"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.TrafficPolicy",
+        "This cmdlet returns a TrafficPolicy object.",
+        "The service call response (type Amazon.Route53.Model.GetTrafficPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class GetR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone for which you want to get a list of the name servers in
-        /// the delegation set.</para>
+        /// <para>The ID of the traffic policy that you want to get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The version number of the traffic policy that you want to get information about.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Version { get; set; }
         
         
         protected override void ProcessRecord()
@@ -62,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             };
             
             context.Id = this.Id;
+            if (ParameterWasBound("Version"))
+                context.Version = this.Version;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -73,11 +81,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.GetHostedZoneRequest();
+            var request = new Amazon.Route53.Model.GetTrafficPolicyRequest();
             
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.Version != null)
+            {
+                request.Version = cmdletContext.Version.Value;
             }
             
             CmdletOutput output;
@@ -86,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetHostedZone(request);
+                var response = client.GetTrafficPolicy(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.TrafficPolicy;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -115,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         internal class CmdletContext : ExecutorContext
         {
             public System.String Id { get; set; }
+            public System.Int32? Version { get; set; }
         }
         
     }

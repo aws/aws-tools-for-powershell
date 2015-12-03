@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  To disassociate a VPC to a hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
+    /// To disassociate a VPC to a hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
     /// zone ID</i>/disassociatevpc</code> resource. The request body must include an XML
     /// document with a <code>DisassociateVPCFromHostedZoneRequest</code> element. The response
     /// returns the <code>DisassociateVPCFromHostedZoneResponse</code> element that contains
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone you want to disassociate your VPC from.</para><para>Note that you cannot disassociate the last VPC from a hosted zone.</para>
+        /// <para>The ID of the hosted zone you want to disassociate your VPC from.</para><para>Note that you cannot disassociate the last VPC from a hosted zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

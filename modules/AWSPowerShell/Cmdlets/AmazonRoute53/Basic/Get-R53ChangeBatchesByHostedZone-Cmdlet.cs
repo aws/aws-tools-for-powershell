@@ -28,41 +28,55 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a list of your health checks, send a <code>GET</code> request to the <code>2013-04-01/healthcheck</code>
-    /// resource. The response to this request includes a <code>HealthChecks</code> element
-    /// with zero, one, or multiple <code>HealthCheck</code> child elements. By default, the
-    /// list of health checks is displayed on a single page. You can control the length of
-    /// the page that is displayed by using the <code>MaxItems</code> parameter. You can use
-    /// the <code>Marker</code> parameter to control the health check that the list begins
-    /// with. 
-    /// 
-    ///  <note> Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value
-    /// greater than 100, Amazon Route 53 returns only the first 100.</note>
+    /// This action gets the list of ChangeBatches in a given time period for a given hosted
+    /// zone.
     /// </summary>
-    [Cmdlet("Get", "R53HealthChecks")]
-    [OutputType("Amazon.Route53.Model.HealthCheck")]
-    [AWSCmdlet("Invokes the ListHealthChecks operation against Amazon Route 53.", Operation = new[] {"ListHealthChecks"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.HealthCheck",
-        "This cmdlet returns a collection of HealthCheck objects.",
-        "The service call response (type Amazon.Route53.Model.ListHealthChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
+    [Cmdlet("Get", "R53ChangeBatchesByHostedZone")]
+    [OutputType("Amazon.Route53.Model.ChangeBatchRecord")]
+    [AWSCmdlet("Invokes the ListChangeBatchesByHostedZone operation against Amazon Route 53.", Operation = new[] {"ListChangeBatchesByHostedZone"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.ChangeBatchRecord",
+        "This cmdlet returns a collection of ChangeBatchRecord objects.",
+        "The service call response (type Amazon.Route53.Model.ListChangeBatchesByHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: MaxItems (type System.String), Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String)"
     )]
-    public class GetR53HealthChecksCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class GetR53ChangeBatchesByHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>If the request returned more than one page of results, submit another request and
-        /// specify the value of <code>NextMarker</code> from the last response in the <code>marker</code>
-        /// parameter to get the next page of results.</para>
+        /// <para>The end of the time period you want to see changes for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
+        public System.String EndDate { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the hosted zone that you want to see changes for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String HostedZoneId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The start of the time period you want to see changes for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StartDate { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The page marker.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>Specify the maximum number of health checks to return per page of results.</para>
+        /// <para>The maximum number of items on a page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,9 +94,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
-            context.Marker = this.Marker;
+            context.HostedZoneId = this.HostedZoneId;
+            context.StartDate = this.StartDate;
+            context.EndDate = this.EndDate;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            context.Marker = this.Marker;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -95,7 +112,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Route53.Model.ListHealthChecksRequest();
+            var request = new Amazon.Route53.Model.ListChangeBatchesByHostedZoneRequest();
+            if (cmdletContext.HostedZoneId != null)
+            {
+                request.HostedZoneId = cmdletContext.HostedZoneId;
+            }
+            if (cmdletContext.StartDate != null)
+            {
+                request.StartDate = cmdletContext.StartDate;
+            }
+            if (cmdletContext.EndDate != null)
+            {
+                request.EndDate = cmdletContext.EndDate;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -149,21 +178,21 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     try
                     {
                         
-                        var response = client.ListHealthChecks(request);
+                        var response = client.ListChangeBatchesByHostedZone(request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.HealthChecks;
+                        object pipelineOutput = response.ChangeBatchRecords;
                         notes = new Dictionary<string, object>();
+                        notes["MaxItems"] = response.MaxItems;
                         notes["Marker"] = response.Marker;
                         notes["IsTruncated"] = response.IsTruncated;
                         notes["NextMarker"] = response.NextMarker;
-                        notes["MaxItems"] = response.MaxItems;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.HealthChecks.Count;
+                        int _receivedThisCall = response.ChangeBatchRecords.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -216,8 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Marker { get; set; }
+            public System.String HostedZoneId { get; set; }
+            public System.String StartDate { get; set; }
+            public System.String EndDate { get; set; }
             public int? MaxItems { get; set; }
+            public System.String Marker { get; set; }
         }
         
     }

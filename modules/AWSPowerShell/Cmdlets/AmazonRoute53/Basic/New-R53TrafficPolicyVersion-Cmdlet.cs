@@ -28,48 +28,54 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// This action creates a reusable delegationSet.
+    /// Creates a new version of an existing traffic policy. When you create a new version
+    /// of a traffic policy, you specify the ID of the traffic policy that you want to update
+    /// and a JSON-formatted document that describes the new version.
     /// 
     ///  
     /// <para>
-    /// To create a new reusable delegationSet, send a <code>POST</code> request to the <code>2013-04-01/delegationset</code>
-    /// resource. The request body must include an XML document with a <code>CreateReusableDelegationSetRequest</code>
-    /// element. The response returns the <code>CreateReusableDelegationSetResponse</code>
-    /// element that contains metadata about the delegationSet. 
+    /// You use traffic policies to create multiple DNS resource record sets for one domain
+    /// name (such as example.com) or one subdomain name (such as www.example.com).
     /// </para><para>
-    /// If the optional parameter HostedZoneId is specified, it marks the delegationSet associated
-    /// with that particular hosted zone as reusable. 
+    /// To create a new version, send a <code>POST</code> request to the <code>2013-04-01/trafficpolicy/</code>
+    /// resource. The request body includes an XML document with a <code>CreateTrafficPolicyVersionRequest</code>
+    /// element. The response returns the <code>CreateTrafficPolicyVersionResponse</code>
+    /// element, which contains information about the new version of the traffic policy.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53.Model.CreateReusableDelegationSetResponse")]
-    [AWSCmdlet("Invokes the CreateReusableDelegationSet operation against Amazon Route 53.", Operation = new[] {"CreateReusableDelegationSet"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.CreateReusableDelegationSetResponse",
-        "This cmdlet returns a Amazon.Route53.Model.CreateReusableDelegationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "R53TrafficPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Route53.Model.CreateTrafficPolicyVersionResponse")]
+    [AWSCmdlet("Invokes the CreateTrafficPolicyVersion operation against Amazon Route 53.", Operation = new[] {"CreateTrafficPolicyVersion"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.CreateTrafficPolicyVersionResponse",
+        "This cmdlet returns a Amazon.Route53.Model.CreateTrafficPolicyVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class NewR53TrafficPolicyVersionCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies the request and that allows failed <code>CreateReusableDelegationSet</code>
-        /// requests to be retried without the risk of executing the operation twice. You must
-        /// use a unique <code>CallerReference</code> string every time you create a reusable
-        /// delegation set. <code>CallerReference</code> can be any unique string; you might choose
-        /// to use a string that identifies your project, such as <code>DNSMigration_01</code>.</para><para>Valid characters are any Unicode code points that are legal in an XML 1.0 document.
-        /// The UTF-8 encoding of the value must be less than 128 bytes.</para>
+        /// <para>Any comments that you want to include about the new traffic policy version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String CallerReference { get; set; }
+        public System.String Comment { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone whose delegation set you want to mark as reusable. It is
-        /// an optional parameter.</para>
+        /// <para>The definition of a new traffic policy version, in JSON format. You must specify the
+        /// full definition of the new traffic policy. You cannot specify just the differences
+        /// between the new version and a previous version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Document { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the traffic policy for which you want to create a new version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String HostedZoneId { get; set; }
+        public System.String Id { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -84,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("HostedZoneId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53ReusableDelegationSet (CreateReusableDelegationSet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Id", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-R53TrafficPolicyVersion (CreateTrafficPolicyVersion)"))
             {
                 return;
             }
@@ -96,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
-            context.CallerReference = this.CallerReference;
-            context.HostedZoneId = this.HostedZoneId;
+            context.Id = this.Id;
+            context.Document = this.Document;
+            context.Comment = this.Comment;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -109,15 +116,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.CreateReusableDelegationSetRequest();
+            var request = new Amazon.Route53.Model.CreateTrafficPolicyVersionRequest();
             
-            if (cmdletContext.CallerReference != null)
+            if (cmdletContext.Id != null)
             {
-                request.CallerReference = cmdletContext.CallerReference;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.HostedZoneId != null)
+            if (cmdletContext.Document != null)
             {
-                request.HostedZoneId = cmdletContext.HostedZoneId;
+                request.Document = cmdletContext.Document;
+            }
+            if (cmdletContext.Comment != null)
+            {
+                request.Comment = cmdletContext.Comment;
             }
             
             CmdletOutput output;
@@ -126,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateReusableDelegationSet(request);
+                var response = client.CreateTrafficPolicyVersion(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -154,8 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CallerReference { get; set; }
-            public System.String HostedZoneId { get; set; }
+            public System.String Id { get; set; }
+            public System.String Document { get; set; }
+            public System.String Comment { get; set; }
         }
         
     }

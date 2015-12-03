@@ -28,23 +28,22 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve the delegation set for a hosted zone, send a <code>GET</code> request
-    /// to the <code>2013-04-01/hostedzone/<i>hosted zone ID</i></code> resource. The delegation
-    /// set is the four Amazon Route 53 name servers that were assigned to the hosted zone
-    /// when you created it.
+    /// This action returns the status and changes of a change batch request.
     /// </summary>
-    [Cmdlet("Get", "R53HostedZone")]
-    [OutputType("Amazon.Route53.Model.GetHostedZoneResponse")]
-    [AWSCmdlet("Invokes the GetHostedZone operation against Amazon Route 53.", Operation = new[] {"GetHostedZone"})]
-    [AWSCmdletOutput("Amazon.Route53.Model.GetHostedZoneResponse",
-        "This cmdlet returns a Amazon.Route53.Model.GetHostedZoneResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "R53ChangeDetails")]
+    [OutputType("Amazon.Route53.Model.ChangeBatchRecord")]
+    [AWSCmdlet("Invokes the GetChangeDetails operation against Amazon Route 53.", Operation = new[] {"GetChangeDetails"})]
+    [AWSCmdletOutput("Amazon.Route53.Model.ChangeBatchRecord",
+        "This cmdlet returns a ChangeBatchRecord object.",
+        "The service call response (type Amazon.Route53.Model.GetChangeDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public class GetR53ChangeDetailsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The ID of the hosted zone for which you want to get a list of the name servers in
-        /// the delegation set.</para>
+        /// <para>The ID of the change batch request. The value that you specify here is the value that
+        /// <code>ChangeResourceRecordSets</code> returned in the Id element when you submitted
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53.Model.GetHostedZoneRequest();
+            var request = new Amazon.Route53.Model.GetChangeDetailsRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -86,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.GetHostedZone(request);
+                var response = client.GetChangeDetails(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.ChangeBatchRecord;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
