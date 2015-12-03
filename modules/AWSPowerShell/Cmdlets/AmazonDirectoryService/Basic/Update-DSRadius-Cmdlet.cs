@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to update the RADIUS server information for.</para>
+        /// <para>The identifier of the directory for which to update the RADIUS server information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

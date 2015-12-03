@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to create the computer account in.</para>
+        /// <para>The identifier of the directory in which to create the computer account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

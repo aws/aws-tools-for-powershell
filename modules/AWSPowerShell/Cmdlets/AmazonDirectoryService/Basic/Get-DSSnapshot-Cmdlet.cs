@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     {
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to retrieve snapshot information for.</para>
+        /// <para>The identifier of the directory for which to retrieve snapshot information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

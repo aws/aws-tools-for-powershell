@@ -28,8 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Enables multi-factor authentication (MFA) with Remote Authentication Dial In User
-    /// Service (RADIUS) for an AD Connector directory.
+    /// Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User
+    /// Service (RADIUS) server for an AD Connector directory.
     /// </summary>
     [Cmdlet("Enable", "DSRadius", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to enable MFA for.</para>
+        /// <para>The identifier of the directory for which to enable MFA.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

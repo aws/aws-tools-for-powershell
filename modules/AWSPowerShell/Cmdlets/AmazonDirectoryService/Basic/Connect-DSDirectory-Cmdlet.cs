@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates an AD Connector to connect an on-premises directory.
+    /// Creates an AD Connector to connect to an on-premises directory.
     /// </summary>
     [Cmdlet("Connect", "DSDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>A list of subnet identifiers in the VPC that the AD Connector is created in.</para>
+        /// <para>A list of subnet identifiers in the VPC in which the AD Connector is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>The identifier of the VPC that the AD Connector is created in.</para>
+        /// <para>The identifier of the VPC in which the AD Connector is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

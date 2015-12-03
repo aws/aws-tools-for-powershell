@@ -28,24 +28,28 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a snapshot of a Simple AD directory.
+    /// Obtains information about the trust relationships for this account.
     /// 
-    ///  <note><para>
-    /// You cannot take snapshots of AD Connector directories.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// If no input parameters are provided, such as DirectoryId or TrustIds, this request
+    /// describes all the trust relationships belonging to the account.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "DSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateSnapshot operation against AWS Directory Service.", Operation = new[] {"CreateSnapshot"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.DirectoryService.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSTrust")]
+    [OutputType("Amazon.DirectoryService.Model.Trust")]
+    [AWSCmdlet("Invokes the DescribeTrusts operation against AWS Directory Service.", Operation = new[] {"DescribeTrusts"})]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.Trust",
+        "This cmdlet returns a collection of Trust objects.",
+        "The service call response (type Amazon.DirectoryService.Model.DescribeTrustsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public class NewDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class GetDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to take a snapshot of.</para>
+        /// The Directory ID of the AWS directory that
+        /// is a part of the requested trust relationship.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,30 +57,36 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>The descriptive name to apply to the snapshot.</para>
+        /// <para>A list of identifiers of the trust relationships for which to obtain the information.
+        /// If this member is null, all trust relationships that belong to the current account
+        /// are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        [Alias("TrustIds")]
+        public System.String[] TrustId { get; set; }
         
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// The maximum number of objects to return.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.Int32 Limit { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to <a>DescribeTrusts</a>.
+        /// Pass null if this is the first call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
         
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSSnapshot (CreateSnapshot)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -85,7 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
             };
             
             context.DirectoryId = this.DirectoryId;
-            context.Name = this.Name;
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
+            context.NextToken = this.NextToken;
+            if (this.TrustId != null)
+            {
+                context.TrustIds = new List<System.String>(this.TrustId);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -97,15 +113,23 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.CreateSnapshotRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeTrustsRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Limit != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.TrustIds != null)
+            {
+                request.TrustIds = cmdletContext.TrustIds;
             }
             
             CmdletOutput output;
@@ -114,9 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateSnapshot(request);
+                var response = client.DescribeTrusts(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.SnapshotId;
+                object pipelineOutput = response.Trusts;
+                notes = new Dictionary<string, object>();
+                notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -143,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal class CmdletContext : ExecutorContext
         {
             public System.String DirectoryId { get; set; }
-            public System.String Name { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> TrustIds { get; set; }
         }
         
     }

@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     {
         /// <summary>
         /// <para>
-        /// <para>A list of identifiers of the directories to obtain the information for. If this member
-        /// is null, all directories that belong to the current account are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
+        /// <para>A list of identifiers of the directories for which to obtain the information. If this
+        /// member is null, all directories that belong to the current account are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

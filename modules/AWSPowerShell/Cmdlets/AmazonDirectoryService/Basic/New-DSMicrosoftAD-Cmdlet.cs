@@ -28,20 +28,21 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a Simple AD directory.
+    /// Creates a Microsoft AD in the AWS cloud.
     /// </summary>
-    [Cmdlet("New", "DSDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "DSMicrosoftAD", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateDirectory operation against AWS Directory Service.", Operation = new[] {"CreateDirectory"})]
+    [AWSCmdlet("Invokes the CreateMicrosoftAD operation against AWS Directory Service.", Operation = new[] {"CreateMicrosoftAD"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type Amazon.DirectoryService.Model.CreateDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.CreateMicrosoftADResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public class NewDSMicrosoftADCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>A textual description for the directory.</para>
+        /// <para>A textual description for the directory. This label will appear on the AWS console
+        /// <code>Directory Details</code> page after the directory is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -49,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>The fully qualified name for the directory, such as <code>corp.example.com</code>.</para>
+        /// <para>The fully qualified domain name for the directory, such as <code>corp.example.com</code>.
+        /// This name will resolve inside your VPC only. It does not need to be publicly resolvable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -57,29 +59,22 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         /// <summary>
         /// <para>
-        /// <para>The password for the directory administrator. The directory creation process creates
-        /// a directory administrator account with the username <code>Administrator</code> and
-        /// this password.</para>
+        /// <para>The password for the default administrative user named <code>Admin</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter]
         public System.String Password { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The short name of the directory, such as <code>CORP</code>.</para>
+        /// <para>The NetBIOS name for your domain. A short identifier for your domain, such as <code>CORP</code>.
+        /// If you don't specify a NetBIOS name, it will default to the first part of your directory
+        /// DNS. For example, <code>CORP</code> for the directory DNS <code>corp.example.com</code>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ShortName { get; set; }
-        
-        /// <summary>
-        /// <para>
-        /// <para>The size of the directory.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public Amazon.DirectoryService.DirectorySize Size { get; set; }
         
         /// <summary>
         /// <para>
@@ -114,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSDirectory (CreateDirectory)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DSMicrosoftAD (CreateMicrosoftAD)"))
             {
                 return;
             }
@@ -129,7 +124,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.Name = this.Name;
             context.Password = this.Password;
             context.ShortName = this.ShortName;
-            context.Size = this.Size;
             if (this.VpcSettings_SubnetId != null)
             {
                 context.VpcSettings_SubnetIds = new List<System.String>(this.VpcSettings_SubnetId);
@@ -146,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.CreateDirectoryRequest();
+            var request = new Amazon.DirectoryService.Model.CreateMicrosoftADRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -163,10 +157,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.ShortName != null)
             {
                 request.ShortName = cmdletContext.ShortName;
-            }
-            if (cmdletContext.Size != null)
-            {
-                request.Size = cmdletContext.Size;
             }
             
              // populate VpcSettings
@@ -204,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateDirectory(request);
+                var response = client.CreateMicrosoftAD(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.DirectoryId;
                 output = new CmdletOutput
@@ -236,7 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             public System.String Name { get; set; }
             public System.String Password { get; set; }
             public System.String ShortName { get; set; }
-            public Amazon.DirectoryService.DirectorySize Size { get; set; }
             public List<System.String> VpcSettings_SubnetIds { get; set; }
             public System.String VpcSettings_VpcId { get; set; }
         }
