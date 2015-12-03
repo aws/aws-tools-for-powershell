@@ -105,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
         /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
-        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para>
+        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code>|
+        /// <code>aurora</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

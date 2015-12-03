@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// same region in which the operation is running.</li><li> All Read Replicas in one
         /// region that are created from the same source DB instance must either: <ul><li>Specify
         /// DB subnet groups from the same VPC. All these Read Replicas will be created in the
-        /// same VPC.</li><li>Not specify a DB subnet group. All these Read Replicas will be
-        /// created outside of any VPC.</li></ul></li></ul>
+        /// same VPC.</li><li>Not specify a DB subnet group. All these Read Replicas will be created
+        /// outside of any VPC.</li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

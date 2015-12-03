@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// setting for the DB instance. </para><para> If this parameter is set to <code>false</code>, changes to the DB instance are applied
         /// during the next maintenance window. Some parameter changes can cause an outage and
         /// will be applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
-        /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying">Modifying
+        /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
         /// a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that
         /// setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has
         /// for each modified parameter and to determine when the changes will be applied. </para><para>Default: <code>false</code></para>
@@ -179,6 +179,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBParameterGroupName { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para> The port number on which the database accepts connections. </para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
+        /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
+        /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 DBPortNumber { get; set; }
         
         /// <summary>
         /// <para>
@@ -410,6 +420,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBParameterGroupName = this.DBParameterGroupName;
+            if (ParameterWasBound("DBPortNumber"))
+                context.DBPortNumber = this.DBPortNumber;
             if (this.DBSecurityGroup != null)
             {
                 context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
@@ -485,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBParameterGroupName != null)
             {
                 request.DBParameterGroupName = cmdletContext.DBParameterGroupName;
+            }
+            if (cmdletContext.DBPortNumber != null)
+            {
+                request.DBPortNumber = cmdletContext.DBPortNumber.Value;
             }
             if (cmdletContext.DBSecurityGroups != null)
             {
@@ -587,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBParameterGroupName { get; set; }
+            public System.Int32? DBPortNumber { get; set; }
             public List<System.String> DBSecurityGroups { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
