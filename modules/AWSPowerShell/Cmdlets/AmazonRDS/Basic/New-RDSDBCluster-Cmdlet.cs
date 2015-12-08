@@ -126,6 +126,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>The KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are creating a DB cluster with the same AWS account that owns the KMS encryption
+        /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
+        /// of the ARN for the KM encryption key.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
+        /// for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default encryption
+        /// key. AWS KMS creates the default encryption key for your AWS account. Your AWS account
+        /// has a different default encryption key for each AWS region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> The name of the master user for the client DB cluster. </para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>First character must be
         /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul>
         /// </para>
@@ -186,6 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>Specifies whether the DB cluster is encrypted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean StorageEncrypted { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
@@ -240,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
             context.OptionGroupName = this.OptionGroupName;
@@ -247,6 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (ParameterWasBound("StorageEncrypted"))
+                context.StorageEncrypted = this.StorageEncrypted;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
@@ -304,6 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
             if (cmdletContext.MasterUsername != null)
             {
                 request.MasterUsername = cmdletContext.MasterUsername;
@@ -327,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.StorageEncrypted != null)
+            {
+                request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
             }
             if (cmdletContext.Tags != null)
             {
@@ -380,12 +413,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBSubnetGroupName { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? StorageEncrypted { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }

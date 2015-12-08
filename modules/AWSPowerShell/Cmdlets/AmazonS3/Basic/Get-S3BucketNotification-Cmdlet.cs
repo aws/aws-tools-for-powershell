@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Return the notification configuration of a bucket.
+    /// Returns the notification configuration of a bucket.
     /// </summary>
     [Cmdlet("Get", "S3BucketNotification")]
     [OutputType("Amazon.S3.Model.GetBucketNotificationResponse")]
