@@ -1,3 +1,10 @@
+### 3.1.33.0 (2015-12-08)
+  * Fixed issue with 'profile not found' errors when referencing credential profiles contained in the text-format credential files shared with the AWS CLI.
+  * Auto Scaling
+    - Added new cmdlet, Set-ASInstanceProtection to support the new SetInstanceProtection API.
+  * Amazon RDS
+    - Updated the New-RDSDBCluster, Restore-RDSDBClusterFromSnapshot and Restore-RDSDBClusterToPointInTime cmdlets to support encryption using keys managed through AWS Key Management System.
+
 ### 3.1.32.0 (2015-12-03)
   * AWS Directory Service
     - Added support for managed directories with new cmdlets Approve-DSTrust (VerifyTrust API), Get-DSTrust (DescribeTrusts API), New-DSMicrosoftAD (CreateMicrosoftAD API), New-DSTrust (CreateTrust API) and Remove-DSTrust (DeleteTrust API).
