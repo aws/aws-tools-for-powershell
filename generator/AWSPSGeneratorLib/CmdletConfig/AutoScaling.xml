@@ -94,6 +94,7 @@
     <ServiceOperation MethodName="ResumeProcesses" Output="Void" PositionalParameters="ScalingProcesses"/>
     <ServiceOperation MethodName="SetDesiredCapacity" Output="Void" PositionalParameters="DesiredCapacity;HonorCooldown"/>
     <ServiceOperation MethodName="SetInstanceHealth" Output="Void" PipelineParameter="InstanceId" PositionalParameters="HealthStatus;ShouldRespectGracePeriod"/>
+    <ServiceOperation MethodName="SetInstanceProtection" Output="Void" />
     <ServiceOperation MethodName="SuspendProcesses" Output="Void" PositionalParameters="ScalingProcesses"/>
     <ServiceOperation MethodName="TerminateInstanceInAutoScalingGroup" PipelineParameter="InstanceId" PositionalParameters="ShouldDecrementDesiredCapacity"/>
     <ServiceOperation MethodName="UpdateAutoScalingGroup" Output="Void" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity"/>

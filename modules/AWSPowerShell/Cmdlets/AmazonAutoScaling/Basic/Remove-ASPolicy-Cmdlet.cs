@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Deletes the specified Auto Scaling policy.
+    /// 
+    ///  
+    /// <para>
+    /// Deleting a policy deletes the underlying alarm action, but does not delete the alarm,
+    /// even if it no longer has an associated action.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "ASPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

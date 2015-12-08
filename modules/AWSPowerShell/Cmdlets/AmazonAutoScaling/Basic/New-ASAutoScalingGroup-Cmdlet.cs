@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
-        /// scaling activity can start.</para><para>The default is 300. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
+        /// scaling activity can start. The default is 300.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Understanding
         /// Auto Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -89,14 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, after an EC2 instance comes into service that Auto
-        /// Scaling starts checking its health. During this time, any health check failures for
-        /// the instance are ignored.</para><para>This parameter is required if you are adding an <code>ELB</code> health check. Frequently,
-        /// new instances need to warm up, briefly, before they can pass a health check. To provide
-        /// ample warm-up time, set the health check grace period of the group to match the expected
-        /// startup period of your application.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html">Add
-        /// an Elastic Load Balancing Health Check to Your Auto Scaling Group</a> in the <i>Auto
-        /// Scaling Developer Guide</i>.</para>
+        /// <para>The amount of time, in seconds, that Auto Scaling waits before checking the health
+        /// status of an EC2 instance that has come into service. During this time, any health
+        /// check failures for the instance are ignored. The default is 300.</para><para>This parameter is required if you are adding an <code>ELB</code> health check.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
+        /// Checks for Auto Scaling Instances</a> in the <i>Auto Scaling Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -160,6 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 MinSize { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether newly launched instances are protected from termination by Auto
+        /// Scaling when scaling in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean NewInstancesProtectedFromScaleIn { get; set; }
         
         /// <summary>
         /// <para>
@@ -259,6 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.MaxSize = this.MaxSize;
             if (ParameterWasBound("MinSize"))
                 context.MinSize = this.MinSize;
+            if (ParameterWasBound("NewInstancesProtectedFromScaleIn"))
+                context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
             context.PlacementGroup = this.PlacementGroup;
             if (this.Tag != null)
             {
@@ -326,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.MinSize = cmdletContext.MinSize.Value;
             }
+            if (cmdletContext.NewInstancesProtectedFromScaleIn != null)
+            {
+                request.NewInstancesProtectedFromScaleIn = cmdletContext.NewInstancesProtectedFromScaleIn.Value;
+            }
             if (cmdletContext.PlacementGroup != null)
             {
                 request.PlacementGroup = cmdletContext.PlacementGroup;
@@ -390,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public List<System.String> LoadBalancerNames { get; set; }
             public System.Int32? MaxSize { get; set; }
             public System.Int32? MinSize { get; set; }
+            public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
             public List<Amazon.AutoScaling.Model.Tag> Tags { get; set; }
             public List<System.String> TerminationPolicies { get; set; }

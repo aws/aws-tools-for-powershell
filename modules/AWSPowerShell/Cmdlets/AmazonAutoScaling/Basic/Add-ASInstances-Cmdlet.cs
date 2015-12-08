@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
+    /// When you attach instances, Auto Scaling increases the desired capacity of the group
+    /// by the number of instances being attached. If the number of instances being attached
+    /// plus the desired capacity of the group exceeds the maximum size of the group, the
+    /// operation fails.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html">Attach
     /// EC2 Instances to Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.
     /// </para>

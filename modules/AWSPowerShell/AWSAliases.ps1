@@ -124,6 +124,7 @@ Set-Alias -Name Resume-ASProcesses -Value Resume-ASProcess
 Set-Alias -Name AS-ResumeProcesses -Value Resume-ASProcess
 Set-Alias -Name AS-SetDesiredCapacity -Value Set-ASDesiredCapacity
 Set-Alias -Name AS-SetInstanceHealth -Value Set-ASInstanceHealth
+Set-Alias -Name AS-SetInstanceProtection -Value Set-ASInstanceProtection
 Set-Alias -Name Suspend-ASProcesses -Value Suspend-ASProcess
 Set-Alias -Name AS-SuspendProcesses -Value Suspend-ASProcess
 Set-Alias -Name Terminate-ASInstanceInAutoScalingGroup -Value Stop-ASInstanceInAutoScalingGroup
