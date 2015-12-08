@@ -116,14 +116,17 @@ namespace Amazon.PowerShell.Common
             // profile
             if (innerCredentials == null && userSpecifiedProfile)
             {
-                if (!ProfileManager.IsProfileKnown(self.ProfileName))
-                    throw new ArgumentException(string.Format("A profile with name {0} has not been registered.", self.ProfileName));
-
-                if (AWSCredentialsProfile.CanCreateFrom(self.ProfileName))
+                if (StoredProfileAWSCredentials.CanCreateFrom(self.ProfileName, self.ProfilesLocation))
                     LoadAWSCredentialProfile(self, userSpecifiedProfile, ref innerCredentials, ref name, ref source);
                 else if (SAMLRoleProfile.CanCreateFrom(self.ProfileName))
                     LoadSAMLRoleProfile(self, userSpecifiedProfile, ref innerCredentials, ref name, ref source);
-            }
+
+                // if the user gave us an explicit profile name (and optional location) it's an error if we
+                // don't find it as otherwise we could drop through and pick up a 'default' profile that is
+                // for a different account
+                if (innerCredentials == null)
+					return false;
+           }
 
             if (innerCredentials == null && self.Credential != null)
             {
@@ -144,12 +147,15 @@ namespace Amazon.PowerShell.Common
             }
 
             // if profile or profile location not specified, try lookup for defaults now
-            if (innerCredentials == null && !userSpecifiedProfile && ProfileManager.IsProfileKnown(SettingsStore.PSDefaultSettingName))
+            if (innerCredentials == null && !userSpecifiedProfile)
             {
-                if (AWSCredentialsProfile.CanCreateFrom(SettingsStore.PSDefaultSettingName))
-                    LoadAWSCredentialProfile(self, false, ref innerCredentials, ref name, ref source);
-                else if (SAMLRoleProfile.CanCreateFrom(SettingsStore.PSDefaultSettingName))
-                    LoadSAMLRoleProfile(self, false, ref innerCredentials, ref name, ref source);
+                if (StoredProfileAWSCredentials.IsProfileKnown(SettingsStore.PSDefaultSettingName, self.ProfilesLocation))
+                {
+                    if (StoredProfileAWSCredentials.CanCreateFrom(SettingsStore.PSDefaultSettingName, self.ProfilesLocation))
+                        LoadAWSCredentialProfile(self, false, ref innerCredentials, ref name, ref source);
+                    else if (SAMLRoleProfile.CanCreateFrom(SettingsStore.PSDefaultSettingName))
+                        LoadSAMLRoleProfile(self, false, ref innerCredentials, ref name, ref source);
+                }
             }
 
             // load credentials from legacy settings store
