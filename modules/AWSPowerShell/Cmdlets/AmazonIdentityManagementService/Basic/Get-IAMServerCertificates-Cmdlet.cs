@@ -35,6 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     ///  You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters. 
+    /// </para><para>
+    /// For more information about working with server certificates, including a list of AWS
+    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMServerCertificates")]

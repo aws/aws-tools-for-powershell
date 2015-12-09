@@ -31,13 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Creates a new role for your AWS account. For more information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
     /// with Roles</a>. For information about limitations on role names and the number of
     /// roles you can create, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
-    /// 
-    ///  
-    /// <para>
-    /// The policy in the following example grants permission to an EC2 instance to assume
-    /// the role.
-    /// </para>
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.Role")]
@@ -50,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     {
         /// <summary>
         /// <para>
-        /// <para>The policy that grants an entity permission to assume the role.</para>
+        /// <para>The trust relationship policy document that grants an entity permission to assume
+        /// the role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
