@@ -501,14 +501,19 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// <para>
-        /// When the profile specified in ProfileName references a profile held in the
-        /// ini-format credentials file shared with the AWS CLI and other AWS SDKs, contains
-        /// the name and location of the credential file if it is stored outside of the default
-        /// location (C:\Users\userid\.aws) or uses a non-default name ('credentials').
+        /// Used to specify the name and location of the ini-format credential file (shared with 
+        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or 
+        /// folder location.
+        /// </para>
+        /// When the ini-format credential file uses the default filename ('credentials') and is 
+        /// placed in the default search location ('.aws' folder in the current user's profile folder, 
+        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required 
+        /// when the profile to be used is contained in the encrypted credential file shared with the 
+        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
         /// </para>
         /// <para>
-        /// This parameter is not required when the credential file shared with the AWS SDK
-        /// for .NET and AWS Toolkit for Visual Studio is used.
+        /// As the current folder can vary in a shell or during script execution it is advised 
+        /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
         [Parameter(Position = 201)]
@@ -605,14 +610,19 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// <para>
-        /// When the profile specified in ProfileName references a profile held in the
-        /// ini-format credentials file shared with the AWS CLI and other AWS SDKs, contains
-        /// the name and location of the credential file if it is stored outside of the default
-        /// location (C:\Users\userid\.aws) or uses a non-default name ('credentials').
+        /// Used to specify the name and location of the ini-format credential file (shared with 
+        /// the AWS CLI and other AWS SDKs) when the file does not use the default name and/or 
+        /// folder location.
+        /// </para>
+        /// When the ini-format credential file uses the default filename ('credentials') and is 
+        /// placed in the default search location ('.aws' folder in the current user's profile folder, 
+        /// 'C:\Users\userid') this parameter is not required. This parameter is also not required 
+        /// when the profile to be used is contained in the encrypted credential file shared with the 
+        /// AWS SDK for .NET and AWS Toolkit for Visual Studio.
         /// </para>
         /// <para>
-        /// This parameter is not required when the credential file shared with the AWS SDK
-        /// for .NET and AWS Toolkit for Visual Studio is used.
+        /// As the current folder can vary in a shell or during script execution it is advised 
+        /// that you use specify a fully qualified path instead of a relative path.
         /// </para>
         /// </summary>
         [Parameter]
