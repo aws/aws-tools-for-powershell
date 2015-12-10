@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-ELBTags -LoadBalancerName @("my-load-balancer","my-internal-load-balancer")</code>
+    <code>PS C:\> Get-ELBTags -LoadBalancerName @("my-load-balancer","my-internal-load-balancer")
     
 LoadBalancerName             Tags
 ----------------             ----
