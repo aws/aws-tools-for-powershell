@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Update-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -DefaultCooldown 10 -DesiredCapacity 5</code>
-    <description>Updates the default cooldown period (in seconds) and size of the specified Auto Scaling group.</description>
+    <code>PS C:\> Update-ASAutoScalingGroup -AutoScalingGroupName my-asg -MaxSize 5 -MinSize 1</code>
+    <description>This example updates the minimum and maximum size of the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>Update-ASAutoScalingGroup -AutoScalingGroupName my-test-asg -AvailabilityZone @("us-west-2a", "us-west-2b")</code>
-    <description>Updates the availability zones of the specified Auto Scaling group.</description>
+    <code>PS C:\> Update-ASAutoScalingGroup -AutoScalingGroupName my-asg -DefaultCooldown 10</code>
+    <description>This example updates the default cooldown period of the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>PS C:\> Update-ASAutoScalingGroup -AutoScalingGroupName my-asg -AvailabilityZone @("us-west-2a", "us-west-2b")</code>
+    <description>This example updates the Availability Zones of the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>PS C:\> Update-ASAutoScalingGroup -AutoScalingGroupName my-asg -HealthCheckType ELB -HealthCheckGracePeriod 60</code>
+    <description>This example updates the specified Auto Scaling group to use Elastic Load Balancing health checks.</description>
   </example>
 </examples>

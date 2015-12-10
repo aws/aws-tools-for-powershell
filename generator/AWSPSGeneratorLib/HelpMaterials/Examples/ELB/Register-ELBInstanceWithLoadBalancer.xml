@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Register-ELBInstanceWithLoadBalancer -LoadBalancerName my-test-loadbalancer -Instance "i-1a2b3c4d"</code>
-    <description>Registers the single EC2 instance with the specified load balancer.</description>
-  </example>
-  <example>
-    <code>Register-ELBInstanceWithLoadBalancer -LoadBalancerName my-test-loadbalancer -Instance @("i-1a2b3c4d", "i-4d3c2b1a")</code>
-    <description>Registers two EC2 instances with the specified load balancer.</description>
+    <code>PS C:\> Register-ELBInstanceWithLoadBalancer -LoadBalancerName my-load-balancer -Instance i-12345678
+    
+InstanceId
+----------
+i-12345678
+i-87654321</code>
+    <description>This example registers the specified EC2 instance with the specified load balancer.</description>
   </example>
 </examples>

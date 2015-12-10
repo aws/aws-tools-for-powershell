@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>New-ELBLoadBalancerListener -LoadBalancerName my-test-loadbalancer `
-                            -Listener @{ LoadBalancerPort=443;InstancePort=443;Protocol="https";InstanceProtocol="https";`
-                                         SSLCertificateId="arn:aws:iam::123456789012:server-certificate/servercert" }
-    </code>
-    <description>Adds a listener to the specified load balancer.</description>
+    <code>PS C:\> $httpsListener = New-Object Amazon.ElasticLoadBalancing.Model.Listener
+PS C:\> $httpsListener.Protocol = "https"
+PS C:\> $httpsListener.LoadBalancerPort = 443
+PS C:\> $httpsListener.InstanceProtocol = "https"
+PS C:\> $httpsListener.InstancePort = 443 
+PS C:\> $httpsListener.SSLCertificateId="arn:aws:iam::123456789012:server-certificate/my-server-cert"
+PS C:\> New-ELBLoadBalancerListener -LoadBalancerName my-load-balancer -Listener $httpsListener</code>
+    <description>This example adds an HTTPS listener to the specified load balancer.</description>
   </example>
 </examples>

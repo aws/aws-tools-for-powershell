@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-test-vpc-loadbalancer -SecurityGroup sg-123456789</code>
-    <description>Associates the security group with id 'sg-123456789' to the load balancer in a virtual private cloud (VPC).</description>
+    <code>PS C:\> Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-load-balancer -SecurityGroup sg-87654321
+    
+sg-87654321</code>
+    <description>This example replaces the current security group for the specified load balancer with the specified security group.</description>
   </example>
   <example>
-    <code>Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-test-vpc-loadbalancer -SecurityGroup @("sg-123456789","sg-987654321")</code>
-    <description>Associates the specified security groups to the load balancer in a virtual private cloud (VPC).</description>
+    <code>PS C:\> Join-ELBSecurityGroupToLoadBalancer -LoadBalancerName my-load-balancer -SecurityGroup @("sg-12345678", "sg-87654321")
+
+sg-12345678
+sg-87654321</code>
+    <description>To keep the current security group and specify an additional security group, specify both the existing and new security groups.</description>
   </example>
 </examples>

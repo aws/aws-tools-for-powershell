@@ -1,14 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>Set-ELBHealthCheck -LoadBalancerName MyLoadBalancer `
-                   -HealthCheck_HealthyThreshold 2 `
-                   -HealthCheck_UnhealthyThreshold 2 `
-                   -HealthCheck_Target "HTTP:80/ping"
-                   -HealthCheck_Interval 30
-                   -HealthCheck_Timeout 3
-    </code>
-    <description>Configures the health check settings for the specified load balancer.</description>
+    <code>PS C:\> Set-ELBHealthCheck -LoadBalancerName my-load-balancer `
+>> -HealthCheck_HealthyThreshold 2 `
+>> -HealthCheck_UnhealthyThreshold 2 `
+>> -HealthCheck_Target "HTTP:80/ping" `
+>> -HealthCheck_Interval 30 `
+>> -HealthCheck_Timeout 3
+
+HealthyThreshold   : 2
+Interval           : 30
+Target             : HTTP:80/ping
+Timeout            : 3
+UnhealthyThreshold : 2</code>
+    <description>This example configures the health check settings for the specified load balancer.</description>
   </example>
 </examples>

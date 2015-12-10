@@ -1,15 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Get-ELBInstanceHealth -LoadBalancerName my-test-loadbalancer</code>
-    <description>Returns the state of all instances registered with the specified load balancer.</description>
+    <code>PS C:\> Get-ELBInstanceHealth -LoadBalancerName my-load-balancer
+Description                   InstanceId                    ReasonCode                    State
+-----------                   ----------                    ----------                    -----
+N/A                           i-87654321                    N/A                           InService
+Instance has failed at lea... i-12345678                    Instance                      OutOfService</code>
+    <description>This example describes the state of the instances registered with the specified load balancer.</description>
   </example>
   <example>
-    <code>Get-ELBInstanceHealth -LoadBalancerName my-test-loadbalancer -Instance "i-12345678"</code>
-    <description>Returns the state of a single instance registered with the specified load balancer.</description>
+    <code>PS C:\> Get-ELBInstanceHealth -LoadBalancerName my-load-balancer -Instance i-12345678</code>
+    <description>This example describes the state of the specified instance registered with the specified load balancer.</description>
   </example>
   <example>
-    <code>Get-ELBInstanceHealth -LoadBalancerName my-test-loadbalancer -Instance @("i-12345678", "i-87654321")</code>
-    <description>Returns the state of multiple instances registered with the specified load balancer.</description>
+    <code>PS C:\> (Get-ELBInstanceHealth -LoadBalancerName my-load-balancer -Instance i-12345678).Description
+    
+Instance has failed at least the UnhealthyThreshold number of health checks consecutively.</code>
+    <description>This example displays the complete description of the state of the specified instance.</description>
   </example>
 </examples>

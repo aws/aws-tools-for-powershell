@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Add-ELBTags -LoadBalancerName my-test-loadbalancer -tag @{ Key="project";Value="lima" },@{ Key="otherkey";Value="ABC123" }</code>
-    <description>Sets the specified collection of tags to the load balancer.</description>
+    <code>PS C:\> Add-ELBTags -LoadBalancerName my-load-balancer -Tag @{ Key="project";Value="lima" },@{ Key="department";Value="digital-media" }</code>
+    <description>This example adds the specified tags to the specified load balancer. The syntax used by this example requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> $tag = New-Object Amazon.ElasticLoadBalancing.Model.Tag
+PS C:\> $tag.Key = "project"
+PS C:\> $tag.Value = "lima"
+PS C:\> Add-ELBTags -LoadBalancerName my-load-balancer -Tag $tag</code>
+    <description>With PowerShell version 2, you must use New-Object to create a tag for the Tag parameter.</description>
   </example>
 </examples>

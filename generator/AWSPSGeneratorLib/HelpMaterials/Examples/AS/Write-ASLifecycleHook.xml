@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Write-ASLifecycleHook -AutoScalingGroupName my-asg -LifecycleHookName "myLifecycleHook" -LifecycleTransition "autoscaling:EC2_INSTANCE_LAUNCHING" -NotificationTargetARN "arn:aws:sns:us-west-2:123456789012:my-sns-topic" -RoleARN "arn:aws:iam::123456789012:role/my-iam-role"</code>
+    <description>This example adds the specified lifecycle hook to the specified Auto Scaling group.</description>
+  </example>
+</examples>
