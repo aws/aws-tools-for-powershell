@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     {
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the end time of the range for the request. If provided,
-        /// events with a timestamp later than this time will not be returned.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. If provided, events with a timestamp later than this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the start time of the range for the request. If provided,
-        /// events with a timestamp prior to this time will not be returned.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. If provided, events with a timestamp prior to this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>A pagination token obtained from a <code class="code">FilterLogEvents</code> response
-        /// to continue paginating the FilterLogEvents results.</para>
+        /// to continue paginating the FilterLogEvents results. This token is omitted from the
+        /// response when there are no other events to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
