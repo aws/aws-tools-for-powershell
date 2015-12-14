@@ -122,8 +122,10 @@ namespace Amazon.PowerShell.Common
                 // set them as default otherwise we can end up with mixed settings data. If credentials
                 // were loaded from key parameters or instance profile, then we know they are AWS
                 // credentials but we still need to check for SAML data in the 'default' profile
-                // and clean it out to avoid a mix
-                if (defaultCredentials.Source == CredentialsSource.Saved)
+                // and clean it out to avoid a mix. Note that we get 'saved' source type for credentials
+                // the user just entered, so we have to do a check to see if the profile previously
+                // existed...
+                if (defaultCredentials.Source == CredentialsSource.Saved && ProfileManager.IsProfileKnown(SettingsStore.PSDefaultSettingName))
                     SettingsStore.SaveFromProfile(commonArguments.ProfileName, SettingsStore.PSDefaultSettingName, region);
                 else
                     SettingsStore.SaveAWSCredentialProfile(SettingsStore.PSDefaultSettingName, defaultCredentials.Credentials, region);
