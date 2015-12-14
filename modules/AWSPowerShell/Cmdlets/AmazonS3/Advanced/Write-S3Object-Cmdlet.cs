@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         /// <summary>
         /// Specifies the encryption used on the server to store the content.
-        /// Allowable values: None, AES256, AWSKMS.
+        /// Allowable values: None, AES256, aws:kms.
         /// </summary>
         [Parameter]
         public System.String ServerSideEncryption { get; set; }
