@@ -493,13 +493,13 @@ namespace Amazon.PowerShell.Common
                     // PowerShell labelling doesn't work if the shortcut is not in the label text (it
                     // adds it as extra text, which looks odd). Trying to select characters in the names
                     // can also be funky so the simplest approach is to manually prefix each role with an
-                    // index number that is the shortcut. When we run out of 1..9, the user has to type
-                    // the remainder.
-                    var shortcut = 1;
+                    // index number that is the shortcut. We used 1..9 on initial launch of this feature, then
+                    // found a user with more than 10 roles so switched to alpha.
+                    var shortcut = 'A';
                     foreach (var r in availableRoles.Keys)
                     {
                         string label = null;
-                        if (shortcut < 10)
+                        if (shortcut <= 'Z')
                             label = string.Concat("&", shortcut++, " - ", r);
                         else
                             label = r;
