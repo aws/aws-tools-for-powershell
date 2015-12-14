@@ -36,6 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  This is an asynchronous call. If all the required information is provided, this API
     /// will initiate an export task and respond with the task Id. Once started, <code>DescribeExportTasks</code>
     /// can be used to get the status of an export task. 
+    /// </para><para>
+    ///  You can export logs from multiple log groups or multiple time ranges to the same
+    /// Amazon S3 bucket. To separate out log data for each export task, you can specify a
+    /// prefix that will be used as the Amazon S3 key prefix for all exported objects. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWLExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     {
         /// <summary>
         /// <para>
-        /// <para>Name of Amazon S3 bucket to which the log data will be exported. <b>NOTE: Only buckets
-        /// in the same AWS region are supported</b></para>
+        /// <para>Name of Amazon S3 bucket to which the log data will be exported.</para><para><b>NOTE: Only buckets in the same AWS region are supported</b></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the start time of the range for the request. Events with
-        /// a timestamp prior to this time will not be exported.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. It indicates the start time of the range for the request. Events with a timestamp
+        /// prior to this time will not be exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,8 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the end time of the range for the request. Events with
-        /// a timestamp later than this time will not be exported.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. It indicates the end time of the range for the request. Events with a timestamp
+        /// later than this time will not be exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
