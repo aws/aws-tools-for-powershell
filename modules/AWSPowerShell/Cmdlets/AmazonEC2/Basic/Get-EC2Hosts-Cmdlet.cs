@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// The results describe only the Dedicated hosts in the region you're currently using.
     /// All listed instances consume capacity on your Dedicated host. Dedicated hosts that
-    /// have recently been released will be listed with the status "released".
+    /// have recently been released will be listed with the state <code>released</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2Hosts")]

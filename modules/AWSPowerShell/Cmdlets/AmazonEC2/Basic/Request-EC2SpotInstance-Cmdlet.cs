@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone.</para>
+        /// <para>The Availability Zones. To specify multiple Availability Zones, separate them using
+        /// commas; for example, "us-west-2a, us-west-2b".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

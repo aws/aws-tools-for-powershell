@@ -67,6 +67,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         /// <summary>
         /// <para>
+        /// <para>Specifies whether the destination snapshots of the copied image should be encrypted.
+        /// The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS
+        /// KMS) CMK is specified with <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Encrypted { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting
+        /// the snapshots of an image during a copy operation. This parameter is only required
+        /// if you want to use a non-default CMK; if this parameter is not specified, the default
+        /// CMK for EBS is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
+        /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
+        /// The specified CMK must exist in the region that the snapshot is being copied to. If
+        /// a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be
+        /// set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para>The name of the new AMI in the destination region.</para>
         /// </para>
         /// </summary>
@@ -116,6 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
+            context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             context.SourceImageId = this.SourceImageId;
             context.SourceRegion = this.SourceRegion;
@@ -139,6 +169,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.Name != null)
             {
@@ -189,6 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? Encrypted { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public System.String SourceImageId { get; set; }
             public System.String SourceRegion { get; set; }
