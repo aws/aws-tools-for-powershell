@@ -1,3 +1,8 @@
+### 3.1.34.0 (2015-12-15)
+  * Fixed issue with Initialize-AWSDefaults reporting 'profile not found' error (with no profile name listed) when entering access and secret key credentials if the host system did not already have a profile named 'default'.
+  * Amazon EC2
+    - Added new parameters to Copy-EC2Image cmdlet (CopyImage API) enabling AMI copies where all the associated EBS snapshots are encrypted.
+
 ### 3.1.33.0 (2015-12-08)
   * Fixed issue with 'profile not found' errors when referencing credential profiles contained in the text-format credential files shared with the AWS CLI.
   * Auto Scaling
