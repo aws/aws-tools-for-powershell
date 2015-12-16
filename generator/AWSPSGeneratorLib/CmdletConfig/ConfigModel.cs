@@ -815,6 +815,12 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// </summary>
         public PassThruOverride PassThru { get; set; }
 
+        /// <summary>
+        /// Overrides the service level iteration settings for an operation, for
+        /// services that use inconsistent markers etc across their apis
+        /// </summary>
+        public AutoIteration AutoIterate = null;
+
         #region Data constructed during generation
 
         /// <summary>

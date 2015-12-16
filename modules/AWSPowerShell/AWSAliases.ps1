@@ -1623,6 +1623,7 @@ Set-Alias -Name IOT-ListPrincipalThings -Value Get-IOTPrincipalThingList
 Set-Alias -Name IOT-ListThingPrincipals -Value Get-IOTThingPrincipalList
 Set-Alias -Name IOT-ListThings -Value Get-IOTThingList
 Set-Alias -Name IOT-ListTopicRules -Value Get-IOTTopicRuleList
+Set-Alias -Name IOT-RegisterCertificate -Value Register-IOTCertificate
 Set-Alias -Name IOT-RejectCertificateTransfer -Value Deny-IOTCertificateTransfer
 Set-Alias -Name IOT-ReplaceTopicRule -Value Set-IOTTopicRule
 Set-Alias -Name IOT-SetDefaultPolicyVersion -Value Set-IOTDefaultPolicyVersion

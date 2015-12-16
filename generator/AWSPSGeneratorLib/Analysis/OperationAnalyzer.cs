@@ -59,18 +59,37 @@ namespace AWSPowerShellGenerator.Analysis
         public List<SimplePropertyInfo> RequestProperties { get; private set; }
 
         /// <summary>
+        /// Returns any autoiteration settings that apply, defined at either the operation
+        /// or service level.
+        /// </summary>
+        public AutoIteration AutoIterateSettings
+        {
+            get
+            {
+                return CurrentOperation.AutoIterate != null ? CurrentOperation.AutoIterate : CurrentModel.AutoIterate;
+                //if (CurrentOperation.AutoIterate != null)
+                //    return CurrentOperation.AutoIterate;
+
+                //if (CurrentModel.AutoIterate != null && !CurrentModel.AutoIterate.ExclusionSet.Contains(CurrentOperation.MethodName))
+                //    return CurrentModel.AutoIterate;
+
+                //return null;
+            }
+        }
+
+        /// <summary>
         /// Helper to indicate if codegen should emit an iteration pattern
         /// </summary>
         public bool GenerateIterationCode
         {
             get
             {
-                if (CurrentModel.AutoIterate == null)
+                var autoIteration = AutoIterateSettings;
+                if (autoIteration == null)
                     return false;
 
-                // we only have iteration patterns at service model level currently
-                var autoIteration = CurrentModel.AutoIterate;
-                var pattern = CurrentModel.AutoIterate.Pattern;
+                var pattern = autoIteration.Pattern;
+
                 if (pattern == AutoIteration.AutoIteratePattern.None
                         || autoIteration.ExclusionSet.Contains(CurrentOperation.MethodName))
                     return false;
@@ -102,10 +121,8 @@ namespace AWSPowerShellGenerator.Analysis
         {
             get
             {
-                if (CurrentModel.AutoIterate == null)
-                    return AutoIteration.AutoIteratePattern.None;
-
-                return CurrentModel.AutoIterate.Pattern;
+                var autoIteration = AutoIterateSettings;
+                return autoIteration != null ? autoIteration.Pattern : AutoIteration.AutoIteratePattern.None;
             }
         }
 
@@ -497,6 +514,17 @@ namespace AWSPowerShellGenerator.Analysis
         /// at either the operation or model level.
         /// </summary>
         /// <param name="analyzedName"></param>
+        /// <returns></returns>
+        public bool IsExcludedParameter(string analyzedName)
+        {
+            return IsExcludedParameter(analyzedName, CurrentModel, CurrentOperation);
+        }
+
+        /// <summary>
+        /// Returns true if the parameter (identified by fully flattened name) is tagged as excluded
+        /// at either the operation or model level.
+        /// </summary>
+        /// <param name="analyzedName"></param>
         /// <param name="model"></param>
         /// <param name="operation"></param>
         /// <returns></returns>
@@ -659,7 +687,7 @@ namespace AWSPowerShellGenerator.Analysis
         {
             get
             {
-                var iterationSettings = CurrentModel.AutoIterate;
+                var iterationSettings = AutoIterateSettings;
                 if (iterationSettings == null)
                     return AnalyzedParameters.Count;
 
@@ -1447,7 +1475,11 @@ namespace AWSPowerShellGenerator.Analysis
 
         private bool IsEmitLimiter(string propertyName)
         {
-            return IsEmitLimiter(propertyName, CurrentModel.AutoIterate, CurrentOperation.MethodName);
+            var autoIteration = AutoIterateSettings;
+            if (autoIteration == null)
+                return false;
+
+            return IsEmitLimiter(propertyName, autoIteration, CurrentOperation.MethodName);
         }
 
         public static bool AreRequestFieldsPresent(IEnumerable<SimplePropertyInfo> requestProperties, params string[] fieldNames)

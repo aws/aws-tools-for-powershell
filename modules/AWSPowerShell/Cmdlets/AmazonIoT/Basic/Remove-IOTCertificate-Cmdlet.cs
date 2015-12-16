@@ -32,12 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para>
-    /// A certificate cannot be deleted if it has a policy attached to it. To delete a certificate,
-    /// first detach all policies using the <a>DetachPrincipalPolicy</a> operation.
-    /// </para><para>
-    /// In addition, a certificate cannot be deleted if it is in ACTIVE status. To delete
-    /// a certificate, first change the status to INACTIVE using the <a>UpdateCertificate</a>
-    /// operation.
+    /// A certificate cannot be deleted if it has a policy attached to it or if its status
+    /// is set to ACTIVE. To delete a certificate, first detach all policies using the <a>DetachPrincipalPolicy</a>
+    /// API. Next use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE
+    /// status.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

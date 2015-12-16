@@ -28,32 +28,46 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a thing in the thing registry.
+    /// RegisterCertificate lets callers provision their own certificate with AWS IoT. This
+    /// is useful in case you do not want AWS IoT to generate certificate for you but you
+    /// want to bring your own pre-generated certificate and provision it with AWSIoT.
     /// </summary>
-    [Cmdlet("New", "IOTThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoT.Model.CreateThingResponse")]
-    [AWSCmdlet("Invokes the CreateThing operation against AWS IoT.", Operation = new[] {"CreateThing"})]
-    [AWSCmdletOutput("Amazon.IoT.Model.CreateThingResponse",
-        "This cmdlet returns a Amazon.IoT.Model.CreateThingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "IOTCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IoT.Model.RegisterCertificateResponse")]
+    [AWSCmdlet("Invokes the RegisterCertificate operation against AWS IoT.", Operation = new[] {"RegisterCertificate"})]
+    [AWSCmdletOutput("Amazon.IoT.Model.RegisterCertificateResponse",
+        "This cmdlet returns a Amazon.IoT.Model.RegisterCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class NewIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class RegisterIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>A JSON string containing up to three key-value pair in JSON format.</para><para>For example: {\"attributes\":{\"string1\":\"string2\"}}</para>
+        /// <para>The PEM format string representation of X509 certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("AttributePayload_Attributes")]
-        public System.Collections.Hashtable AttributePayload_Attribute { get; set; }
+        public System.String CertificatePem { get; set; }
         
         /// <summary>
         /// <para>
-        /// <para>The name of the thing.</para>
+        /// <para>Sets the certificate to active (ready to be used) if true is passed</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ThingName { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.Boolean SetAsActive { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The Base64 encoded signature (SHA256withRSA) where the signed string is the X509 certificate's
+        /// string representation. The corresponding private key for the X509 certificate is used
+        /// to sign. This is a optional argument. If this value it is not specified, the X509
+        /// certificate will still be provisioned but since you have not proved that you have
+        /// the corresponding private key (by providing a signature), this certificate can be
+        /// claimed by another AWS account holder, in the future, by providing signature value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Signature { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -68,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ThingName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTThing (CreateThing)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificatePem", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-IOTCertificate (RegisterCertificate)"))
             {
                 return;
             }
@@ -80,15 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
-            if (this.AttributePayload_Attribute != null)
-            {
-                context.AttributePayload_Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.AttributePayload_Attribute.Keys)
-                {
-                    context.AttributePayload_Attributes.Add((String)hashKey, (String)(this.AttributePayload_Attribute[hashKey]));
-                }
-            }
-            context.ThingName = this.ThingName;
+            context.CertificatePem = this.CertificatePem;
+            if (ParameterWasBound("SetAsActive"))
+                context.SetAsActive = this.SetAsActive;
+            context.Signature = this.Signature;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -100,30 +109,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.CreateThingRequest();
+            var request = new Amazon.IoT.Model.RegisterCertificateRequest();
             
-            
-             // populate AttributePayload
-            bool requestAttributePayloadIsNull = true;
-            request.AttributePayload = new Amazon.IoT.Model.AttributePayload();
-            Dictionary<System.String, System.String> requestAttributePayload_attributePayload_Attribute = null;
-            if (cmdletContext.AttributePayload_Attributes != null)
+            if (cmdletContext.CertificatePem != null)
             {
-                requestAttributePayload_attributePayload_Attribute = cmdletContext.AttributePayload_Attributes;
+                request.CertificatePem = cmdletContext.CertificatePem;
             }
-            if (requestAttributePayload_attributePayload_Attribute != null)
+            if (cmdletContext.SetAsActive != null)
             {
-                request.AttributePayload.Attributes = requestAttributePayload_attributePayload_Attribute;
-                requestAttributePayloadIsNull = false;
+                request.SetAsActive = cmdletContext.SetAsActive.Value;
             }
-             // determine if request.AttributePayload should be set to null
-            if (requestAttributePayloadIsNull)
+            if (cmdletContext.Signature != null)
             {
-                request.AttributePayload = null;
-            }
-            if (cmdletContext.ThingName != null)
-            {
-                request.ThingName = cmdletContext.ThingName;
+                request.Signature = cmdletContext.Signature;
             }
             
             CmdletOutput output;
@@ -132,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CreateThing(request);
+                var response = client.RegisterCertificate(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response;
                 output = new CmdletOutput
@@ -160,8 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, System.String> AttributePayload_Attributes { get; set; }
-            public System.String ThingName { get; set; }
+            public System.String CertificatePem { get; set; }
+            public System.Boolean? SetAsActive { get; set; }
+            public System.String Signature { get; set; }
         }
         
     }

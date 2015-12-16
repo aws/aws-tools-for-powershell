@@ -48,6 +48,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Principal { get; set; }
         
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String Marker { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of principals to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
+        
         
         protected override void ProcessRecord()
         {
@@ -59,6 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            context.Marker = this.Marker;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             context.Principal = this.Principal;
             
             var output = Execute(context) as CmdletOutput;
@@ -73,6 +94,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.ListPrincipalThingsRequest();
             
+            if (cmdletContext.Marker != null)
+            {
+                request.Marker = cmdletContext.Marker;
+            }
+            if (cmdletContext.MaxResults != null)
+            {
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResults.Value);
+            }
             if (cmdletContext.Principal != null)
             {
                 request.Principal = cmdletContext.Principal;
@@ -114,6 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String Marker { get; set; }
+            public int? MaxResults { get; set; }
             public System.String Principal { get; set; }
         }
         
