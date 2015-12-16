@@ -7,7 +7,7 @@
   <ServiceClientInterface>IAmazonIoT</ServiceClientInterface>
   <ServiceClient>AmazonIoTClient</ServiceClient>
 
-  <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" ServicePageSize="250" />
+  <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
 
   <MetadataProperties>
     <Property>AscendingOrder</Property>
@@ -94,14 +94,16 @@
       <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
     </ServiceOperation>
     <ServiceOperation MethodName="ListPrincipalPolicies"
-        Verb="Get"
-        Noun="PrincipalPolicyList"
-        PipelineParameter="Principal"/>
+                      Verb="Get"
+                      Noun="PrincipalPolicyList"
+                      PipelineParameter="Principal">
+      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+    </ServiceOperation>
     <ServiceOperation MethodName="ListPrincipalThings"
                       Verb="Get"
                       Noun="PrincipalThingList"
                       PipelineParameter="Principal">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
+      <AutoIterate Start="Marker" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
     </ServiceOperation>
     <ServiceOperation MethodName="ListThingPrincipals"
         Verb="Get"
@@ -110,13 +112,11 @@
                       Verb="Get"
                       Noun="ThingList"
                       NoPipelineParameter="true">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
     </ServiceOperation>
     <ServiceOperation MethodName="ListTopicRules"
                       Verb="Get"
                       Noun="TopicRuleList"
                       PipelineParameter="Topic">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
     </ServiceOperation>
     <ServiceOperation MethodName="RegisterCertificate"
                       NoPipelineParameter="true"
