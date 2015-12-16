@@ -118,10 +118,6 @@
                       Noun="TopicRuleList"
                       PipelineParameter="Topic">
     </ServiceOperation>
-    <ServiceOperation MethodName="RegisterCertificate"
-                      NoPipelineParameter="true"
-                      Output="Response" 
-                      ShouldProcessTarget="CertificatePem"/>
     <ServiceOperation MethodName="RejectCertificateTransfer"
         Verb="Deny"
         Output="Void" />
