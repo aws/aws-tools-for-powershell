@@ -28,9 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Sets the specified version of the specified policy as the policy's default (operative)
-    /// version. This action affects all certificates that the policy is attached to. To list
-    /// the principals the policy is attached to, use the ListPrincipalPolicy API.
+    /// Sets the specified policy version as the default for the specified policy.
     /// </summary>
     [Cmdlet("Set", "IOTDefaultPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

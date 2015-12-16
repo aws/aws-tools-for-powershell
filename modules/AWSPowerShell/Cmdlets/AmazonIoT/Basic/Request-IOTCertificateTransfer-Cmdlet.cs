@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// using the UpdateCertificate API.
     /// </para><para>
     /// The certificate must not have any policies attached to it. These can be detached using
-    /// the DetachPrincipalPolicy API.
+    /// the <a>DetachPrincipalPolicy</a> API.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

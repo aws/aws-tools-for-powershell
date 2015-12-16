@@ -28,8 +28,9 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Returns a unique endpoint specific to the AWS account making the call. You specify
-    /// the following URI when updating state information for your thing: https://<i>endpoint</i>/things/<i>thingName</i>/shadow.
+    /// Returns a unique URL specific to the AWS account making the call. The URL points to
+    /// the AWS IoT data plane endpoint. The customer-specific endpoint should be provided
+    /// to all data plane operations.
     /// </summary>
     [Cmdlet("Get", "IOTEndpoint")]
     [OutputType("System.String")]

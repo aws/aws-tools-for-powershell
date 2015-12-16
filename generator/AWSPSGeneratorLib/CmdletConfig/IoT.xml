@@ -101,8 +101,7 @@
     </ServiceOperation>
     <ServiceOperation MethodName="ListPrincipalThings"
                       Verb="Get"
-                      Noun="PrincipalThingList"
-                      PipelineParameter="Principal">
+                      Noun="PrincipalThingList">
       <AutoIterate Start="Marker" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
     </ServiceOperation>
     <ServiceOperation MethodName="ListThingPrincipals"

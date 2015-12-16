@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     {
         /// <summary>
         /// <para>
-        /// <para>A JSON string containing up to three key-value pair in JSON format.</para><para>For example: {\"attributes\":{\"string1\":\"string2\"}}</para>
+        /// <para>A JSON string containing up to three key-value pair in JSON format.</para><para>For example: {\"attributes\":{\"string1\":\"string2\”}}</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

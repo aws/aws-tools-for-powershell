@@ -28,17 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a new version of the specified AWS IoT policy. To update a policy, create
-    /// a new policy version. A managed policy can have up to five versions. If the policy
-    /// has five versions, you must delete an existing version using <a>DeletePolicyVersion</a>
-    /// before you create a new version.
-    /// 
-    ///  
-    /// <para>
-    /// Optionally, you can set the new version as the policy's default version. The default
-    /// version is the operative version; that is, the version that is in effect for the certificates
-    /// that the policy is attached to.
-    /// </para>
+    /// Creates a new version of the specified AWS IoT policy.
     /// </summary>
     [Cmdlet("New", "IOTPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreatePolicyVersionResponse")]
@@ -50,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     {
         /// <summary>
         /// <para>
-        /// <para>The JSON document that describes the policy. Minimum length of 1. Maximum length of
-        /// 2048 excluding whitespaces</para>
+        /// <para>The JSON document that describes the policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,9 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the policy version is set as the default. When this parameter is
-        /// true, the new policy version becomes the operative version; that is, the version that
-        /// is in effect for the certificates that the policy is attached to.</para>
+        /// <para>Specifies whether the policy version is set as the default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
