@@ -284,7 +284,7 @@ namespace AWSPowerShellGenerator.Generators
                 {
                     CmdletServiceClientWriter.Write(writer, 
                                                     CurrentModel, 
-                                                    ModelCollection.ClientNameMappings[configModel.ServiceNounPrefix], 
+                                                    CurrentModel.ServiceName, 
                                                     GetServiceVersion(configModel.ServiceNamespace, configModel.ServiceClient));
                 }
 
@@ -491,12 +491,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             var currentModel = analyzer.CurrentModel;
 
-            string serviceDisplayName;
-            if (!ModelCollection.ClientNameMappings.TryGetValue(currentModel.ServiceNounPrefix, out serviceDisplayName))
-            {
-                Logger.LogError("Cannot find display name for service " + currentModel.ServiceNounPrefix);
-                return;
-            }
+            string serviceDisplayName = currentModel.ServiceName;
 
             if (analyzer.GenerateIterationCode)
             {

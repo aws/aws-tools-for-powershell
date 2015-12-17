@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>KIN</ServiceNounPrefix>
+  <ServiceName>Amazon Kinesis</ServiceName>
   <ServiceNamespace>Amazon.Kinesis</ServiceNamespace>
   <ServiceClientInterface>IAmazonKinesis</ServiceClientInterface>
   <ServiceClient>AmazonKinesisClient</ServiceClient>

@@ -64,26 +64,6 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlArrayItem("Type")]
         public List<string> TypesNotToFlatten { get; set; }
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        [XmlArray("ClientNames")]
-        public List<Map> ClientNameMappingsList = new List<Map>();
-
-        Dictionary<string, string> _clientNameMappings;
-        /// <summary>
-        /// Client name to display name mappings
-        /// </summary>
-        [XmlIgnore]
-        public Dictionary<string, string> ClientNameMappings
-        {
-            get
-            {
-                if (_clientNameMappings == null)
-                    _clientNameMappings = ClientNameMappingsList.ToDictionary(m => m.From, m => m.To);
-                
-                return _clientNameMappings;
-            }
-        }
-
         /// <summary>
         /// List of acceptable next-token property names; these will be added as notes to the
         /// service responses for users who want to do their own paging
@@ -275,6 +255,11 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// Service-specific 'tag' to be prefixed onto each noun and alias
         /// </summary>
         public string ServiceNounPrefix = string.Empty;
+
+        /// <summary>
+        /// The marketing name of the service.
+        /// </summary>
+        public string ServiceName = string.Empty;
 
         /// <summary>
         /// Typename of the interface implemented by the service client

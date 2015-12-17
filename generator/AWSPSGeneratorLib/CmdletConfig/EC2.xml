@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EC2</ServiceNounPrefix>
+  <ServiceName>Amazon Elastic Compute Cloud</ServiceName>
   <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
   <ServiceClient>AmazonEC2Client</ServiceClient>
   <ServiceNamespace>Amazon.EC2</ServiceNamespace>

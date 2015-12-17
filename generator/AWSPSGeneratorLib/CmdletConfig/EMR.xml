@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EMR</ServiceNounPrefix>
+  <ServiceName>Amazon Elastic MapReduce</ServiceName>
   <ServiceClientInterface>IAmazonElasticMapReduce</ServiceClientInterface>
   <ServiceClient>AmazonElasticMapReduceClient</ServiceClient>
   <ServiceNamespace>Amazon.ElasticMapReduce</ServiceNamespace>

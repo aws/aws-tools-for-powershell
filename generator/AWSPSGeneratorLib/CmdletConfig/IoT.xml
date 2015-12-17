@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>IOT</ServiceNounPrefix>
+  <ServiceName>AWS IoT</ServiceName>
   <ServiceNamespace>Amazon.IoT</ServiceNamespace>
   <ServiceClientInterface>IAmazonIoT</ServiceClientInterface>
   <ServiceClient>AmazonIoTClient</ServiceClient>

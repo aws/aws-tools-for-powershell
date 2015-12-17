@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   
   <ServiceNounPrefix>DF</ServiceNounPrefix>
+  <ServiceName>AWS Device Farm</ServiceName>
   <ServiceClientInterface>IAmazonDeviceFarm</ServiceClientInterface>
   <ServiceClient>AmazonDeviceFarmClient</ServiceClient>
   <ServiceNamespace>Amazon.DeviceFarm</ServiceNamespace>

@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>R53</ServiceNounPrefix>
+  <ServiceName>Amazon Route 53</ServiceName>
   <ServiceClientInterface>IAmazonRoute53</ServiceClientInterface>
   <ServiceClient>AmazonRoute53Client</ServiceClient>
   <ServiceNamespace>Amazon.Route53</ServiceNamespace>

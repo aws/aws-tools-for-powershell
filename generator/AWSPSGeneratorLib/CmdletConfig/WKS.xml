@@ -3,11 +3,9 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>WKS</ServiceNounPrefix>
-
+  <ServiceName>Amazon WorkSpaces</ServiceName>
   <ServiceNamespace>Amazon.WorkSpaces</ServiceNamespace>
-
   <ServiceClientInterface>IAmazonWorkSpaces</ServiceClientInterface>
-
   <ServiceClient>AmazonWorkSpacesClient</ServiceClient>
   
   <AutoIterate EmitLimit="Limit"

@@ -3,7 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>HSM</ServiceNounPrefix>
-
+  <ServiceName>AWS Cloud HSM</ServiceName>
   <ServiceNamespace>Amazon.CloudHSM</ServiceNamespace>
   <ServiceClientInterface>IAmazonCloudHSM</ServiceClientInterface>
   <ServiceClient>AmazonCloudHSMClient</ServiceClient>

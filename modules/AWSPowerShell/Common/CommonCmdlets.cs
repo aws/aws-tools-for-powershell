@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Common
                 var sdkInfo = FileVersionInfo.GetVersionInfo(sdkAssembly.Location);
                 sw.WriteLine();
                 sw.WriteLine(sdkInfo.ProductName);
-                sw.WriteLine("Version {0}", sdkInfo.FileVersion);
+                sw.WriteLine("Core Runtime Version {0}", sdkInfo.FileVersion);
                 sw.WriteLine(sdkInfo.LegalCopyright);
                 sw.WriteLine();
 
@@ -351,17 +351,25 @@ namespace Amazon.PowerShell.Common
                     .Where(t => t.IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
                     .OrderBy(t => t.FullName)
                     .ToList();
+
+                var services = new SortedDictionary<string, PSObject>(StringComparer.Ordinal);
                 foreach (var client in clients)
                 {
                     var clientAttribute = client.GetCustomAttributes(typeof(AWSClientCmdletAttribute), false).FirstOrDefault() as AWSClientCmdletAttribute;
-                    if (clientAttribute != null)
+                    if (clientAttribute != null && !services.ContainsKey(clientAttribute.ServiceName))
                     {
-                        var attribute = new PSObject();
-                        attribute.Properties.Add(new PSNoteProperty("Service", clientAttribute.ServiceName));
-                        attribute.Properties.Add(new PSNoteProperty("Noun Prefix", clientAttribute.ServicePrefix));
-                        attribute.Properties.Add(new PSNoteProperty("Version", clientAttribute.Version));
-                        WriteObject(attribute);
+                        var o = new PSObject();
+                        o.Properties.Add(new PSNoteProperty("Service", clientAttribute.ServiceName));
+                        o.Properties.Add(new PSNoteProperty("Noun Prefix", clientAttribute.ServicePrefix));
+                        o.Properties.Add(new PSNoteProperty("Version", clientAttribute.Version));
+
+                        services.Add(clientAttribute.ServiceName, o);
                     }
+                }
+
+                foreach (var k in services.Keys)
+                {
+                    WriteObject(services[k]);
                 }
             }
         }

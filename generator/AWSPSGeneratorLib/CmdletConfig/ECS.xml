@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ECS</ServiceNounPrefix>
+  <ServiceName>Amazon EC2 Container Service</ServiceName>
   <ServiceClientInterface>IAmazonECS</ServiceClientInterface>
   <ServiceClient>AmazonECSClient</ServiceClient>
   <ServiceNamespace>Amazon.ECS</ServiceNamespace>

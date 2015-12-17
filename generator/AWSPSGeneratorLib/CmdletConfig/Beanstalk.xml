@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EB</ServiceNounPrefix>
+  <ServiceName>AWS Elastic Beanstalk</ServiceName>
   <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
   <ServiceClient>AmazonElasticBeanstalkClient</ServiceClient>
   <ServiceNamespace>Amazon.ElasticBeanstalk</ServiceNamespace>

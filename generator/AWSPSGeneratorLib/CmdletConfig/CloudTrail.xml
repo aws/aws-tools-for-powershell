@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	
 	<ServiceNounPrefix>CT</ServiceNounPrefix>
+  <ServiceName>AWS CloudTrail</ServiceName>
 	<ServiceClientInterface>IAmazonCloudTrail</ServiceClientInterface>
 	<ServiceClient>AmazonCloudTrailClient</ServiceClient>
 	<ServiceNamespace>Amazon.CloudTrail</ServiceNamespace>
