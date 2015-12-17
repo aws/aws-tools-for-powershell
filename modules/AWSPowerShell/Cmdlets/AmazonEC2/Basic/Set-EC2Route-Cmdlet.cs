@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Replaces an existing route within a route table in a VPC. You must provide only one
-    /// of the following: Internet gateway or virtual private gateway, NAT instance, VPC peering
-    /// connection, or network interface.
+    /// of the following: Internet gateway or virtual private gateway, NAT instance, NAT gateway,
+    /// VPC peering connection, or network interface.
     /// 
     ///  
     /// <para>
@@ -71,6 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a NAT gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NatGatewayId { get; set; }
         
         /// <summary>
         /// <para>
@@ -131,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.GatewayId = this.GatewayId;
             context.InstanceId = this.InstanceId;
+            context.NatGatewayId = this.NatGatewayId;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.RouteTableId = this.RouteTableId;
             context.VpcPeeringConnectionId = this.VpcPeeringConnectionId;
@@ -158,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.NatGatewayId != null)
+            {
+                request.NatGatewayId = cmdletContext.NatGatewayId;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -211,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String DestinationCidrBlock { get; set; }
             public System.String GatewayId { get; set; }
             public System.String InstanceId { get; set; }
+            public System.String NatGatewayId { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.String RouteTableId { get; set; }
             public System.String VpcPeeringConnectionId { get; set; }

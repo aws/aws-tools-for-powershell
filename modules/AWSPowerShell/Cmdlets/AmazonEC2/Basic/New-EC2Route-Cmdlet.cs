@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// You must specify one of the following targets: Internet gateway or virtual private
-    /// gateway, NAT instance, VPC peering connection, or network interface.
+    /// gateway, NAT instance, NAT gateway, VPC peering connection, or network interface.
     /// </para><para>
     /// When determining how to route traffic, we use the route with the most specific match.
     /// For example, let's say the traffic is destined for <code>192.0.2.3</code>, and the
@@ -83,6 +83,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a NAT gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NatGatewayId { get; set; }
         
         /// <summary>
         /// <para>
@@ -136,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.GatewayId = this.GatewayId;
             context.InstanceId = this.InstanceId;
+            context.NatGatewayId = this.NatGatewayId;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.RouteTableId = this.RouteTableId;
             context.VpcPeeringConnectionId = this.VpcPeeringConnectionId;
@@ -163,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.NatGatewayId != null)
+            {
+                request.NatGatewayId = cmdletContext.NatGatewayId;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -214,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String DestinationCidrBlock { get; set; }
             public System.String GatewayId { get; set; }
             public System.String InstanceId { get; set; }
+            public System.String NatGatewayId { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.String RouteTableId { get; set; }
             public System.String VpcPeeringConnectionId { get; set; }
