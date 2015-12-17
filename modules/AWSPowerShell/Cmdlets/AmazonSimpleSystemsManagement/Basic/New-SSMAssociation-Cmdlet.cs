@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     {
         /// <summary>
         /// <para>
-        /// <para>The instance ID.</para>
+        /// <para>The Windows Server instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         /// <summary>
         /// <para>
-        /// The parameters for the document’s runtime configuration.
+        /// The parameters for the documents runtime configuration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
