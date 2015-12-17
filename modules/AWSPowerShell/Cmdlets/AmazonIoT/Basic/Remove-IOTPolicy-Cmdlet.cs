@@ -32,20 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para>
-    /// A policy cannot be deleted if: 
+    /// A policy cannot be deleted if it has non-default versions and/or it is attached to
+    /// any certificate.
     /// </para><para>
-    ///  - it has non-default versions
+    /// To delete a policy, delete all non-default versions of the policy using the DeletePolicyVersion
+    /// API, detach the policy from any certificate using the DetachPrincipalPolicy API, and
+    /// then use the DeletePolicy API to delete the policy.
     /// </para><para>
-    ///  - it is attached to any certificate
-    /// </para><para>
-    /// To delete a policy:
-    /// </para><para>
-    ///  - First delete all the non-default versions of the policy using the <a>DeletePolicyVersion</a>
-    /// API.
-    /// </para><para>
-    ///  - Detach it from any certificate using the <a>DetachPrincipalPolicy</a> API.
-    /// </para><para>
-    /// When a policy is deleted, its default version is deleted with it.
+    /// When a policy is deleted using DeletePolicy, its default version is deleted with it.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

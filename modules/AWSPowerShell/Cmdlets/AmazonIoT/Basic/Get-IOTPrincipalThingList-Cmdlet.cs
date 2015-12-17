@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.IoT.Model.ListPrincipalThingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetIOTPrincipalThingListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -47,6 +47,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Principal { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String Marker { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of principals to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         
         
         protected override void ProcessRecord()
@@ -59,6 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
+            context.Marker = this.Marker;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             context.Principal = this.Principal;
             
             var output = Execute(context) as CmdletOutput;
@@ -70,38 +91,118 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.IoT.Model.ListPrincipalThingsRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.IoT.Model.ListPrincipalThingsRequest();
             if (cmdletContext.Principal != null)
             {
                 request.Principal = cmdletContext.Principal;
             }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            int? _pageSize = 250;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            {
+                _nextMarker = cmdletContext.Marker;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            {
+                // The service has a maximum page size of 250. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 250 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.MaxResults;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.ListPrincipalThings(request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Things;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = client.ListPrincipalThings(request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Things;
+                        notes = new Dictionary<string, object>();
+                        notes["NextMarker"] = response.NextMarker;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.Things.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    // The service has a maximum page size of 250 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -114,6 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String Marker { get; set; }
+            public int? MaxResults { get; set; }
             public System.String Principal { get; set; }
         }
         
