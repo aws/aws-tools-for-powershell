@@ -123,6 +123,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the Read Replica. To disable collecting Enhanced Monitoring metrics, specify 0.
+        /// The default is 60.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MonitoringInterval { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
+        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
+        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MonitoringRoleArn { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> The option group the DB instance will be associated with. If omitted, the default
         /// option group for the engine specified will be used. </para>
         /// </para>
@@ -223,6 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
+            if (ParameterWasBound("MonitoringInterval"))
+                context.MonitoringInterval = this.MonitoringInterval;
+            context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.OptionGroupName = this.OptionGroupName;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
@@ -274,6 +300,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Iops != null)
             {
                 request.Iops = cmdletContext.Iops.Value;
+            }
+            if (cmdletContext.MonitoringInterval != null)
+            {
+                request.MonitoringInterval = cmdletContext.MonitoringInterval.Value;
+            }
+            if (cmdletContext.MonitoringRoleArn != null)
+            {
+                request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -341,6 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Int32? Iops { get; set; }
+            public System.Int32? MonitoringInterval { get; set; }
+            public System.String MonitoringRoleArn { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }

@@ -267,6 +267,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         /// <summary>
         /// <para>
+        /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
+        /// The default is 60.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MonitoringInterval { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
+        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
+        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MonitoringRoleArn { get; set; }
+        
+        /// <summary>
+        /// <para>
         /// <para> Specifies if the DB instance is a Multi-AZ deployment. You cannot set the AvailabilityZone
         /// parameter if the MultiAZ parameter is set to true. Do not set this value if you want
         /// a Multi-AZ deployment for a SQL Server DB instance. Multi-AZ for SQL Server is set
@@ -446,6 +469,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.LicenseModel = this.LicenseModel;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
+            if (ParameterWasBound("MonitoringInterval"))
+                context.MonitoringInterval = this.MonitoringInterval;
+            context.MonitoringRoleArn = this.MonitoringRoleArn;
             if (ParameterWasBound("MultiAZ"))
                 context.MultiAZ = this.MultiAZ;
             context.OptionGroupName = this.OptionGroupName;
@@ -561,6 +587,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
             }
+            if (cmdletContext.MonitoringInterval != null)
+            {
+                request.MonitoringInterval = cmdletContext.MonitoringInterval.Value;
+            }
+            if (cmdletContext.MonitoringRoleArn != null)
+            {
+                request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
+            }
             if (cmdletContext.MultiAZ != null)
             {
                 request.MultiAZ = cmdletContext.MultiAZ.Value;
@@ -664,6 +698,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String LicenseModel { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.Int32? MonitoringInterval { get; set; }
+            public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
