@@ -69,7 +69,7 @@
     <Map From="CC" To="AWS CodeCommit" />
     <Map From="CD" To="AWS CodeDeploy" />
     <Map From="CP" To="AWS CodePipeline" />
-    <Map From="CFG" To="Amazon Config" />
+    <Map From="CFG" To="AWS Config" />
     <Map From="CF" To="Amazon CloudFront" />
     <Map From="CGI" To="Amazon Cognito Identity" />
     <Map From="CS" To="Amazon CloudSearch" />
@@ -95,7 +95,7 @@
     <Map From="IE" To="AWS Import/Export" />
     <Map From="INS" To="Amazon Inspector" />
     <Map From="KMS" To="AWS Key Management Service" />
-    <Map From="KIN" To="AWS Kinesis" />
+    <Map From="KIN" To="Amazon Kinesis" />
     <Map From="KINF" To="Amazon Kinesis Firehose" />
     <Map From="LM" To="Amazon Lambda" />
     <Map From="ML" To="Amazon Machine Learning" />

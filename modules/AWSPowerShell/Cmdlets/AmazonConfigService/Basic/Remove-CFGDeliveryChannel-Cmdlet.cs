@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Remove", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDeliveryChannel operation against Amazon Config.", Operation = new[] {"DeleteDeliveryChannel"})]
+    [AWSCmdlet("Invokes the DeleteDeliveryChannel operation against AWS Config.", Operation = new[] {"DeleteDeliveryChannel"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryChannelName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ConfigService.Model.DeleteDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

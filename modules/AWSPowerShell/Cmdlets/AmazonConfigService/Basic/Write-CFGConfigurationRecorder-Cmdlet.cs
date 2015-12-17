@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Write", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutConfigurationRecorder operation against Amazon Config.", Operation = new[] {"PutConfigurationRecorder"})]
+    [AWSCmdlet("Invokes the PutConfigurationRecorder operation against AWS Config.", Operation = new[] {"PutConfigurationRecorder"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationRecorderName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ConfigService.Model.PutConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

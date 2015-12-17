@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGDeliveryChannels")]
     [OutputType("Amazon.ConfigService.Model.DeliveryChannel")]
-    [AWSCmdlet("Invokes the DescribeDeliveryChannels operation against Amazon Config.", Operation = new[] {"DescribeDeliveryChannels"})]
+    [AWSCmdlet("Invokes the DescribeDeliveryChannels operation against AWS Config.", Operation = new[] {"DescribeDeliveryChannels"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.DeliveryChannel",
         "This cmdlet returns a collection of DeliveryChannel objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeDeliveryChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

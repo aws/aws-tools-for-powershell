@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorderStatus")]
     [OutputType("Amazon.ConfigService.Model.ConfigurationRecorderStatus")]
-    [AWSCmdlet("Invokes the DescribeConfigurationRecorderStatus operation against Amazon Config.", Operation = new[] {"DescribeConfigurationRecorderStatus"})]
+    [AWSCmdlet("Invokes the DescribeConfigurationRecorderStatus operation against AWS Config.", Operation = new[] {"DescribeConfigurationRecorderStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationRecorderStatus",
         "This cmdlet returns a collection of ConfigurationRecorderStatus objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

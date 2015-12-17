@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Write", "CFGEvaluations", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConfigService.Model.Evaluation")]
-    [AWSCmdlet("Invokes the PutEvaluations operation against Amazon Config.", Operation = new[] {"PutEvaluations"})]
+    [AWSCmdlet("Invokes the PutEvaluations operation against AWS Config.", Operation = new[] {"PutEvaluations"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.Evaluation",
         "This cmdlet returns a collection of Evaluation objects.",
         "The service call response (type Amazon.ConfigService.Model.PutEvaluationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

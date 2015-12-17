@@ -27,7 +27,7 @@ using Amazon.Kinesis.Model;
 
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
-    [AWSClientCmdlet("AWS Kinesis", "KIN", "2013-12-02")]
+    [AWSClientCmdlet("Amazon Kinesis", "KIN", "2013-12-02")]
     public abstract class AmazonKinesisClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKinesis Client { get; private set; }

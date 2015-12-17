@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Remove", "KINTagsFromStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTagsFromStream operation against AWS Kinesis.", Operation = new[] {"RemoveTagsFromStream"})]
+    [AWSCmdlet("Invokes the RemoveTagsFromStream operation against Amazon Kinesis.", Operation = new[] {"RemoveTagsFromStream"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.RemoveTagsFromStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

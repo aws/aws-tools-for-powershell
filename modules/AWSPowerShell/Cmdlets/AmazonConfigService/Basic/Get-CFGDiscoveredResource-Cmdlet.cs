@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGDiscoveredResource")]
     [OutputType("Amazon.ConfigService.Model.ResourceIdentifier")]
-    [AWSCmdlet("Invokes the ListDiscoveredResources operation against Amazon Config.", Operation = new[] {"ListDiscoveredResources"})]
+    [AWSCmdlet("Invokes the ListDiscoveredResources operation against AWS Config.", Operation = new[] {"ListDiscoveredResources"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ResourceIdentifier",
         "This cmdlet returns a collection of ResourceIdentifier objects.",
         "The service call response (type Amazon.ConfigService.Model.ListDiscoveredResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

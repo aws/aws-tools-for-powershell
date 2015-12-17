@@ -27,7 +27,7 @@ using Amazon.ConfigService.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CFG
 {
-    [AWSClientCmdlet("Amazon Config", "CFG", "2014-11-12")]
+    [AWSClientCmdlet("AWS Config", "CFG", "2014-11-12")]
     public abstract class AmazonConfigServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonConfigService Client { get; private set; }

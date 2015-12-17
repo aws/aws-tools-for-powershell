@@ -95,24 +95,17 @@
   <ItemGroup>
     <None Include="CmdletConfig\Configs.xml" />
     <None Include="CmdletConfig\DataPipeline.xml" />
-    <None Include="CmdletConfig\DynamoDB.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="CmdletConfig\DynamoDB.xml" />
+    <None Include="CmdletConfig\DynamoDBStreams.xml" />
     <None Include="FormatConfig\Configs.xml" />
     <None Include="CmdletConfig\EC2.xml" />
     <None Include="CmdletConfig\ECS.xml" />
-    <None Include="CmdletConfig\Beanstalk.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="CmdletConfig\Beanstalk.xml" />
     <None Include="CmdletConfig\RDS.xml" />
     <None Include="CmdletConfig\S3.xml" />
     <None Include="CmdletConfig\STS.xml" />
-    <None Include="CmdletConfig\AutoScaling.xml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CmdletConfig\CloudFormation.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="CmdletConfig\AutoScaling.xml" />
+    <None Include="CmdletConfig\CloudFormation.xml" />
     <None Include="CmdletConfig\IAM.xml" />
     <None Include="CmdletConfig\SNS.xml" />
     <None Include="CmdletConfig\SES.xml" />
@@ -125,9 +118,7 @@
     <None Include="CmdletConfig\StorageGateway.xml" />
     <None Include="CmdletConfig\CloudFront.xml" />
     <None Include="CmdletConfig\ElastiCache.xml" />
-    <None Include="CmdletConfig\CloudSearch.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="CmdletConfig\CloudSearch.xml" />
     <None Include="CmdletConfig\DirectConnect.xml" />
     <None Include="CmdletConfig\ETS.xml" />
     <None Include="CmdletConfig\Redshift.xml" />
@@ -143,13 +134,9 @@
     <None Include="CmdletConfig\Route53Domains.xml" />
     <None Include="CmdletConfig\CodeDeploy.xml" />
     <None Include="CmdletConfig\ConfigService.xml" />
-    <None Include="CmdletConfig\KMS.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="CmdletConfig\KMS.xml" />
     <None Include="CmdletConfig\HSM.xml" />
-    <None Include="CmdletConfig\ML.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="CmdletConfig\ML.xml" />
     <None Include="CmdletConfig\DirectoryService.xml" />
     <None Include="CmdletConfig\EFS.xml" />
     <None Include="CmdletConfig\WKS.xml" />

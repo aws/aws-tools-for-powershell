@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Get", "KINStream")]
     [OutputType("Amazon.Kinesis.Model.StreamDescription")]
-    [AWSCmdlet("Invokes the DescribeStream operation against AWS Kinesis.", Operation = new[] {"DescribeStream"})]
+    [AWSCmdlet("Invokes the DescribeStream operation against Amazon Kinesis.", Operation = new[] {"DescribeStream"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.StreamDescription",
         "This cmdlet returns a StreamDescription object.",
         "The service call response (type Amazon.Kinesis.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

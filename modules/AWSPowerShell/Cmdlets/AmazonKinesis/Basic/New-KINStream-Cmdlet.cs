@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("New", "KINStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateStream operation against AWS Kinesis.", Operation = new[] {"CreateStream"})]
+    [AWSCmdlet("Invokes the CreateStream operation against Amazon Kinesis.", Operation = new[] {"CreateStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.CreateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

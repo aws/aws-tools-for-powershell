@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGResourceConfigHistory")]
     [OutputType("Amazon.ConfigService.Model.ConfigurationItem")]
-    [AWSCmdlet("Invokes the GetResourceConfigHistory operation against Amazon Config.", Operation = new[] {"GetResourceConfigHistory"})]
+    [AWSCmdlet("Invokes the GetResourceConfigHistory operation against AWS Config.", Operation = new[] {"GetResourceConfigHistory"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationItem",
         "This cmdlet returns a collection of ConfigurationItem objects.",
         "The service call response (type Amazon.ConfigService.Model.GetResourceConfigHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

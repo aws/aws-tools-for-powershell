@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Write", "CFGConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutConfigRule operation against Amazon Config.", Operation = new[] {"PutConfigRule"})]
+    [AWSCmdlet("Invokes the PutConfigRule operation against AWS Config.", Operation = new[] {"PutConfigRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigRule_ConfigRuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ConfigService.Model.PutConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

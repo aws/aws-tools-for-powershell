@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Merge", "KINShard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the MergeShards operation against AWS Kinesis.", Operation = new[] {"MergeShards"})]
+    [AWSCmdlet("Invokes the MergeShards operation against Amazon Kinesis.", Operation = new[] {"MergeShards"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.MergeShardsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
