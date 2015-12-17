@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Creates a trail that specifies the settings for delivery of log data to an Amazon
-    /// S3 bucket.
+    /// S3 bucket. A maximum of five trails can exist in a region, irrespective of the region
+    /// in which they were created.
     /// </summary>
     [Cmdlet("New", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.CreateTrailResponse")]
@@ -81,6 +82,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.Parameter]
         [Alias("IncludeGlobalServiceEvents")]
         public System.Boolean IncludeGlobalServiceEvent { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the trail is created in the current region or in all regions. The
+        /// default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IsMultiRegionTrail { get; set; }
         
         /// <summary>
         /// <para>
@@ -164,6 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.EnableLogFileValidation = this.EnableLogFileValidation;
             if (ParameterWasBound("IncludeGlobalServiceEvent"))
                 context.IncludeGlobalServiceEvents = this.IncludeGlobalServiceEvent;
+            if (ParameterWasBound("IsMultiRegionTrail"))
+                context.IsMultiRegionTrail = this.IsMultiRegionTrail;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             context.S3BucketName = this.S3BucketName;
@@ -197,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.IncludeGlobalServiceEvents != null)
             {
                 request.IncludeGlobalServiceEvents = cmdletContext.IncludeGlobalServiceEvents.Value;
+            }
+            if (cmdletContext.IsMultiRegionTrail != null)
+            {
+                request.IsMultiRegionTrail = cmdletContext.IsMultiRegionTrail.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -257,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             public System.String CloudWatchLogsRoleArn { get; set; }
             public System.Boolean? EnableLogFileValidation { get; set; }
             public System.Boolean? IncludeGlobalServiceEvents { get; set; }
+            public System.Boolean? IsMultiRegionTrail { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public System.String S3BucketName { get; set; }

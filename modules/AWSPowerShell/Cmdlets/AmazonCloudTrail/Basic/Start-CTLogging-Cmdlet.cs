@@ -28,7 +28,10 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Starts the recording of AWS API calls and log file delivery for a trail.
+    /// Starts the recording of AWS API calls and log file delivery for a trail. For a trail
+    /// that is enabled in all regions, this operation must be called from the region in which
+    /// the trail was created. This operation cannot be called on the shadow trails (replicated
+    /// trails in other regions) of a trail that is enabled in all regions.
     /// </summary>
     [Cmdlet("Start", "CTLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
