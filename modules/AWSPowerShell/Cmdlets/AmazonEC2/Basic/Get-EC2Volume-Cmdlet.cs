@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</para></li><li><para><code>attachment.delete-on-termination</code> - Whether the volume is deleted on instance
@@ -75,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VolumeId
         /// <summary>
         /// <para>
         /// <para>One or more volume IDs.</para>
@@ -84,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("VolumeIds")]
         public System.String[] VolumeId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated
@@ -101,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value returned from a previous paginated <code>DescribeVolumes</code>
@@ -113,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

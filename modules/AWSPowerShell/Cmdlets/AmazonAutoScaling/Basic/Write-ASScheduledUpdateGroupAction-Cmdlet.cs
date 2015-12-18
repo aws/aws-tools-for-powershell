@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class WriteASScheduledUpdateGroupActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the Auto Scaling group.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
         /// <para> The number of EC2 instances that should be running in the group. </para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DesiredCapacity { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The time for this action to end.</para>
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter MaxSize
         /// <summary>
         /// <para>
         /// <para> The maximum size for the Auto Scaling group. </para>
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MaxSize { get; set; }
+        #endregion
         
+        #region Parameter MinSize
         /// <summary>
         /// <para>
         /// <para> The minimum size for the Auto Scaling group. </para>
@@ -86,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MinSize { get; set; }
+        #endregion
         
+        #region Parameter Recurrence
         /// <summary>
         /// <para>
         /// <para>The time when recurring future actions will start. Start time is specified by the
@@ -97,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Recurrence { get; set; }
+        #endregion
         
+        #region Parameter ScheduledActionName
         /// <summary>
         /// <para>
         /// <para>The name of this scaling action.</para>
@@ -105,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ScheduledActionName { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
@@ -116,7 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Time
         /// <summary>
         /// <para>
         /// <para>This parameter is deprecated; use <code>StartTime</code> instead.</para><para>The time for this action to start. If both <code>Time</code> and <code>StartTime</code>
@@ -125,14 +143,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime Time { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -140,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

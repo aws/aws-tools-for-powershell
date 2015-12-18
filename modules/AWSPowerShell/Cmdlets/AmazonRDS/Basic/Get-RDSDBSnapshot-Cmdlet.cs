@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> A DB instance identifier to retrieve the list of DB snapshots for. This parameter
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String DBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter IncludePublic
         /// <summary>
         /// <para>
         /// <para>True to include manual DB snapshots that are public and can be copied or restored
@@ -82,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean IncludePublic { get; set; }
+        #endregion
         
+        #region Parameter IncludeShared
         /// <summary>
         /// <para>
         /// <para>True to include shared manual DB snapshots from other AWS accounts that this AWS account
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean IncludeShared { get; set; }
+        #endregion
         
+        #region Parameter SnapshotType
         /// <summary>
         /// <para>
         /// <para>The type of snapshots that will be returned. You can specify one of the following
@@ -113,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String SnapshotType { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional pagination token provided by a previous <code>DescribeDBSnapshots</code>
@@ -124,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
@@ -135,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

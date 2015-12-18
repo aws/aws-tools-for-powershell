@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class GetELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The names of the load balancers.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("LoadBalancerNames")]
         public System.String[] LoadBalancerName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

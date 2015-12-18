@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class UpdateMLMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>MLModel</code> during creation.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
         public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter MLModelName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>MLModel</code>.</para>
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MLModelName { get; set; }
+        #endregion
         
+        #region Parameter ScoreThreshold
         /// <summary>
         /// <para>
         /// <para>The <code>ScoreThreshold</code> used in binary classification <code>MLModel</code>
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Single ScoreThreshold { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

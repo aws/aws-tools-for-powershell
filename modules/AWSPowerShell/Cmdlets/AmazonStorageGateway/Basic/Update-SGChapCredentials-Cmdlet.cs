@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class UpdateSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter InitiatorName
         /// <summary>
         /// <para>
         /// <para>The iSCSI initiator that connects to the target.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String InitiatorName { get; set; }
+        #endregion
         
+        #region Parameter SecretToAuthenticateInitiator
         /// <summary>
         /// <para>
         /// <para>The secret key that the initiator (for example, the Windows client) must provide to
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String SecretToAuthenticateInitiator { get; set; }
+        #endregion
         
+        #region Parameter SecretToAuthenticateTarget
         /// <summary>
         /// <para>
         /// <para>The secret key that the target must provide to participate in mutual CHAP with the
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String SecretToAuthenticateTarget { get; set; }
+        #endregion
         
+        #region Parameter TargetARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a>
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TargetARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

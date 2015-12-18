@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTPolicyVersionListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The policy name.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PolicyName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

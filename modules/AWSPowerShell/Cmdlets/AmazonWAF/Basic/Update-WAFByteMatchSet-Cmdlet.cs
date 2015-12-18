@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class UpdateWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter ByteMatchSetId
         /// <summary>
         /// <para>
         /// <para>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to update.
@@ -72,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ByteMatchSetId { get; set; }
+        #endregion
         
+        #region Parameter ChangeToken
         /// <summary>
         /// <para>
         /// <para>The value returned by the most recent call to <a>GetChangeToken</a>.</para>
@@ -80,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ChangeToken { get; set; }
+        #endregion
         
+        #region Parameter Update
         /// <summary>
         /// <para>
         /// <para>An array of <code>ByteMatchSetUpdate</code> objects that you want to insert into or
@@ -92,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter]
         [Alias("Updates")]
         public Amazon.WAF.Model.ByteMatchSetUpdate[] Update { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -100,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

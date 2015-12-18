@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSTaskDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter Task
         /// <summary>
         /// <para>
         /// <para>A space-separated list of task IDs or full Amazon Resource Name (ARN) entries.</para>
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("Tasks")]
         public System.String[] Task { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

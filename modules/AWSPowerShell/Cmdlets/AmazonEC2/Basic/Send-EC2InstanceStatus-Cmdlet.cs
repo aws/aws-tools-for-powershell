@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class SendEC2InstanceStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Descriptive text about the health state of your instance.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 5)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The time at which the reported instance health state ended.</para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter Instance
         /// <summary>
         /// <para>
         /// <para>One or more instances.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("InstanceId","Instances")]
         public System.String[] Instance { get; set; }
+        #endregion
         
+        #region Parameter ReasonCode
         /// <summary>
         /// <para>
         /// <para>One or more reason codes that describes the health state of your instance.</para><ul><li><para><code>instance-stuck-in-state</code>: My instance is stuck in a state.</para></li><li><para><code>unresponsive</code>: My instance is unresponsive.</para></li><li><para><code>not-accepting-credentials</code>: My instance is not accepting my credentials.</para></li><li><para><code>password-not-available</code>: A password is not available for my instance.</para></li><li><para><code>performance-network</code>: My instance is experiencing performance problems
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 4)]
         [Alias("ReasonCodes")]
         public System.String[] ReasonCode { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The time at which the reported instance health state began.</para>
@@ -92,22 +102,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The status of all instances listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.ReportStatusType")]
         public Amazon.EC2.ReportStatusType Status { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Instance parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

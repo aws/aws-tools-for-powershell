@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class RemoveECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter SnapshotName
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot to be deleted.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SnapshotName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

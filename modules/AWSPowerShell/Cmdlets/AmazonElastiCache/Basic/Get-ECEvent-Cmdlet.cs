@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class GetECEventCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// <para>The number of minutes' worth of events to retrieve.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Duration { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The end of the time interval for which to retrieve events, specified in ISO 8601 format.</para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the event source for which events will be returned. If not specified,
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para>The event source to retrieve events for. If no value is specified, all events are
@@ -82,8 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.ElastiCache.SourceType")]
         public Amazon.ElastiCache.SourceType SourceType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</para>
@@ -91,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
@@ -102,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
@@ -113,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

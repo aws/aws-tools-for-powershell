@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class RemoveRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The DBSnapshot identifier. </para><para>Constraints: Must be the name of an existing DB snapshot in the <code>available</code>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class RegisterOPSInstanceAssignmentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The layer ID, which must correspond to a custom layer. You cannot assign a registered
@@ -64,14 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

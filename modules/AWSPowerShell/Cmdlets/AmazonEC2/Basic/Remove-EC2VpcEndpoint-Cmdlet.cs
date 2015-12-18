@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RemoveEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
         /// <para>One or more endpoint IDs.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("VpcEndpointIds")]
         public System.String[] VpcEndpointId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

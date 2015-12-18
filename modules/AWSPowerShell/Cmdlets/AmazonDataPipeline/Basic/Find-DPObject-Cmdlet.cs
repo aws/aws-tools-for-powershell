@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class FindDPObjectCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Query_Selector
         /// <summary>
         /// <para>
         /// <para>List of selectors that define the query. An object must satisfy all of the selectors
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("Query_Selectors")]
         public Amazon.DataPipeline.Model.Selector[] Query_Selector { get; set; }
+        #endregion
         
+        #region Parameter Sphere
         /// <summary>
         /// <para>
         /// <para>Indicates whether the query applies to components or instances. The possible values
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Sphere { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of object names that <code>QueryObjects</code> will return in a
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The starting point for the results to be returned. For the first call, this value
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

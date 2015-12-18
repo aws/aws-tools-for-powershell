@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class PublishIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SSHPublicKeyBody
         /// <summary>
         /// <para>
         /// <para>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SSHPublicKeyBody { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user to associate the SSH public key with.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

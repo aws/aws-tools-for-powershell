@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3PreSignedURLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to create a pre-signed url to, or containing the object.
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter ResponseHeaderOverrides_CacheControl
         /// <summary>
         /// <para>
         /// CacheControl header value.
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResponseHeaderOverrides_CacheControl { get; set; }
+        #endregion
         
+        #region Parameter ResponseHeaderOverrides_ContentDisposition
         /// <summary>
         /// <para>
         /// The ContentDisposition header value.
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResponseHeaderOverrides_ContentDisposition { get; set; }
+        #endregion
         
+        #region Parameter ResponseHeaderOverrides_ContentEncoding
         /// <summary>
         /// <para>
         /// The ContentEncoding header value.
@@ -70,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResponseHeaderOverrides_ContentEncoding { get; set; }
+        #endregion
         
+        #region Parameter ResponseHeaderOverrides_ContentLanguage
         /// <summary>
         /// <para>
         /// ContentLanguage header value.
@@ -78,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResponseHeaderOverrides_ContentLanguage { get; set; }
+        #endregion
         
+        #region Parameter ContentType
         /// <summary>
         /// <para>
         /// A standard MIME type describing the format of the object data.
@@ -86,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContentType { get; set; }
+        #endregion
         
+        #region Parameter ResponseHeaderOverrides_ContentType
         /// <summary>
         /// <para>
         /// A standard MIME type describing the format of the object data.
@@ -94,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResponseHeaderOverrides_ContentType { get; set; }
+        #endregion
         
+        #region Parameter Expire
         /// <summary>
         /// <para>
         /// The expiry date and time for the pre-signed url.
@@ -103,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("Expires")]
         public System.DateTime Expire { get; set; }
+        #endregion
         
+        #region Parameter ResponseHeaderOverrides_Expire
         /// <summary>
         /// <para>
         /// Expiry header value.
@@ -112,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("ResponseHeaderOverrides_Expires")]
         public System.String ResponseHeaderOverrides_Expire { get; set; }
+        #endregion
         
+        #region Parameter Key
         /// <summary>
         /// <para>
         /// The key to the object for which a pre-signed url should be created.
@@ -120,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String Key { get; set; }
+        #endregion
         
+        #region Parameter Protocol
         /// <summary>
         /// <para>
         /// The requested protocol (http/https) for the pre-signed url.
@@ -128,15 +150,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.S3.Protocol Protocol { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// <para>
         /// The Server-side encryption algorithm to be used with the customer provided key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
         public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionKeyManagementServiceKeyId
         /// <summary>
         /// <para>
         /// The id of the AWS Key Management Service key that Amazon S3 should use to encrypt and decrypt the object.
@@ -145,15 +172,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionMethod
         /// <summary>
         /// <para>
         /// Specifies the encryption used on the server to store the content.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionMethod")]
         public Amazon.S3.ServerSideEncryptionMethod ServerSideEncryptionMethod { get; set; }
+        #endregion
         
+        #region Parameter Verb
         /// <summary>
         /// <para>
         /// The verb for the pre-signed url. 
@@ -161,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.S3.HttpVerb Verb { get; set; }
+        #endregion
         
+        #region Parameter VersionId
         /// <summary>
         /// <para>
         /// Version id for the object that the pre-signed url will reference. If not set,
@@ -170,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VersionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

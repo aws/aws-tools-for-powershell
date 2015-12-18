@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter RuleName
         /// <summary>
         /// <para>
         /// <para>The name of the rule.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RuleName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

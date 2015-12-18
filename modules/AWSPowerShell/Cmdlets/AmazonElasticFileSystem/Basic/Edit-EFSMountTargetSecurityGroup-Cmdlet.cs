@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class EditEFSMountTargetSecurityGroupCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter MountTargetId
         /// <summary>
         /// <para>
         /// <para>The ID of the mount target whose security groups you want to modify.</para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MountTargetId { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
         /// <para>An array of up to five VPC security group IDs.</para>
@@ -69,14 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SecurityGroup parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

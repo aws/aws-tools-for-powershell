@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class WriteAGMethodCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApiKeyRequired
         /// <summary>
         /// <para>
         /// <para>Specifies whether the method required a valid <a>ApiKey</a>.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ApiKeyRequired { get; set; }
+        #endregion
         
+        #region Parameter AuthorizationType
         /// <summary>
         /// <para>
         /// <para>Specifies the type of authorization used for the method.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AuthorizationType { get; set; }
+        #endregion
         
+        #region Parameter HttpMethod
         /// <summary>
         /// <para>
         /// <para>Specifies the put method request's HTTP method type.</para>
@@ -61,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HttpMethod { get; set; }
+        #endregion
         
+        #region Parameter RequestModel
         /// <summary>
         /// <para>
         /// <para>Specifies the <a>Model</a> resources used for the request's content type. Request
@@ -72,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("RequestModels")]
         public System.Collections.Hashtable RequestModel { get; set; }
+        #endregion
         
+        #region Parameter RequestParameter
         /// <summary>
         /// <para>
         /// <para>Represents requests parameters that are sent with the backend request. Request parameters
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("RequestParameters")]
         public System.Collections.Hashtable RequestParameter { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The <a>Resource</a> identifier for the new <a>Method</a> resource.</para>
@@ -95,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The <a>RestApi</a> identifier for the new <a>Method</a> resource.</para>
@@ -103,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -111,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

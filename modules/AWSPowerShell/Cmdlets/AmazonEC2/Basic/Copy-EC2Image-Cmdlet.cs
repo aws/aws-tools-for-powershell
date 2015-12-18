@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class CopyEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the new AMI in the destination region.</para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Encrypted
         /// <summary>
         /// <para>
         /// <para>Specifies whether the destination snapshots of the copied image should be encrypted.
@@ -74,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Encrypted { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting
@@ -90,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the new AMI in the destination region.</para>
@@ -98,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter SourceImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the AMI to copy.</para>
@@ -106,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceImageId { get; set; }
+        #endregion
         
+        #region Parameter SourceRegion
         /// <summary>
         /// <para>
         /// <para>The name of the region that contains the AMI to copy.</para>
@@ -114,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String SourceRegion { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -122,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

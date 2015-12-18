@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class GetDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// The Directory ID of the AWS directory that
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter TrustId
         /// <summary>
         /// <para>
         /// <para>A list of identifiers of the trust relationships for which to obtain the information.
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("TrustIds")]
         public System.String[] TrustId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// The maximum number of objects to return.
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to <a>DescribeTrusts</a>.
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

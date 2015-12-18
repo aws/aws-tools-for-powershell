@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class SetIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter TopicRulePayload_Action
         /// <summary>
         /// <para>
         /// <para>The actions associated with the rule.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("TopicRulePayload_Actions")]
         public Amazon.IoT.Model.Action[] TopicRulePayload_Action { get; set; }
+        #endregion
         
+        #region Parameter TopicRulePayload_Description
         /// <summary>
         /// <para>
         /// <para>The description of the rule.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TopicRulePayload_Description { get; set; }
+        #endregion
         
+        #region Parameter TopicRulePayload_RuleDisabled
         /// <summary>
         /// <para>
         /// <para>Specifies whether the rule is disabled.</para>
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean TopicRulePayload_RuleDisabled { get; set; }
+        #endregion
         
+        #region Parameter RuleName
         /// <summary>
         /// <para>
         /// <para>The name of the rule.</para>
@@ -71,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RuleName { get; set; }
+        #endregion
         
+        #region Parameter TopicRulePayload_Sql
         /// <summary>
         /// <para>
         /// <para>The SQL statement used to query the topic. For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS
@@ -80,14 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TopicRulePayload_Sql { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RuleName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

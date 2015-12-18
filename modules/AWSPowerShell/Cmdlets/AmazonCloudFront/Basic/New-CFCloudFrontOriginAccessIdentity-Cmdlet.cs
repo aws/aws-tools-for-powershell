@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class NewCFCloudFrontOriginAccessIdentityCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter CloudFrontOriginAccessIdentityConfig_CallerReference
         /// <summary>
         /// <para>
         /// A unique number that ensures the request
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CloudFrontOriginAccessIdentityConfig_CallerReference { get; set; }
+        #endregion
         
+        #region Parameter CloudFrontOriginAccessIdentityConfig_Comment
         /// <summary>
         /// <para>
         /// Any comments you want to include about the origin
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CloudFrontOriginAccessIdentityConfig_Comment { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

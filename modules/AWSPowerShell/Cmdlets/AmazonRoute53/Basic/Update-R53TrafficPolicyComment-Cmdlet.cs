@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class UpdateR53TrafficPolicyCommentCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Comment
         /// <summary>
         /// <para>
         /// <para>The new comment for the specified traffic policy and version.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Comment { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>The value of <code>Id</code> for the traffic policy for which you want to update the
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>The value of <code>Version</code> for the traffic policy for which you want to update
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Version { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

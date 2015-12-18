@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDDeploymentInstanceListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>The unique ID of a deployment.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentId { get; set; }
+        #endregion
         
+        #region Parameter InstanceStatusFilter
         /// <summary>
         /// <para>
         /// <para>A subset of instances to list, by status:</para><ul><li>Pending: Include in the resulting list those instances with pending deployments.</li><li>InProgress: Include in the resulting list those instances with in-progress deployments.</li><li>Succeeded: Include in the resulting list those instances with succeeded deployments.</li><li>Failed: Include in the resulting list those instances with failed deployments.</li><li>Skipped: Include in the resulting list those instances with skipped deployments.</li><li>Unknown: Include in the resulting list those instances with deployments in an
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] InstanceStatusFilter { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list deployment instances call,
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

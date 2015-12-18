@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class RemoveRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier for the DB instance to be deleted. This parameter isn't
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
@@ -76,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FinalDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SkipFinalSnapshot
         /// <summary>
         /// <para>
         /// <para> Determines whether a final DB snapshot is created before the DB instance is deleted.
@@ -89,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SkipFinalSnapshot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -97,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

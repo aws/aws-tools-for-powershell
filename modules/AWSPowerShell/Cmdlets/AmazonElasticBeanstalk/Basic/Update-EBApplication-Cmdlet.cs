@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class UpdateEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application to update. If no such application is found, <code>UpdateApplication</code>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> A new description for the application. </para><para>Default: If not specified, AWS Elastic Beanstalk does not update the description.
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

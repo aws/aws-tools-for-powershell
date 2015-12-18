@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBEnvironmentInfoCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para>The ID of the data's environment.</para><para> If no such environment is found, returns an <code>InvalidParameterValue</code> error.
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para>The name of the data's environment.</para><para> If no such environment is found, returns an <code>InvalidParameterValue</code> error.
@@ -66,15 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter InfoType
         /// <summary>
         /// <para>
         /// <para> The type of information to retrieve. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
+        [AWSConstantClassSource("Amazon.ElasticBeanstalk.EnvironmentInfoType")]
         public Amazon.ElasticBeanstalk.EnvironmentInfoType InfoType { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

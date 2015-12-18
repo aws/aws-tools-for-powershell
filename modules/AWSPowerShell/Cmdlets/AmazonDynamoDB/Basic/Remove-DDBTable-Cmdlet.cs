@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class RemoveDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para> The name of the table to delete.</para>
@@ -66,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TableName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -74,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

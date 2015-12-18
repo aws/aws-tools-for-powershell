@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     )]
     public class GetR53DOperationDetailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter OperationId
         /// <summary>
         /// <para>
         /// <para>The identifier for the operation for which you want to get the status. Amazon Route
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String OperationId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

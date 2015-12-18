@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter EngineName
         /// <summary>
         /// <para>
         /// <para> Filters the list of option groups to only include groups associated with a specific
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineName { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter MajorEngineVersion
         /// <summary>
         /// <para>
         /// <para> Filters the list of option groups to only include groups associated with a specific
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MajorEngineVersion { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the option group to describe. Cannot be supplied together with EngineName
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional pagination token provided by a previous DescribeOptionGroups request.
@@ -86,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
@@ -97,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

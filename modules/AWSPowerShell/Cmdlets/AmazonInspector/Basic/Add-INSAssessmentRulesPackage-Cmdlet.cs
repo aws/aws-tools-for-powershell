@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class AddINSAssessmentRulesPackageCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssessmentArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the assessment to which you want to attach a rules package.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AssessmentArn { get; set; }
+        #endregion
         
+        #region Parameter RulesPackageArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the rules package that you want to attach to the assessment.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RulesPackageArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

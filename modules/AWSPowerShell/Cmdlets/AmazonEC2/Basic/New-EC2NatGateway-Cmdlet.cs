@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2NatGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocationId
         /// <summary>
         /// <para>
         /// <para>The allocation ID of an Elastic IP address to associate with the NAT gateway. If the
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AllocationId { get; set; }
+        #endregion
         
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The subnet in which to create the NAT gateway.</para>
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

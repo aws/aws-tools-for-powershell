@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class WriteS3BucketTaggingCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to apply the tags to.
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter TagSet
         /// <summary>
         /// <para>
         /// The collection of tags.
@@ -55,14 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("TagSets")]
         public Amazon.S3.Model.Tag[] TagSet { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of Tag objects that were added.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

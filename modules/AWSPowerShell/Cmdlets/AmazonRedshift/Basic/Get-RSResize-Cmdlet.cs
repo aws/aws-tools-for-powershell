@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSResizeCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of a cluster whose resize progress you are requesting. This
@@ -56,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterIdentifier { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

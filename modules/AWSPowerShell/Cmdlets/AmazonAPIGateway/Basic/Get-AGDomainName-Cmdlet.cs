@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGDomainNameCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of the <a>DomainName</a> resource.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

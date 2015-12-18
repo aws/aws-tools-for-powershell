@@ -45,14 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class UpdateCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter ScalingParameters_DesiredInstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudSearch.PartitionInstanceType")]
         public Amazon.CloudSearch.PartitionInstanceType ScalingParameters_DesiredInstanceType { get; set; }
+        #endregion
         
+        #region Parameter ScalingParameters_DesiredPartitionCount
         /// <summary>
         /// <para>
         /// <para>The number of partitions you want to preconfigure for your domain. Only valid when
@@ -61,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ScalingParameters_DesiredPartitionCount { get; set; }
+        #endregion
         
+        #region Parameter ScalingParameters_DesiredReplicationCount
         /// <summary>
         /// <para>
         /// <para>The number of replicas you want to preconfigure for each index partition.</para>
@@ -69,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ScalingParameters_DesiredReplicationCount { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -77,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

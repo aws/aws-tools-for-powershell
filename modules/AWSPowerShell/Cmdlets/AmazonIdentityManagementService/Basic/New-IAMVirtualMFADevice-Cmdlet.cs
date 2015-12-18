@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class NewIAMVirtualMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Path
         /// <summary>
         /// <para>
         /// <para> The path for the virtual MFA device. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Path { get; set; }
+        #endregion
         
+        #region Parameter VirtualMFADeviceName
         /// <summary>
         /// <para>
         /// <para> The name of the virtual MFA device. Use with path to uniquely identify a virtual
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String VirtualMFADeviceName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

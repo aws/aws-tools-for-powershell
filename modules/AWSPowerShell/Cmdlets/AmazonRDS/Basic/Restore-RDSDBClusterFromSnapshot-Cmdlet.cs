@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class RestoreRDSDBClusterFromSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>Provides the list of EC2 Availability Zones that instances in the restored DB cluster
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter DatabaseName
         /// <summary>
         /// <para>
         /// <para>The database name for the restored DB cluster. </para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DatabaseName { get; set; }
+        #endregion
         
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the DB cluster snapshot. This parameter
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the DB subnet group to use for the new DB cluster. </para>
@@ -83,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
         /// <para>The database engine to use for the new DB cluster. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para>
@@ -91,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The version of the database engine to use for the new DB cluster.</para>
@@ -99,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
@@ -116,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the option group to use for the restored DB cluster. </para>
@@ -124,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the new DB cluster accepts connections. </para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
@@ -132,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier for the DB cluster snapshot to restore from. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
@@ -142,7 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>The tags to be assigned to the restored DB cluster. </para>
@@ -151,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A list of VPC security groups that the new DB cluster will belong to. </para>
@@ -160,7 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -168,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

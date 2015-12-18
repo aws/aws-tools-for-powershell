@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     )]
     public class GetESDomainListCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The Elasticsearch domains for which you want information.</para>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DomainNames")]
         public System.String[] DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

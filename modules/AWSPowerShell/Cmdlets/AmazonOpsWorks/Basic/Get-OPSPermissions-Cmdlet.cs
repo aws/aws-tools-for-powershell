@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSPermissionsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>The user's IAM ARN. For more information about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String IamUserArn { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

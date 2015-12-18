@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class NewIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientIDList
         /// <summary>
         /// <para>
         /// <para>A list of client IDs (also known as audiences). When a mobile or web app registers
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] ClientIDList { get; set; }
+        #endregion
         
+        #region Parameter ThumbprintList
         /// <summary>
         /// <para>
         /// <para>A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's
@@ -86,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] ThumbprintList { get; set; }
+        #endregion
         
+        #region Parameter Url
         /// <summary>
         /// <para>
         /// <para>The URL of the identity provider. The URL must begin with "https://" and should correspond
@@ -100,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Url { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -108,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

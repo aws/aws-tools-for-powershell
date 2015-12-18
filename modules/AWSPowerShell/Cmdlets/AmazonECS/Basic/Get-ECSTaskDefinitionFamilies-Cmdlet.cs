@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSTaskDefinitionFamiliesCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter FamilyPrefix
         /// <summary>
         /// <para>
         /// <para>The <code>familyPrefix</code> is a string that is used to filter the results of <code>ListTaskDefinitionFamilies</code>.
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FamilyPrefix { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of task definition family results returned by <code>ListTaskDefinitionFamilies</code>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListTaskDefinitionFamilies</code>
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class TestIAMCustomPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionName
         /// <summary>
         /// <para>
         /// <para>A list of names of API actions to evaluate in the simulation. Each action is evaluated
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("ActionNames")]
         public System.String[] ActionName { get; set; }
+        #endregion
         
+        #region Parameter CallerArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the user that you want to use as the simulated caller of the APIs. <code>CallerArn</code>
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CallerArn { get; set; }
+        #endregion
         
+        #region Parameter ContextEntry
         /// <summary>
         /// <para>
         /// <para>A list of context keys and corresponding values for the simulation to use. Whenever
@@ -90,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("ContextEntries")]
         public Amazon.IdentityManagement.Model.ContextEntry[] ContextEntry { get; set; }
+        #endregion
         
+        #region Parameter PolicyInputList
         /// <summary>
         /// <para>
         /// <para>A list of policy documents to include in the simulation. Each document is specified
@@ -104,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] PolicyInputList { get; set; }
+        #endregion
         
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
         /// <para>A list of ARNs of AWS resources to include in the simulation. If this parameter is
@@ -120,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("ResourceArns")]
         public System.String[] ResourceArn { get; set; }
+        #endregion
         
+        #region Parameter ResourceHandlingOption
         /// <summary>
         /// <para>
         /// <para>Specifies the type of simulation to run. Different APIs that support resource-based
@@ -139,7 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceHandlingOption { get; set; }
+        #endregion
         
+        #region Parameter ResourceOwner
         /// <summary>
         /// <para>
         /// <para>An AWS account ID that specifies the owner of any simulated resource that does not
@@ -154,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceOwner { get; set; }
+        #endregion
         
+        #region Parameter ResourcePolicy
         /// <summary>
         /// <para>
         /// <para>A resource-based policy to include in the simulation provided as a string. Each resource
@@ -164,7 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourcePolicy { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
@@ -175,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
@@ -190,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

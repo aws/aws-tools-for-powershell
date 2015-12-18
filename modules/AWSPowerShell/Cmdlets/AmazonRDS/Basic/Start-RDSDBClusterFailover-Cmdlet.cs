@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class StartRDSDBClusterFailoverCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>A DB cluster identifier to force a failover for. This parameter is not case-sensitive.
@@ -63,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

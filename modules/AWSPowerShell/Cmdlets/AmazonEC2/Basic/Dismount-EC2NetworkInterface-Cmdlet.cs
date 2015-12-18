@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class DismountEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttachmentId
         /// <summary>
         /// <para>
         /// <para>The ID of the attachment.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AttachmentId { get; set; }
+        #endregion
         
+        #region Parameter ForceDismount
         /// <summary>
         /// <para>
         /// <para>Specifies whether to force a detachment.</para>
@@ -54,14 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ForceDismount { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AttachmentId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

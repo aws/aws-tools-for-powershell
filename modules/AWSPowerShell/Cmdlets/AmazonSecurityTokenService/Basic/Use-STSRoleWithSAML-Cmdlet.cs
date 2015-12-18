@@ -81,6 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     )]
     public class UseSTSRoleWithSAMLCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
         /// <para>The duration, in seconds, of the role session. The value can range from 900 seconds
@@ -93,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         [System.Management.Automation.Parameter(Position = 4)]
         [Alias("DurationSeconds")]
         public System.Int32 DurationInSeconds { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// <para>An IAM policy in JSON format.</para><para>The policy parameter is optional. If you pass a policy, the temporary security credentials
@@ -112,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Policy { get; set; }
+        #endregion
         
+        #region Parameter PrincipalArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SAML provider in IAM that describes the IdP.</para>
@@ -120,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String PrincipalArn { get; set; }
+        #endregion
         
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the role that the caller is assuming.</para>
@@ -128,7 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RoleArn { get; set; }
+        #endregion
         
+        #region Parameter SAMLAssertion
         /// <summary>
         /// <para>
         /// <para>The base-64 encoded SAML authentication response provided by the IdP.</para><para>For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html">Configuring
@@ -137,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String SAMLAssertion { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -145,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class WriteAGIntegrationCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheKeyParameter
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration input's cache key parameters.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("CacheKeyParameters")]
         public System.String[] CacheKeyParameter { get; set; }
+        #endregion
         
+        #region Parameter CacheNamespace
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration input's cache namespace.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CacheNamespace { get; set; }
+        #endregion
         
+        #region Parameter TargetCredential
         /// <summary>
         /// <para>
         /// <para>Specifies whether credentials are required for a put integration.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TargetCredential { get; set; }
+        #endregion
         
+        #region Parameter HttpMethod
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration request's HTTP method.</para>
@@ -70,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HttpMethod { get; set; }
+        #endregion
         
+        #region Parameter IntegrationHttpMethod
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration HTTP method.</para>
@@ -78,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IntegrationHttpMethod { get; set; }
+        #endregion
         
+        #region Parameter RequestParameter
         /// <summary>
         /// <para>
         /// <para>Represents request parameters that are sent with the backend request. Request parameters
@@ -93,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("RequestParameters")]
         public System.Collections.Hashtable RequestParameter { get; set; }
+        #endregion
         
+        #region Parameter RequestTemplate
         /// <summary>
         /// <para>
         /// <para>Specifies the templates used to transform the method request body. Request templates
@@ -104,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("RequestTemplates")]
         public System.Collections.Hashtable RequestTemplate { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration request's resource ID.</para>
@@ -112,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration request's API identifier.</para>
@@ -120,15 +138,20 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration input's type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.IntegrationType")]
         public Amazon.APIGateway.IntegrationType Type { get; set; }
+        #endregion
         
+        #region Parameter Uri
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration input's Uniform Resource Identifier (URI).</para>
@@ -136,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Uri { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -144,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

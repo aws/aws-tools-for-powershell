@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSCommandsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter CommandId
         /// <summary>
         /// <para>
         /// <para>An array of command IDs. If you include this parameter, <code>DescribeCommands</code>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("CommandIds")]
         public System.String[] CommandId { get; set; }
+        #endregion
         
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>The deployment ID. If you include this parameter, <code>DescribeCommands</code> returns
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DeploymentId { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID. If you include this parameter, <code>DescribeCommands</code> returns
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

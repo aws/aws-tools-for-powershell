@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     )]
     public class GetKINStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartShardId
         /// <summary>
         /// <para>
         /// <para>The shard ID of the shard to start with.</para>
@@ -67,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String ExclusiveStartShardId { get; set; }
+        #endregion
         
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream to describe.</para>
@@ -75,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of shards to return.</para>
@@ -83,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

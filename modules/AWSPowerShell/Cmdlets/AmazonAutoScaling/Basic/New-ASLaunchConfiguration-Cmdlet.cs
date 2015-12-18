@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class NewASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociatePublicIpAddress
         /// <summary>
         /// <para>
         /// <para>Used for groups that launch instances into a virtual private cloud (VPC). Specifies
@@ -63,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AssociatePublicIpAddress { get; set; }
+        #endregion
         
+        #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>One or more mappings that specify how block devices are exposed to the instance. For
@@ -74,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("BlockDeviceMappings")]
         public Amazon.AutoScaling.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter ClassicLinkVPCId
         /// <summary>
         /// <para>
         /// <para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter
@@ -85,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClassicLinkVPCId { get; set; }
+        #endregion
         
+        #region Parameter ClassicLinkVPCSecurityGroup
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>.
@@ -97,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("ClassicLinkVPCSecurityGroups")]
         public System.String[] ClassicLinkVPCSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter EbsOptimized
         /// <summary>
         /// <para>
         /// <para>Indicates whether the instance is optimized for Amazon EBS I/O. By default, the instance
@@ -110,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter InstanceMonitoring_Enabled
         /// <summary>
         /// <para>
         /// <para>If <code>True</code>, instance monitoring is enabled.</para>
@@ -118,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean InstanceMonitoring_Enabled { get; set; }
+        #endregion
         
+        #region Parameter IamInstanceProfile
         /// <summary>
         /// <para>
         /// <para>The name or the Amazon Resource Name (ARN) of the instance profile associated with
@@ -131,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IamInstanceProfile { get; set; }
+        #endregion
         
+        #region Parameter ImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For
@@ -141,7 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ImageId { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the EC2 instance to use to create the launch configuration.</para><para>The new launch configuration derives attributes from the instance, with the exception
@@ -153,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para> The instance type of the EC2 instance. For information about available instance types,
@@ -163,7 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceType { get; set; }
+        #endregion
         
+        #region Parameter KernelId
         /// <summary>
         /// <para>
         /// <para> The ID of the kernel associated with the AMI. </para>
@@ -171,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KernelId { get; set; }
+        #endregion
         
+        #region Parameter KeyName
         /// <summary>
         /// <para>
         /// <para>The name of the key pair. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
@@ -180,7 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String KeyName { get; set; }
+        #endregion
         
+        #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
         /// <para>The name of the launch configuration. This name must be unique within the scope of
@@ -189,7 +215,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LaunchConfigurationName { get; set; }
+        #endregion
         
+        #region Parameter PlacementTenancy
         /// <summary>
         /// <para>
         /// <para>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code>
@@ -203,7 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PlacementTenancy { get; set; }
+        #endregion
         
+        #region Parameter RamdiskId
         /// <summary>
         /// <para>
         /// <para> The ID of the RAM disk associated with the AMI. </para>
@@ -211,7 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RamdiskId { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
         /// <para>One or more security groups with which to associate the instances.</para><para>If your instances are launched in EC2-Classic, you can either specify security group
@@ -225,7 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter SpotPrice
         /// <summary>
         /// <para>
         /// <para>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
@@ -236,7 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SpotPrice { get; set; }
+        #endregion
         
+        #region Parameter UserData
         /// <summary>
         /// <para>
         /// <para>The user data to make available to the launched EC2 instances. For more information,
@@ -246,14 +282,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String UserData { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LaunchConfigurationName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -261,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

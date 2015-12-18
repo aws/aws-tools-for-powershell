@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2RegionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>endpoint</code> - The endpoint of the region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</para></li><li><para><code>region-name</code> - The name of the region (for example, <code>us-east-1</code>).</para></li></ul>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter RegionName
         /// <summary>
         /// <para>
         /// <para>The names of one or more regions.</para>
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("RegionNames")]
         public System.String[] RegionName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

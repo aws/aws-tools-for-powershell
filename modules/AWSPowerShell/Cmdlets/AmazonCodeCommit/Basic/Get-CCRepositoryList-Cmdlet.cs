@@ -40,22 +40,30 @@ namespace Amazon.PowerShell.Cmdlets.CC
     )]
     public class GetCCRepositoryListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter Order
         /// <summary>
         /// <para>
         /// <para>The order in which to sort the results of a list repositories operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeCommit.OrderEnum")]
         public Amazon.CodeCommit.OrderEnum Order { get; set; }
+        #endregion
         
+        #region Parameter SortBy
         /// <summary>
         /// <para>
         /// <para>The criteria used to sort the results of a list repositories operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeCommit.SortByEnum")]
         public Amazon.CodeCommit.SortByEnum SortBy { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An enumeration token that allows the operation to batch the results of the operation.
@@ -65,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class GetLMAliasListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>Lambda function name for which the alias is created.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter FunctionVersion
         /// <summary>
         /// <para>
         /// <para>If you specify this optional parameter, the API returns only the aliases pointing
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FunctionVersion { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Optional string. An opaque pagination token returned from a previous ListAliases operation.
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Optional integer. Specifies the maximum number of aliases to return in response. This
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.Int32 MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

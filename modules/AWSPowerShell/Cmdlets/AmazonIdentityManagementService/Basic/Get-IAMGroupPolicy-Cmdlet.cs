@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMGroupPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group the policy is associated with.</para>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GroupName { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy document to get.</para>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String PolicyName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class CopyRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceDBClusterSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TargetDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the new DB cluster snapshot to create from the source DB cluster
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String TargetDBClusterSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

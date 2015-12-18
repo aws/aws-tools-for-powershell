@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class RemoveAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter BasePath
         /// <summary>
         /// <para>
         /// <para>The base path name of the <a>BasePathMapping</a> resource to delete.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BasePath { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The domain name of the <a>BasePathMapping</a> resource to delete.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

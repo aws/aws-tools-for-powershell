@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class NewEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter CreationToken
         /// <summary>
         /// <para>
         /// <para>String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</para>
@@ -76,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CreationToken { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSHostnameSuggestionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The layer ID.</para>
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LayerId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

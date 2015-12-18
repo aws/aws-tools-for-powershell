@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class RemoveSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RuleName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule to delete.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RuleName { get; set; }
+        #endregion
         
+        #region Parameter RuleSetName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule set that contains the receipt rule to delete.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RuleSetName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VpcEndpointServiceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this request. The request returns a token
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a prior
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

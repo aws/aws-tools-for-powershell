@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGModelListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The <a>RestApi</a> identifier.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of models in the collection to get information about. The default
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Position
         /// <summary>
         /// <para>
         /// <para>The position of the next set of results in the <a>Models</a> resource to get information
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Position { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

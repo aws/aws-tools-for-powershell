@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class GetLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter UUID
         /// <summary>
         /// <para>
         /// <para>The AWS Lambda assigned ID of the event source mapping.</para>
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UUID { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

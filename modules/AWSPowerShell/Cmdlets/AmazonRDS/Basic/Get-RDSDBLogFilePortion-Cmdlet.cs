@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSDBLogFilePortionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The customer-assigned name of the DB instance that contains the log files you want
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter LogFileName
         /// <summary>
         /// <para>
         /// <para> The name of the log file to be downloaded. </para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String LogFileName { get; set; }
+        #endregion
         
+        #region Parameter NumberOfLines
         /// <summary>
         /// <para>
         /// <para> The number of lines to download. If the number of lines specified results in a file
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NumberOfLines { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> The pagination token provided in the previous request or "0". If the Marker parameter
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

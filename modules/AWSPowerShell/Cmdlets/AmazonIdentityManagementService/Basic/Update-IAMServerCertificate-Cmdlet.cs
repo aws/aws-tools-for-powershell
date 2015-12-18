@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class UpdateIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPath
         /// <summary>
         /// <para>
         /// <para> The new path for the server certificate. Include this only if you are updating the
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String NewPath { get; set; }
+        #endregion
         
+        #region Parameter NewServerCertificateName
         /// <summary>
         /// <para>
         /// <para> The new name for the server certificate. Include this only if you are updating the
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String NewServerCertificateName { get; set; }
+        #endregion
         
+        #region Parameter ServerCertificateName
         /// <summary>
         /// <para>
         /// <para>The name of the server certificate that you want to update.</para>
@@ -79,14 +85,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ServerCertificateName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ServerCertificateName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

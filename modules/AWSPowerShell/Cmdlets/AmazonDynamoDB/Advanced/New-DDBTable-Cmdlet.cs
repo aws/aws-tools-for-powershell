@@ -47,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class NewDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// The name of the table to create.
@@ -57,14 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, Mandatory = true)]
         public System.String TableName { get; set; }
-        
+        #endregion
+
+        #region Parameter Schema
         /// <summary>
         /// TableSchema object containing the attribute and key schema information for the new
         /// table using the Write-DDBKeySchema and Write-DDBIndexSchema cmdlets.
         /// </summary>
         [Parameter(ValueFromPipeline = true, Mandatory = true, Position = 1)]
         public Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema Schema { get; set; }
-        
+        #endregion
+
+        #region Parameter ReadCapacity 
         /// <summary>
         /// <para>
         /// The maximum number of strongly consistent reads consumed per second before Amazon DynamoDB returns a <i>ThrottlingException</i>. For more
@@ -81,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [Parameter(Mandatory = true, Position = 2)]
         public System.Int64? ReadCapacity { get; set; }
-        
+        #endregion
+
+        #region Parameter WriteCapacity
         /// <summary>
         /// <para>
         /// The maximum number of strongly consistent writes consumed per second before Amazon DynamoDB returns a <i>ThrottlingException</i>. For more
@@ -98,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [Parameter(Mandatory = true, Position = 3)]
         public System.Int64? WriteCapacity { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -106,6 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

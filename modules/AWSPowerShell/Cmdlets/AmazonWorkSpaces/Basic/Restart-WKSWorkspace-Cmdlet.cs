@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     )]
     public class RestartWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter Request
         /// <summary>
         /// <para>
         /// <para>An array of structures that specify the WorkSpaces to reboot.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("RebootWorkspaceRequests")]
         public Amazon.WorkSpaces.Model.RebootRequest[] Request { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

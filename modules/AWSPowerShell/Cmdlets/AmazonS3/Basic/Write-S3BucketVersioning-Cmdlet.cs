@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class WriteS3BucketVersioningCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter MfaCodes_AuthenticationValue
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MfaCodes_AuthenticationValue { get; set; }
+        #endregion
         
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to be updated.
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter VersioningConfig_EnableMfaDelete
         /// <summary>
         /// <para>
         /// Specifies whether MFA Delete is enabled on this S3 Bucket.
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean VersioningConfig_EnableMfaDelete { get; set; }
+        #endregion
         
+        #region Parameter MfaCodes_SerialNumber
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -71,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MfaCodes_SerialNumber { get; set; }
+        #endregion
         
+        #region Parameter VersioningConfig_Status
         /// <summary>
         /// <para>
         /// Versioning status for the bucket.
@@ -79,15 +89,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.VersionStatus")]
         public Amazon.S3.VersionStatus VersioningConfig_Status { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

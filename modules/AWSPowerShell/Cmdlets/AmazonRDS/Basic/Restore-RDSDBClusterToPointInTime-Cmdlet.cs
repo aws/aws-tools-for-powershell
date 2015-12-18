@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class RestoreRDSDBClusterToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The name of the new DB cluster to be created. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> The DB subnet group name to use for the new DB cluster. </para>
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
@@ -84,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the option group for the new DB cluster.</para>
@@ -92,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the new DB cluster accepts connections. </para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter RestoreToTime
         /// <summary>
         /// <para>
         /// <para> The date and time to restore the DB cluster to. </para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li>Must be before the latest restorable time for the DB instance</li><li>Cannot
@@ -109,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime RestoreToTime { get; set; }
+        #endregion
         
+        #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the source DB cluster from which to restore. </para><para>Constraints:</para><ul><li>Must be the identifier of an existing database instance</li><li>Must contain
@@ -119,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceDBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -128,7 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter UseLatestRestorableTime
         /// <summary>
         /// <para>
         /// <para>A value that is set to <code>true</code> to restore the DB cluster to the latest restorable
@@ -137,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean UseLatestRestorableTime { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A lst of VPC security groups that the new DB cluster belongs to. </para>
@@ -146,7 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -154,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

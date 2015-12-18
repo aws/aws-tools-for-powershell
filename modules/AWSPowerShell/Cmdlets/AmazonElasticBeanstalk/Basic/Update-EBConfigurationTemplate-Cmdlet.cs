@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class UpdateEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of the application associated with the configuration template to update.</para><para> If no application is found with this name, <code>UpdateConfigurationTemplate</code>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A new description for the configuration.</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter OptionSetting
         /// <summary>
         /// <para>
         /// <para> A list of configuration option settings to update with the new specified option value.
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("OptionSettings")]
         public Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting[] OptionSetting { get; set; }
+        #endregion
         
+        #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
         /// <para> A list of configuration options to remove from the configuration set. </para><para> Constraint: You can remove only <code>UserDefined</code> configuration options. </para>
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] OptionsToRemove { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para>The name of the configuration template to update.</para><para> If no configuration template is found with this name, <code>UpdateConfigurationTemplate</code>
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String TemplateName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

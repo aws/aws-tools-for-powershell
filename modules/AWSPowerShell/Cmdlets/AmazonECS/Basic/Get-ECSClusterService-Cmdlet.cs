@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSClusterServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the services
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of container instance results returned by <code>ListServices</code>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListServices</code>
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

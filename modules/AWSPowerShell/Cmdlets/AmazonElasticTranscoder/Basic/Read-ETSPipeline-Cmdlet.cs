@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class ReadETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>The identifier of the pipeline to read.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

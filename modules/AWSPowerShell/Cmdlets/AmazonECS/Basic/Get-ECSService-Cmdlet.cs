@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The name of the cluster that hosts the service to describe. If you do not specify
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter Service
         /// <summary>
         /// <para>
         /// <para>A list of services to describe.</para>
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("Services")]
         public System.String[] Service { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

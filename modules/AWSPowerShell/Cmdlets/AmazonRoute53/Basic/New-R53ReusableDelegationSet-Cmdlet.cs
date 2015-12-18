@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class NewR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CallerReference
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed <code>CreateReusableDelegationSet</code>
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CallerReference { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
         /// <para>The ID of the hosted zone whose delegation set you want to mark as reusable. It is
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

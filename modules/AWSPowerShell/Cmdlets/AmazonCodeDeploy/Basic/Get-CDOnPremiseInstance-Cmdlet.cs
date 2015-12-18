@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceName
         /// <summary>
         /// <para>
         /// <para>The name of the on-premises instance to get information about</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String InstanceName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class GetECCacheEngineVersionsCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para>The name of a specific cache parameter group family to return details for.</para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String CacheParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter DefaultOnly
         /// <summary>
         /// <para>
         /// <para>If <i>true</i>, specifies that only the default version of the specified engine or
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean DefaultOnly { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
         /// <para>The cache engine to return. Valid values: <code>memcached</code> | <code>redis</code></para>
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The cache engine version to return.</para><para>Example: <code>1.4.14</code></para>
@@ -74,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
@@ -85,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
@@ -96,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

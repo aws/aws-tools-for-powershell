@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class SetELBLoadBalancerPolicyForBackendServerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstancePort
         /// <summary>
         /// <para>
         /// <para>The port number associated with the back-end server.</para>
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 InstancePort { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The names of the policies. If the list is empty, then all current polices are removed
@@ -77,14 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyNames")]
         public System.String[] PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LoadBalancerName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

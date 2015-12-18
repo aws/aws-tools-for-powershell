@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class InvokeKMSEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter EncryptionContext
         /// <summary>
         /// <para>
         /// <para>Name/value pair that specifies the encryption context to be used for authenticated
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable EncryptionContext { get; set; }
+        #endregion
         
+        #region Parameter GrantToken
         /// <summary>
         /// <para>
         /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
@@ -74,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("GrantTokens")]
         public System.String[] GrantToken { get; set; }
+        #endregion
         
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key. This value can be a globally unique
@@ -85,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter Plaintext
         /// <summary>
         /// <para>
         /// <para>Data to be encrypted.</para>
@@ -93,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream Plaintext { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -101,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

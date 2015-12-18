@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class UpdateSGMaintenanceStartTimeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter DayOfWeek
         /// <summary>
         /// <para>
         /// <para>The maintenance start time day of the week.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.Int32 DayOfWeek { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter HourOfDay
         /// <summary>
         /// <para>
         /// <para>The hour component of the maintenance start time represented as <i>hh</i>, where <i>hh</i>
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 HourOfDay { get; set; }
+        #endregion
         
+        #region Parameter MinuteOfHour
         /// <summary>
         /// <para>
         /// <para>The minute component of the maintenance start time represented as <i>mm</i>, where
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 MinuteOfHour { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

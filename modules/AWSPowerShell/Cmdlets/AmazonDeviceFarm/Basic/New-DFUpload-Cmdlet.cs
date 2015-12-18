@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class NewDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter ContentType
         /// <summary>
         /// <para>
         /// <para>The upload's content type (for example, "application/octet-stream").</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String ContentType { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The upload's file name.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter ProjectArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the project for the upload.</para>
@@ -62,15 +68,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ProjectArn { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The upload's upload type.</para><para>Must be one of the following values:</para><ul><li><para>ANDROID_APP: An Android upload.</para></li><li><para>IOS_APP: An iOS upload.</para></li><li><para>EXTERNAL_DATA: An external data upload.</para></li><li><para>APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.</para></li><li><para>APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.</para></li><li><para>CALABASH_TEST_PACKAGE: A Calabash test package upload.</para></li><li><para>INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.</para></li><li><para>UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.</para></li><li><para>XCTEST_TEST_PACKAGE: An XCode test package upload.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
+        [AWSConstantClassSource("Amazon.DeviceFarm.UploadType")]
         public Amazon.DeviceFarm.UploadType Type { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

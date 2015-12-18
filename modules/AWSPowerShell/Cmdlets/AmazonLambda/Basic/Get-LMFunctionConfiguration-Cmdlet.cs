@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class GetLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The name of the Lambda function for which you want to retrieve the configuration information.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Qualifier
         /// <summary>
         /// <para>
         /// <para>Using this optional parameter you can specify function version or alias name. If you
@@ -74,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Qualifier { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

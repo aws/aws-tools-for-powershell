@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class SetSESIdentityNotificationTopicCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>The identity for which the Amazon SNS topic will be set. You can specify an identity
@@ -59,15 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Identity { get; set; }
+        #endregion
         
+        #region Parameter NotificationType
         /// <summary>
         /// <para>
         /// <para>The type of notifications that will be published to the specified Amazon SNS topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.SimpleEmail.NotificationType")]
         public Amazon.SimpleEmail.NotificationType NotificationType { get; set; }
+        #endregion
         
+        #region Parameter SnsTopic
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted
@@ -77,14 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String SnsTopic { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Identity parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

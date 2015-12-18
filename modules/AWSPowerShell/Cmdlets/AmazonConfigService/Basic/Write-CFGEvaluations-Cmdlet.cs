@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class WriteCFGEvaluationsCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Evaluation
         /// <summary>
         /// <para>
         /// <para>The assessments that the AWS Lambda function performs. Each evaluation identifies
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Evaluations")]
         public Amazon.ConfigService.Model.Evaluation[] Evaluation { get; set; }
+        #endregion
         
+        #region Parameter ResultToken
         /// <summary>
         /// <para>
         /// <para>An encrypted token that associates an evaluation with an AWS Config rule. Identifies
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResultToken { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

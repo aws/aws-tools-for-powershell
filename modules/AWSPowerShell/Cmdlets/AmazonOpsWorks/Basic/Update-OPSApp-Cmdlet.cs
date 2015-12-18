@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class UpdateOPSAppCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppId
         /// <summary>
         /// <para>
         /// <para>The app ID.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AppId { get; set; }
+        #endregion
         
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>One or more user-defined key/value pairs to be added to the stack attributes.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter SslConfiguration_Certificate
         /// <summary>
         /// <para>
         /// <para>The contents of the certificate's domain.crt file.</para>
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SslConfiguration_Certificate { get; set; }
+        #endregion
         
+        #region Parameter SslConfiguration_Chain
         /// <summary>
         /// <para>
         /// <para>Optional. Can be used to specify an intermediate certificate authority key or client
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SslConfiguration_Chain { get; set; }
+        #endregion
         
+        #region Parameter DataSource
         /// <summary>
         /// <para>
         /// <para>The app's data sources.</para>
@@ -88,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("DataSources")]
         public Amazon.OpsWorks.Model.DataSource[] DataSource { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description of the app.</para>
@@ -96,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Domain
         /// <summary>
         /// <para>
         /// <para>The app's virtual host settings, with multiple domains separated by commas. For example:
@@ -106,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("Domains")]
         public System.String[] Domain { get; set; }
+        #endregion
         
+        #region Parameter EnableSsl
         /// <summary>
         /// <para>
         /// <para>Whether SSL is enabled for the app.</para>
@@ -114,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EnableSsl { get; set; }
+        #endregion
         
+        #region Parameter Environment
         /// <summary>
         /// <para>
         /// <para>An array of <code>EnvironmentVariable</code> objects that specify environment variables
@@ -130,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.OpsWorks.Model.EnvironmentVariable[] Environment { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The app name.</para>
@@ -138,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter AppSource_Password
         /// <summary>
         /// <para>
         /// <para>When included in a request, the parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
@@ -149,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppSource_Password { get; set; }
+        #endregion
         
+        #region Parameter SslConfiguration_PrivateKey
         /// <summary>
         /// <para>
         /// <para>The private key; the contents of the certificate's domain.kex file.</para>
@@ -157,7 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SslConfiguration_PrivateKey { get; set; }
+        #endregion
         
+        #region Parameter AppSource_Revision
         /// <summary>
         /// <para>
         /// <para>The application's version. AWS OpsWorks enables you to easily deploy new versions
@@ -167,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppSource_Revision { get; set; }
+        #endregion
         
+        #region Parameter AppSource_SshKey
         /// <summary>
         /// <para>
         /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
@@ -176,23 +204,31 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppSource_SshKey { get; set; }
+        #endregion
         
+        #region Parameter AppSource_Type
         /// <summary>
         /// <para>
         /// <para>The repository type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.SourceType")]
         public Amazon.OpsWorks.SourceType AppSource_Type { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The app type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.AppType")]
         public Amazon.OpsWorks.AppType Type { get; set; }
+        #endregion
         
+        #region Parameter AppSource_Url
         /// <summary>
         /// <para>
         /// <para>The source URL. </para>
@@ -200,7 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppSource_Url { get; set; }
+        #endregion
         
+        #region Parameter AppSource_Username
         /// <summary>
         /// <para>
         /// <para>This parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM
@@ -210,14 +248,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppSource_Username { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AppId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -225,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

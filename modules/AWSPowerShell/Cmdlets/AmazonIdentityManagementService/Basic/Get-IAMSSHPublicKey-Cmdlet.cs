@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Encoding
         /// <summary>
         /// <para>
         /// <para>Specifies the public key encoding format to use in the response. To retrieve the public
@@ -55,8 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IdentityManagement.EncodingType")]
         public Amazon.IdentityManagement.EncodingType Encoding { get; set; }
+        #endregion
         
+        #region Parameter SSHPublicKeyId
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the SSH public key.</para>
@@ -64,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SSHPublicKeyId { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user associated with the SSH public key.</para>
@@ -72,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

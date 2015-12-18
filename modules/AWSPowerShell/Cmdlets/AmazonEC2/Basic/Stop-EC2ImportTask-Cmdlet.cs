@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class StopEC2ImportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CancelReason
         /// <summary>
         /// <para>
         /// <para>The reason for canceling the task.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CancelReason { get; set; }
+        #endregion
         
+        #region Parameter ImportTaskId
         /// <summary>
         /// <para>
         /// <para>The ID of the import image or import snapshot task to be canceled.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ImportTaskId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

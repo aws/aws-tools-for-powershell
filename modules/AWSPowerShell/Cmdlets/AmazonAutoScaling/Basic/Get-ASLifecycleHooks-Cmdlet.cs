@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class GetASLifecycleHooksCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter LifecycleHookName
         /// <summary>
         /// <para>
         /// <para>The names of one or more lifecycle hooks.</para>
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("LifecycleHookNames")]
         public System.String[] LifecycleHookName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

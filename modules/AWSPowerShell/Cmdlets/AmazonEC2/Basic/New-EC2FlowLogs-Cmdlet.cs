@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter DeliverLogsPermissionArn
         /// <summary>
         /// <para>
         /// <para>The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.</para>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliverLogsPermissionArn { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the CloudWatch log group.</para>
@@ -74,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>One or more subnet, network interface, or VPC IDs.</para>
@@ -83,23 +91,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceIds")]
         public System.String[] ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The type of resource on which to create the flow log.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.FlowLogsResourceType")]
         public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
+        #endregion
         
+        #region Parameter TrafficType
         /// <summary>
         /// <para>
         /// <para>The type of traffic to log.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.TrafficType")]
         public Amazon.EC2.TrafficType TrafficType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -107,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

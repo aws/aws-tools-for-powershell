@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class AddEC2VpnGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter VpnGatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of the virtual private gateway.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String VpnGatewayId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

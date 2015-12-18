@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class GetASACommunicationsCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AfterTime
         /// <summary>
         /// <para>
         /// <para>The start date for a filtered date search on support case communications. Case communications
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AfterTime { get; set; }
+        #endregion
         
+        #region Parameter BeforeTime
         /// <summary>
         /// <para>
         /// <para>The end date for a filtered date search on support case communications. Case communications
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BeforeTime { get; set; }
+        #endregion
         
+        #region Parameter CaseId
         /// <summary>
         /// <para>
         /// <para>The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric
@@ -80,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CaseId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return before paginating.</para>
@@ -89,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A resumption point for pagination.</para>
@@ -97,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

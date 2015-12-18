@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2NatGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>nat-gateway-id</code> - The ID of the NAT gateway.</para></li><li><para><code>state</code> - The state of the NAT gateway (<code>pending</code> | <code>failed</code>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter NatGatewayId
         /// <summary>
         /// <para>
         /// <para>One or more NAT gateway IDs.</para>
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NatGatewayIds")]
         public System.String[] NatGatewayId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this request. The request returns a token
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to retrieve the next page of results.</para>
@@ -75,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

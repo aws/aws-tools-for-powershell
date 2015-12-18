@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExecutableUser
         /// <summary>
         /// <para>
         /// <para>Scopes the images by users with explicit launch permissions. Specify an AWS account
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("ExecutableBy","ExecutableUsers")]
         public System.String[] ExecutableUser { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code>).</para></li><li><para><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
@@ -81,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ImageId
         /// <summary>
         /// <para>
         /// <para>One or more image IDs.</para><para>Default: Describes all images available to you.</para>
@@ -90,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ImageIds")]
         public System.String[] ImageId { get; set; }
+        #endregion
         
+        #region Parameter Owner
         /// <summary>
         /// <para>
         /// <para>Filters the images by the owner. Specify an AWS account ID, <code>amazon</code> (owner
@@ -102,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Owners")]
         public System.String[] Owner { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

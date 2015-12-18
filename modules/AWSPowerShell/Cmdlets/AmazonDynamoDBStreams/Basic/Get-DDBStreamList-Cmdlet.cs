@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class GetDDBStreamListCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartStreamArn
         /// <summary>
         /// <para>
         /// <para>The ARN (Amazon Resource Name) of the first item that this operation will evaluate.
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExclusiveStartStreamArn { get; set; }
+        #endregion
         
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para>If this parameter is provided, then only the streams associated with this table name
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TableName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of streams to return. The upper limit is 100.</para>
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

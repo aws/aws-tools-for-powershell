@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class NewSNSPlatformApplicationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>For a list of attributes, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a></para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Application names must be made up of only uppercase and lowercase ASCII letters, numbers,
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Platform
         /// <summary>
         /// <para>
         /// <para>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Platform { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

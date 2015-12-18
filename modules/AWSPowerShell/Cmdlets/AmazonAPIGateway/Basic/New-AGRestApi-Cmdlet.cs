@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class NewAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter CloneFrom
         /// <summary>
         /// <para>
         /// <para>The name of the <a>RestApi</a> that you want to clone from.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CloneFrom { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The description of the <a>RestApi</a>.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the <a>RestApi</a>.</para>
@@ -61,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class PublishSNSMessageCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Message
         /// <summary>
         /// <para>
         /// <para>The message you want to send to the topic.</para><para>If you want to send the same message to all transport protocols,       include the
@@ -72,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Message { get; set; }
+        #endregion
         
+        #region Parameter MessageAttribute
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -81,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter]
         [Alias("MessageAttributes")]
         public System.Collections.Hashtable MessageAttribute { get; set; }
+        #endregion
         
+        #region Parameter MessageStructure
         /// <summary>
         /// <para>
         /// <para>Set <code>MessageStructure</code> to <code>json</code> if you want to send      a
@@ -98,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String MessageStructure { get; set; }
+        #endregion
         
+        #region Parameter Subject
         /// <summary>
         /// <para>
         /// <para>Optional parameter to be used as the "Subject" line when the message is      delivered
@@ -110,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Subject { get; set; }
+        #endregion
         
+        #region Parameter TargetArn
         /// <summary>
         /// <para>
         /// <para>Either TopicArn or EndpointArn, but not both.</para>
@@ -118,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TargetArn { get; set; }
+        #endregion
         
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The topic you want to publish to.</para>
@@ -126,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -134,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter VolumeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VolumeARN { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

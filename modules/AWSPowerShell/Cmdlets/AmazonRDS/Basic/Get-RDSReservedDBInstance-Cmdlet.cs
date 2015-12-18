@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSReservedDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
         /// <para> The DB instance class filter value. Specify this parameter to show only those reservations
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBInstanceClass { get; set; }
+        #endregion
         
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// <para> The duration filter value, specified in years or seconds. Specify this parameter
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Duration { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter MultiAZ
         /// <summary>
         /// <para>
         /// <para> The Multi-AZ filter value. Specify this parameter to show only those reservations
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean MultiAZ { get; set; }
+        #endregion
         
+        #region Parameter OfferingType
         /// <summary>
         /// <para>
         /// <para> The offering type filter value. Specify this parameter to show only the available
@@ -85,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OfferingType { get; set; }
+        #endregion
         
+        #region Parameter ProductDescription
         /// <summary>
         /// <para>
         /// <para> The product description filter value. Specify this parameter to show only those reservations
@@ -94,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ProductDescription { get; set; }
+        #endregion
         
+        #region Parameter ReservedDBInstanceId
         /// <summary>
         /// <para>
         /// <para> The reserved DB instance identifier filter value. Specify this parameter to show
@@ -103,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedDBInstanceId { get; set; }
+        #endregion
         
+        #region Parameter ReservedDBInstancesOfferingId
         /// <summary>
         /// <para>
         /// <para> The offering identifier filter value. Specify this parameter to show only purchased
@@ -112,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ReservedDBInstancesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional pagination token provided by a previous request. If this parameter is
@@ -123,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more than the <code>MaxRecords</code>
@@ -134,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

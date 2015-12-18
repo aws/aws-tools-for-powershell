@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class UpdateOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentVersion
         /// <summary>
         /// <para>
         /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li><code>INHERIT</code> - Use the stack's default agent version setting.</li><li><i>version_number</i> - Use the specified agent version. This value overrides
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AgentVersion { get; set; }
+        #endregion
         
+        #region Parameter AmiId
         /// <summary>
         /// <para>
         /// <para>A custom AMI ID to be used to create the instance. The AMI must be based on one of
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AmiId { get; set; }
+        #endregion
         
+        #region Parameter Architecture
         /// <summary>
         /// <para>
         /// <para>The instance architecture. Instance types do not necessarily support both architectures.
@@ -77,8 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.Architecture")]
         public Amazon.OpsWorks.Architecture Architecture { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingType
         /// <summary>
         /// <para>
         /// <para>For load-based or time-based instances, the type. Windows stacks can use only time-based
@@ -86,8 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.AutoScalingType")]
         public Amazon.OpsWorks.AutoScalingType AutoScalingType { get; set; }
+        #endregion
         
+        #region Parameter EbsOptimized
         /// <summary>
         /// <para>
         /// <para>This property cannot be updated.</para>
@@ -95,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The instance host name.</para>
@@ -103,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter InstallUpdatesOnBoot
         /// <summary>
         /// <para>
         /// <para>Whether to install operating system and package updates when the instance boots. The
@@ -117,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean InstallUpdatesOnBoot { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para>
@@ -125,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type, such as <code>t2.micro</code>. For a list of supported instance
@@ -138,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceType { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The instance's layer IDs.</para>
@@ -147,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
+        #endregion
         
+        #region Parameter Os
         /// <summary>
         /// <para>
         /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
@@ -165,7 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Os { get; set; }
+        #endregion
         
+        #region Parameter SshKeyName
         /// <summary>
         /// <para>
         /// <para>The instance's Amazon EC2 key name.</para>
@@ -173,14 +199,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SshKeyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -188,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

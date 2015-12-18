@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class GetELBLoadBalancerPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The names of the policies.</para>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyNames")]
         public System.String[] PolicyName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

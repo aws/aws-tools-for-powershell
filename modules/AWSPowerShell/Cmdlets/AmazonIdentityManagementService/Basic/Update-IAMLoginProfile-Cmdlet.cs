@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class UpdateIAMLoginProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The new password for the specified user.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter PasswordResetRequired
         /// <summary>
         /// <para>
         /// <para>Require the specified user to set a new password on next sign-in.</para>
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PasswordResetRequired { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the user whose password you want to update.</para>
@@ -69,14 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the UserName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

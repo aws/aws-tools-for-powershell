@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RegisterEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Architecture
         /// <summary>
         /// <para>
         /// <para>The architecture of the AMI.</para><para>Default: For Amazon EBS-backed AMIs, <code>i386</code>. For instance store-backed
@@ -77,8 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.ArchitectureValues")]
         public Amazon.EC2.ArchitectureValues Architecture { get; set; }
+        #endregion
         
+        #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>One or more block device mapping entries.</para>
@@ -87,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("BlockDeviceMappings")]
         public Amazon.EC2.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for your AMI.</para>
@@ -95,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter ImageLocation
         /// <summary>
         /// <para>
         /// <para>The full path to your AMI manifest in Amazon S3 storage.</para>
@@ -103,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ImageLocation { get; set; }
+        #endregion
         
+        #region Parameter KernelId
         /// <summary>
         /// <para>
         /// <para>The ID of the kernel.</para>
@@ -111,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KernelId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>A name for your AMI.</para><para>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]),
@@ -121,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter RamdiskId
         /// <summary>
         /// <para>
         /// <para>The ID of the RAM disk.</para>
@@ -129,7 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RamdiskId { get; set; }
+        #endregion
         
+        #region Parameter RootDeviceName
         /// <summary>
         /// <para>
         /// <para>The name of the root device (for example, <code>/dev/sda1</code>, or <code>/dev/xvda</code>).</para>
@@ -137,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RootDeviceName { get; set; }
+        #endregion
         
+        #region Parameter SriovNetSupport
         /// <summary>
         /// <para>
         /// <para>Set to <code>simple</code> to enable enhanced networking for the AMI and any instances
@@ -147,7 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SriovNetSupport { get; set; }
+        #endregion
         
+        #region Parameter VirtualizationType
         /// <summary>
         /// <para>
         /// <para>The type of virtualization.</para><para>Default: <code>paravirtual</code></para>
@@ -155,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VirtualizationType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -163,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

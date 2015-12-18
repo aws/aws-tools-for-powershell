@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTPrincipalThingListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The principal.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Principal { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of principals to return.</para>
@@ -65,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

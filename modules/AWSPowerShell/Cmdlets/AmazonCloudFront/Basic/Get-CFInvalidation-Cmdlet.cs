@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class GetCFInvalidationCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter DistributionId
         /// <summary>
         /// <para>
         /// The distribution's id.
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DistributionId { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// The invalidation's id.
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String Id { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

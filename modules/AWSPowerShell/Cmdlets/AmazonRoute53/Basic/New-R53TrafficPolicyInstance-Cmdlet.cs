@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class NewR53TrafficPolicyInstanceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
         /// <para>The ID of the hosted zone in which you want Amazon Route 53 to create resource record
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The domain name (such as example.com) or subdomain name (such as www.example.com)
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter TrafficPolicyId
         /// <summary>
         /// <para>
         /// <para>The ID of the traffic policy that you want to use to create resource record sets in
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TrafficPolicyId { get; set; }
+        #endregion
         
+        #region Parameter TrafficPolicyVersion
         /// <summary>
         /// <para>
         /// <para>The version of the traffic policy that you want to use to create resource record sets
@@ -87,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 TrafficPolicyVersion { get; set; }
+        #endregion
         
+        #region Parameter TTL
         /// <summary>
         /// <para>
         /// <para>The TTL that you want Amazon Route 53 to assign to all of the resource record sets
@@ -96,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 TTL { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -104,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -68,6 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53TrafficPolicyVersionsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>Specify the value of <code>Id</code> of the traffic policy for which you want to list
@@ -76,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
-        
+        #endregion
+
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of traffic policy versions that you want Amazon Route 53 to include
@@ -90,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
+
+        #region Parameter TrafficPolicyVersionMarker
         /// <summary>
         /// <para>
         /// <para>For your first request to <code>ListTrafficPolicyVersions</code>, do not include the
@@ -105,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String TrafficPolicyVersionMarker { get; set; }
-        
-        
+        #endregion
+
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

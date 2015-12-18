@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
         /// <para>The name of an existing deployment configuration associated with the applicable IAM
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DeploymentConfigName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

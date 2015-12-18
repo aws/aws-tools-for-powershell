@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RegisterEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter RouteTableId
         /// <summary>
         /// <para>
         /// <para>The ID of the route table.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RouteTableId { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet.</para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

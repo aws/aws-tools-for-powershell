@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ImportImageTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ImportTaskId
         /// <summary>
         /// <para>
         /// <para>A list of import image task IDs.</para>
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ImportTaskIds")]
         public System.String[] ImportTaskId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single request.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A token that indicates the next page of results.</para>
@@ -75,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

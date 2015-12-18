@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class SetSNSEndpointAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>A map of the endpoint attributes. Attributes in this map include the following:</para><ul><li><code>CustomUserData</code> -- arbitrary user data to associate
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter EndpointArn
         /// <summary>
         /// <para>
         /// <para>EndpointArn used for SetEndpointAttributes action.</para>
@@ -65,14 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EndpointArn { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the EndpointArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

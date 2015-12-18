@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDDeploymentsCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>A list of deployment IDs, with multiple deployment IDs separated by spaces.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DeploymentIds")]
         public System.String[] DeploymentId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

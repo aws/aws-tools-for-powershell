@@ -70,6 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53TrafficPoliciesCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of traffic policies to be included in the response body for this
@@ -82,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
+
+        #region Parameter TrafficPolicyIdMarker
         /// <summary>
         /// <para>
         /// <para>For your first request to <code>ListTrafficPolicies</code>, do not include the <code>TrafficPolicyIdMarker</code>
@@ -96,8 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String TrafficPolicyIdMarker { get; set; }
-        
-        
+        #endregion
+
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

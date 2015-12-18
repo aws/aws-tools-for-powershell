@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class NewKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Constraints_EncryptionContextEqual
         /// <summary>
         /// <para>
         /// <para>Contains a list of key-value pairs that must be present in the encryption context
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("Constraints_EncryptionContextEquals")]
         public System.Collections.Hashtable Constraints_EncryptionContextEqual { get; set; }
+        #endregion
         
+        #region Parameter Constraints_EncryptionContextSubset
         /// <summary>
         /// <para>
         /// <para>Contains a list of key-value pairs, a subset of which must be present in the encryption
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable Constraints_EncryptionContextSubset { get; set; }
+        #endregion
         
+        #region Parameter GranteePrincipal
         /// <summary>
         /// <para>
         /// <para>The principal that is given permission to perform the operations that the grant permits.</para><para>To specify the principal, use the <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String GranteePrincipal { get; set; }
+        #endregion
         
+        #region Parameter GrantToken
         /// <summary>
         /// <para>
         /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
@@ -91,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("GrantTokens")]
         public System.String[] GrantToken { get; set; }
+        #endregion
         
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the customer master key (CMK) that the grant applies to.</para><para>To specify this value, use the globally unique key ID or the Amazon Resource Name
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>A friendly name for identifying the grant. Use this value to prevent unintended creation
@@ -116,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Operation
         /// <summary>
         /// <para>
         /// <para>A list of operations that the grant permits. The list can contain any combination
@@ -126,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("Operations")]
         public System.String[] Operation { get; set; }
+        #endregion
         
+        #region Parameter RetiringPrincipal
         /// <summary>
         /// <para>
         /// <para>The principal that is given permission to retire the grant by using <a>RetireGrant</a>
@@ -140,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RetiringPrincipal { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -148,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

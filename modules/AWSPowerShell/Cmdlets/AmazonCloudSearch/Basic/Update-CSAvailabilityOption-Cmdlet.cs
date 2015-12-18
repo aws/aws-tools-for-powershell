@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class UpdateCSAvailabilityOptionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter MultiAZ
         /// <summary>
         /// <para>
         /// <para>You expand an existing search domain to a second Availability Zone by setting the
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean MultiAZ { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class RemoveIOTPrincipalPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy to detach.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The principal</para><para>If the principal is a certificate, specify the certificate ARN. If the principal is
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Principal { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

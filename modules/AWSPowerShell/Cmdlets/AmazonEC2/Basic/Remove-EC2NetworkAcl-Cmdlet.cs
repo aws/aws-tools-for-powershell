@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RemoveEC2NetworkAclCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>The ID of the network ACL.</para>
@@ -47,14 +49,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NetworkAclId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the NetworkAclId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

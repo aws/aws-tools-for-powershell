@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class NewDSMicrosoftADCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A textual description for the directory. This label will appear on the AWS console
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The fully qualified domain name for the directory, such as <code>corp.example.com</code>.
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password for the default administrative user named <code>Admin</code>.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter ShortName
         /// <summary>
         /// <para>
         /// <para>The NetBIOS name for your domain. A short identifier for your domain, such as <code>CORP</code>.
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ShortName { get; set; }
+        #endregion
         
+        #region Parameter VpcSettings_SubnetId
         /// <summary>
         /// <para>
         /// <para>The identifiers of the subnets for the directory servers. The two subnets must be
@@ -86,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("VpcSettings_SubnetIds")]
         public System.String[] VpcSettings_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter VpcSettings_VpcId
         /// <summary>
         /// <para>
         /// <para>The identifier of the VPC in which to create the directory.</para>
@@ -94,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VpcSettings_VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

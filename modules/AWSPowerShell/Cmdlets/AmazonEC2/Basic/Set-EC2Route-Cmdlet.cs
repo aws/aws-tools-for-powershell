@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class SetEC2RouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
         /// <para>The CIDR address block used for the destination match. The value you provide must
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String DestinationCidrBlock { get; set; }
+        #endregion
         
+        #region Parameter GatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of an Internet gateway or virtual private gateway.</para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String GatewayId { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of a NAT instance in your VPC.</para>
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter NatGatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of a NAT gateway.</para>
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NatGatewayId { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>The ID of a network interface.</para>
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
         public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter RouteTableId
         /// <summary>
         /// <para>
         /// <para>The ID of the route table.</para>
@@ -95,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RouteTableId { get; set; }
+        #endregion
         
+        #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
         /// <para>The ID of a VPC peering connection.</para>
@@ -103,14 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VpcPeeringConnectionId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RouteTableId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -118,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

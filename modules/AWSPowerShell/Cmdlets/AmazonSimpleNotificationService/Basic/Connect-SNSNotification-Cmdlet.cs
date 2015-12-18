@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class ConnectSNSNotificationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Endpoint
         /// <summary>
         /// <para>
         /// <para>The endpoint that you want to receive notifications. Endpoints vary by protocol:</para><ul><li>For the <code>http</code> protocol, the endpoint is an URL beginning
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Endpoint { get; set; }
+        #endregion
         
+        #region Parameter Protocol
         /// <summary>
         /// <para>
         /// <para>The protocol you want to use. Supported protocols include:</para><ul><li><code>http</code> -- delivery of JSON-encoded message via HTTP POST</li><li><code>https</code> -- delivery of JSON-encoded message via HTTPS POST</li><li><code>email</code> -- delivery of message via SMTP</li><li><code>email-json</code>
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Protocol { get; set; }
+        #endregion
         
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic you want to subscribe to.</para>
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

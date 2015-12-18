@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class JoinELBSecurityGroupToLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups to associate with the load balancer. Note that you
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

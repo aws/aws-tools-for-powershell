@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class WriteAGIntegrationResponseCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter HttpMethod
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration response request's HTTP method.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HttpMethod { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration response request's resource identifier.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResponseParameter
         /// <summary>
         /// <para>
         /// <para>Represents response parameters that can be read from the backend response. Response
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("ResponseParameters")]
         public System.Collections.Hashtable ResponseParameter { get; set; }
+        #endregion
         
+        #region Parameter ResponseTemplate
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration response's templates.</para>
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("ResponseTemplates")]
         public System.Collections.Hashtable ResponseTemplate { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>Specifies a put integration response request's API identifier.</para>
@@ -84,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter SelectionPattern
         /// <summary>
         /// <para>
         /// <para>Specifies the selection pattern of a put integration response.</para>
@@ -92,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SelectionPattern { get; set; }
+        #endregion
         
+        #region Parameter StatusCode
         /// <summary>
         /// <para>
         /// <para>Specifies the status code that is used to map the integration response to an existing
@@ -101,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StatusCode { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -109,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

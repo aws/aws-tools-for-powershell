@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2SecurityGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters. If using multiple filters for rules, the results include security
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter GroupId
         /// <summary>
         /// <para>
         /// <para>One or more security group IDs. Required for security groups in a nondefault VPC.</para><para>Default: Describes all your security groups.</para>
@@ -74,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("GroupIds")]
         public System.String[] GroupId { get; set; }
+        #endregion
         
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>[EC2-Classic and default VPC only] One or more security group names. You can specify
@@ -86,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("GroupNames")]
         public System.String[] GroupName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

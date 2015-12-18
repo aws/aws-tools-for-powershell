@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class ResetEC2SnapshotAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The attribute to reset. Currently, only the attribute for permission to create volumes
@@ -52,8 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.SnapshotAttributeName")]
         public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>The ID of the snapshot.</para>
@@ -61,14 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SnapshotId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class GetCWLSubscriptionFiltersCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter FilterNamePrefix
         /// <summary>
         /// <para>
         /// <para>Will only return subscription filters that match the provided filterNamePrefix. If
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FilterNamePrefix { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The log group name for which subscription filters are to be listed.</para>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

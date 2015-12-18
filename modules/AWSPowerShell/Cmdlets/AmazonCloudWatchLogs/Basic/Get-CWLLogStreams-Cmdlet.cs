@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class GetCWLLogStreamsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter Descending
         /// <summary>
         /// <para>
         /// <para> If set to true, results are returned in descending order. If you don't specify a
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Descending { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The log group name for which log streams are to be listed.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamNamePrefix
         /// <summary>
         /// <para>
         /// <para> Will only return log streams that match the provided logStreamNamePrefix. If you
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LogStreamNamePrefix { get; set; }
+        #endregion
         
+        #region Parameter OrderBy
         /// <summary>
         /// <para>
         /// <para> Specifies what to order the returned log streams by. Valid arguments are 'LogStreamName'
@@ -86,8 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.OrderBy")]
         public Amazon.CloudWatchLogs.OrderBy OrderBy { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of items returned in the response. If you don't specify a value,
@@ -97,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> A string token used for pagination that points to the next page of results. It must
@@ -107,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

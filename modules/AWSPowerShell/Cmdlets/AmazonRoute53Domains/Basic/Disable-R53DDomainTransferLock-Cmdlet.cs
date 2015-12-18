@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     )]
     public class DisableR53DDomainTransferLockCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

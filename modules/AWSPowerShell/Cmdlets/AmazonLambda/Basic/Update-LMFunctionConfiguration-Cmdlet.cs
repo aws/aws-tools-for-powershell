@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class UpdateLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A short user-defined function description. AWS Lambda does not use this value. Assign
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The name of the Lambda function.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Handler
         /// <summary>
         /// <para>
         /// <para>The function that Lambda calls to begin executing your function. For Node.js, it is
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Handler { get; set; }
+        #endregion
         
+        #region Parameter MemorySize
         /// <summary>
         /// <para>
         /// <para>The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MemorySize { get; set; }
+        #endregion
         
+        #region Parameter Role
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes
@@ -97,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Role { get; set; }
+        #endregion
         
+        #region Parameter Timeout
         /// <summary>
         /// <para>
         /// <para>The function execution time at which AWS Lambda should terminate the function. Because
@@ -107,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Timeout { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

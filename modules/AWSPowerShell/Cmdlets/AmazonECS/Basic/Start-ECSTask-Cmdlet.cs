@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class StartECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster on which to start
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter ContainerInstance
         /// <summary>
         /// <para>
         /// <para>The container instance IDs or full Amazon Resource Name (ARN) entries for the container
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("ContainerInstances")]
         public System.String[] ContainerInstance { get; set; }
+        #endregion
         
+        #region Parameter Overrides_ContainerOverride
         /// <summary>
         /// <para>
         /// <para>One or more container overrides sent to a task.</para>
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("Overrides_ContainerOverrides")]
         public Amazon.ECS.Model.ContainerOverride[] Overrides_ContainerOverride { get; set; }
+        #endregion
         
+        #region Parameter StartedBy
         /// <summary>
         /// <para>
         /// <para>An optional tag specified when a task is started. For example if you automatically
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartedBy { get; set; }
+        #endregion
         
+        #region Parameter TaskDefinition
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -94,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TaskDefinition { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

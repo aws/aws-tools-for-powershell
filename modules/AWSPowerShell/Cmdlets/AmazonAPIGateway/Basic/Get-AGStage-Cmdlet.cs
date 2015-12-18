@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGStageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The identifier of the <a>RestApi</a> resource for the <a>Stage</a> resource to get
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter StageName
         /// <summary>
         /// <para>
         /// <para>The name of the <a>Stage</a> resource to get information about.</para>
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StageName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

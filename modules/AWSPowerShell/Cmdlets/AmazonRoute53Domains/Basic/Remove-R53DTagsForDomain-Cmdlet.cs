@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     )]
     public class RemoveR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The domain for which you want to delete one or more tags.</para><para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter TagsToDelete
         /// <summary>
         /// <para>
         /// <para>A list of tag keys to delete.</para><para>Type: A list that contains the keys of the tags that you want to delete.</para><para>Default: None</para><para>Required: No</para>
@@ -65,14 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] TagsToDelete { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DomainName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

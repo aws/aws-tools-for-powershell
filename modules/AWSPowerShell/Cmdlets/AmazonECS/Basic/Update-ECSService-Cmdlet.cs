@@ -78,6 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class UpdateECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that your service
@@ -86,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter DesiredCount
         /// <summary>
         /// <para>
         /// <para>The number of instantiations of the task to place and keep running in your service.</para>
@@ -94,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DesiredCount { get; set; }
+        #endregion
         
+        #region Parameter Service
         /// <summary>
         /// <para>
         /// <para>The name of the service to update.</para>
@@ -102,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Service { get; set; }
+        #endregion
         
+        #region Parameter TaskDefinition
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -115,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TaskDefinition { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -123,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

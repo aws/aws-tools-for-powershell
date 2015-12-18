@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2SnapshotAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CreateVolumePermission_Add
         /// <summary>
         /// <para>
         /// <para>Adds a specific AWS account ID or group to a volume's list of create volume permissions.</para>
@@ -57,15 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.CreateVolumePermission[] CreateVolumePermission_Add { get; set; }
+        #endregion
         
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The snapshot attribute to modify.</para><note><para>Only volume creation permissions may be modified at the customer level.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.SnapshotAttributeName")]
         public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>The group to modify for the snapshot.</para>
@@ -74,15 +81,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("GroupNames","UserGroup")]
         public System.String[] GroupName { get; set; }
+        #endregion
         
+        #region Parameter OperationType
         /// <summary>
         /// <para>
         /// <para>The type of operation to perform to the attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.OperationType")]
         public Amazon.EC2.OperationType OperationType { get; set; }
+        #endregion
         
+        #region Parameter CreateVolumePermission_Remove
         /// <summary>
         /// <para>
         /// <para>Removes a specific AWS account ID or group from a volume's list of create volume permissions.</para>
@@ -90,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.CreateVolumePermission[] CreateVolumePermission_Remove { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>The ID of the snapshot.</para>
@@ -98,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter UserId
         /// <summary>
         /// <para>
         /// <para>The account ID to modify for the snapshot.</para>
@@ -107,14 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("UserIds")]
         public System.String[] UserId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SnapshotId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -122,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

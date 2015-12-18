@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGModelCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Flatten
         /// <summary>
         /// <para>
         /// <para>Resolves all external model references and returns a flattened model schema.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Flatten { get; set; }
+        #endregion
         
+        #region Parameter ModelName
         /// <summary>
         /// <para>
         /// <para>The name of the model as an identifier.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ModelName { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The <a>RestApi</a> identifier under which the <a>Model</a> exists.</para>
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

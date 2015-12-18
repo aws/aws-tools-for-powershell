@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSRaidArraysCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID. If you use this parameter, <code>DescribeRaidArrays</code> returns
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter RaidArrayId
         /// <summary>
         /// <para>
         /// <para>An array of RAID array IDs. If you use this parameter, <code>DescribeRaidArrays</code>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("RaidArrayIds")]
         public System.String[] RaidArrayId { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
@@ -74,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

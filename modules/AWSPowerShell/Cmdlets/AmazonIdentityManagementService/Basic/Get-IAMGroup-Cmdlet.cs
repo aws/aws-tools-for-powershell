@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GroupName { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.Int32 MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,12 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Bucket/overall Params
 
+        #region Parameter BucketName
         /// <summary>
         /// The name of the bucket that holds the S3 object(s).
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         public System.String BucketName { get; set; }
+        #endregion
 
+        #region Parameter Encoding
         /// <summary>
         /// Requests Amazon S3 to encode the object keys in the response and specifies
         /// the encoding method to use. An object key may contain any Unicode character;
@@ -60,22 +63,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// keys in the response.
         /// </summary>
         [Parameter(Mandatory = false)]
+        [AWSConstantClassSource("Amazon.S3.EncodingType")]
         public Amazon.S3.EncodingType Encoding { get; set; }
+        #endregion
 
         #endregion
 
         #region Single Object Identifier Parameters
 
+        #region Parameter Key 
         /// <summary>
         /// Key value identifying a single object in S3 to return metadata for.
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_SingleObject, ValueFromPipelineByPropertyName = true, Mandatory = true)]
         public System.String Key { get; set; }
+        #endregion
 
         #endregion
 
         #region Multi-Object Identifier Parameters
 
+        #region Parameter KeyPrefix
         /// <summary>
         /// Limits the response to keys which begin with the indicated prefix. You can 
         /// use prefixes to separate a bucket into different sets of keys in a way similar 
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Alias("Prefix")]
         [Parameter(Position = 1, ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
         public System.String KeyPrefix { get; set; }
+        #endregion
 
+        #region Parameter Marker
         /// <summary>
         /// Indicates where in the bucket to begin listing. The list will only 
         /// include keys that occur lexicographically after marker. This is 
@@ -94,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter(ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
 
+        #region Parameter MaxKey
         /// <summary>
         /// <para>
         /// The maximum number of keys to return (the cmdlet might return fewer than this many keys, 
@@ -110,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter(ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems,MaxKeys")]
         public System.Int32? MaxKey { get; set; }
+        #endregion
 
+        #region Parameter Delimiter
         /// <summary>
         /// Causes keys that contain the same string between the prefix and the 
         /// first occurrence of the delimiter to be rolled up into a single result 
@@ -119,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_MultipleObject, ValueFromPipelineByPropertyName = true)]
         public System.String Delimiter { get; set; }
+        #endregion
 
         #endregion
 

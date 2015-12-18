@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RestoreEC2AddressToClassicCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>The Elastic IP address.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

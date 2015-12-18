@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class RestartEBAppServerCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para> The ID of the environment to restart the server for. </para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the environment to restart the server for. </para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
@@ -59,14 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the id or name of the environment (depending on which parameter was supplied).
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -74,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

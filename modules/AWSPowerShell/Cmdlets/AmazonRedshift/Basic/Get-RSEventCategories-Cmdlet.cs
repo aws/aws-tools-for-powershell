@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSEventCategoriesCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The source type, such as cluster or parameter group, to which the described event
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceType { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

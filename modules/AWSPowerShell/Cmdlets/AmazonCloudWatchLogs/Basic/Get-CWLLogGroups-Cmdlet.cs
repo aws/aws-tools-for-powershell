@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class GetCWLLogGroupsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter LogGroupNamePrefix
         /// <summary>
         /// <para>
         /// <para>Will only return log groups that match the provided logGroupNamePrefix. If you don't
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String LogGroupNamePrefix { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of items returned in the response. If you don't specify a value,
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> A string token used for pagination that points to the next page of results. It must
@@ -77,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

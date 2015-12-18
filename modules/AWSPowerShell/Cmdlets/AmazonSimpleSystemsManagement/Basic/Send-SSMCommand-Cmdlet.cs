@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public class SendSSMCommandCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter Comment
         /// <summary>
         /// <para>
         /// User-specified information about the command,
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Comment { get; set; }
+        #endregion
         
+        #region Parameter DocumentName
         /// <summary>
         /// <para>
         /// Required. The name of the SSM document to
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DocumentName { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// Required. The instance IDs where the command
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InstanceIds")]
         public System.String[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter OutputS3BucketName
         /// <summary>
         /// <para>
         /// The name of the S3 bucket where command
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OutputS3BucketName { get; set; }
+        #endregion
         
+        #region Parameter OutputS3KeyPrefix
         /// <summary>
         /// <para>
         /// The directory structure within the S3
@@ -84,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OutputS3KeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// The required and optional parameters specified
@@ -94,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public System.Collections.Hashtable Parameter { get; set; }
+        #endregion
         
+        #region Parameter TimeoutSecond
         /// <summary>
         /// <para>
         /// If this time is reached and the command
@@ -104,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("TimeoutSeconds")]
         public System.Int32 TimeoutSecond { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -112,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

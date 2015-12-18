@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class GetMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>MLModel</code> at creation.</para>
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
         public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter VerboseResponse
         /// <summary>
         /// <para>
         /// <para>Specifies whether the <code>GetMLModel</code> operation should return <code>Recipe</code>.</para><para>If true, <code>Recipe</code> is returned.</para><para>If false, <code>Recipe</code> is not returned.</para>
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean VerboseResponse { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class CopyRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceOptionGroupIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier or ARN for the source option group. For information about creating
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceOptionGroupIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TargetOptionGroupDescription
         /// <summary>
         /// <para>
         /// <para>The description for the copied option group. </para>
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String TargetOptionGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter TargetOptionGroupIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier for the copied option group. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank</li><li>Must contain from 1 to 255 alphanumeric
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String TargetOptionGroupIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

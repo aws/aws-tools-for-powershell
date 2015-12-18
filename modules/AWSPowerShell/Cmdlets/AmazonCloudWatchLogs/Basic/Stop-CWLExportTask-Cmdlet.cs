@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class StopCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter TaskId
         /// <summary>
         /// <para>
         /// <para>Id of the export task to cancel.</para>
@@ -46,14 +48,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TaskId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TaskId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

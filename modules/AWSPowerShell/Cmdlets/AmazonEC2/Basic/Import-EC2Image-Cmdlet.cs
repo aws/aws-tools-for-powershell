@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class ImportEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Architecture
         /// <summary>
         /// <para>
         /// <para>The architecture of the virtual machine.</para><para>Valid values: <code>i386</code> | <code>x86_64</code></para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Architecture { get; set; }
+        #endregion
         
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>The token to enable idempotency for VM import requests.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter ClientData_Comment
         /// <summary>
         /// <para>
         /// <para>A user-defined comment about the disk upload.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientData_Comment { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description string for the import image task.</para>
@@ -70,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter DiskContainer
         /// <summary>
         /// <para>
         /// <para>Information about the disk containers.</para>
@@ -79,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("DiskContainers")]
         public Amazon.EC2.Model.ImageDiskContainer[] DiskContainer { get; set; }
+        #endregion
         
+        #region Parameter Hypervisor
         /// <summary>
         /// <para>
         /// <para>The target hypervisor platform.</para><para>Valid values: <code>xen</code></para>
@@ -87,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Hypervisor { get; set; }
+        #endregion
         
+        #region Parameter LicenseType
         /// <summary>
         /// <para>
         /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para><b>Note:</b> You may only use BYOL if you have existing licenses with rights to use
@@ -97,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LicenseType { get; set; }
+        #endregion
         
+        #region Parameter Platform
         /// <summary>
         /// <para>
         /// <para>The operating system of the virtual machine.</para><para>Valid values: <code>Windows</code> | <code>Linux</code></para>
@@ -105,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Platform { get; set; }
+        #endregion
         
+        #region Parameter RoleName
         /// <summary>
         /// <para>
         /// <para>The name of the role to use when not using the default role, 'vmimport'.</para>
@@ -113,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleName { get; set; }
+        #endregion
         
+        #region Parameter ClientData_UploadEnd
         /// <summary>
         /// <para>
         /// <para>The time that the disk upload ends.</para>
@@ -121,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ClientData_UploadEnd { get; set; }
+        #endregion
         
+        #region Parameter ClientData_UploadSize
         /// <summary>
         /// <para>
         /// <para>The size of the uploaded disk image, in GiB.</para>
@@ -129,7 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double ClientData_UploadSize { get; set; }
+        #endregion
         
+        #region Parameter ClientData_UploadStart
         /// <summary>
         /// <para>
         /// <para>The time that the disk upload starts.</para>
@@ -137,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ClientData_UploadStart { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -145,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

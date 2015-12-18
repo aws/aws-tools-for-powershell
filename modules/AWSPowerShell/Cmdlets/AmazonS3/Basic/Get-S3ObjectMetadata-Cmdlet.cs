@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3ObjectMetadataCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket that contains the object.
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter EtagToMatch
         /// <summary>
         /// <para>
         /// ETag to be matched as a pre-condition for returning the object,
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EtagToMatch { get; set; }
+        #endregion
         
+        #region Parameter EtagToNotMatch
         /// <summary>
         /// <para>
         /// ETag that should not be matched as a pre-condition for returning the object,
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EtagToNotMatch { get; set; }
+        #endregion
         
+        #region Parameter Key
         /// <summary>
         /// <para>
         /// The key of the object.
@@ -73,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String Key { get; set; }
+        #endregion
         
+        #region Parameter ModifiedSinceDate
         /// <summary>
         /// <para>
         /// Returns the object only if it has been modified since the specified time, 
@@ -82,15 +92,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ModifiedSinceDate { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// <para>
         /// The Server-side encryption algorithm to be used with the customer provided key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
         public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionCustomerProvidedKey
         /// <summary>
         /// <para>
         /// The base64-encoded encryption key for Amazon S3 to use to decrypt the object
@@ -102,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
         /// <para>
         /// The MD5 of the customer encryption key specified in the ServerSideEncryptionCustomerProvidedKey property. The MD5 is
@@ -111,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        #endregion
         
+        #region Parameter UnmodifiedSinceDate
         /// <summary>
         /// <para>
         /// Returns the object only if it has not been modified since the specified time, 
@@ -120,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime UnmodifiedSinceDate { get; set; }
+        #endregion
         
+        #region Parameter VersionId
         /// <summary>
         /// <para>
         /// VersionId used to reference a specific version of the object.
@@ -128,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VersionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

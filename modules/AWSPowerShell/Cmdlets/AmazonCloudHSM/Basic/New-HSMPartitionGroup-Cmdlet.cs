@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class NewHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter Label
         /// <summary>
         /// <para>
         /// <para>The label of the new high-availability partition group.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Label { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

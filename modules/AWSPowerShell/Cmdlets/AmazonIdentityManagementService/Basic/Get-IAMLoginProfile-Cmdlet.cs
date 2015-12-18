@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMLoginProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the user whose login profile you want to retrieve.</para>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

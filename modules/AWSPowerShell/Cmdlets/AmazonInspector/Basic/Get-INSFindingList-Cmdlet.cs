@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSFindingListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter_Attribute
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_Attributes")]
         public Amazon.Inspector.Model.Attribute[] Filter_Attribute { get; set; }
+        #endregion
         
+        #region Parameter Filter_RuleName
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_RuleNames")]
         public System.String[] Filter_RuleName { get; set; }
+        #endregion
         
+        #region Parameter Filter_RulesPackageArn
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_RulesPackageArns")]
         public System.String[] Filter_RulesPackageArn { get; set; }
+        #endregion
         
+        #region Parameter RunArn
         /// <summary>
         /// <para>
         /// <para>The ARNs of the assessment runs that generate the findings that you want to list.</para>
@@ -81,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("RunArns")]
         public System.String[] RunArn { get; set; }
+        #endregion
         
+        #region Parameter Filter_Severity
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_Severities")]
         public System.String[] Filter_Severity { get; set; }
+        #endregion
         
+        #region Parameter Filter_UserAttribute
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -103,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("Filter_UserAttributes")]
         public Amazon.Inspector.Model.Attribute[] Filter_UserAttribute { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>You can use this parameter to indicate the maximum number of items you want in the
@@ -113,7 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
@@ -124,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

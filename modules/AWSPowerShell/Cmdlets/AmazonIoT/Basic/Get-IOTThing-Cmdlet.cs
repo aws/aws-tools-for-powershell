@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTThingCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter ThingName
         /// <summary>
         /// <para>
         /// <para>The name of the thing.</para>
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ThingName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class RemoveLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter UUID
         /// <summary>
         /// <para>
         /// <para>The event source mapping ID.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UUID { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

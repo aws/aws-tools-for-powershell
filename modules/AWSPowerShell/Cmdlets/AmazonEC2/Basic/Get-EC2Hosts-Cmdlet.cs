@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>instance-type</code> - The instance type size that the Dedicated host is configured
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter HostId
         /// <summary>
         /// <para>
         /// <para>The IDs of the Dedicated hosts. The IDs are used for targeted instance launches.</para>
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("HostIds")]
         public System.String[] HostId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to retrieve the next page of results.</para>
@@ -90,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

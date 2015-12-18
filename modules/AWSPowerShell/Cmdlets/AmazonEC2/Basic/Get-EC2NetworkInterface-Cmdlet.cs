@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>addresses.private-ip-address</code> - The private IP addresses associated with
@@ -80,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>One or more network interface IDs.</para><para>Default: Describes all your network interfaces.</para>
@@ -89,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("NetworkInterfaceIds")]
         public System.String[] NetworkInterfaceId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

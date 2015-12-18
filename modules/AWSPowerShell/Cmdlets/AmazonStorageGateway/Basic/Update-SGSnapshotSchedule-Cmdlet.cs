@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class UpdateSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Optional description of the snapshot that overwrites the existing description.</para>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter RecurrenceInHours
         /// <summary>
         /// <para>
         /// <para>Frequency of snapshots. Specify the number of hours between snapshots.</para>
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 RecurrenceInHours { get; set; }
+        #endregion
         
+        #region Parameter StartAt
         /// <summary>
         /// <para>
         /// <para>The hour of the day at which the snapshot schedule begins represented as <i>hh</i>,
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 StartAt { get; set; }
+        #endregion
         
+        #region Parameter VolumeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VolumeARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

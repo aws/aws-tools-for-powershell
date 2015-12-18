@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class GetSNSSubscriptionByTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic for which you wish to find subscriptions.</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</para>
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

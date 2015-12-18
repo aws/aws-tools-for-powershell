@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class GetIOTPrincipalPolicyListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter PageSize
         /// <summary>
         /// <para>
         /// <para>The result page size.</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
+        #endregion
         
+        #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The principal.</para>
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Principal { get; set; }
+        #endregion
         
+        #region Parameter AscendingOrder
         /// <summary>
         /// <para>
         /// <para>Specifies the order for results. If true, results are returned in ascending creation
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AscendingOrder { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The marker for the next set of results.</para>
@@ -76,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

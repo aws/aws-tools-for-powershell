@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGConfigRuleEvaluationStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
         /// <para>The name of the AWS managed Config rules for which you want status information. If
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ConfigRuleNames")]
         public System.String[] ConfigRuleName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

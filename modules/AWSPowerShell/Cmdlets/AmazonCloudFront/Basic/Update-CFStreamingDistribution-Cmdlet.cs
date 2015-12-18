@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class UpdateCFStreamingDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
         /// The Amazon S3 bucket to store the access logs in,
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Logging_Bucket")]
         public System.String Logging_Bucket { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_CallerReference
         /// <summary>
         /// <para>
         /// A unique number that ensures the request
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StreamingDistributionConfig_CallerReference { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_Comment
         /// <summary>
         /// <para>
         /// Any comments you want to include about the streaming
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StreamingDistributionConfig_Comment { get; set; }
+        #endregion
         
+        #region Parameter S3Origin_DomainName
         /// <summary>
         /// <para>
         /// The DNS name of the S3 origin.
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_S3Origin_DomainName")]
         public System.String S3Origin_DomainName { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_Enabled
         /// <summary>
         /// <para>
         /// Whether the streaming distribution is enabled
@@ -93,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean StreamingDistributionConfig_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Logging_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want CloudFront to save
@@ -107,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Logging_Enabled")]
         public System.Boolean Logging_Enabled { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want to require end users
@@ -117,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_TrustedSigners_Enabled")]
         public System.Boolean TrustedSigners_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// The streaming distribution's id.
@@ -125,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter IfMatch
         /// <summary>
         /// <para>
         /// The value of the ETag header you received when
@@ -134,7 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String IfMatch { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains CNAME elements,
@@ -144,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Aliases_Items")]
         public System.String[] Aliases_Item { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains trusted signers
@@ -154,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_TrustedSigners_Items")]
         public System.String[] TrustedSigners_Item { get; set; }
+        #endregion
         
+        #region Parameter S3Origin_OriginAccessIdentity
         /// <summary>
         /// <para>
         /// Your S3 origin's origin access identity.
@@ -163,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_S3Origin_OriginAccessIdentity")]
         public System.String S3Origin_OriginAccessIdentity { get; set; }
+        #endregion
         
+        #region Parameter Logging_Prefix
         /// <summary>
         /// <para>
         /// An optional string that you want CloudFront to
@@ -175,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Logging_Prefix")]
         public System.String Logging_Prefix { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_PriceClass
         /// <summary>
         /// <para>
         /// A complex type that contains information about
@@ -183,8 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudFront.PriceClass")]
         public Amazon.CloudFront.PriceClass StreamingDistributionConfig_PriceClass { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Quantity
         /// <summary>
         /// <para>
         /// The number of CNAMEs, if any, for this distribution.
@@ -193,7 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Aliases_Quantity")]
         public System.Int32 Aliases_Quantity { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
         /// The number of trusted signers for this cache
@@ -203,7 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_TrustedSigners_Quantity")]
         public System.Int32 TrustedSigners_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -211,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

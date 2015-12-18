@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class UpdateOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter DbPassword
         /// <summary>
         /// <para>
         /// <para>The database password.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DbPassword { get; set; }
+        #endregion
         
+        #region Parameter DbUser
         /// <summary>
         /// <para>
         /// <para>The master user name.</para>
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DbUser { get; set; }
+        #endregion
         
+        #region Parameter RdsDbInstanceArn
         /// <summary>
         /// <para>
         /// <para>The Amazon RDS instance's ARN.</para>
@@ -69,14 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RdsDbInstanceArn { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RdsDbInstanceArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class GetDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The starting point for the results to be returned. For the first call, this value
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

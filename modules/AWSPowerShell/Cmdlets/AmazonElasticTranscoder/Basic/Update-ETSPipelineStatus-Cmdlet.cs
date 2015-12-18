@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class UpdateETSPipelineStatusCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>The identifier of the pipeline to update.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The desired status of the pipeline:</para><ul><li><code>Active</code>: The pipeline is processing jobs.</li><li><code>Paused</code>:
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Status { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

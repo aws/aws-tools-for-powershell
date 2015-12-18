@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RemoveEC2NetworkAclEntryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Egress
         /// <summary>
         /// <para>
         /// <para>Indicates whether the rule is an egress rule.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Boolean Egress { get; set; }
+        #endregion
         
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>The ID of the network ACL.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NetworkAclId { get; set; }
+        #endregion
         
+        #region Parameter RuleNumber
         /// <summary>
         /// <para>
         /// <para>The rule number of the entry to delete.</para>
@@ -62,14 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 RuleNumber { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the NetworkAclId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

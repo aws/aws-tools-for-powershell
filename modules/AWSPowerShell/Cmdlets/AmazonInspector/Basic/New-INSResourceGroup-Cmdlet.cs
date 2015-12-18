@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class NewINSResourceGroupCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceGroupTag
         /// <summary>
         /// <para>
         /// <para>A collection of keys and an array of possible values in JSON format.</para><para>For example, [{ "key1" : ["Value1","Value2"]},{"Key2": ["Value3"]}]</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("ResourceGroupTags")]
         public System.String ResourceGroupTag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -57,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

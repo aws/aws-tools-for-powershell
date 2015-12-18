@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class GetETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Ascending
         /// <summary>
         /// <para>
         /// <para>To list presets in chronological order by the date and time that they were created,
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Ascending { get; set; }
+        #endregion
         
+        #region Parameter PageToken
         /// <summary>
         /// <para>
         /// <para>When Elastic Transcoder returns more than one page of results, use <code>pageToken</code>
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String PageToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

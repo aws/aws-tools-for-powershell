@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGDeploymentListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The identifier of the <a>RestApi</a> resource for the collection of <a>Deployment</a>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of <a>Deployment</a> resources in the collection to get information
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Position
         /// <summary>
         /// <para>
         /// <para>The position of the current <a>Deployment</a> resource in the collection to get information
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Position { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

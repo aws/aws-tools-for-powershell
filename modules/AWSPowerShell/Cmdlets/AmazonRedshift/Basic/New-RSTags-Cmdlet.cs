@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class NewRSTagsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceName
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example,
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para> One or more name/value pairs to add as tags to the specified resource. Each tag name
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

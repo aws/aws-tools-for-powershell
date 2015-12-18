@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter BasePath
         /// <summary>
         /// <para>
         /// <para>The base path name that callers of the API must provide as part of the URL after the
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BasePath { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The domain name of the <a>BasePathMapping</a> resource to be described.</para>
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

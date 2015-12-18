@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class NewSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 5)]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
         public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter TargetName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String TargetName { get; set; }
+        #endregion
         
+        #region Parameter VolumeSizeInBytes
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -95,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 VolumeSizeInBytes { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -103,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

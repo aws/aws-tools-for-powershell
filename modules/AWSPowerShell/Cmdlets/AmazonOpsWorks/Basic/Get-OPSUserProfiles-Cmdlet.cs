@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSUserProfilesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>An array of IAM user ARNs that identify the users to be described. </para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("IamUserArns")]
         public System.String[] IamUserArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

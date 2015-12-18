@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class NewSGStorediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter DiskId
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DiskId { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
@@ -79,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
         public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter PreserveExistingData
         /// <summary>
         /// <para>
         /// <para>Specify this field as true if you want to preserve the data on the local disk. Otherwise,
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PreserveExistingData { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
@@ -99,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter TargetName
         /// <summary>
         /// <para>
         /// <para>The name of the iSCSI target used by initiators to connect to the target and as a
@@ -110,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String TargetName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -118,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

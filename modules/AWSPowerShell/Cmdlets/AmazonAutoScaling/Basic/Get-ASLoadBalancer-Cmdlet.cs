@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class GetASLoadBalancerCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -65,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

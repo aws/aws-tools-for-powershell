@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSTasksCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter ContainerInstance
         /// <summary>
         /// <para>
         /// <para>The container instance ID or full Amazon Resource Name (ARN) of the container instance
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContainerInstance { get; set; }
+        #endregion
         
+        #region Parameter DesiredStatus
         /// <summary>
         /// <para>
         /// <para>The task status with which to filter the <code>ListTasks</code> results. Specifying
@@ -71,8 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.DesiredStatus")]
         public Amazon.ECS.DesiredStatus DesiredStatus { get; set; }
+        #endregion
         
+        #region Parameter Family
         /// <summary>
         /// <para>
         /// <para>The name of the family with which to filter the <code>ListTasks</code> results. Specifying
@@ -81,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Family { get; set; }
+        #endregion
         
+        #region Parameter ServiceName
         /// <summary>
         /// <para>
         /// <para>The name of the service with which to filter the <code>ListTasks</code> results. Specifying
@@ -90,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceName { get; set; }
+        #endregion
         
+        #region Parameter StartedBy
         /// <summary>
         /// <para>
         /// <para>The <code>startedBy</code> value with which to filter the task results. Specifying
@@ -100,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartedBy { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of task results returned by <code>ListTasks</code> in paginated
@@ -115,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListTasks</code>
@@ -127,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

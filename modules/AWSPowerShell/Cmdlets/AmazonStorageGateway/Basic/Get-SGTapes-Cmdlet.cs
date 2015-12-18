@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGTapesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter TapeARNs
         /// <summary>
         /// <para>
         /// <para>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] TapeARNs { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the number of virtual tapes described be limited to the specified number.</para><note>Amazon Web Services may impose its own limit, if this field is not set.</note>
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>A marker value, obtained in a previous call to <code>DescribeTapes</code>. This marker
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class RemoveHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter HapgArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the high-availability partition group to delete.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String HapgArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

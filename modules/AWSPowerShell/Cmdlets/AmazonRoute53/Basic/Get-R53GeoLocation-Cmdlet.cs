@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53GeoLocationCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ContinentCode
         /// <summary>
         /// <para>
         /// <para>The code for a continent geo location. Note: only continent locations have a continent
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContinentCode { get; set; }
+        #endregion
         
+        #region Parameter CountryCode
         /// <summary>
         /// <para>
         /// <para>The code for a country geo location. The default location uses '*' for the country
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CountryCode { get; set; }
+        #endregion
         
+        #region Parameter SubdivisionCode
         /// <summary>
         /// <para>
         /// <para>The code for a country's subdivision (e.g., a province of Canada). A subdivision code
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SubdivisionCode { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

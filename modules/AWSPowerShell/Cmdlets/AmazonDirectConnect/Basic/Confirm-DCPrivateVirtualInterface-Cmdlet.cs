@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class ConfirmDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter VirtualGatewayId
         /// <summary>
         /// <para>
         /// <para>ID of the virtual private gateway that will be attached to the virtual interface.</para><para> A virtual private gateway can be managed via the Amazon Virtual Private Cloud (VPC)
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String VirtualGatewayId { get; set; }
+        #endregion
         
+        #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VirtualInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

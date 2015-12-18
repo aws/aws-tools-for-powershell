@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attachment
         /// <summary>
         /// <para>
         /// <para>The <c>attachment</c> attribute.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Attachment { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The <c>description</c> attribute.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Group
         /// <summary>
         /// <para>
         /// <para>The <c>groupSet</c> attribute.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Groups")]
         public System.String Group { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>The ID of the network interface.</para>
@@ -70,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter SourceDestCheck
         /// <summary>
         /// <para>
         /// <para>The <c>sourceDestCheck</c> attribute.</para>
@@ -78,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceDestCheck { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

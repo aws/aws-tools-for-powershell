@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class EnableRSSnapshotCopyCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the source cluster to copy snapshots from. </para><para> Constraints: Must be the valid name of an existing cluster that does not already
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DestinationRegion
         /// <summary>
         /// <para>
         /// <para> The destination region that you want to copy snapshots to. </para><para> Constraints: Must be the name of a valid region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DestinationRegion { get; set; }
+        #endregion
         
+        #region Parameter RetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days to retain automated snapshots in the destination region after
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 RetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter SnapshotCopyGrantName
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshotCopyGrantName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

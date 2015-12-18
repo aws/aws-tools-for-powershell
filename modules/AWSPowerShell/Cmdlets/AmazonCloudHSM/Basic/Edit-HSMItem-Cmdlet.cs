@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class EditHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter EniIp
         /// <summary>
         /// <para>
         /// <para>The new IP address for the elastic network interface attached to the HSM.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EniIp { get; set; }
+        #endregion
         
+        #region Parameter ExternalId
         /// <summary>
         /// <para>
         /// <para>The new external ID.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExternalId { get; set; }
+        #endregion
         
+        #region Parameter HsmArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the HSM to modify.</para>
@@ -62,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String HsmArn { get; set; }
+        #endregion
         
+        #region Parameter IamRoleArn
         /// <summary>
         /// <para>
         /// <para>The new IAM role ARN.</para>
@@ -70,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IamRoleArn { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The new identifier of the subnet that the HSM is in.</para>
@@ -78,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter SyslogIp
         /// <summary>
         /// <para>
         /// <para>The new IP address for the syslog monitoring server.</para>
@@ -86,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SyslogIp { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

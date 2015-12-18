@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class SendCFNResourceSignalCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter LogicalResourceId
         /// <summary>
         /// <para>
         /// <para>The logical ID of the resource that you want to signal. The logical ID is the name
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LogicalResourceId { get; set; }
+        #endregion
         
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The stack name or unique stack ID that includes the resource that you want to signal.</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The status of the signal, which is either success or failure. A failure signal causes
@@ -68,8 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudFormation.ResourceSignalStatus")]
         public Amazon.CloudFormation.ResourceSignalStatus Status { get; set; }
+        #endregion
         
+        #region Parameter UniqueId
         /// <summary>
         /// <para>
         /// <para>A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling groups,
@@ -80,14 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String UniqueId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StackName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class RemoveRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FinalDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SkipFinalSnapshot
         /// <summary>
         /// <para>
         /// <para> Determines whether a final DB cluster snapshot is created before the DB cluster is
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SkipFinalSnapshot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -89,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

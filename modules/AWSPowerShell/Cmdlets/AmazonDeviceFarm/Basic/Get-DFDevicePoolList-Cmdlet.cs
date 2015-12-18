@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class GetDFDevicePoolListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
         /// <summary>
         /// <para>
         /// <para>The project ARN.</para>
@@ -47,15 +49,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Arn { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The device pools' type.</para><para>Allowed values include:</para><ul><li><para>CURATED: A device pool that is created and managed by AWS Device Farm.</para></li><li><para>PRIVATE: A device pool that is created and managed by the device pool developer.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DeviceFarm.DevicePoolType")]
         public Amazon.DeviceFarm.DevicePoolType Type { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous call to this operation, which can
@@ -64,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

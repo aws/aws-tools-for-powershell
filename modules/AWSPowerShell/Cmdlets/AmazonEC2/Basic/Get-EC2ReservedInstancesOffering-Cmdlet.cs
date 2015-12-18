@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ReservedInstancesOfferingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The Availability Zone in which the Reserved instance can be used.</para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved instance
@@ -85,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter IncludeMarketplace
         /// <summary>
         /// <para>
         /// <para>Include Reserved Instance Marketplace offerings in the response.</para>
@@ -93,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean IncludeMarketplace { get; set; }
+        #endregion
         
+        #region Parameter InstanceTenancy
         /// <summary>
         /// <para>
         /// <para>The tenancy of the instances covered by the reservation. A Reserved instance with
@@ -102,8 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.Tenancy")]
         public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type that the reservation will cover (for example, <code>m1.small</code>).
@@ -112,8 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceType")]
         public Amazon.EC2.InstanceType InstanceType { get; set; }
+        #endregion
         
+        #region Parameter MaxDuration
         /// <summary>
         /// <para>
         /// <para>The maximum duration (in seconds) to filter when searching for offerings.</para><para>Default: 94608000 (3 years)</para>
@@ -121,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 MaxDuration { get; set; }
+        #endregion
         
+        #region Parameter MaxInstanceCount
         /// <summary>
         /// <para>
         /// <para>The maximum number of instances to filter when searching for offerings.</para><para>Default: 20</para>
@@ -129,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MaxInstanceCount { get; set; }
+        #endregion
         
+        #region Parameter MinDuration
         /// <summary>
         /// <para>
         /// <para>The minimum duration (in seconds) to filter when searching for offerings.</para><para>Default: 2592000 (1 month)</para>
@@ -137,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 MinDuration { get; set; }
+        #endregion
         
+        #region Parameter OfferingType
         /// <summary>
         /// <para>
         /// <para>The Reserved instance offering type. If you are using tools that predate the 2011-11-01
@@ -146,8 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.OfferingTypeValues")]
         public Amazon.EC2.OfferingTypeValues OfferingType { get; set; }
+        #endregion
         
+        #region Parameter ProductDescription
         /// <summary>
         /// <para>
         /// <para>The Reserved instance product platform description. Instances that include <code>(Amazon
@@ -155,8 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.RIProductDescription")]
         public Amazon.EC2.RIProductDescription ProductDescription { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesOfferingId
         /// <summary>
         /// <para>
         /// <para>One or more Reserved instances offering IDs.</para>
@@ -165,7 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ReservedInstancesId","ReservedInstancesOfferingIds")]
         public System.String[] ReservedInstancesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
@@ -176,7 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to retrieve the next page of results. </para>
@@ -184,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

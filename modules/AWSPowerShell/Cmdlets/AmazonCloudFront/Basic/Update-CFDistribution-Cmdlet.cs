@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class UpdateCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
         /// The Amazon S3 bucket to store the access logs in,
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_Bucket")]
         public System.String Logging_Bucket { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_CallerReference
         /// <summary>
         /// <para>
         /// A unique number that ensures the request
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DistributionConfig_CallerReference { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_Certificate
         /// <summary>
         /// <para>
         /// If you want viewers to use HTTPS to request
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_Certificate")]
         public System.String ViewerCertificate_Certificate { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_CertificateSource
         /// <summary>
         /// <para>
         /// If you want viewers to use HTTPS to
@@ -91,8 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_CertificateSource")]
+        [AWSConstantClassSource("Amazon.CloudFront.CertificateSource")]
         public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_CloudFrontDefaultCertificate
         /// <summary>
         /// <para>
         /// Note: this field is deprecated.
@@ -105,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate")]
         public System.Boolean ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_Comment
         /// <summary>
         /// <para>
         /// Any comments you want to include about the distribution.
@@ -113,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DistributionConfig_Comment { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_Compress
         /// <summary>
         /// <para>
         /// Whether you want CloudFront to automatically
@@ -135,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_Compress")]
         public System.Boolean DefaultCacheBehavior_Compress { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_DefaultRootObject
         /// <summary>
         /// <para>
         /// The object that you want CloudFront
@@ -151,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DistributionConfig_DefaultRootObject { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_DefaultTTL
         /// <summary>
         /// <para>
         /// If you don't configure your origin to add a
@@ -166,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_DefaultTTL")]
         public System.Int64 DefaultCacheBehavior_DefaultTTL { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want to require end users
@@ -176,7 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled")]
         public System.Boolean TrustedSigners_Enabled { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_Enabled
         /// <summary>
         /// <para>
         /// Whether the distribution is enabled to accept
@@ -185,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean DistributionConfig_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Logging_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want CloudFront to save
@@ -199,7 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_Enabled")]
         public System.Boolean Logging_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Cookies_Forward
         /// <summary>
         /// <para>
         /// Use this element to specify whether you want CloudFront
@@ -210,8 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward")]
+        [AWSConstantClassSource("Amazon.CloudFront.ItemSelection")]
         public Amazon.CloudFront.ItemSelection Cookies_Forward { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
         /// Note: this field is deprecated. Please
@@ -225,7 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_IAMCertificateId")]
         public System.String ViewerCertificate_IAMCertificateId { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// The distribution's id.
@@ -233,7 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter IfMatch
         /// <summary>
         /// <para>
         /// The value of the ETag header you received when
@@ -242,7 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String IfMatch { get; set; }
+        #endregion
         
+        #region Parameter Logging_IncludeCookie
         /// <summary>
         /// <para>
         /// Specifies whether you want CloudFront to
@@ -256,7 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_IncludeCookies")]
         public System.Boolean Logging_IncludeCookie { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains CNAME elements,
@@ -266,7 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Aliases_Items")]
         public System.String[] Aliases_Item { get; set; }
+        #endregion
         
+        #region Parameter CacheBehaviors_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains cache behaviors
@@ -276,7 +316,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CacheBehaviors_Items")]
         public Amazon.CloudFront.Model.CacheBehavior[] CacheBehaviors_Item { get; set; }
+        #endregion
         
+        #region Parameter CustomErrorResponses_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains custom error
@@ -286,7 +328,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CustomErrorResponses_Items")]
         public Amazon.CloudFront.Model.CustomErrorResponse[] CustomErrorResponses_Item { get; set; }
+        #endregion
         
+        #region Parameter CachedMethods_Item
         /// <summary>
         /// <para>
         /// A complex type that contains the HTTP methods that
@@ -296,7 +340,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items")]
         public System.String[] CachedMethods_Item { get; set; }
+        #endregion
         
+        #region Parameter AllowedMethods_Item
         /// <summary>
         /// <para>
         /// A complex type that contains the HTTP methods that
@@ -306,7 +352,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items")]
         public System.String[] AllowedMethods_Item { get; set; }
+        #endregion
         
+        #region Parameter WhitelistedNames_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains whitelisted
@@ -316,7 +364,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items")]
         public System.String[] WhitelistedNames_Item { get; set; }
+        #endregion
         
+        #region Parameter Headers_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains a Name element
@@ -327,7 +377,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items")]
         public System.String[] Headers_Item { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains trusted signers
@@ -337,7 +389,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items")]
         public System.String[] TrustedSigners_Item { get; set; }
+        #endregion
         
+        #region Parameter Origins_Item
         /// <summary>
         /// <para>
         /// A complex type that contains origins for this distribution.
@@ -346,7 +400,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Origins_Items")]
         public Amazon.CloudFront.Model.Origin[] Origins_Item { get; set; }
+        #endregion
         
+        #region Parameter GeoRestriction_Item
         /// <summary>
         /// <para>
         /// A complex type that contains a Location element
@@ -363,7 +419,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Restrictions_GeoRestriction_Items")]
         public System.String[] GeoRestriction_Item { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_MaxTTL
         /// <summary>
         /// <para>
         /// The maximum amount of time (in seconds) that an
@@ -377,7 +435,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_MaxTTL")]
         public System.Int64 DefaultCacheBehavior_MaxTTL { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_MinimumProtocolVersion
         /// <summary>
         /// <para>
         /// Specify the minimum version of
@@ -394,8 +454,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_MinimumProtocolVersion")]
+        [AWSConstantClassSource("Amazon.CloudFront.MinimumProtocolVersion")]
         public Amazon.CloudFront.MinimumProtocolVersion ViewerCertificate_MinimumProtocolVersion { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_MinTTL
         /// <summary>
         /// <para>
         /// The minimum amount of time that you want objects
@@ -407,7 +470,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_MinTTL")]
         public System.Int64 DefaultCacheBehavior_MinTTL { get; set; }
+        #endregion
         
+        #region Parameter Logging_Prefix
         /// <summary>
         /// <para>
         /// An optional string that you want CloudFront to
@@ -419,7 +484,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_Prefix")]
         public System.String Logging_Prefix { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_PriceClass
         /// <summary>
         /// <para>
         /// A complex type that contains information about
@@ -427,8 +494,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudFront.PriceClass")]
         public Amazon.CloudFront.PriceClass DistributionConfig_PriceClass { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Quantity
         /// <summary>
         /// <para>
         /// The number of CNAMEs, if any, for this distribution.
@@ -437,7 +507,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Aliases_Quantity")]
         public System.Int32 Aliases_Quantity { get; set; }
+        #endregion
         
+        #region Parameter CacheBehaviors_Quantity
         /// <summary>
         /// <para>
         /// The number of cache behaviors for this distribution.
@@ -446,7 +518,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CacheBehaviors_Quantity")]
         public System.Int32 CacheBehaviors_Quantity { get; set; }
+        #endregion
         
+        #region Parameter CustomErrorResponses_Quantity
         /// <summary>
         /// <para>
         /// The number of custom error responses for this
@@ -456,7 +530,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CustomErrorResponses_Quantity")]
         public System.Int32 CustomErrorResponses_Quantity { get; set; }
+        #endregion
         
+        #region Parameter CachedMethods_Quantity
         /// <summary>
         /// <para>
         /// The number of HTTP methods for which you want
@@ -467,7 +543,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity")]
         public System.Int32 CachedMethods_Quantity { get; set; }
+        #endregion
         
+        #region Parameter AllowedMethods_Quantity
         /// <summary>
         /// <para>
         /// The number of HTTP methods that you want CloudFront
@@ -479,7 +557,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity")]
         public System.Int32 AllowedMethods_Quantity { get; set; }
+        #endregion
         
+        #region Parameter WhitelistedNames_Quantity
         /// <summary>
         /// <para>
         /// The number of whitelisted cookies for this cache
@@ -489,7 +569,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity")]
         public System.Int32 WhitelistedNames_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Headers_Quantity
         /// <summary>
         /// <para>
         /// The number of different headers that you want
@@ -503,7 +585,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity")]
         public System.Int32 Headers_Quantity { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
         /// The number of trusted signers for this cache
@@ -513,7 +597,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity")]
         public System.Int32 TrustedSigners_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Origins_Quantity
         /// <summary>
         /// <para>
         /// The number of origins for this distribution.
@@ -522,7 +608,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Origins_Quantity")]
         public System.Int32 Origins_Quantity { get; set; }
+        #endregion
         
+        #region Parameter GeoRestriction_Quantity
         /// <summary>
         /// <para>
         /// When geo restriction is enabled, this is the
@@ -533,7 +621,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Restrictions_GeoRestriction_Quantity")]
         public System.Int32 GeoRestriction_Quantity { get; set; }
+        #endregion
         
+        #region Parameter ForwardedValues_QueryString
         /// <summary>
         /// <para>
         /// Indicates whether you want CloudFront to forward
@@ -544,7 +634,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString")]
         public System.Boolean ForwardedValues_QueryString { get; set; }
+        #endregion
         
+        #region Parameter GeoRestriction_RestrictionType
         /// <summary>
         /// <para>
         /// The method that you want to use to restrict
@@ -557,8 +649,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Restrictions_GeoRestriction_RestrictionType")]
+        [AWSConstantClassSource("Amazon.CloudFront.GeoRestrictionType")]
         public Amazon.CloudFront.GeoRestrictionType GeoRestriction_RestrictionType { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_SmoothStreaming
         /// <summary>
         /// <para>
         /// Indicates whether you want to distribute
@@ -569,7 +664,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_SmoothStreaming")]
         public System.Boolean DefaultCacheBehavior_SmoothStreaming { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_SSLSupportMethod
         /// <summary>
         /// <para>
         /// If you specify a value for IAMCertificateId,
@@ -585,8 +682,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_SSLSupportMethod")]
+        [AWSConstantClassSource("Amazon.CloudFront.SSLSupportMethod")]
         public Amazon.CloudFront.SSLSupportMethod ViewerCertificate_SSLSupportMethod { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_TargetOriginId
         /// <summary>
         /// <para>
         /// The value of ID for the origin that you
@@ -597,7 +697,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TargetOriginId")]
         public System.String DefaultCacheBehavior_TargetOriginId { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_ViewerProtocolPolicy
         /// <summary>
         /// <para>
         /// Use this element to specify the protocol
@@ -611,8 +713,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy")]
+        [AWSConstantClassSource("Amazon.CloudFront.ViewerProtocolPolicy")]
         public Amazon.CloudFront.ViewerProtocolPolicy DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_WebACLId
         /// <summary>
         /// <para>
         /// (Optional) If you're using AWS WAF to filter
@@ -621,7 +726,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DistributionConfig_WebACLId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -629,7 +736,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

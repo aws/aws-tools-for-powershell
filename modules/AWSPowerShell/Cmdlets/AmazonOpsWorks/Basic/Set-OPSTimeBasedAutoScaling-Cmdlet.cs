@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class SetOPSTimeBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingSchedule_Friday
         /// <summary>
         /// <para>
         /// <para>The schedule for Friday.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Friday { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Monday
         /// <summary>
         /// <para>
         /// <para>The schedule for Monday.</para>
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Monday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Saturday
         /// <summary>
         /// <para>
         /// <para>The schedule for Saturday.</para>
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Saturday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Sunday
         /// <summary>
         /// <para>
         /// <para>The schedule for Sunday.</para>
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Sunday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Thursday
         /// <summary>
         /// <para>
         /// <para>The schedule for Thursday.</para>
@@ -95,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Thursday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Tuesday
         /// <summary>
         /// <para>
         /// <para>The schedule for Tuesday.</para>
@@ -103,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Tuesday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Wednesday
         /// <summary>
         /// <para>
         /// <para>The schedule for Wednesday.</para>
@@ -111,14 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Wednesday { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -126,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

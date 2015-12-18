@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class UpdateMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter EvaluationId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>Evaluation</code> during creation.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EvaluationId { get; set; }
+        #endregion
         
+        #region Parameter EvaluationName
         /// <summary>
         /// <para>
         /// <para>A new user-supplied name or description of the <code>Evaluation</code> that will replace
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("Name")]
         public System.String EvaluationName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

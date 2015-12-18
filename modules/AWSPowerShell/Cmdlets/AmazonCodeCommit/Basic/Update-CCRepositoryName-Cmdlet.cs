@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     )]
     public class UpdateCCRepositoryNameCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewName { get; set; }
+        #endregion
         
+        #region Parameter OldName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OldName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

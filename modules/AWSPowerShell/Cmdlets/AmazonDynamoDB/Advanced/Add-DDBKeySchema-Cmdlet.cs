@@ -1,4 +1,4 @@
-﻿/*******************************************************************************
+/*******************************************************************************
  *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
@@ -31,26 +31,34 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdletOutput("Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema", "This cmdlet returns an updated Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema object to the pipeline.")]
     public class AddDDBKeySchemaCmdlet : BaseCmdlet
     {
+        #region Parameter Schema
         /// <summary>
         /// A previously constructed object to which the new key schema element will be added to any
         /// attached KeySchema property collection.
         /// </summary>
         [Parameter(ValueFromPipeline = true, Mandatory = true)]
         public Amazon.PowerShell.Cmdlets.DDB.Model.TableSchema Schema { get; set; }
+        #endregion
 
+        #region Parameter KeyName
         /// <summary>
         /// The name of the key to be applied to the schema. If a key with the specified name already exists 
         /// an error is thrown.
         /// </summary>
         [Parameter(Position = 0, Mandatory = true)]
         public System.String KeyName { get; set; }
+        #endregion
 
+        #region Parameter KeyType 
         /// <summary>
         /// The key type. Valid values are "HASH" or "RANGE". If not specified, "HASH" is assumed. 
         /// </summary>
         [Parameter(Position = 1)]
-        public System.String KeyType { get; set; }
+        [AWSConstantClassSource("Amazon.DynamoDBv2.KeyType")]
+        public Amazon.DynamoDBv2.KeyType KeyType { get; set; }
+        #endregion
 
+        #region Parameter KeyDataType
         /// <summary>
         /// <para>
         /// The data type of the key as specified by the Amazon DynamoDB api. If an attribute 
@@ -63,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [Parameter(Position = 2)]
-        public System.String KeyDataType { get; set; }
+        [AWSConstantClassSource("Amazon.DynamoDBv2.ScalarAttributeType")]
+        public Amazon.DynamoDBv2.ScalarAttributeType KeyDataType { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {
@@ -75,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 if (schemaObj == null)
                     throw new ArgumentException("Expected TableSchema object to update.");
 
-                var keyType = string.IsNullOrEmpty(KeyType) ? DDBSchemaCmdletHelper.KeyType_Hash : KeyType.ToUpper();
+                var keyType = !string.IsNullOrEmpty(KeyType) ? KeyType : Amazon.DynamoDBv2.KeyType.HASH;
                 schemaObj.AddKey(KeyName, keyType, KeyDataType);
 
                 WriteObject(schemaObj);

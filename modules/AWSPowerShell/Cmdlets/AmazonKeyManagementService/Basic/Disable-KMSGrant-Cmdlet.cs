@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class DisableKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GrantId
         /// <summary>
         /// <para>
         /// <para> Unique identifier of the grant to be retired. The grant ID is returned by the <code>CreateGrant</code>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String GrantId { get; set; }
+        #endregion
         
+        #region Parameter GrantToken
         /// <summary>
         /// <para>
         /// <para>Token that identifies the grant to be retired.</para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String GrantToken { get; set; }
+        #endregion
         
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key associated with the grant. This value
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

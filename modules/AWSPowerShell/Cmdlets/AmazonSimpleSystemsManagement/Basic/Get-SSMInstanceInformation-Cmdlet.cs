@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public class GetSSMInstanceInformationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceInformationFilterList
         /// <summary>
         /// <para>
         /// One or more filters. Use
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public Amazon.SimpleSystemsManagement.Model.InstanceInformationFilter[] InstanceInformationFilterList { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// The maximum number of items to return for this
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// The token for the next set of items to return.
@@ -73,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

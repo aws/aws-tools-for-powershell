@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class NewCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter S3Location_Bucket
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket where the application revision is stored.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Bucket")]
         public System.String S3Location_Bucket { get; set; }
+        #endregion
         
+        #region Parameter S3Location_BundleType
         /// <summary>
         /// <para>
         /// <para>The file type of the application revision. Must be one of the following:</para><ul><li>tar: A tar archive file.</li><li>tgz: A compressed tar archive file.</li><li>zip: A zip archive file.</li></ul>
@@ -64,8 +70,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_BundleType")]
+        [AWSConstantClassSource("Amazon.CodeDeploy.BundleType")]
         public Amazon.CodeDeploy.BundleType S3Location_BundleType { get; set; }
+        #endregion
         
+        #region Parameter GitHubLocation_CommitId
         /// <summary>
         /// <para>
         /// <para>The SHA1 commit ID of the GitHub commit that references the that represents the bundled
@@ -75,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_GitHubLocation_CommitId")]
         public System.String GitHubLocation_CommitId { get; set; }
+        #endregion
         
+        #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
         /// <para>The name of an existing deployment configuration associated with the applicable IAM
@@ -86,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentConfigName { get; set; }
+        #endregion
         
+        #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The deployment group's name.</para>
@@ -94,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentGroupName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A comment about the deployment.</para>
@@ -102,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter IgnoreApplicationStopFailure
         /// <summary>
         /// <para>
         /// <para>If set to true, then if the deployment causes the ApplicationStop deployment lifecycle
@@ -116,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("IgnoreApplicationStopFailures")]
         public System.Boolean IgnoreApplicationStopFailure { get; set; }
+        #endregion
         
+        #region Parameter S3Location_Key
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 object that represents the bundled artifacts for the application
@@ -126,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Key")]
         public System.String S3Location_Key { get; set; }
+        #endregion
         
+        #region Parameter GitHubLocation_Repository
         /// <summary>
         /// <para>
         /// <para>The GitHub account and repository pair that stores a reference to the commit that
@@ -136,7 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_GitHubLocation_Repository")]
         public System.String GitHubLocation_Repository { get; set; }
+        #endregion
         
+        #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
         /// <para>The application revision's type:</para><ul><li>S3: An application revision stored in Amazon S3.</li><li>GitHub: An application
@@ -144,8 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.RevisionLocationType")]
         public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
+        #endregion
         
+        #region Parameter S3Location_Version
         /// <summary>
         /// <para>
         /// <para>A specific version of the Amazon S3 object that represents the bundled artifacts for
@@ -155,7 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Version")]
         public System.String S3Location_Version { get; set; }
+        #endregion
         
+        #region Parameter S3Location_ETag
         /// <summary>
         /// <para>
         /// <para>The ETag of the Amazon S3 object that represents the bundled artifacts for the application
@@ -166,7 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_ETag")]
         public System.String S3Location_ETag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -174,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2HostsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoPlacement
         /// <summary>
         /// <para>
         /// <para>This is enabled by default. This property allows instances to be automatically placed
@@ -48,8 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.AutoPlacement")]
         public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The Availability Zone for the Dedicated hosts.</para>
@@ -57,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
@@ -67,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>Specify the instance type that you want your Dedicated hosts to be configured for.
@@ -77,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceType { get; set; }
+        #endregion
         
+        #region Parameter Quantity
         /// <summary>
         /// <para>
         /// <para>The number of Dedicated hosts you want to allocate to your account with these parameters.</para>
@@ -85,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Quantity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -93,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

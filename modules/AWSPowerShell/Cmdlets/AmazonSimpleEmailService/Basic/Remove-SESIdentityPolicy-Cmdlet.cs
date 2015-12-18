@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class RemoveSESIdentityPolicyCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>The identity that is associated with the policy that you want to delete. You can specify
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Identity { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy to be deleted.</para>
@@ -68,14 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PolicyName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

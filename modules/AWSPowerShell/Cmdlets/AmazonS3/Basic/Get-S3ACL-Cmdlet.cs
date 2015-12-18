@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3ACLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to be queried or containing the object to be queried.
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter Key
         /// <summary>
         /// <para>
         /// The key of the S3 object to be queried.
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String Key { get; set; }
+        #endregion
         
+        #region Parameter VersionId
         /// <summary>
         /// <para>
         /// VersionId used to reference a specific version of the object.
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String VersionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -48,13 +48,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        #region Parameter Instance
         /// <summary>
         /// Identifies the set of instances to return, specified either a collection of string instance ids, 
         /// or a collection of RunningInstance objects. If not specified, all running instances are returned.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline=true)]
         public System.Object[] Instance { get; set; }
+        #endregion
 
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// A set of filters used to match system-defined properties and user-defined tags associated with
@@ -151,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(Position = 1)]
         public Filter[] Filter { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

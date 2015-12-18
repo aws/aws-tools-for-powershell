@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class GetCSScalingParameterCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

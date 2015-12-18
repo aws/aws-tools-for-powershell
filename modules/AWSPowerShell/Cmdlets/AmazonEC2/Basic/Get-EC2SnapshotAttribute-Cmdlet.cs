@@ -45,14 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2SnapshotAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The snapshot attribute you would like to view.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.SnapshotAttributeName")]
         public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>The ID of the EBS snapshot.</para>
@@ -60,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SnapshotId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -73,6 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53TrafficPolicyInstancesCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HostedZoneIdMarker
         /// <summary>
         /// <para>
         /// <para>For the first request to <code>ListTrafficPolicyInstances</code>, omit this value.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>,
@@ -86,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HostedZoneIdMarker { get; set; }
+        #endregion
         
+        #region Parameter TrafficPolicyInstanceNameMarker
         /// <summary>
         /// <para>
         /// <para>For the first request to <code>ListTrafficPolicyInstances</code>, omit this value.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>,
@@ -97,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TrafficPolicyInstanceNameMarker { get; set; }
+        #endregion
         
+        #region Parameter TrafficPolicyInstanceTypeMarker
         /// <summary>
         /// <para>
         /// <para>For the first request to <code>ListTrafficPolicyInstances</code>, omit this value.</para><para>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>,
@@ -107,8 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.RRType")]
         public Amazon.Route53.RRType TrafficPolicyInstanceTypeMarker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of traffic policy instances to be included in the response body
@@ -122,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.String MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

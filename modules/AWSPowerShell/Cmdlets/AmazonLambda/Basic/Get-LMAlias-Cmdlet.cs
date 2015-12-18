@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class GetLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>Function name for which the alias is created. An alias is a subresource that exists
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Name of the alias for which you want to retrieve information.</para>
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

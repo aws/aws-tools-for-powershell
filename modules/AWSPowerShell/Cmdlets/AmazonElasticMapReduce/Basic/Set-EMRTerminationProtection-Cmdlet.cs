@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class SetEMRTerminationProtectionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
         /// <para> A list of strings that uniquely identify the job flows to protect. This identifier
@@ -66,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("JobFlowIds")]
         public System.String[] JobFlowId { get; set; }
+        #endregion
         
+        #region Parameter TerminationProtected
         /// <summary>
         /// <para>
         /// <para> A Boolean that indicates whether to protect the job flow and prevent the Amazon EC2
@@ -76,14 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Boolean TerminationProtected { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobFlowId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

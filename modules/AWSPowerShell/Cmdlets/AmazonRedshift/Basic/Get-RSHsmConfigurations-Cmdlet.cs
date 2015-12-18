@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSHsmConfigurationsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter HsmConfigurationIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of a specific Amazon Redshift HSM configuration to be described. If
@@ -63,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HsmConfigurationIdentifier { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>A tag key or keys for which you want to return all matching HSM configurations that
@@ -77,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter TagValue
         /// <summary>
         /// <para>
         /// <para>A tag value or values for which you want to return all matching HSM configurations
@@ -91,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("TagValues")]
         public System.String[] TagValue { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -105,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -117,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

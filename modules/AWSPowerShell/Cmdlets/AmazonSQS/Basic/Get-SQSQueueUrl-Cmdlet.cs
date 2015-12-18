@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class GetSQSQueueUrlCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter QueueName
         /// <summary>
         /// <para>
         /// <para>The name of the queue whose URL must be fetched. Maximum 80 characters; alphanumeric
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueName { get; set; }
+        #endregion
         
+        #region Parameter QueueOwnerAWSAccountId
         /// <summary>
         /// <para>
         /// <para>The AWS account ID of the account that created the queue.</para>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String QueueOwnerAWSAccountId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

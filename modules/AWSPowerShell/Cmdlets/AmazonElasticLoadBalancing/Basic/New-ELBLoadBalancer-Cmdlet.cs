@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class NewELBLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>One or more Availability Zones from the same region as the load balancer. Traffic
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter Listener
         /// <summary>
         /// <para>
         /// <para>The listeners.</para><para>For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html">Listeners
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Listeners")]
         public Amazon.ElasticLoadBalancing.Model.Listener[] Listener { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para><para>This name must be unique within your set of load balancers for the region, must have
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter Scheme
         /// <summary>
         /// <para>
         /// <para>The type of a load balancer. Valid only for load balancers in a VPC.</para><para>By default, Elastic Load Balancing creates an Internet-facing load balancer with a
@@ -93,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Scheme { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups to assign to the load balancer.</para>
@@ -102,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Subnet
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet
@@ -112,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("Subnets")]
         public System.String[] Subnet { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tags to assign to the load balancer.</para><para>For more information about tagging your load balancer, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb">Tagging</a>
@@ -122,7 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.ElasticLoadBalancing.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -130,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

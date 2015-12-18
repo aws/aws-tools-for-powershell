@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class GetMLPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>A unique identifier of the <code>MLModel</code>.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
         public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter PredictEndpoint
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PredictEndpoint { get; set; }
+        #endregion
         
+        #region Parameter Record
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable Record { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

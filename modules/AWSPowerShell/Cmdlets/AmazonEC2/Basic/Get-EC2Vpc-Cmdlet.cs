@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>cidr</code> - The CIDR block of the VPC. The CIDR block you specify must exactly
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>One or more VPC IDs.</para><para>Default: Describes all your VPCs.</para>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("VpcIds")]
         public System.String[] VpcId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

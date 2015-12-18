@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class GetDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>The version of the pipeline definition to retrieve. Set this parameter to <code>latest</code>
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Version { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

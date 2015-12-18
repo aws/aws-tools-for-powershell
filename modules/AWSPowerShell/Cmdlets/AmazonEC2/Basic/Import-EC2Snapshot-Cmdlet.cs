@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class ImportEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Token to enable idempotency for VM import requests.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter ClientData_Comment
         /// <summary>
         /// <para>
         /// <para>A user-defined comment about the disk upload.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientData_Comment { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The description string for the import snapshot task.</para>
@@ -61,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter DiskContainer_Description
         /// <summary>
         /// <para>
         /// <para>The description of the disk image being imported.</para>
@@ -69,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DiskContainer_Description { get; set; }
+        #endregion
         
+        #region Parameter DiskContainer_Format
         /// <summary>
         /// <para>
         /// <para>The format of the disk image being imported.</para><para>Valid values: <code>RAW</code> | <code>VHD</code> | <code>VMDK</code> | <code>OVA</code></para>
@@ -77,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DiskContainer_Format { get; set; }
+        #endregion
         
+        #region Parameter RoleName
         /// <summary>
         /// <para>
         /// <para>The name of the role to use when not using the default role, 'vmimport'.</para>
@@ -85,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleName { get; set; }
+        #endregion
         
+        #region Parameter DiskContainer_S3Bucket
         /// <summary>
         /// <para>
         /// <para>The name of the S3 bucket where the disk image is located.</para>
@@ -94,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("DiskContainer_UserBucket_S3Bucket")]
         public System.String DiskContainer_S3Bucket { get; set; }
+        #endregion
         
+        #region Parameter DiskContainer_S3Key
         /// <summary>
         /// <para>
         /// <para>The key for the disk image.</para>
@@ -103,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("DiskContainer_UserBucket_S3Key")]
         public System.String DiskContainer_S3Key { get; set; }
+        #endregion
         
+        #region Parameter ClientData_UploadEnd
         /// <summary>
         /// <para>
         /// <para>The time that the disk upload ends.</para>
@@ -111,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ClientData_UploadEnd { get; set; }
+        #endregion
         
+        #region Parameter ClientData_UploadSize
         /// <summary>
         /// <para>
         /// <para>The size of the uploaded disk image, in GiB.</para>
@@ -119,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double ClientData_UploadSize { get; set; }
+        #endregion
         
+        #region Parameter ClientData_UploadStart
         /// <summary>
         /// <para>
         /// <para>The time that the disk upload starts.</para>
@@ -127,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ClientData_UploadStart { get; set; }
+        #endregion
         
+        #region Parameter DiskContainer_Url
         /// <summary>
         /// <para>
         /// <para>The URL to the Amazon S3-based disk image being imported. It can either be a https
@@ -136,7 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DiskContainer_Url { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -144,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class UpdateSGVTLDeviceTypeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeviceType
         /// <summary>
         /// <para>
         /// <para>The type of medium changer you want to select.</para><para><i>Valid Values</i>: "STK-L700", "AWS-Gateway-VTL"</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeviceType { get; set; }
+        #endregion
         
+        #region Parameter VTLDeviceARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the medium changer you want to select.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VTLDeviceARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

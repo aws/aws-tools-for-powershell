@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2CustomerGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BgpAsn
         /// <summary>
         /// <para>
         /// <para>For devices that support BGP, the customer gateway's BGP ASN.</para><para>Default: 65000</para>
@@ -72,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 BgpAsn { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>The Internet-routable IP address for the customer gateway's outside interface. The
@@ -82,15 +86,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("IpAddress")]
         public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.EC2.GatewayType")]
         public Amazon.EC2.GatewayType Type { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

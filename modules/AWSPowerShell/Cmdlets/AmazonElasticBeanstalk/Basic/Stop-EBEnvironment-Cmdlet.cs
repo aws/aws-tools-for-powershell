@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class StopEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para>The ID of the environment to terminate.</para><para> Condition: You must specify either this or an EnvironmentName, or both. If you do
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para>The name of the environment to terminate.</para><para> Condition: You must specify either this or an EnvironmentId, or both. If you do not
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter ForceTerminate
         /// <summary>
         /// <para>
         /// <para>Terminates the target environment even if another environment in the same group is
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ForceTerminate { get; set; }
+        #endregion
         
+        #region Parameter TerminateResource
         /// <summary>
         /// <para>
         /// <para> Indicates whether the associated AWS resources should shut down when the environment
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("TerminateResources")]
         public System.Boolean TerminateResource { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

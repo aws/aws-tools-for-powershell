@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class SetEMRVisibleToAllUsersCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
         /// <para>Identifiers of the job flows to receive the new visibility setting.</para>
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("JobFlowIds")]
         public System.String[] JobFlowId { get; set; }
+        #endregion
         
+        #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
         /// <para>Whether the specified job flows are visible to all IAM users of the AWS account associated
@@ -64,14 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("VisibleToAllUsers")]
         public System.Boolean VisibleToAllUser { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobFlowId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

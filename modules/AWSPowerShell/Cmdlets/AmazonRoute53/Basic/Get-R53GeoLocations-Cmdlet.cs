@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53GeoLocationsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter StartContinentCode
         /// <summary>
         /// <para>
         /// <para>The first continent code in the lexicographic ordering of geo locations that you want
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartContinentCode { get; set; }
+        #endregion
         
+        #region Parameter StartCountryCode
         /// <summary>
         /// <para>
         /// <para>The first country code in the lexicographic ordering of geo locations that you want
@@ -74,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartCountryCode { get; set; }
+        #endregion
         
+        #region Parameter StartSubdivisionCode
         /// <summary>
         /// <para>
         /// <para>The first subdivision code in the lexicographic ordering of geo locations that you
@@ -84,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartSubdivisionCode { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of geo locations you want in the response body.</para>
@@ -93,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public class NewSSMAssociationFromBatchCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter Entry
         /// <summary>
         /// <para>
         /// <para>One or more associations.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Entries")]
         public Amazon.SimpleSystemsManagement.Model.CreateAssociationBatchRequestEntry[] Entry { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

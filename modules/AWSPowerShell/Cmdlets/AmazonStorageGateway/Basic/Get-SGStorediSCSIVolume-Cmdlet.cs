@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGStorediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter VolumeARNs
         /// <summary>
         /// <para>
         /// <para>An array of strings where each string represents the Amazon Resource Name (ARN) of
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] VolumeARNs { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

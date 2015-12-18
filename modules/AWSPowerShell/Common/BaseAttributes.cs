@@ -69,4 +69,36 @@ namespace Amazon.PowerShell.Common
             Version = version;
         }
     }
+
+    /// <summary>
+    /// <para>
+    /// Attribute used to tag parameters that expose ConstantClass-derived types, for which
+    /// parameter intellisense could be provided via either ValidateSet attribution or
+    /// parameter argument completion. 
+    /// </para>
+    /// <para>
+    /// Generated cmdlets do not use the actual attribute since we know the parameter type at 
+    /// generation time and can therefore easily emit the ValidateSet attribution or parameter
+    /// completer. For hand-coded cmdlets we have no reflected property type and don't want 
+    /// to write a C# parser! In thus scenario this attribute (a) is used to point the generator 
+    /// at the SDK type we should use to obtain the values and (b) easily marks parameters for 
+    /// our textual parser to spot.
+    /// </para>
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
+    public class AWSConstantClassSourceAttribute : Attribute
+    {
+        /// <summary>
+        /// The type name of the class derived from ConstantClass that contains the
+        /// valid values according to the service model for the parameter value.
+        /// </summary>
+        public string ConstantClassType { get; set; }
+
+        public AWSConstantClassSourceAttribute(string constantClassType)
+        {
+            if (string.IsNullOrEmpty(constantClassType)) throw new ArgumentNullException("constantClassType");
+
+            ConstantClassType = constantClassType;
+        }
+    }
 }

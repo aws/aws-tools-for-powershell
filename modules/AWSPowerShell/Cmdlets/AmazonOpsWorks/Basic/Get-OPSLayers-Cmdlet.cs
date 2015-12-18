@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSLayersCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>An array of layer IDs that specify the layers to be described. If you omit this parameter,
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

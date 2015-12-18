@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     )]
     public class GetCWAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionPrefix
         /// <summary>
         /// <para>
         /// <para> The action name prefix. </para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ActionPrefix { get; set; }
+        #endregion
         
+        #region Parameter AlarmNamePrefix
         /// <summary>
         /// <para>
         /// <para> The alarm name prefix. <code>AlarmNames</code> cannot be specified if this parameter
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AlarmNamePrefix { get; set; }
+        #endregion
         
+        #region Parameter AlarmName
         /// <summary>
         /// <para>
         /// <para> A list of alarm names to retrieve information for. </para>
@@ -67,15 +73,20 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("AlarmNames")]
         public System.String[] AlarmName { get; set; }
+        #endregion
         
+        #region Parameter StateValue
         /// <summary>
         /// <para>
         /// <para> The state value to be used in matching alarms. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudWatch.StateValue")]
         public Amazon.CloudWatch.StateValue StateValue { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of alarm descriptions to retrieve. </para>
@@ -84,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> The token returned by a previous call to indicate that there is more data available.
@@ -93,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

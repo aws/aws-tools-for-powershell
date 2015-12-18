@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved instance
@@ -75,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter OfferingType
         /// <summary>
         /// <para>
         /// <para>The Reserved instance offering type. If you are using tools that predate the 2011-11-01
@@ -84,8 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
+        [AWSConstantClassSource("Amazon.EC2.OfferingTypeValues")]
         public Amazon.EC2.OfferingTypeValues OfferingType { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
         /// <para>One or more Reserved instance IDs.</para><para>Default: Describes all your Reserved instances, or only those otherwise specified.</para>
@@ -94,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ReservedInstancesIds")]
         public System.String[] ReservedInstancesId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

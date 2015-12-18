@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class ResetRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster parameter group to reset.</para>
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of parameter names in the DB cluster parameter group to reset to the default
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Parameters")]
         public Amazon.RDS.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
         /// <para>A value that is set to <code>true</code> to reset all parameters in the DB cluster
@@ -84,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("ResetAllParameters")]
         public System.Boolean ResetAllParameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

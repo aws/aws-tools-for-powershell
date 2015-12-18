@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class EditRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBSubnetGroupDescription
         /// <summary>
         /// <para>
         /// <para> The description for the DB subnet group. </para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String DBSubnetGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> The name for the DB subnet group. This value is stored as a lowercase string. </para><para>Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Must
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para> The EC2 subnet IDs for the DB subnet group. </para>
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

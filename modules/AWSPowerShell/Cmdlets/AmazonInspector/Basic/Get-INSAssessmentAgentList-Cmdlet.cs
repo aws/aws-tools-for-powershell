@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSAssessmentAgentListCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter_AgentHealthList
         /// <summary>
         /// <para>
         /// <para>For a record to match a filter, the value specified for this data type property must
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] Filter_AgentHealthList { get; set; }
+        #endregion
         
+        #region Parameter AssessmentArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the assessment whose agents you want to list.</para>
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AssessmentArn { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>You can use this parameter to indicate the maximum number of items you want in the
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     )]
     public class RequestKINStreamRetentionPeriodDecreaseCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter RetentionPeriodHour
         /// <summary>
         /// <para>
         /// <para>The new retention period of the stream, in hours. Must be less than the current retention
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [System.Management.Automation.Parameter]
         [Alias("RetentionPeriodHours")]
         public System.Int32 RetentionPeriodHour { get; set; }
+        #endregion
         
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream to modify.</para>
@@ -65,14 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StreamName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

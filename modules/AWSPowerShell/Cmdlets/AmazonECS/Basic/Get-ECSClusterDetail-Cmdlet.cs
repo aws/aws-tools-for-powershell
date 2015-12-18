@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSClusterDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>A space-separated list of cluster names or full cluster Amazon Resource Name (ARN)
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Clusters")]
         public System.String[] Cluster { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

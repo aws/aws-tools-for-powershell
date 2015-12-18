@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSReservedNodesCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ReservedNodeId
         /// <summary>
         /// <para>
         /// <para>Identifier for the node reservation.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedNodeId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -73,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

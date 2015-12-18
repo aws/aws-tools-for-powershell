@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class WriteS3BucketLoggingCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter LoggingConfig_Grant
         /// <summary>
         /// <para>
         /// A collection of grants.
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("LoggingConfig_Grants")]
         public Amazon.S3.Model.S3Grant[] LoggingConfig_Grant { get; set; }
+        #endregion
         
+        #region Parameter LoggingConfig_TargetBucketName
         /// <summary>
         /// <para>
         /// Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own,
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LoggingConfig_TargetBucketName { get; set; }
+        #endregion
         
+        #region Parameter LoggingConfig_TargetPrefix
         /// <summary>
         /// <para>
         /// This element lets you specify a prefix for the keys that the log files will be stored under.
@@ -75,14 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LoggingConfig_TargetPrefix { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -90,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

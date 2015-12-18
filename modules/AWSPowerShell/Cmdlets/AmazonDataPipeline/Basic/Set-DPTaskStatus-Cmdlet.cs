@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class SetDPTaskStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ErrorId
         /// <summary>
         /// <para>
         /// <para>If an error occurred during the task, this value specifies the error code. This value
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String ErrorId { get; set; }
+        #endregion
         
+        #region Parameter ErrorMessage
         /// <summary>
         /// <para>
         /// <para>If an error occurred during the task, this value specifies a text description of the
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String ErrorMessage { get; set; }
+        #endregion
         
+        #region Parameter ErrorStackTrace
         /// <summary>
         /// <para>
         /// <para>If an error occurred during the task, this value specifies the stack trace associated
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public System.String ErrorStackTrace { get; set; }
+        #endregion
         
+        #region Parameter TaskId
         /// <summary>
         /// <para>
         /// <para>The ID of the task assigned to the task runner. This value is provided in the response
@@ -81,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TaskId { get; set; }
+        #endregion
         
+        #region Parameter TaskStatus
         /// <summary>
         /// <para>
         /// <para>If <code>FINISHED</code>, the task successfully completed. If <code>FAILED</code>,
@@ -89,15 +99,20 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.DataPipeline.TaskStatus")]
         public Amazon.DataPipeline.TaskStatus TaskStatus { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TaskId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -105,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

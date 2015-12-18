@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class NewIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String PolicyArn { get; set; }
+        #endregion
         
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
         /// <para>The policy document.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String PolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter SetAsDefault
         /// <summary>
         /// <para>
         /// <para>Specifies whether to set this version as the policy's default version.</para><para>When this parameter is <code>true</code>, the new policy version becomes the operative
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SetAsDefault { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

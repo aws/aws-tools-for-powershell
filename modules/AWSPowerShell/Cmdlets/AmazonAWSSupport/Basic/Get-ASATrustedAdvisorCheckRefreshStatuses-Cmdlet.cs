@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class GetASATrustedAdvisorCheckRefreshStatusesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter CheckId
         /// <summary>
         /// <para>
         /// <para>The IDs of the Trusted Advisor checks.</para>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("CheckIds")]
         public System.String[] CheckId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

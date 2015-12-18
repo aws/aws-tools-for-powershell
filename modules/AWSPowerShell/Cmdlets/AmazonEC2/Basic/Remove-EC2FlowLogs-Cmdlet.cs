@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RemoveEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter FlowLogId
         /// <summary>
         /// <para>
         /// <para>One or more flow log IDs.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("FlowLogIds")]
         public System.String[] FlowLogId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

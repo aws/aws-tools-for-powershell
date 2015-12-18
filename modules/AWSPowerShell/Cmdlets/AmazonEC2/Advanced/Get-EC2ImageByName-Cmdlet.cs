@@ -54,6 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("string", "If no parameters are supplied the cmdlet emits the built-in logical names that can be used with the -Name parameter.")]
     public class GetEC2ImageByNameCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// A collection of one or more name patterns to use as filters to select an image. If this parameter is 
@@ -81,13 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Alias("FilterNames","Names")]
         [Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
         public System.String[] Name { get; set; }
+        #endregion
 
+        #region Parameter ShowFilters
         /// <summary>
         /// If set, the cmdlet emits the actual name pattern used to filter the machine images.
         /// </summary>
         [Parameter]
         public SwitchParameter ShowFilters { get; set; }
+        #endregion
 
+        #region Parameter AllAvailable
         /// <summary>
         /// <para>
         /// Amazon Web Services periodically refreshes machine images and 'deprecates' the prior versions.
@@ -107,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter]
         public SwitchParameter AllAvailable { get; set; }
+        #endregion
 
         // maintains a redirect map of deprecated names and the current replacement
         static readonly Dictionary<string, string> DeprecatedNameSet = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);

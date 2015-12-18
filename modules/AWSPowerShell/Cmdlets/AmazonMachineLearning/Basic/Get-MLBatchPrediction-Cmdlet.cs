@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class GetMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter BatchPredictionId
         /// <summary>
         /// <para>
         /// <para>An ID assigned to the <code>BatchPrediction</code> at creation.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String BatchPredictionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

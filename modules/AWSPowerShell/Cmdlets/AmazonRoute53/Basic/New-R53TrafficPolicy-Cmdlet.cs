@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class NewR53TrafficPolicyCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Comment
         /// <summary>
         /// <para>
         /// <para>Any comments that you want to include about the traffic policy.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Comment { get; set; }
+        #endregion
         
+        #region Parameter Document
         /// <summary>
         /// <para>
         /// <para>The definition of this traffic policy in JSON format.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Document { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the traffic policy.</para>
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

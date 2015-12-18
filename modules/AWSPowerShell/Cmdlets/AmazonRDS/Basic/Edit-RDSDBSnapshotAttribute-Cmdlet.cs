@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class EditRDSDBSnapshotAttributeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeName
         /// <summary>
         /// <para>
         /// <para>The name of the DB snapshot attribute to modify.</para><para>To manage authorization for other AWS accounts to copy or restore a manual DB snapshot,
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AttributeName { get; set; }
+        #endregion
         
+        #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier for the DB snapshot to modify the attributes for.</para>
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ValuesToAdd
         /// <summary>
         /// <para>
         /// <para>A list of DB snapshot attributes to add to the attribute specified by <code>AttributeName</code>.</para><para>To authorize other AWS Accounts to copy or restore a manual snapshot, this is one
@@ -85,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] ValuesToAdd { get; set; }
+        #endregion
         
+        #region Parameter ValuesToRemove
         /// <summary>
         /// <para>
         /// <para>A list of DB snapshot attributes to remove from the attribute specified by <code>AttributeName</code>.</para><para>To remove authorization for other AWS Accounts to copy or restore a manual snapshot,
@@ -97,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] ValuesToRemove { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -105,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

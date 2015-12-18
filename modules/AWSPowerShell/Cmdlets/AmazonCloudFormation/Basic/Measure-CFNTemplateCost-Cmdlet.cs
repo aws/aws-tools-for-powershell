@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class MeasureCFNTemplateCostCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of <code>Parameter</code> structures that specify input parameters.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.CloudFormation.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter TemplateBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TemplateBody { get; set; }
+        #endregion
         
+        #region Parameter TemplateURL
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template that
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TemplateURL { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

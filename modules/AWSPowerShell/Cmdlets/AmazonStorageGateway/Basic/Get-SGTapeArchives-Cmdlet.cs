@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGTapeArchivesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter TapeARNs
         /// <summary>
         /// <para>
         /// <para>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] TapeARNs { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the number of virtual tapes descried be limited to the specified number.</para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An opaque string that indicates the position at which to begin describing virtual
@@ -74,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

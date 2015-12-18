@@ -40,14 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class NewCPCustomActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Category
         /// <summary>
         /// <para>
         /// <para>The category of the custom action, such as a source action or a build action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionCategory")]
         public Amazon.CodePipeline.ActionCategory Category { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationProperty
         /// <summary>
         /// <para>
         /// <para>The configuration properties for the custom action.</para>
@@ -56,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationProperties")]
         public Amazon.CodePipeline.Model.ActionConfigurationProperty[] ConfigurationProperty { get; set; }
+        #endregion
         
+        #region Parameter Settings_EntityUrlTemplate
         /// <summary>
         /// <para>
         /// <para>The URL returned to the AWS CodePipeline console that provides a deep link to the
@@ -66,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Settings_EntityUrlTemplate { get; set; }
+        #endregion
         
+        #region Parameter Settings_ExecutionUrlTemplate
         /// <summary>
         /// <para>
         /// <para>The URL returned to the AWS CodePipeline console that contains a link to the top-level
@@ -77,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Settings_ExecutionUrlTemplate { get; set; }
+        #endregion
         
+        #region Parameter InputArtifactDetails_MaximumCount
         /// <summary>
         /// <para>
         /// <para>The maximum number of artifacts allowed for the action type.</para>
@@ -85,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 InputArtifactDetails_MaximumCount { get; set; }
+        #endregion
         
+        #region Parameter OutputArtifactDetails_MaximumCount
         /// <summary>
         /// <para>
         /// <para>The maximum number of artifacts allowed for the action type.</para>
@@ -93,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 OutputArtifactDetails_MaximumCount { get; set; }
+        #endregion
         
+        #region Parameter InputArtifactDetails_MinimumCount
         /// <summary>
         /// <para>
         /// <para>The minimum number of artifacts allowed for the action type.</para>
@@ -101,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 InputArtifactDetails_MinimumCount { get; set; }
+        #endregion
         
+        #region Parameter OutputArtifactDetails_MinimumCount
         /// <summary>
         /// <para>
         /// <para>The minimum number of artifacts allowed for the action type.</para>
@@ -109,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 OutputArtifactDetails_MinimumCount { get; set; }
+        #endregion
         
+        #region Parameter Provider
         /// <summary>
         /// <para>
         /// <para>The provider of the service used in the custom action, such as AWS CodeDeploy.</para>
@@ -117,7 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Provider { get; set; }
+        #endregion
         
+        #region Parameter Settings_RevisionUrlTemplate
         /// <summary>
         /// <para>
         /// <para>The URL returned to the AWS CodePipeline console that contains a link to the page
@@ -126,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Settings_RevisionUrlTemplate { get; set; }
+        #endregion
         
+        #region Parameter Settings_ThirdPartyConfigurationUrl
         /// <summary>
         /// <para>
         /// <para>The URL of a sign-up page where users can sign up for an external service and perform
@@ -135,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Settings_ThirdPartyConfigurationUrl { get; set; }
+        #endregion
         
+        #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>The version number of the custom action. </para><note>A newly-created custom action is always assigned a version number of <code>1</code>.
@@ -144,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Version { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -152,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

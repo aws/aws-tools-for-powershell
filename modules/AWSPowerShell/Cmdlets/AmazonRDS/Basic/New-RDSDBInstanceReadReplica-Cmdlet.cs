@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class NewRDSDBInstanceReadReplicaCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> Indicates that minor engine upgrades will be applied automatically to the Read Replica
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para> The Amazon EC2 Availability Zone that the Read Replica will be created in. </para><para> Default: A random, system-chosen Availability Zone in the endpoint's region. </para><para> Example: <code>us-east-1d</code></para>
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
         /// <para>True to copy all tags from the Read Replica to snapshots of the Read Replica; otherwise
@@ -74,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean CopyTagsToSnapshot { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
         /// <para> The compute and memory capacity of the Read Replica. </para><para> Valid Values: <code>db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
@@ -86,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBInstanceClass { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier of the Read Replica. This identifier is the unique key
@@ -95,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> Specifies a DB subnet group for the DB instance. The new DB instance will be created
@@ -111,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Iops
         /// <summary>
         /// <para>
         /// <para> The amount of Provisioned IOPS (input/output operations per second) to be initially
@@ -120,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Iops { get; set; }
+        #endregion
         
+        #region Parameter MonitoringInterval
         /// <summary>
         /// <para>
         /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
@@ -131,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MonitoringInterval { get; set; }
+        #endregion
         
+        #region Parameter MonitoringRoleArn
         /// <summary>
         /// <para>
         /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
@@ -143,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MonitoringRoleArn { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para> The option group the DB instance will be associated with. If omitted, the default
@@ -152,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number that the DB instance uses for connections. </para><para>Default: Inherits from the source DB instance</para><para>Valid Values: <code>1150-65535</code></para>
@@ -160,7 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
         /// <para> Specifies the accessibility options for the DB instance. A value of true specifies
@@ -175,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
         
+        #region Parameter SourceDBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the DB instance that will act as the source for the Read Replica.
@@ -191,7 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String SourceDBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter StorageType
         /// <summary>
         /// <para>
         /// <para> Specifies the storage type to be associated with the Read Replica. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
@@ -201,7 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StorageType { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -210,7 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -218,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

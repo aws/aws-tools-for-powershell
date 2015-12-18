@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSFindingCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter FindingArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the finding that you want to describe.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FindingArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

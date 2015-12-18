@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class NewELBLoadBalancerPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter PolicyAttribute
         /// <summary>
         /// <para>
         /// <para>The attributes for the policy.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("PolicyAttributes")]
         public Amazon.ElasticLoadBalancing.Model.PolicyAttribute[] PolicyAttribute { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer policy to be created. This name must be unique within
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PolicyTypeName
         /// <summary>
         /// <para>
         /// <para>The name of the base policy type. To get the list of policy types, use <a>DescribeLoadBalancerPolicyTypes</a>.</para>
@@ -79,14 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String PolicyTypeName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LoadBalancerName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

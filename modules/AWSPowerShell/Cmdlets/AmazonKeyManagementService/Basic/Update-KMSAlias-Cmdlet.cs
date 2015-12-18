@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class UpdateKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AliasName
         /// <summary>
         /// <para>
         /// <para>String that contains the name of the alias to be modified. The name must start with
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AliasName { get; set; }
+        #endregion
         
+        #region Parameter TargetKeyId
         /// <summary>
         /// <para>
         /// <para>Unique identifier of the customer master key to be mapped to the alias. This value
@@ -73,14 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TargetKeyId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TargetKeyId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

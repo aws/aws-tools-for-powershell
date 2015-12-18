@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class RemoveECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter FinalSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The name of a final node group snapshot. ElastiCache creates the snapshot from the
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FinalSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
         /// <para>The identifier for the cluster to be deleted. This parameter is not case sensitive.</para>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReplicationGroupId { get; set; }
+        #endregion
         
+        #region Parameter RetainPrimaryCluster
         /// <summary>
         /// <para>
         /// <para>If set to <i>true</i>, all of the read replicas will be deleted, but the primary node
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean RetainPrimaryCluster { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

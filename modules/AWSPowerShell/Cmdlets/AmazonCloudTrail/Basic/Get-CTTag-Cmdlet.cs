@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class GetCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceIdList
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail ARNs whose tags will be listed. The list has a limit of
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] ResourceIdList { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Reserved for future use.</para>
@@ -61,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

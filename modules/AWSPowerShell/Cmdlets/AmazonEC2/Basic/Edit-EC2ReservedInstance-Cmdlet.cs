@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive token you provide to ensure idempotency of your modification
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
         /// <para>The IDs of the Reserved instances to modify.</para>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ReservedInstancesIds")]
         public System.String[] ReservedInstancesId { get; set; }
+        #endregion
         
+        #region Parameter TargetConfiguration
         /// <summary>
         /// <para>
         /// <para>The configuration settings for the Reserved instances to modify.</para>
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("TargetConfigurations")]
         public Amazon.EC2.Model.ReservedInstancesConfiguration[] TargetConfiguration { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

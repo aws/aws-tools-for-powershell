@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class RequestECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheNodeCount
         /// <summary>
         /// <para>
         /// <para>The number of cache node instances to reserve.</para><para>Default: <code>1</code></para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 CacheNodeCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedCacheNodeId
         /// <summary>
         /// <para>
         /// <para>A customer-specified identifier to track this reservation.</para><para>Example: myreservationID</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ReservedCacheNodeId { get; set; }
+        #endregion
         
+        #region Parameter ReservedCacheNodesOfferingId
         /// <summary>
         /// <para>
         /// <para>The ID of the reserved cache node offering to purchase.</para><para>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</para>
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedCacheNodesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

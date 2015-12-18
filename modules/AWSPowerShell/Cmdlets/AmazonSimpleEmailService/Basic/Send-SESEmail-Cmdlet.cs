@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class SendSESEmailCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Destination_BccAddress
         /// <summary>
         /// <para>
         /// <para>The BCC: field(s) of the message.</para>
@@ -67,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Destination_BccAddresses")]
         public System.String[] Destination_BccAddress { get; set; }
+        #endregion
         
+        #region Parameter Destination_CcAddress
         /// <summary>
         /// <para>
         /// <para>The CC: field(s) of the message.</para>
@@ -76,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Destination_CcAddresses")]
         public System.String[] Destination_CcAddress { get; set; }
+        #endregion
         
+        #region Parameter Html_Charset
         /// <summary>
         /// <para>
         /// <para>The character set of the content.</para>
@@ -85,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Html_Charset")]
         public System.String Html_Charset { get; set; }
+        #endregion
         
+        #region Parameter Text_Charset
         /// <summary>
         /// <para>
         /// <para>The character set of the content.</para>
@@ -94,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Text_Charset")]
         public System.String Text_Charset { get; set; }
+        #endregion
         
+        #region Parameter Subject_Charset
         /// <summary>
         /// <para>
         /// <para>The character set of the content.</para>
@@ -103,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Message_Subject_Charset")]
         public System.String Subject_Charset { get; set; }
+        #endregion
         
+        #region Parameter Html_Data
         /// <summary>
         /// <para>
         /// <para>The textual data of the content.</para>
@@ -112,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Html_Data")]
         public System.String Html_Data { get; set; }
+        #endregion
         
+        #region Parameter Text_Data
         /// <summary>
         /// <para>
         /// <para>The textual data of the content.</para>
@@ -121,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Text_Data")]
         public System.String Text_Data { get; set; }
+        #endregion
         
+        #region Parameter Subject_Data
         /// <summary>
         /// <para>
         /// <para>The textual data of the content.</para>
@@ -130,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Message_Subject_Data")]
         public System.String Subject_Data { get; set; }
+        #endregion
         
+        #region Parameter ReplyToAddress
         /// <summary>
         /// <para>
         /// <para>The reply-to email address(es) for the message. If the recipient replies to the message,
@@ -140,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("ReplyToAddresses")]
         public System.String[] ReplyToAddress { get; set; }
+        #endregion
         
+        #region Parameter ReturnPath
         /// <summary>
         /// <para>
         /// <para>The email address to which bounces and complaints are to be forwarded when feedback
@@ -154,7 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReturnPath { get; set; }
+        #endregion
         
+        #region Parameter ReturnPathArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -168,7 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReturnPathArn { get; set; }
+        #endregion
         
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para>The email address that is sending the email. This email address must be either individually
@@ -186,7 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Source { get; set; }
+        #endregion
         
+        #region Parameter SourceArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -200,7 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceArn { get; set; }
+        #endregion
         
+        #region Parameter Destination_ToAddress
         /// <summary>
         /// <para>
         /// <para>The To: field(s) of the message.</para>
@@ -209,7 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Destination_ToAddresses")]
         public System.String[] Destination_ToAddress { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -217,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class RemoveCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the trail from which tags should be removed. The format of a
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter TagsList
         /// <summary>
         /// <para>
         /// <para>Specifies a list of tags to be removed. </para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.CloudTrail.Model.Tag[] TagsList { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class RemoveIAMClientIDFromOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientID
         /// <summary>
         /// <para>
         /// <para>The client ID (also known as audience) to remove from the IAM OpenID Connect provider.
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientID { get; set; }
+        #endregion
         
+        #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to remove
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OpenIDConnectProviderArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

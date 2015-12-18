@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class UpdateWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeToken
         /// <summary>
         /// <para>
         /// <para>The value returned by the most recent call to <a>GetChangeToken</a>.</para>
@@ -79,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ChangeToken { get; set; }
+        #endregion
         
+        #region Parameter DefaultAction_Type
         /// <summary>
         /// <para>
         /// <para>Specifies how you want AWS WAF to respond to requests that match the settings in a
@@ -91,8 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.WAF.WafActionType")]
         public Amazon.WAF.WafActionType DefaultAction_Type { get; set; }
+        #endregion
         
+        #region Parameter Update
         /// <summary>
         /// <para>
         /// <para>An array of updates to make to the <a>WebACL</a>.</para><para>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete
@@ -103,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter]
         [Alias("Updates")]
         public Amazon.WAF.Model.WebACLUpdate[] Update { get; set; }
+        #endregion
         
+        #region Parameter WebACLId
         /// <summary>
         /// <para>
         /// <para>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code>
@@ -112,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String WebACLId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -120,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

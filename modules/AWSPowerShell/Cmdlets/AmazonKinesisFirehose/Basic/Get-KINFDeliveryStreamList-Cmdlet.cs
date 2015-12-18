@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class GetKINFDeliveryStreamListCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartDeliveryStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream to start the list with.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExclusiveStartDeliveryStreamName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of delivery streams to list.</para>
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

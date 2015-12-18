@@ -58,14 +58,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2InstancePlacementCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Affinity
         /// <summary>
         /// <para>
         /// <para>The new affinity setting for the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.Affinity")]
         public Amazon.EC2.Affinity Affinity { get; set; }
+        #endregion
         
+        #region Parameter HostId
         /// <summary>
         /// <para>
         /// <para>The ID of the Dedicated host that the instance will have affinity with.</para>
@@ -73,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HostId { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance that you are modifying.</para>
@@ -81,15 +88,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Tenancy
         /// <summary>
         /// <para>
         /// <para>The tenancy of the instance that you are modifying.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.HostTenancy")]
         public Amazon.EC2.HostTenancy Tenancy { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -97,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

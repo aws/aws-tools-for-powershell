@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class UpdateETSPipelineNotificationsCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Notifications_Completed
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder has finished
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Completed { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Error
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Error { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para> The identifier of the pipeline for which you want to change notification settings.
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Progressing
         /// <summary>
         /// <para>
         /// <para>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify
@@ -81,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Progressing { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Warning
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a
@@ -90,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Warning { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

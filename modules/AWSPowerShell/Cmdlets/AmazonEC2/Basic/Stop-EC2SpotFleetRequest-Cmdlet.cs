@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class StopEC2SpotFleetRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
         /// <para>The IDs of the Spot fleet requests.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("SpotFleetRequestIds")]
         public System.String[] SpotFleetRequestId { get; set; }
+        #endregion
         
+        #region Parameter TerminateInstance
         /// <summary>
         /// <para>
         /// <para>Indicates whether to terminate instances for a Spot fleet request if it is canceled
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("TerminateInstances")]
         public System.Boolean TerminateInstance { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -74,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

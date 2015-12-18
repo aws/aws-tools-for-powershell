@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class ConvertRDSReadReplicaToStandaloneCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days to retain automated backups. Setting this parameter to a positive
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 BackupRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be the identifier for an existing Read Replica DB instance</li><li>Must
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredBackupWindow { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

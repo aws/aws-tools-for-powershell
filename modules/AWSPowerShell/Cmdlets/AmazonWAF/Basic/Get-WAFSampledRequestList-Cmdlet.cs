@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFSampledRequestListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter TimeWindow_EndTime
         /// <summary>
         /// <para>
         /// <para>The end of the time range from which you want <code>GetSampledRequests</code> to return
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime TimeWindow_EndTime { get; set; }
+        #endregion
         
+        #region Parameter RuleId
         /// <summary>
         /// <para>
         /// <para><code>RuleId</code> is one of two values:</para><ul><li>The <code>RuleId</code> of the <code>Rule</code> for which you want <code>GetSampledRequests</code>
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RuleId { get; set; }
+        #endregion
         
+        #region Parameter TimeWindow_StartTime
         /// <summary>
         /// <para>
         /// <para>The beginning of the time range from which you want <code>GetSampledRequests</code>
@@ -79,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime TimeWindow_StartTime { get; set; }
+        #endregion
         
+        #region Parameter WebAclId
         /// <summary>
         /// <para>
         /// <para>The <code>WebACLId</code> of the <code>WebACL</code> for which you want <code>GetSampledRequests</code>
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String WebAclId { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The number of requests that you want AWS WAF to return from among the first 5,000
@@ -100,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.Int64 MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

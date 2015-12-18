@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSEventCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// <para> The number of minutes to retrieve events for. </para><para>Default: 60</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Duration { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> The end of the time interval for which to retrieve events, specified in ISO 8601
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter EventCategory
         /// <summary>
         /// <para>
         /// <para> A list of event categories that trigger notifications for a event notification subscription.
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("EventCategories")]
         public System.String[] EventCategory { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the event source for which events will be returned. If not specified,
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The event source to retrieve events for. If no value is specified, all events are
@@ -100,8 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.RDS.SourceType")]
         public Amazon.RDS.SourceType SourceType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> The beginning of the time interval to retrieve events for, specified in ISO 8601
@@ -111,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional pagination token provided by a previous DescribeEvents request. If this
@@ -122,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
@@ -133,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class CopyOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentVersion
         /// <summary>
         /// <para>
         /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks automatically
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AgentVersion { get; set; }
+        #endregion
         
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>A list of stack attributes and values as key/value pairs to be added to the cloned
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter ChefConfiguration_BerkshelfVersion
         /// <summary>
         /// <para>
         /// <para>The Berkshelf version.</para>
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ChefConfiguration_BerkshelfVersion { get; set; }
+        #endregion
         
+        #region Parameter CloneAppId
         /// <summary>
         /// <para>
         /// <para>A list of source stack app IDs to be included in the cloned stack.</para>
@@ -87,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("CloneAppIds")]
         public System.String[] CloneAppId { get; set; }
+        #endregion
         
+        #region Parameter ClonePermission
         /// <summary>
         /// <para>
         /// <para>Whether to clone the source stack's permissions.</para>
@@ -96,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("ClonePermissions")]
         public System.Boolean ClonePermission { get; set; }
+        #endregion
         
+        #region Parameter CustomJson
         /// <summary>
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It is used to override the corresponding
@@ -107,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomJson { get; set; }
+        #endregion
         
+        #region Parameter DefaultAvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The cloned stack's default Availability Zone, which must be in the specified region.
@@ -119,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DefaultAvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter DefaultInstanceProfileArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all
@@ -129,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DefaultInstanceProfileArn { get; set; }
+        #endregion
         
+        #region Parameter DefaultOs
         /// <summary>
         /// <para>
         /// <para>The stack's operating system, which must be set to one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
@@ -146,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DefaultOs { get; set; }
+        #endregion
         
+        #region Parameter DefaultRootDeviceType
         /// <summary>
         /// <para>
         /// <para>The default root device type. This value is used by default for all instances in the
@@ -156,8 +176,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.RootDeviceType")]
         public Amazon.OpsWorks.RootDeviceType DefaultRootDeviceType { get; set; }
+        #endregion
         
+        #region Parameter DefaultSshKeyName
         /// <summary>
         /// <para>
         /// <para>A default Amazon EC2 key pair name. The default value is none. If you specify a key
@@ -172,7 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DefaultSshKeyName { get; set; }
+        #endregion
         
+        #region Parameter DefaultSubnetId
         /// <summary>
         /// <para>
         /// <para>The stack's default VPC subnet ID. This parameter is required if you specify a value
@@ -185,7 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DefaultSubnetId { get; set; }
+        #endregion
         
+        #region Parameter HostnameTheme
         /// <summary>
         /// <para>
         /// <para>The stack's host name theme, with spaces are replaced by underscores. The theme is
@@ -197,7 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HostnameTheme { get; set; }
+        #endregion
         
+        #region Parameter ChefConfiguration_ManageBerkshelf
         /// <summary>
         /// <para>
         /// <para>Whether to enable Berkshelf.</para>
@@ -205,7 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ChefConfiguration_ManageBerkshelf { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationManager_Name
         /// <summary>
         /// <para>
         /// <para>The name. This parameter must be set to "Chef".</para>
@@ -213,7 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigurationManager_Name { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The cloned stack name.</para>
@@ -221,7 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Password
         /// <summary>
         /// <para>
         /// <para>When included in a request, the parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
@@ -232,7 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomCookbooksSource_Password { get; set; }
+        #endregion
         
+        #region Parameter StackRegion
         /// <summary>
         /// <para>
         /// <para>The cloned stack AWS region, such as "us-east-1". For more information about AWS regions,
@@ -242,7 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String StackRegion { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Revision
         /// <summary>
         /// <para>
         /// <para>The application's version. AWS OpsWorks enables you to easily deploy new versions
@@ -252,7 +291,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomCookbooksSource_Revision { get; set; }
+        #endregion
         
+        #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
         /// <para>The stack AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks
@@ -268,7 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRoleArn { get; set; }
+        #endregion
         
+        #region Parameter SourceStackId
         /// <summary>
         /// <para>
         /// <para>The source stack ID.</para>
@@ -276,7 +319,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceStackId { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_SshKey
         /// <summary>
         /// <para>
         /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
@@ -285,15 +330,20 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomCookbooksSource_SshKey { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Type
         /// <summary>
         /// <para>
         /// <para>The repository type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.SourceType")]
         public Amazon.OpsWorks.SourceType CustomCookbooksSource_Type { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Url
         /// <summary>
         /// <para>
         /// <para>The source URL. </para>
@@ -301,7 +351,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomCookbooksSource_Url { get; set; }
+        #endregion
         
+        #region Parameter UseCustomCookbook
         /// <summary>
         /// <para>
         /// <para>Whether to use custom cookbooks.</para>
@@ -310,7 +362,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("UseCustomCookbooks")]
         public System.Boolean UseCustomCookbook { get; set; }
+        #endregion
         
+        #region Parameter UseOpsworksSecurityGroup
         /// <summary>
         /// <para>
         /// <para>Whether to associate the AWS OpsWorks built-in security groups with the stack's layers.</para><para>AWS OpsWorks provides a standard set of built-in security groups, one for each layer,
@@ -330,7 +384,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("UseOpsworksSecurityGroups")]
         public System.Boolean UseOpsworksSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Username
         /// <summary>
         /// <para>
         /// <para>This parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM
@@ -340,7 +396,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomCookbooksSource_Username { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationManager_Version
         /// <summary>
         /// <para>
         /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
@@ -349,7 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigurationManager_Version { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC that the cloned stack is to be launched into. It must be in the
@@ -366,7 +426,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -374,7 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

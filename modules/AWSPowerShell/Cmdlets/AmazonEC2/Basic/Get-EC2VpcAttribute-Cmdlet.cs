@@ -39,14 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VpcAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The VPC attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.VpcAttributeName")]
         public Amazon.EC2.VpcAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC.</para>
@@ -54,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VpcId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

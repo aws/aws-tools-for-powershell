@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class DisableRSSnapshotCopyCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the source cluster that you want to disable copying of snapshots
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

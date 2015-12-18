@@ -58,6 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class NewMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</para>
@@ -66,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
         public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter MLModelName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>MLModel</code>.</para>
@@ -75,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("Name")]
         public System.String MLModelName { get; set; }
+        #endregion
         
+        #region Parameter MLModelType
         /// <summary>
         /// <para>
         /// <para>The category of supervised learning that this <code>MLModel</code> will address. Choose
@@ -88,8 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ModelType")]
+        [AWSConstantClassSource("Amazon.MachineLearning.MLModelType")]
         public Amazon.MachineLearning.MLModelType MLModelType { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of the training parameters in the <code>MLModel</code>. The list is implemented
@@ -113,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public System.Collections.Hashtable Parameter { get; set; }
+        #endregion
         
+        #region Parameter Recipe
         /// <summary>
         /// <para>
         /// <para>The data recipe for creating <code>MLModel</code>. You must specify either the recipe
@@ -122,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Recipe { get; set; }
+        #endregion
         
+        #region Parameter RecipeUri
         /// <summary>
         /// <para>
         /// <para>The Amazon Simple Storage Service (Amazon S3) location and file name that contains
@@ -132,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RecipeUri { get; set; }
+        #endregion
         
+        #region Parameter TrainingDataSourceId
         /// <summary>
         /// <para>
         /// <para>The <code>DataSource</code> that points to the training data.</para>
@@ -140,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TrainingDataSourceId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -148,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

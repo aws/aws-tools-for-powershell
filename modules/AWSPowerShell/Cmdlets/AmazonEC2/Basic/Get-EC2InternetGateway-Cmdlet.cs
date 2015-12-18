@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2InternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>attachment.state</code> - The current state of the attachment between the gateway
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter InternetGatewayId
         /// <summary>
         /// <para>
         /// <para>One or more Internet gateway IDs.</para><para>Default: Describes all your Internet gateways.</para>
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InternetGatewayIds")]
         public System.String[] InternetGatewayId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

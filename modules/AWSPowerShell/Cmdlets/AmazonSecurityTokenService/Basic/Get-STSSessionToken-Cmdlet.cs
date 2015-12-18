@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     )]
     public class GetSTSSessionTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
         /// <para>The duration, in seconds, that the credentials should remain valid. Acceptable durations
@@ -84,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DurationSeconds")]
         public System.Int32 DurationInSeconds { get; set; }
+        #endregion
         
+        #region Parameter SerialNumber
         /// <summary>
         /// <para>
         /// <para>The identification number of the MFA device that is associated with the IAM user who
@@ -98,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String SerialNumber { get; set; }
+        #endregion
         
+        #region Parameter TokenCode
         /// <summary>
         /// <para>
         /// <para>The value provided by the MFA device, if MFA is required. If any policy requires the
@@ -110,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String TokenCode { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

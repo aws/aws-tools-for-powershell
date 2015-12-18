@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     )]
     public class NewCCBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter BranchName
         /// <summary>
         /// <para>
         /// <para>The name of the new branch to create.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BranchName { get; set; }
+        #endregion
         
+        #region Parameter CommitId
         /// <summary>
         /// <para>
         /// <para>The ID of the commit to point the new branch to.</para><note>If this commit ID is not specified, the new branch will point to the commit
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CommitId { get; set; }
+        #endregion
         
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The name of the repository in which you want to create the new branch.</para>
@@ -66,14 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RepositoryName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RepositoryName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

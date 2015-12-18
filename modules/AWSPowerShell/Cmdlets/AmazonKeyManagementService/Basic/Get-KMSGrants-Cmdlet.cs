@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class GetKMSGrantsCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key. This value can be a globally unique
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>When paginating results, specify the maximum number of items to return in the response.
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only in a subsequent request after
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

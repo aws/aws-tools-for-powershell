@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class GetCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which are not always
@@ -56,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

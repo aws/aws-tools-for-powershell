@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("EnvironmentIds")]
         public System.String[] EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnvironmentNames")]
         public System.String[] EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter IncludedDeletedBackTo
         /// <summary>
         /// <para>
         /// <para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime IncludedDeletedBackTo { get; set; }
+        #endregion
         
+        #region Parameter IncludeDeleted
         /// <summary>
         /// <para>
         /// <para>Indicates whether to include deleted environments: </para><para><code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code>
@@ -85,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean IncludeDeleted { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -94,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

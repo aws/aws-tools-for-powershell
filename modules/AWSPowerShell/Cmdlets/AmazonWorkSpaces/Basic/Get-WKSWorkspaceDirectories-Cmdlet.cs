@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     )]
     public class GetWKSWorkspaceDirectoriesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// <para>An array of strings that contains the directory identifiers to retrieve information
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DirectoryIds")]
         public System.String[] DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
@@ -67,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

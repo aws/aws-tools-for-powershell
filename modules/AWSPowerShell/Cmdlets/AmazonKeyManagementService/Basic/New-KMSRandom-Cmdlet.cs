@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class NewKMSRandomCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NumberOfBytes
         /// <summary>
         /// <para>
         /// <para>Integer that contains the number of bytes to generate. Common values are 128, 256,
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.Int32 NumberOfBytes { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

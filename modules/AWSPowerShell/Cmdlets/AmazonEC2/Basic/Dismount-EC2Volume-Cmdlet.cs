@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class DismountEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Device
         /// <summary>
         /// <para>
         /// <para>The device name.</para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Device { get; set; }
+        #endregion
         
+        #region Parameter ForceDismount
         /// <summary>
         /// <para>
         /// <para>Forces detachment if the previous detachment attempt did not occur cleanly (for example,
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ForceDismount { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter VolumeId
         /// <summary>
         /// <para>
         /// <para>The ID of the volume.</para>
@@ -89,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String VolumeId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -97,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class GetHSMLunaClientListCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <i>NextToken</i> value from a previous call to <a>ListLunaClients</a>. Pass null
@@ -56,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

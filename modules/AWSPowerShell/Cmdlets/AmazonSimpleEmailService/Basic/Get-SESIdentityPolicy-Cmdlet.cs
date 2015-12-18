@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class GetSESIdentityPolicyCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>The identity for which the policies will be retrieved. You can specify an identity
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Identity { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>A list of the names of policies to be retrieved. You can retrieve a maximum of 20
@@ -71,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("PolicyNames")]
         public System.String[] PolicyName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

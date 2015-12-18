@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMRolePolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy document to get.</para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter RoleName
         /// <summary>
         /// <para>
         /// <para>The name of the role associated with the policy.</para>
@@ -68,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RoleName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -42,6 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         private const string CannedPolicyParameterSet = "CannedPolicyParameterSet";
         private const string CustomPolicyParameterSet = "CustomPolicyParameterSet";
 
+        #region Parameter ResourceUri
         /// <summary>
         /// The URL or path that uniquely identifies a resource within a
         /// distribution. For standard distributions the resource URL will
@@ -54,37 +55,48 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [Parameter(Mandatory = true)]
         public System.Uri ResourceUri { get; set; }
+        #endregion
 
+        #region Parameter KeyPairId
         /// <summary>
         /// The key pair id corresponding to the private key file given.
         /// </summary>
         [Parameter(Mandatory = true)]
         public System.String KeyPairId { get; set; }
+        #endregion
 
+        #region Parameter PrivateKeyFile
         /// <summary>
         /// The private key file. RSA private key (.pem) are supported.
         /// </summary>
         [Parameter(Mandatory = true)]
         public System.String PrivateKeyFile { get; set; }
+        #endregion
 
+        #region Parameter ExpiresOn
         /// <summary>
         /// The expiration date till which content can be accessed using the generated cookies.
         /// </summary>
         [Parameter(Mandatory = true)]
         public System.DateTime ExpiresOn { get; set; }
+        #endregion
 
+        #region Parameter ActiveFrom
         /// <summary>
         /// The date from which content can be accessed using the generated cookies.
         /// </summary>
         [Parameter(ParameterSetName = CustomPolicyParameterSet)]
         public System.DateTime ActiveFrom { get; set; }
+        #endregion
 
+        #region Parameter IpRange
         /// <summary>
         /// The allowed IP address range of the client making the GET request, in CIDR form (e.g. 192.168.0.1/24).
-       ///  If not specified, a CIDR of 0.0.0.0/0 (i.e. no IP restriction) is used.
+        ///  If not specified, a CIDR of 0.0.0.0/0 (i.e. no IP restriction) is used.
         /// </summary>
         [Parameter(ParameterSetName = CustomPolicyParameterSet)]
         public System.String IpRange { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {
