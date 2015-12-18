@@ -22,40 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudTrail;
-using Amazon.CloudTrail.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CT
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes a trail. This operation must be called from the region in which the trail
-    /// was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated
-    /// trails in other regions) of a trail that is enabled in all regions.
+    /// Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic
+    /// IP address, but does not release the address from your account. Deleting a NAT gateway
+    /// does not delete any NAT gateway routes in your route tables.
     /// </summary>
-    [Cmdlet("Remove", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteTrail operation against AWS CloudTrail.", Operation = new[] {"DeleteTrail"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudTrail.Model.DeleteTrailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the DeleteNatGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteNatGateway"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.EC2.Model.DeleteNatGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class RemoveCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public class RemoveEC2NatGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         /// <summary>
         /// <para>
-        /// <para>Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of
-        /// a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
+        /// <para>The ID of the NAT gateway.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Name { get; set; }
-        
-        /// <summary>
-        /// Returns the value passed to the Name parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String NatGatewayId { get; set; }
         
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -70,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CTTrail (DeleteTrail)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("NatGatewayId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2NatGateway (DeleteNatGateway)"))
             {
                 return;
             }
@@ -82,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 Credentials = this.CurrentCredentials
             };
             
-            context.Name = this.Name;
+            context.NatGatewayId = this.NatGatewayId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -94,11 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudTrail.Model.DeleteTrailRequest();
+            var request = new Amazon.EC2.Model.DeleteNatGatewayRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.NatGatewayId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.NatGatewayId = cmdletContext.NatGatewayId;
             }
             
             CmdletOutput output;
@@ -107,11 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DeleteTrail(request);
+                var response = client.DeleteNatGateway(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.Name;
+                object pipelineOutput = response.NatGatewayId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -137,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
+            public System.String NatGatewayId { get; set; }
         }
         
     }

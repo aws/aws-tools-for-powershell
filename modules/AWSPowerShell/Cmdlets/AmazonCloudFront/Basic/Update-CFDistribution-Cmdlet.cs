@@ -68,9 +68,37 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         /// <summary>
         /// <para>
-        /// If you want viewers to use
-        /// HTTPS to request your objects and you're using the CloudFront domain name of your
-        /// distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
+        /// If you want viewers to use HTTPS to request
+        /// your objects and you're using an alternate domain name in your object URLs (for example,
+        /// https://example.com/logo.jpg), set to the IAM certificate identifier of the custom
+        /// viewer certificate for this distribution.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_ViewerCertificate_Certificate")]
+        public System.String ViewerCertificate_Certificate { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// If you want viewers to use HTTPS to
+        /// request your objects and you're using the CloudFront domain name of your distribution
+        /// in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
+        /// set to "cloudfront". If you want viewers to use HTTPS to request your objects and
+        /// you're using an alternate domain name in your object URLs (for example, https://example.com/logo.jpg),
+        /// set to "iam", and update the Certificate field with the IAM certificate identifier
+        /// of the custom viewer certificate for this distribution.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_ViewerCertificate_CertificateSource")]
+        public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Note: this field is deprecated.
+        /// Please use "cloudfront" as CertificateSource and omit specifying a Certificate. If
+        /// you want viewers to use HTTPS to request your objects and you're using the CloudFront
+        /// domain name of your distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
         /// set to true. Omit this value if you are setting an IAMCertificateId.
         /// </para>
         /// </summary>
@@ -85,6 +113,28 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DistributionConfig_Comment { get; set; }
+        
+        /// <summary>
+        /// <para>
+        /// Whether you want CloudFront to automatically
+        /// compress content for web requests that include Accept-Encoding: gzip in the request
+        /// header. If so, specify true; if not, specify false. CloudFront compresses files larger
+        /// than 1000 bytes and less than 1 megabyte for both Amazon S3 and custom origins. When
+        /// a CloudFront edge location is unusually busy, some files might not be compressed.
+        /// The value of the Content-Type header must be on the list of file types that CloudFront
+        /// will compress. For the current list, see <a href="http://docs.aws.amazon.com/console/cloudfront/compressed-content">Serving
+        /// Compressed Content</a> in the Amazon CloudFront Developer Guide. If you configure
+        /// CloudFront to compress content, CloudFront removes the ETag response header from the
+        /// objects that it compresses. The ETag header indicates that the version in a CloudFront
+        /// edge cache is identical to the version on the origin server, but after compression
+        /// the two versions are no longer identical. As a result, for compressed objects, CloudFront
+        /// can't use the ETag header to determine whether an expired object in the CloudFront
+        /// edge cache is still the latest version.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_DefaultCacheBehavior_Compress")]
+        public System.Boolean DefaultCacheBehavior_Compress { get; set; }
         
         /// <summary>
         /// <para>
@@ -164,10 +214,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         /// <summary>
         /// <para>
-        /// If you want viewers to use HTTPS to request
-        /// your objects and you're using an alternate domain name in your object URLs (for example,
-        /// https://example.com/logo.jpg), specify the IAM certificate identifier of the custom
-        /// viewer certificate for this distribution. Specify either this value or CloudFrontDefaultCertificate.
+        /// Note: this field is deprecated. Please
+        /// use "iam" as CertificateSource and specify the IAM certificate Id as the Certificate.
+        /// If you want viewers to use HTTPS to request your objects and you're using an alternate
+        /// domain name in your object URLs (for example, https://example.com/logo.jpg), specify
+        /// the IAM certificate identifier of the custom viewer certificate for this distribution.
+        /// Specify either this value or CloudFrontDefaultCertificate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -627,6 +679,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             if (ParameterWasBound("AllowedMethods_Quantity"))
                 context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity = this.AllowedMethods_Quantity;
+            if (ParameterWasBound("DefaultCacheBehavior_Compress"))
+                context.DistributionConfig_DefaultCacheBehavior_Compress = this.DefaultCacheBehavior_Compress;
             if (ParameterWasBound("DefaultCacheBehavior_DefaultTTL"))
                 context.DistributionConfig_DefaultCacheBehavior_DefaultTTL = this.DefaultCacheBehavior_DefaultTTL;
             context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward = this.Cookies_Forward;
@@ -683,6 +737,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (ParameterWasBound("GeoRestriction_Quantity"))
                 context.DistributionConfig_Restrictions_GeoRestriction_Quantity = this.GeoRestriction_Quantity;
             context.DistributionConfig_Restrictions_GeoRestriction_RestrictionType = this.GeoRestriction_RestrictionType;
+            context.DistributionConfig_ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
+            context.DistributionConfig_ViewerCertificate_CertificateSource = this.ViewerCertificate_CertificateSource;
             if (ParameterWasBound("ViewerCertificate_CloudFrontDefaultCertificate"))
                 context.DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate = this.ViewerCertificate_CloudFrontDefaultCertificate;
             context.DistributionConfig_ViewerCertificate_IAMCertificateId = this.ViewerCertificate_IAMCertificateId;
@@ -1028,6 +1084,26 @@ namespace Amazon.PowerShell.Cmdlets.CF
              // populate ViewerCertificate
             bool requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = true;
             requestDistributionConfig_distributionConfig_ViewerCertificate = new Amazon.CloudFront.Model.ViewerCertificate();
+            System.String requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate = null;
+            if (cmdletContext.DistributionConfig_ViewerCertificate_Certificate != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate = cmdletContext.DistributionConfig_ViewerCertificate_Certificate;
+            }
+            if (requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate.Certificate = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate;
+                requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
+            }
+            Amazon.CloudFront.CertificateSource requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource = null;
+            if (cmdletContext.DistributionConfig_ViewerCertificate_CertificateSource != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource = cmdletContext.DistributionConfig_ViewerCertificate_CertificateSource;
+            }
+            if (requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate.CertificateSource = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource;
+                requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
+            }
             System.Boolean? requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate != null)
             {
@@ -1083,6 +1159,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
              // populate DefaultCacheBehavior
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = true;
             requestDistributionConfig_distributionConfig_DefaultCacheBehavior = new Amazon.CloudFront.Model.DefaultCacheBehavior();
+            System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress = null;
+            if (cmdletContext.DistributionConfig_DefaultCacheBehavior_Compress != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress = cmdletContext.DistributionConfig_DefaultCacheBehavior_Compress.Value;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.Compress = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress.Value;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             System.Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_DefaultTTL != null)
             {
@@ -1450,6 +1536,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity { get; set; }
             public List<System.String> DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items { get; set; }
             public System.Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity { get; set; }
+            public System.Boolean? DistributionConfig_DefaultCacheBehavior_Compress { get; set; }
             public System.Int64? DistributionConfig_DefaultCacheBehavior_DefaultTTL { get; set; }
             public Amazon.CloudFront.ItemSelection DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward { get; set; }
             public List<System.String> DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items { get; set; }
@@ -1477,6 +1564,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public List<System.String> DistributionConfig_Restrictions_GeoRestriction_Items { get; set; }
             public System.Int32? DistributionConfig_Restrictions_GeoRestriction_Quantity { get; set; }
             public Amazon.CloudFront.GeoRestrictionType DistributionConfig_Restrictions_GeoRestriction_RestrictionType { get; set; }
+            public System.String DistributionConfig_ViewerCertificate_Certificate { get; set; }
+            public Amazon.CloudFront.CertificateSource DistributionConfig_ViewerCertificate_CertificateSource { get; set; }
             public System.Boolean? DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
             public System.String DistributionConfig_ViewerCertificate_IAMCertificateId { get; set; }
             public Amazon.CloudFront.MinimumProtocolVersion DistributionConfig_ViewerCertificate_MinimumProtocolVersion { get; set; }

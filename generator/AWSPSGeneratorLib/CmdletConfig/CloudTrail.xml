@@ -35,12 +35,14 @@
 		<ServiceOperation MethodName="AddTags" Output="Void" PipelineParameter="ResourceId"/>	
 		<ServiceOperation MethodName="CreateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
 		<ServiceOperation MethodName="DeleteTrail" Output="Void" />
-		<ServiceOperation MethodName="DescribeTrails" >
+		<ServiceOperation MethodName="DescribeTrails" 
+            PipelineParameter="TrailNameList" 
+            PositionalParameters="TrailNameList;IncludeShadowTrails" >
           <Params>
             <Param Name="TrailNameList" Alias="Name" />
           </Params>
 		</ServiceOperation>
-		<ServiceOperation MethodName="GetTrailStatus" Output="Response" />
+		<ServiceOperation MethodName="GetTrailStatus" Output="Response"  PositionalParameters="Name" />
 		<ServiceOperation MethodName="LookupEvents" Verb="Find" />
 		<ServiceOperation MethodName="ListPublicKeys" />
 		<ServiceOperation MethodName="ListTags"/>

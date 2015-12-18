@@ -337,6 +337,10 @@
     <ServiceOperation MethodName="DescribeIdFormat"/>
     <ServiceOperation MethodName="ModifyIdFormat" Output="Void" PipelineParameter="Resource"/>
 
+    <ServiceOperation MethodName="CreateNatGateway" PipelineParameter="SubnetId" Output="Response" />
+    <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
+    <ServiceOperation MethodName="DeleteNatGateway" />
+
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic
