@@ -188,8 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_EmrManagedMasterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group (managed by Amazon ElasticMapReduce)
-        /// for the master node.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the master node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -199,8 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_EmrManagedSlaveSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group (managed by Amazon ElasticMapReduce)
-        /// for the slave nodes.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the slave nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -245,9 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter JobFlowRole
         /// <summary>
         /// <para>
-        /// <para>An IAM role for the job flow. The EC2 instances of the job flow assume this role.
-        /// The default role is <code>EMRJobflowDefault</code>. In order to use the default role,
-        /// you must have already created it using the CLI.</para>
+        /// <para>Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2
+        /// instances of the cluster assume this role. The default role is <code>EMR_EC2_DefaultRole</code>.
+        /// In order to use the default role, you must have already created it using the CLI or
+        /// console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -326,6 +325,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReleaseLabel { get; set; }
+        #endregion
+        
+        #region Parameter Instances_ServiceAccessSecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon EC2 security group for the Amazon EMR service to access
+        /// clusters in VPC private subnets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Instances_ServiceAccessSecurityGroup { get; set; }
         #endregion
         
         #region Parameter ServiceRole
@@ -475,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Instances_KeepJobFlowAliveWhenNoSteps = this.Instances_KeepJobFlowAliveWhenNoStep;
             context.Instances_MasterInstanceType = this.Instances_MasterInstanceType;
             context.Instances_Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.Instances_ServiceAccessSecurityGroup = this.Instances_ServiceAccessSecurityGroup;
             context.Instances_SlaveInstanceType = this.Instances_SlaveInstanceType;
             if (ParameterWasBound("Instances_TerminationProtected"))
                 context.Instances_TerminationProtected = this.Instances_TerminationProtected;
@@ -648,6 +659,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.MasterInstanceType = requestInstances_instances_MasterInstanceType;
                 requestInstancesIsNull = false;
             }
+            System.String requestInstances_instances_ServiceAccessSecurityGroup = null;
+            if (cmdletContext.Instances_ServiceAccessSecurityGroup != null)
+            {
+                requestInstances_instances_ServiceAccessSecurityGroup = cmdletContext.Instances_ServiceAccessSecurityGroup;
+            }
+            if (requestInstances_instances_ServiceAccessSecurityGroup != null)
+            {
+                request.Instances.ServiceAccessSecurityGroup = requestInstances_instances_ServiceAccessSecurityGroup;
+                requestInstancesIsNull = false;
+            }
             System.String requestInstances_instances_SlaveInstanceType = null;
             if (cmdletContext.Instances_SlaveInstanceType != null)
             {
@@ -790,6 +811,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.Boolean? Instances_KeepJobFlowAliveWhenNoSteps { get; set; }
             public System.String Instances_MasterInstanceType { get; set; }
             public System.String Instances_Placement_AvailabilityZone { get; set; }
+            public System.String Instances_ServiceAccessSecurityGroup { get; set; }
             public System.String Instances_SlaveInstanceType { get; set; }
             public System.Boolean? Instances_TerminationProtected { get; set; }
             public System.String JobFlowRole { get; set; }
