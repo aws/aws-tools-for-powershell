@@ -26,6 +26,7 @@
     <Path>DynamoDB.xml</Path>
     <Path>DynamoDBStreams.xml</Path>
     <Path>EC2.xml</Path>
+    <Path>ECR.xml</Path>
     <Path>ECS.xml</Path>
     <Path>EFS.xml</Path>
     <Path>ElastiCache.xml</Path>

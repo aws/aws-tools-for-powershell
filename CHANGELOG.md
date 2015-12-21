@@ -1,3 +1,13 @@
+### 3.1.36.0 (2015-12-21)
+  * Set-AWSSamlRoleProfile
+    - Fixed issue in parsing SAML assertions containing role ARNs from different accounts with the same role names.
+  * Amazon EC2 Container Registry (ECR)
+    - Added support for the new EC2 Container Registry service, a secure, fully-managed Docker image registry that makes it easy for developers to store and retrieve Docker container images. The cmdlets for the service have the noun prefix 'ECR' and can be enumerated using the command 'Get-AWSCmdletName -Service ecr'.
+  * Amazon ECS
+    - Add support for deployment configurations to New/Update-ECSService cmdlets.
+  * Amazon Elastic MapReduce
+    - Update Start-EMRJobFLow cmdlet to accept the Instances_ServiceAccessSecurityGroup parameter.
+
 ### 3.1.35.0 (2015-12-17)
   * Fixed issue in AWS SDK for .NET causing 'Path cannot be the empty string or all whitespace' errors being output when running cmdlets on systems with account that had no home or profile folder (https://github.com/aws/aws-sdk-net/issues/287).
   * Amazon EC2

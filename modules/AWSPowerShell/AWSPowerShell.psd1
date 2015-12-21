@@ -75,6 +75,7 @@ RequiredAssemblies = @(
   "AWSSDK.DirectoryService.dll",
   "AWSSDK.DynamoDBv2.dll",
   "AWSSDK.EC2.dll",
+  "AWSSDK.ECR.dll",
   "AWSSDK.ECS.dll",
   "AWSSDK.ElastiCache.dll",
   "AWSSDK.ElasticBeanstalk.dll",
