@@ -143,7 +143,18 @@ namespace AWSPowerShellGenerator.Analysis
         public Type RequestType { get; private set; }
 
         /// <summary>
-        /// The output type of the method that contains the actual result data
+        /// The SDK type holding the full response data from the api call.
+        /// The true output will be either one or more members of this type
+        /// or a nested type. The result analyzer will determine which should
+        /// be used.
+        /// </summary>
+        public Type ResponseType { get; private set; }
+
+        /// <summary>
+        /// The output type of the method that contains the actual result data.
+        /// Usually the same as ResponseType except for scenarios where the SDK
+        /// generator has wrapped the true output into another type addressed
+        /// by a member of ResponseType.
         /// </summary>
         public Type ReturnType { get; private set; }
 
@@ -402,7 +413,24 @@ namespace AWSPowerShellGenerator.Analysis
             Method = methodInfo;
 
             RequestType = GetRequestType(methodInfo);
-            ReturnType = methodInfo.ReturnType;
+            ResponseType = methodInfo.ReturnType;
+
+            if (string.IsNullOrEmpty(CurrentOperation.OutputWrapper))
+                ReturnType = ResponseType;
+            else
+            {
+                // the true return type exists as a nested member inside the
+                // method response type so we must go one layer deeper to get
+                // at the class containing the data to analyze for output
+                var outputMember = ResponseType.GetMember(CurrentOperation.OutputWrapper).FirstOrDefault();
+                if (outputMember != null && outputMember.MemberType == MemberTypes.Property)
+                    ReturnType = ((PropertyInfo)outputMember).PropertyType;
+                else
+                {
+                    Logger.LogError("OutputWrapper configured for '{0}' but member property not found in SDK response type.", CurrentOperation.OutputWrapper);
+                    return;
+                }
+            }
 
             // determine cmdlet verb/noun based on inspection or config directions
             if (!DetermineVerbAndNoun(generator))
