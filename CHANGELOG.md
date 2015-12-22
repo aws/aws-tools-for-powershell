@@ -1,3 +1,8 @@
+### 3.1.36.1 (2015-12-22)
+  * Initialize-AWSDefaults
+    - Fixed further reported issue with the cmdlet reporting 'profile not found' error with no profile name detailed.
+    - Fixed null reference error when running on EC2 instance launched with instance profile (for credentials), when trying to save profile containing only region data.
+
 ### 3.1.36.0 (2015-12-21)
   * Set-AWSSamlRoleProfile
     - Fixed issue in parsing SAML assertions containing role ARNs from different accounts with the same role names.
