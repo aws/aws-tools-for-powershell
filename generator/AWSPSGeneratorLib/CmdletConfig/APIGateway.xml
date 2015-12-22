@@ -12,6 +12,7 @@
                Next="Position" />
 
   <PipelineByValueProperties>
+    <Property>ClientCertificateId</Property>
     <Property>RestApiId</Property>
     <Property>DeploymentId</Property>
     <Property>ResourceId</Property>

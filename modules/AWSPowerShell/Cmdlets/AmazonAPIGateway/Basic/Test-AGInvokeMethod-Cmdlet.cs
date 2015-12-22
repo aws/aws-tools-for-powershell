@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientCertificateId { get; set; }
         #endregion
         
