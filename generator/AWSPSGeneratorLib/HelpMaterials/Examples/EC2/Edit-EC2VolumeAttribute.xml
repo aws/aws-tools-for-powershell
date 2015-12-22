@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Edit-EC2VolumeAttribute -VolumeId "vol-1a2b3c4d" -AutoEnableIO $true</code>
-    <description>This example modifies the attribute of the volume vol-1a2b3c4d so that I/O operations are automatically resumed after being suspended due to potentially inconsistent data. Specify '-AutoEnableIO $false' to turn off automatic resumption of I/O operations. We recommend that you change this attribute only for volumes that are stateless, or disposable, or for boot volumes.</description>
+    <code>PS C:\> Edit-EC2VolumeAttribute -VolumeId vol-12345678 -AutoEnableIO $true</code>
+    <description>This example modifies the specified attribute of the specified volume. I/O operations for the volume are automatically resumed after being suspended due to potentially inconsistent data.</description>
   </example>
 </examples>

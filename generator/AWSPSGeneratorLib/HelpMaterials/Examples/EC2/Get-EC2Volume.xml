@@ -1,58 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>Get-EC2Volume
+    <code>PS C:\> Get-EC2Volume -VolumeId vol-12345678
 
-VolumeId         : vol-123456
-Size             : 8
-SnapshotId       : snap-123456
-AvailabilityZone : us-west-2c
-State            : available
-CreateTime       : 7/17/2013 4:35:19 PM
 Attachments      : {}
+AvailabilityZone : us-west-2c
+CreateTime       : 7/17/2015 4:35:19 PM
+Encrypted        : False
+Iops             : 90
+KmsKeyId         :
+Size             : 30
+SnapshotId       : snap-12345678
+State            : in-use
 Tags             : {}
-VolumeType       : standard
-IOPS             :
+VolumeId         : vol-12345678
+VolumeType       : standard</code>
+    <description>This example describes the specified EBS volume.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Volume -Filter @{ Name="status"; Values="available" }
 
-VolumeId         : vol-654321
-Size             : 200
+Attachments      : {}
+AvailabilityZone : us-west-2c
+CreateTime       : 12/21/2015 2:31:29 PM
+Encrypted        : False
+Iops             : 60
+KmsKeyId         :
+Size             : 20
+SnapshotId       : snap-12345678
+State            : available
+Tags             : {}
+VolumeId         : vol-12345678
+VolumeType       : gp2
 ...
     </code>
-    <description>Returns the collection of volumes.</description>
+    <description>This example describes your EBS volumes that have the status 'available'.</description>
   </example>
   <example>
-    <code>
-PS C:\>Get-EC2Volume -Filter @{ Name="status"; Values="available" }
-
-VolumeId         : vol-123456
-Size             : 8
-SnapshotId       : snap-123456
-AvailabilityZone : us-west-2c
-State            : available
-CreateTime       : 7/17/2013 4:35:19 PM
-Attachments      : {}
-Tags             : {}
-VolumeType       : standard
-IOPS             :
-    </code>
-    <description>Returns the collection of volumes that have the status 'available'.</description>
-  </example>
-  <example>
-    <code>
-PS C:\>Get-EC2Volume -Filter @{ Name="status"; Values=@("available", "in-use") }
-
-  VolumeId         : vol-123456
-  Size             : 8
-  SnapshotId       : snap-123456
-  AvailabilityZone : us-west-2c
-  State            : available
-  CreateTime       : 7/17/2013 4:35:19 PM
-  Attachments      : {}
-  Tags             : {}
-  VolumeType       : standard
-  IOPS             :
-    </code>
-    <description>Returns the collection of volumes that have the status 'available' or 'in-use'.</description>
+    <code>PS C:\> Get-EC2Volume</code>
+    <description>This example describes all your EBS volumes.</description>
   </example>
 </examples>

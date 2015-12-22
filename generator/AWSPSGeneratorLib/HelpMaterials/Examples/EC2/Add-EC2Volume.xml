@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Add-EC2Volume -VolumeId "vol-1a2b3c4d" -InstanceId "i-1a2b3c4d" -Device "/dev/sdh"</code>
-    <description>Attaches the volume with the ID "vol-1a2b3c4d" to the instance with the ID "i-1a2b3c4d" and exposes it as "/dev/sdh".</description>
+    <code>PS C:\> Add-EC2Volume -VolumeId vol-12345678 -InstanceId i-1a2b3c4d -Device /dev/sdh
+    
+AttachTime          : 12/22/2015 1:53:58 AM
+DeleteOnTermination : False
+Device              : /dev/sdh
+InstanceId          : i-1a2b3c4d
+State               : attaching
+VolumeId            : vol-12345678</code>
+    <description>This example attaches the specified volume to the specified instance and exposes it with the specified device name.</description>
   </example>
 </examples>
