@@ -821,6 +821,8 @@ namespace Amazon.PowerShell.Common
         {
             var allSettings = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
             var os = FindSetting(allSettings, profileName);
+            if (os == null)
+                return;
 
             foreach (var k in keysToRemove)
             {
@@ -840,6 +842,12 @@ namespace Amazon.PowerShell.Common
         {
             var allProfiles = PersistenceManager.Instance.GetSettings(SettingsConstants.RegisteredProfiles);
             var os = FindSetting(allProfiles, profileName);
+            if (os == null)
+            {
+                os = allProfiles.NewObjectSettings(Guid.NewGuid().ToString());
+                os[SettingsConstants.DisplayNameField] = profileName;
+            }
+
             os[RegionField] = region;
             PersistenceManager.Instance.SaveSettings(SettingsConstants.RegisteredProfiles, allProfiles);
         }
