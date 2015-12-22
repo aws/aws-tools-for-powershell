@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// use by customers. Use the <code>docker</code> CLI to pull, tag, and push images.
     /// </para></note>
     /// </summary>
-    [Cmdlet("Send", "ECRLayerPart", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Send", "ECRLayerPart", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = ParamSet_FromTextBlob)]
     [OutputType("Amazon.ECR.Model.UploadLayerPartResponse")]
     [AWSCmdlet("Invokes the UploadLayerPart operation against Amazon EC2 Container Registry.", Operation = new[] {"UploadLayerPart"})]
     [AWSCmdletOutput("Amazon.ECR.Model.UploadLayerPartResponse",
@@ -44,13 +44,34 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     )]
     public class SendECRLayerPartCmdlet : AmazonECRClientCmdlet, IExecutor
     {
-        
+        const string ParamSet_FromTextBlob = "FromTextBlob";
+        const string ParamSet_FromBytes = "FromBytes";
+        const string ParamSet_FromStream = "FromStream";
+
         #region Parameter LayerPartBlob
         /// <summary>
-        /// The layer part payload. The supplied value will be encoded as a base-64 string prior to upload.
+        /// The layer part payload as text. The supplied value will be encoded as a base-64 string 
+        /// by the cmdlet prior to upload.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipeline = true, ParameterSetName = ParamSet_FromTextBlob, Mandatory = true)]
         public System.String LayerPartBlob { get; set; }
+        #endregion
+
+        #region Parameter LayerPartBytes
+        /// <summary>
+        /// The layer part payload as a byte array. The supplied value will be encoded as a base-64 string 
+        /// by the cmdlet prior to upload.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipeline = true, ParameterSetName = ParamSet_FromBytes, Mandatory = true)]
+        public byte[] LayerPartBytes { get; set; }
+        #endregion
+
+        #region Parameter LayerPartStream
+        /// <summary>
+        /// The base64-encoded layer part payload.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipeline = true, ParameterSetName = ParamSet_FromStream, Mandatory = true)]
+        public System.IO.MemoryStream LayerPartStream { get; set; }
         #endregion
 
         #region Parameter PartFirstByte
@@ -132,6 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             };
             
             context.LayerPartBlob = this.LayerPartBlob;
+            context.LayerPartBytes = this.LayerPartBytes;
+
             if (ParameterWasBound("PartFirstByte"))
                 context.PartFirstByte = this.PartFirstByte;
             if (ParameterWasBound("PartLastByte"))
@@ -153,11 +176,17 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             var request = new Amazon.ECR.Model.UploadLayerPartRequest();
 
             System.IO.MemoryStream layerPartStream = null;
-            if (cmdletContext.LayerPartBlob != null)
+            if (ParameterWasBound("LayerPartStream"))
+                layerPartStream = cmdletContext.LayerPartStream;
+            else
             {
-                var base64Blob = Convert.ToBase64String(Encoding.UTF8.GetBytes(cmdletContext.LayerPartBlob));
-                var asBytes = Encoding.UTF8.GetBytes(base64Blob);
+                string base64Blob;
+                if (ParameterWasBound("LayerPartBlob"))
+                    base64Blob = Convert.ToBase64String(Encoding.UTF8.GetBytes(cmdletContext.LayerPartBlob));
+                else
+                    base64Blob = Convert.ToBase64String(cmdletContext.LayerPartBytes);
 
+                var asBytes = Encoding.UTF8.GetBytes(base64Blob);
                 var ms = new MemoryStream();
                 ms.Write(asBytes, 0, asBytes.Length);
                 ms.Seek(0, SeekOrigin.Begin);
@@ -165,10 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 layerPartStream = ms;
             }
 
-            if (cmdletContext.LayerPartBlob != null)
-            {
-                request.LayerPartBlob = layerPartStream;
-            }
+            request.LayerPartBlob = layerPartStream;
+
             if (cmdletContext.PartFirstByte != null)
             {
                 request.PartFirstByte = cmdletContext.PartFirstByte.Value;
@@ -225,6 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         internal class CmdletContext : ExecutorContext
         {
             public System.String LayerPartBlob { get; set; }
+            public byte[] LayerPartBytes { get; set; }
+            public System.IO.MemoryStream LayerPartStream { get; set; }
             public System.Int64? PartFirstByte { get; set; }
             public System.Int64? PartLastByte { get; set; }
             public System.String RegistryId { get; set; }
