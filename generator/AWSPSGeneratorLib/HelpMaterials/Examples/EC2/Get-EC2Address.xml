@@ -1,39 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>Get-EC2Address
-
-InstanceId              :
-PublicIp                : 192.0.2.1
+    <code>PS C:\> Get-EC2Address -AllocationId eipalloc-12345678
+    
+AllocationId            : eipalloc-12345678
+AssociationId           : eipassoc-12345678
+Domain                  : vpc
+InstanceId              : i-87654321
+NetworkInterfaceId      : eni-12345678
+NetworkInterfaceOwnerId : 12345678
+PrivateIpAddress        : 10.0.2.172
+PublicIp                : 198.51.100.2</code>
+    <description>This example describes the specified Elastic IP address for instances in EC2-Classic.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Address -Filter @{ Name="domain";Value="vpc" }</code>
+    <description>This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Address -PublicIp 203.0.113.17
+    
 AllocationId            :
 AssociationId           :
 Domain                  : standard
+InstanceId              : i-12345678
 NetworkInterfaceId      :
 NetworkInterfaceOwnerId :
 PrivateIpAddress        :
-    </code>
-    <description>Returns details of all your Elastic IP addresses.</description>
+PublicIp                : 203.0.113.17</code>
+    <description>This example describes the specified Elastic IP address for instances in EC2-Classic.</description>
   </example>
   <example>
-    <code>Get-EC2Address -PublicIp @( "192.0.2.1", "198.51.100.2" )</code>
-    <description>This example request describes two specific Elastic IP addresses allocated to your account. Both addresses were created for instances in EC2-Classic, so you must specify them using their IP addresses.</description>
+    <code>PS C:\> Get-EC2Address -Filter @{ Name="domain";Value="standard" }</code>
+    <description>This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.</description>
   </example>
   <example>
-    <code>
-# to specify more than one allocation id, use array syntax e.g. -AllocationId @( "eipalloc-08229861", "eipalloc-16892280" )
-PS C:\>Get-EC2Address -AllocationId "eipalloc-08229861"
-    </code>
-    <description>This example request describes two specific Elastic IP addresses allocated to your account. Both addresses were created for instances in EC2-Classic, so you must specify them using their IP addresses.</description>
-  </example>
-  <example>
-    <code>
-PS C:\>$filter = New-Object Amazon.EC2.Model.Filter
-PS C:\>$filter.Name = "domain"
-PS C:\>$filter.Value = "vpc"
-
-PS C:\>Get-EC2Address -Filter $filter
-    </code>
-    <description>This example returns your Elastic IP addresses for EC2-VPC only. If you are using PowerShell v3 or higher, this can be expressed as 'Get-EC2Address -Filters @{ Name="domain";Value="vpc" }'.</description>
+    <code>PS C:\> Get-EC2Address</code>
+    <description>This example describes all your Elastic IP addresses.</description>
   </example>
 </examples>

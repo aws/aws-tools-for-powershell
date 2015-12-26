@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>New-EC2Address</code>
-    <description>Acquires an Elastic IP address for use in EC2-Classic (non-VPC).</description>
+    <code>PS C:\> New-EC2Address -Domain Vpc
+    
+AllocationId         Domain      PublicIp
+------------         ------      --------
+eipalloc-12345678    vpc         198.51.100.2
+</code>
+    <description>This example allocates an Elastic IP address to use with an instance in a VPC.</description>
   </example>
   <example>
-    <code>New-EC2Address -Domain "vpc"</code>
-    <description>Acquires an Elastic IP address for use in a VPC.</description>
+    <code>PS C:\> New-EC2Address
+    
+AllocationId         Domain      PublicIp
+------------         ------      --------
+                     standard    203.0.113.17</code>
+    <description>This example allocates an Elastic IP address to use with an instance in EC2-Classic.</description>
   </example>
 </examples>
