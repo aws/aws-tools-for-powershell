@@ -28,7 +28,7 @@ KeyMaterial    : -----BEGIN RSA PRIVATE KEY-----
                  VRkAKKKYeGjkpUfVTrW0YFjXkfcrR/V+QFL5OndHAKJXjW7a4ejJLncTzmZSpYzwApc=
                  -----END RSA PRIVATE KEY-----
 KeyName        : my-key-pair</code>
-    <description>This example creates a key pair with the specified name. The KeyFingerprint member of the returned object contains the SHA-1 digest of the DER encoded private key and the KeyMaterial member contains the unencrypted PEM-encoded RSA private key. You can only retrieve this private key when you create the key pair, so be sure to save the key to a file now.</description>
+    <description>This example creates a key pair with the specified name. KeyFingerprint contains the SHA-1 digest of the DER encoded private key and KeyMaterial contains the unencrypted PEM-encoded RSA private key. You can only retrieve the private key when you create the key pair, so be sure to save the key to a file.</description>
   </example>
   <example>
     <code>PS C:\> (New-EC2KeyPair -KeyName "my-key-pair").KeyMaterial | Out-File C:\path\my-key-pair.pem</code>

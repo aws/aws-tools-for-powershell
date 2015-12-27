@@ -1,36 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>$Tag = New-Object Amazon.EC2.Model.Tag
-PS C:\>$Tag.Key = "Test"
-PS C:\>Remove-EC2Tag -Resource "i-1a2b3c4d" -Tag $Tag -Force
-    </code>
-    <description>This example shows how to delete a specific tag for an instance regardless of the tag value. Specifying the -Force parameter means that you will not be prompted to confirm the deletion. This example is compatible with PowerShell v2 or higher.</description>
+    <code>PS C:\> Remove-EC2Tag -Resource i-12345678 -Tag @{ Key="myTag" } -Force</code>
+    <description>This example deletes the specified tag from the specified resource, regardless of the tag value. The syntax used by this example requires PowerShell version 3 or later.</description>
   </example>
   <example>
-    <code>Remove-EC2Tag -Resource "i-1a2b3c4d" -Tag @{ Key="Test" } -Force</code>
-    <description>This example shows how to remove a tag value from an instance for PowerShell v3 or higher.</description>
+    <code>PS C:\> Remove-EC2Tag -Resource i-12345678 -Tag @{ Key="myTag";Value="myTagValue" } -Force</code>
+    <description>This example deletes the specified tag from the specified resource, but only if the tag value matches. The syntax used by this example requires PowerShell version 3 or later.</description>
   </example>
   <example>
-    <code>
-PS C:\>$Tag = New-Object Amazon.EC2.Model.Tag
-PS C:\>$Tag.Key = "Test"
-PS C:\>$Tag.Value = "Tag value to match"
-PS C:\>Remove-EC2Tag -Resource "i-1a2b3c4d" -Tag $Tag -Force
-    </code>
-    <description>This example shows how to delete a specific tag for an instance only if the tag value matches. Specifying the -Force parameter means that you will not be prompted to confirm the deletion. This example is compatible with PowerShell v2 or higher.</description>
+    <code>PS C:\> $tag = New-Object Amazon.EC2.Model.Tag
+PS C:\> $tag.Key = "myTag"
+
+PS C:\> Remove-EC2Tag -Resource i-12345678 -Tag $tag -Force</code>
+    <description>This example deletes the specified tag from the specified resource, regardless of the tag value.</description>
   </example>
   <example>
-    <code>Remove-EC2Tag -Resource "i-1a2b3c4d" -Tag @{ Key="Test"; Value="Tag value to match" } -Force</code>
-    <description>This example shows how to remove a tag value from an instance only if the tag value matches, for PowerShell v3 or higher.</description>
-  </example>
-  <example>
-    <code>Remove-EC2Tag -Resource "i-1a2b3c4d" -Tag @( @{ Key="Test" }, @{ Key="Test2" } ) -Force</code>
-    <description>This example, for PowerShell v3 or higher, shows how to remove multiple tags from an instance. PowerShell v2 users should use the New-Object cmdlet to instantiate the Tag objects to be passed to the -Tags parameter.</description>
-  </example>
-  <example>
-    <code>Remove-EC2Tag -Resource @( "i-1a2b3c4d", "i-4d3c2b1a" ) -Tag @( @{ Key="Test" }, @{ Key="Test2" } ) -Force</code>
-    <description>This example, for PowerShell v3 or higher, shows how to remove multiple tags from multiple instances. PowerShell v2 users should use the New-Object cmdlet to instantiate the Tag objects to be passed to the -Tags parameter.</description>
+    <code>PS C:\> $tag = New-Object Amazon.EC2.Model.Tag
+PS C:\> $tag.Key = "myTag"
+PS C:\> $tag.Value = "myTagValue"
+
+PS C:\>Remove-EC2Tag -Resource i-12345678 -Tag $tag -Force</code>
+    <description>This example deletes the specified tag from the specified resource, but only if the tag value matches.</description>
   </example>
 </examples>

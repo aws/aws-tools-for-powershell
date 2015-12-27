@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2Tag -Filter @{ Name="key";Values="mytag"}
+    
+Key      ResourceId       ResourceType    Value
+---      ----------       ------------    -----
+mytag    i-12345678       instance        myTagValue
+myTag    vol-12345678     volume          newTagValue
+myTag    snap-12345678    snapshot        newTagValue</code>
+    <description>This example describes the tags with the specified key.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Tag -Filter @{ Name="key";Values="myTag"},@{ Name="value";Values="myTagValue"}</code>
+    <description>This example describes the tags with the specified key and value.</description>
+  </example>
+  <example>
+    <code>PS C:\> $keys = New-Object string[] 1
+PS C:\> $keys[0] = "myTag"
+PS C:\> $filter = New-Object Amazon.EC2.Model.Filter
+PS C:\> $filter.Name = "key"
+PS C:\> $filter.Values = $keys
+
+PS C:\> Get-EC2Tag -Filter @( $filter )</code>
+    <description>This example describes the tags with the specified key.</description>
+  </example>
+  <example>
+    <code>PS C:\> $keys = New-Object string[] 1
+PS C:\> $keys[0] = "myTag"
+PS C:\> $filter1 = New-Object Amazon.EC2.Model.Filter
+PS C:\> $filter1.Name = "key"
+PS C:\> $filter1.Values = $keys
+
+PS C:\> $values = New-Object string[] 1
+PS C:\> $values[0] = "myTagValue"
+PS C:\> $filter2 = New-Object Amazon.EC2.Model.Filter
+PS C:\> $filter2.Name = "value"
+PS C:\> $filter2.Values = $values
+
+PS C:\> Get-EC2Tag -Filter @( $filter1, filter2 )</code>
+    <description>This example describes the tags with the specified key and value.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Tag</code>
+    <description>This example describes all tags for all your EC2 resources.</description>
+  </example>
+</examples>
