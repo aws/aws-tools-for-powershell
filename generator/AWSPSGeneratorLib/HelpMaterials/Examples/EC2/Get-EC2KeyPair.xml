@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>Get-EC2KeyPair
-
-KeyName                                 KeyFingerprint                          KeyMaterial
--------                                 --------------                          -----------
-KeyPair1                               30:b0:4f:29:61:fd:9e:f1:d9:1f:e4:8f:...
-KeyPair2                               0e:a1:01:18:c1:d6:51:5c:75:85:96:68:...
-KeyPair3                               cb:9d:b3:64:77:ea:d0:75:42:74:54:9b:...
-    </code>
-    <description>Lists the Key Pairs available in the current default region.</description>
+    <code>PS C:\> Get-EC2KeyPair -KeyName my-key-pair
+    
+KeyFingerprint                                              KeyName
+--------------                                              -------
+1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f my-key-pair</code>
+    <description>This example describes the specified key pair.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2KeyPair</code>
+    <description>This example describes all your key pairs.</description>
   </example>
 </examples>
