@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Remove-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d</code>
-    <description>Deletes a DHCP Option Set in the current default region.</description>
+    <code>PS C:\> Remove-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d
+    
+Confirm
+Are you sure you want to perform this action?
+Performing operation "Remove-EC2DhcpOption (DeleteDhcpOptions)" on Target "dopt-1a2b3c4d".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</code>
+    <description>This example deletes the specified DHCP options set. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.</description>
   </example>
 </examples>

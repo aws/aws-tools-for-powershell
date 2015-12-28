@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Edit-EC2VpcAttribute -VpcId "vpc-1a2b3c4d" -EnableDnsHostnames $false</code>
-    <description>This request disables support for DNS hostnames in the VPC with the ID vpc-1a2b3c4d. Specify '-EnableDnsHostnames $true' to enable support.</description>
+    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $true</code>
+    <description>This example enables support for DNS hostnames for the specified VPC.</description>
   </example>
   <example>
-    <code>Edit-EC2VpcAttribute -VpcId "vpc-1a2b3c4d" -EnableDnsSupport $false</code>
-    <description>This request disables support for DNS resolution in the VPC with the ID vpc-1a2b3c4d. Specify '-EnableDnsSupport $true' to enable support. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.</description>
+    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $false</code>
+    <description>This example disables support for DNS hostnames for the specified VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $true</code>
+    <description>This example enables support for DNS resolution for the specified VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsSupport $false</code>
+    <description>This example disables support for DNS resolution for the specified VPC.</description>
   </example>
 </examples>
