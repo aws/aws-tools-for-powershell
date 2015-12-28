@@ -1,7 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Get-EC2Instance -Region us-west-2</code>
-    <description>This command returns all of the user's instances in the us-west-2 region. The output is a collection of zero or more Reservation objects, see the RunningInstance collection within each Reservation object to obtain the details of each instance.</description>
+    <code>PS C:\> (Get-EC2Instance -Instance i-12345678).Instances
+    
+AmiLaunchIndex        : 0
+Architecture          : x86_64
+BlockDeviceMappings   : {/dev/sda1}
+ClientToken           : TleEy1448154045270
+EbsOptimized          : False
+Hypervisor            : xen
+IamInstanceProfile    : Amazon.EC2.Model.IamInstanceProfile
+ImageId               : ami-12345678
+InstanceId            : i-12345678
+InstanceLifecycle     :
+InstanceType          : t2.micro
+KernelId              :
+KeyName               : my-key-pair
+LaunchTime            : 12/4/2015 4:44:40 PM
+Monitoring            : Amazon.EC2.Model.Monitoring
+NetworkInterfaces     : {ip-10-0-2-172.us-west-2.compute.internal}
+Placement             : Amazon.EC2.Model.Placement
+Platform              : Windows
+PrivateDnsName        : ip-10-0-2-172.us-west-2.compute.internal
+PrivateIpAddress      : 10.0.2.172
+ProductCodes          : {}
+PublicDnsName         : 
+PublicIpAddress       : 
+RamdiskId             :
+RootDeviceName        : /dev/sda1
+RootDeviceType        : ebs
+SecurityGroups        : {default}
+SourceDestCheck       : True
+SpotInstanceRequestId :
+SriovNetSupport       :
+State                 : Amazon.EC2.Model.InstanceState
+StateReason           :
+StateTransitionReason :
+SubnetId              : subnet-12345678
+Tags                  : {Name}
+VirtualizationType    : hvm
+VpcId                 : vpc-12345678</code>
+    <description>This example describes the specified instance.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Instance
+    
+GroupNames    : {}
+Groups        : {}
+Instances     : {}
+OwnerId       : 123456789012
+RequesterId   : 226008221399
+ReservationId : r-c5df370c
+
+GroupNames    : {}
+Groups        : {}
+Instances     : {}
+OwnerId       : 123456789012
+RequesterId   : 854251627541
+ReservationId : r-63e65bab
+...</code>
+    <description>This example describes all your instances.</description>
   </example>
 </examples>

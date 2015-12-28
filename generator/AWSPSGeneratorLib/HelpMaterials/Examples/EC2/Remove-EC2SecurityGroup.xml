@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Remove-EC2SecurityGroup -GroupId sg-12345678
+    
+Confirm
+Are you sure you want to perform this action?
+Performing operation "Remove-EC2SecurityGroup (DeleteSecurityGroup)" on Target "sg-12345678".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</code>
+    <description>This example deletes the specified security group for EC2-VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.</description>
+  </example>
+  <example>
+    <code>PS C:\> Remove-EC2SecurityGroup -GroupName my-security-group -Force</code>
+    <description>This example deletes the specified security group for EC2-Classic.</description>
+  </example>
+</examples>

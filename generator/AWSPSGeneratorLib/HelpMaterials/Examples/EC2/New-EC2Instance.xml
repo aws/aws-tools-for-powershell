@@ -1,19 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>New-EC2Instance -ImageId ami-1a2b3c4d -MinCount 1 -MaxCount 1 -InstanceType m1.large</code>
-    <description>Creates a single 'm1.large' instance of the ami 'ami-1a2b3c4d' in the current default region.</description>
+    <code>PS C:\> New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -InstanceType m3.medium -KeyName my-key-pair -SecurityGroup my-security-group</code>
+    <description>This example launches a single instance of the specified AMI in EC2-Classic or a default VPC.</description>
   </example>
   <example>
-    <code>
-PS C:\>$bdm = New-Object Amazon.EC2.Model.BlockDeviceMapping
-PS C:\>$bdm.VirtualName = "ephemeral0"
-PS C:\>$bdm.DeviceName = "/dev/sdb"
+    <code>PS C:\> New-EC2Instance -ImageId ami-12345678 -MinCount 1 -MaxCount 1 -SubnetId subnet-12345678 -InstanceType t2.micro -KeyName my-key-pair -SecurityGroupId sg-12345678</code>
+    <description>This example launches a single instance of the specified AMI in a VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> $bdm = New-Object Amazon.EC2.Model.BlockDeviceMapping
+PS C:\> $bdm.VirtualName = "ephemeral0"
+PS C:\> $bdm.DeviceName = "/dev/sdf"
 
-PS C:\>$ami = Get-EC2ImageByName WINDOWS_2012_BASE
-
-PS C:\>New-EC2Instance -ImageId $ami.ImageId -MinCount 1 -MaxCount 1 -InstanceType m1.large -BlockDeviceMapping $bdm
+PS C:\> New-EC2Instance -ImageId ami-12345678 -BlockDeviceMapping $bdm ...
     </code>
-    <description>This example launches an m1.large instance of the latest Windows Server 2012 base ami and maps an instance store volume.</description>
+    <description>To add an EBS volume or an instance store volume, define a block device mapping and add it to the command. This example adds an instance store volume.</description>
+  </example>
+  <example>
+    <code>PS C:\> $ami = Get-EC2ImageByName WINDOWS_2012R2_BASE
+
+PS C:\> New-EC2Instance -ImageId $ami.ImageId ...</code>
+    <description>To specify one of the current Windows AMIs, get its AMI ID using Get-EC2ImageByName. This example launches an instance from the current base AMI for Windows Server 2012 R2.</description>
   </example>
 </examples>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2PlacementGroup -GroupName my-placement-group -Strategy cluster</code>
+    <description>This example creates a placement group with the specified name.</description>
+  </example>
+</examples>

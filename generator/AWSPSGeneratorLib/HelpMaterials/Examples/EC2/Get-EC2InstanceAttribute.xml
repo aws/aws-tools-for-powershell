@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceType
+    
+InstanceType                      : t2.micro</code>
+    <description>This example describes the instance type of the specified instance.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sriovNetSupport
+    
+SriovNetSupport                   : simple</code>
+    <description>This example describes whether enhanced networking is enabled for the specified instance.</description>
+  </example>
+  <example>
+    <code>PS C:\> (Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute groupSet).Groups
+    
+GroupId
+-------
+sg-12345678
+sg-45678901</code>
+    <description>This example describes the security groups for the specified instance.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute ebsOptimized
+    
+EbsOptimized                      : False</code>
+    <description>This example describes whether EBS optimization is enabled for the specified instance.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute disableApiTermination
+    
+DisableApiTermination             : False</code>
+    <description>This example describes the 'disableApiTermination' attribute of the specified instance.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedShutdownBehavior
+    
+InstanceInitiatedShutdownBehavior : stop</code>
+    <description>This example describes the 'instanceInitiatedShutdownBehavior' attribute of the specified instance.</description>
+  </example>
+</examples>
