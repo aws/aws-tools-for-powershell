@@ -1,15 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Get-EC2Image -Region us-west-1</code>
-    <description>This command fetches details of all public Amazon Machine Images (AMIs) in the 'us-west-1' region.</description>
+    <code>PS C:\> Get-EC2Image -ImageId ami-12345678
+    
+Architecture        : x86_64
+BlockDeviceMappings : {/dev/xvda}
+CreationDate        : 2014-10-20T00:56:28.000Z
+Description         : My image
+Hypervisor          : xen
+ImageId             : ami-12345678
+ImageLocation       : 123456789012/my-image
+ImageOwnerAlias     :
+ImageType           : machine
+KernelId            :
+Name                : my-image
+OwnerId             : 123456789012
+Platform            :
+ProductCodes        : {}
+Public              : False
+RamdiskId           :
+RootDeviceName      : /dev/xvda
+RootDeviceType      : ebs
+SriovNetSupport     : simple
+State               : available
+StateReason         :
+Tags                : {Name}
+VirtualizationType  : hvm</code>
+    <description>This example describes the specified AMI.</description>
   </example>
   <example>
-    <code>Get-EC2Image -owner self</code>
-    <description>This command fetches details of the Amazon Machine Images (AMIs) in the current region for the currently configured user and default region. To change the user account, use the -StoredCredentials or -AccessKey/-SecretKey parameters to supply alternate credentials.</description>
+    <code>PS C:\> Get-EC2Image -owner self</code>
+    <description>This example describes the AMIs that you own.</description>
   </example>
   <example>
-    <code>Get-EC2Image -Filter @{ Name="platform"; Values="windows" }</code>
-    <description>This command uses a filter to return only the Amazon Machine Images (AMIs) that run Microsoft Windows for the current default region.</description>
+    <code>PS C:\> Get-EC2Image -Filter @{ Name="platform"; Values="windows" }</code>
+    <description>This example describes the public AMIs that run Microsoft Windows Server.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Image -Region us-west-2</code>
+    <description>This example describes all public AMIs in the 'us-west-2' region.</description>
   </example>
 </examples>
