@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2VpnGateway -Type ipsec.1
+    
+AvailabilityZone :
+State            : available
+Tags             : {}
+Type             : ipsec.1
+VpcAttachments   : {}
+VpnGatewayId     : vgw-1a2b3c4d</code>
+    <description>This example creates the specified virtual private gateway.</description>
+  </example>
+</examples>
