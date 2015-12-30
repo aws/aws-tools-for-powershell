@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// if the AWS account has no associated users. 
     /// </para><para>
     ///  For information about limits on the number of keys you can create, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>Using IAM</i> guide. 
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
     /// </para><important> To ensure the security of your AWS account, the secret access key is
     /// accessible only during key and user creation. You must save the key (for example,
     /// in a text file) if you want to be able to access it again. If a secret key is lost,
@@ -50,18 +50,22 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateAccessKey operation against AWS Identity and Access Management.", Operation = new[] {"CreateAccessKey"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.AccessKey",
         "This cmdlet returns a AccessKey object.",
-        "The service call response (type CreateAccessKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateAccessKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMAccessKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The user name that the new key will belong to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAccessKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateAccessKeyRequest();
             
             if (cmdletContext.UserName != null)
             {
@@ -140,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String UserName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

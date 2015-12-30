@@ -43,26 +43,32 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateElasticIp operation against AWS OpsWorks.", Operation = new[] {"UpdateElasticIp"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSElasticIpCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter ElasticIp
         /// <summary>
         /// <para>
         /// <para>The address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ElasticIp { get; set; }
+        public System.String ElasticIp { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The new name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateElasticIpRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateElasticIpRequest();
             
             if (cmdletContext.ElasticIp != null)
             {
@@ -146,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ElasticIp { get; set; }
-            public String Name { get; set; }
+            public System.String ElasticIp { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

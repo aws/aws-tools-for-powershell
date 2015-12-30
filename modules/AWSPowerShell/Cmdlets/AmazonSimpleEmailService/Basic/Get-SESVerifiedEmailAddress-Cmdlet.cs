@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the ListVerifiedEmailAddresses operation against Amazon Simple Email Service.", Operation = new[] {"ListVerifiedEmailAddresses"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListVerifiedEmailAddressesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.ListVerifiedEmailAddressesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESVerifiedEmailAddressCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListVerifiedEmailAddressesRequest();
+            var request = new Amazon.SimpleEmail.Model.ListVerifiedEmailAddressesRequest();
             
             
             CmdletOutput output;

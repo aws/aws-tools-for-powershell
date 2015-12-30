@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>WAF</ServiceNounPrefix>
+  <ServiceName>AWS WAF</ServiceName>
+  <ServiceNamespace>Amazon.WAF</ServiceNamespace>
+  <ServiceClientInterface>IAmazonWAF</ServiceClientInterface>
+  <ServiceClient>AmazonWAFClient</ServiceClient>
+  
+  <AutoIterate EmitLimit="Limit"
+               Start="NextMarker"
+               Next="NextMarker"
+               ServicePageSize="100"/>
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="ListByteMatchSets" Noun="ByteMatchSetList" />
+    <ServiceOperation MethodName="ListRules" Noun="RuleList" />
+    <ServiceOperation MethodName="ListSqlInjectionMatchSets" Noun="SqlInjectionMatchSetList" />
+    <ServiceOperation MethodName="ListWebACLs" Noun="WebACLList" />
+    <ServiceOperation MethodName="ListIPSets" Noun="IPSetList" />
+
+    <ServiceOperation MethodName="CreateByteMatchSet" Output="Response" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeleteByteMatchSet" PipelineParameter="ByteMatchSetId" />
+    <ServiceOperation MethodName="GetByteMatchSet" />
+    <ServiceOperation MethodName="UpdateByteMatchSet" PipelineParameter="ByteMatchSetId" />
+
+    <ServiceOperation MethodName="CreateRule" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeleteRule" PipelineParameter="RuleId" />
+    <ServiceOperation MethodName="GetRule" />
+    <ServiceOperation MethodName="UpdateRule" PipelineParameter="RuleId" />
+
+    <ServiceOperation MethodName="CreateSqlInjectionMatchSet" Output="Response" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeleteSqlInjectionMatchSet" PipelineParameter="SqlInjectionMatchSetId" />
+    <ServiceOperation MethodName="GetSqlInjectionMatchSet" />
+    <ServiceOperation MethodName="UpdateSqlInjectionMatchSet" PipelineParameter="SqlInjectionMatchSetId" />
+
+    <ServiceOperation MethodName="CreateWebACL" Output="Response" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" />
+    <ServiceOperation MethodName="DeleteWebACL" PipelineParameter="WebACLId" />
+    <ServiceOperation MethodName="GetWebACL" />
+    <ServiceOperation MethodName="UpdateWebACL" PipelineParameter="WebACLId" />
+
+    <ServiceOperation MethodName="CreateIPSet" Output="Response" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeleteIPSet" PipelineParameter="IPSetId" />
+    <ServiceOperation MethodName="GetIPSet" />
+    <ServiceOperation MethodName="UpdateIPSet" PipelineParameter="IPSetId" />
+
+    <ServiceOperation MethodName="GetChangeToken" />
+    <ServiceOperation MethodName="GetChangeTokenStatus" />
+    <ServiceOperation MethodName="GetSampledRequests" Noun="SampledRequestList" Output="Response" PipelineParameter="WebACLId" />
+  </ServiceOperations>
+  
+</ConfigModel>

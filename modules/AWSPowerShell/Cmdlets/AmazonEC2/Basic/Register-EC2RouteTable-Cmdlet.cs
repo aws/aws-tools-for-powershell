@@ -45,26 +45,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AssociateRouteTable operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssociateRouteTable"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AssociateRouteTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AssociateRouteTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter RouteTableId
         /// <summary>
         /// <para>
         /// <para>The ID of the route table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RouteTableId { get; set; }
+        public System.String RouteTableId { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssociateRouteTableRequest();
+            var request = new Amazon.EC2.Model.AssociateRouteTableRequest();
             
             if (cmdletContext.RouteTableId != null)
             {
@@ -148,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RouteTableId { get; set; }
-            public String SubnetId { get; set; }
+            public System.String RouteTableId { get; set; }
+            public System.String SubnetId { get; set; }
         }
         
     }

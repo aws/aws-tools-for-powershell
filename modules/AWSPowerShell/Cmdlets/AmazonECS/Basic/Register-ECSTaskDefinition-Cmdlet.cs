@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Registers a new task definition from the supplied <code>family</code> and <code>containerDefinitions</code>.
     /// Optionally, you can add data volumes to your containers with the <code>volumes</code>
-    /// parameter. For more information on task definition parameters and defaults, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+    /// parameter. For more information about task definition parameters and defaults, see
+    /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
     /// ECS Task Definitions</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
     /// </summary>
     [Cmdlet("Register", "ECSTaskDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -38,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the RegisterTaskDefinition operation against Amazon EC2 Container Service.", Operation = new[] {"RegisterTaskDefinition"})]
     [AWSCmdletOutput("Amazon.ECS.Model.TaskDefinition",
         "This cmdlet returns a TaskDefinition object.",
-        "The service call response (type RegisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.RegisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ContainerDefinition
         /// <summary>
         /// <para>
         /// <para>A list of container definitions in JSON format that describe the different containers
@@ -51,18 +54,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("ContainerDefinitions")]
         public Amazon.ECS.Model.ContainerDefinition[] ContainerDefinition { get; set; }
+        #endregion
         
+        #region Parameter Family
         /// <summary>
         /// <para>
         /// <para>You must specify a <code>family</code> for a task definition, which allows you to
-        /// track multiple versions of the same task definition. You can think of the <code>family</code>
+        /// track multiple versions of the same task definition. The <code>family</code> is used
         /// as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers,
         /// hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Family { get; set; }
+        public System.String Family { get; set; }
+        #endregion
         
+        #region Parameter Volume
         /// <summary>
         /// <para>
         /// <para>A list of volume definitions in JSON format that containers in your task may use.</para>
@@ -71,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("Volumes")]
         public Amazon.ECS.Model.Volume[] Volume { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,12 +108,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
             if (this.ContainerDefinition != null)
             {
-                context.ContainerDefinitions = new List<ContainerDefinition>(this.ContainerDefinition);
+                context.ContainerDefinitions = new List<Amazon.ECS.Model.ContainerDefinition>(this.ContainerDefinition);
             }
             context.Family = this.Family;
             if (this.Volume != null)
             {
-                context.Volumes = new List<Volume>(this.Volume);
+                context.Volumes = new List<Amazon.ECS.Model.Volume>(this.Volume);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -117,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterTaskDefinitionRequest();
+            var request = new Amazon.ECS.Model.RegisterTaskDefinitionRequest();
             
             if (cmdletContext.ContainerDefinitions != null)
             {
@@ -166,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<ContainerDefinition> ContainerDefinitions { get; set; }
-            public String Family { get; set; }
-            public List<Volume> Volumes { get; set; }
+            public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinitions { get; set; }
+            public System.String Family { get; set; }
+            public List<Amazon.ECS.Model.Volume> Volumes { get; set; }
         }
         
     }

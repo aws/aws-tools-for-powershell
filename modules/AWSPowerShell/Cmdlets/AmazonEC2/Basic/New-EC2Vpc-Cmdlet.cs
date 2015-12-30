@@ -48,30 +48,38 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpc"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Vpc",
         "This cmdlet returns a Vpc object.",
-        "The service call response (type CreateVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CidrBlock
         /// <summary>
         /// <para>
         /// <para>The network range for the VPC, in CIDR notation. For example, <code>10.0.0.0/16</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CidrBlock { get; set; }
+        public System.String CidrBlock { get; set; }
+        #endregion
         
+        #region Parameter InstanceTenancy
         /// <summary>
         /// <para>
         /// <para>The supported tenancy options for instances launched into the VPC. A value of <code>default</code>
         /// means that instances can be launched with any tenancy; a value of <code>dedicated</code>
         /// means all instances launched into the VPC are launched as dedicated tenancy instances
         /// regardless of the tenancy assigned to the instance at launch. Dedicated tenancy instances
-        /// run on single-tenant hardware.</para><para>Default: <code>default</code></para>
+        /// run on single-tenant hardware.</para><para><b>Important:</b> The <code>host</code> value cannot be used with this parameter.
+        /// Use the <code>default</code> or <code>dedicated</code> values only.</para><para>Default: <code>default</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Tenancy InstanceTenancy { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.Tenancy")]
+        public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -110,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpcRequest();
+            var request = new Amazon.EC2.Model.CreateVpcRequest();
             
             if (cmdletContext.CidrBlock != null)
             {
@@ -155,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CidrBlock { get; set; }
-            public Tenancy InstanceTenancy { get; set; }
+            public System.String CidrBlock { get; set; }
+            public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
         }
         
     }

@@ -36,19 +36,23 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the ListDeploymentInstances operation against AWS CodeDeploy.", Operation = new[] {"ListDeploymentInstances"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListDeploymentInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeDeploy.Model.ListDeploymentInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCDDeploymentInstanceListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>The unique ID of a deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentId { get; set; }
+        public System.String DeploymentId { get; set; }
+        #endregion
         
+        #region Parameter InstanceStatusFilter
         /// <summary>
         /// <para>
         /// <para>A subset of instances to list, by status:</para><ul><li>Pending: Include in the resulting list those instances with pending deployments.</li><li>InProgress: Include in the resulting list those instances with in-progress deployments.</li><li>Succeeded: Include in the resulting list those instances with succeeded deployments.</li><li>Failed: Include in the resulting list those instances with failed deployments.</li><li>Skipped: Include in the resulting list those instances with skipped deployments.</li><li>Unknown: Include in the resulting list those instances with deployments in an
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] InstanceStatusFilter { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list deployment instances call,
@@ -65,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -81,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.DeploymentId = this.DeploymentId;
             if (this.InstanceStatusFilter != null)
             {
-                context.InstanceStatusFilter = new List<String>(this.InstanceStatusFilter);
+                context.InstanceStatusFilter = new List<System.String>(this.InstanceStatusFilter);
             }
             context.NextToken = this.NextToken;
             
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDeploymentInstancesRequest();
+            var request = new Amazon.CodeDeploy.Model.ListDeploymentInstancesRequest();
             
             if (cmdletContext.DeploymentId != null)
             {
@@ -146,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeploymentId { get; set; }
-            public List<String> InstanceStatusFilter { get; set; }
-            public String NextToken { get; set; }
+            public System.String DeploymentId { get; set; }
+            public List<System.String> InstanceStatusFilter { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

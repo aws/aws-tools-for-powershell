@@ -34,18 +34,20 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse")]
     [AWSCmdlet("Invokes the CheckDNSAvailability operation against AWS Elastic Beanstalk.", Operation = new[] {"CheckDNSAvailability"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse",
-        "This cmdlet returns a CheckDNSAvailabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBDNSAvailabilityCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter CNAMEPrefix
         /// <summary>
         /// <para>
         /// <para> The prefix used when this CNAME is reserved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String CNAMEPrefix { get; set; }
-        
+        public System.String CNAMEPrefix { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -69,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CheckDNSAvailabilityRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.CheckDNSAvailabilityRequest();
             
             if (cmdletContext.CNAMEPrefix != null)
             {
@@ -110,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CNAMEPrefix { get; set; }
+            public System.String CNAMEPrefix { get; set; }
         }
         
     }

@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the UpdateDataSource operation against Amazon Machine Learning.", Operation = new[] {"UpdateDataSource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.UpdateDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>DataSource</code> during creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter DataSourceName
         /// <summary>
         /// <para>
         /// <para>A new user-supplied name or description of the <code>DataSource</code> that will replace
@@ -61,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String DataSourceName { get; set; }
+        public System.String DataSourceName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDataSourceRequest();
+            var request = new Amazon.MachineLearning.Model.UpdateDataSourceRequest();
             
             if (cmdletContext.DataSourceId != null)
             {
@@ -146,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DataSourceId { get; set; }
-            public String DataSourceName { get; set; }
+            public System.String DataSourceId { get; set; }
+            public System.String DataSourceName { get; set; }
         }
         
     }

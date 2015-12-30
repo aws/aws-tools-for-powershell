@@ -41,11 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType(new Type[] { typeof(Amazon.IdentityManagement.Model.GetCredentialReportResponse), typeof(string[]), typeof(string)})]
     [AWSCmdlet("Invokes the GetCredentialReport operation against AWS Identity and Access Management.", Operation = new[] {"GetCredentialReport"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetCredentialReportResponse",
-        "This cmdlet returns a GetCredentialReportResponse object containing multiple properties and a memory stream with the report contents or the contents of the report as an array of strings or one consolidated string. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.IdentityManagement.Model.GetCredentialReportResponse object containing multiple properties and a memory stream with the report contents or the contents of the report as an array of strings or one consolidated string. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMCredentialReportCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
 
+        #region Parameter AsTextArray
         /// <summary>
         /// If set the cmdlet will process the the memory stream contained in the service response
         /// to the pipeline as a series of lines of text.
@@ -53,13 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [Parameter]
         [Alias("SplitLines")]
         public SwitchParameter AsTextArray { get; set; }
+        #endregion
 
+        #region Parameter Raw
         /// <summary>
         /// If set the cmdlet output will be a single string containing all of the lines in the
         /// report/
         /// </summary>
         [Parameter]
         public SwitchParameter Raw { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

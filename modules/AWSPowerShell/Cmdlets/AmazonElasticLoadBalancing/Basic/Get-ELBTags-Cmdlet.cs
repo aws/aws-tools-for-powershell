@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the DescribeTags operation against Elastic Load Balancing.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.TagDescription",
         "This cmdlet returns a collection of TagDescription objects.",
-        "The service call response (type DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The names of the load balancers.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("LoadBalancerNames")]
         public System.String[] LoadBalancerName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.LoadBalancerName != null)
             {
-                context.LoadBalancerNames = new List<String>(this.LoadBalancerName);
+                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTagsRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.DescribeTagsRequest();
             
             if (cmdletContext.LoadBalancerNames != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> LoadBalancerNames { get; set; }
+            public List<System.String> LoadBalancerNames { get; set; }
         }
         
     }

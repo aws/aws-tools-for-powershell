@@ -49,11 +49,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeCommunications operation against AWS Support API.", Operation = new[] {"DescribeCommunications"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.Communication",
         "This cmdlet returns a collection of Communication objects.",
-        "The service call response (type DescribeCommunicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.AWSSupport.Model.DescribeCommunicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetASACommunicationsCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AfterTime
         /// <summary>
         /// <para>
         /// <para>The start date for a filtered date search on support case communications. Case communications
@@ -61,8 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AfterTime { get; set; }
+        public System.String AfterTime { get; set; }
+        #endregion
         
+        #region Parameter BeforeTime
         /// <summary>
         /// <para>
         /// <para>The end date for a filtered date search on support case communications. Case communications
@@ -70,8 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BeforeTime { get; set; }
+        public System.String BeforeTime { get; set; }
+        #endregion
         
+        #region Parameter CaseId
         /// <summary>
         /// <para>
         /// <para>The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric
@@ -79,8 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CaseId { get; set; }
+        public System.String CaseId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return before paginating.</para>
@@ -89,15 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A resumption point for pagination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -127,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeCommunicationsRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeCommunicationsRequest();
             if (cmdletContext.AfterTime != null)
             {
                 request.AfterTime = cmdletContext.AfterTime;
@@ -142,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -227,11 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AfterTime { get; set; }
-            public String BeforeTime { get; set; }
-            public String CaseId { get; set; }
+            public System.String AfterTime { get; set; }
+            public System.String BeforeTime { get; set; }
+            public System.String CaseId { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

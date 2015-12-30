@@ -30,7 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Initiates the copy of an AMI from the specified source region to the current region.
     /// You specify the destination region by using its endpoint when making the request.
-    /// AMIs that use encrypted EBS snapshots cannot be copied with this method.
     /// 
     ///  
     /// <para>
@@ -43,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CopyImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CopyImage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CopyImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CopyImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
@@ -55,40 +56,81 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the new AMI in the destination region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Encrypted
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the destination snapshots of the copied image should be encrypted.
+        /// The default CMK for EBS is used unless a non-default AWS Key Management Service (AWS
+        /// KMS) CMK is specified with <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Encrypted { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting
+        /// the snapshots of an image during a copy operation. This parameter is only required
+        /// if you want to use a non-default CMK; if this parameter is not specified, the default
+        /// CMK for EBS is used. The ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
+        /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.
+        /// The specified CMK must exist in the region that the snapshot is being copied to. If
+        /// a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be
+        /// set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the new AMI in the destination region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter SourceImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the AMI to copy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceImageId { get; set; }
+        public System.String SourceImageId { get; set; }
+        #endregion
         
+        #region Parameter SourceRegion
         /// <summary>
         /// <para>
         /// <para>The name of the region that contains the AMI to copy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SourceRegion { get; set; }
+        public System.String SourceRegion { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -116,6 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
+            context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             context.SourceImageId = this.SourceImageId;
             context.SourceRegion = this.SourceRegion;
@@ -130,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyImageRequest();
+            var request = new Amazon.EC2.Model.CopyImageRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -139,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.Name != null)
             {
@@ -187,11 +240,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String Description { get; set; }
-            public String Name { get; set; }
-            public String SourceImageId { get; set; }
-            public String SourceRegion { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public System.Boolean? Encrypted { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String Name { get; set; }
+            public System.String SourceImageId { get; set; }
+            public System.String SourceRegion { get; set; }
         }
         
     }

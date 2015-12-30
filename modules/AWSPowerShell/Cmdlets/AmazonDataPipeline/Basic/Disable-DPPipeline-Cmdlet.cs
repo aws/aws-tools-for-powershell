@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the DeactivatePipeline operation against AWS Data Pipeline.", Operation = new[] {"DeactivatePipeline"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeactivatePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.DeactivatePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter CancelActive
         /// <summary>
         /// <para>
         /// <para>Indicates whether to cancel any running objects. The default is true, which sets the
@@ -55,23 +57,29 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CancelActive { get; set; }
+        public System.Boolean CancelActive { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PipelineId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -111,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeactivatePipelineRequest();
+            var request = new Amazon.DataPipeline.Model.DeactivatePipelineRequest();
             
             if (cmdletContext.CancelActive != null)
             {
@@ -158,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? CancelActive { get; set; }
-            public String PipelineId { get; set; }
+            public System.Boolean? CancelActive { get; set; }
+            public System.String PipelineId { get; set; }
         }
         
     }

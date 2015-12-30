@@ -105,27 +105,57 @@ namespace AWSPowerShellGenerator.Utils
                 // project file needs updating with one or more new service assemblies
                 var parentGroup = assemblyReferences[0].ParentNode;
 
-                foreach (var a in processedAssemblies)
+                foreach (var assembly in processedAssemblies)
                 {
-                    Console.WriteLine(".........adding {0}", a);
+                    Console.WriteLine(".........adding {0}", assembly);
 
-                    var xa = project.CreateAttribute("Include");
-                    xa.Value = a;
+                    // create reference node for the new service
+                    var referenceNode = CreateReferenceNode(project, assembly);
+                    var newIncludeAttribute = referenceNode.Attributes["Include"].Value;
 
-                    // pass doc namespace to avoid empty xmlns attributing on the elements
-                    var referenceNode = project.CreateElement("Reference", project.DocumentElement.NamespaceURI);
-                    referenceNode.Attributes.Append(xa);
-                    
-                    var hintNode = project.CreateElement("HintPath", project.DocumentElement.NamespaceURI);
-                    hintNode.InnerText = string.Concat(@"..\..\Include\sdk\assemblies\net35\", a, ".dll");
-
-                    referenceNode.AppendChild(hintNode);
-
-                    parentGroup.AppendChild(referenceNode);
+                    var childToInsertAfter = FindInsertionPoint(parentGroup, newIncludeAttribute);
+                    parentGroup.InsertAfter(referenceNode, childToInsertAfter);
                 }
 
                 project.Save(projectFile);
             }
+        }
+
+        private static XmlNode FindInsertionPoint(XmlNode parentGroup, string newIncludeAttribute)
+        {
+            int insertionIndex = -1;
+            for (int i = 0; i < parentGroup.ChildNodes.Count; i++)
+            {
+                var child = parentGroup.ChildNodes[i];
+                var includeAttribute = child.Attributes["Include"].Value;
+
+                if (!includeAttribute.StartsWith("AWSSDK."))
+                    continue;
+
+                // if new include < current child, we found insertion point
+                if (string.Compare(newIncludeAttribute, includeAttribute) < 0)
+                {
+                    insertionIndex = i - 1;
+                    break;
+                }
+            }
+            var childToInsertAfter = (insertionIndex < 0) ? parentGroup.FirstChild : parentGroup.ChildNodes[insertionIndex];
+            return childToInsertAfter;
+        }
+
+        private static XmlElement CreateReferenceNode(XmlDocument project, string assembly)
+        {
+            // pass doc namespace to avoid empty xmlns attributing on the elements
+            var referenceNode = project.CreateElement("Reference", project.DocumentElement.NamespaceURI);
+
+            var xa = project.CreateAttribute("Include");
+            xa.Value = assembly;
+            referenceNode.Attributes.Append(xa);
+
+            var hintNode = project.CreateElement("HintPath", project.DocumentElement.NamespaceURI);
+            hintNode.InnerText = string.Concat(@"..\..\Include\sdk\assemblies\net35\", assembly, ".dll");
+            referenceNode.AppendChild(hintNode);
+            return referenceNode;
         }
 
         /// <summary>

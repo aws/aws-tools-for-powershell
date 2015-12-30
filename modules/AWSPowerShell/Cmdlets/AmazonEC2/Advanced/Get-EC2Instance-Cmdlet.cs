@@ -44,17 +44,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeInstances operation against Amazon Elastic Compute Cloud.", Operation = new [] {"DescribeInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Reservation",
         "This cmdlet returns 0 or more Reservation instances.",
-        "The service response (type DescribeInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DescribeInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        #region Parameter Instance
         /// <summary>
         /// Identifies the set of instances to return, specified either a collection of string instance ids, 
         /// or a collection of RunningInstance objects. If not specified, all running instances are returned.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline=true)]
-        public object[] Instance { get; set; }
+        public System.Object[] Instance { get; set; }
+        #endregion
 
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// A set of filters used to match system-defined properties and user-defined tags associated with
@@ -151,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(Position = 1)]
         public Filter[] Filter { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

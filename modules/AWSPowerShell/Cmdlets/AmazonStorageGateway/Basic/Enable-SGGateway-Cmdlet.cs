@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the ActivateGateway operation against AWS Storage Gateway.", Operation = new[] {"ActivateGateway"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ActivateGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.ActivateGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableSGGatewayCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActivationKey
         /// <summary>
         /// <para>
         /// <para>Your gateway activation key. You can obtain the activation key by sending an HTTP
@@ -58,16 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ActivationKey { get; set; }
+        public System.String ActivationKey { get; set; }
+        #endregion
         
+        #region Parameter GatewayName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String GatewayName { get; set; }
+        public System.String GatewayName { get; set; }
+        #endregion
         
+        #region Parameter GatewayRegion
         /// <summary>
         /// <para>
         /// <para>One of the values that indicates the region where you want to store the snapshot backups.
@@ -79,8 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String GatewayRegion { get; set; }
+        public System.String GatewayRegion { get; set; }
+        #endregion
         
+        #region Parameter GatewayTimezone
         /// <summary>
         /// <para>
         /// <para>One of the values that indicates the time zone you want to set for the gateway. The
@@ -89,8 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String GatewayTimezone { get; set; }
+        public System.String GatewayTimezone { get; set; }
+        #endregion
         
+        #region Parameter GatewayType
         /// <summary>
         /// <para>
         /// <para>One of the values that defines the type of gateway to activate. The type specified
@@ -99,8 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String GatewayType { get; set; }
+        public System.String GatewayType { get; set; }
+        #endregion
         
+        #region Parameter MediumChangerType
         /// <summary>
         /// <para>
         /// <para>The value that indicates the type of medium changer to use for gateway-VTL. This field
@@ -108,8 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MediumChangerType { get; set; }
+        public System.String MediumChangerType { get; set; }
+        #endregion
         
+        #region Parameter TapeDriveType
         /// <summary>
         /// <para>
         /// <para>The value that indicates the type of tape drive to use for gateway-VTL. This field
@@ -117,8 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TapeDriveType { get; set; }
+        public System.String TapeDriveType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -126,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -162,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ActivateGatewayRequest();
+            var request = new Amazon.StorageGateway.Model.ActivateGatewayRequest();
             
             if (cmdletContext.ActivationKey != null)
             {
@@ -227,13 +243,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ActivationKey { get; set; }
-            public String GatewayName { get; set; }
-            public String GatewayRegion { get; set; }
-            public String GatewayTimezone { get; set; }
-            public String GatewayType { get; set; }
-            public String MediumChangerType { get; set; }
-            public String TapeDriveType { get; set; }
+            public System.String ActivationKey { get; set; }
+            public System.String GatewayName { get; set; }
+            public System.String GatewayRegion { get; set; }
+            public System.String GatewayTimezone { get; set; }
+            public System.String GatewayType { get; set; }
+            public System.String MediumChangerType { get; set; }
+            public System.String TapeDriveType { get; set; }
         }
         
     }

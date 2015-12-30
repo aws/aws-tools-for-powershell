@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.EnableLoggingResponse")]
     [AWSCmdlet("Invokes the EnableLogging operation against Amazon Redshift.", Operation = new[] {"EnableLogging"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.EnableLoggingResponse",
-        "This cmdlet returns a EnableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Redshift.Model.EnableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// <para> The name of an existing S3 bucket where the log files are to be stored. </para><para>Constraints:</para><ul><li>Must be in the same region as the cluster</li><li>The cluster must have
@@ -46,16 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster on which logging is to be started. </para><para>Example: <code>examplecluster</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter S3KeyPrefix
         /// <summary>
         /// <para>
         /// <para> The prefix applied to the log file names. </para><para>Constraints:</para><ul><li>Cannot exceed 512 characters</li><li>Cannot contain spaces( ), double quotes
@@ -64,8 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String S3KeyPrefix { get; set; }
+        public System.String S3KeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableLoggingRequest();
+            var request = new Amazon.Redshift.Model.EnableLoggingRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -154,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String ClusterIdentifier { get; set; }
-            public String S3KeyPrefix { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String S3KeyPrefix { get; set; }
         }
         
     }

@@ -38,18 +38,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetSAMLProviderResponse")]
     [AWSCmdlet("Invokes the GetSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"GetSAMLProvider"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetSAMLProviderResponse",
-        "This cmdlet returns a GetSAMLProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetSAMLProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SAMLProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SAML provider to get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SAMLProviderArn { get; set; }
-        
+        public System.String SAMLProviderArn { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetSAMLProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.GetSAMLProviderRequest();
             
             if (cmdletContext.SAMLProviderArn != null)
             {
@@ -114,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SAMLProviderArn { get; set; }
+            public System.String SAMLProviderArn { get; set; }
         }
         
     }

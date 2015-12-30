@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ApplyPendingMaintenanceAction operation against Amazon Relational Database Service.", Operation = new[] {"ApplyPendingMaintenanceAction"})]
     [AWSCmdletOutput("Amazon.RDS.Model.ResourcePendingMaintenanceActions",
         "This cmdlet returns a ResourcePendingMaintenanceActions object.",
-        "The service call response (type ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SubmitRDSPendingMaintenanceActionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplyAction
         /// <summary>
         /// <para>
         /// <para>The pending maintenance action to apply to this resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ApplyAction { get; set; }
+        public System.String ApplyAction { get; set; }
+        #endregion
         
+        #region Parameter OptInType
         /// <summary>
         /// <para>
         /// <para>A value that specifies the type of opt-in request, or undoes an opt-in request. An
@@ -56,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OptInType { get; set; }
+        public System.String OptInType { get; set; }
+        #endregion
         
+        #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
         /// <para>The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action
@@ -66,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceIdentifier { get; set; }
+        public System.String ResourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -107,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ApplyPendingMaintenanceActionRequest();
+            var request = new Amazon.RDS.Model.ApplyPendingMaintenanceActionRequest();
             
             if (cmdletContext.ApplyAction != null)
             {
@@ -156,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplyAction { get; set; }
-            public String OptInType { get; set; }
-            public String ResourceIdentifier { get; set; }
+            public System.String ApplyAction { get; set; }
+            public System.String OptInType { get; set; }
+            public System.String ResourceIdentifier { get; set; }
         }
         
     }

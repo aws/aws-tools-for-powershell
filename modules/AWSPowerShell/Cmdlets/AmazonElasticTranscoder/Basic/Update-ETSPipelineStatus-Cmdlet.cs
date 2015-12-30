@@ -44,18 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the UpdatePipelineStatus operation against Amazon Elastic Transcoder.", Operation = new[] {"UpdatePipelineStatus"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Pipeline",
         "This cmdlet returns a Pipeline object.",
-        "The service call response (type UpdatePipelineStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticTranscoder.Model.UpdatePipelineStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateETSPipelineStatusCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>The identifier of the pipeline to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The desired status of the pipeline:</para><ul><li><code>Active</code>: The pipeline is processing jobs.</li><li><code>Paused</code>:
@@ -63,8 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Status { get; set; }
+        public System.String Status { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdatePipelineStatusRequest();
+            var request = new Amazon.ElasticTranscoder.Model.UpdatePipelineStatusRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -148,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
-            public String Status { get; set; }
+            public System.String Id { get; set; }
+            public System.String Status { get; set; }
         }
         
     }

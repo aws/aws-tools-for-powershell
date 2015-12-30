@@ -45,18 +45,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyEventSubscription operation against Amazon Relational Database Service.", Operation = new[] {"ModifyEventSubscription"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Enabled
         /// <summary>
         /// <para>
         /// <para> A Boolean value; set to <b>true</b> to activate the subscription. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter EventCategory
         /// <summary>
         /// <para>
         /// <para> A list of event categories for a SourceType that you want to subscribe to. You can
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("EventCategories")]
         public System.String[] EventCategory { get; set; }
+        #endregion
         
+        #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the SNS topic created for event notification. The
@@ -76,8 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnsTopicArn { get; set; }
+        public System.String SnsTopicArn { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The type of source that will be generating the events. For example, if you want to
@@ -86,16 +94,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceType { get; set; }
+        public System.String SourceType { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionName
         /// <summary>
         /// <para>
         /// <para>The name of the RDS event notification subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -103,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -125,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Enabled = this.Enabled;
             if (this.EventCategory != null)
             {
-                context.EventCategories = new List<String>(this.EventCategory);
+                context.EventCategories = new List<System.String>(this.EventCategory);
             }
             context.SnsTopicArn = this.SnsTopicArn;
             context.SourceType = this.SourceType;
@@ -141,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyEventSubscriptionRequest();
+            var request = new Amazon.RDS.Model.ModifyEventSubscriptionRequest();
             
             if (cmdletContext.Enabled != null)
             {
@@ -198,11 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Enabled { get; set; }
-            public List<String> EventCategories { get; set; }
-            public String SnsTopicArn { get; set; }
-            public String SourceType { get; set; }
-            public String SubscriptionName { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public List<System.String> EventCategories { get; set; }
+            public System.String SnsTopicArn { get; set; }
+            public System.String SourceType { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

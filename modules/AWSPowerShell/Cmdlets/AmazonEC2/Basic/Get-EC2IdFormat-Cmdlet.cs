@@ -1,0 +1,134 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.EC2;
+using Amazon.EC2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.EC2
+{
+    /// <summary>
+    /// <b>Important: This command is reserved for future use, and is currently not available
+    /// for you to use.</b><para>
+    /// Describes the ID format settings for your resources, for example, to view which resource
+    /// types are enabled for longer IDs. This request only returns information about resource
+    /// types whose ID formats can be modified; it does not return information about other
+    /// resource types. 
+    /// </para><para>
+    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>.
+    /// 
+    /// </para><para>
+    /// These settings apply to the IAM user who makes the request; they do not apply to the
+    /// entire AWS account. By default, an IAM user defaults to the same settings as the root
+    /// user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a>
+    /// command. These settings are applied on a per-region basis.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Get", "EC2IdFormat")]
+    [OutputType("Amazon.EC2.Model.IdFormat")]
+    [AWSCmdlet("Invokes the DescribeIdFormat operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeIdFormat"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.IdFormat",
+        "This cmdlet returns a collection of IdFormat objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeIdFormatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetEC2IdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Resource
+        /// <summary>
+        /// <para>
+        /// <para>The type of resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Resource { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.Resource = this.Resource;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.EC2.Model.DescribeIdFormatRequest();
+            
+            if (cmdletContext.Resource != null)
+            {
+                request.Resource = cmdletContext.Resource;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.DescribeIdFormat(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Statuses;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String Resource { get; set; }
+        }
+        
+    }
+}

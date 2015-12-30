@@ -35,19 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the GetStreamingDistributionConfig operation against Amazon CloudFront.", Operation = new[] {"GetStreamingDistributionConfig"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.StreamingDistributionConfig",
         "This cmdlet returns a StreamingDistributionConfig object.",
-        "The service call response (type GetStreamingDistributionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type String)"
+        "The service call response (type Amazon.CloudFront.Model.GetStreamingDistributionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ETag (type System.String)"
     )]
     public class GetCFStreamingDistributionConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// The streaming distribution's id.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
-        
+        public System.String Id { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetStreamingDistributionConfigRequest();
+            var request = new Amazon.CloudFront.Model.GetStreamingDistributionConfigRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -114,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

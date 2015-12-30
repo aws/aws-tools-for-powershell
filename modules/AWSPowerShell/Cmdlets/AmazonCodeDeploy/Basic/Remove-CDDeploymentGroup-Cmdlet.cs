@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the DeleteDeploymentGroup operation against AWS CodeDeploy.", Operation = new[] {"DeleteDeploymentGroup"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.AutoScalingGroup",
         "This cmdlet returns a collection of AutoScalingGroup objects.",
-        "The service call response (type DeleteDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.DeleteDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
@@ -46,16 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The name of an existing deployment group for the specified application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentGroupName { get; set; }
+        public System.String DeploymentGroupName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -94,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDeploymentGroupRequest();
+            var request = new Amazon.CodeDeploy.Model.DeleteDeploymentGroupRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -139,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String DeploymentGroupName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String DeploymentGroupName { get; set; }
         }
         
     }

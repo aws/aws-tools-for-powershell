@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the MonitorInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"MonitorInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceMonitoring",
         "This cmdlet returns a collection of InstanceMonitoring objects.",
-        "The service call response (type MonitorInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.MonitorInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartEC2InstanceMonitoringCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>One or more instance IDs.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InstanceIds")]
         public object[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -57,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new MonitorInstancesRequest();
+            var request = new Amazon.EC2.Model.MonitorInstancesRequest();
             
             if (cmdletContext.InstanceIds != null)
             {
@@ -132,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> InstanceIds { get; set; }
+            public List<System.String> InstanceIds { get; set; }
         }
         
     }

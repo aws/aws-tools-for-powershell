@@ -46,11 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DescribeTags operation against Auto Scaling.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.TagDescription",
         "This cmdlet returns a collection of TagDescription objects.",
-        "The service call response (type DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.AutoScaling.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetASTagCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>A filter used to scope the tags to return.</para>
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Filters")]
         public Amazon.AutoScaling.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call.</para>
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -76,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.AutoScaling.Model.Filter>(this.Filter);
             }
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
@@ -108,14 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeTagsRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeTagsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -200,9 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
+            public List<Amazon.AutoScaling.Model.Filter> Filters { get; set; }
             public int? MaxRecords { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

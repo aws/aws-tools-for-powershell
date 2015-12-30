@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeNetworkAcls operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeNetworkAcls"})]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkAcl",
         "This cmdlet returns a collection of NetworkAcl objects.",
-        "The service call response (type DescribeNetworkAclsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeNetworkAclsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2NetworkAclCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>association.association-id</code> - The ID of an association ID for the ACL.</para></li><li><para><code>association.network-acl-id</code> - The ID of the network ACL involved in the
@@ -67,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>One or more network ACL IDs.</para><para>Default: Describes all your network ACLs.</para>
@@ -76,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("NetworkAclIds")]
         public System.String[] NetworkAclId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,11 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.NetworkAclId != null)
             {
-                context.NetworkAclIds = new List<String>(this.NetworkAclId);
+                context.NetworkAclIds = new List<System.String>(this.NetworkAclId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -107,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeNetworkAclsRequest();
+            var request = new Amazon.EC2.Model.DescribeNetworkAclsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -152,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> NetworkAclIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> NetworkAclIds { get; set; }
         }
         
     }

@@ -44,26 +44,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateVpnGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpnGateway"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnGateway",
         "This cmdlet returns a VpnGateway object.",
-        "The service call response (type CreateVpnGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVpnGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpnGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The Availability Zone for the virtual private gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The type of VPN connection this virtual private gateway supports.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public GatewayType Type { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.GatewayType")]
+        public Amazon.EC2.GatewayType Type { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -102,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpnGatewayRequest();
+            var request = new Amazon.EC2.Model.CreateVpnGatewayRequest();
             
             if (cmdletContext.AvailabilityZone != null)
             {
@@ -147,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZone { get; set; }
-            public GatewayType Type { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public Amazon.EC2.GatewayType Type { get; set; }
         }
         
     }

@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>STS</ServiceNounPrefix>
+  <ServiceName>AWS Security Token Service</ServiceName>
   <ServiceClientInterface>IAmazonSecurityTokenService</ServiceClientInterface>
   <ServiceClient>AmazonSecurityTokenServiceClient</ServiceClient>
   <ServiceNamespace>Amazon.SecurityToken</ServiceNamespace>

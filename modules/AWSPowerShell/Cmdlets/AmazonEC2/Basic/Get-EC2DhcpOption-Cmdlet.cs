@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeDhcpOptions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeDhcpOptions"})]
     [AWSCmdletOutput("Amazon.EC2.Model.DhcpOptions",
         "This cmdlet returns a collection of DhcpOptions objects.",
-        "The service call response (type DescribeDhcpOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeDhcpOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DhcpOptionsId
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more DHCP options sets.</para><para>Default: Describes all your DHCP options sets.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("DhcpOptionsIds")]
         public System.String[] DhcpOptionsId { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>dhcp-options-id</code> - The ID of a set of DHCP options.</para></li><li><para><code>key</code> - The key for one of the options (for example, <code>domain-name</code>).</para></li><li><para><code>value</code> - The value for one of the options.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -83,11 +87,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.DhcpOptionsId != null)
             {
-                context.DhcpOptionsIds = new List<String>(this.DhcpOptionsId);
+                context.DhcpOptionsIds = new List<System.String>(this.DhcpOptionsId);
             }
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -100,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDhcpOptionsRequest();
+            var request = new Amazon.EC2.Model.DescribeDhcpOptionsRequest();
             
             if (cmdletContext.DhcpOptionsIds != null)
             {
@@ -145,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DhcpOptionsIds { get; set; }
-            public List<Filter> Filters { get; set; }
+            public List<System.String> DhcpOptionsIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
         }
         
     }

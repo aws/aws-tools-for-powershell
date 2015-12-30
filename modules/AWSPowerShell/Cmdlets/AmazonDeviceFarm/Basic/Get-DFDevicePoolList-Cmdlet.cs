@@ -35,27 +35,34 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the ListDevicePools operation against AWS Device Farm.", Operation = new[] {"ListDevicePools"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.DevicePool",
         "This cmdlet returns a collection of DevicePool objects.",
-        "The service call response (type ListDevicePoolsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.DeviceFarm.Model.ListDevicePoolsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetDFDevicePoolListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
         /// <summary>
         /// <para>
         /// <para>The project ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Arn { get; set; }
+        public System.String Arn { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The device pools' type.</para><para>Allowed values include:</para><ul><li><para>CURATED: A device pool that is created and managed by AWS Device Farm.</para></li><li><para>PRIVATE: A device pool that is created and managed by the device pool developer.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DevicePoolType Type { get; set; }
+        [AWSConstantClassSource("Amazon.DeviceFarm.DevicePoolType")]
+        public Amazon.DeviceFarm.DevicePoolType Type { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous call to this operation, which can
@@ -63,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListDevicePoolsRequest();
+            var request = new Amazon.DeviceFarm.Model.ListDevicePoolsRequest();
             
             if (cmdletContext.Arn != null)
             {
@@ -103,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -173,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Arn { get; set; }
-            public String NextToken { get; set; }
-            public DevicePoolType Type { get; set; }
+            public System.String Arn { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.DeviceFarm.DevicePoolType Type { get; set; }
         }
         
     }

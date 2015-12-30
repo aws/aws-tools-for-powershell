@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ResetDBParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"ResetDBParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ResetDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ResetDBParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB parameter group. </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
@@ -52,8 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBParameterGroupName { get; set; }
+        public System.String DBParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para> An array of parameter names, values, and the apply method for the parameter update.
@@ -61,13 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// arguments are optional. A maximum of 20 parameters can be modified in a single request.
         /// </para><para><b>MySQL</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
         /// value for both dynamic and static parameters, and changes are applied when DB instance
+        /// reboots.</para><para><b>MariaDB</b></para><para>Valid Values (for Apply method): <code>immediate</code> | <code>pending-reboot</code></para><para>You can use the immediate value with dynamic parameters only. You can use the <code>pending-reboot</code>
+        /// value for both dynamic and static parameters, and changes are applied when DB instance
         /// reboots.</para><para><b>Oracle</b></para><para>Valid Values (for Apply method): <code>pending-reboot</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.RDS.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
         /// <para> Specifies whether (<code>true</code>) or not (<code>false</code>) to reset all parameters
@@ -75,8 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ResetAllParameters { get; set; }
+        [Alias("ResetAllParameters")]
+        public System.Boolean ResetAllParameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBParameterGroupName = this.DBParameterGroupName;
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.RDS.Model.Parameter>(this.Parameter);
             }
-            if (ParameterWasBound("ResetAllParameters"))
-                context.ResetAllParameters = this.ResetAllParameters;
+            if (ParameterWasBound("ResetAllParameter"))
+                context.ResetAllParameters = this.ResetAllParameter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -120,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetDBParameterGroupRequest();
+            var request = new Amazon.RDS.Model.ResetDBParameterGroupRequest();
             
             if (cmdletContext.DBParameterGroupName != null)
             {
@@ -169,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBParameterGroupName { get; set; }
-            public List<Parameter> Parameters { get; set; }
-            public Boolean? ResetAllParameters { get; set; }
+            public System.String DBParameterGroupName { get; set; }
+            public List<Amazon.RDS.Model.Parameter> Parameters { get; set; }
+            public System.Boolean? ResetAllParameters { get; set; }
         }
         
     }

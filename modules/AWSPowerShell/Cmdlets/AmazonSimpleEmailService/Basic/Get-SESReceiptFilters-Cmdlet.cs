@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the ListReceiptFilters operation against Amazon Simple Email Service.", Operation = new[] {"ListReceiptFilters"})]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.ReceiptFilter",
         "This cmdlet returns a collection of ReceiptFilter objects.",
-        "The service call response (type ListReceiptFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.ListReceiptFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESReceiptFiltersCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListReceiptFiltersRequest();
+            var request = new Amazon.SimpleEmail.Model.ListReceiptFiltersRequest();
             
             
             CmdletOutput output;

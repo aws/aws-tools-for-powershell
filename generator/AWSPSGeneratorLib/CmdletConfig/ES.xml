@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ES</ServiceNounPrefix>
+  <ServiceName>Amazon Elasticsearch</ServiceName>
   <ServiceClientInterface>IAmazonElasticsearch</ServiceClientInterface>
   <ServiceClient>AmazonElasticsearchClient</ServiceClient>
   <ServiceNamespace>Amazon.Elasticsearch</ServiceNamespace>

@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the ListIdentityPolicies operation against Amazon Simple Email Service.", Operation = new[] {"ListIdentityPolicies"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListIdentityPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.ListIdentityPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESIdentityPolicyListCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>The identity that is associated with the policy for which the policies will be listed.
@@ -59,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Identity { get; set; }
-        
+        public System.String Identity { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -84,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListIdentityPoliciesRequest();
+            var request = new Amazon.SimpleEmail.Model.ListIdentityPoliciesRequest();
             
             if (cmdletContext.Identity != null)
             {
@@ -125,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Identity { get; set; }
+            public System.String Identity { get; set; }
         }
         
     }

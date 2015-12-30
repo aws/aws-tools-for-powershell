@@ -63,10 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBClusterParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBClusterParameterGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterParameterGroup",
         "This cmdlet returns a DBClusterParameterGroup object.",
-        "The service call response (type CreateDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB cluster parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
@@ -74,8 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBClusterParameterGroupName { get; set; }
+        public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para> The DB cluster parameter group family name. A DB cluster parameter group can be associated
@@ -85,16 +89,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBParameterGroupFamily { get; set; }
+        public System.String DBParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> The description for the DB cluster parameter group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -103,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -111,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -134,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Description = this.Description;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -147,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBClusterParameterGroupRequest();
+            var request = new Amazon.RDS.Model.CreateDBClusterParameterGroupRequest();
             
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
@@ -200,10 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterParameterGroupName { get; set; }
-            public String DBParameterGroupFamily { get; set; }
-            public String Description { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
+            public System.String DBParameterGroupFamily { get; set; }
+            public System.String Description { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateImage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>Information about one or more block device mappings.</para>
@@ -59,23 +61,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 4)]
         [Alias("BlockDeviceMappings")]
         public Amazon.EC2.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the new image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>A name for the new image.</para><para>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]),
@@ -84,8 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter NoReboot
         /// <summary>
         /// <para>
         /// <para>By default, this parameter is set to <code>false</code>, which means Amazon EC2 attempts
@@ -96,8 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public Boolean NoReboot { get; set; }
+        public System.Boolean NoReboot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -105,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -125,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.BlockDeviceMapping != null)
             {
-                context.BlockDeviceMappings = new List<BlockDeviceMapping>(this.BlockDeviceMapping);
+                context.BlockDeviceMappings = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
             context.Description = this.Description;
             context.InstanceId = this.InstanceId;
@@ -143,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateImageRequest();
+            var request = new Amazon.EC2.Model.CreateImageRequest();
             
             if (cmdletContext.BlockDeviceMappings != null)
             {
@@ -200,11 +212,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<BlockDeviceMapping> BlockDeviceMappings { get; set; }
-            public String Description { get; set; }
-            public String InstanceId { get; set; }
-            public String Name { get; set; }
-            public Boolean? NoReboot { get; set; }
+            public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMappings { get; set; }
+            public System.String Description { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
+            public System.Boolean? NoReboot { get; set; }
         }
         
     }

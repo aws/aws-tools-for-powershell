@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Invokes the DescribeElasticsearchDomains operation against Amazon Elasticsearch.", Operation = new[] {"DescribeElasticsearchDomains"})]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus",
         "This cmdlet returns a collection of ElasticsearchDomainStatus objects.",
-        "The service call response (type DescribeElasticsearchDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DescribeElasticsearchDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetESDomainListCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The Elasticsearch domains for which you want information.</para>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DomainNames")]
         public System.String[] DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             
             if (this.DomainName != null)
             {
-                context.DomainNames = new List<String>(this.DomainName);
+                context.DomainNames = new List<System.String>(this.DomainName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeElasticsearchDomainsRequest();
+            var request = new Amazon.Elasticsearch.Model.DescribeElasticsearchDomainsRequest();
             
             if (cmdletContext.DomainNames != null)
             {
@@ -116,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DomainNames { get; set; }
+            public List<System.String> DomainNames { get; set; }
         }
         
     }

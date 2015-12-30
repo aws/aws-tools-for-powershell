@@ -38,11 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeEvents operation against Amazon Redshift.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Event",
         "This cmdlet returns a collection of Event objects.",
-        "The service call response (type DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.Redshift.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRSEventsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// <para> The number of minutes prior to the time of the request for which to retrieve events.
@@ -51,8 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Duration { get; set; }
+        public System.Int32 Duration { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> The end of the time interval for which to retrieve events, specified in ISO 8601
@@ -61,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the event source for which events will be returned. If this parameter
@@ -70,8 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceIdentifier { get; set; }
+        public System.String SourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The event source to retrieve events for. If no value is specified, all events are
@@ -82,8 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public SourceType SourceType { get; set; }
+        [AWSConstantClassSource("Amazon.Redshift.SourceType")]
+        public Amazon.Redshift.SourceType SourceType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> The beginning of the time interval to retrieve events for, specified in ISO 8601
@@ -92,8 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -105,8 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -118,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -153,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeEventsRequest();
+            var request = new Amazon.Redshift.Model.DescribeEventsRequest();
             if (cmdletContext.Duration != null)
             {
                 request.Duration = cmdletContext.Duration.Value;
@@ -176,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -291,13 +306,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? Duration { get; set; }
-            public DateTime? EndTime { get; set; }
-            public String Marker { get; set; }
+            public System.Int32? Duration { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String SourceIdentifier { get; set; }
-            public SourceType SourceType { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.String SourceIdentifier { get; set; }
+            public Amazon.Redshift.SourceType SourceType { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

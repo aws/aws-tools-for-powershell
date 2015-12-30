@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the BatchGetApplications operation against AWS CodeDeploy.", Operation = new[] {"BatchGetApplications"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.ApplicationInfo",
         "This cmdlet returns a collection of ApplicationInfo objects.",
-        "The service call response (type BatchGetApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.BatchGetApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDApplicationsCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>A list of application names, with multiple application names separated by spaces.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ApplicationNames")]
         public System.String[] ApplicationName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
             if (this.ApplicationName != null)
             {
-                context.ApplicationNames = new List<String>(this.ApplicationName);
+                context.ApplicationNames = new List<System.String>(this.ApplicationName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new BatchGetApplicationsRequest();
+            var request = new Amazon.CodeDeploy.Model.BatchGetApplicationsRequest();
             
             if (cmdletContext.ApplicationNames != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ApplicationNames { get; set; }
+            public List<System.String> ApplicationNames { get; set; }
         }
         
     }

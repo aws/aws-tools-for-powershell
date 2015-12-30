@@ -60,26 +60,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AttachVolume operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AttachVolume"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeAttachment",
         "This cmdlet returns a VolumeAttachment object.",
-        "The service call response (type AttachVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AttachVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Device
         /// <summary>
         /// <para>
         /// <para>The device name to expose to the instance (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Device { get; set; }
+        public System.String Device { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter VolumeId
         /// <summary>
         /// <para>
         /// <para>The ID of the EBS volume. The volume and instance must be within the same Availability
@@ -87,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -128,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachVolumeRequest();
+            var request = new Amazon.EC2.Model.AttachVolumeRequest();
             
             if (cmdletContext.Device != null)
             {
@@ -177,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Device { get; set; }
-            public String InstanceId { get; set; }
-            public String VolumeId { get; set; }
+            public System.String Device { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

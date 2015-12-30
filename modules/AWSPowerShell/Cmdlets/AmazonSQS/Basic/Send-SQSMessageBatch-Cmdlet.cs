@@ -57,10 +57,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [OutputType("Amazon.SQS.Model.SendMessageBatchResponse")]
     [AWSCmdlet("Invokes the SendMessageBatch operation against Amazon Simple Queue Service.", Operation = new[] {"SendMessageBatch"})]
     [AWSCmdletOutput("Amazon.SQS.Model.SendMessageBatchResponse",
-        "This cmdlet returns a SendMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SQS.Model.SendMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Entry
         /// <summary>
         /// <para>
         /// <para>A list of <a>SendMessageBatchRequestEntry</a> items.</para>
@@ -69,15 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter]
         [Alias("Entries")]
         public Amazon.SQS.Model.SendMessageBatchRequestEntry[] Entry { get; set; }
+        #endregion
         
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.Entry != null)
             {
-                context.Entries = new List<SendMessageBatchRequestEntry>(this.Entry);
+                context.Entries = new List<Amazon.SQS.Model.SendMessageBatchRequestEntry>(this.Entry);
             }
             context.QueueUrl = this.QueueUrl;
             
@@ -119,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SendMessageBatchRequest();
+            var request = new Amazon.SQS.Model.SendMessageBatchRequest();
             
             if (cmdletContext.Entries != null)
             {
@@ -164,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<SendMessageBatchRequestEntry> Entries { get; set; }
-            public String QueueUrl { get; set; }
+            public List<Amazon.SQS.Model.SendMessageBatchRequestEntry> Entries { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

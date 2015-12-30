@@ -28,22 +28,22 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a listing for Amazon EC2 Reserved Instances to be sold in the Reserved Instance
-    /// Marketplace. You can submit one Reserved Instance listing at a time. To get a list
-    /// of your Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.
+    /// Creates a listing for Amazon EC2 Reserved instances to be sold in the Reserved Instance
+    /// Marketplace. You can submit one Reserved instance listing at a time. To get a list
+    /// of your Reserved instances, you can use the <a>DescribeReservedInstances</a> operation.
     /// 
     ///  
     /// <para>
-    /// The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance
+    /// The Reserved Instance Marketplace matches sellers who want to resell Reserved instance
     /// capacity that they no longer need with buyers who want to purchase additional capacity.
-    /// Reserved Instances bought and sold through the Reserved Instance Marketplace work
-    /// like any other Reserved Instances. 
+    /// Reserved instances bought and sold through the Reserved Instance Marketplace work
+    /// like any other Reserved instances.
     /// </para><para>
-    /// To sell your Reserved Instances, you must first register as a seller in the Reserved
+    /// To sell your Reserved instances, you must first register as a seller in the Reserved
     /// Instance Marketplace. After completing the registration process, you can create a
-    /// Reserved Instance Marketplace listing of some or all of your Reserved Instances, and
-    /// specify the upfront price to receive for them. Your Reserved Instance listings then
-    /// become available for purchase. To view the details of your Reserved Instance listing,
+    /// Reserved Instance Marketplace listing of some or all of your Reserved instances, and
+    /// specify the upfront price to receive for them. Your Reserved instance listings then
+    /// become available for purchase. To view the details of your Reserved instance listing,
     /// you can use the <a>DescribeReservedInstancesListings</a> operation.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
@@ -55,10 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateReservedInstancesListing"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
         "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type CreateReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of your listings.
@@ -67,36 +69,44 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of instances that are a part of a Reserved Instance account to be listed
+        /// <para>The number of instances that are a part of a Reserved instance account to be listed
         /// in the Reserved Instance Marketplace. This number should be less than or equal to
-        /// the instance count associated with the Reserved Instance ID specified in this call.</para>
+        /// the instance count associated with the Reserved instance ID specified in this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 InstanceCount { get; set; }
+        public System.Int32 InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter PriceSchedule
         /// <summary>
         /// <para>
-        /// <para>A list specifying the price of the Reserved Instance for each month remaining in the
-        /// Reserved Instance term.</para>
+        /// <para>A list specifying the price of the Reserved instance for each month remaining in the
+        /// Reserved instance term.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("PriceSchedules","PricingSchedules")]
         public Amazon.EC2.Model.PriceScheduleSpecification[] PriceSchedule { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
-        /// <para>The ID of the active Reserved Instance.</para>
+        /// <para>The ID of the active Reserved instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedInstancesId { get; set; }
+        public System.String ReservedInstancesId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -104,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -127,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.InstanceCount = this.InstanceCount;
             if (this.PriceSchedule != null)
             {
-                context.PriceSchedules = new List<PriceScheduleSpecification>(this.PriceSchedule);
+                context.PriceSchedules = new List<Amazon.EC2.Model.PriceScheduleSpecification>(this.PriceSchedule);
             }
             context.ReservedInstancesId = this.ReservedInstancesId;
             
@@ -141,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateReservedInstancesListingRequest();
+            var request = new Amazon.EC2.Model.CreateReservedInstancesListingRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -194,10 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public Int32? InstanceCount { get; set; }
-            public List<PriceScheduleSpecification> PriceSchedules { get; set; }
-            public String ReservedInstancesId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.Int32? InstanceCount { get; set; }
+            public List<Amazon.EC2.Model.PriceScheduleSpecification> PriceSchedules { get; set; }
+            public System.String ReservedInstancesId { get; set; }
         }
         
     }

@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the PutJobFailureResult operation against AWS CodePipeline.", Operation = new[] {"PutJobFailureResult"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutJobFailureResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.PutJobFailureResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCPJobFailureResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter FailureDetails_ExternalExecutionId
         /// <summary>
         /// <para>
         /// <para>The external ID of the run of the action that failed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FailureDetails_ExternalExecutionId { get; set; }
+        public System.String FailureDetails_ExternalExecutionId { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID of the job that failed. This is the same ID returned
@@ -55,31 +59,40 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
+        #endregion
         
+        #region Parameter FailureDetails_Message
         /// <summary>
         /// <para>
         /// <para>The message about the failure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FailureDetails_Message { get; set; }
+        public System.String FailureDetails_Message { get; set; }
+        #endregion
         
+        #region Parameter FailureDetails_Type
         /// <summary>
         /// <para>
         /// <para>The type of the failure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public FailureType FailureDetails_Type { get; set; }
+        [AWSConstantClassSource("Amazon.CodePipeline.FailureType")]
+        public Amazon.CodePipeline.FailureType FailureDetails_Type { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -87,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,13 +133,13 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutJobFailureResultRequest();
+            var request = new Amazon.CodePipeline.Model.PutJobFailureResultRequest();
             
             
              // populate FailureDetails
             bool requestFailureDetailsIsNull = true;
-            request.FailureDetails = new FailureDetails();
-            String requestFailureDetails_failureDetails_ExternalExecutionId = null;
+            request.FailureDetails = new Amazon.CodePipeline.Model.FailureDetails();
+            System.String requestFailureDetails_failureDetails_ExternalExecutionId = null;
             if (cmdletContext.FailureDetails_ExternalExecutionId != null)
             {
                 requestFailureDetails_failureDetails_ExternalExecutionId = cmdletContext.FailureDetails_ExternalExecutionId;
@@ -136,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.FailureDetails.ExternalExecutionId = requestFailureDetails_failureDetails_ExternalExecutionId;
                 requestFailureDetailsIsNull = false;
             }
-            String requestFailureDetails_failureDetails_Message = null;
+            System.String requestFailureDetails_failureDetails_Message = null;
             if (cmdletContext.FailureDetails_Message != null)
             {
                 requestFailureDetails_failureDetails_Message = cmdletContext.FailureDetails_Message;
@@ -146,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.FailureDetails.Message = requestFailureDetails_failureDetails_Message;
                 requestFailureDetailsIsNull = false;
             }
-            FailureType requestFailureDetails_failureDetails_Type = null;
+            Amazon.CodePipeline.FailureType requestFailureDetails_failureDetails_Type = null;
             if (cmdletContext.FailureDetails_Type != null)
             {
                 requestFailureDetails_failureDetails_Type = cmdletContext.FailureDetails_Type;
@@ -202,10 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FailureDetails_ExternalExecutionId { get; set; }
-            public String FailureDetails_Message { get; set; }
-            public FailureType FailureDetails_Type { get; set; }
-            public String JobId { get; set; }
+            public System.String FailureDetails_ExternalExecutionId { get; set; }
+            public System.String FailureDetails_Message { get; set; }
+            public Amazon.CodePipeline.FailureType FailureDetails_Type { get; set; }
+            public System.String JobId { get; set; }
         }
         
     }

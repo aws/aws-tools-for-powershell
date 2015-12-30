@@ -38,19 +38,21 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the ListSubscriptions operation against Amazon Simple Notification Service.", Operation = new[] {"ListSubscriptions"})]
     [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.Subscription",
         "This cmdlet returns a collection of Subscription objects.",
-        "The service call response (type ListSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleNotificationService.Model.ListSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Token returned by the previous <code>ListSubscriptions</code> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -75,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListSubscriptionsRequest();
+            var request = new Amazon.SimpleNotificationService.Model.ListSubscriptionsRequest();
             
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -149,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

@@ -54,40 +54,36 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     [OutputType("Amazon.CloudSearchDomain.Model.SearchResult")]
     [AWSCmdlet("Invokes the Search operation against Amazon CloudSearchDomain.", Operation = new [] {"Search"})]
     [AWSCmdletOutput("Amazon.CloudSearchDomain.Model.SearchResult",
-        "This cmdlet returns a SearchResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudSearchDomain.Model.SearchResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SearchCSDDocumentsCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
+        #region Parameter ServiceUrl
         /// <summary>
-        /// <para>
-        /// Gets and sets the property ServiceUrl. 
-        /// <para>
         /// Specifies the Search or Document service endpoint.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
-        public String ServiceUrl { get; set; }
+        public System.String ServiceUrl { get; set; }
+        #endregion
 
+        #region Parameter Cursor
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Cursor. 
-        /// <para>
         /// Retrieves a cursor value you can use to page through large result sets.          Use
         /// the <code>size</code> parameter to control the number of hits to include in each response.
         /// You can specify either the <code>cursor</code> or         <code>start</code> parameter
         /// in a request; they are mutually exclusive. To get the first cursor, set the cursor
         /// value to <code>initial</code>. In subsequent requests, specify the cursor value returned
         /// in the hits section of the response. 
-        /// </para><para>
+        /// <para>
         /// For more         information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating
         /// Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.
         /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
-        public String Cursor { get; set; }
-        
+        public System.String Cursor { get; set; }
+        #endregion
+
+        #region Parameter Expr
         /// <summary>
         /// <para>
         /// Defines one or more numeric expressions that can be used to sort results or specify
@@ -110,8 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Expr { get; set; }
-        
+        public System.String Expr { get; set; }
+        #endregion
+
+        #region Parameter Facet
         /// <summary>
         /// <para>
         /// Specifies one or more fields for which to get facet information, and options that
@@ -193,12 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Facet { get; set; }
-        
+        public System.String Facet { get; set; }
+        #endregion
+
+        #region Parameter FilterQuery
         /// <summary>
-        /// <para>
-        /// Gets and sets the property FilterQuery. 
-        /// <para>
         /// Specifies a structured query that filters the results of a search without affecting
         /// how the results are scored and sorted. You use <code>filterQuery</code> in conjunction
         /// with the <code>query</code> parameter to filter the documents that match the constraints
@@ -206,15 +203,16 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// matching documents are included in the results, it has no effect on how they are scored
         /// and sorted. The <code>filterQuery</code> parameter supports the full structured query
         /// syntax. 
-        /// </para><para>
+        /// <para>
         /// For more information about using filters, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html">Filtering
         /// Matching Documents</a>         in the <i>Amazon CloudSearch Developer Guide</i>.
         /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
-        public String FilterQuery { get; set; }
-        
+        public System.String FilterQuery { get; set; }
+        #endregion
+
+        #region Parameter Highlight
         /// <summary>
         /// <para>
         /// Retrieves highlights for matches in the specified <code>text</code> or         <code>text-array</code>
@@ -251,12 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Highlight { get; set; }
-        
+        public System.String Highlight { get; set; }
+        #endregion
+
+        #region Parameter Partial
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Partial. 
-        /// <para>
         /// Enables partial results to be returned if one or more index partitions are unavailable.
         /// When your search index is partitioned across multiple search instances, by default
         /// Amazon CloudSearch only returns results if every partition can be queried. This means
@@ -266,31 +263,29 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// This enables you to more gracefully degrade your users' search experience. For example,
         /// rather than displaying no results, you could display the partial results and a message
         /// indicating that the results might be incomplete due to a temporary system outage.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
-        public Boolean? Partial { get; set; }
-        
+        public System.Boolean? Partial { get; set; }
+        #endregion
+
+        #region Parameter Query
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Query. 
-        /// <para>
         /// Specifies the search criteria for the request. How you specify the search        
         /// criteria depends on the query parser used for the request and the parser options 
         ///        specified in the <code>queryOptions</code> parameter. By default,         the
         /// <code>simple</code> query parser is used to process requests. To use         the <code>structured</code>,
         /// <code>lucene</code>, or <code>dismax</code> query parser,          you must also specify
         /// the <code>queryParser</code> parameter. 
-        /// </para><para>
+        /// <para>
         /// For more information about specifying search criteria, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html">Searching
         /// Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.
         /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Position = 1)]
-        public String Query { get; set; }
-        
+        public System.String Query { get; set; }
+        #endregion
+
+        #region Parameter QueryOption
         /// <summary>
         /// <para>
         /// Configures options for the query parser specified in the <code>queryParser</code>
@@ -377,11 +372,11 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </summary>
         [Parameter]
         [Alias("QueryOptions")]
-        public String QueryOption { get; set; }
-        
+        public System.String QueryOption { get; set; }
+        #endregion
+
+        #region Parameter QueryParser
         /// <summary>
-        /// <para>
-        /// Gets and sets the property QueryParser. 
         /// <para>
         /// Specifies which         query parser to use to process the request. If <code>queryParser</code>
         /// is not specified, Amazon CloudSearch         uses the <code>simple</code> query parser.
@@ -416,12 +411,12 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public QueryParser QueryParser { get; set; }
-        
+        [AWSConstantClassSource("Amazon.CloudSearchDomain.QueryParser")]
+        public Amazon.CloudSearchDomain.QueryParser QueryParser { get; set; }
+        #endregion
+
+        #region Parameter Return 
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Return. 
-        /// <para>
         /// Specifies the field and expression values to include in the response. Multiple fields
         /// or expressions are specified as a comma-separated list. By default, a search response
         /// includes all         return enabled fields (<code>_all_fields</code>).          To
@@ -432,23 +427,19 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </para>
         /// </summary>
         [Parameter]
-        public String Return { get; set; }
-        
+        public System.String Return { get; set; }
+        #endregion
+
+        #region Parameter Size
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Size. 
-        /// <para>
         /// Specifies the maximum number of search hits to include in the response. 
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
-        public Int64? Size { get; set; }
-        
+        public System.Int64? Size { get; set; }
+        #endregion
+
+        #region Parameter Sort
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Sort. 
-        /// <para>
         /// Specifies the fields or custom expressions to use to sort the search         results.
         /// Multiple fields or expressions are specified as a comma-separated list.         You
         /// must specify the sort direction (<code>asc</code> or         <code>desc</code>) for
@@ -458,37 +449,37 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// is specified, results are sorted by         their default relevance scores in descending
         /// order: <code>_score            desc</code>. You can also sort by document ID     
         ///    (<code>_id asc</code>) and version (<code>_version desc</code>).
-        /// </para><para>
+        /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html">Sorting
         /// Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.
         /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
-        public String Sort { get; set; }
-        
+        public System.String Sort { get; set; }
+        #endregion
+
+        #region Parameter Start
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Start. 
-        /// <para>
         /// Specifies the offset of the first search hit you want to return. Note that the result
         /// set is zero-based; the first result is at index 0. You can specify either the <code>start</code>
         /// or <code>cursor</code> parameter in a request, they are mutually exclusive.  
-        /// </para><para>
+        /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating
         /// Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.
         /// </para>
-        /// </para>
         /// </summary>
         [Parameter]
-        public Int64? Start { get; set; }
+        public System.Int64? Start { get; set; }
+        #endregion
 
+        #region Parameter UseAnonymousCredentials
         /// <summary>
         /// If set, the cmdlet calls the service operation using anonymous credentials.
         /// </summary>
         [Parameter]
         public SwitchParameter UseAnonymousCredentials { get; set; }
-        
+        #endregion
+
         protected override void ProcessRecord()
         {
             this.ExecuteWithAnonymousCredentials =

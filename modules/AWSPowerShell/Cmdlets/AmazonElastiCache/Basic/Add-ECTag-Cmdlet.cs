@@ -48,18 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the AddTagsToResource operation against Amazon ElastiCache.", Operation = new[] {"AddTagsToResource"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddECTagCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceName
         /// <summary>
         /// <para>
         /// <para>The name of the resource to which the tags are to be added, for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of cost allocation tags to be added to this resource. A tag is a key-value
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Tags")]
         public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -98,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.ResourceName = this.ResourceName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsToResourceRequest();
+            var request = new Amazon.ElastiCache.Model.AddTagsToResourceRequest();
             
             if (cmdletContext.ResourceName != null)
             {
@@ -156,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceName { get; set; }
+            public List<Amazon.ElastiCache.Model.Tag> Tags { get; set; }
         }
         
     }

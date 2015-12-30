@@ -58,11 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeCacheClusters operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheClusters"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
         "This cmdlet returns a collection of CacheCluster objects.",
-        "The service call response (type DescribeCacheClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheClusterId
         /// <summary>
         /// <para>
         /// <para>The user-supplied cluster identifier. If this parameter is specified, only information
@@ -70,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheClusterId { get; set; }
+        public System.String CacheClusterId { get; set; }
+        #endregion
         
+        #region Parameter ShowCacheNodeInfo
         /// <summary>
         /// <para>
         /// <para>An optional flag that can be included in the DescribeCacheCluster request to retrieve
@@ -79,8 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ShowCacheNodeInfo { get; set; }
+        public System.Boolean ShowCacheNodeInfo { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
@@ -90,8 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
@@ -102,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -132,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeCacheClustersRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeCacheClustersRequest();
             if (cmdletContext.CacheClusterId != null)
             {
                 request.CacheClusterId = cmdletContext.CacheClusterId;
@@ -143,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -228,10 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheClusterId { get; set; }
-            public String Marker { get; set; }
+            public System.String CacheClusterId { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public Boolean? ShowCacheNodeInfo { get; set; }
+            public System.Boolean? ShowCacheNodeInfo { get; set; }
         }
         
     }

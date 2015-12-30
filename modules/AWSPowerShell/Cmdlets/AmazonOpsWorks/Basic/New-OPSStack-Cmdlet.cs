@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the CreateStack operation against AWS OpsWorks.", Operation = new[] {"CreateStack"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewOPSStackCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentVersion
         /// <summary>
         /// <para>
         /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks automatically
@@ -59,8 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AgentVersion { get; set; }
+        public System.String AgentVersion { get; set; }
+        #endregion
         
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>One or more user-defined key-value pairs to be added to the stack attributes.</para>
@@ -69,15 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter ChefConfiguration_BerkshelfVersion
         /// <summary>
         /// <para>
         /// <para>The Berkshelf version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ChefConfiguration_BerkshelfVersion { get; set; }
+        public System.String ChefConfiguration_BerkshelfVersion { get; set; }
+        #endregion
         
+        #region Parameter CustomJson
         /// <summary>
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It can be used to override the corresponding
@@ -87,8 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomJson { get; set; }
+        public System.String CustomJson { get; set; }
+        #endregion
         
+        #region Parameter DefaultAvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The stack's default Availability Zone, which must be in the specified region. For
@@ -99,8 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DefaultAvailabilityZone { get; set; }
+        public System.String DefaultAvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter DefaultInstanceProfileArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM profile that is the default profile for all
@@ -109,8 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DefaultInstanceProfileArn { get; set; }
+        public System.String DefaultInstanceProfileArn { get; set; }
+        #endregion
         
+        #region Parameter DefaultOs
         /// <summary>
         /// <para>
         /// <para>The stack's default operating system, which is installed on every instance unless
@@ -126,8 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DefaultOs { get; set; }
+        public System.String DefaultOs { get; set; }
+        #endregion
         
+        #region Parameter DefaultRootDeviceType
         /// <summary>
         /// <para>
         /// <para>The default root device type. This value is the default for all instances in the stack,
@@ -137,8 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RootDeviceType DefaultRootDeviceType { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.RootDeviceType")]
+        public Amazon.OpsWorks.RootDeviceType DefaultRootDeviceType { get; set; }
+        #endregion
         
+        #region Parameter DefaultSshKeyName
         /// <summary>
         /// <para>
         /// <para>A default Amazon EC2 key pair name. The default value is none. If you specify a key
@@ -152,8 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DefaultSshKeyName { get; set; }
+        public System.String DefaultSshKeyName { get; set; }
+        #endregion
         
+        #region Parameter DefaultSubnetId
         /// <summary>
         /// <para>
         /// <para>The stack's default VPC subnet ID. This parameter is required if you specify a value
@@ -165,8 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DefaultSubnetId { get; set; }
+        public System.String DefaultSubnetId { get; set; }
+        #endregion
         
+        #region Parameter HostnameTheme
         /// <summary>
         /// <para>
         /// <para>The stack's host name theme, with spaces replaced by underscores. The theme is used
@@ -177,32 +200,40 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HostnameTheme { get; set; }
+        public System.String HostnameTheme { get; set; }
+        #endregion
         
+        #region Parameter ChefConfiguration_ManageBerkshelf
         /// <summary>
         /// <para>
         /// <para>Whether to enable Berkshelf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ChefConfiguration_ManageBerkshelf { get; set; }
+        public System.Boolean ChefConfiguration_ManageBerkshelf { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationManager_Name
         /// <summary>
         /// <para>
         /// <para>The name. This parameter must be set to "Chef".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigurationManager_Name { get; set; }
+        public System.String ConfigurationManager_Name { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The stack name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Password
         /// <summary>
         /// <para>
         /// <para>When included in a request, the parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
@@ -212,8 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomCookbooksSource_Password { get; set; }
+        public System.String CustomCookbooksSource_Password { get; set; }
+        #endregion
         
+        #region Parameter StackRegion
         /// <summary>
         /// <para>
         /// <para>The stack's AWS region, such as "us-east-1". For more information about Amazon regions,
@@ -222,8 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String StackRegion { get; set; }
+        public System.String StackRegion { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Revision
         /// <summary>
         /// <para>
         /// <para>The application's version. AWS OpsWorks enables you to easily deploy new versions
@@ -232,8 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomCookbooksSource_Revision { get; set; }
+        public System.String CustomCookbooksSource_Revision { get; set; }
+        #endregion
         
+        #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
         /// <para>The stack's AWS Identity and Access Management (IAM) role, which allows AWS OpsWorks
@@ -244,8 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceRoleArn { get; set; }
+        public System.String ServiceRoleArn { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_SshKey
         /// <summary>
         /// <para>
         /// <para>In requests, the repository's SSH key.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
@@ -253,32 +292,42 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomCookbooksSource_SshKey { get; set; }
+        public System.String CustomCookbooksSource_SshKey { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Type
         /// <summary>
         /// <para>
         /// <para>The repository type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SourceType CustomCookbooksSource_Type { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.SourceType")]
+        public Amazon.OpsWorks.SourceType CustomCookbooksSource_Type { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Url
         /// <summary>
         /// <para>
         /// <para>The source URL. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomCookbooksSource_Url { get; set; }
+        public System.String CustomCookbooksSource_Url { get; set; }
+        #endregion
         
+        #region Parameter UseCustomCookbook
         /// <summary>
         /// <para>
         /// <para>Whether the stack uses custom cookbooks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean UseCustomCookbooks { get; set; }
+        [Alias("UseCustomCookbooks")]
+        public System.Boolean UseCustomCookbook { get; set; }
+        #endregion
         
+        #region Parameter UseOpsworksSecurityGroup
         /// <summary>
         /// <para>
         /// <para>Whether to associate the AWS OpsWorks built-in security groups with the stack's layers.</para><para>AWS OpsWorks provides a standard set of built-in security groups, one for each layer,
@@ -296,8 +345,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean UseOpsworksSecurityGroups { get; set; }
+        [Alias("UseOpsworksSecurityGroups")]
+        public System.Boolean UseOpsworksSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter CustomCookbooksSource_Username
         /// <summary>
         /// <para>
         /// <para>This parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Username</code> to the appropriate IAM
@@ -306,8 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CustomCookbooksSource_Username { get; set; }
+        public System.String CustomCookbooksSource_Username { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationManager_Version
         /// <summary>
         /// <para>
         /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
@@ -315,8 +369,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigurationManager_Version { get; set; }
+        public System.String ConfigurationManager_Version { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC that the stack is to be launched into. The VPC must be in the stack's
@@ -331,8 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -340,7 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -361,7 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.AgentVersion = this.AgentVersion;
             if (this.Attribute != null)
             {
-                context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
                     context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
@@ -389,10 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.Name = this.Name;
             context.StackRegion = this.StackRegion;
             context.ServiceRoleArn = this.ServiceRoleArn;
-            if (ParameterWasBound("UseCustomCookbooks"))
-                context.UseCustomCookbooks = this.UseCustomCookbooks;
-            if (ParameterWasBound("UseOpsworksSecurityGroups"))
-                context.UseOpsworksSecurityGroups = this.UseOpsworksSecurityGroups;
+            if (ParameterWasBound("UseCustomCookbook"))
+                context.UseCustomCookbooks = this.UseCustomCookbook;
+            if (ParameterWasBound("UseOpsworksSecurityGroup"))
+                context.UseOpsworksSecurityGroups = this.UseOpsworksSecurityGroup;
             context.VpcId = this.VpcId;
             
             var output = Execute(context) as CmdletOutput;
@@ -405,7 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateStackRequest();
+            var request = new Amazon.OpsWorks.Model.CreateStackRequest();
             
             if (cmdletContext.AgentVersion != null)
             {
@@ -418,8 +476,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate ChefConfiguration
             bool requestChefConfigurationIsNull = true;
-            request.ChefConfiguration = new ChefConfiguration();
-            String requestChefConfiguration_chefConfiguration_BerkshelfVersion = null;
+            request.ChefConfiguration = new Amazon.OpsWorks.Model.ChefConfiguration();
+            System.String requestChefConfiguration_chefConfiguration_BerkshelfVersion = null;
             if (cmdletContext.ChefConfiguration_BerkshelfVersion != null)
             {
                 requestChefConfiguration_chefConfiguration_BerkshelfVersion = cmdletContext.ChefConfiguration_BerkshelfVersion;
@@ -429,7 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.ChefConfiguration.BerkshelfVersion = requestChefConfiguration_chefConfiguration_BerkshelfVersion;
                 requestChefConfigurationIsNull = false;
             }
-            Boolean? requestChefConfiguration_chefConfiguration_ManageBerkshelf = null;
+            System.Boolean? requestChefConfiguration_chefConfiguration_ManageBerkshelf = null;
             if (cmdletContext.ChefConfiguration_ManageBerkshelf != null)
             {
                 requestChefConfiguration_chefConfiguration_ManageBerkshelf = cmdletContext.ChefConfiguration_ManageBerkshelf.Value;
@@ -447,8 +505,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate ConfigurationManager
             bool requestConfigurationManagerIsNull = true;
-            request.ConfigurationManager = new StackConfigurationManager();
-            String requestConfigurationManager_configurationManager_Name = null;
+            request.ConfigurationManager = new Amazon.OpsWorks.Model.StackConfigurationManager();
+            System.String requestConfigurationManager_configurationManager_Name = null;
             if (cmdletContext.ConfigurationManager_Name != null)
             {
                 requestConfigurationManager_configurationManager_Name = cmdletContext.ConfigurationManager_Name;
@@ -458,7 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.ConfigurationManager.Name = requestConfigurationManager_configurationManager_Name;
                 requestConfigurationManagerIsNull = false;
             }
-            String requestConfigurationManager_configurationManager_Version = null;
+            System.String requestConfigurationManager_configurationManager_Version = null;
             if (cmdletContext.ConfigurationManager_Version != null)
             {
                 requestConfigurationManager_configurationManager_Version = cmdletContext.ConfigurationManager_Version;
@@ -476,8 +534,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate CustomCookbooksSource
             bool requestCustomCookbooksSourceIsNull = true;
-            request.CustomCookbooksSource = new Source();
-            String requestCustomCookbooksSource_customCookbooksSource_Password = null;
+            request.CustomCookbooksSource = new Amazon.OpsWorks.Model.Source();
+            System.String requestCustomCookbooksSource_customCookbooksSource_Password = null;
             if (cmdletContext.CustomCookbooksSource_Password != null)
             {
                 requestCustomCookbooksSource_customCookbooksSource_Password = cmdletContext.CustomCookbooksSource_Password;
@@ -487,7 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomCookbooksSource.Password = requestCustomCookbooksSource_customCookbooksSource_Password;
                 requestCustomCookbooksSourceIsNull = false;
             }
-            String requestCustomCookbooksSource_customCookbooksSource_Revision = null;
+            System.String requestCustomCookbooksSource_customCookbooksSource_Revision = null;
             if (cmdletContext.CustomCookbooksSource_Revision != null)
             {
                 requestCustomCookbooksSource_customCookbooksSource_Revision = cmdletContext.CustomCookbooksSource_Revision;
@@ -497,7 +555,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomCookbooksSource.Revision = requestCustomCookbooksSource_customCookbooksSource_Revision;
                 requestCustomCookbooksSourceIsNull = false;
             }
-            String requestCustomCookbooksSource_customCookbooksSource_SshKey = null;
+            System.String requestCustomCookbooksSource_customCookbooksSource_SshKey = null;
             if (cmdletContext.CustomCookbooksSource_SshKey != null)
             {
                 requestCustomCookbooksSource_customCookbooksSource_SshKey = cmdletContext.CustomCookbooksSource_SshKey;
@@ -507,7 +565,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomCookbooksSource.SshKey = requestCustomCookbooksSource_customCookbooksSource_SshKey;
                 requestCustomCookbooksSourceIsNull = false;
             }
-            SourceType requestCustomCookbooksSource_customCookbooksSource_Type = null;
+            Amazon.OpsWorks.SourceType requestCustomCookbooksSource_customCookbooksSource_Type = null;
             if (cmdletContext.CustomCookbooksSource_Type != null)
             {
                 requestCustomCookbooksSource_customCookbooksSource_Type = cmdletContext.CustomCookbooksSource_Type;
@@ -517,7 +575,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomCookbooksSource.Type = requestCustomCookbooksSource_customCookbooksSource_Type;
                 requestCustomCookbooksSourceIsNull = false;
             }
-            String requestCustomCookbooksSource_customCookbooksSource_Url = null;
+            System.String requestCustomCookbooksSource_customCookbooksSource_Url = null;
             if (cmdletContext.CustomCookbooksSource_Url != null)
             {
                 requestCustomCookbooksSource_customCookbooksSource_Url = cmdletContext.CustomCookbooksSource_Url;
@@ -527,7 +585,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.CustomCookbooksSource.Url = requestCustomCookbooksSource_customCookbooksSource_Url;
                 requestCustomCookbooksSourceIsNull = false;
             }
-            String requestCustomCookbooksSource_customCookbooksSource_Username = null;
+            System.String requestCustomCookbooksSource_customCookbooksSource_Username = null;
             if (cmdletContext.CustomCookbooksSource_Username != null)
             {
                 requestCustomCookbooksSource_customCookbooksSource_Username = cmdletContext.CustomCookbooksSource_Username;
@@ -633,32 +691,32 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AgentVersion { get; set; }
-            public Dictionary<String, String> Attributes { get; set; }
-            public String ChefConfiguration_BerkshelfVersion { get; set; }
-            public Boolean? ChefConfiguration_ManageBerkshelf { get; set; }
-            public String ConfigurationManager_Name { get; set; }
-            public String ConfigurationManager_Version { get; set; }
-            public String CustomCookbooksSource_Password { get; set; }
-            public String CustomCookbooksSource_Revision { get; set; }
-            public String CustomCookbooksSource_SshKey { get; set; }
-            public SourceType CustomCookbooksSource_Type { get; set; }
-            public String CustomCookbooksSource_Url { get; set; }
-            public String CustomCookbooksSource_Username { get; set; }
-            public String CustomJson { get; set; }
-            public String DefaultAvailabilityZone { get; set; }
-            public String DefaultInstanceProfileArn { get; set; }
-            public String DefaultOs { get; set; }
-            public RootDeviceType DefaultRootDeviceType { get; set; }
-            public String DefaultSshKeyName { get; set; }
-            public String DefaultSubnetId { get; set; }
-            public String HostnameTheme { get; set; }
-            public String Name { get; set; }
-            public String StackRegion { get; set; }
-            public String ServiceRoleArn { get; set; }
-            public Boolean? UseCustomCookbooks { get; set; }
-            public Boolean? UseOpsworksSecurityGroups { get; set; }
-            public String VpcId { get; set; }
+            public System.String AgentVersion { get; set; }
+            public Dictionary<System.String, System.String> Attributes { get; set; }
+            public System.String ChefConfiguration_BerkshelfVersion { get; set; }
+            public System.Boolean? ChefConfiguration_ManageBerkshelf { get; set; }
+            public System.String ConfigurationManager_Name { get; set; }
+            public System.String ConfigurationManager_Version { get; set; }
+            public System.String CustomCookbooksSource_Password { get; set; }
+            public System.String CustomCookbooksSource_Revision { get; set; }
+            public System.String CustomCookbooksSource_SshKey { get; set; }
+            public Amazon.OpsWorks.SourceType CustomCookbooksSource_Type { get; set; }
+            public System.String CustomCookbooksSource_Url { get; set; }
+            public System.String CustomCookbooksSource_Username { get; set; }
+            public System.String CustomJson { get; set; }
+            public System.String DefaultAvailabilityZone { get; set; }
+            public System.String DefaultInstanceProfileArn { get; set; }
+            public System.String DefaultOs { get; set; }
+            public Amazon.OpsWorks.RootDeviceType DefaultRootDeviceType { get; set; }
+            public System.String DefaultSshKeyName { get; set; }
+            public System.String DefaultSubnetId { get; set; }
+            public System.String HostnameTheme { get; set; }
+            public System.String Name { get; set; }
+            public System.String StackRegion { get; set; }
+            public System.String ServiceRoleArn { get; set; }
+            public System.Boolean? UseCustomCookbooks { get; set; }
+            public System.Boolean? UseOpsworksSecurityGroups { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

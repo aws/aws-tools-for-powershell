@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CancelSpotFleetRequestsResponse")]
     [AWSCmdlet("Invokes the CancelSpotFleetRequests operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelSpotFleetRequests"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelSpotFleetRequestsResponse",
-        "This cmdlet returns a CancelSpotFleetRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.CancelSpotFleetRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEC2SpotFleetRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
         /// <para>The IDs of the Spot fleet requests.</para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("SpotFleetRequestIds")]
         public System.String[] SpotFleetRequestId { get; set; }
+        #endregion
         
+        #region Parameter TerminateInstance
         /// <summary>
         /// <para>
         /// <para>Indicates whether to terminate instances for a Spot fleet request if it is canceled
@@ -64,8 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean TerminateInstances { get; set; }
+        [Alias("TerminateInstances")]
+        public System.Boolean TerminateInstance { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,10 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.SpotFleetRequestId != null)
             {
-                context.SpotFleetRequestIds = new List<String>(this.SpotFleetRequestId);
+                context.SpotFleetRequestIds = new List<System.String>(this.SpotFleetRequestId);
             }
-            if (ParameterWasBound("TerminateInstances"))
-                context.TerminateInstances = this.TerminateInstances;
+            if (ParameterWasBound("TerminateInstance"))
+                context.TerminateInstances = this.TerminateInstance;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -108,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelSpotFleetRequestsRequest();
+            var request = new Amazon.EC2.Model.CancelSpotFleetRequestsRequest();
             
             if (cmdletContext.SpotFleetRequestIds != null)
             {
@@ -153,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> SpotFleetRequestIds { get; set; }
-            public Boolean? TerminateInstances { get; set; }
+            public List<System.String> SpotFleetRequestIds { get; set; }
+            public System.Boolean? TerminateInstances { get; set; }
         }
         
     }

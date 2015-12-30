@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the RetireGrant operation against AWS Key Management Service.", Operation = new[] {"RetireGrant"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type RetireGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.RetireGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GrantId
         /// <summary>
         /// <para>
         /// <para> Unique identifier of the grant to be retired. The grant ID is returned by the <code>CreateGrant</code>
@@ -54,16 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GrantId { get; set; }
+        public System.String GrantId { get; set; }
+        #endregion
         
+        #region Parameter GrantToken
         /// <summary>
         /// <para>
         /// <para>Token that identifies the grant to be retired.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GrantToken { get; set; }
+        public System.String GrantToken { get; set; }
+        #endregion
         
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key associated with the grant. This value
@@ -72,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -113,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RetireGrantRequest();
+            var request = new Amazon.KeyManagementService.Model.RetireGrantRequest();
             
             if (cmdletContext.GrantId != null)
             {
@@ -162,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GrantId { get; set; }
-            public String GrantToken { get; set; }
-            public String KeyId { get; set; }
+            public System.String GrantId { get; set; }
+            public System.String GrantToken { get; set; }
+            public System.String KeyId { get; set; }
         }
         
     }

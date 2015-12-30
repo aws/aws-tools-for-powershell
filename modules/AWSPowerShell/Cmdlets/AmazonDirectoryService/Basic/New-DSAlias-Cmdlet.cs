@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Creates an alias for a directory and assigns the alias to the directory. The alias
-    /// is used to construct the access URL for the directory, such as <code>http://&lt;alias&gt;.awsapps.com</code>.
+    /// is used to construct the access URL for the directory, such as <code>http://<![CDATA[&#x3C;]]>alias<![CDATA[&#x3E;]]>.awsapps.com</code>.
     /// 
     ///  <important><para>
     /// After an alias has been created, it cannot be deleted or reused, so this operation
@@ -40,27 +40,33 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [OutputType("Amazon.DirectoryService.Model.CreateAliasResponse")]
     [AWSCmdlet("Invokes the CreateAlias operation against AWS Directory Service.", Operation = new[] {"CreateAlias"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.CreateAliasResponse",
-        "This cmdlet returns a CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DirectoryService.Model.CreateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDSAliasCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation will throw an
-        /// <code>EntityAlreadyExistsException</code> if this alias already exists.</para>
+        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation throws an <code>EntityAlreadyExistsException</code>
+        /// error if the alias already exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Alias { get; set; }
+        public System.String Alias { get; set; }
+        #endregion
         
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to create the alias for.</para>
+        /// <para>The identifier of the directory for which to create the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAliasRequest();
+            var request = new Amazon.DirectoryService.Model.CreateAliasRequest();
             
             if (cmdletContext.Alias != null)
             {
@@ -144,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Alias { get; set; }
-            public String DirectoryId { get; set; }
+            public System.String Alias { get; set; }
+            public System.String DirectoryId { get; set; }
         }
         
     }

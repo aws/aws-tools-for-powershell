@@ -38,19 +38,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribeEvents operation against Amazon Relational Database Service.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.RDS.Model.Event",
         "This cmdlet returns a collection of Event objects.",
-        "The service call response (type DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.RDS.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRDSEventCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// <para> The number of minutes to retrieve events for. </para><para>Default: 60</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Duration { get; set; }
+        public System.Int32 Duration { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> The end of the time interval for which to retrieve events, specified in ISO 8601
@@ -59,8 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter EventCategory
         /// <summary>
         /// <para>
         /// <para> A list of event categories that trigger notifications for a event notification subscription.
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("EventCategories")]
         public System.String[] EventCategory { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the event source for which events will be returned. If not specified,
@@ -91,8 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SourceIdentifier { get; set; }
+        public System.String SourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The event source to retrieve events for. If no value is specified, all events are
@@ -100,8 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public SourceType SourceType { get; set; }
+        [AWSConstantClassSource("Amazon.RDS.SourceType")]
+        public Amazon.RDS.SourceType SourceType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> The beginning of the time interval to retrieve events for, specified in ISO 8601
@@ -110,8 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional pagination token provided by a previous DescribeEvents request. If this
@@ -121,8 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
@@ -133,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -151,11 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.EndTime = this.EndTime;
             if (this.EventCategory != null)
             {
-                context.EventCategories = new List<String>(this.EventCategory);
+                context.EventCategories = new List<System.String>(this.EventCategory);
             }
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -176,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeEventsRequest();
+            var request = new Amazon.RDS.Model.DescribeEventsRequest();
             if (cmdletContext.Duration != null)
             {
                 request.Duration = cmdletContext.Duration.Value;
@@ -207,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -292,15 +311,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? Duration { get; set; }
-            public DateTime? EndTime { get; set; }
-            public List<String> EventCategories { get; set; }
-            public List<Filter> Filters { get; set; }
-            public String Marker { get; set; }
+            public System.Int32? Duration { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public List<System.String> EventCategories { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String SourceIdentifier { get; set; }
-            public SourceType SourceType { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.String SourceIdentifier { get; set; }
+            public Amazon.RDS.SourceType SourceType { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

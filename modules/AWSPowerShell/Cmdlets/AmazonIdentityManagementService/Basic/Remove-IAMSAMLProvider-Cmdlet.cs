@@ -43,25 +43,31 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeleteSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"DeleteSAMLProvider"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SAMLProviderArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteSAMLProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteSAMLProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMSAMLProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SAMLProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SAML provider to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SAMLProviderArn { get; set; }
+        public System.String SAMLProviderArn { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SAMLProviderArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSAMLProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteSAMLProviderRequest();
             
             if (cmdletContext.SAMLProviderArn != null)
             {
@@ -142,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SAMLProviderArn { get; set; }
+            public System.String SAMLProviderArn { get; set; }
         }
         
     }

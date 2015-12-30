@@ -35,19 +35,24 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the ListActionTypes operation against AWS CodePipeline.", Operation = new[] {"ListActionTypes"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ActionType",
         "This cmdlet returns a collection of ActionType objects.",
-        "The service call response (type ListActionTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodePipeline.Model.ListActionTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCPActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionOwnerFilter
         /// <summary>
         /// <para>
         /// <para>Filters the list of action types to those created by a specified entity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ActionOwner ActionOwnerFilter { get; set; }
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionOwner")]
+        public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list action types call, which can
@@ -55,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -81,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListActionTypesRequest();
+            var request = new Amazon.CodePipeline.Model.ListActionTypesRequest();
             
             if (cmdletContext.ActionOwnerFilter != null)
             {
@@ -128,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public ActionOwner ActionOwnerFilter { get; set; }
-            public String NextToken { get; set; }
+            public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

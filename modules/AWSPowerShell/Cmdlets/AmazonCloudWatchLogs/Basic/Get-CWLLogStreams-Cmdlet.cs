@@ -46,11 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DescribeLogStreams operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeLogStreams"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.LogStream",
         "This cmdlet returns a collection of LogStream objects.",
-        "The service call response (type DescribeLogStreamsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeLogStreamsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWLLogStreamsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter Descending
         /// <summary>
         /// <para>
         /// <para> If set to true, results are returned in descending order. If you don't specify a
@@ -58,16 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Descending { get; set; }
+        public System.Boolean Descending { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The log group name for which log streams are to be listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamNamePrefix
         /// <summary>
         /// <para>
         /// <para> Will only return log streams that match the provided logStreamNamePrefix. If you
@@ -75,8 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LogStreamNamePrefix { get; set; }
+        public System.String LogStreamNamePrefix { get; set; }
+        #endregion
         
+        #region Parameter OrderBy
         /// <summary>
         /// <para>
         /// <para> Specifies what to order the returned log streams by. Valid arguments are 'LogStreamName'
@@ -86,8 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public OrderBy OrderBy { get; set; }
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.OrderBy")]
+        public Amazon.CloudWatchLogs.OrderBy OrderBy { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of items returned in the response. If you don't specify a value,
@@ -97,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> A string token used for pagination that points to the next page of results. It must
@@ -106,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -138,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLogStreamsRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeLogStreamsRequest();
             
             if (cmdletContext.Descending != null)
             {
@@ -201,12 +214,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Descending { get; set; }
+            public System.Boolean? Descending { get; set; }
             public int? Limit { get; set; }
-            public String LogGroupName { get; set; }
-            public String LogStreamNamePrefix { get; set; }
-            public String NextToken { get; set; }
-            public OrderBy OrderBy { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String LogStreamNamePrefix { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CloudWatchLogs.OrderBy OrderBy { get; set; }
         }
         
     }

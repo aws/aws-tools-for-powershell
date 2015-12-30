@@ -36,33 +36,41 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DisableVgwRoutePropagation operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DisableVgwRoutePropagation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RouteTableId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DisableVgwRoutePropagationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DisableVgwRoutePropagationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableEC2VgwRoutePropagationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of the virtual private gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String GatewayId { get; set; }
+        public System.String GatewayId { get; set; }
+        #endregion
         
+        #region Parameter RouteTableId
         /// <summary>
         /// <para>
         /// <para>The ID of the route table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RouteTableId { get; set; }
+        public System.String RouteTableId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RouteTableId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableVgwRoutePropagationRequest();
+            var request = new Amazon.EC2.Model.DisableVgwRoutePropagationRequest();
             
             if (cmdletContext.GatewayId != null)
             {
@@ -148,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayId { get; set; }
-            public String RouteTableId { get; set; }
+            public System.String GatewayId { get; set; }
+            public System.String RouteTableId { get; set; }
         }
         
     }

@@ -35,34 +35,42 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the PurchaseReservedDBInstancesOffering operation against Amazon Relational Database Service.", Operation = new[] {"PurchaseReservedDBInstancesOffering"})]
     [AWSCmdletOutput("Amazon.RDS.Model.ReservedDBInstance",
         "This cmdlet returns a ReservedDBInstance object.",
-        "The service call response (type PurchaseReservedDBInstancesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.PurchaseReservedDBInstancesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRDSReservedDBInstancesOfferingCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceCount
         /// <summary>
         /// <para>
         /// <para> The number of instances to reserve. </para><para>Default: <code>1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DBInstanceCount { get; set; }
+        public System.Int32 DBInstanceCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedDBInstanceId
         /// <summary>
         /// <para>
         /// <para> Customer-specified identifier to track this reservation. </para><para>Example: myreservationID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String ReservedDBInstanceId { get; set; }
+        public System.String ReservedDBInstanceId { get; set; }
+        #endregion
         
+        #region Parameter ReservedDBInstancesOfferingId
         /// <summary>
         /// <para>
         /// <para> The ID of the Reserved DB instance offering to purchase. </para><para>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedDBInstancesOfferingId { get; set; }
+        public System.String ReservedDBInstancesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -89,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.ReservedDBInstancesOfferingId = this.ReservedDBInstancesOfferingId;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -102,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedDBInstancesOfferingRequest();
+            var request = new Amazon.RDS.Model.PurchaseReservedDBInstancesOfferingRequest();
             
             if (cmdletContext.DBInstanceCount != null)
             {
@@ -155,10 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DBInstanceCount { get; set; }
-            public String ReservedDBInstanceId { get; set; }
-            public String ReservedDBInstancesOfferingId { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.Int32? DBInstanceCount { get; set; }
+            public System.String ReservedDBInstanceId { get; set; }
+            public System.String ReservedDBInstancesOfferingId { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

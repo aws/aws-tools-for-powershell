@@ -41,26 +41,32 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the CreateCacheSubnetGroup operation against Amazon ElastiCache.", Operation = new[] {"CreateCacheSubnetGroup"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSubnetGroup",
         "This cmdlet returns a CacheSubnetGroup object.",
-        "The service call response (type CreateCacheSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateCacheSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECCacheSubnetGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheSubnetGroupDescription
         /// <summary>
         /// <para>
         /// <para>A description for the cache subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CacheSubnetGroupDescription { get; set; }
+        public System.String CacheSubnetGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter CacheSubnetGroupName
         /// <summary>
         /// <para>
         /// <para>A name for the cache subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</para><para>Example: <code>mysubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheSubnetGroupName { get; set; }
+        public System.String CacheSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>A list of VPC subnet IDs for the cache subnet group.</para>
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             if (this.SubnetId != null)
             {
-                context.SubnetIds = new List<String>(this.SubnetId);
+                context.SubnetIds = new List<System.String>(this.SubnetId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -112,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCacheSubnetGroupRequest();
+            var request = new Amazon.ElastiCache.Model.CreateCacheSubnetGroupRequest();
             
             if (cmdletContext.CacheSubnetGroupDescription != null)
             {
@@ -161,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheSubnetGroupDescription { get; set; }
-            public String CacheSubnetGroupName { get; set; }
-            public List<String> SubnetIds { get; set; }
+            public System.String CacheSubnetGroupDescription { get; set; }
+            public System.String CacheSubnetGroupName { get; set; }
+            public List<System.String> SubnetIds { get; set; }
         }
         
     }

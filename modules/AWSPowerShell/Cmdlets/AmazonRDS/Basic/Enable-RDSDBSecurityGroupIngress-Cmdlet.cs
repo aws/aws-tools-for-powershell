@@ -47,26 +47,32 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the AuthorizeDBSecurityGroupIngress operation against Amazon Relational Database Service.", Operation = new[] {"AuthorizeDBSecurityGroupIngress"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSecurityGroup",
         "This cmdlet returns a DBSecurityGroup object.",
-        "The service call response (type AuthorizeDBSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.AuthorizeDBSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableRDSDBSecurityGroupIngressCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter CIDRIP
         /// <summary>
         /// <para>
         /// <para> The IP range to authorize. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CIDRIP { get; set; }
+        public System.String CIDRIP { get; set; }
+        #endregion
         
+        #region Parameter DBSecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB security group to add authorization to. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
+        public System.String DBSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupId
         /// <summary>
         /// <para>
         /// <para> Id of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
@@ -75,8 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupId { get; set; }
+        public System.String EC2SecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
         /// <para> Name of the EC2 security group to authorize. For VPC DB security groups, <code>EC2SecurityGroupId</code>
@@ -85,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupName { get; set; }
+        public System.String EC2SecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
         /// <para> AWS account number of the owner of the EC2 security group specified in the <code>EC2SecurityGroupName</code>
@@ -97,8 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupOwnerId { get; set; }
+        public System.String EC2SecurityGroupOwnerId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -106,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -140,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AuthorizeDBSecurityGroupIngressRequest();
+            var request = new Amazon.RDS.Model.AuthorizeDBSecurityGroupIngressRequest();
             
             if (cmdletContext.CIDRIP != null)
             {
@@ -197,11 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CIDRIP { get; set; }
-            public String DBSecurityGroupName { get; set; }
-            public String EC2SecurityGroupId { get; set; }
-            public String EC2SecurityGroupName { get; set; }
-            public String EC2SecurityGroupOwnerId { get; set; }
+            public System.String CIDRIP { get; set; }
+            public System.String DBSecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupId { get; set; }
+            public System.String EC2SecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupOwnerId { get; set; }
         }
         
     }

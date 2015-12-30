@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the RestoreDBClusterFromSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"RestoreDBClusterFromSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type RestoreDBClusterFromSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.RestoreDBClusterFromSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreRDSDBClusterFromSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>Provides the list of EC2 Availability Zones that instances in the restored DB cluster
@@ -56,15 +58,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter DatabaseName
         /// <summary>
         /// <para>
         /// <para>The database name for the restored DB cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DatabaseName { get; set; }
+        public System.String DatabaseName { get; set; }
+        #endregion
         
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the DB cluster snapshot. This parameter
@@ -74,48 +80,79 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the DB subnet group to use for the new DB cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
         /// <para>The database engine to use for the new DB cluster. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The version of the database engine to use for the new DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
+        /// DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
+        /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
+        /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// will occur:</para><ul><li>If the DB cluster snapshot is encrypted, then the restored DB cluster is
+        /// encrypted using the KMS key that was used to encrypt the DB cluster snapshot.</li><li>If the DB cluster snapshot is not encrypted, then the restored DB cluster is not
+        /// encrypted.</li></ul><para>If <code>SnapshotIdentifier</code> refers to a DB cluster snapshot that is not encrypted,
+        /// and you specify a value for the <code>KmsKeyId</code> parameter, then the restore
+        /// request is rejected.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the option group to use for the restored DB cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the new DB cluster accepts connections. </para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier for the DB cluster snapshot to restore from. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
@@ -124,8 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>The tags to be assigned to the restored DB cluster. </para>
@@ -134,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A list of VPC security groups that the new DB cluster will belong to. </para>
@@ -143,7 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -151,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -171,24 +214,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             if (this.AvailabilityZone != null)
             {
-                context.AvailabilityZones = new List<String>(this.AvailabilityZone);
+                context.AvailabilityZones = new List<System.String>(this.AvailabilityZone);
             }
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -201,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreDBClusterFromSnapshotRequest();
+            var request = new Amazon.RDS.Model.RestoreDBClusterFromSnapshotRequest();
             
             if (cmdletContext.AvailabilityZones != null)
             {
@@ -226,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -282,17 +330,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AvailabilityZones { get; set; }
-            public String DatabaseName { get; set; }
-            public String DBClusterIdentifier { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public String Engine { get; set; }
-            public String EngineVersion { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public String SnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public List<System.String> AvailabilityZones { get; set; }
+            public System.String DatabaseName { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public System.String Engine { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

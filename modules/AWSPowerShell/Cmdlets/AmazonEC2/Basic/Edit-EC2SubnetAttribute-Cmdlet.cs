@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifySubnetAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifySubnetAttribute"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type ModifySubnetAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifySubnetAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2SubnetAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter MapPublicIpOnLaunch
         /// <summary>
         /// <para>
         /// <para>Specify <code>true</code> to indicate that instances launched into the specified subnet
@@ -46,16 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean MapPublicIpOnLaunch { get; set; }
+        public System.Boolean MapPublicIpOnLaunch { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifySubnetAttributeRequest();
+            var request = new Amazon.EC2.Model.ModifySubnetAttributeRequest();
             
             if (cmdletContext.MapPublicIpOnLaunch != null)
             {
@@ -140,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? MapPublicIpOnLaunch { get; set; }
-            public String SubnetId { get; set; }
+            public System.Boolean? MapPublicIpOnLaunch { get; set; }
+            public System.String SubnetId { get; set; }
         }
         
     }

@@ -45,13 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Update", "R53DDomainContactPrivacy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateDomainContactPrivacy operation against AWS Route 53 Domains.", Operation = new[] {"UpdateDomainContactPrivacy"})]
+    [AWSCmdlet("Invokes the UpdateDomainContactPrivacy operation against Amazon Route 53 Domains.", Operation = new[] {"UpdateDomainContactPrivacy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateDomainContactPrivacyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.UpdateDomainContactPrivacyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateR53DDomainContactPrivacyCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdminPrivacy
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -60,8 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AdminPrivacy { get; set; }
+        public System.Boolean AdminPrivacy { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -69,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter RegistrantPrivacy
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -79,8 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RegistrantPrivacy { get; set; }
+        public System.Boolean RegistrantPrivacy { get; set; }
+        #endregion
         
+        #region Parameter TechPrivacy
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -89,8 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean TechPrivacy { get; set; }
+        public System.Boolean TechPrivacy { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -134,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDomainContactPrivacyRequest();
+            var request = new Amazon.Route53Domains.Model.UpdateDomainContactPrivacyRequest();
             
             if (cmdletContext.AdminPrivacy != null)
             {
@@ -187,10 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AdminPrivacy { get; set; }
-            public String DomainName { get; set; }
-            public Boolean? RegistrantPrivacy { get; set; }
-            public Boolean? TechPrivacy { get; set; }
+            public System.Boolean? AdminPrivacy { get; set; }
+            public System.String DomainName { get; set; }
+            public System.Boolean? RegistrantPrivacy { get; set; }
+            public System.Boolean? TechPrivacy { get; set; }
         }
         
     }

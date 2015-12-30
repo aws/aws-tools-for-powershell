@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the RevokeGrant operation against AWS Key Management Service.", Operation = new[] {"RevokeGrant"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RevokeGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.RevokeGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RevokeKMSGrantCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GrantId
         /// <summary>
         /// <para>
         /// <para>Identifier of the grant to be revoked.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GrantId { get; set; }
+        public System.String GrantId { get; set; }
+        #endregion
         
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key associated with the grant. This value
@@ -56,15 +60,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the KeyId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RevokeGrantRequest();
+            var request = new Amazon.KeyManagementService.Model.RevokeGrantRequest();
             
             if (cmdletContext.GrantId != null)
             {
@@ -150,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GrantId { get; set; }
-            public String KeyId { get; set; }
+            public System.String GrantId { get; set; }
+            public System.String KeyId { get; set; }
         }
         
     }

@@ -45,11 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DescribeExportTasks operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeExportTasks"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.ExportTask",
         "This cmdlet returns a collection of ExportTask objects.",
-        "The service call response (type DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWLExportTasksCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter StatusCode
         /// <summary>
         /// <para>
         /// <para>All export tasks that matches the specified status code will be returned. This can
@@ -57,8 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ExportTaskStatusCode StatusCode { get; set; }
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.ExportTaskStatusCode")]
+        public Amazon.CloudWatchLogs.ExportTaskStatusCode StatusCode { get; set; }
+        #endregion
         
+        #region Parameter TaskId
         /// <summary>
         /// <para>
         /// <para>Export task that matches the specified task Id will be returned. This can result in
@@ -66,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TaskId { get; set; }
+        public System.String TaskId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of items returned in the response. If you don't specify a value,
@@ -77,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> A string token used for pagination that points to the next page of results. It must
@@ -86,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -115,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeExportTasksRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeExportTasksRequest();
             
             if (cmdletContext.Limit != null)
             {
@@ -171,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
-            public String NextToken { get; set; }
-            public ExportTaskStatusCode StatusCode { get; set; }
-            public String TaskId { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CloudWatchLogs.ExportTaskStatusCode StatusCode { get; set; }
+            public System.String TaskId { get; set; }
         }
         
     }

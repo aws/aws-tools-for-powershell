@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBSecurityGroup operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBSecurityGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSecurityGroup",
         "This cmdlet returns a DBSecurityGroup object.",
-        "The service call response (type CreateDBSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBSecurityGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBSecurityGroupDescription
         /// <summary>
         /// <para>
         /// <para> The description for the DB security group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String DBSecurityGroupDescription { get; set; }
+        public System.String DBSecurityGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter DBSecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name for the DB security group. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
@@ -54,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSecurityGroupName { get; set; }
+        public System.String DBSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -94,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSecurityGroupName = this.DBSecurityGroupName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -107,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBSecurityGroupRequest();
+            var request = new Amazon.RDS.Model.CreateDBSecurityGroupRequest();
             
             if (cmdletContext.DBSecurityGroupDescription != null)
             {
@@ -156,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSecurityGroupDescription { get; set; }
-            public String DBSecurityGroupName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String DBSecurityGroupDescription { get; set; }
+            public System.String DBSecurityGroupName { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Deletes the specified server certificate.
     /// 
-    ///  <important> If you are using a server certificate with Elastic Load Balancing, deleting
+    ///  
+    /// <para>
+    /// For more information about working with server certificates, including a list of AWS
+    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
+    /// </para><important> If you are using a server certificate with Elastic Load Balancing, deleting
     /// the certificate could have implications for your application. If Elastic Load Balancing
     /// doesn't detect the deletion of bound certificates, it may continue to use the certificates.
     /// This could cause Elastic Load Balancing to stop accepting traffic. We recommend that
@@ -43,25 +48,31 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeleteServerCertificate operation against AWS Identity and Access Management.", Operation = new[] {"DeleteServerCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServerCertificateName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteServerCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteServerCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ServerCertificateName
         /// <summary>
         /// <para>
         /// <para>The name of the server certificate you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ServerCertificateName { get; set; }
+        public System.String ServerCertificateName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ServerCertificateName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteServerCertificateRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteServerCertificateRequest();
             
             if (cmdletContext.ServerCertificateName != null)
             {
@@ -142,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ServerCertificateName { get; set; }
+            public System.String ServerCertificateName { get; set; }
         }
         
     }

@@ -42,18 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the DeleteDataSource operation against Amazon Machine Learning.", Operation = new[] {"DeleteDataSource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.DeleteDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -61,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDataSourceRequest();
+            var request = new Amazon.MachineLearning.Model.DeleteDataSourceRequest();
             
             if (cmdletContext.DataSourceId != null)
             {
@@ -132,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DataSourceId { get; set; }
+            public System.String DataSourceId { get; set; }
         }
         
     }

@@ -50,19 +50,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [OutputType("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse")]
     [AWSCmdlet("Invokes the FilterLogEvents operation against Amazon CloudWatch Logs.", Operation = new[] {"FilterLogEvents"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse",
-        "This cmdlet returns a FilterLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudWatchLogs.Model.FilterLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCWLFilteredLogEventCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the end time of the range for the request. If provided,
-        /// events with a timestamp later than this time will not be returned.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. If provided, events with a timestamp later than this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 EndTime { get; set; }
+        public System.Int64 EndTime { get; set; }
+        #endregion
         
+        #region Parameter FilterPattern
         /// <summary>
         /// <para>
         /// <para> A valid CloudWatch Logs filter pattern to use for filtering the response. If not
@@ -70,8 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FilterPattern { get; set; }
+        public System.String FilterPattern { get; set; }
+        #endregion
         
+        #region Parameter Interleaved
         /// <summary>
         /// <para>
         /// <para>If provided, the API will make a best effort to provide responses that contain events
@@ -81,16 +87,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Interleaved { get; set; }
+        public System.Boolean Interleaved { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the log group to query. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamName
         /// <summary>
         /// <para>
         /// <para> Optional list of log stream names within the specified log group to search. Defaults
@@ -100,16 +110,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogStreamNames")]
         public System.String[] LogStreamName { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the start time of the range for the request. If provided,
-        /// events with a timestamp prior to this time will not be returned.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. If provided, events with a timestamp prior to this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 StartTime { get; set; }
+        public System.Int64 StartTime { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of events to return in a page of results. Default is 10,000 events.</para>
@@ -118,16 +132,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A pagination token obtained from a <code class="code">FilterLogEvents</code> response
-        /// to continue paginating the FilterLogEvents results.</para>
+        /// to continue paginating the FilterLogEvents results. This token is omitted from the
+        /// response when there are no other events to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -149,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.LogGroupName = this.LogGroupName;
             if (this.LogStreamName != null)
             {
-                context.LogStreamNames = new List<String>(this.LogStreamName);
+                context.LogStreamNames = new List<System.String>(this.LogStreamName);
             }
             context.NextToken = this.NextToken;
             if (ParameterWasBound("StartTime"))
@@ -165,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new FilterLogEventsRequest();
+            var request = new Amazon.CloudWatchLogs.Model.FilterLogEventsRequest();
             
             if (cmdletContext.EndTime != null)
             {
@@ -234,14 +251,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int64? EndTime { get; set; }
-            public String FilterPattern { get; set; }
-            public Boolean? Interleaved { get; set; }
+            public System.Int64? EndTime { get; set; }
+            public System.String FilterPattern { get; set; }
+            public System.Boolean? Interleaved { get; set; }
             public int? Limit { get; set; }
-            public String LogGroupName { get; set; }
-            public List<String> LogStreamNames { get; set; }
-            public String NextToken { get; set; }
-            public Int64? StartTime { get; set; }
+            public System.String LogGroupName { get; set; }
+            public List<System.String> LogStreamNames { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Int64? StartTime { get; set; }
         }
         
     }

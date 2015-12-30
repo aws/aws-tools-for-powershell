@@ -37,9 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// To associate an alias with a different key, call <a>UpdateAlias</a>.
+    /// The alias and the key it is mapped to must be in the same AWS account and the same
+    /// region.
     /// </para><para>
-    /// Note that you cannot create or update an alias that represents a key in another account.
+    /// To map an alias to a different key, call <a>UpdateAlias</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KMSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,10 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the CreateAlias operation against AWS Key Management Service.", Operation = new[] {"CreateAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetKeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.CreateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AliasName
         /// <summary>
         /// <para>
         /// <para>String that contains the display name. The name must start with the word "alias" followed
@@ -58,8 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AliasName { get; set; }
+        public System.String AliasName { get; set; }
+        #endregion
         
+        #region Parameter TargetKeyId
         /// <summary>
         /// <para>
         /// <para>An identifier of the key for which you are creating the alias. This value cannot be
@@ -68,15 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TargetKeyId { get; set; }
+        public System.String TargetKeyId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TargetKeyId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -115,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAliasRequest();
+            var request = new Amazon.KeyManagementService.Model.CreateAliasRequest();
             
             if (cmdletContext.AliasName != null)
             {
@@ -162,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AliasName { get; set; }
-            public String TargetKeyId { get; set; }
+            public System.String AliasName { get; set; }
+            public System.String TargetKeyId { get; set; }
         }
         
     }

@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the GetIdentityPolicies operation against Amazon Simple Email Service.", Operation = new[] {"GetIdentityPolicies"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type GetIdentityPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESIdentityPolicyCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>The identity for which the policies will be retrieved. You can specify an identity
@@ -59,8 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Identity { get; set; }
+        public System.String Identity { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>A list of the names of policies to be retrieved. You can retrieve a maximum of 20
@@ -71,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("PolicyNames")]
         public System.String[] PolicyName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -86,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             context.Identity = this.Identity;
             if (this.PolicyName != null)
             {
-                context.PolicyNames = new List<String>(this.PolicyName);
+                context.PolicyNames = new List<System.String>(this.PolicyName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -99,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetIdentityPoliciesRequest();
+            var request = new Amazon.SimpleEmail.Model.GetIdentityPoliciesRequest();
             
             if (cmdletContext.Identity != null)
             {
@@ -144,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Identity { get; set; }
-            public List<String> PolicyNames { get; set; }
+            public System.String Identity { get; set; }
+            public List<System.String> PolicyNames { get; set; }
         }
         
     }

@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>RDS</ServiceNounPrefix>
+  <ServiceName>Amazon Relational Database Service</ServiceName>
   <ServiceClientInterface>IAmazonRDS</ServiceClientInterface>
   <ServiceClient>AmazonRDSClient</ServiceClient>
   <ServiceNamespace>Amazon.RDS</ServiceNamespace>
@@ -90,6 +91,7 @@
     <ServiceOperation MethodName="DescribeDBParameters" PipelineParameter="DBParameterGroupName" PositionalParameters="Source"/>
     <ServiceOperation MethodName="DescribeDBSecurityGroups" PipelineParameter="DBSecurityGroupName"/>
     <ServiceOperation MethodName="DescribeDBSnapshots" PositionalParameters="DBSnapshotIdentifier;SnapshotType"/>
+    <ServiceOperation MethodName="DescribeDBSnapshotAttributes"/>
     <ServiceOperation MethodName="DescribeDBSubnetGroups" PipelineParameter="DBSubnetGroupName"/>
     <ServiceOperation MethodName="DescribeEngineDefaultParameters" PipelineParameter="DBParameterGroupFamily"/>
     <ServiceOperation MethodName="DescribeEventCategories" PipelineParameter="SourceType"/>
@@ -104,6 +106,7 @@
     <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceName"/>
     <ServiceOperation MethodName="ModifyDBInstance" ShouldProcessTarget="DBInstanceIdentifier"/>
     <ServiceOperation MethodName="ModifyDBParameterGroup" PipelineParameter="DBParameterGroupName" PositionalParameters="Parameters"/>
+    <ServiceOperation MethodName="ModifyDBSnapshotAttribute" PipelineParameter="DBSnapshotIdentifier"/>
     <ServiceOperation MethodName="ModifyDBSubnetGroup" PipelineParameter="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds"/>
     <ServiceOperation MethodName="ModifyEventSubscription" PipelineParameter="SubscriptionName" PositionalParameters="SnsTopicArn"/>
     <ServiceOperation MethodName="ModifyOptionGroup" PipelineParameter="OptionGroupName" PositionalParameters="ApplyImmediately"/>

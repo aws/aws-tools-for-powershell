@@ -31,17 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Adds one or more tags to a trail, up to a limit of 10. Tags must be unique per trail.
     /// Overwrites an existing tag's value when a new value is specified for an existing tag
     /// key. If you specify a key without a value, the tag will be created with the specified
-    /// key and a value of null.
+    /// key and a value of null. You can tag a trail that applies to all regions only from
+    /// the region in which the trail was created (that is, from its home region).
     /// </summary>
     [Cmdlet("Add", "CTTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
     [AWSCmdlet("Invokes the AddTags operation against AWS CloudTrail.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the trail to which one or more tags will be added. The format
@@ -49,8 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter TagsList
         /// <summary>
         /// <para>
         /// <para>Contains a list of CloudTrail tags, up to a limit of 10.</para>
@@ -58,14 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.CloudTrail.Model.Tag[] TagsList { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ResourceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -94,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             context.ResourceId = this.ResourceId;
             if (this.TagsList != null)
             {
-                context.TagsList = new List<Tag>(this.TagsList);
+                context.TagsList = new List<Amazon.CloudTrail.Model.Tag>(this.TagsList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -107,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsRequest();
+            var request = new Amazon.CloudTrail.Model.AddTagsRequest();
             
             if (cmdletContext.ResourceId != null)
             {
@@ -154,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceId { get; set; }
-            public List<Tag> TagsList { get; set; }
+            public System.String ResourceId { get; set; }
+            public List<Amazon.CloudTrail.Model.Tag> TagsList { get; set; }
         }
         
     }

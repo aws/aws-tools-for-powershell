@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Invokes the ListTags operation against Amazon Elasticsearch.", Operation = new[] {"ListTags"})]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetESTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter ARN
         /// <summary>
         /// <para>
         /// <para> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached
@@ -46,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ARN { get; set; }
-        
+        public System.String ARN { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsRequest();
+            var request = new Amazon.Elasticsearch.Model.ListTagsRequest();
             
             if (cmdletContext.ARN != null)
             {
@@ -112,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ARN { get; set; }
+            public System.String ARN { get; set; }
         }
         
     }

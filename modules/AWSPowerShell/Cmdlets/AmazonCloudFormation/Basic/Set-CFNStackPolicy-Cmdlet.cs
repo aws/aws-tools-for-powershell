@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the SetStackPolicy operation against AWS CloudFormation.", Operation = new[] {"SetStackPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetStackPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudFormation.Model.SetStackPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or unique stack ID that you want to associate a policy with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the stack policy body. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
@@ -56,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyBody { get; set; }
+        public System.String StackPolicyBody { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyURL
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the stack policy. The URL must point to a policy (max
@@ -67,15 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyURL { get; set; }
+        public System.String StackPolicyURL { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StackName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -115,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetStackPolicyRequest();
+            var request = new Amazon.CloudFormation.Model.SetStackPolicyRequest();
             
             if (cmdletContext.StackName != null)
             {
@@ -166,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackName { get; set; }
-            public String StackPolicyBody { get; set; }
-            public String StackPolicyURL { get; set; }
+            public System.String StackName { get; set; }
+            public System.String StackPolicyBody { get; set; }
+            public System.String StackPolicyURL { get; set; }
         }
         
     }

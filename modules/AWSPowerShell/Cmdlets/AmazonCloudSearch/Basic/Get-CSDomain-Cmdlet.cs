@@ -40,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DescribeDomains operation against Amazon CloudSearch.", Operation = new[] {"DescribeDomains"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.DomainStatus",
         "This cmdlet returns a collection of DomainStatus objects.",
-        "The service call response (type DescribeDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCSDomainCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The names of the domains you want to include in the response.</para>
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("DomainNames")]
         public System.String[] DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -66,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
             
             if (this.DomainName != null)
             {
-                context.DomainNames = new List<String>(this.DomainName);
+                context.DomainNames = new List<System.String>(this.DomainName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -79,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDomainsRequest();
+            var request = new Amazon.CloudSearch.Model.DescribeDomainsRequest();
             
             if (cmdletContext.DomainNames != null)
             {
@@ -120,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DomainNames { get; set; }
+            public List<System.String> DomainNames { get; set; }
         }
         
     }

@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the CreateLoadBalancerListeners operation against Elastic Load Balancing.", Operation = new[] {"CreateLoadBalancerListeners"})]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancing.Model.Listener",
         "Returns the collection of Listener objects that were created when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateLoadBalancerListenersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerListenersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewELBLoadBalancerListenerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Listener
         /// <summary>
         /// <para>
         /// <para>The listeners.</para>
@@ -55,22 +57,28 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Listeners")]
         public Amazon.ElasticLoadBalancing.Model.Listener[] Listener { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of Listener objects that were created.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -98,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.Listener != null)
             {
-                context.Listeners = new List<Listener>(this.Listener);
+                context.Listeners = new List<Amazon.ElasticLoadBalancing.Model.Listener>(this.Listener);
             }
             context.LoadBalancerName = this.LoadBalancerName;
             
@@ -112,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateLoadBalancerListenersRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerListenersRequest();
             
             if (cmdletContext.Listeners != null)
             {
@@ -159,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Listener> Listeners { get; set; }
-            public String LoadBalancerName { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.Listener> Listeners { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

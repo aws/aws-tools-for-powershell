@@ -37,21 +37,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the ListTaskDefinitions operation against Amazon EC2 Container Service.", Operation = new[] {"ListTaskDefinitions"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListTaskDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.ECS.Model.ListTaskDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetECSTaskDefinitionsCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter FamilyPrefix
         /// <summary>
         /// <para>
-        /// <para>The full family name that you want to filter the <code>ListTaskDefinitions</code>
-        /// results with. Specifying a <code>familyPrefix</code> will limit the listed task definitions
-        /// to task definition revisions that belong to that family.</para>
+        /// <para>The full family name with which to filter the <code>ListTaskDefinitions</code> results.
+        /// Specifying a <code>familyPrefix</code> limits the listed task definitions to task
+        /// definition revisions that belong to that family.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FamilyPrefix { get; set; }
+        public System.String FamilyPrefix { get; set; }
+        #endregion
         
+        #region Parameter Sort
         /// <summary>
         /// <para>
         /// <para>The order in which to sort the results. Valid values are <code>ASC</code> and <code>DESC</code>.
@@ -63,21 +67,27 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SortOrder Sort { get; set; }
+        [AWSConstantClassSource("Amazon.ECS.SortOrder")]
+        public Amazon.ECS.SortOrder Sort { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The task definition status that you want to filter the <code>ListTaskDefinitions</code>
-        /// results with. By default, only <code>ACTIVE</code> task definitions are listed. By
-        /// setting this parameter to <code>INACTIVE</code>, you can view task definitions that
-        /// are <code>INACTIVE</code> as long as an active task or service still references them.
-        /// If you paginate the resulting output, be sure to keep the <code>status</code> value
-        /// constant in each subsequent request.</para>
+        /// <para>The task definition status with which to filter the <code>ListTaskDefinitions</code>
+        /// results. By default, only <code>ACTIVE</code> task definitions are listed. By setting
+        /// this parameter to <code>INACTIVE</code>, you can view task definitions that are <code>INACTIVE</code>
+        /// as long as an active task or service still references them. If you paginate the resulting
+        /// output, be sure to keep the <code>status</code> value constant in each subsequent
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TaskDefinitionStatus Status { get; set; }
+        [AWSConstantClassSource("Amazon.ECS.TaskDefinitionStatus")]
+        public Amazon.ECS.TaskDefinitionStatus Status { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of task definition results returned by <code>ListTaskDefinitions</code>
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListTaskDefinitions</code>
@@ -103,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -134,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListTaskDefinitionsRequest();
+            var request = new Amazon.ECS.Model.ListTaskDefinitionsRequest();
             if (cmdletContext.FamilyPrefix != null)
             {
                 request.FamilyPrefix = cmdletContext.FamilyPrefix;
@@ -149,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -234,11 +246,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FamilyPrefix { get; set; }
+            public System.String FamilyPrefix { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public SortOrder Sort { get; set; }
-            public TaskDefinitionStatus Status { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.ECS.SortOrder Sort { get; set; }
+            public Amazon.ECS.TaskDefinitionStatus Status { get; set; }
         }
         
     }

@@ -54,18 +54,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.GetConsoleOutputResponse")]
     [AWSCmdlet("Invokes the GetConsoleOutput operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetConsoleOutput"})]
     [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleOutputResponse",
-        "This cmdlet returns a GetConsoleOutputResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.GetConsoleOutputResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2ConsoleOutputCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
-        
+        public System.String InstanceId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -89,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetConsoleOutputRequest();
+            var request = new Amazon.EC2.Model.GetConsoleOutputRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -130,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

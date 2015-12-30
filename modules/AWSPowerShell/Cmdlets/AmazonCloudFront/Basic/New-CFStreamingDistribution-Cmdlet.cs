@@ -34,10 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateStreamingDistributionResponse")]
     [AWSCmdlet("Invokes the CreateStreamingDistribution operation against Amazon CloudFront.", Operation = new[] {"CreateStreamingDistribution"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateStreamingDistributionResponse",
-        "This cmdlet returns a CreateStreamingDistributionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudFront.Model.CreateStreamingDistributionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCFStreamingDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
         /// The Amazon S3 bucket to store the access logs in,
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Logging_Bucket")]
-        public String Logging_Bucket { get; set; }
+        public System.String Logging_Bucket { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_CallerReference
         /// <summary>
         /// <para>
         /// A unique number that ensures the request
@@ -63,8 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StreamingDistributionConfig_CallerReference { get; set; }
+        public System.String StreamingDistributionConfig_CallerReference { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_Comment
         /// <summary>
         /// <para>
         /// Any comments you want to include about the streaming
@@ -72,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StreamingDistributionConfig_Comment { get; set; }
+        public System.String StreamingDistributionConfig_Comment { get; set; }
+        #endregion
         
+        #region Parameter S3Origin_DomainName
         /// <summary>
         /// <para>
         /// The DNS name of the S3 origin.
@@ -81,8 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_S3Origin_DomainName")]
-        public String S3Origin_DomainName { get; set; }
+        public System.String S3Origin_DomainName { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_Enabled
         /// <summary>
         /// <para>
         /// Whether the streaming distribution is enabled
@@ -90,8 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean StreamingDistributionConfig_Enabled { get; set; }
+        public System.Boolean StreamingDistributionConfig_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Logging_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want CloudFront to save
@@ -104,8 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Logging_Enabled")]
-        public Boolean Logging_Enabled { get; set; }
+        public System.Boolean Logging_Enabled { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want to require end users
@@ -114,8 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_TrustedSigners_Enabled")]
-        public Boolean TrustedSigners_Enabled { get; set; }
+        public System.Boolean TrustedSigners_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains CNAME elements,
@@ -125,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Aliases_Items")]
         public System.String[] Aliases_Item { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains trusted signers
@@ -135,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_TrustedSigners_Items")]
         public System.String[] TrustedSigners_Item { get; set; }
+        #endregion
         
+        #region Parameter S3Origin_OriginAccessIdentity
         /// <summary>
         /// <para>
         /// Your S3 origin's origin access identity.
@@ -143,8 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_S3Origin_OriginAccessIdentity")]
-        public String S3Origin_OriginAccessIdentity { get; set; }
+        public System.String S3Origin_OriginAccessIdentity { get; set; }
+        #endregion
         
+        #region Parameter Logging_Prefix
         /// <summary>
         /// <para>
         /// An optional string that you want CloudFront to
@@ -155,8 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Logging_Prefix")]
-        public String Logging_Prefix { get; set; }
+        public System.String Logging_Prefix { get; set; }
+        #endregion
         
+        #region Parameter StreamingDistributionConfig_PriceClass
         /// <summary>
         /// <para>
         /// A complex type that contains information about
@@ -164,8 +188,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public PriceClass StreamingDistributionConfig_PriceClass { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFront.PriceClass")]
+        public Amazon.CloudFront.PriceClass StreamingDistributionConfig_PriceClass { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Quantity
         /// <summary>
         /// <para>
         /// The number of CNAMEs, if any, for this distribution.
@@ -173,8 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_Aliases_Quantity")]
-        public Int32 Aliases_Quantity { get; set; }
+        public System.Int32 Aliases_Quantity { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
         /// The number of trusted signers for this cache
@@ -183,8 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("StreamingDistributionConfig_TrustedSigners_Quantity")]
-        public Int32 TrustedSigners_Quantity { get; set; }
+        public System.Int32 TrustedSigners_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -192,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -212,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             
             if (this.Aliases_Item != null)
             {
-                context.StreamingDistributionConfig_Aliases_Items = new List<String>(this.Aliases_Item);
+                context.StreamingDistributionConfig_Aliases_Items = new List<System.String>(this.Aliases_Item);
             }
             if (ParameterWasBound("Aliases_Quantity"))
                 context.StreamingDistributionConfig_Aliases_Quantity = this.Aliases_Quantity;
@@ -231,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.StreamingDistributionConfig_TrustedSigners_Enabled = this.TrustedSigners_Enabled;
             if (this.TrustedSigners_Item != null)
             {
-                context.StreamingDistributionConfig_TrustedSigners_Items = new List<String>(this.TrustedSigners_Item);
+                context.StreamingDistributionConfig_TrustedSigners_Items = new List<System.String>(this.TrustedSigners_Item);
             }
             if (ParameterWasBound("TrustedSigners_Quantity"))
                 context.StreamingDistributionConfig_TrustedSigners_Quantity = this.TrustedSigners_Quantity;
@@ -246,13 +277,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateStreamingDistributionRequest();
+            var request = new Amazon.CloudFront.Model.CreateStreamingDistributionRequest();
             
             
              // populate StreamingDistributionConfig
             bool requestStreamingDistributionConfigIsNull = true;
-            request.StreamingDistributionConfig = new StreamingDistributionConfig();
-            String requestStreamingDistributionConfig_streamingDistributionConfig_CallerReference = null;
+            request.StreamingDistributionConfig = new Amazon.CloudFront.Model.StreamingDistributionConfig();
+            System.String requestStreamingDistributionConfig_streamingDistributionConfig_CallerReference = null;
             if (cmdletContext.StreamingDistributionConfig_CallerReference != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_CallerReference = cmdletContext.StreamingDistributionConfig_CallerReference;
@@ -262,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.StreamingDistributionConfig.CallerReference = requestStreamingDistributionConfig_streamingDistributionConfig_CallerReference;
                 requestStreamingDistributionConfigIsNull = false;
             }
-            String requestStreamingDistributionConfig_streamingDistributionConfig_Comment = null;
+            System.String requestStreamingDistributionConfig_streamingDistributionConfig_Comment = null;
             if (cmdletContext.StreamingDistributionConfig_Comment != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_Comment = cmdletContext.StreamingDistributionConfig_Comment;
@@ -272,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.StreamingDistributionConfig.Comment = requestStreamingDistributionConfig_streamingDistributionConfig_Comment;
                 requestStreamingDistributionConfigIsNull = false;
             }
-            Boolean? requestStreamingDistributionConfig_streamingDistributionConfig_Enabled = null;
+            System.Boolean? requestStreamingDistributionConfig_streamingDistributionConfig_Enabled = null;
             if (cmdletContext.StreamingDistributionConfig_Enabled != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_Enabled = cmdletContext.StreamingDistributionConfig_Enabled.Value;
@@ -282,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.StreamingDistributionConfig.Enabled = requestStreamingDistributionConfig_streamingDistributionConfig_Enabled.Value;
                 requestStreamingDistributionConfigIsNull = false;
             }
-            PriceClass requestStreamingDistributionConfig_streamingDistributionConfig_PriceClass = null;
+            Amazon.CloudFront.PriceClass requestStreamingDistributionConfig_streamingDistributionConfig_PriceClass = null;
             if (cmdletContext.StreamingDistributionConfig_PriceClass != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_PriceClass = cmdletContext.StreamingDistributionConfig_PriceClass;
@@ -292,12 +323,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.StreamingDistributionConfig.PriceClass = requestStreamingDistributionConfig_streamingDistributionConfig_PriceClass;
                 requestStreamingDistributionConfigIsNull = false;
             }
-            Aliases requestStreamingDistributionConfig_streamingDistributionConfig_Aliases = null;
+            Amazon.CloudFront.Model.Aliases requestStreamingDistributionConfig_streamingDistributionConfig_Aliases = null;
             
              // populate Aliases
             bool requestStreamingDistributionConfig_streamingDistributionConfig_AliasesIsNull = true;
-            requestStreamingDistributionConfig_streamingDistributionConfig_Aliases = new Aliases();
-            List<String> requestStreamingDistributionConfig_streamingDistributionConfig_Aliases_aliases_Item = null;
+            requestStreamingDistributionConfig_streamingDistributionConfig_Aliases = new Amazon.CloudFront.Model.Aliases();
+            List<System.String> requestStreamingDistributionConfig_streamingDistributionConfig_Aliases_aliases_Item = null;
             if (cmdletContext.StreamingDistributionConfig_Aliases_Items != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_Aliases_aliases_Item = cmdletContext.StreamingDistributionConfig_Aliases_Items;
@@ -307,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestStreamingDistributionConfig_streamingDistributionConfig_Aliases.Items = requestStreamingDistributionConfig_streamingDistributionConfig_Aliases_aliases_Item;
                 requestStreamingDistributionConfig_streamingDistributionConfig_AliasesIsNull = false;
             }
-            Int32? requestStreamingDistributionConfig_streamingDistributionConfig_Aliases_aliases_Quantity = null;
+            System.Int32? requestStreamingDistributionConfig_streamingDistributionConfig_Aliases_aliases_Quantity = null;
             if (cmdletContext.StreamingDistributionConfig_Aliases_Quantity != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_Aliases_aliases_Quantity = cmdletContext.StreamingDistributionConfig_Aliases_Quantity.Value;
@@ -327,12 +358,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.StreamingDistributionConfig.Aliases = requestStreamingDistributionConfig_streamingDistributionConfig_Aliases;
                 requestStreamingDistributionConfigIsNull = false;
             }
-            S3Origin requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin = null;
+            Amazon.CloudFront.Model.S3Origin requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin = null;
             
              // populate S3Origin
             bool requestStreamingDistributionConfig_streamingDistributionConfig_S3OriginIsNull = true;
-            requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin = new S3Origin();
-            String requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin_s3Origin_DomainName = null;
+            requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin = new Amazon.CloudFront.Model.S3Origin();
+            System.String requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin_s3Origin_DomainName = null;
             if (cmdletContext.StreamingDistributionConfig_S3Origin_DomainName != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin_s3Origin_DomainName = cmdletContext.StreamingDistributionConfig_S3Origin_DomainName;
@@ -342,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin.DomainName = requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin_s3Origin_DomainName;
                 requestStreamingDistributionConfig_streamingDistributionConfig_S3OriginIsNull = false;
             }
-            String requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin_s3Origin_OriginAccessIdentity = null;
+            System.String requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin_s3Origin_OriginAccessIdentity = null;
             if (cmdletContext.StreamingDistributionConfig_S3Origin_OriginAccessIdentity != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin_s3Origin_OriginAccessIdentity = cmdletContext.StreamingDistributionConfig_S3Origin_OriginAccessIdentity;
@@ -362,12 +393,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.StreamingDistributionConfig.S3Origin = requestStreamingDistributionConfig_streamingDistributionConfig_S3Origin;
                 requestStreamingDistributionConfigIsNull = false;
             }
-            StreamingLoggingConfig requestStreamingDistributionConfig_streamingDistributionConfig_Logging = null;
+            Amazon.CloudFront.Model.StreamingLoggingConfig requestStreamingDistributionConfig_streamingDistributionConfig_Logging = null;
             
              // populate Logging
             bool requestStreamingDistributionConfig_streamingDistributionConfig_LoggingIsNull = true;
-            requestStreamingDistributionConfig_streamingDistributionConfig_Logging = new StreamingLoggingConfig();
-            String requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Bucket = null;
+            requestStreamingDistributionConfig_streamingDistributionConfig_Logging = new Amazon.CloudFront.Model.StreamingLoggingConfig();
+            System.String requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Bucket = null;
             if (cmdletContext.StreamingDistributionConfig_Logging_Bucket != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Bucket = cmdletContext.StreamingDistributionConfig_Logging_Bucket;
@@ -377,7 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestStreamingDistributionConfig_streamingDistributionConfig_Logging.Bucket = requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Bucket;
                 requestStreamingDistributionConfig_streamingDistributionConfig_LoggingIsNull = false;
             }
-            Boolean? requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Enabled = null;
+            System.Boolean? requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Enabled = null;
             if (cmdletContext.StreamingDistributionConfig_Logging_Enabled != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Enabled = cmdletContext.StreamingDistributionConfig_Logging_Enabled.Value;
@@ -387,7 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestStreamingDistributionConfig_streamingDistributionConfig_Logging.Enabled = requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Enabled.Value;
                 requestStreamingDistributionConfig_streamingDistributionConfig_LoggingIsNull = false;
             }
-            String requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Prefix = null;
+            System.String requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Prefix = null;
             if (cmdletContext.StreamingDistributionConfig_Logging_Prefix != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_Logging_logging_Prefix = cmdletContext.StreamingDistributionConfig_Logging_Prefix;
@@ -407,12 +438,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.StreamingDistributionConfig.Logging = requestStreamingDistributionConfig_streamingDistributionConfig_Logging;
                 requestStreamingDistributionConfigIsNull = false;
             }
-            TrustedSigners requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners = null;
+            Amazon.CloudFront.Model.TrustedSigners requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners = null;
             
              // populate TrustedSigners
             bool requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSignersIsNull = true;
-            requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners = new TrustedSigners();
-            Boolean? requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Enabled = null;
+            requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners = new Amazon.CloudFront.Model.TrustedSigners();
+            System.Boolean? requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Enabled = null;
             if (cmdletContext.StreamingDistributionConfig_TrustedSigners_Enabled != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Enabled = cmdletContext.StreamingDistributionConfig_TrustedSigners_Enabled.Value;
@@ -422,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners.Enabled = requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Enabled.Value;
                 requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSignersIsNull = false;
             }
-            List<String> requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Item = null;
+            List<System.String> requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Item = null;
             if (cmdletContext.StreamingDistributionConfig_TrustedSigners_Items != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Item = cmdletContext.StreamingDistributionConfig_TrustedSigners_Items;
@@ -432,7 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners.Items = requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Item;
                 requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSignersIsNull = false;
             }
-            Int32? requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Quantity = null;
+            System.Int32? requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Quantity = null;
             if (cmdletContext.StreamingDistributionConfig_TrustedSigners_Quantity != null)
             {
                 requestStreamingDistributionConfig_streamingDistributionConfig_TrustedSigners_trustedSigners_Quantity = cmdletContext.StreamingDistributionConfig_TrustedSigners_Quantity.Value;
@@ -492,20 +523,20 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> StreamingDistributionConfig_Aliases_Items { get; set; }
-            public Int32? StreamingDistributionConfig_Aliases_Quantity { get; set; }
-            public String StreamingDistributionConfig_CallerReference { get; set; }
-            public String StreamingDistributionConfig_Comment { get; set; }
-            public Boolean? StreamingDistributionConfig_Enabled { get; set; }
-            public String StreamingDistributionConfig_Logging_Bucket { get; set; }
-            public Boolean? StreamingDistributionConfig_Logging_Enabled { get; set; }
-            public String StreamingDistributionConfig_Logging_Prefix { get; set; }
-            public PriceClass StreamingDistributionConfig_PriceClass { get; set; }
-            public String StreamingDistributionConfig_S3Origin_DomainName { get; set; }
-            public String StreamingDistributionConfig_S3Origin_OriginAccessIdentity { get; set; }
-            public Boolean? StreamingDistributionConfig_TrustedSigners_Enabled { get; set; }
-            public List<String> StreamingDistributionConfig_TrustedSigners_Items { get; set; }
-            public Int32? StreamingDistributionConfig_TrustedSigners_Quantity { get; set; }
+            public List<System.String> StreamingDistributionConfig_Aliases_Items { get; set; }
+            public System.Int32? StreamingDistributionConfig_Aliases_Quantity { get; set; }
+            public System.String StreamingDistributionConfig_CallerReference { get; set; }
+            public System.String StreamingDistributionConfig_Comment { get; set; }
+            public System.Boolean? StreamingDistributionConfig_Enabled { get; set; }
+            public System.String StreamingDistributionConfig_Logging_Bucket { get; set; }
+            public System.Boolean? StreamingDistributionConfig_Logging_Enabled { get; set; }
+            public System.String StreamingDistributionConfig_Logging_Prefix { get; set; }
+            public Amazon.CloudFront.PriceClass StreamingDistributionConfig_PriceClass { get; set; }
+            public System.String StreamingDistributionConfig_S3Origin_DomainName { get; set; }
+            public System.String StreamingDistributionConfig_S3Origin_OriginAccessIdentity { get; set; }
+            public System.Boolean? StreamingDistributionConfig_TrustedSigners_Enabled { get; set; }
+            public List<System.String> StreamingDistributionConfig_TrustedSigners_Items { get; set; }
+            public System.Int32? StreamingDistributionConfig_TrustedSigners_Quantity { get; set; }
         }
         
     }

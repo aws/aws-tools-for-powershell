@@ -41,25 +41,31 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [AWSCmdlet("Invokes the DeleteIdentityPool operation against Amazon Cognito Identity.", Operation = new[] {"DeleteIdentityPool"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IdentityPoolId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteIdentityPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CognitoIdentity.Model.DeleteIdentityPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
+        
+        #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
         /// An identity pool ID in the format REGION:GUID.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IdentityPoolId { get; set; }
+        public System.String IdentityPoolId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the IdentityPoolId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteIdentityPoolRequest();
+            var request = new Amazon.CognitoIdentity.Model.DeleteIdentityPoolRequest();
             
             if (cmdletContext.IdentityPoolId != null)
             {
@@ -140,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IdentityPoolId { get; set; }
+            public System.String IdentityPoolId { get; set; }
         }
         
     }

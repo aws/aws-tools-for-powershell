@@ -42,18 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [OutputType("Amazon.OpsWorks.Model.GetHostnameSuggestionResponse")]
     [AWSCmdlet("Invokes the GetHostnameSuggestion operation against AWS OpsWorks.", Operation = new[] {"GetHostnameSuggestion"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.GetHostnameSuggestionResponse",
-        "This cmdlet returns a GetHostnameSuggestionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.OpsWorks.Model.GetHostnameSuggestionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSHostnameSuggestionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The layer ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LayerId { get; set; }
-        
+        public System.String LayerId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetHostnameSuggestionRequest();
+            var request = new Amazon.OpsWorks.Model.GetHostnameSuggestionRequest();
             
             if (cmdletContext.LayerId != null)
             {
@@ -118,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LayerId { get; set; }
+            public System.String LayerId { get; set; }
         }
         
     }

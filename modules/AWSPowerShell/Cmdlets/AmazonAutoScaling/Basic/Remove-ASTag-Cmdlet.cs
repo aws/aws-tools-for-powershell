@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DeleteTags operation against Auto Scaling.", Operation = new[] {"DeleteTags"})]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.Tag",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Tag parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveASTagCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>Each tag should be defined by its resource type, resource ID, key, value, and a propagate
@@ -49,14 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Tags")]
         public Amazon.AutoScaling.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Tag parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -84,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.AutoScaling.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTagsRequest();
+            var request = new Amazon.AutoScaling.Model.DeleteTagsRequest();
             
             if (cmdletContext.Tags != null)
             {
@@ -140,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Tag> Tags { get; set; }
+            public List<Amazon.AutoScaling.Model.Tag> Tags { get; set; }
         }
         
     }

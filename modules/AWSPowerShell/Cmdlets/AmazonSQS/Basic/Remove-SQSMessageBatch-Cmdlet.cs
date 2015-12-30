@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [OutputType("Amazon.SQS.Model.DeleteMessageBatchResponse")]
     [AWSCmdlet("Invokes the DeleteMessageBatch operation against Amazon Simple Queue Service.", Operation = new[] {"DeleteMessageBatch"})]
     [AWSCmdletOutput("Amazon.SQS.Model.DeleteMessageBatchResponse",
-        "This cmdlet returns a DeleteMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SQS.Model.DeleteMessageBatchResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Entry
         /// <summary>
         /// <para>
         /// <para>A list of receipt handles for the messages to be deleted.</para>
@@ -55,15 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter]
         [Alias("Entries")]
         public Amazon.SQS.Model.DeleteMessageBatchRequestEntry[] Entry { get; set; }
+        #endregion
         
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.Entry != null)
             {
-                context.Entries = new List<DeleteMessageBatchRequestEntry>(this.Entry);
+                context.Entries = new List<Amazon.SQS.Model.DeleteMessageBatchRequestEntry>(this.Entry);
             }
             context.QueueUrl = this.QueueUrl;
             
@@ -105,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteMessageBatchRequest();
+            var request = new Amazon.SQS.Model.DeleteMessageBatchRequest();
             
             if (cmdletContext.Entries != null)
             {
@@ -150,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<DeleteMessageBatchRequestEntry> Entries { get; set; }
-            public String QueueUrl { get; set; }
+            public List<Amazon.SQS.Model.DeleteMessageBatchRequestEntry> Entries { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

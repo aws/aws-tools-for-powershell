@@ -1,7 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Set-ASTag -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-test-asg"; Key="MyTag"; Value="MyTagValue"; PropagateAtLaunch=$true} )</code>
-    <description>Sets a single tag on the Auto Scaling group 'my-test-asg'. The tag has key 'MyTag' and value 'MyTagValue' and is propagated to new EC2 instances on launch.</description>
+    <code>PS C:\> Set-ASTag -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-asg"; Key="myTag"; Value="myTagValue"; PropagateAtLaunch=$true} )</code>
+    <description>This example adds a single tag to the specified Auto Scaling group. The tag key is 'myTag' and the tag value is 'myTagValue'. Auto Scaling propagates this tag to the subsequent EC2 instances launched by the Auto Scaling group. The syntax used by this example requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> $tag = New-Object Amazon.AutoScaling.Model.Tag
+PS C:\> $tag.ResourceType = "auto-scaling-group"
+PS C:\> $tag.ResourceId = "my-asg" 
+PS C:\> $tag.Key = "myTag" 
+PS C:\> $tag.Value = "myTagValue"
+PS C:\> $tag.PropagateAtLaunch = $true
+PS C:\> Set-ASTag -Tag $tag</code>
+    <description>With PowerShell version 2, you must use New-Object to create the tag for the Tag parameter.</description>
   </example>
 </examples>

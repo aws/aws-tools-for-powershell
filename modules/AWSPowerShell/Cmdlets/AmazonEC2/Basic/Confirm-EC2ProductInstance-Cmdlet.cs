@@ -36,26 +36,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ConfirmProductInstanceResponse")]
     [AWSCmdlet("Invokes the ConfirmProductInstance operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ConfirmProductInstance"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ConfirmProductInstanceResponse",
-        "This cmdlet returns a ConfirmProductInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.ConfirmProductInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmEC2ProductInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter ProductCode
         /// <summary>
         /// <para>
         /// <para>The product code. This must be a product code that you own.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ProductCode { get; set; }
+        public System.String ProductCode { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -94,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConfirmProductInstanceRequest();
+            var request = new Amazon.EC2.Model.ConfirmProductInstanceRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -139,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String ProductCode { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String ProductCode { get; set; }
         }
         
     }

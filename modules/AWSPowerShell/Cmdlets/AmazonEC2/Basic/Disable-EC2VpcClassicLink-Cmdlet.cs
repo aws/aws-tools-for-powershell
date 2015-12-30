@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DisableVpcClassicLink operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DisableVpcClassicLink"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type DisableVpcClassicLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DisableVpcClassicLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableEC2VpcClassicLinkCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableVpcClassicLinkRequest();
+            var request = new Amazon.EC2.Model.DisableVpcClassicLinkRequest();
             
             if (cmdletContext.VpcId != null)
             {
@@ -126,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VpcId { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

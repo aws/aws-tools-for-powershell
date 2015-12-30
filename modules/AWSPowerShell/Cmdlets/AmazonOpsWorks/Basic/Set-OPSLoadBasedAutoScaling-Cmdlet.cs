@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the SetLoadBasedAutoScaling operation against AWS OpsWorks.", Operation = new[] {"SetLoadBasedAutoScaling"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LayerId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetLoadBasedAutoScalingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.SetLoadBasedAutoScalingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetOPSLoadBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter DownScaling_Alarm
         /// <summary>
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("DownScaling_Alarms")]
         public System.String[] DownScaling_Alarm { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_Alarm
         /// <summary>
         /// <para>
         /// <para>Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes
@@ -78,31 +82,39 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("UpScaling_Alarms")]
         public System.String[] UpScaling_Alarm { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_CpuThreshold
         /// <summary>
         /// <para>
         /// <para>The CPU utilization threshold, as a percent of the available CPU.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double DownScaling_CpuThreshold { get; set; }
+        public System.Double DownScaling_CpuThreshold { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_CpuThreshold
         /// <summary>
         /// <para>
         /// <para>The CPU utilization threshold, as a percent of the available CPU.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double UpScaling_CpuThreshold { get; set; }
+        public System.Double UpScaling_CpuThreshold { get; set; }
+        #endregion
         
+        #region Parameter Enable
         /// <summary>
         /// <para>
         /// <para>Enables load-based auto scaling for the layer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean Enable { get; set; }
+        public System.Boolean Enable { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_IgnoreMetricsTime
         /// <summary>
         /// <para>
         /// <para>The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should
@@ -115,8 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DownScaling_IgnoreMetricsTime { get; set; }
+        public System.Int32 DownScaling_IgnoreMetricsTime { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_IgnoreMetricsTime
         /// <summary>
         /// <para>
         /// <para>The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks should
@@ -129,32 +143,40 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 UpScaling_IgnoreMetricsTime { get; set; }
+        public System.Int32 UpScaling_IgnoreMetricsTime { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of instances to add or remove when the load exceeds a threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DownScaling_InstanceCount { get; set; }
+        public System.Int32 DownScaling_InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of instances to add or remove when the load exceeds a threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 UpScaling_InstanceCount { get; set; }
+        public System.Int32 UpScaling_InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The layer ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LayerId { get; set; }
+        public System.String LayerId { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_LoadThreshold
         /// <summary>
         /// <para>
         /// <para>The load threshold. For more information about how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
@@ -162,8 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double DownScaling_LoadThreshold { get; set; }
+        public System.Double DownScaling_LoadThreshold { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_LoadThreshold
         /// <summary>
         /// <para>
         /// <para>The load threshold. For more information about how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
@@ -171,24 +195,30 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double UpScaling_LoadThreshold { get; set; }
+        public System.Double UpScaling_LoadThreshold { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_MemoryThreshold
         /// <summary>
         /// <para>
         /// <para>The memory utilization threshold, as a percent of the available memory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double DownScaling_MemoryThreshold { get; set; }
+        public System.Double DownScaling_MemoryThreshold { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_MemoryThreshold
         /// <summary>
         /// <para>
         /// <para>The memory utilization threshold, as a percent of the available memory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double UpScaling_MemoryThreshold { get; set; }
+        public System.Double UpScaling_MemoryThreshold { get; set; }
+        #endregion
         
+        #region Parameter DownScaling_ThresholdsWaitTime
         /// <summary>
         /// <para>
         /// <para>The amount of time, in minutes, that the load must exceed a threshold before more
@@ -196,8 +226,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 DownScaling_ThresholdsWaitTime { get; set; }
+        public System.Int32 DownScaling_ThresholdsWaitTime { get; set; }
+        #endregion
         
+        #region Parameter UpScaling_ThresholdsWaitTime
         /// <summary>
         /// <para>
         /// <para>The amount of time, in minutes, that the load must exceed a threshold before more
@@ -205,15 +237,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 UpScaling_ThresholdsWaitTime { get; set; }
+        public System.Int32 UpScaling_ThresholdsWaitTime { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LayerId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -221,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -241,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.DownScaling_Alarm != null)
             {
-                context.DownScaling_Alarms = new List<String>(this.DownScaling_Alarm);
+                context.DownScaling_Alarms = new List<System.String>(this.DownScaling_Alarm);
             }
             if (ParameterWasBound("DownScaling_CpuThreshold"))
                 context.DownScaling_CpuThreshold = this.DownScaling_CpuThreshold;
@@ -260,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.LayerId = this.LayerId;
             if (this.UpScaling_Alarm != null)
             {
-                context.UpScaling_Alarms = new List<String>(this.UpScaling_Alarm);
+                context.UpScaling_Alarms = new List<System.String>(this.UpScaling_Alarm);
             }
             if (ParameterWasBound("UpScaling_CpuThreshold"))
                 context.UpScaling_CpuThreshold = this.UpScaling_CpuThreshold;
@@ -285,13 +321,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetLoadBasedAutoScalingRequest();
+            var request = new Amazon.OpsWorks.Model.SetLoadBasedAutoScalingRequest();
             
             
              // populate DownScaling
             bool requestDownScalingIsNull = true;
-            request.DownScaling = new AutoScalingThresholds();
-            List<String> requestDownScaling_downScaling_Alarm = null;
+            request.DownScaling = new Amazon.OpsWorks.Model.AutoScalingThresholds();
+            List<System.String> requestDownScaling_downScaling_Alarm = null;
             if (cmdletContext.DownScaling_Alarms != null)
             {
                 requestDownScaling_downScaling_Alarm = cmdletContext.DownScaling_Alarms;
@@ -301,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.DownScaling.Alarms = requestDownScaling_downScaling_Alarm;
                 requestDownScalingIsNull = false;
             }
-            Double? requestDownScaling_downScaling_CpuThreshold = null;
+            System.Double? requestDownScaling_downScaling_CpuThreshold = null;
             if (cmdletContext.DownScaling_CpuThreshold != null)
             {
                 requestDownScaling_downScaling_CpuThreshold = cmdletContext.DownScaling_CpuThreshold.Value;
@@ -311,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.DownScaling.CpuThreshold = requestDownScaling_downScaling_CpuThreshold.Value;
                 requestDownScalingIsNull = false;
             }
-            Int32? requestDownScaling_downScaling_IgnoreMetricsTime = null;
+            System.Int32? requestDownScaling_downScaling_IgnoreMetricsTime = null;
             if (cmdletContext.DownScaling_IgnoreMetricsTime != null)
             {
                 requestDownScaling_downScaling_IgnoreMetricsTime = cmdletContext.DownScaling_IgnoreMetricsTime.Value;
@@ -321,7 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.DownScaling.IgnoreMetricsTime = requestDownScaling_downScaling_IgnoreMetricsTime.Value;
                 requestDownScalingIsNull = false;
             }
-            Int32? requestDownScaling_downScaling_InstanceCount = null;
+            System.Int32? requestDownScaling_downScaling_InstanceCount = null;
             if (cmdletContext.DownScaling_InstanceCount != null)
             {
                 requestDownScaling_downScaling_InstanceCount = cmdletContext.DownScaling_InstanceCount.Value;
@@ -331,7 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.DownScaling.InstanceCount = requestDownScaling_downScaling_InstanceCount.Value;
                 requestDownScalingIsNull = false;
             }
-            Double? requestDownScaling_downScaling_LoadThreshold = null;
+            System.Double? requestDownScaling_downScaling_LoadThreshold = null;
             if (cmdletContext.DownScaling_LoadThreshold != null)
             {
                 requestDownScaling_downScaling_LoadThreshold = cmdletContext.DownScaling_LoadThreshold.Value;
@@ -341,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.DownScaling.LoadThreshold = requestDownScaling_downScaling_LoadThreshold.Value;
                 requestDownScalingIsNull = false;
             }
-            Double? requestDownScaling_downScaling_MemoryThreshold = null;
+            System.Double? requestDownScaling_downScaling_MemoryThreshold = null;
             if (cmdletContext.DownScaling_MemoryThreshold != null)
             {
                 requestDownScaling_downScaling_MemoryThreshold = cmdletContext.DownScaling_MemoryThreshold.Value;
@@ -351,7 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.DownScaling.MemoryThreshold = requestDownScaling_downScaling_MemoryThreshold.Value;
                 requestDownScalingIsNull = false;
             }
-            Int32? requestDownScaling_downScaling_ThresholdsWaitTime = null;
+            System.Int32? requestDownScaling_downScaling_ThresholdsWaitTime = null;
             if (cmdletContext.DownScaling_ThresholdsWaitTime != null)
             {
                 requestDownScaling_downScaling_ThresholdsWaitTime = cmdletContext.DownScaling_ThresholdsWaitTime.Value;
@@ -377,8 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate UpScaling
             bool requestUpScalingIsNull = true;
-            request.UpScaling = new AutoScalingThresholds();
-            List<String> requestUpScaling_upScaling_Alarm = null;
+            request.UpScaling = new Amazon.OpsWorks.Model.AutoScalingThresholds();
+            List<System.String> requestUpScaling_upScaling_Alarm = null;
             if (cmdletContext.UpScaling_Alarms != null)
             {
                 requestUpScaling_upScaling_Alarm = cmdletContext.UpScaling_Alarms;
@@ -388,7 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.UpScaling.Alarms = requestUpScaling_upScaling_Alarm;
                 requestUpScalingIsNull = false;
             }
-            Double? requestUpScaling_upScaling_CpuThreshold = null;
+            System.Double? requestUpScaling_upScaling_CpuThreshold = null;
             if (cmdletContext.UpScaling_CpuThreshold != null)
             {
                 requestUpScaling_upScaling_CpuThreshold = cmdletContext.UpScaling_CpuThreshold.Value;
@@ -398,7 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.UpScaling.CpuThreshold = requestUpScaling_upScaling_CpuThreshold.Value;
                 requestUpScalingIsNull = false;
             }
-            Int32? requestUpScaling_upScaling_IgnoreMetricsTime = null;
+            System.Int32? requestUpScaling_upScaling_IgnoreMetricsTime = null;
             if (cmdletContext.UpScaling_IgnoreMetricsTime != null)
             {
                 requestUpScaling_upScaling_IgnoreMetricsTime = cmdletContext.UpScaling_IgnoreMetricsTime.Value;
@@ -408,7 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.UpScaling.IgnoreMetricsTime = requestUpScaling_upScaling_IgnoreMetricsTime.Value;
                 requestUpScalingIsNull = false;
             }
-            Int32? requestUpScaling_upScaling_InstanceCount = null;
+            System.Int32? requestUpScaling_upScaling_InstanceCount = null;
             if (cmdletContext.UpScaling_InstanceCount != null)
             {
                 requestUpScaling_upScaling_InstanceCount = cmdletContext.UpScaling_InstanceCount.Value;
@@ -418,7 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.UpScaling.InstanceCount = requestUpScaling_upScaling_InstanceCount.Value;
                 requestUpScalingIsNull = false;
             }
-            Double? requestUpScaling_upScaling_LoadThreshold = null;
+            System.Double? requestUpScaling_upScaling_LoadThreshold = null;
             if (cmdletContext.UpScaling_LoadThreshold != null)
             {
                 requestUpScaling_upScaling_LoadThreshold = cmdletContext.UpScaling_LoadThreshold.Value;
@@ -428,7 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.UpScaling.LoadThreshold = requestUpScaling_upScaling_LoadThreshold.Value;
                 requestUpScalingIsNull = false;
             }
-            Double? requestUpScaling_upScaling_MemoryThreshold = null;
+            System.Double? requestUpScaling_upScaling_MemoryThreshold = null;
             if (cmdletContext.UpScaling_MemoryThreshold != null)
             {
                 requestUpScaling_upScaling_MemoryThreshold = cmdletContext.UpScaling_MemoryThreshold.Value;
@@ -438,7 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.UpScaling.MemoryThreshold = requestUpScaling_upScaling_MemoryThreshold.Value;
                 requestUpScalingIsNull = false;
             }
-            Int32? requestUpScaling_upScaling_ThresholdsWaitTime = null;
+            System.Int32? requestUpScaling_upScaling_ThresholdsWaitTime = null;
             if (cmdletContext.UpScaling_ThresholdsWaitTime != null)
             {
                 requestUpScaling_upScaling_ThresholdsWaitTime = cmdletContext.UpScaling_ThresholdsWaitTime.Value;
@@ -490,22 +526,22 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DownScaling_Alarms { get; set; }
-            public Double? DownScaling_CpuThreshold { get; set; }
-            public Int32? DownScaling_IgnoreMetricsTime { get; set; }
-            public Int32? DownScaling_InstanceCount { get; set; }
-            public Double? DownScaling_LoadThreshold { get; set; }
-            public Double? DownScaling_MemoryThreshold { get; set; }
-            public Int32? DownScaling_ThresholdsWaitTime { get; set; }
-            public Boolean? Enable { get; set; }
-            public String LayerId { get; set; }
-            public List<String> UpScaling_Alarms { get; set; }
-            public Double? UpScaling_CpuThreshold { get; set; }
-            public Int32? UpScaling_IgnoreMetricsTime { get; set; }
-            public Int32? UpScaling_InstanceCount { get; set; }
-            public Double? UpScaling_LoadThreshold { get; set; }
-            public Double? UpScaling_MemoryThreshold { get; set; }
-            public Int32? UpScaling_ThresholdsWaitTime { get; set; }
+            public List<System.String> DownScaling_Alarms { get; set; }
+            public System.Double? DownScaling_CpuThreshold { get; set; }
+            public System.Int32? DownScaling_IgnoreMetricsTime { get; set; }
+            public System.Int32? DownScaling_InstanceCount { get; set; }
+            public System.Double? DownScaling_LoadThreshold { get; set; }
+            public System.Double? DownScaling_MemoryThreshold { get; set; }
+            public System.Int32? DownScaling_ThresholdsWaitTime { get; set; }
+            public System.Boolean? Enable { get; set; }
+            public System.String LayerId { get; set; }
+            public List<System.String> UpScaling_Alarms { get; set; }
+            public System.Double? UpScaling_CpuThreshold { get; set; }
+            public System.Int32? UpScaling_IgnoreMetricsTime { get; set; }
+            public System.Int32? UpScaling_InstanceCount { get; set; }
+            public System.Double? UpScaling_LoadThreshold { get; set; }
+            public System.Double? UpScaling_MemoryThreshold { get; set; }
+            public System.Int32? UpScaling_ThresholdsWaitTime { get; set; }
         }
         
     }

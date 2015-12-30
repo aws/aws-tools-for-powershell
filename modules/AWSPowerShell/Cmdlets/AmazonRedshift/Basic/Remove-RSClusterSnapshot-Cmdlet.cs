@@ -45,10 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"DeleteClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type DeleteClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DeleteClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the cluster the snapshot was created from. This parameter
@@ -57,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotClusterIdentifier { get; set; }
+        public System.String SnapshotClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the manual snapshot to be deleted. </para><para>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>
@@ -66,8 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteClusterSnapshotRequest();
+            var request = new Amazon.Redshift.Model.DeleteClusterSnapshotRequest();
             
             if (cmdletContext.SnapshotClusterIdentifier != null)
             {
@@ -151,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotClusterIdentifier { get; set; }
-            public String SnapshotIdentifier { get; set; }
+            public System.String SnapshotClusterIdentifier { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
         }
         
     }

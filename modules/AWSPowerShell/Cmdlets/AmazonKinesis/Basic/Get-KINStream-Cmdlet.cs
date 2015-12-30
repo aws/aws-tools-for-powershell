@@ -53,37 +53,43 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Get", "KINStream")]
     [OutputType("Amazon.Kinesis.Model.StreamDescription")]
-    [AWSCmdlet("Invokes the DescribeStream operation against AWS Kinesis.", Operation = new[] {"DescribeStream"})]
+    [AWSCmdlet("Invokes the DescribeStream operation against Amazon Kinesis.", Operation = new[] {"DescribeStream"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.StreamDescription",
         "This cmdlet returns a StreamDescription object.",
-        "The service call response (type DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Kinesis.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartShardId
         /// <summary>
         /// <para>
         /// <para>The shard ID of the shard to start with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String ExclusiveStartShardId { get; set; }
+        public System.String ExclusiveStartShardId { get; set; }
+        #endregion
         
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamName { get; set; }
+        public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of shards to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 Limit { get; set; }
-        
+        public System.Int32 Limit { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -110,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStreamRequest();
+            var request = new Amazon.Kinesis.Model.DescribeStreamRequest();
             
             if (cmdletContext.ExclusiveStartShardId != null)
             {
@@ -159,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ExclusiveStartShardId { get; set; }
-            public Int32? Limit { get; set; }
-            public String StreamName { get; set; }
+            public System.String ExclusiveStartShardId { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String StreamName { get; set; }
         }
         
     }

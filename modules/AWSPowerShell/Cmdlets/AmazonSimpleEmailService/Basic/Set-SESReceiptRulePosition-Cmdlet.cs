@@ -43,34 +43,42 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the SetReceiptRulePosition operation against Amazon Simple Email Service.", Operation = new[] {"SetReceiptRulePosition"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type SetReceiptRulePositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.SetReceiptRulePositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSESReceiptRulePositionCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter After
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule after which to place the specified receipt rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String After { get; set; }
+        public System.String After { get; set; }
+        #endregion
         
+        #region Parameter RuleName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule to reposition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleName { get; set; }
+        public System.String RuleName { get; set; }
+        #endregion
         
+        #region Parameter RuleSetName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule set that contains the receipt rule to reposition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleSetName { get; set; }
+        public System.String RuleSetName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -110,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetReceiptRulePositionRequest();
+            var request = new Amazon.SimpleEmail.Model.SetReceiptRulePositionRequest();
             
             if (cmdletContext.After != null)
             {
@@ -159,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String After { get; set; }
-            public String RuleName { get; set; }
-            public String RuleSetName { get; set; }
+            public System.String After { get; set; }
+            public System.String RuleName { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

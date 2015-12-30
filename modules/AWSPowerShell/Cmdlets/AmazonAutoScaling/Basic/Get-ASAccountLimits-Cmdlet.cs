@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [OutputType("Amazon.AutoScaling.Model.DescribeAccountLimitsResponse")]
     [AWSCmdlet("Invokes the DescribeAccountLimits operation against Auto Scaling.", Operation = new[] {"DescribeAccountLimits"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.DescribeAccountLimitsResponse",
-        "This cmdlet returns a DescribeAccountLimitsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.AutoScaling.Model.DescribeAccountLimitsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASAccountLimitsCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAccountLimitsRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeAccountLimitsRequest();
             
             
             CmdletOutput output;

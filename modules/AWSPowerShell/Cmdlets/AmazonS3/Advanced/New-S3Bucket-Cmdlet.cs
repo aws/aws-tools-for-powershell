@@ -30,37 +30,47 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.S3Bucket")]
     [AWSCmdlet("Invokes the PutBucket operation against Amazon S3.", Operation = new [] {"PutBucket"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket",
-        "Returns an S3Bucket instance representing the new bucket.",
-        "The service response (type PutBucketResponse) is added to the cmdlet entry in the $AWSHistory stack."
+        "Returns an Amazon.S3.Model.S3Bucket instance representing the new bucket.",
+        "The service response (type Amazon.S3.Model.PutBucketResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        #region Parameter BucketName
         /// <summary>
         /// The name that will be given to the new bucket. This name needs to be
         /// unique across Amazon S3.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public String BucketName { get; set; }
-        
+        public System.String BucketName { get; set; }
+        #endregion
+
+        #region Parameter CannedACLName
         /// <summary>
         /// Specifies the name of the canned ACL (access control list) of permissions to be applied to the S3 bucket.
-        /// Please refer to <see cref="T:Amazon.S3.Model.S3CannedACL" /> for information on S3 Canned ACLs.
+        /// Please refer to <a href="http://docs.aws.amazon.com/sdkfornet/v3/apidocs/Index.html?page=S3/TS3_S3CannedACL.html&tocid=Amazon_S3_S3CannedACL">Amazon.S3.Model.S3CannedACL</a> for information on S3 Canned ACLs.
         /// </summary>
         [Parameter]
-        public string CannedACLName { get; set; }
+        [AWSConstantClassSource("Amazon.S3.S3CannedACL")]
+        public Amazon.S3.S3CannedACL CannedACLName { get; set; }
+        #endregion
 
+        #region Parameter PublicReadOnly 
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-only permissions
         /// </summary>
         [Parameter]
         public SwitchParameter PublicReadOnly { get; set; }
+        #endregion
 
+        #region Parameter PublicReadWrite
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-write permissions
         /// </summary>
         [Parameter]
         public SwitchParameter PublicReadWrite { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,6 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {
@@ -84,18 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             };
 
             if (!string.IsNullOrEmpty(this.CannedACLName))
-            {
                 context.CannedACL = this.CannedACLName;
-                //try
-                //{
-                //    context.CannedACL = (S3CannedACL)Enum.Parse(typeof(S3CannedACL), this.CannedACLName, true);
-                //}
-                //catch (ArgumentException e)
-                //{
-                //    string errMsg = "Invalid CannedACLName parameter value; allowable values: " + string.Join(", ", Enum.GetNames(typeof(S3CannedACL)));
-                //    ThrowArgumentError(errMsg, this.CannedACLName, e);
-                //}
-            }
             else if (this.PublicReadOnly.IsPresent)
                 context.CannedACL = S3CannedACL.PublicRead;
             else if (this.PublicReadWrite.IsPresent)

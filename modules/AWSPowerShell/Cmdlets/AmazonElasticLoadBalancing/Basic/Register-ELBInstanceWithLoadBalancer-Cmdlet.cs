@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// the linked EC2-Classic instances with the load balancer in the VPC.
     /// </para><para>
     /// Note that <code>RegisterInstanceWithLoadBalancer</code> completes when the request
-    /// has been registered. Instance registration happens shortly afterwards. To check the
-    /// state of the registered instances, use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.
+    /// has been registered. Instance registration takes a little time to complete. To check
+    /// the state of the registered instances, use <a>DescribeLoadBalancers</a> or <a>DescribeInstanceHealth</a>.
     /// </para><para>
     /// After the instance is registered, it starts receiving traffic and requests from the
     /// load balancer. Any instance that is not in one of the Availability Zones registered
@@ -63,10 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the RegisterInstancesWithLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"RegisterInstancesWithLoadBalancer"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.Instance",
         "This cmdlet returns a collection of Instance objects.",
-        "The service call response (type RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterELBInstanceWithLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Instance
         /// <summary>
         /// <para>
         /// <para>The IDs of the instances.</para>
@@ -75,15 +77,19 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Instances")]
         public Amazon.ElasticLoadBalancing.Model.Instance[] Instance { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.Instance != null)
             {
-                context.Instances = new List<Instance>(this.Instance);
+                context.Instances = new List<Amazon.ElasticLoadBalancing.Model.Instance>(this.Instance);
             }
             context.LoadBalancerName = this.LoadBalancerName;
             
@@ -125,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterInstancesWithLoadBalancerRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerRequest();
             
             if (cmdletContext.Instances != null)
             {
@@ -170,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Instance> Instances { get; set; }
-            public String LoadBalancerName { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.Instance> Instances { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

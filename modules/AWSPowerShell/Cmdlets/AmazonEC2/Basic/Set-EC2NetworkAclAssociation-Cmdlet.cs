@@ -38,26 +38,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ReplaceNetworkAclAssociation operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReplaceNetworkAclAssociation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ReplaceNetworkAclAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ReplaceNetworkAclAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEC2NetworkAclAssociationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationId
         /// <summary>
         /// <para>
         /// <para>The ID of the current association between the original network ACL and the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AssociationId { get; set; }
+        public System.String AssociationId { get; set; }
+        #endregion
         
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>The ID of the new network ACL to associate with the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String NetworkAclId { get; set; }
+        public System.String NetworkAclId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -65,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -96,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReplaceNetworkAclAssociationRequest();
+            var request = new Amazon.EC2.Model.ReplaceNetworkAclAssociationRequest();
             
             if (cmdletContext.AssociationId != null)
             {
@@ -141,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssociationId { get; set; }
-            public String NetworkAclId { get; set; }
+            public System.String AssociationId { get; set; }
+            public System.String NetworkAclId { get; set; }
         }
         
     }

@@ -39,18 +39,22 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the UpdateAvailabilityOptions operation against Amazon CloudSearch.", Operation = new[] {"UpdateAvailabilityOptions"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AvailabilityOptionsStatus",
         "This cmdlet returns a AvailabilityOptionsStatus object.",
-        "The service call response (type UpdateAvailabilityOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.UpdateAvailabilityOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCSAvailabilityOptionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter MultiAZ
         /// <summary>
         /// <para>
         /// <para>You expand an existing search domain to a second Availability Zone by setting the
@@ -60,8 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean MultiAZ { get; set; }
+        public System.Boolean MultiAZ { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAvailabilityOptionsRequest();
+            var request = new Amazon.CloudSearch.Model.UpdateAvailabilityOptionsRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -146,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public Boolean? MultiAZ { get; set; }
+            public System.String DomainName { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
         }
         
     }

@@ -44,56 +44,50 @@ namespace Amazon.PowerShell.Cmdlets.R53
     [OutputType("Amazon.Route53.Model.HostedZone")]
     [AWSCmdlet("Invokes the ListHostedZonesByName operation against AWS Route 53.")]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZone",
-        "This cmdlet returns a collection of HostedZone objects.",
-        "The service call response (type ListHostedZonesByNameResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "This cmdlet returns a collection of Amazon.Route53.Model.HostedZone objects.",
+        "The service call response (type Amazon.Route53.Model.ListHostedZonesByNameResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type HostedZonePageMarker), NextMarker (type HostedZonePageMarker), MaxItems (type String)"
     )]
     public class GetR53HostedZonesByNameCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        #region Parameter DNSName
         /// <summary>
-        /// <para>
-        /// Gets and sets the property DNSName. 
         /// <para>
         /// The first name in the lexicographic ordering of domain names that you want the <code>ListHostedZonesByNameRequest</code>
         /// request to list.
-        /// </para><para>
+        /// </para>
+        /// <para>
         /// If the request returned more than one page of results, submit another request and
         /// specify the value of <code>NextMarker$DNSName</code> and <code>NextMarker$HostedZoneId</code>
         /// from the last response in the <code>DNSName</code> and <code>HostedZoneId</code> parameters
         /// to get the next page of results.
-        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DNSName { get; set; }
-        
+        public System.String DNSName { get; set; }
+        #endregion
+
+        #region Parameter HostedZoneId
         /// <summary>
-        /// <para>
-        /// Gets and sets the property HostedZoneId. 
-        /// <para>
         /// If the request returned more than one page of results, submit another request and
         /// specify the value of <code>NextMarker$DNSName</code> and <code>NextMarker$HostedZoneId</code>
         /// from the last response in the <code>DNSName</code> and <code>HostedZoneId</code> parameters
         /// to get the next page of results.
-        /// </para>
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String HostedZoneId { get; set; }
-        
+        public System.String HostedZoneId { get; set; }
+        #endregion
+
+        #region Parameter MaxItem
         /// <summary>
-        /// <para>
-        /// Gets and sets the property MaxItems. 
-        /// <para>
         /// Specify the maximum number of hosted zones to return per page of results.
-        /// </para>
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int? MaxItem { get; set; }
-        
-        
+        public System.Int32? MaxItem { get; set; }
+        #endregion
+
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

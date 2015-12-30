@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a DB instance for a DB instance running MySQL or PostgreSQL that acts as
-    /// a Read Replica of a source DB instance. 
+    /// Creates a DB instance for a DB instance running MySQL, MariaDB, or PostgreSQL that
+    /// acts as a Read Replica of a source DB instance. 
     /// 
     ///  
     /// <para>
@@ -45,10 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateDBInstanceReadReplica operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBInstanceReadReplica"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type CreateDBInstanceReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateDBInstanceReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSDBInstanceReadReplicaCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> Indicates that minor engine upgrades will be applied automatically to the Read Replica
@@ -56,16 +58,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoMinorVersionUpgrade { get; set; }
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para> The Amazon EC2 Availability Zone that the Read Replica will be created in. </para><para> Default: A random, system-chosen Availability Zone in the endpoint's region. </para><para> Example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
         /// <para>True to copy all tags from the Read Replica to snapshots of the Read Replica; otherwise
@@ -73,19 +79,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTagsToSnapshot { get; set; }
+        public System.Boolean CopyTagsToSnapshot { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
         /// <para> The compute and memory capacity of the Read Replica. </para><para> Valid Values: <code>db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
         /// |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
-        /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
-        /// | db.t2.small | db.t2.medium | db.t2.large</code></para><para>Default: Inherits from the source DB instance.</para>
+        /// | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large
+        /// | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
+        /// | db.t2.medium | db.t2.large</code></para><para>Default: Inherits from the source DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceClass { get; set; }
+        public System.String DBInstanceClass { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier of the Read Replica. This identifier is the unique key
@@ -93,8 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> Specifies a DB subnet group for the DB instance. The new DB instance will be created
@@ -104,13 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// same region in which the operation is running.</li><li> All Read Replicas in one
         /// region that are created from the same source DB instance must either: <ul><li>Specify
         /// DB subnet groups from the same VPC. All these Read Replicas will be created in the
-        /// same VPC.</li><li>Not specify a DB subnet group. All these Read Replicas will be
-        /// created outside of any VPC.</li></ul></li></ul>
+        /// same VPC.</li><li>Not specify a DB subnet group. All these Read Replicas will be created
+        /// outside of any VPC.</li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Iops
         /// <summary>
         /// <para>
         /// <para> The amount of Provisioned IOPS (input/output operations per second) to be initially
@@ -118,8 +133,37 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Iops { get; set; }
+        public System.Int32 Iops { get; set; }
+        #endregion
         
+        #region Parameter MonitoringInterval
+        /// <summary>
+        /// <para>
+        /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the Read Replica. To disable collecting Enhanced Monitoring metrics, specify 0.
+        /// The default is 60.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MonitoringInterval { get; set; }
+        #endregion
+        
+        #region Parameter MonitoringRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
+        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
+        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MonitoringRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para> The option group the DB instance will be associated with. If omitted, the default
@@ -127,16 +171,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number that the DB instance uses for connections. </para><para>Default: Inherits from the source DB instance</para><para>Valid Values: <code>1150-65535</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
         /// <para> Specifies the accessibility options for the DB instance. A value of true specifies
@@ -150,24 +198,28 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PubliclyAccessible { get; set; }
+        public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
         
+        #region Parameter SourceDBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the DB instance that will act as the source for the Read Replica.
-        /// Each DB instance can have up to five Read Replicas. </para><para>Constraints:</para><ul><li>Must be the identifier of an existing DB instance.</li><li>Can specify
-        /// a DB instance that is a MySQL Read Replica only if the source is running MySQL 5.6.</li><li>Can specify a DB instance that is a PostgreSQL Read Replica only if the source
-        /// is running PostgreSQL 9.3.5.</li><li>The specified DB instance must have automatic
-        /// backups enabled, its backup retention period must be greater than 0.</li><li>If the
-        /// source DB instance is in the same region as the Read Replica, specify a valid DB instance
-        /// identifier.</li><li>If the source DB instance is in a different region than the Read
-        /// Replica, specify a valid DB instance ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN">
+        /// Each DB instance can have up to five Read Replicas. </para><para>Constraints:</para><ul><li>Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.</li><li>Can specify a DB instance that is a MySQL Read Replica only if the source is running
+        /// MySQL 5.6.</li><li>Can specify a DB instance that is a PostgreSQL Read Replica only
+        /// if the source is running PostgreSQL 9.3.5.</li><li>The specified DB instance must
+        /// have automatic backups enabled, its backup retention period must be greater than 0.</li><li>If the source DB instance is in the same region as the Read Replica, specify a
+        /// valid DB instance identifier.</li><li>If the source DB instance is in a different
+        /// region than the Read Replica, specify a valid DB instance ARN. For more information,
+        /// go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN">
         /// Constructing a Amazon RDS Amazon Resource Name (ARN)</a>.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SourceDBInstanceIdentifier { get; set; }
+        public System.String SourceDBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter StorageType
         /// <summary>
         /// <para>
         /// <para> Specifies the storage type to be associated with the Read Replica. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
@@ -176,8 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StorageType { get; set; }
+        public System.String StorageType { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -186,7 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -194,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -222,6 +278,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
+            if (ParameterWasBound("MonitoringInterval"))
+                context.MonitoringInterval = this.MonitoringInterval;
+            context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.OptionGroupName = this.OptionGroupName;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
@@ -231,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -244,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDBInstanceReadReplicaRequest();
+            var request = new Amazon.RDS.Model.CreateDBInstanceReadReplicaRequest();
             
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
@@ -273,6 +332,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Iops != null)
             {
                 request.Iops = cmdletContext.Iops.Value;
+            }
+            if (cmdletContext.MonitoringInterval != null)
+            {
+                request.MonitoringInterval = cmdletContext.MonitoringInterval.Value;
+            }
+            if (cmdletContext.MonitoringRoleArn != null)
+            {
+                request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
             }
             if (cmdletContext.OptionGroupName != null)
             {
@@ -333,19 +400,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AutoMinorVersionUpgrade { get; set; }
-            public String AvailabilityZone { get; set; }
-            public Boolean? CopyTagsToSnapshot { get; set; }
-            public String DBInstanceClass { get; set; }
-            public String DBInstanceIdentifier { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public Int32? Iops { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public Boolean? PubliclyAccessible { get; set; }
-            public String SourceDBInstanceIdentifier { get; set; }
-            public String StorageType { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String DBInstanceClass { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public System.Int32? Iops { get; set; }
+            public System.Int32? MonitoringInterval { get; set; }
+            public System.String MonitoringRoleArn { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String SourceDBInstanceIdentifier { get; set; }
+            public System.String StorageType { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

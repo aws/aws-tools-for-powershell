@@ -28,11 +28,13 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the access policy, containing a list of permissions granted via the <code>AddPermission</code>
-    /// API, associated with the specified bucket.
+    /// Returns the resource policy, containing a list of permissions that apply to a specific
+    /// to an ARN that you specify via the <code>Qualifier</code> paramter. 
     /// 
     ///  
     /// <para>
+    /// For informration about adding permissions, see <a>AddPermission</a>.
+    /// </para><para>
     /// You need permission for the <code>lambda:GetPolicy action.</code></para>
     /// </summary>
     [Cmdlet("Get", "LMPolicy")]
@@ -40,13 +42,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the GetPolicy operation against Amazon Lambda.", Operation = new[] {"GetPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetLMPolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Function name whose access policy you want to retrieve. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
+        /// <para>Function name whose resource policy you want to retrieve. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
         /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
         /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
         /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
@@ -54,8 +58,21 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>You can specify this optional query parameter to specify function version or alias
+        /// name in which case this API will return all permissions associated with the specific
+        /// ARN. If you don't provide this parameter, the API will return permissions that apply
+        /// to the unqualified function ARN. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Qualifier { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -68,6 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            context.Qualifier = this.Qualifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -79,11 +97,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPolicyRequest();
+            var request = new Amazon.Lambda.Model.GetPolicyRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             
             CmdletOutput output;
@@ -120,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
         }
         
     }

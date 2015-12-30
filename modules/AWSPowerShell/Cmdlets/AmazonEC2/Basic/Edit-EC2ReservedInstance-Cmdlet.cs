@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the Availability Zone, instance count, instance type, or network platform
-    /// (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
+    /// (EC2-Classic or EC2-VPC) of your Reserved instances. The Reserved instances to be
     /// modified must be identical, except for Availability Zone, network platform, and instance
     /// type.
     /// 
@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyReservedInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyReservedInstances"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyReservedInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.ModifyReservedInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive token you provide to ensure idempotency of your modification
@@ -56,26 +58,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Reserved Instances to modify.</para>
+        /// <para>The IDs of the Reserved instances to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ReservedInstancesIds")]
         public System.String[] ReservedInstancesId { get; set; }
+        #endregion
         
+        #region Parameter TargetConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configuration settings for the Reserved Instances to modify.</para>
+        /// <para>The configuration settings for the Reserved instances to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("TargetConfigurations")]
         public Amazon.EC2.Model.ReservedInstancesConfiguration[] TargetConfiguration { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             if (this.ReservedInstancesId != null)
             {
-                context.ReservedInstancesIds = new List<String>(this.ReservedInstancesId);
+                context.ReservedInstancesIds = new List<System.String>(this.ReservedInstancesId);
             }
             if (this.TargetConfiguration != null)
             {
-                context.TargetConfigurations = new List<ReservedInstancesConfiguration>(this.TargetConfiguration);
+                context.TargetConfigurations = new List<Amazon.EC2.Model.ReservedInstancesConfiguration>(this.TargetConfiguration);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -121,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyReservedInstancesRequest();
+            var request = new Amazon.EC2.Model.ModifyReservedInstancesRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -170,9 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public List<String> ReservedInstancesIds { get; set; }
-            public List<ReservedInstancesConfiguration> TargetConfigurations { get; set; }
+            public System.String ClientToken { get; set; }
+            public List<System.String> ReservedInstancesIds { get; set; }
+            public List<Amazon.EC2.Model.ReservedInstancesConfiguration> TargetConfigurations { get; set; }
         }
         
     }

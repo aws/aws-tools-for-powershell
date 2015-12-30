@@ -43,33 +43,41 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the UpdateRepositoryDescription operation against AWS CodeCommit.", Operation = new[] {"UpdateRepositoryDescription"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RepositoryName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateRepositoryDescriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.UpdateRepositoryDescriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCCRepositoryDescriptionCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter RepositoryDescription
         /// <summary>
         /// <para>
         /// <para>The new comment or description for the specified repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RepositoryDescription { get; set; }
+        public System.String RepositoryDescription { get; set; }
+        #endregion
         
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The name of the repository to set or change the comment or description for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RepositoryName { get; set; }
+        public System.String RepositoryName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RepositoryName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -108,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateRepositoryDescriptionRequest();
+            var request = new Amazon.CodeCommit.Model.UpdateRepositoryDescriptionRequest();
             
             if (cmdletContext.RepositoryDescription != null)
             {
@@ -155,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RepositoryDescription { get; set; }
-            public String RepositoryName { get; set; }
+            public System.String RepositoryDescription { get; set; }
+            public System.String RepositoryName { get; set; }
         }
         
     }

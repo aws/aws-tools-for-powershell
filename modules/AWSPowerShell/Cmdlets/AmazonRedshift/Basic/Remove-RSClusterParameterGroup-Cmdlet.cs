@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"DeleteClusterParameterGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ParameterGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the parameter group to be deleted. </para><para>Constraints:</para><ul><li>Must be the name of an existing cluster parameter group.</li><li>Cannot
@@ -47,15 +49,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        public System.String ParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ParameterGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteClusterParameterGroupRequest();
+            var request = new Amazon.Redshift.Model.DeleteClusterParameterGroupRequest();
             
             if (cmdletContext.ParameterGroupName != null)
             {
@@ -136,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ParameterGroupName { get; set; }
+            public System.String ParameterGroupName { get; set; }
         }
         
     }

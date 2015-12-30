@@ -28,22 +28,22 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.
+    /// Describes your account's Reserved instance listings in the Reserved Instance Marketplace.
     /// 
     ///  
     /// <para>
-    /// The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance
+    /// The Reserved Instance Marketplace matches sellers who want to resell Reserved instance
     /// capacity that they no longer need with buyers who want to purchase additional capacity.
-    /// Reserved Instances bought and sold through the Reserved Instance Marketplace work
+    /// Reserved instances bought and sold through the Reserved Instance Marketplace work
     /// like any other Reserved Instances. 
     /// </para><para>
-    /// As a seller, you choose to list some or all of your Reserved Instances, and you specify
-    /// the upfront price to receive for them. Your Reserved Instances are then listed in
+    /// As a seller, you choose to list some or all of your Reserved instances, and you specify
+    /// the upfront price to receive for them. Your Reserved instances are then listed in
     /// the Reserved Instance Marketplace and are available for purchase. 
     /// </para><para>
-    /// As a buyer, you specify the configuration of the Reserved Instance to purchase, and
+    /// As a buyer, you specify the configuration of the Reserved instance to purchase, and
     /// the Marketplace matches what you're searching for with what's available. The Marketplace
-    /// first sells the lowest priced Reserved Instances to you, and continues to sell available
+    /// first sells the lowest priced Reserved instances to you, and continues to sell available
     /// Reserved Instance listings to you until your demand is met. You are charged based
     /// on the total price of all of the listings that you purchase.
     /// </para><para>
@@ -56,36 +56,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeReservedInstancesListings operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeReservedInstancesListings"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
         "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type DescribeReservedInstancesListingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesListingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instances.</para></li><li><para><code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</para></li><li><para><code>status</code> - The status of the Reserved Instance listing (<code>pending</code>
+        /// <para>One or more filters.</para><ul><li><para><code>reserved-instances-id</code> - The ID of the Reserved instances.</para></li><li><para><code>reserved-instances-listing-id</code> - The ID of the Reserved instances listing.</para></li><li><para><code>status</code> - The status of the Reserved instance listing (<code>pending</code>
         /// | <code>active</code> | <code>cancelled</code> | <code>closed</code>).</para></li><li><para><code>status-message</code> - The reason for the status.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
-        /// <para>One or more Reserved Instance IDs.</para>
+        /// <para>One or more Reserved instance IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ReservedInstancesId { get; set; }
+        public System.String ReservedInstancesId { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesListingId
         /// <summary>
         /// <para>
-        /// <para>One or more Reserved Instance Listing IDs.</para>
+        /// <para>One or more Reserved instance Listing IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedInstancesListingId { get; set; }
-        
+        public System.String ReservedInstancesListingId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             context.ReservedInstancesId = this.ReservedInstancesId;
             context.ReservedInstancesListingId = this.ReservedInstancesListingId;
@@ -114,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeReservedInstancesListingsRequest();
+            var request = new Amazon.EC2.Model.DescribeReservedInstancesListingsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -163,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public String ReservedInstancesId { get; set; }
-            public String ReservedInstancesListingId { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public System.String ReservedInstancesId { get; set; }
+            public System.String ReservedInstancesListingId { get; set; }
         }
         
     }

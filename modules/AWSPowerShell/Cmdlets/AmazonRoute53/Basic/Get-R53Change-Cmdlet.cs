@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  
     /// <para>
     /// - <code>PENDING</code> indicates that the changes in this request have not replicated
-    /// to all Route 53 DNS servers. This is the initial status of all change batch requests.
+    /// to all Amazon Route 53 DNS servers. This is the initial status of all change batch
+    /// requests.
     /// </para><para>
     /// - <code>INSYNC</code> indicates that the changes have replicated to all Amazon Route
     /// 53 DNS servers. 
@@ -42,23 +43,25 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53Change")]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the GetChange operation against AWS Route 53.", Operation = new[] {"GetChange"})]
+    [AWSCmdlet("Invokes the GetChange operation against Amazon Route 53.", Operation = new[] {"GetChange"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type GetChangeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetChangeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53ChangeCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para> The ID of the change batch request. The value that you specify here is the value
-        /// that <code>ChangeResourceRecordSets</code> returned in the Id element when you submitted
+        /// <para>The ID of the change batch request. The value that you specify here is the value that
+        /// <code>ChangeResourceRecordSets</code> returned in the Id element when you submitted
         /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
-        
+        public System.String Id { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -82,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetChangeRequest();
+            var request = new Amazon.Route53.Model.GetChangeRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -123,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

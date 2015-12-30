@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the CreateRepository operation against AWS CodeCommit.", Operation = new[] {"CreateRepository"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryMetadata",
         "This cmdlet returns a RepositoryMetadata object.",
-        "The service call response (type CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeCommit.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter RepositoryDescription
         /// <summary>
         /// <para>
         /// <para>A comment or description about the new repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RepositoryDescription { get; set; }
+        public System.String RepositoryDescription { get; set; }
+        #endregion
         
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The name of the new repository to be created.</para><note>The repository name must be unique across the calling AWS account. In addition,
@@ -54,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RepositoryName { get; set; }
+        public System.String RepositoryName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -94,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateRepositoryRequest();
+            var request = new Amazon.CodeCommit.Model.CreateRepositoryRequest();
             
             if (cmdletContext.RepositoryDescription != null)
             {
@@ -139,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RepositoryDescription { get; set; }
-            public String RepositoryName { get; set; }
+            public System.String RepositoryDescription { get; set; }
+            public System.String RepositoryName { get; set; }
         }
         
     }

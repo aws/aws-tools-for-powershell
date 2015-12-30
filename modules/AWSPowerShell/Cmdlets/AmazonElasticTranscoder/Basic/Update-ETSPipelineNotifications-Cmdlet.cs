@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the UpdatePipelineNotifications operation against Amazon Elastic Transcoder.", Operation = new[] {"UpdatePipelineNotifications"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Pipeline",
         "This cmdlet returns a Pipeline object.",
-        "The service call response (type UpdatePipelineNotificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticTranscoder.Model.UpdatePipelineNotificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateETSPipelineNotificationsCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Notifications_Completed
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder has finished
@@ -53,8 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Completed { get; set; }
+        public System.String Notifications_Completed { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Error
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an
@@ -62,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Error { get; set; }
+        public System.String Notifications_Error { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para> The identifier of the pipeline for which you want to change notification settings.
@@ -71,8 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Progressing
         /// <summary>
         /// <para>
         /// <para>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify
@@ -80,8 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Progressing { get; set; }
+        public System.String Notifications_Progressing { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Warning
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a
@@ -89,8 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Notifications_Warning { get; set; }
+        public System.String Notifications_Warning { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -132,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdatePipelineNotificationsRequest();
+            var request = new Amazon.ElasticTranscoder.Model.UpdatePipelineNotificationsRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -141,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             
              // populate Notifications
             bool requestNotificationsIsNull = true;
-            request.Notifications = new Notifications();
-            String requestNotifications_notifications_Completed = null;
+            request.Notifications = new Amazon.ElasticTranscoder.Model.Notifications();
+            System.String requestNotifications_notifications_Completed = null;
             if (cmdletContext.Notifications_Completed != null)
             {
                 requestNotifications_notifications_Completed = cmdletContext.Notifications_Completed;
@@ -152,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Notifications.Completed = requestNotifications_notifications_Completed;
                 requestNotificationsIsNull = false;
             }
-            String requestNotifications_notifications_Error = null;
+            System.String requestNotifications_notifications_Error = null;
             if (cmdletContext.Notifications_Error != null)
             {
                 requestNotifications_notifications_Error = cmdletContext.Notifications_Error;
@@ -162,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Notifications.Error = requestNotifications_notifications_Error;
                 requestNotificationsIsNull = false;
             }
-            String requestNotifications_notifications_Progressing = null;
+            System.String requestNotifications_notifications_Progressing = null;
             if (cmdletContext.Notifications_Progressing != null)
             {
                 requestNotifications_notifications_Progressing = cmdletContext.Notifications_Progressing;
@@ -172,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Notifications.Progressing = requestNotifications_notifications_Progressing;
                 requestNotificationsIsNull = false;
             }
-            String requestNotifications_notifications_Warning = null;
+            System.String requestNotifications_notifications_Warning = null;
             if (cmdletContext.Notifications_Warning != null)
             {
                 requestNotifications_notifications_Warning = cmdletContext.Notifications_Warning;
@@ -222,11 +234,11 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
-            public String Notifications_Completed { get; set; }
-            public String Notifications_Error { get; set; }
-            public String Notifications_Progressing { get; set; }
-            public String Notifications_Warning { get; set; }
+            public System.String Id { get; set; }
+            public System.String Notifications_Completed { get; set; }
+            public System.String Notifications_Error { get; set; }
+            public System.String Notifications_Progressing { get; set; }
+            public System.String Notifications_Warning { get; set; }
         }
         
     }

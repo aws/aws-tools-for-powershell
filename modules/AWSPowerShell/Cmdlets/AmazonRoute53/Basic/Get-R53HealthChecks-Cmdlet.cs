@@ -28,27 +28,29 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a list of your health checks, send a <code>GET</code> request to the
-    /// <code>2013-04-01/healthcheck</code> resource. The response to this request includes
-    /// a <code>HealthChecks</code> element with zero, one, or multiple <code>HealthCheck</code>
-    /// child elements. By default, the list of health checks is displayed on a single page.
-    /// You can control the length of the page that is displayed by using the <code>MaxItems</code>
-    /// parameter. You can use the <code>Marker</code> parameter to control the health check
-    /// that the list begins with. 
+    /// To retrieve a list of your health checks, send a <code>GET</code> request to the <code>2013-04-01/healthcheck</code>
+    /// resource. The response to this request includes a <code>HealthChecks</code> element
+    /// with zero, one, or multiple <code>HealthCheck</code> child elements. By default, the
+    /// list of health checks is displayed on a single page. You can control the length of
+    /// the page that is displayed by using the <code>MaxItems</code> parameter. You can use
+    /// the <code>Marker</code> parameter to control the health check that the list begins
+    /// with. 
     /// 
     ///  <note> Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a value
     /// greater than 100, Amazon Route 53 returns only the first 100.</note>
     /// </summary>
     [Cmdlet("Get", "R53HealthChecks")]
     [OutputType("Amazon.Route53.Model.HealthCheck")]
-    [AWSCmdlet("Invokes the ListHealthChecks operation against AWS Route 53.", Operation = new[] {"ListHealthChecks"})]
+    [AWSCmdlet("Invokes the ListHealthChecks operation against Amazon Route 53.", Operation = new[] {"ListHealthChecks"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HealthCheck",
         "This cmdlet returns a collection of HealthCheck objects.",
-        "The service call response (type ListHealthChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), IsTruncated (type Boolean), NextMarker (type String), MaxItems (type String)"
+        "The service call response (type Amazon.Route53.Model.ListHealthChecksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
     )]
     public class GetR53HealthChecksCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>If the request returned more than one page of results, submit another request and
@@ -58,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Specify the maximum number of health checks to return per page of results.</para>
@@ -68,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListHealthChecksRequest();
+            var request = new Amazon.Route53.Model.ListHealthChecksRequest();
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -216,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
         }
         

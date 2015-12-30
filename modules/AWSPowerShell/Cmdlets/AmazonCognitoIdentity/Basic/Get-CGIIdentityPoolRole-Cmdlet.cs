@@ -39,18 +39,20 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [OutputType("Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse")]
     [AWSCmdlet("Invokes the GetIdentityPoolRoles operation against Amazon Cognito Identity.", Operation = new[] {"GetIdentityPoolRoles"})]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse",
-        "This cmdlet returns a GetIdentityPoolRolesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CognitoIdentity.Model.GetIdentityPoolRolesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCGIIdentityPoolRoleCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
+        
+        #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
         /// <para>An identity pool ID in the format REGION:GUID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IdentityPoolId { get; set; }
-        
+        public System.String IdentityPoolId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetIdentityPoolRolesRequest();
+            var request = new Amazon.CognitoIdentity.Model.GetIdentityPoolRolesRequest();
             
             if (cmdletContext.IdentityPoolId != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IdentityPoolId { get; set; }
+            public System.String IdentityPoolId { get; set; }
         }
         
     }

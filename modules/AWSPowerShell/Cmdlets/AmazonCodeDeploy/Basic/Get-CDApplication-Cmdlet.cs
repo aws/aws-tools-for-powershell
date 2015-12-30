@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the GetApplication operation against AWS CodeDeploy.", Operation = new[] {"GetApplication"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.ApplicationInfo",
         "This cmdlet returns a ApplicationInfo object.",
-        "The service call response (type GetApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDApplicationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
@@ -46,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
-        
+        public System.String ApplicationName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetApplicationRequest();
+            var request = new Amazon.CodeDeploy.Model.GetApplicationRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -112,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
+            public System.String ApplicationName { get; set; }
         }
         
     }

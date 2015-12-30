@@ -50,10 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the PutMetricData operation against Amazon CloudWatch.", Operation = new[] {"PutMetricData"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Namespace parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutMetricDataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutMetricDataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCWMetricDataCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter MetricData
         /// <summary>
         /// <para>
         /// <para> A list of data describing the metric. </para>
@@ -61,22 +63,28 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public Amazon.CloudWatch.Model.MetricDatum[] MetricData { get; set; }
+        #endregion
         
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// <para> The namespace for the metric data. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Namespace { get; set; }
+        public System.String Namespace { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Namespace parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             
             if (this.MetricData != null)
             {
-                context.MetricData = new List<MetricDatum>(this.MetricData);
+                context.MetricData = new List<Amazon.CloudWatch.Model.MetricDatum>(this.MetricData);
             }
             context.Namespace = this.Namespace;
             
@@ -118,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutMetricDataRequest();
+            var request = new Amazon.CloudWatch.Model.PutMetricDataRequest();
             
             if (cmdletContext.MetricData != null)
             {
@@ -165,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<MetricDatum> MetricData { get; set; }
-            public String Namespace { get; set; }
+            public List<Amazon.CloudWatch.Model.MetricDatum> MetricData { get; set; }
+            public System.String Namespace { get; set; }
         }
         
     }

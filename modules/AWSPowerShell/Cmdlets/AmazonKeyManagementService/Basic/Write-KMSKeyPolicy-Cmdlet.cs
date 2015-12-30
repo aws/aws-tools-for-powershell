@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the PutKeyPolicy operation against AWS Key Management Service.", Operation = new[] {"PutKeyPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutKeyPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.PutKeyPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteKMSKeyPolicyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key. This value can be a globally unique
@@ -46,31 +48,40 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The policy, in JSON format, to be attached to the key.</para>
+        /// <para>The policy to attach to the key. This is required and delegates back to the account.
+        /// The key is the root of trust. The policy size limit is 32 KiB (32768 bytes). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>Name of the policy to be attached. Currently, the only supported name is "default".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the KeyId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -110,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutKeyPolicyRequest();
+            var request = new Amazon.KeyManagementService.Model.PutKeyPolicyRequest();
             
             if (cmdletContext.KeyId != null)
             {
@@ -161,9 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyId { get; set; }
-            public String Policy { get; set; }
-            public String PolicyName { get; set; }
+            public System.String KeyId { get; set; }
+            public System.String Policy { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

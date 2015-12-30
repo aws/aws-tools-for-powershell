@@ -40,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the CreateStorageLocation operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateStorageLocation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateStorageLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.CreateStorageLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEBStorageLocationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -80,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateStorageLocationRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.CreateStorageLocationRequest();
             
             
             CmdletOutput output;

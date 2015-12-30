@@ -40,18 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [OutputType("Amazon.CognitoIdentity.Model.DescribeIdentityPoolResponse")]
     [AWSCmdlet("Invokes the DescribeIdentityPool operation against Amazon Cognito Identity.", Operation = new[] {"DescribeIdentityPool"})]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.DescribeIdentityPoolResponse",
-        "This cmdlet returns a DescribeIdentityPoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CognitoIdentity.Model.DescribeIdentityPoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
+        
+        #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
         /// An identity pool ID in the format REGION:GUID.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IdentityPoolId { get; set; }
-        
+        public System.String IdentityPoolId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeIdentityPoolRequest();
+            var request = new Amazon.CognitoIdentity.Model.DescribeIdentityPoolRequest();
             
             if (cmdletContext.IdentityPoolId != null)
             {
@@ -116,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IdentityPoolId { get; set; }
+            public System.String IdentityPoolId { get; set; }
         }
         
     }

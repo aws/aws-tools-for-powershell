@@ -45,34 +45,42 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateHsmConfiguration operation against Amazon Redshift.", Operation = new[] {"CreateHsmConfiguration"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.HsmConfiguration",
         "This cmdlet returns a HsmConfiguration object.",
-        "The service call response (type CreateHsmConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateHsmConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSHsmConfigurationCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A text description of the HSM configuration to be created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter HsmConfigurationIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier to be assigned to the new Amazon Redshift HSM configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String HsmConfigurationIdentifier { get; set; }
+        public System.String HsmConfigurationIdentifier { get; set; }
+        #endregion
         
+        #region Parameter HsmIpAddress
         /// <summary>
         /// <para>
         /// <para>The IP address that the Amazon Redshift cluster must use to access the HSM.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmIpAddress { get; set; }
+        public System.String HsmIpAddress { get; set; }
+        #endregion
         
+        #region Parameter HsmPartitionName
         /// <summary>
         /// <para>
         /// <para>The name of the partition in the HSM where the Amazon Redshift clusters will store
@@ -80,24 +88,30 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmPartitionName { get; set; }
+        public System.String HsmPartitionName { get; set; }
+        #endregion
         
+        #region Parameter HsmPartitionPassword
         /// <summary>
         /// <para>
         /// <para>The password required to access the HSM partition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmPartitionPassword { get; set; }
+        public System.String HsmPartitionPassword { get; set; }
+        #endregion
         
+        #region Parameter HsmServerPublicCertificate
         /// <summary>
         /// <para>
         /// <para>The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmServerPublicCertificate { get; set; }
+        public System.String HsmServerPublicCertificate { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -106,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -114,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -140,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.HsmServerPublicCertificate = this.HsmServerPublicCertificate;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -153,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateHsmConfigurationRequest();
+            var request = new Amazon.Redshift.Model.CreateHsmConfigurationRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -218,13 +234,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String HsmConfigurationIdentifier { get; set; }
-            public String HsmIpAddress { get; set; }
-            public String HsmPartitionName { get; set; }
-            public String HsmPartitionPassword { get; set; }
-            public String HsmServerPublicCertificate { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String Description { get; set; }
+            public System.String HsmConfigurationIdentifier { get; set; }
+            public System.String HsmIpAddress { get; set; }
+            public System.String HsmPartitionName { get; set; }
+            public System.String HsmPartitionPassword { get; set; }
+            public System.String HsmServerPublicCertificate { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

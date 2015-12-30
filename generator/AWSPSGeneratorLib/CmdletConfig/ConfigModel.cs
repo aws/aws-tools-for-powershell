@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using AWSPowerShellGenerator.Utils;
 using System.IO;
 using System.Diagnostics;
+using AWSPowerShellGenerator.Writers;
 
 namespace AWSPowerShellGenerator.CmdletConfig
 {
@@ -63,26 +64,6 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlArray("TypesNotToFlatten")]
         [XmlArrayItem("Type")]
         public List<string> TypesNotToFlatten { get; set; }
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        [XmlArray("ClientNames")]
-        public List<Map> ClientNameMappingsList = new List<Map>();
-
-        Dictionary<string, string> _clientNameMappings;
-        /// <summary>
-        /// Client name to display name mappings
-        /// </summary>
-        [XmlIgnore]
-        public Dictionary<string, string> ClientNameMappings
-        {
-            get
-            {
-                if (_clientNameMappings == null)
-                    _clientNameMappings = ClientNameMappingsList.ToDictionary(m => m.From, m => m.To);
-                
-                return _clientNameMappings;
-            }
-        }
 
         /// <summary>
         /// List of acceptable next-token property names; these will be added as notes to the
@@ -277,6 +258,11 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public string ServiceNounPrefix = string.Empty;
 
         /// <summary>
+        /// The marketing name of the service.
+        /// </summary>
+        public string ServiceName = string.Empty;
+
+        /// <summary>
         /// Typename of the interface implemented by the service client
         /// </summary>
         public string ServiceClientInterface = string.Empty;
@@ -446,14 +432,6 @@ namespace AWSPowerShellGenerator.CmdletConfig
 
             return false;
         }
-
-        /// <summary>
-        /// Collection of fully-qualified type names from service model that we
-        /// should never attempt to shorten by removing the namespace, otherwise
-        /// a collision with other types will ensure (eg System.Attribute)
-        /// </summary>
-        [XmlArrayItem("TypeName")]
-        public List<string> RetainFullTypeNames = new List<string>();
 
         /// <summary>
         /// List of additional namespaces to be included as 'using' statements in the cmdlet
@@ -641,12 +619,18 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public string MethodName = string.Empty;
 
         /// <summary>
+        /// <para>
         /// Controls what output from the service call is emitted to the pipeline. If the
         /// inspection of the response object does not yield the same result as the
         /// configured output mode this can indicate a breaking change. By default
         /// service operations are configured to expect a response object containing
         /// a single logical property of interest to the user - this is done by not
         /// adding an Output attribute value.
+        /// </para>
+        /// <para>
+        /// Note that if OutputWrapper is configured, these settings apply to the
+        /// wrapping member type with the same semantics.
+        /// </para>
         /// </summary>
         public enum OutputMode
         {
@@ -671,6 +655,36 @@ namespace AWSPowerShellGenerator.CmdletConfig
 
         [XmlAttribute]
         public OutputMode Output = OutputMode.Default;
+
+        /// <summary>
+        /// Set to the name of a member of the response class that contains the true output
+        /// of the call (happens when the SDK wraps the output into a nested member, instead
+        /// of hosting it in the response class itself - it does this with some SWF response 
+        /// types). The generator will use the indicated member when it does Output and
+        /// auto-pagination inspection instead of using the outer response class. The
+        /// semantics for 'Output' will therefore apply to the wrapping member, not the response
+        /// class.
+        /// </summary>
+        [XmlAttribute]
+        public string OutputWrapper = string.Empty;
+
+        /// <summary>
+        /// The path to the properties contained in the service call output. Usually this
+        /// is just 'response' but if the SDK wrapped the output in a nested class, we
+        /// may have one more level to navigate.
+        /// </summary>
+        [XmlIgnore]
+        public string ResponseMemberPath
+        {
+            get
+            {
+                // choosing not to cache but if generator perf gets affected
+                // we have that option
+                return string.IsNullOrEmpty(OutputWrapper)
+                                ? "response"
+                                : string.Concat("response.", OutputWrapper);
+            }
+        }
 
         [XmlAttribute("Verb")]
         public string RequestedVerb = string.Empty;
@@ -822,6 +836,12 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// operations that have an output type of 'void'.
         /// </summary>
         public PassThruOverride PassThru { get; set; }
+
+        /// <summary>
+        /// Overrides the service level iteration settings for an operation, for
+        /// services that use inconsistent markers etc across their apis
+        /// </summary>
+        public AutoIteration AutoIterate = null;
 
         #region Data constructed during generation
 

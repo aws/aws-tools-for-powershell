@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the GetTest operation against AWS Device Farm.", Operation = new[] {"GetTest"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Test",
         "This cmdlet returns a Test object.",
-        "The service call response (type GetTestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetTestResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDFTestCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
         /// <summary>
         /// <para>
         /// <para>The test's ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Arn { get; set; }
-        
+        public System.String Arn { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetTestRequest();
+            var request = new Amazon.DeviceFarm.Model.GetTestRequest();
             
             if (cmdletContext.Arn != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Arn { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

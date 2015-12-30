@@ -28,8 +28,10 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// You can remove individual permissions from an access policy associated with a Lambda
-    /// function by providing a Statement ID. 
+    /// You can remove individual permissions from an resource policy associated with a Lambda
+    /// function by providing a statement ID that you provided when you addded the permission.
+    /// The API removes corresponding permission that is associated with the specific ARN
+    /// identified by the <code>Qualifier</code> parameter.
     /// 
     ///  
     /// <para>
@@ -44,13 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the RemovePermission operation against Amazon Lambda.", Operation = new[] {"RemovePermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Lambda function whose access policy you want to remove a permission from.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
+        /// <para>Lambda function whose resource policy you want to remove a permission from.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
         /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
         /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
         /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
@@ -58,23 +62,42 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>You can specify this optional parameter to remove permission associated with a specific
+        /// function version or function alias. The value of this paramter is the function version
+        /// or alias name. If you don't specify this parameter, the API removes permission associated
+        /// with the unqualified function ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Qualifier { get; set; }
+        #endregion
+        
+        #region Parameter StatementId
         /// <summary>
         /// <para>
         /// <para>Statement ID of the permission to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StatementId { get; set; }
+        public System.String StatementId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the FunctionName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            context.Qualifier = this.Qualifier;
             context.StatementId = this.StatementId;
             
             var output = Execute(context) as CmdletOutput;
@@ -113,11 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemovePermissionRequest();
+            var request = new Amazon.Lambda.Model.RemovePermissionRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             if (cmdletContext.StatementId != null)
             {
@@ -160,8 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
-            public String StatementId { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
+            public System.String StatementId { get; set; }
         }
         
     }

@@ -35,26 +35,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DescribeVpcAttributeResponse")]
     [AWSCmdlet("Invokes the DescribeVpcAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVpcAttribute"})]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeVpcAttributeResponse",
-        "This cmdlet returns a DescribeVpcAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.DescribeVpcAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2VpcAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The VPC attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public VpcAttributeName Attribute { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.VpcAttributeName")]
+        public Amazon.EC2.VpcAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
-        
+        public System.String VpcId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeVpcAttributeRequest();
+            var request = new Amazon.EC2.Model.DescribeVpcAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -124,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public VpcAttributeName Attribute { get; set; }
-            public String VpcId { get; set; }
+            public Amazon.EC2.VpcAttributeName Attribute { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

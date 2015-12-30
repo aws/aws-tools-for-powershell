@@ -50,18 +50,22 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the AddTagsToResource operation against AWS Storage Gateway.", Operation = new[] {"AddTagsToResource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource you want to add tags to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceARN { get; set; }
+        public System.String ResourceARN { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>The key-value pair that represents the tag you want to add to the resource. The value
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.ResourceARN = this.ResourceARN;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -114,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddTagsToResourceRequest();
+            var request = new Amazon.StorageGateway.Model.AddTagsToResourceRequest();
             
             if (cmdletContext.ResourceARN != null)
             {
@@ -159,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceARN { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ResourceARN { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
         }
         
     }

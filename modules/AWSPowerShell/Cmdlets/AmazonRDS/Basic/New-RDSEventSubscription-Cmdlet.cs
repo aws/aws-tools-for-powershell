@@ -55,10 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CreateEventSubscription operation against Amazon Relational Database Service.", Operation = new[] {"CreateEventSubscription"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Enabled
         /// <summary>
         /// <para>
         /// <para> A Boolean value; set to <b>true</b> to activate the subscription, set to <b>false</b>
@@ -66,8 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter EventCategory
         /// <summary>
         /// <para>
         /// <para> A list of event categories for a SourceType that you want to subscribe to. You can
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("EventCategories")]
         public System.String[] EventCategory { get; set; }
+        #endregion
         
+        #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the SNS topic created for event notification. The
@@ -87,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnsTopicArn { get; set; }
+        public System.String SnsTopicArn { get; set; }
+        #endregion
         
+        #region Parameter SourceId
         /// <summary>
         /// <para>
         /// <para> The list of identifiers of the event sources for which events will be returned. If
@@ -105,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("SourceIds")]
         public System.String[] SourceId { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The type of source that will be generating the events. For example, if you want to
@@ -114,16 +124,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SourceType { get; set; }
+        public System.String SourceType { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionName
         /// <summary>
         /// <para>
         /// <para>The name of the subscription. </para><para>Constraints: The name must be less than 255 characters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -132,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -140,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -162,18 +178,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Enabled = this.Enabled;
             if (this.EventCategory != null)
             {
-                context.EventCategories = new List<String>(this.EventCategory);
+                context.EventCategories = new List<System.String>(this.EventCategory);
             }
             context.SnsTopicArn = this.SnsTopicArn;
             if (this.SourceId != null)
             {
-                context.SourceIds = new List<String>(this.SourceId);
+                context.SourceIds = new List<System.String>(this.SourceId);
             }
             context.SourceType = this.SourceType;
             context.SubscriptionName = this.SubscriptionName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -186,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateEventSubscriptionRequest();
+            var request = new Amazon.RDS.Model.CreateEventSubscriptionRequest();
             
             if (cmdletContext.Enabled != null)
             {
@@ -251,13 +267,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Enabled { get; set; }
-            public List<String> EventCategories { get; set; }
-            public String SnsTopicArn { get; set; }
-            public List<String> SourceIds { get; set; }
-            public String SourceType { get; set; }
-            public String SubscriptionName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public List<System.String> EventCategories { get; set; }
+            public System.String SnsTopicArn { get; set; }
+            public List<System.String> SourceIds { get; set; }
+            public System.String SourceType { get; set; }
+            public System.String SubscriptionName { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -58,18 +58,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the PutLifecycleHook operation against Auto Scaling.", Operation = new[] {"PutLifecycleHook"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutLifecycleHookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.PutLifecycleHookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteASLifecycleHookCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Auto Scaling group to which you want to assign the lifecycle hook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter DefaultResult
         /// <summary>
         /// <para>
         /// <para>Defines the action the Auto Scaling group should take when the lifecycle hook timeout
@@ -79,28 +83,34 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DefaultResult { get; set; }
+        public System.String DefaultResult { get; set; }
+        #endregion
         
+        #region Parameter HeartbeatTimeout
         /// <summary>
         /// <para>
-        /// <para>Defines the amount of time, in seconds, that can elapse before the lifecycle hook
-        /// times out. When the lifecycle hook times out, Auto Scaling performs the action defined
-        /// in the <code>DefaultResult</code> parameter. You can prevent the lifecycle hook from
-        /// timing out by calling <a>RecordLifecycleActionHeartbeat</a>. The default value for
-        /// this parameter is 3600 seconds (1 hour).</para>
+        /// <para>The amount of time, in seconds, that can elapse before the lifecycle hook times out.
+        /// When the lifecycle hook times out, Auto Scaling performs the action defined in the
+        /// <code>DefaultResult</code> parameter. You can prevent the lifecycle hook from timing
+        /// out by calling <a>RecordLifecycleActionHeartbeat</a>. The default is 3600 seconds
+        /// (1 hour).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 HeartbeatTimeout { get; set; }
+        public System.Int32 HeartbeatTimeout { get; set; }
+        #endregion
         
+        #region Parameter LifecycleHookName
         /// <summary>
         /// <para>
         /// <para>The name of the lifecycle hook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LifecycleHookName { get; set; }
+        public System.String LifecycleHookName { get; set; }
+        #endregion
         
+        #region Parameter LifecycleTransition
         /// <summary>
         /// <para>
         /// <para>The instance state to which you want to attach the lifecycle hook. For a list of lifecycle
@@ -109,8 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LifecycleTransition { get; set; }
+        public System.String LifecycleTransition { get; set; }
+        #endregion
         
+        #region Parameter NotificationMetadata
         /// <summary>
         /// <para>
         /// <para>Contains additional information that you want to include any time Auto Scaling sends
@@ -118,8 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NotificationMetadata { get; set; }
+        public System.String NotificationMetadata { get; set; }
+        #endregion
         
+        #region Parameter NotificationTargetARN
         /// <summary>
         /// <para>
         /// <para>The ARN of the notification target that Auto Scaling will use to notify you when an
@@ -134,8 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NotificationTargetARN { get; set; }
+        public System.String NotificationTargetARN { get; set; }
+        #endregion
         
+        #region Parameter RoleARN
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
@@ -144,15 +160,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RoleARN { get; set; }
+        public System.String RoleARN { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -160,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -198,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutLifecycleHookRequest();
+            var request = new Amazon.AutoScaling.Model.PutLifecycleHookRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -269,14 +289,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public String DefaultResult { get; set; }
-            public Int32? HeartbeatTimeout { get; set; }
-            public String LifecycleHookName { get; set; }
-            public String LifecycleTransition { get; set; }
-            public String NotificationMetadata { get; set; }
-            public String NotificationTargetARN { get; set; }
-            public String RoleARN { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.String DefaultResult { get; set; }
+            public System.Int32? HeartbeatTimeout { get; set; }
+            public System.String LifecycleHookName { get; set; }
+            public System.String LifecycleTransition { get; set; }
+            public System.String NotificationMetadata { get; set; }
+            public System.String NotificationTargetARN { get; set; }
+            public System.String RoleARN { get; set; }
         }
         
     }

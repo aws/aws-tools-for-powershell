@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>KMS</ServiceNounPrefix>
+  <ServiceName>AWS Key Management Service</ServiceName>
   <ServiceNamespace>Amazon.KeyManagementService</ServiceNamespace>
   <ServiceClientInterface>IAmazonKeyManagementService</ServiceClientInterface>
   <ServiceClient>AmazonKeyManagementServiceClient</ServiceClient>
@@ -14,19 +15,19 @@
   </MetadataProperties>
 
   <ServiceOperations>
-
+    
     <ServiceOperation MethodName="CreateAlias" Output="Void" PipelineParameter="TargetKeyId"/>
     <ServiceOperation MethodName="DeleteAlias" Output="Void" />
     <ServiceOperation MethodName="ListAliases" />
     <ServiceOperation MethodName="UpdateAlias" Output="Void"  PipelineParameter="TargetKeyId"/>
 
-    <ServiceOperation MethodName="CreateGrant" Output="Response" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="CreateGrant" Output="Response" NoPipelineParameter="true" ShouldProcessTarget="KeyId"/>
     <ServiceOperation MethodName="ListGrants" />
     <ServiceOperation MethodName="RetireGrant" Output="Void" Verb="Disable" NoPipelineParameter="true" ShouldProcessTarget="GrantToken"/>
     <ServiceOperation MethodName="RevokeGrant" Output="Void" PipelineParameter="KeyId" ShouldProcessTarget="GrantToken" />
     
     <ServiceOperation MethodName="CreateKey" AnonymousShouldProcessTarget="true" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="DescribeKey" />
+    <ServiceOperation MethodName="DescribeKey" PipelineParameter="KeyId"/>
     <ServiceOperation MethodName="DisableKey" Output="Void" />
     <ServiceOperation MethodName="EnableKey" Output="Void" />
     <ServiceOperation MethodName="UpdateKeyDescription" Output="Void" PipelineParameter="KeyId"/>
@@ -43,6 +44,10 @@
     <ServiceOperation MethodName="Decrypt" Verb="Invoke" Noun="Decrypt" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="Encrypt" Verb="Invoke" Noun="Encrypt" Output="Response" PipelineParameter="KeyId" />
     <ServiceOperation MethodName="ReEncrypt" Verb="Invoke" Noun="ReEncrypt" Output="Response" NoPipelineParameter="true"/>
+    
+    <ServiceOperation MethodName="CancelKeyDeletion" />
+    <ServiceOperation MethodName="ScheduleKeyDeletion" Verb="Request" Output="Response" PipelineParameter="KeyId" />
+    <ServiceOperation MethodName="ListRetirableGrants" Verb="Get" Noun="RetirableGrant" NoPipelineParameter="true"/>
     
     <ServiceOperation MethodName="GenerateDataKey" Output="Response" AnonymousShouldProcessTarget="true" PipelineParameter="KeyId" >
       <Params>

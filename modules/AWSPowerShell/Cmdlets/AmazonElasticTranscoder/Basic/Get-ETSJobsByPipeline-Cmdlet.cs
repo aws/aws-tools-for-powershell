@@ -41,11 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the ListJobsByPipeline operation against Amazon Elastic Transcoder.", Operation = new[] {"ListJobsByPipeline"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Job",
         "This cmdlet returns a collection of Job objects.",
-        "The service call response (type ListJobsByPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type String)"
+        "The service call response (type Amazon.ElasticTranscoder.Model.ListJobsByPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
     )]
     public class GetETSJobsByPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Ascending
         /// <summary>
         /// <para>
         /// <para> To list jobs in chronological order by the date and time that they were submitted,
@@ -54,16 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Ascending { get; set; }
+        public System.String Ascending { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para> The ID of the pipeline for which you want to get job information. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter PageToken
         /// <summary>
         /// <para>
         /// <para> When Elastic Transcoder returns more than one page of results, use <code>pageToken</code>
@@ -72,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String PageToken { get; set; }
-        
+        public System.String PageToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListJobsByPipelineRequest();
+            var request = new Amazon.ElasticTranscoder.Model.ListJobsByPipelineRequest();
             
             if (cmdletContext.Ascending != null)
             {
@@ -112,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.PageToken))
             {
@@ -182,9 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Ascending { get; set; }
-            public String PageToken { get; set; }
-            public String PipelineId { get; set; }
+            public System.String Ascending { get; set; }
+            public System.String PageToken { get; set; }
+            public System.String PipelineId { get; set; }
         }
         
     }

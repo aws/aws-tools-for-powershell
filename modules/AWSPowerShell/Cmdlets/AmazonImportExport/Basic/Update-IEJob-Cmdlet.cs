@@ -37,50 +37,63 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [OutputType("Amazon.ImportExport.Model.UpdateJobResponse")]
     [AWSCmdlet("Invokes the UpdateJob operation against AWS Import/Export.", Operation = new[] {"UpdateJob"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.UpdateJobResponse",
-        "This cmdlet returns a UpdateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ImportExport.Model.UpdateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
+        
+        #region Parameter APIVersion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String APIVersion { get; set; }
+        public System.String APIVersion { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
+        #endregion
         
+        #region Parameter JobType
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public JobType JobType { get; set; }
+        [AWSConstantClassSource("Amazon.ImportExport.JobType")]
+        public Amazon.ImportExport.JobType JobType { get; set; }
+        #endregion
         
+        #region Parameter Manifest
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Manifest { get; set; }
+        public System.String Manifest { get; set; }
+        #endregion
         
+        #region Parameter ValidateOnly
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public Boolean ValidateOnly { get; set; }
+        public System.Boolean ValidateOnly { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -123,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateJobRequest();
+            var request = new Amazon.ImportExport.Model.UpdateJobRequest();
             
             if (cmdletContext.APIVersion != null)
             {
@@ -180,11 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         internal class CmdletContext : ExecutorContext
         {
-            public String APIVersion { get; set; }
-            public String JobId { get; set; }
-            public JobType JobType { get; set; }
-            public String Manifest { get; set; }
-            public Boolean? ValidateOnly { get; set; }
+            public System.String APIVersion { get; set; }
+            public System.String JobId { get; set; }
+            public Amazon.ImportExport.JobType JobType { get; set; }
+            public System.String Manifest { get; set; }
+            public System.Boolean? ValidateOnly { get; set; }
         }
         
     }

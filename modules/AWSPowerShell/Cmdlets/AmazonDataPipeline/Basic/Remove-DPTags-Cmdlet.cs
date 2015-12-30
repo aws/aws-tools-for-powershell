@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the RemoveTags operation against AWS Data Pipeline.", Operation = new[] {"RemoveTags"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDPTagsCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>The keys of the tags to remove.</para>
@@ -55,14 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PipelineId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             context.PipelineId = this.PipelineId;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsRequest();
+            var request = new Amazon.DataPipeline.Model.RemoveTagsRequest();
             
             if (cmdletContext.PipelineId != null)
             {
@@ -151,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PipelineId { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String PipelineId { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

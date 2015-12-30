@@ -35,11 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the ListKeyPolicies operation against AWS Key Management Service.", Operation = new[] {"ListKeyPolicies"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListKeyPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String), Truncated (type Boolean)"
+        "The service call response (type Amazon.KeyManagementService.Model.ListKeyPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String), Truncated (type System.Boolean)"
     )]
     public class GetKMSKeyPoliciesCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key. This value can be a globally unique
@@ -49,31 +51,35 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
+        public System.String KeyId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Specify this parameter only when paginating results to indicate the maximum number
-        /// of policies you want listed in the response. If there are additional policies beyond
-        /// the maximum you specify, the <code>Truncated</code> response element will be set to
-        /// <code>true.</code></para>
+        /// <para>When paginating results, specify the maximum number of items to return in the response.
+        /// If additional items exist beyond the number you specify, the <code>Truncated</code>
+        /// element in the response is set to true.</para><para>This value is optional. If you include a value, it must be between 1 and 1000, inclusive.
+        /// If you do not include a value, it defaults to 100.</para><para>Currently only 1 policy can be attached to a key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Use this parameter only when paginating results, and only in a subsequent request
-        /// after you've received a response where the results are truncated. Set it to the value
-        /// of the <code>NextMarker</code> in the response you just received. </para>
+        /// <para>Use this parameter only when paginating results and only in a subsequent request after
+        /// you've received a response with truncated results. Set it to the value of <code>NextMarker</code>
+        /// from the response you just received.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
-        
+        public System.String Marker { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,14 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListKeyPoliciesRequest();
+            var request = new Amazon.KeyManagementService.Model.ListKeyPoliciesRequest();
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -194,9 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyId { get; set; }
+            public System.String KeyId { get; set; }
             public int? Limit { get; set; }
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
         }
         
     }

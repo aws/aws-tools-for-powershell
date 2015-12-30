@@ -55,18 +55,22 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Invokes the DeleteTable operation against Amazon DynamoDB.", Operation = new[] {"DeleteTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns a TableDescription object.",
-        "The service call response (type DeleteTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DeleteTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para> The name of the table to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TableName { get; set; }
+        public System.String TableName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -74,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTableRequest();
+            var request = new Amazon.DynamoDBv2.Model.DeleteTableRequest();
             
             if (cmdletContext.TableName != null)
             {
@@ -145,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TableName { get; set; }
+            public System.String TableName { get; set; }
         }
         
     }

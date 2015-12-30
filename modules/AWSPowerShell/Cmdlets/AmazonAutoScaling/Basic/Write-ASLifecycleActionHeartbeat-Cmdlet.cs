@@ -52,18 +52,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the RecordLifecycleActionHeartbeat operation against Auto Scaling.", Operation = new[] {"RecordLifecycleActionHeartbeat"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RecordLifecycleActionHeartbeatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteASLifecycleActionHeartbeatCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Auto Scaling group for the hook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter LifecycleActionToken
         /// <summary>
         /// <para>
         /// <para>A token that uniquely identifies a specific lifecycle action associated with an instance.
@@ -72,23 +76,29 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LifecycleActionToken { get; set; }
+        public System.String LifecycleActionToken { get; set; }
+        #endregion
         
+        #region Parameter LifecycleHookName
         /// <summary>
         /// <para>
         /// <para>The name of the lifecycle hook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LifecycleHookName { get; set; }
+        public System.String LifecycleHookName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -128,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RecordLifecycleActionHeartbeatRequest();
+            var request = new Amazon.AutoScaling.Model.RecordLifecycleActionHeartbeatRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -179,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public String LifecycleActionToken { get; set; }
-            public String LifecycleHookName { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.String LifecycleActionToken { get; set; }
+            public System.String LifecycleHookName { get; set; }
         }
         
     }

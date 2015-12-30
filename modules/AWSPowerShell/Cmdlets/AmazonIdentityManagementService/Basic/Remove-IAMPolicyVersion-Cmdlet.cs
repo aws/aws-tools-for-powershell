@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// is marked as the default version, use <a>ListPolicyVersions</a>. 
     /// </para><para>
     /// For information about versions for managed policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>Using IAM</i> guide. 
+    /// for Managed Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IAMPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -45,27 +45,33 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeletePolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"DeletePolicyVersion"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type DeletePolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeletePolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
+        #endregion
         
+        #region Parameter VersionId
         /// <summary>
         /// <para>
         /// <para>The policy version to delete.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-        /// for Managed Policies</a> in the <i>Using IAM</i> guide. </para>
+        /// for Managed Policies</a> in the <i>IAM User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeletePolicyVersionRequest();
+            var request = new Amazon.IdentityManagement.Model.DeletePolicyVersionRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -149,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
-            public String VersionId { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

@@ -34,10 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateInvalidationResponse")]
     [AWSCmdlet("Invokes the CreateInvalidation operation against Amazon CloudFront.", Operation = new[] {"CreateInvalidation"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateInvalidationResponse",
-        "This cmdlet returns a CreateInvalidationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudFront.Model.CreateInvalidationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCFInvalidationCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter InvalidationBatch_CallerReference
         /// <summary>
         /// <para>
         /// A unique name that ensures the request
@@ -52,16 +54,20 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InvalidationBatch_CallerReference { get; set; }
+        public System.String InvalidationBatch_CallerReference { get; set; }
+        #endregion
         
+        #region Parameter DistributionId
         /// <summary>
         /// <para>
         /// The distribution's id.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DistributionId { get; set; }
+        public System.String DistributionId { get; set; }
+        #endregion
         
+        #region Parameter Paths_Item
         /// <summary>
         /// <para>
         /// A complex type that contains a list of the objects
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("InvalidationBatch_Paths_Items")]
         public System.String[] Paths_Item { get; set; }
+        #endregion
         
+        #region Parameter Paths_Quantity
         /// <summary>
         /// <para>
         /// The number of objects that you want to invalidate.
@@ -79,8 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("InvalidationBatch_Paths_Quantity")]
-        public Int32 Paths_Quantity { get; set; }
+        public System.Int32 Paths_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -110,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.InvalidationBatch_CallerReference = this.InvalidationBatch_CallerReference;
             if (this.Paths_Item != null)
             {
-                context.InvalidationBatch_Paths_Items = new List<String>(this.Paths_Item);
+                context.InvalidationBatch_Paths_Items = new List<System.String>(this.Paths_Item);
             }
             if (ParameterWasBound("Paths_Quantity"))
                 context.InvalidationBatch_Paths_Quantity = this.Paths_Quantity;
@@ -125,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateInvalidationRequest();
+            var request = new Amazon.CloudFront.Model.CreateInvalidationRequest();
             
             if (cmdletContext.DistributionId != null)
             {
@@ -134,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             
              // populate InvalidationBatch
             bool requestInvalidationBatchIsNull = true;
-            request.InvalidationBatch = new InvalidationBatch();
-            String requestInvalidationBatch_invalidationBatch_CallerReference = null;
+            request.InvalidationBatch = new Amazon.CloudFront.Model.InvalidationBatch();
+            System.String requestInvalidationBatch_invalidationBatch_CallerReference = null;
             if (cmdletContext.InvalidationBatch_CallerReference != null)
             {
                 requestInvalidationBatch_invalidationBatch_CallerReference = cmdletContext.InvalidationBatch_CallerReference;
@@ -145,12 +155,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.InvalidationBatch.CallerReference = requestInvalidationBatch_invalidationBatch_CallerReference;
                 requestInvalidationBatchIsNull = false;
             }
-            Paths requestInvalidationBatch_invalidationBatch_Paths = null;
+            Amazon.CloudFront.Model.Paths requestInvalidationBatch_invalidationBatch_Paths = null;
             
              // populate Paths
             bool requestInvalidationBatch_invalidationBatch_PathsIsNull = true;
-            requestInvalidationBatch_invalidationBatch_Paths = new Paths();
-            List<String> requestInvalidationBatch_invalidationBatch_Paths_paths_Item = null;
+            requestInvalidationBatch_invalidationBatch_Paths = new Amazon.CloudFront.Model.Paths();
+            List<System.String> requestInvalidationBatch_invalidationBatch_Paths_paths_Item = null;
             if (cmdletContext.InvalidationBatch_Paths_Items != null)
             {
                 requestInvalidationBatch_invalidationBatch_Paths_paths_Item = cmdletContext.InvalidationBatch_Paths_Items;
@@ -160,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestInvalidationBatch_invalidationBatch_Paths.Items = requestInvalidationBatch_invalidationBatch_Paths_paths_Item;
                 requestInvalidationBatch_invalidationBatch_PathsIsNull = false;
             }
-            Int32? requestInvalidationBatch_invalidationBatch_Paths_paths_Quantity = null;
+            System.Int32? requestInvalidationBatch_invalidationBatch_Paths_paths_Quantity = null;
             if (cmdletContext.InvalidationBatch_Paths_Quantity != null)
             {
                 requestInvalidationBatch_invalidationBatch_Paths_paths_Quantity = cmdletContext.InvalidationBatch_Paths_Quantity.Value;
@@ -220,10 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DistributionId { get; set; }
-            public String InvalidationBatch_CallerReference { get; set; }
-            public List<String> InvalidationBatch_Paths_Items { get; set; }
-            public Int32? InvalidationBatch_Paths_Quantity { get; set; }
+            public System.String DistributionId { get; set; }
+            public System.String InvalidationBatch_CallerReference { get; set; }
+            public List<System.String> InvalidationBatch_Paths_Items { get; set; }
+            public System.Int32? InvalidationBatch_Paths_Quantity { get; set; }
         }
         
     }

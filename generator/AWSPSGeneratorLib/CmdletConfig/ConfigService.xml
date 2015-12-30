@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CFG</ServiceNounPrefix>
+  <ServiceName>AWS Config</ServiceName>
   <ServiceNamespace>Amazon.ConfigService</ServiceNamespace>
   <ServiceClientInterface>IAmazonConfigService</ServiceClientInterface>
   <ServiceClient>AmazonConfigServiceClient</ServiceClient>
@@ -12,14 +13,24 @@
 
   <!-- this service uses inconsistent naming for DeliveryChannelName(_Name) and ConfigurationRecorder(_Name) -->
   <ServiceOperations>
+    <ServiceOperation MethodName="DeleteConfigRule" Output="Void" />
     <ServiceOperation MethodName="DeleteDeliveryChannel" Output="Void" />
     <ServiceOperation MethodName="DeliverConfigSnapshot" Verb="Submit" Noun="ConfigSnapshotDelivery" />
+    <ServiceOperation MethodName="DescribeComplianceByConfigRule"/>
+    <ServiceOperation MethodName="DescribeComplianceByResource"/>
+    <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus"/>
+    <ServiceOperation MethodName="DescribeConfigRules"/>
     <ServiceOperation MethodName="DescribeConfigurationRecorders" PipelineParameter="ConfigurationRecorderName"/>
     <ServiceOperation MethodName="DescribeConfigurationRecorderStatus" PipelineParameter="ConfigurationRecorderName"/>
     <ServiceOperation MethodName="DescribeDeliveryChannels" />
     <ServiceOperation MethodName="DescribeDeliveryChannelStatus" />
+    <ServiceOperation MethodName="GetComplianceDetailsByConfigRule"/>
+    <ServiceOperation MethodName="GetComplianceDetailsByResource"/>
+    <ServiceOperation MethodName="GetComplianceSummaryByConfigRule"/>
+    <ServiceOperation MethodName="GetComplianceSummaryByResourceType"/>
     <ServiceOperation MethodName="GetResourceConfigHistory"/>
-	<ServiceOperation MethodName="ListDiscoveredResources" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName"/>
+	  <ServiceOperation MethodName="ListDiscoveredResources" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName"/>
+    <ServiceOperation MethodName="PutConfigRule" PipelineParameter="ConfigRule_ConfigRuleName" Output="Void"/>
     <ServiceOperation MethodName="PutConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name">
       <Params>
         <Param Name="ConfigurationRecorder_Name"  NewName="ConfigurationRecorderName" Alias="ConfigurationRecorder_Name" />
@@ -30,6 +41,7 @@
         <Param Name="DeliveryChannel_Name"  NewName="DeliveryChannelName" Alias="DeliveryChannel_Name" />
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="PutEvaluations" PipelineParameter="Evaluations"/>
     <ServiceOperation MethodName="StartConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name"/>
     <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name"/>
   </ServiceOperations>

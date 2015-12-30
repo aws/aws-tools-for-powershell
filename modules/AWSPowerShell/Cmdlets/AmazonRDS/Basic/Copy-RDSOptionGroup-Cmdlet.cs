@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CopyOptionGroup operation against Amazon Relational Database Service.", Operation = new[] {"CopyOptionGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.OptionGroup",
         "This cmdlet returns a OptionGroup object.",
-        "The service call response (type CopyOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CopyOptionGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceOptionGroupIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier or ARN for the source option group. For information about creating
@@ -51,8 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceOptionGroupIdentifier { get; set; }
+        public System.String SourceOptionGroupIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -61,15 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TargetOptionGroupDescription
         /// <summary>
         /// <para>
         /// <para>The description for the copied option group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String TargetOptionGroupDescription { get; set; }
+        public System.String TargetOptionGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter TargetOptionGroupIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier for the copied option group. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank</li><li>Must contain from 1 to 255 alphanumeric
@@ -78,8 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetOptionGroupIdentifier { get; set; }
+        public System.String TargetOptionGroupIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -108,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SourceOptionGroupIdentifier = this.SourceOptionGroupIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetOptionGroupDescription = this.TargetOptionGroupDescription;
             context.TargetOptionGroupIdentifier = this.TargetOptionGroupIdentifier;
@@ -123,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyOptionGroupRequest();
+            var request = new Amazon.RDS.Model.CopyOptionGroupRequest();
             
             if (cmdletContext.SourceOptionGroupIdentifier != null)
             {
@@ -176,10 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceOptionGroupIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TargetOptionGroupDescription { get; set; }
-            public String TargetOptionGroupIdentifier { get; set; }
+            public System.String SourceOptionGroupIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TargetOptionGroupDescription { get; set; }
+            public System.String TargetOptionGroupIdentifier { get; set; }
         }
         
     }

@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the ListQueues operation against Amazon Simple Queue Service.", Operation = new[] {"ListQueues"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.ListQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSQSQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter QueueNamePrefix
         /// <summary>
         /// <para>
         /// <para>A string to use for filtering the list results. Only those queues whose name begins
@@ -48,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String QueueNamePrefix { get; set; }
-        
+        public System.String QueueNamePrefix { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListQueuesRequest();
+            var request = new Amazon.SQS.Model.ListQueuesRequest();
             
             if (cmdletContext.QueueNamePrefix != null)
             {
@@ -114,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String QueueNamePrefix { get; set; }
+            public System.String QueueNamePrefix { get; set; }
         }
         
     }

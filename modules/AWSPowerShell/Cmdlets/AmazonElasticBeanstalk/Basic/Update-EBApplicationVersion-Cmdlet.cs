@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the UpdateApplicationVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateApplicationVersion"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription",
         "This cmdlet returns a ApplicationVersionDescription object.",
-        "The service call response (type UpdateApplicationVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.UpdateApplicationVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application associated with this version. </para><para> If no application is found with this name, <code>UpdateApplication</code> returns
@@ -49,16 +51,20 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A new description for this release.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para>The name of the version to update.</para><para> If no application version is found with this label, <code>UpdateApplication</code>
@@ -66,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String VersionLabel { get; set; }
+        public System.String VersionLabel { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -107,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateApplicationVersionRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.UpdateApplicationVersionRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -156,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String Description { get; set; }
-            public String VersionLabel { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String Description { get; set; }
+            public System.String VersionLabel { get; set; }
         }
         
     }

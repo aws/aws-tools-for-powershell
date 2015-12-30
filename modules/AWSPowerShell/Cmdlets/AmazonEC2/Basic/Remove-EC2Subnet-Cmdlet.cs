@@ -36,25 +36,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteSubnet operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteSubnet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubnetId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteSubnetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteSubnetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2SubnetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SubnetId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -92,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSubnetRequest();
+            var request = new Amazon.EC2.Model.DeleteSubnetRequest();
             
             if (cmdletContext.SubnetId != null)
             {
@@ -135,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SubnetId { get; set; }
+            public System.String SubnetId { get; set; }
         }
         
     }

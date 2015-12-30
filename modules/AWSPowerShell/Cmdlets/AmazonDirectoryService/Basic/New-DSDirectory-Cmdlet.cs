@@ -35,26 +35,32 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the CreateDirectory operation against AWS Directory Service.", Operation = new[] {"CreateDirectory"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.CreateDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A textual description for the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The fully qualified name for the directory, such as <code>corp.example.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password for the directory administrator. The directory creation process creates
@@ -63,24 +69,31 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Password { get; set; }
+        public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter ShortName
         /// <summary>
         /// <para>
         /// <para>The short name of the directory, such as <code>CORP</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ShortName { get; set; }
+        public System.String ShortName { get; set; }
+        #endregion
         
+        #region Parameter Size
         /// <summary>
         /// <para>
         /// <para>The size of the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DirectorySize Size { get; set; }
+        [AWSConstantClassSource("Amazon.DirectoryService.DirectorySize")]
+        public Amazon.DirectoryService.DirectorySize Size { get; set; }
+        #endregion
         
+        #region Parameter VpcSettings_SubnetId
         /// <summary>
         /// <para>
         /// <para>The identifiers of the subnets for the directory servers. The two subnets must be
@@ -91,15 +104,19 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("VpcSettings_SubnetIds")]
         public System.String[] VpcSettings_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter VpcSettings_VpcId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the VPC to create the Simple AD directory in.</para>
+        /// <para>The identifier of the VPC in which to create the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VpcSettings_VpcId { get; set; }
+        public System.String VpcSettings_VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -107,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -132,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.Size = this.Size;
             if (this.VpcSettings_SubnetId != null)
             {
-                context.VpcSettings_SubnetIds = new List<String>(this.VpcSettings_SubnetId);
+                context.VpcSettings_SubnetIds = new List<System.String>(this.VpcSettings_SubnetId);
             }
             context.VpcSettings_VpcId = this.VpcSettings_VpcId;
             
@@ -146,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDirectoryRequest();
+            var request = new Amazon.DirectoryService.Model.CreateDirectoryRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -171,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
             
              // populate VpcSettings
             bool requestVpcSettingsIsNull = true;
-            request.VpcSettings = new DirectoryVpcSettings();
-            List<String> requestVpcSettings_vpcSettings_SubnetId = null;
+            request.VpcSettings = new Amazon.DirectoryService.Model.DirectoryVpcSettings();
+            List<System.String> requestVpcSettings_vpcSettings_SubnetId = null;
             if (cmdletContext.VpcSettings_SubnetIds != null)
             {
                 requestVpcSettings_vpcSettings_SubnetId = cmdletContext.VpcSettings_SubnetIds;
@@ -182,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.VpcSettings.SubnetIds = requestVpcSettings_vpcSettings_SubnetId;
                 requestVpcSettingsIsNull = false;
             }
-            String requestVpcSettings_vpcSettings_VpcId = null;
+            System.String requestVpcSettings_vpcSettings_VpcId = null;
             if (cmdletContext.VpcSettings_VpcId != null)
             {
                 requestVpcSettings_vpcSettings_VpcId = cmdletContext.VpcSettings_VpcId;
@@ -232,13 +249,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String Name { get; set; }
-            public String Password { get; set; }
-            public String ShortName { get; set; }
-            public DirectorySize Size { get; set; }
-            public List<String> VpcSettings_SubnetIds { get; set; }
-            public String VpcSettings_VpcId { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public System.String Password { get; set; }
+            public System.String ShortName { get; set; }
+            public Amazon.DirectoryService.DirectorySize Size { get; set; }
+            public List<System.String> VpcSettings_SubnetIds { get; set; }
+            public System.String VpcSettings_VpcId { get; set; }
         }
         
     }

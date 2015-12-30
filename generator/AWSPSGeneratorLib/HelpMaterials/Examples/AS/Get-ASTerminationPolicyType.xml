@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Get-ASTerminationPolicyType</code>
-    <description>Returns a list of all termination policies supported by Auto Scaling.</description>
+    <code>PS C:\> Get-ASTerminationPolicyType
+    
+ClosestToNextInstanceHour
+Default
+NewestInstance
+OldestInstance
+OldestLaunchConfiguration</code>
+    <description>This example lists the termination policies that are supported by Auto Scaling.</description>
   </example>
 </examples>

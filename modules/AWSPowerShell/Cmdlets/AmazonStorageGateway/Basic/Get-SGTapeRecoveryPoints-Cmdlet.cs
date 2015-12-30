@@ -43,19 +43,23 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the DescribeTapeRecoveryPoints operation against AWS Storage Gateway.", Operation = new[] {"DescribeTapeRecoveryPoints"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.TapeRecoveryPointInfo",
         "This cmdlet returns a collection of TapeRecoveryPointInfo objects.",
-        "The service call response (type DescribeTapeRecoveryPointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: GatewayARN (type String), Marker (type String)"
+        "The service call response (type Amazon.StorageGateway.Model.DescribeTapeRecoveryPointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: GatewayARN (type System.String), Marker (type System.String)"
     )]
     public class GetSGTapeRecoveryPointsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the number of virtual tape recovery points that are described be limited
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An opaque string that indicates the position at which to begin describing the virtual
@@ -74,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
-        
+        public System.String Marker { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,14 +109,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeTapeRecoveryPointsRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeTapeRecoveryPointsRequest();
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -196,9 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
+            public System.String GatewayARN { get; set; }
             public int? Limit { get; set; }
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
         }
         
     }

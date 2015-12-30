@@ -35,25 +35,31 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteSnapshotCopyGrant operation against Amazon Redshift.", Operation = new[] {"DeleteSnapshotCopyGrant"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotCopyGrantName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteSnapshotCopyGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter SnapshotCopyGrantName
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot copy grant to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SnapshotCopyGrantName { get; set; }
+        public System.String SnapshotCopyGrantName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SnapshotCopyGrantName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSnapshotCopyGrantRequest();
+            var request = new Amazon.Redshift.Model.DeleteSnapshotCopyGrantRequest();
             
             if (cmdletContext.SnapshotCopyGrantName != null)
             {
@@ -134,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotCopyGrantName { get; set; }
+            public System.String SnapshotCopyGrantName { get; set; }
         }
         
     }

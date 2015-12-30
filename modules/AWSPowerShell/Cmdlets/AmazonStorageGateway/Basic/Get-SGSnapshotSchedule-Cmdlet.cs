@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse")]
     [AWSCmdlet("Invokes the DescribeSnapshotSchedule operation against AWS Storage Gateway.", Operation = new[] {"DescribeSnapshotSchedule"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse",
-        "This cmdlet returns a DescribeSnapshotScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.DescribeSnapshotScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter VolumeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation
@@ -47,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeARN { get; set; }
-        
+        public System.String VolumeARN { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeSnapshotScheduleRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeSnapshotScheduleRequest();
             
             if (cmdletContext.VolumeARN != null)
             {
@@ -113,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VolumeARN { get; set; }
+            public System.String VolumeARN { get; set; }
         }
         
     }

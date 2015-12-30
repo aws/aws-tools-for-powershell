@@ -51,11 +51,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeClusterSnapshots operation against Amazon Redshift.", Operation = new[] {"DescribeClusterSnapshots"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a collection of Snapshot objects.",
-        "The service call response (type DescribeClusterSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.Redshift.Model.DescribeClusterSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRSClusterSnapshotsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster for which information about snapshots is requested.
@@ -63,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> A time value that requests only snapshots created at or before the specified time.
@@ -73,8 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter OwnerAccount
         /// <summary>
         /// <para>
         /// <para> The AWS customer account used to create or copy the snapshot. Use this field to filter
@@ -83,16 +89,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OwnerAccount { get; set; }
+        public System.String OwnerAccount { get; set; }
+        #endregion
         
+        #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The snapshot identifier of the snapshot about which to return information. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SnapshotType
         /// <summary>
         /// <para>
         /// <para> The type of snapshots for which you are requesting information. By default, snapshots
@@ -100,8 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SnapshotType { get; set; }
+        public System.String SnapshotType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> A value that requests only snapshots created at or after the specified time. The
@@ -110,8 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>A tag key or keys for which you want to return all matching cluster snapshots that
@@ -124,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter TagValue
         /// <summary>
         /// <para>
         /// <para>A tag value or values for which you want to return all matching cluster snapshots
@@ -138,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("TagValues")]
         public System.String[] TagValue { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -151,8 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -164,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -189,11 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.StartTime = this.StartTime;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             if (this.TagValue != null)
             {
-                context.TagValues = new List<String>(this.TagValue);
+                context.TagValues = new List<System.String>(this.TagValue);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -207,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeClusterSnapshotsRequest();
+            var request = new Amazon.Redshift.Model.DescribeClusterSnapshotsRequest();
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
@@ -242,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -357,16 +377,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
-            public DateTime? EndTime { get; set; }
-            public String Marker { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String OwnerAccount { get; set; }
-            public String SnapshotIdentifier { get; set; }
-            public String SnapshotType { get; set; }
-            public DateTime? StartTime { get; set; }
-            public List<String> TagKeys { get; set; }
-            public List<String> TagValues { get; set; }
+            public System.String OwnerAccount { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
+            public System.String SnapshotType { get; set; }
+            public System.DateTime? StartTime { get; set; }
+            public List<System.String> TagKeys { get; set; }
+            public List<System.String> TagValues { get; set; }
         }
         
     }

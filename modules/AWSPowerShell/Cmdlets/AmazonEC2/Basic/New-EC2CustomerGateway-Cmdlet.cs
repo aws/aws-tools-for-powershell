@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// is the appliance at your end of the VPN connection. (The device on the AWS side of
     /// the VPN connection is the virtual private gateway.) You must provide the Internet-routable
     /// IP address of the customer gateway's external interface. The IP address must be static
-    /// and can't be behind a device performing network address translation (NAT).
+    /// and may be behind a device performing network address translation (NAT).
     /// 
     ///  
     /// <para>
@@ -61,18 +61,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateCustomerGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateCustomerGateway"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CustomerGateway",
         "This cmdlet returns a CustomerGateway object.",
-        "The service call response (type CreateCustomerGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateCustomerGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2CustomerGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BgpAsn
         /// <summary>
         /// <para>
         /// <para>For devices that support BGP, the customer gateway's BGP ASN.</para><para>Default: 65000</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 BgpAsn { get; set; }
+        public System.Int32 BgpAsn { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>The Internet-routable IP address for the customer gateway's outside interface. The
@@ -81,16 +85,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("IpAddress")]
-        public String PublicIp { get; set; }
+        public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public GatewayType Type { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.GatewayType")]
+        public Amazon.EC2.GatewayType Type { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -131,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCustomerGatewayRequest();
+            var request = new Amazon.EC2.Model.CreateCustomerGatewayRequest();
             
             if (cmdletContext.BgpAsn != null)
             {
@@ -180,9 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? BgpAsn { get; set; }
-            public String PublicIp { get; set; }
-            public GatewayType Type { get; set; }
+            public System.Int32? BgpAsn { get; set; }
+            public System.String PublicIp { get; set; }
+            public Amazon.EC2.GatewayType Type { get; set; }
         }
         
     }

@@ -43,33 +43,41 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the DeleteSSHPublicKey operation against AWS Identity and Access Management.", Operation = new[] {"DeleteSSHPublicKey"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SSHPublicKeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteSSHPublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteSSHPublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SSHPublicKeyId
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the SSH public key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SSHPublicKeyId { get; set; }
+        public System.String SSHPublicKeyId { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user associated with the SSH public key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SSHPublicKeyId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -108,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteSSHPublicKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteSSHPublicKeyRequest();
             
             if (cmdletContext.SSHPublicKeyId != null)
             {
@@ -155,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SSHPublicKeyId { get; set; }
-            public String UserName { get; set; }
+            public System.String SSHPublicKeyId { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

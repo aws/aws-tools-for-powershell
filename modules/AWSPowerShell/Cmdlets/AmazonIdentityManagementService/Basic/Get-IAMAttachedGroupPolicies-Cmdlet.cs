@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// A group can also have inline policies embedded with it. To list the inline policies
     /// for a group, use the <a>ListGroupPolicies</a> API. For information about policies,
     /// refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para><para>
     /// You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters. You can use the <code>PathPrefix</code> parameter to limit the list of
@@ -49,19 +49,23 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ListAttachedGroupPolicies operation against AWS Identity and Access Management.", Operation = new[] {"ListAttachedGroupPolicies"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.AttachedPolicyType",
         "This cmdlet returns a collection of AttachedPolicyType objects.",
-        "The service call response (type ListAttachedGroupPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean), Marker (type String)"
+        "The service call response (type Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), Marker (type System.String)"
     )]
     public class GetIAMAttachedGroupPoliciesCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>The name (friendly name, not ARN) of the group to list attached policies for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
+        #endregion
         
+        #region Parameter PathPrefix
         /// <summary>
         /// <para>
         /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
@@ -69,30 +73,38 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PathPrefix { get; set; }
+        public System.String PathPrefix { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
         /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
-        /// element in the response you received to inform the next call about where to start.</para>
+        /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
-        /// want in the response. If there are additional items beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100.</para>
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. In that
+        /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
+        /// <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -121,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListAttachedGroupPoliciesRequest();
+            var request = new Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesRequest();
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
@@ -132,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -218,10 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupName { get; set; }
-            public String Marker { get; set; }
+            public System.String GroupName { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
-            public String PathPrefix { get; set; }
+            public System.String PathPrefix { get; set; }
         }
         
     }

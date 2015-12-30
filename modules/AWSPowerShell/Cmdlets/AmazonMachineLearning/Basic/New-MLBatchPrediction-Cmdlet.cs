@@ -50,10 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the CreateBatchPrediction operation against Amazon Machine Learning.", Operation = new[] {"CreateBatchPrediction"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateBatchPredictionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter BatchPredictionDataSourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the <code>DataSource</code> that points to the group of observations to
@@ -61,16 +63,20 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BatchPredictionDataSourceId { get; set; }
+        public System.String BatchPredictionDataSourceId { get; set; }
+        #endregion
         
+        #region Parameter BatchPredictionId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BatchPredictionId { get; set; }
+        public System.String BatchPredictionId { get; set; }
+        #endregion
         
+        #region Parameter BatchPredictionName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>BatchPrediction</code>. <code>BatchPredictionName</code>
@@ -79,8 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String BatchPredictionName { get; set; }
+        public System.String BatchPredictionName { get; set; }
+        #endregion
         
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>The ID of the <code>MLModel</code> that will generate predictions for the group of
@@ -89,8 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter OutputUri
         /// <summary>
         /// <para>
         /// <para>The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to
@@ -101,8 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OutputUri { get; set; }
+        public System.String OutputUri { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -110,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -144,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateBatchPredictionRequest();
+            var request = new Amazon.MachineLearning.Model.CreateBatchPredictionRequest();
             
             if (cmdletContext.BatchPredictionDataSourceId != null)
             {
@@ -201,11 +213,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BatchPredictionDataSourceId { get; set; }
-            public String BatchPredictionId { get; set; }
-            public String BatchPredictionName { get; set; }
-            public String MLModelId { get; set; }
-            public String OutputUri { get; set; }
+            public System.String BatchPredictionDataSourceId { get; set; }
+            public System.String BatchPredictionId { get; set; }
+            public System.String BatchPredictionName { get; set; }
+            public System.String MLModelId { get; set; }
+            public System.String OutputUri { get; set; }
         }
         
     }

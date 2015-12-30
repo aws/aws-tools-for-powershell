@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Resume-ASProcess -AutoScalingGroupName my-test-asg</code>
-    <description>Resumes all suspended Auto Scaling processes for the specified group.</description>
+    <code>PS C:\> Resume-ASProcess -AutoScalingGroupName my-asg -ScalingProcess "AlarmNotification"</code>
+    <description>This example resumes the specified Auto Scaling process for the specified Auto Scaling group.</description>
   </example>
   <example>
-    <code>Resume-ASProcess -AutoScalingGroupName my-test-asg -ScalingProcess "HealthCheck"</code>
-    <description>Resumes the 'HealthCheck' process for the specified Auto Scaling group.</description>
-  </example>
-  <example>
-    <code>Resume-ASProcess -AutoScalingGroupName my-test-asg -ScalingProcess @("HealthCheck", "AlarmNotification")</code>
-    <description>Resumes the 'HealthCheck' and 'AlarmNotification' processes for the specified Auto Scaling group.</description>
+    <code>PS C:\> Resume-ASProcess -AutoScalingGroupName my-asg</code>
+    <description>This example resumes all suspended Auto Scaling processes for the specified Auto Scaling group.</description>
   </example>
 </examples>

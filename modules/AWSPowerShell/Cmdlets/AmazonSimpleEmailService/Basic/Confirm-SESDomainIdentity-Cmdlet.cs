@@ -40,18 +40,22 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the VerifyDomainIdentity operation against Amazon Simple Email Service.", Operation = new[] {"VerifyDomainIdentity"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type VerifyDomainIdentityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.VerifyDomainIdentityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmSESDomainIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Domain
         /// <summary>
         /// <para>
         /// <para>The domain to be verified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Domain { get; set; }
+        public System.String Domain { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -89,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new VerifyDomainIdentityRequest();
+            var request = new Amazon.SimpleEmail.Model.VerifyDomainIdentityRequest();
             
             if (cmdletContext.Domain != null)
             {
@@ -130,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Domain { get; set; }
+            public System.String Domain { get; set; }
         }
         
     }

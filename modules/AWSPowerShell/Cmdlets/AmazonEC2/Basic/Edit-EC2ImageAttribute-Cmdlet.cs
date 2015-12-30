@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyImageAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyImageAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ImageId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyImageAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ModifyImageAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2ImageAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter LaunchPermission_Add
         /// <summary>
         /// <para>
         /// <para>The AWS account ID to add to the list of launch permissions for the AMI.</para>
@@ -52,39 +54,50 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.LaunchPermission[] LaunchPermission_Add { get; set; }
+        #endregion
         
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The name of the attribute to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Attribute { get; set; }
+        public System.String Attribute { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter ImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ImageId { get; set; }
+        public System.String ImageId { get; set; }
+        #endregion
         
+        #region Parameter OperationType
         /// <summary>
         /// <para>
         /// <para>The operation type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public OperationType OperationType { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.OperationType")]
+        public Amazon.EC2.OperationType OperationType { get; set; }
+        #endregion
         
+        #region Parameter ProductCode
         /// <summary>
         /// <para>
         /// <para>One or more product codes. After you add a product code to an AMI, it can't be removed.
@@ -94,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("ProductCodes")]
         public System.String[] ProductCode { get; set; }
+        #endregion
         
+        #region Parameter LaunchPermission_Remove
         /// <summary>
         /// <para>
         /// <para>The AWS account ID to remove from the list of launch permissions for the AMI.</para>
@@ -102,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.LaunchPermission[] LaunchPermission_Remove { get; set; }
+        #endregion
         
+        #region Parameter UserGroup
         /// <summary>
         /// <para>
         /// <para>One or more user groups. This is only valid when modifying the <code>launchPermission</code>
@@ -112,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("UserGroups")]
         public System.String[] UserGroup { get; set; }
+        #endregion
         
+        #region Parameter UserId
         /// <summary>
         /// <para>
         /// <para>One or more AWS account IDs. This is only valid when modifying the <code>launchPermission</code>
@@ -122,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("UserIds")]
         public System.String[] UserId { get; set; }
+        #endregion
         
+        #region Parameter Value
         /// <summary>
         /// <para>
         /// <para>The value of the attribute being modified. This is only valid when modifying the <code>description</code>
@@ -130,15 +151,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Value { get; set; }
+        public System.String Value { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ImageId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -146,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -169,24 +194,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ImageId = this.ImageId;
             if (this.LaunchPermission_Add != null)
             {
-                context.LaunchPermission_Add = new List<LaunchPermission>(this.LaunchPermission_Add);
+                context.LaunchPermission_Add = new List<Amazon.EC2.Model.LaunchPermission>(this.LaunchPermission_Add);
             }
             if (this.LaunchPermission_Remove != null)
             {
-                context.LaunchPermission_Remove = new List<LaunchPermission>(this.LaunchPermission_Remove);
+                context.LaunchPermission_Remove = new List<Amazon.EC2.Model.LaunchPermission>(this.LaunchPermission_Remove);
             }
             context.OperationType = this.OperationType;
             if (this.ProductCode != null)
             {
-                context.ProductCodes = new List<String>(this.ProductCode);
+                context.ProductCodes = new List<System.String>(this.ProductCode);
             }
             if (this.UserGroup != null)
             {
-                context.UserGroups = new List<String>(this.UserGroup);
+                context.UserGroups = new List<System.String>(this.UserGroup);
             }
             if (this.UserId != null)
             {
-                context.UserIds = new List<String>(this.UserId);
+                context.UserIds = new List<System.String>(this.UserId);
             }
             context.Value = this.Value;
             
@@ -200,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyImageAttributeRequest();
+            var request = new Amazon.EC2.Model.ModifyImageAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -217,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate LaunchPermission
             bool requestLaunchPermissionIsNull = true;
-            request.LaunchPermission = new LaunchPermissionModifications();
-            List<LaunchPermission> requestLaunchPermission_launchPermission_Add = null;
+            request.LaunchPermission = new Amazon.EC2.Model.LaunchPermissionModifications();
+            List<Amazon.EC2.Model.LaunchPermission> requestLaunchPermission_launchPermission_Add = null;
             if (cmdletContext.LaunchPermission_Add != null)
             {
                 requestLaunchPermission_launchPermission_Add = cmdletContext.LaunchPermission_Add;
@@ -228,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchPermission.Add = requestLaunchPermission_launchPermission_Add;
                 requestLaunchPermissionIsNull = false;
             }
-            List<LaunchPermission> requestLaunchPermission_launchPermission_Remove = null;
+            List<Amazon.EC2.Model.LaunchPermission> requestLaunchPermission_launchPermission_Remove = null;
             if (cmdletContext.LaunchPermission_Remove != null)
             {
                 requestLaunchPermission_launchPermission_Remove = cmdletContext.LaunchPermission_Remove;
@@ -300,16 +325,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Attribute { get; set; }
-            public String Description { get; set; }
-            public String ImageId { get; set; }
-            public List<LaunchPermission> LaunchPermission_Add { get; set; }
-            public List<LaunchPermission> LaunchPermission_Remove { get; set; }
-            public OperationType OperationType { get; set; }
-            public List<String> ProductCodes { get; set; }
-            public List<String> UserGroups { get; set; }
-            public List<String> UserIds { get; set; }
-            public String Value { get; set; }
+            public System.String Attribute { get; set; }
+            public System.String Description { get; set; }
+            public System.String ImageId { get; set; }
+            public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Add { get; set; }
+            public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Remove { get; set; }
+            public Amazon.EC2.OperationType OperationType { get; set; }
+            public List<System.String> ProductCodes { get; set; }
+            public List<System.String> UserGroups { get; set; }
+            public List<System.String> UserIds { get; set; }
+            public System.String Value { get; set; }
         }
         
     }

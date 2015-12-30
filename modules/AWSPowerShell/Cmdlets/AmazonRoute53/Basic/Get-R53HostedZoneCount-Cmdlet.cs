@@ -28,15 +28,15 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// To retrieve a count of all your hosted zones, send a <code>GET</code> request to
-    /// the <code>2013-04-01/hostedzonecount</code> resource.
+    /// To retrieve a count of all your hosted zones, send a <code>GET</code> request to the
+    /// <code>2013-04-01/hostedzonecount</code> resource.
     /// </summary>
     [Cmdlet("Get", "R53HostedZoneCount")]
     [OutputType("System.Int64")]
-    [AWSCmdlet("Invokes the GetHostedZoneCount operation against AWS Route 53.", Operation = new[] {"GetHostedZoneCount"})]
+    [AWSCmdlet("Invokes the GetHostedZoneCount operation against Amazon Route 53.", Operation = new[] {"GetHostedZoneCount"})]
     [AWSCmdletOutput("System.Int64",
         "This cmdlet returns a Int64 object.",
-        "The service call response (type GetHostedZoneCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetHostedZoneCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53HostedZoneCountCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetHostedZoneCountRequest();
+            var request = new Amazon.Route53.Model.GetHostedZoneCountRequest();
             
             
             CmdletOutput output;

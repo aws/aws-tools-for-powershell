@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteFlowLogs operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteFlowLogs"})]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem",
         "This cmdlet returns a collection of UnsuccessfulItem objects.",
-        "The service call response (type DeleteFlowLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteFlowLogsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter FlowLogId
         /// <summary>
         /// <para>
         /// <para>One or more flow log IDs.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("FlowLogIds")]
         public System.String[] FlowLogId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -75,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.FlowLogId != null)
             {
-                context.FlowLogIds = new List<String>(this.FlowLogId);
+                context.FlowLogIds = new List<System.String>(this.FlowLogId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -88,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteFlowLogsRequest();
+            var request = new Amazon.EC2.Model.DeleteFlowLogsRequest();
             
             if (cmdletContext.FlowLogIds != null)
             {
@@ -129,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> FlowLogIds { get; set; }
+            public List<System.String> FlowLogIds { get; set; }
         }
         
     }

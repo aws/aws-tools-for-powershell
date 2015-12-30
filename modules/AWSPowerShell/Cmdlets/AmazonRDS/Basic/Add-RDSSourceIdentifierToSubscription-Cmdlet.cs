@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the AddSourceIdentifierToSubscription operation against Amazon Relational Database Service.", Operation = new[] {"AddSourceIdentifierToSubscription"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type AddSourceIdentifierToSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.AddSourceIdentifierToSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddRDSSourceIdentifierToSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the event source to be added. An identifier must begin with a letter
@@ -51,8 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SourceIdentifier { get; set; }
+        public System.String SourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionName
         /// <summary>
         /// <para>
         /// <para>The name of the RDS event notification subscription you want to add a source identifier
@@ -60,8 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddSourceIdentifierToSubscriptionRequest();
+            var request = new Amazon.RDS.Model.AddSourceIdentifierToSubscriptionRequest();
             
             if (cmdletContext.SourceIdentifier != null)
             {
@@ -145,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceIdentifier { get; set; }
-            public String SubscriptionName { get; set; }
+            public System.String SourceIdentifier { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

@@ -38,27 +38,33 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the ListInstances operation against Amazon Elastic MapReduce.", Operation = new[] {"ListInstances"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Instance",
         "This cmdlet returns a collection of Instance objects.",
-        "The service call response (type ListInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElasticMapReduce.Model.ListInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetEMRInstancesCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
         /// <para>The identifier of the cluster for which to list the instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ClusterId { get; set; }
+        public System.String ClusterId { get; set; }
+        #endregion
         
+        #region Parameter InstanceGroupId
         /// <summary>
         /// <para>
         /// <para>The identifier of the instance group for which to list the instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceGroupId { get; set; }
+        public System.String InstanceGroupId { get; set; }
+        #endregion
         
+        #region Parameter InstanceGroupType
         /// <summary>
         /// <para>
         /// <para>The type of instance group for which to list the instances.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("InstanceGroupTypes")]
         public System.String[] InstanceGroupType { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The pagination token that indicates the next set of results to retrieve.</para>
@@ -75,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
-        
+        public System.String Marker { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -92,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.InstanceGroupId = this.InstanceGroupId;
             if (this.InstanceGroupType != null)
             {
-                context.InstanceGroupTypes = new List<String>(this.InstanceGroupType);
+                context.InstanceGroupTypes = new List<System.String>(this.InstanceGroupType);
             }
             context.Marker = this.Marker;
             
@@ -107,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListInstancesRequest();
+            var request = new Amazon.ElasticMapReduce.Model.ListInstancesRequest();
             
             if (cmdletContext.ClusterId != null)
             {
@@ -123,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
@@ -193,10 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterId { get; set; }
-            public String InstanceGroupId { get; set; }
-            public List<String> InstanceGroupTypes { get; set; }
-            public String Marker { get; set; }
+            public System.String ClusterId { get; set; }
+            public System.String InstanceGroupId { get; set; }
+            public List<System.String> InstanceGroupTypes { get; set; }
+            public System.String Marker { get; set; }
         }
         
     }

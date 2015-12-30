@@ -45,10 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the AddCommunicationToCase operation against AWS Support API.", Operation = new[] {"AddCommunicationToCase"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type AddCommunicationToCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.AddCommunicationToCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddASACommunicationToCaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
         /// <para>The ID of a set of one or more attachments for the communication to add to the case.
@@ -56,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AttachmentSetId { get; set; }
+        public System.String AttachmentSetId { get; set; }
+        #endregion
         
+        #region Parameter CaseId
         /// <summary>
         /// <para>
         /// <para>The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric
@@ -65,8 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CaseId { get; set; }
+        public System.String CaseId { get; set; }
+        #endregion
         
+        #region Parameter CcEmailAddress
         /// <summary>
         /// <para>
         /// <para>The email addresses in the CC line of an email to be added to the support case.</para>
@@ -75,15 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("CcEmailAddresses")]
         public System.String[] CcEmailAddress { get; set; }
+        #endregion
         
+        #region Parameter CommunicationBody
         /// <summary>
         /// <para>
         /// <para>The body of an email communication to add to the support case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String CommunicationBody { get; set; }
+        public System.String CommunicationBody { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -113,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             context.CaseId = this.CaseId;
             if (this.CcEmailAddress != null)
             {
-                context.CcEmailAddresses = new List<String>(this.CcEmailAddress);
+                context.CcEmailAddresses = new List<System.String>(this.CcEmailAddress);
             }
             context.CommunicationBody = this.CommunicationBody;
             
@@ -127,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddCommunicationToCaseRequest();
+            var request = new Amazon.AWSSupport.Model.AddCommunicationToCaseRequest();
             
             if (cmdletContext.AttachmentSetId != null)
             {
@@ -180,10 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttachmentSetId { get; set; }
-            public String CaseId { get; set; }
-            public List<String> CcEmailAddresses { get; set; }
-            public String CommunicationBody { get; set; }
+            public System.String AttachmentSetId { get; set; }
+            public System.String CaseId { get; set; }
+            public List<System.String> CcEmailAddresses { get; set; }
+            public System.String CommunicationBody { get; set; }
         }
         
     }

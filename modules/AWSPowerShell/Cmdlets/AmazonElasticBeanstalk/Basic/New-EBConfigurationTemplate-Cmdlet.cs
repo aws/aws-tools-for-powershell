@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse")]
     [AWSCmdlet("Invokes the CreateConfigurationTemplate operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateConfigurationTemplate"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse",
-        "This cmdlet returns a CreateConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application to associate with this configuration template. If no
@@ -53,32 +55,40 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter SourceConfiguration_ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of the application associated with the configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceConfiguration_ApplicationName { get; set; }
+        public System.String SourceConfiguration_ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Describes this configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para> The ID of the environment used with this configuration template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter OptionSetting
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk sets the specified configuration option to the
@@ -89,15 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("OptionSettings")]
         public Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting[] OptionSetting { get; set; }
+        #endregion
         
+        #region Parameter SourceConfiguration_TemplateName
         /// <summary>
         /// <para>
         /// <para>The name of the configuration template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceConfiguration_TemplateName { get; set; }
+        public System.String SourceConfiguration_TemplateName { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para>The name of the configuration template.</para><para>Constraint: This name must be unique per application. </para><para>Default: If a configuration template already exists with this name, AWS Elastic Beanstalk
@@ -105,8 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String TemplateName { get; set; }
+        public System.String TemplateName { get; set; }
+        #endregion
         
+        #region Parameter SolutionStackName
         /// <summary>
         /// <para>
         /// <para>The name of the solution stack used by this configuration. The solution stack specifies
@@ -120,8 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String SolutionStackName { get; set; }
+        public System.String SolutionStackName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -129,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -152,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.EnvironmentId = this.EnvironmentId;
             if (this.OptionSetting != null)
             {
-                context.OptionSettings = new List<ConfigurationOptionSetting>(this.OptionSetting);
+                context.OptionSettings = new List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting>(this.OptionSetting);
             }
             context.SolutionStackName = this.SolutionStackName;
             context.SourceConfiguration_ApplicationName = this.SourceConfiguration_ApplicationName;
@@ -169,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateConfigurationTemplateRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.CreateConfigurationTemplateRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -194,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             
              // populate SourceConfiguration
             bool requestSourceConfigurationIsNull = true;
-            request.SourceConfiguration = new SourceConfiguration();
-            String requestSourceConfiguration_sourceConfiguration_ApplicationName = null;
+            request.SourceConfiguration = new Amazon.ElasticBeanstalk.Model.SourceConfiguration();
+            System.String requestSourceConfiguration_sourceConfiguration_ApplicationName = null;
             if (cmdletContext.SourceConfiguration_ApplicationName != null)
             {
                 requestSourceConfiguration_sourceConfiguration_ApplicationName = cmdletContext.SourceConfiguration_ApplicationName;
@@ -205,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 request.SourceConfiguration.ApplicationName = requestSourceConfiguration_sourceConfiguration_ApplicationName;
                 requestSourceConfigurationIsNull = false;
             }
-            String requestSourceConfiguration_sourceConfiguration_TemplateName = null;
+            System.String requestSourceConfiguration_sourceConfiguration_TemplateName = null;
             if (cmdletContext.SourceConfiguration_TemplateName != null)
             {
                 requestSourceConfiguration_sourceConfiguration_TemplateName = cmdletContext.SourceConfiguration_TemplateName;
@@ -259,14 +277,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String Description { get; set; }
-            public String EnvironmentId { get; set; }
-            public List<ConfigurationOptionSetting> OptionSettings { get; set; }
-            public String SolutionStackName { get; set; }
-            public String SourceConfiguration_ApplicationName { get; set; }
-            public String SourceConfiguration_TemplateName { get; set; }
-            public String TemplateName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String Description { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
+            public System.String SolutionStackName { get; set; }
+            public System.String SourceConfiguration_ApplicationName { get; set; }
+            public System.String SourceConfiguration_TemplateName { get; set; }
+            public System.String TemplateName { get; set; }
         }
         
     }

@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the GetBucketLocation operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketLocation"})]
     [AWSCmdletOutput("Amazon.S3.S3Region",
         "This cmdlet returns a S3Region object.",
-        "The service call response (type GetBucketLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetBucketLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3BucketLocationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
-        
+        public System.String BucketName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetBucketLocationRequest();
+            var request = new Amazon.S3.Model.GetBucketLocationRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
+            public System.String BucketName { get; set; }
         }
         
     }

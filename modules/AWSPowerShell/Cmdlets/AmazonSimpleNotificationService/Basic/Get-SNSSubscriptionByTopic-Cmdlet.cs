@@ -38,27 +38,31 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the ListSubscriptionsByTopic operation against Amazon Simple Notification Service.", Operation = new[] {"ListSubscriptionsByTopic"})]
     [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.Subscription",
         "This cmdlet returns a collection of Subscription objects.",
-        "The service call response (type ListSubscriptionsByTopicResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleNotificationService.Model.ListSubscriptionsByTopicResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSNSSubscriptionByTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic for which you wish to find subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -84,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListSubscriptionsByTopicRequest();
+            var request = new Amazon.SimpleNotificationService.Model.ListSubscriptionsByTopicRequest();
             
             if (cmdletContext.TopicArn != null)
             {
@@ -92,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -162,8 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public String TopicArn { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the CreateSnapshot operation against Amazon ElastiCache.", Operation = new[] {"CreateSnapshot"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheClusterId
         /// <summary>
         /// <para>
         /// <para>The identifier of an existing cache cluster. The snapshot will be created from this
@@ -47,16 +49,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheClusterId { get; set; }
+        public System.String CacheClusterId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotName
         /// <summary>
         /// <para>
         /// <para>A name for the snapshot being created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnapshotName { get; set; }
+        public System.String SnapshotName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSnapshotRequest();
+            var request = new Amazon.ElastiCache.Model.CreateSnapshotRequest();
             
             if (cmdletContext.CacheClusterId != null)
             {
@@ -140,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheClusterId { get; set; }
-            public String SnapshotName { get; set; }
+            public System.String CacheClusterId { get; set; }
+            public System.String SnapshotName { get; set; }
         }
         
     }

@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the PromoteReadReplica operation against Amazon Relational Database Service.", Operation = new[] {"PromoteReadReplica"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type PromoteReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.PromoteReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConvertRDSReadReplicaToStandaloneCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days to retain automated backups. Setting this parameter to a positive
@@ -53,8 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BackupRetentionPeriod { get; set; }
+        public System.Int32 BackupRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be the identifier for an existing Read Replica DB instance</li><li>Must
@@ -63,8 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
@@ -76,8 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredBackupWindow { get; set; }
+        public System.String PreferredBackupWindow { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -118,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PromoteReadReplicaRequest();
+            var request = new Amazon.RDS.Model.PromoteReadReplicaRequest();
             
             if (cmdletContext.BackupRetentionPeriod != null)
             {
@@ -167,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? BackupRetentionPeriod { get; set; }
-            public String DBInstanceIdentifier { get; set; }
-            public String PreferredBackupWindow { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
         }
         
     }

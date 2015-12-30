@@ -40,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DescribeIndexFields operation against Amazon CloudSearch.", Operation = new[] {"DescribeIndexFields"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.IndexFieldStatus",
         "This cmdlet returns a collection of IndexFieldStatus objects.",
-        "The service call response (type DescribeIndexFieldsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeIndexFieldsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCSIndexFieldCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter Deployed
         /// <summary>
         /// <para>
         /// <para>Whether to display the deployed configuration (<code>true</code>) or include any pending
@@ -51,16 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Deployed { get; set; }
+        public System.Boolean Deployed { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of the domain you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter FieldName
         /// <summary>
         /// <para>
         /// <para>A list of the index fields you want to describe. If not specified, information is
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("FieldNames")]
         public System.String[] FieldName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -87,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
             context.DomainName = this.DomainName;
             if (this.FieldName != null)
             {
-                context.FieldNames = new List<String>(this.FieldName);
+                context.FieldNames = new List<System.String>(this.FieldName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -100,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeIndexFieldsRequest();
+            var request = new Amazon.CloudSearch.Model.DescribeIndexFieldsRequest();
             
             if (cmdletContext.Deployed != null)
             {
@@ -149,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Deployed { get; set; }
-            public String DomainName { get; set; }
-            public List<String> FieldNames { get; set; }
+            public System.Boolean? Deployed { get; set; }
+            public System.String DomainName { get; set; }
+            public List<System.String> FieldNames { get; set; }
         }
         
     }

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>INS</ServiceNounPrefix>
+  <ServiceName>Amazon Inspector</ServiceName>
+  <ServiceNamespace>Amazon.Inspector</ServiceNamespace>
+  <ServiceClientInterface>IAmazonInspector</ServiceClientInterface>
+  <ServiceClient>AmazonInspectorClient</ServiceClient>
+
+  <AutoIterate EmitLimit="MaxResults" 
+               Start="NextToken" 
+               Next="NextToken"  />
+
+    <VerbMappings>
+        <Map From="List" To="Get"/>
+    </VerbMappings>
+   
+  <ServiceOperations>
+    <ServiceOperation MethodName="AttachAssessmentAndRulesPackage" 
+        Verb="Add" 
+        Noun="AssessmentRulesPackage"
+        PipelineParameter="AssessmentArn"/>
+    <ServiceOperation MethodName="CreateApplication" 
+        PipelineParameter="ResourceGroupArn"/>
+    <ServiceOperation MethodName="CreateResourceGroup"
+        NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="DeleteApplication" />
+    <ServiceOperation MethodName="DeleteAssessment" />
+    <ServiceOperation MethodName="DeleteRun" />
+    <ServiceOperation MethodName="DescribeApplication" />
+    <ServiceOperation MethodName="DescribeAssessment" />
+    <ServiceOperation MethodName="DescribeCrossAccountAccessRole"
+        Output="Response"/>
+    <ServiceOperation MethodName="DescribeFinding" />
+    <ServiceOperation MethodName="DescribeResourceGroup" />
+    <ServiceOperation MethodName="DescribeRulesPackage" />
+    <ServiceOperation MethodName="DescribeRun" />
+    <ServiceOperation MethodName="DetachAssessmentAndRulesPackage" 
+        Verb="Remove"
+        Nuon="AssessmentRulesPackage"
+        PipelineParameter="AssessmentArn"/>
+    <ServiceOperation MethodName="GetAssessmentTelemetry" />
+    <ServiceOperation MethodName="ListApplications"
+        Noun="ApplicationList"
+        NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="ListAssessmentAgents" 
+        Noun="AssessmentAgentList"
+        PipelineParameter="AssessmentArn"/>
+    <ServiceOperation MethodName="ListAssessments" 
+        Noun="AssessmentList"
+        PipelineParameter="ApplicationArns"/>
+    <ServiceOperation MethodName="ListAttachedAssessments" 
+        Noun="AttachedAssessment"
+        PipelineParameter="RulesPackageArn"/>
+    <ServiceOperation MethodName="ListAttachedRulesPackages" 
+        Noun="AttachedRulesPackage" />
+    <ServiceOperation MethodName="ListRulesPackages"
+        Noun="RulesPackageList" />
+    <ServiceOperation MethodName="ListRuns" 
+        Noun="RunList"
+        PipelineParameter="AssessmentArns"/>
+    <ServiceOperation MethodName="ListTagsForResource" 
+        Verb="Get"
+        Noun="TagListForResource"/>
+    <ServiceOperation MethodName="LocalizeText" 
+        Output="Response"
+        Verb="Get"
+        Noun="LocalizedText"
+        NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="PreviewAgentsForResourceGroup"
+        Verb="Get"
+        Noun="ResourceGroupAgentPreview"/>
+    <ServiceOperation MethodName="RegisterCrossAccountAccessRole" />
+    <ServiceOperation MethodName="RemoveAttributesFromFindings"
+        Noun="FindingAttribute"
+        PipelineParameter="FindingArns"/>
+    <ServiceOperation MethodName="RunAssessment" 
+        Verb="Start"
+        PipelineParameter="AssessmentArn"/>
+    <ServiceOperation MethodName="SetTagsForResource"
+        Noun="ResourceTag"
+        PipelineParameter="ResourceArn"/>
+    <ServiceOperation MethodName="StartDataCollection" />
+    <ServiceOperation MethodName="StopDataCollection" />
+    <ServiceOperation MethodName="UpdateApplication" 
+        PipelineParameter="ApplicationArn"/>
+    <ServiceOperation MethodName="UpdateAssessment" 
+        PipelineParameter="AssessmentArn"/>
+       
+    <ServiceOperation MethodName="AddAttributesToFindings" Noun="FindingAttribute" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="ListFindings" Noun="FindingList" PipelineParameter="RunArns"/>
+    <ServiceOperation MethodName="CreateAssessment" PipelineParameter="ApplicationArn"/>
+
+  </ServiceOperations>
+  
+</ConfigModel>

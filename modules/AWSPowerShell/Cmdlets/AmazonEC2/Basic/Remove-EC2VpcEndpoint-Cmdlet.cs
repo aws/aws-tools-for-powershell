@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteVpcEndpoints operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteVpcEndpoints"})]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem",
         "This cmdlet returns a collection of UnsuccessfulItem objects.",
-        "The service call response (type DeleteVpcEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DeleteVpcEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
         /// <para>One or more endpoint IDs.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("VpcEndpointIds")]
         public System.String[] VpcEndpointId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -76,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.VpcEndpointId != null)
             {
-                context.VpcEndpointIds = new List<String>(this.VpcEndpointId);
+                context.VpcEndpointIds = new List<System.String>(this.VpcEndpointId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -89,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteVpcEndpointsRequest();
+            var request = new Amazon.EC2.Model.DeleteVpcEndpointsRequest();
             
             if (cmdletContext.VpcEndpointIds != null)
             {
@@ -130,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> VpcEndpointIds { get; set; }
+            public List<System.String> VpcEndpointIds { get; set; }
         }
         
     }

@@ -35,33 +35,41 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DetachNetworkInterface operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DetachNetworkInterface"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AttachmentId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DetachNetworkInterfaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DetachNetworkInterfaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DismountEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttachmentId
         /// <summary>
         /// <para>
         /// <para>The ID of the attachment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AttachmentId { get; set; }
+        public System.String AttachmentId { get; set; }
+        #endregion
         
+        #region Parameter ForceDismount
         /// <summary>
         /// <para>
         /// <para>Specifies whether to force a detachment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ForceDismount { get; set; }
+        public System.Boolean ForceDismount { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AttachmentId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DetachNetworkInterfaceRequest();
+            var request = new Amazon.EC2.Model.DetachNetworkInterfaceRequest();
             
             if (cmdletContext.AttachmentId != null)
             {
@@ -148,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttachmentId { get; set; }
-            public Boolean? ForceDismount { get; set; }
+            public System.String AttachmentId { get; set; }
+            public System.Boolean? ForceDismount { get; set; }
         }
         
     }

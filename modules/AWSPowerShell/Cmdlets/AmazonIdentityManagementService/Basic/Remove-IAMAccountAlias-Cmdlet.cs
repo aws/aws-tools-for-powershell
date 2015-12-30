@@ -30,32 +30,38 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Deletes the specified AWS account alias. For information about using an AWS account
     /// alias, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-    /// an Alias for Your AWS Account ID</a> in the <i>Using IAM</i> guide.
+    /// an Alias for Your AWS Account ID</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IAMAccountAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
     [AWSCmdlet("Invokes the DeleteAccountAlias operation against AWS Identity and Access Management.", Operation = new[] {"DeleteAccountAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccountAlias parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteAccountAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.DeleteAccountAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMAccountAliasCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccountAlias
         /// <summary>
         /// <para>
         /// <para>The name of the account alias to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AccountAlias { get; set; }
+        public System.String AccountAlias { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AccountAlias parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteAccountAliasRequest();
+            var request = new Amazon.IdentityManagement.Model.DeleteAccountAliasRequest();
             
             if (cmdletContext.AccountAlias != null)
             {
@@ -136,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AccountAlias { get; set; }
+            public System.String AccountAlias { get; set; }
         }
         
     }

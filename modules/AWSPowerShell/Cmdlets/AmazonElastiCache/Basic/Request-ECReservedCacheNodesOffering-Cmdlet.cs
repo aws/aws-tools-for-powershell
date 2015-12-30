@@ -36,34 +36,42 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the PurchaseReservedCacheNodesOffering operation against Amazon ElastiCache.", Operation = new[] {"PurchaseReservedCacheNodesOffering"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReservedCacheNode",
         "This cmdlet returns a ReservedCacheNode object.",
-        "The service call response (type PurchaseReservedCacheNodesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheNodeCount
         /// <summary>
         /// <para>
         /// <para>The number of cache node instances to reserve.</para><para>Default: <code>1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 CacheNodeCount { get; set; }
+        public System.Int32 CacheNodeCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedCacheNodeId
         /// <summary>
         /// <para>
         /// <para>A customer-specified identifier to track this reservation.</para><para>Example: myreservationID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ReservedCacheNodeId { get; set; }
+        public System.String ReservedCacheNodeId { get; set; }
+        #endregion
         
+        #region Parameter ReservedCacheNodesOfferingId
         /// <summary>
         /// <para>
         /// <para>The ID of the reserved cache node offering to purchase.</para><para>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedCacheNodesOfferingId { get; set; }
+        public System.String ReservedCacheNodesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedCacheNodesOfferingRequest();
+            var request = new Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingRequest();
             
             if (cmdletContext.CacheNodeCount != null)
             {
@@ -153,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? CacheNodeCount { get; set; }
-            public String ReservedCacheNodeId { get; set; }
-            public String ReservedCacheNodesOfferingId { get; set; }
+            public System.Int32? CacheNodeCount { get; set; }
+            public System.String ReservedCacheNodeId { get; set; }
+            public System.String ReservedCacheNodesOfferingId { get; set; }
         }
         
     }

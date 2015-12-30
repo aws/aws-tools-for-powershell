@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the AcknowledgeJob operation against AWS CodePipeline.", Operation = new[] {"AcknowledgeJob"})]
     [AWSCmdletOutput("Amazon.CodePipeline.JobStatus",
         "This cmdlet returns a JobStatus object.",
-        "The service call response (type AcknowledgeJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.AcknowledgeJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmCPJobCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID of the job for which you want to confirm receipt.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
+        #endregion
         
+        #region Parameter Nonce
         /// <summary>
         /// <para>
         /// <para>A system-generated random number that AWS CodePipeline uses to ensure that the job
@@ -55,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Nonce { get; set; }
+        public System.String Nonce { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AcknowledgeJobRequest();
+            var request = new Amazon.CodePipeline.Model.AcknowledgeJobRequest();
             
             if (cmdletContext.JobId != null)
             {
@@ -140,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String JobId { get; set; }
-            public String Nonce { get; set; }
+            public System.String JobId { get; set; }
+            public System.String Nonce { get; set; }
         }
         
     }

@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the BatchGetOnPremisesInstances operation against AWS CodeDeploy.", Operation = new[] {"BatchGetOnPremisesInstances"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.InstanceInfo",
         "This cmdlet returns a collection of InstanceInfo objects.",
-        "The service call response (type BatchGetOnPremisesInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.BatchGetOnPremisesInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDOnPremiseInstanceBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceName
         /// <summary>
         /// <para>
         /// <para>The names of the on-premises instances to get information about.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("InstanceNames")]
         public System.String[] InstanceName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
             if (this.InstanceName != null)
             {
-                context.InstanceNames = new List<String>(this.InstanceName);
+                context.InstanceNames = new List<System.String>(this.InstanceName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new BatchGetOnPremisesInstancesRequest();
+            var request = new Amazon.CodeDeploy.Model.BatchGetOnPremisesInstancesRequest();
             
             if (cmdletContext.InstanceNames != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> InstanceNames { get; set; }
+            public List<System.String> InstanceNames { get; set; }
         }
         
     }

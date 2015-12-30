@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the UpdateEvaluation operation against Amazon Machine Learning.", Operation = new[] {"UpdateEvaluation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.UpdateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter EvaluationId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>Evaluation</code> during creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EvaluationId { get; set; }
+        public System.String EvaluationId { get; set; }
+        #endregion
         
+        #region Parameter EvaluationName
         /// <summary>
         /// <para>
         /// <para>A new user-supplied name or description of the <code>Evaluation</code> that will replace
@@ -61,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String EvaluationName { get; set; }
+        public System.String EvaluationName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateEvaluationRequest();
+            var request = new Amazon.MachineLearning.Model.UpdateEvaluationRequest();
             
             if (cmdletContext.EvaluationId != null)
             {
@@ -146,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EvaluationId { get; set; }
-            public String EvaluationName { get; set; }
+            public System.String EvaluationId { get; set; }
+            public System.String EvaluationName { get; set; }
         }
         
     }

@@ -39,33 +39,37 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     /// </para><para>
     /// For more information about policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMUserPolicy")]
     [OutputType("Amazon.IdentityManagement.Model.GetUserPolicyResponse")]
     [AWSCmdlet("Invokes the GetUserPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetUserPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetUserPolicyResponse",
-        "This cmdlet returns a GetUserPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetUserPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMUserPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy document to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the user who the policy is associated with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
-        
+        public System.String UserName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetUserPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.GetUserPolicyRequest();
             
             if (cmdletContext.PolicyName != null)
             {
@@ -135,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyName { get; set; }
-            public String UserName { get; set; }
+            public System.String PolicyName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

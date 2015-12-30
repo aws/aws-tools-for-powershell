@@ -35,13 +35,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53HealthCheckLastFailureReason")]
     [OutputType("Amazon.Route53.Model.HealthCheckObservation")]
-    [AWSCmdlet("Invokes the GetHealthCheckLastFailureReason operation against AWS Route 53.", Operation = new[] {"GetHealthCheckLastFailureReason"})]
+    [AWSCmdlet("Invokes the GetHealthCheckLastFailureReason operation against Amazon Route 53.", Operation = new[] {"GetHealthCheckLastFailureReason"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HealthCheckObservation",
         "This cmdlet returns a collection of HealthCheckObservation objects.",
-        "The service call response (type GetHealthCheckLastFailureReasonResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetHealthCheckLastFailureReasonResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53HealthCheckLastFailureReasonCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HealthCheckId
         /// <summary>
         /// <para>
         /// <para>The ID of the health check for which you want to retrieve the reason for the most
@@ -49,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HealthCheckId { get; set; }
-        
+        public System.String HealthCheckId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetHealthCheckLastFailureReasonRequest();
+            var request = new Amazon.Route53.Model.GetHealthCheckLastFailureReasonRequest();
             
             if (cmdletContext.HealthCheckId != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HealthCheckId { get; set; }
+            public System.String HealthCheckId { get; set; }
         }
         
     }

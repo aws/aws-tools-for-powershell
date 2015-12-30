@@ -51,10 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the PollForTask operation against AWS Data Pipeline.", Operation = new[] {"PollForTask"})]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.TaskObject",
         "This cmdlet returns a TaskObject object.",
-        "The service call response (type PollForTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.PollForTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDPTaskCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceIdentity_Document
         /// <summary>
         /// <para>
         /// <para>A description of an EC2 instance that is generated when the instance is launched and
@@ -63,16 +65,20 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceIdentity_Document { get; set; }
+        public System.String InstanceIdentity_Document { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The public DNS name of the calling task runner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Hostname { get; set; }
+        public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter InstanceIdentity_Signature
         /// <summary>
         /// <para>
         /// <para>A signature which can be used to verify the accuracy and authenticity of the information
@@ -80,8 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceIdentity_Signature { get; set; }
+        public System.String InstanceIdentity_Signature { get; set; }
+        #endregion
         
+        #region Parameter WorkerGroup
         /// <summary>
         /// <para>
         /// <para>The type of task the task runner is configured to accept and process. The worker group
@@ -92,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String WorkerGroup { get; set; }
-        
+        public System.String WorkerGroup { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PollForTaskRequest();
+            var request = new Amazon.DataPipeline.Model.PollForTaskRequest();
             
             if (cmdletContext.Hostname != null)
             {
@@ -129,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
              // populate InstanceIdentity
             bool requestInstanceIdentityIsNull = true;
-            request.InstanceIdentity = new InstanceIdentity();
-            String requestInstanceIdentity_instanceIdentity_Document = null;
+            request.InstanceIdentity = new Amazon.DataPipeline.Model.InstanceIdentity();
+            System.String requestInstanceIdentity_instanceIdentity_Document = null;
             if (cmdletContext.InstanceIdentity_Document != null)
             {
                 requestInstanceIdentity_instanceIdentity_Document = cmdletContext.InstanceIdentity_Document;
@@ -140,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 request.InstanceIdentity.Document = requestInstanceIdentity_instanceIdentity_Document;
                 requestInstanceIdentityIsNull = false;
             }
-            String requestInstanceIdentity_instanceIdentity_Signature = null;
+            System.String requestInstanceIdentity_instanceIdentity_Signature = null;
             if (cmdletContext.InstanceIdentity_Signature != null)
             {
                 requestInstanceIdentity_instanceIdentity_Signature = cmdletContext.InstanceIdentity_Signature;
@@ -194,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Hostname { get; set; }
-            public String InstanceIdentity_Document { get; set; }
-            public String InstanceIdentity_Signature { get; set; }
-            public String WorkerGroup { get; set; }
+            public System.String Hostname { get; set; }
+            public System.String InstanceIdentity_Document { get; set; }
+            public System.String InstanceIdentity_Signature { get; set; }
+            public System.String WorkerGroup { get; set; }
         }
         
     }

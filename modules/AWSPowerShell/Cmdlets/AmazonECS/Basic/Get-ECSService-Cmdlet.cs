@@ -34,27 +34,32 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.DescribeServicesResponse")]
     [AWSCmdlet("Invokes the DescribeServices operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeServices"})]
     [AWSCmdletOutput("Amazon.ECS.Model.DescribeServicesResponse",
-        "This cmdlet returns a DescribeServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ECS.Model.DescribeServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>The name of the cluster that hosts the service you want to describe.</para>
+        /// <para>The name of the cluster that hosts the service to describe. If you do not specify
+        /// a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para>A list of services you want to describe.</para>
+        /// <para>A list of services to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Services")]
         public System.String[] Service { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -69,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             if (this.Service != null)
             {
-                context.Services = new List<String>(this.Service);
+                context.Services = new List<System.String>(this.Service);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -82,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeServicesRequest();
+            var request = new Amazon.ECS.Model.DescribeServicesRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -127,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public List<String> Services { get; set; }
+            public System.String Cluster { get; set; }
+            public List<System.String> Services { get; set; }
         }
         
     }

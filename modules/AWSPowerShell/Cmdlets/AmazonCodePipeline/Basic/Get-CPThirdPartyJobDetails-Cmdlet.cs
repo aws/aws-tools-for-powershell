@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the GetThirdPartyJobDetails operation against AWS CodePipeline.", Operation = new[] {"GetThirdPartyJobDetails"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ThirdPartyJobDetails",
         "This cmdlet returns a ThirdPartyJobDetails object.",
-        "The service call response (type GetThirdPartyJobDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.GetThirdPartyJobDetailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCPThirdPartyJobDetailsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>The clientToken portion of the clientId and clientToken pair used to verify that the
@@ -53,16 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID used for identifying the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String JobId { get; set; }
-        
+        public System.String JobId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -87,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetThirdPartyJobDetailsRequest();
+            var request = new Amazon.CodePipeline.Model.GetThirdPartyJobDetailsRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -132,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String JobId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String JobId { get; set; }
         }
         
     }

@@ -66,10 +66,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the RegisterImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RegisterImage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RegisterImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RegisterImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Architecture
         /// <summary>
         /// <para>
         /// <para>The architecture of the AMI.</para><para>Default: For Amazon EBS-backed AMIs, <code>i386</code>. For instance store-backed
@@ -77,8 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ArchitectureValues Architecture { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.ArchitectureValues")]
+        public Amazon.EC2.ArchitectureValues Architecture { get; set; }
+        #endregion
         
+        #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>One or more block device mapping entries.</para>
@@ -87,31 +92,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("BlockDeviceMappings")]
         public Amazon.EC2.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for your AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter ImageLocation
         /// <summary>
         /// <para>
         /// <para>The full path to your AMI manifest in Amazon S3 storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ImageLocation { get; set; }
+        public System.String ImageLocation { get; set; }
+        #endregion
         
+        #region Parameter KernelId
         /// <summary>
         /// <para>
         /// <para>The ID of the kernel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KernelId { get; set; }
+        public System.String KernelId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>A name for your AMI.</para><para>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]),
@@ -120,24 +133,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter RamdiskId
         /// <summary>
         /// <para>
         /// <para>The ID of the RAM disk.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RamdiskId { get; set; }
+        public System.String RamdiskId { get; set; }
+        #endregion
         
+        #region Parameter RootDeviceName
         /// <summary>
         /// <para>
         /// <para>The name of the root device (for example, <code>/dev/sda1</code>, or <code>/dev/xvda</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RootDeviceName { get; set; }
+        public System.String RootDeviceName { get; set; }
+        #endregion
         
+        #region Parameter SriovNetSupport
         /// <summary>
         /// <para>
         /// <para>Set to <code>simple</code> to enable enhanced networking for the AMI and any instances
@@ -146,16 +165,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SriovNetSupport { get; set; }
+        public System.String SriovNetSupport { get; set; }
+        #endregion
         
+        #region Parameter VirtualizationType
         /// <summary>
         /// <para>
         /// <para>The type of virtualization.</para><para>Default: <code>paravirtual</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VirtualizationType { get; set; }
+        public System.String VirtualizationType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -163,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -184,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Architecture = this.Architecture;
             if (this.BlockDeviceMapping != null)
             {
-                context.BlockDeviceMappings = new List<BlockDeviceMapping>(this.BlockDeviceMapping);
+                context.BlockDeviceMappings = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
             context.Description = this.Description;
             context.ImageLocation = this.ImageLocation;
@@ -205,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterImageRequest();
+            var request = new Amazon.EC2.Model.RegisterImageRequest();
             
             if (cmdletContext.Architecture != null)
             {
@@ -282,16 +305,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public ArchitectureValues Architecture { get; set; }
-            public List<BlockDeviceMapping> BlockDeviceMappings { get; set; }
-            public String Description { get; set; }
-            public String ImageLocation { get; set; }
-            public String KernelId { get; set; }
-            public String Name { get; set; }
-            public String RamdiskId { get; set; }
-            public String RootDeviceName { get; set; }
-            public String SriovNetSupport { get; set; }
-            public String VirtualizationType { get; set; }
+            public Amazon.EC2.ArchitectureValues Architecture { get; set; }
+            public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMappings { get; set; }
+            public System.String Description { get; set; }
+            public System.String ImageLocation { get; set; }
+            public System.String KernelId { get; set; }
+            public System.String Name { get; set; }
+            public System.String RamdiskId { get; set; }
+            public System.String RootDeviceName { get; set; }
+            public System.String SriovNetSupport { get; set; }
+            public System.String VirtualizationType { get; set; }
         }
         
     }

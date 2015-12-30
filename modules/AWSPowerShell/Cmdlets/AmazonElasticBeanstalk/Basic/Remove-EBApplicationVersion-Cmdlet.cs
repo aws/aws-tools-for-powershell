@@ -38,18 +38,22 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DeleteApplicationVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"DeleteApplicationVersion"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteApplicationVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of the application to delete releases from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter DeleteSourceBundle
         /// <summary>
         /// <para>
         /// <para>Indicates whether to delete the associated source bundle from Amazon S3: </para><ul><li><code>true</code>: An attempt is made to delete the associated Amazon S3
@@ -58,23 +62,29 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean DeleteSourceBundle { get; set; }
+        public System.Boolean DeleteSourceBundle { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para> The label of the version to delete. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String VersionLabel { get; set; }
+        public System.String VersionLabel { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ApplicationName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -115,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteApplicationVersionRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DeleteApplicationVersionRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -166,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public Boolean? DeleteSourceBundle { get; set; }
-            public String VersionLabel { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.Boolean? DeleteSourceBundle { get; set; }
+            public System.String VersionLabel { get; set; }
         }
         
     }

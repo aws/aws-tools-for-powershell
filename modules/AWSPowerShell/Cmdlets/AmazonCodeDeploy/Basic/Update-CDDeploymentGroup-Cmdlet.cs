@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the UpdateDeploymentGroup operation against AWS CodeDeploy.", Operation = new[] {"UpdateDeploymentGroup"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.AutoScalingGroup",
         "This cmdlet returns a collection of AutoScalingGroup objects.",
-        "The service call response (type UpdateDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.UpdateDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The application name corresponding to the deployment group to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingGroup
         /// <summary>
         /// <para>
         /// <para>The replacement list of Auto Scaling groups to be included in the deployment group,
@@ -56,23 +60,29 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("AutoScalingGroups")]
         public System.String[] AutoScalingGroup { get; set; }
+        #endregion
         
+        #region Parameter CurrentDeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The current name of the existing deployment group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CurrentDeploymentGroupName { get; set; }
+        public System.String CurrentDeploymentGroupName { get; set; }
+        #endregion
         
+        #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
         /// <para>The replacement deployment configuration name to use, if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentConfigName { get; set; }
+        public System.String DeploymentConfigName { get; set; }
+        #endregion
         
+        #region Parameter Ec2TagFilter
         /// <summary>
         /// <para>
         /// <para>The replacement set of Amazon EC2 tags to filter on, if you want to change them.</para>
@@ -81,15 +91,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Ec2TagFilters")]
         public Amazon.CodeDeploy.Model.EC2TagFilter[] Ec2TagFilter { get; set; }
+        #endregion
         
+        #region Parameter NewDeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The new name of the deployment group, if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewDeploymentGroupName { get; set; }
+        public System.String NewDeploymentGroupName { get; set; }
+        #endregion
         
+        #region Parameter OnPremisesInstanceTagFilter
         /// <summary>
         /// <para>
         /// <para>The replacement set of on-premises instance tags for filter on, if you want to change
@@ -99,15 +113,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("OnPremisesInstanceTagFilters")]
         public Amazon.CodeDeploy.Model.TagFilter[] OnPremisesInstanceTagFilter { get; set; }
+        #endregion
         
+        #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
         /// <para>A replacement service role's ARN, if you want to change it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceRoleArn { get; set; }
+        public System.String ServiceRoleArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -136,18 +154,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.ApplicationName = this.ApplicationName;
             if (this.AutoScalingGroup != null)
             {
-                context.AutoScalingGroups = new List<String>(this.AutoScalingGroup);
+                context.AutoScalingGroups = new List<System.String>(this.AutoScalingGroup);
             }
             context.CurrentDeploymentGroupName = this.CurrentDeploymentGroupName;
             context.DeploymentConfigName = this.DeploymentConfigName;
             if (this.Ec2TagFilter != null)
             {
-                context.Ec2TagFilters = new List<EC2TagFilter>(this.Ec2TagFilter);
+                context.Ec2TagFilters = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.Ec2TagFilter);
             }
             context.NewDeploymentGroupName = this.NewDeploymentGroupName;
             if (this.OnPremisesInstanceTagFilter != null)
             {
-                context.OnPremisesInstanceTagFilters = new List<TagFilter>(this.OnPremisesInstanceTagFilter);
+                context.OnPremisesInstanceTagFilters = new List<Amazon.CodeDeploy.Model.TagFilter>(this.OnPremisesInstanceTagFilter);
             }
             context.ServiceRoleArn = this.ServiceRoleArn;
             
@@ -161,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDeploymentGroupRequest();
+            var request = new Amazon.CodeDeploy.Model.UpdateDeploymentGroupRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -230,14 +248,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public List<String> AutoScalingGroups { get; set; }
-            public String CurrentDeploymentGroupName { get; set; }
-            public String DeploymentConfigName { get; set; }
-            public List<EC2TagFilter> Ec2TagFilters { get; set; }
-            public String NewDeploymentGroupName { get; set; }
-            public List<TagFilter> OnPremisesInstanceTagFilters { get; set; }
-            public String ServiceRoleArn { get; set; }
+            public System.String ApplicationName { get; set; }
+            public List<System.String> AutoScalingGroups { get; set; }
+            public System.String CurrentDeploymentGroupName { get; set; }
+            public System.String DeploymentConfigName { get; set; }
+            public List<Amazon.CodeDeploy.Model.EC2TagFilter> Ec2TagFilters { get; set; }
+            public System.String NewDeploymentGroupName { get; set; }
+            public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
+            public System.String ServiceRoleArn { get; set; }
         }
         
     }

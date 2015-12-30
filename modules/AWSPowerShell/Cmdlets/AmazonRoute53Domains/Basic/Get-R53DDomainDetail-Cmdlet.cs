@@ -33,12 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DDomainDetail")]
     [OutputType("Amazon.Route53Domains.Model.GetDomainDetailResponse")]
-    [AWSCmdlet("Invokes the GetDomainDetail operation against AWS Route 53 Domains.", Operation = new[] {"GetDomainDetail"})]
+    [AWSCmdlet("Invokes the GetDomainDetail operation against Amazon Route 53 Domains.", Operation = new[] {"GetDomainDetail"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.GetDomainDetailResponse",
-        "This cmdlet returns a GetDomainDetailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53Domains.Model.GetDomainDetailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53DDomainDetailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -46,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
-        
+        public System.String DomainName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDomainDetailRequest();
+            var request = new Amazon.Route53Domains.Model.GetDomainDetailRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -112,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

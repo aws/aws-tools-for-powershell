@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>CC</ServiceNounPrefix>
+  <ServiceName>AWS CodeCommit</ServiceName>
   <ServiceNamespace>Amazon.CodeCommit</ServiceNamespace>
   <ServiceClientInterface>IAmazonCodeCommit</ServiceClientInterface>
   <ServiceClient>AmazonCodeCommitClient</ServiceClient>

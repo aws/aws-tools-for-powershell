@@ -41,26 +41,32 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the SetDesiredCapacity operation against Auto Scaling.", Operation = new[] {"SetDesiredCapacity"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetDesiredCapacityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.SetDesiredCapacityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetASDesiredCapacityCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
         /// <para>The number of EC2 instances that should be running in the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 DesiredCapacity { get; set; }
+        public System.Int32 DesiredCapacity { get; set; }
+        #endregion
         
+        #region Parameter HonorCooldown
         /// <summary>
         /// <para>
         /// <para>By default, <code>SetDesiredCapacity</code> overrides any cooldown period associated
@@ -70,15 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean HonorCooldown { get; set; }
+        public System.Boolean HonorCooldown { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetDesiredCapacityRequest();
+            var request = new Amazon.AutoScaling.Model.SetDesiredCapacityRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -171,9 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public Int32? DesiredCapacity { get; set; }
-            public Boolean? HonorCooldown { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.Int32? DesiredCapacity { get; set; }
+            public System.Boolean? HonorCooldown { get; set; }
         }
         
     }

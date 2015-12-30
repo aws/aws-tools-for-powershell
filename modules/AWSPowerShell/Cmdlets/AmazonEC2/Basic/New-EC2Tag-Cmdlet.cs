@@ -35,7 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information about tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
-    /// Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more
+    /// information about creating IAM policies that control users' access to resources based
+    /// on tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported
+    /// Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon Elastic
+    /// Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -43,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateTags operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateTags"})]
     [AWSCmdletOutput("None or Amazon.EC2.Model.Tag",
         "Returns the collection of Tag objects that were created when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2TagCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Resource
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more resources to tag. For example, ami-1a2b3c4d.</para>
@@ -55,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ResourceId","Resources")]
         public System.String[] Resource { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>One or more tags. The <code>value</code> parameter is required, but if you don't want
@@ -66,14 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Tags")]
         public Amazon.EC2.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of Tag objects that were created.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,11 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Resource != null)
             {
-                context.Resources = new List<String>(this.Resource);
+                context.Resources = new List<System.String>(this.Resource);
             }
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.EC2.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -118,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateTagsRequest();
+            var request = new Amazon.EC2.Model.CreateTagsRequest();
             
             if (cmdletContext.Resources != null)
             {
@@ -165,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Resources { get; set; }
-            public List<Tag> Tags { get; set; }
+            public List<System.String> Resources { get; set; }
+            public List<Amazon.EC2.Model.Tag> Tags { get; set; }
         }
         
     }

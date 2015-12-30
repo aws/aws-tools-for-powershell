@@ -34,18 +34,22 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [OutputType("Amazon.CodeDeploy.Model.StopDeploymentResponse")]
     [AWSCmdlet("Invokes the StopDeployment operation against AWS CodeDeploy.", Operation = new[] {"StopDeployment"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.StopDeploymentResponse",
-        "This cmdlet returns a StopDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CodeDeploy.Model.StopDeploymentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>The unique ID of a deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeploymentId { get; set; }
+        public System.String DeploymentId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -53,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -83,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new StopDeploymentRequest();
+            var request = new Amazon.CodeDeploy.Model.StopDeploymentRequest();
             
             if (cmdletContext.DeploymentId != null)
             {
@@ -124,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeploymentId { get; set; }
+            public System.String DeploymentId { get; set; }
         }
         
     }

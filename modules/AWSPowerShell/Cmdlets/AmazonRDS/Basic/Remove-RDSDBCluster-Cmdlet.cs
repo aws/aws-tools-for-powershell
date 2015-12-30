@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBCluster"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type DeleteDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.
@@ -57,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
@@ -68,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalDBSnapshotIdentifier { get; set; }
+        public System.String FinalDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SkipFinalSnapshot
         /// <summary>
         /// <para>
         /// <para> Determines whether a final DB cluster snapshot is created before the DB cluster is
@@ -80,8 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SkipFinalSnapshot { get; set; }
+        public System.Boolean SkipFinalSnapshot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -89,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -122,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBClusterRequest();
+            var request = new Amazon.RDS.Model.DeleteDBClusterRequest();
             
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -171,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterIdentifier { get; set; }
-            public String FinalDBSnapshotIdentifier { get; set; }
-            public Boolean? SkipFinalSnapshot { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String FinalDBSnapshotIdentifier { get; set; }
+            public System.Boolean? SkipFinalSnapshot { get; set; }
         }
         
     }

@@ -42,18 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [OutputType("Amazon.SimpleEmail.Model.DescribeReceiptRuleSetResponse")]
     [AWSCmdlet("Invokes the DescribeReceiptRuleSet operation against Amazon Simple Email Service.", Operation = new[] {"DescribeReceiptRuleSet"})]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.DescribeReceiptRuleSetResponse",
-        "This cmdlet returns a DescribeReceiptRuleSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SimpleEmail.Model.DescribeReceiptRuleSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RuleSetName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule set to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RuleSetName { get; set; }
-        
+        public System.String RuleSetName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeReceiptRuleSetRequest();
+            var request = new Amazon.SimpleEmail.Model.DescribeReceiptRuleSetRequest();
             
             if (cmdletContext.RuleSetName != null)
             {
@@ -118,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RuleSetName { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

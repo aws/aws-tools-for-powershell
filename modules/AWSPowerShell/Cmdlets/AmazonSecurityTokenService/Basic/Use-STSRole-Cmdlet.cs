@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// one set of long-term credentials in one account and then use temporary security credentials
     /// to access all the other accounts by assuming roles in those accounts. For more information
     /// about roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM
-    /// Roles (Delegation and Federation)</a> in <i>Using IAM</i>. 
+    /// Roles (Delegation and Federation)</a> in the <i>Using IAM</i>. 
     /// </para><para>
     /// For federation, you can, for example, grant single sign-on access to the AWS Management
     /// Console. If you already have an identity and authentication system in your corporate
@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// <code>AssumeRole</code> (and specify the role with the appropriate permissions) to
     /// get temporary security credentials for that user. With those temporary security credentials,
     /// you construct a sign-in URL that users can use to access the console. For more information,
-    /// see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html">Scenarios
-    /// for Granting Temporary Access</a> in <i>Using Temporary Security Credentials</i>.
-    /// 
+    /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction">Common
+    /// Scenarios for Temporary Credentials</a> in the <i>Using IAM</i>.
     /// </para><para>
     /// The temporary security credentials are valid for the duration that you specified when
     /// calling <code>AssumeRole</code>, which can be from 900 seconds (15 minutes) to 3600
@@ -71,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// you pass. This gives you a way to further restrict the permissions for the resulting
     /// temporary security credentials. You cannot use the passed policy to grant permissions
     /// that are in excess of those allowed by the access policy of the role that is being
-    /// assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions
-    /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in <i>Using
-    /// Temporary Security Credentials</i>.
+    /// assumed. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
+    /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>Using
+    /// IAM</i>.
     /// </para><para>
     /// To assume a role, your AWS account must be trusted by the role. The trust relationship
     /// is defined in the role's trust policy when the role is created. You must also have
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// a trust policy that tests for MFA authentication might look like the following example.
     /// </para><para><code>"Condition": {"Bool": {"aws:MultiFactorAuthPresent": true}}</code></para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html">Configuring
-    /// MFA-Protected API Access</a> in <i>Using IAM</i> guide.
+    /// MFA-Protected API Access</a> in the <i>Using IAM</i> guide.
     /// </para><para>
     /// To use MFA with <code>AssumeRole</code>, you pass values for the <code>SerialNumber</code>
     /// and <code>TokenCode</code> parameters. The <code>SerialNumber</code> value identifies
@@ -100,10 +99,12 @@ namespace Amazon.PowerShell.Cmdlets.STS
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleResponse")]
     [AWSCmdlet("Invokes the AssumeRole operation against AWS Security Token Service.", Operation = new[] {"AssumeRole"})]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleResponse",
-        "This cmdlet returns a AssumeRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.SecurityToken.Model.AssumeRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
         /// <para>The duration, in seconds, of the role session. The value can range from 900 seconds
@@ -113,8 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("DurationSeconds")]
-        public Int32 DurationInSeconds { get; set; }
+        public System.Int32 DurationInSeconds { get; set; }
+        #endregion
         
+        #region Parameter ExternalId
         /// <summary>
         /// <para>
         /// <para>A unique identifier that is used by third parties when assuming roles in their customers'
@@ -123,14 +126,16 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// party generated. Each time the third party assumes the role, they should pass the
         /// customer's external ID. The external ID is useful in order to help third parties bind
         /// a role to the customer who created it. For more information about the external ID,
-        /// see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html">How
-        /// to Use External ID When Granting Access to Your AWS Resources</a> in <i>Using Temporary
-        /// Security Credentials</i>.</para>
+        /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How
+        /// to Use an External ID When Granting Access to Your AWS Resources to a Third Party</a>
+        /// in the <i>Using IAM</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String ExternalId { get; set; }
+        public System.String ExternalId { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// <para>An IAM policy in JSON format.</para><para>This parameter is optional. If you pass a policy, the temporary security credentials
@@ -139,25 +144,29 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// policy that you pass. This gives you a way to further restrict the permissions for
         /// the resulting temporary security credentials. You cannot use the passed policy to
         /// grant permissions that are in excess of those allowed by the access policy of the
-        /// role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html">Permissions
-        /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in <i>Using
-        /// Temporary Security Credentials</i>. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
+        /// role that is being assumed. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_assumerole.html">Permissions
+        /// for AssumeRole, AssumeRoleWithSAML, and AssumeRoleWithWebIdentity</a> in the <i>Using
+        /// IAM</i>.</para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
         /// compresses it into a packed binary format with a separate limit. The PackedPolicySize
         /// response element indicates by percentage how close to the upper size limit the policy
-        /// is, with 100% equaling the maximum allowed size. </note>
+        /// is, with 100% equaling the maximum allowed size.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
+        #endregion
         
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the role to assume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RoleArn { get; set; }
+        public System.String RoleArn { get; set; }
+        #endregion
         
+        #region Parameter RoleSessionName
         /// <summary>
         /// <para>
         /// <para>An identifier for the assumed role session. </para><para>Use the role session name to uniquely identity a session when the same role is assumed
@@ -169,8 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String RoleSessionName { get; set; }
+        public System.String RoleSessionName { get; set; }
+        #endregion
         
+        #region Parameter SerialNumber
         /// <summary>
         /// <para>
         /// <para>The identification number of the MFA device that is associated with the user who is
@@ -181,8 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SerialNumber { get; set; }
+        public System.String SerialNumber { get; set; }
+        #endregion
         
+        #region Parameter TokenCode
         /// <summary>
         /// <para>
         /// <para>The value provided by the MFA device, if the trust policy of the role being assumed
@@ -192,8 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TokenCode { get; set; }
+        public System.String TokenCode { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -201,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -238,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssumeRoleRequest();
+            var request = new Amazon.SecurityToken.Model.AssumeRoleRequest();
             
             if (cmdletContext.DurationInSeconds != null)
             {
@@ -303,13 +318,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? DurationInSeconds { get; set; }
-            public String ExternalId { get; set; }
-            public String Policy { get; set; }
-            public String RoleArn { get; set; }
-            public String RoleSessionName { get; set; }
-            public String SerialNumber { get; set; }
-            public String TokenCode { get; set; }
+            public System.Int32? DurationInSeconds { get; set; }
+            public System.String ExternalId { get; set; }
+            public System.String Policy { get; set; }
+            public System.String RoleArn { get; set; }
+            public System.String RoleSessionName { get; set; }
+            public System.String SerialNumber { get; set; }
+            public System.String TokenCode { get; set; }
         }
         
     }

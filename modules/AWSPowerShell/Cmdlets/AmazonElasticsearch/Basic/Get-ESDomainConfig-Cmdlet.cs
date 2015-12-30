@@ -36,18 +36,20 @@ namespace Amazon.PowerShell.Cmdlets.ES
     [AWSCmdlet("Invokes the DescribeElasticsearchDomainConfig operation against Amazon Elasticsearch.", Operation = new[] {"DescribeElasticsearchDomainConfig"})]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainConfig",
         "This cmdlet returns a ElasticsearchDomainConfig object.",
-        "The service call response (type DescribeElasticsearchDomainConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Elasticsearch.Model.DescribeElasticsearchDomainConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetESDomainConfigCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The Elasticsearch domain that you want to get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
-        
+        public System.String DomainName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeElasticsearchDomainConfigRequest();
+            var request = new Amazon.Elasticsearch.Model.DescribeElasticsearchDomainConfigRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -112,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

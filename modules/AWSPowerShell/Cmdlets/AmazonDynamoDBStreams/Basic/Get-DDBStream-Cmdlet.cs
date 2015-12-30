@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Invokes the DescribeStream operation against Amazon DynamoDB.", Operation = new[] {"DescribeStream"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.StreamDescription",
         "This cmdlet returns a StreamDescription object.",
-        "The service call response (type DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDDBStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartShardId
         /// <summary>
         /// <para>
         /// <para>The shard ID of the first item that this operation will evaluate. Use the value that
@@ -58,24 +60,28 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String ExclusiveStartShardId { get; set; }
+        public System.String ExclusiveStartShardId { get; set; }
+        #endregion
         
+        #region Parameter StreamArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String StreamArn { get; set; }
+        public System.String StreamArn { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of shard objects to return. The upper limit is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 Limit { get; set; }
-        
+        public System.Int32 Limit { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -102,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStreamRequest();
+            var request = new Amazon.DynamoDBv2.Model.DescribeStreamRequest();
             
             if (cmdletContext.ExclusiveStartShardId != null)
             {
@@ -151,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ExclusiveStartShardId { get; set; }
-            public Int32? Limit { get; set; }
-            public String StreamArn { get; set; }
+            public System.String ExclusiveStartShardId { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String StreamArn { get; set; }
         }
         
     }

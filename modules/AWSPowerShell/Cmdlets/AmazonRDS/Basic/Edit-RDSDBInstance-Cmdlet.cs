@@ -36,15 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type ModifyDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
         /// <para> The new storage capacity of the RDS instance. Changing this setting does not result
         /// in an outage and the change is applied during the next maintenance window unless <code>ApplyImmediately</code>
         /// is set to <code>true</code> for this request. </para><para><b>MySQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
+        /// that are not at least 10% greater than the existing value are rounded up so that they
+        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>MariaDB</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
         /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>PostgreSQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
         /// that are not at least 10% greater than the existing value are rounded up so that they
@@ -64,8 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 AllocatedStorage { get; set; }
+        public System.Int32 AllocatedStorage { get; set; }
+        #endregion
         
+        #region Parameter AllowMajorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> Indicates that major version upgrades are allowed. Changing this parameter does not
@@ -75,8 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowMajorVersionUpgrade { get; set; }
+        public System.Boolean AllowMajorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
         /// <para>Specifies whether the modifications in this request and any pending modifications
@@ -84,15 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// setting for the DB instance. </para><para> If this parameter is set to <code>false</code>, changes to the DB instance are applied
         /// during the next maintenance window. Some parameter changes can cause an outage and
         /// will be applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
-        /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying">Modifying
+        /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
         /// a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that
         /// setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has
         /// for each modified parameter and to determine when the changes will be applied. </para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ApplyImmediately { get; set; }
+        public System.Boolean ApplyImmediately { get; set; }
+        #endregion
         
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> Indicates that minor version upgrades will be applied automatically to the DB instance
@@ -104,8 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AutoMinorVersionUpgrade { get; set; }
+        public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days to retain automated backups. Setting this parameter to a positive
@@ -120,16 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BackupRetentionPeriod { get; set; }
+        public System.Int32 BackupRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter CACertificateIdentifier
         /// <summary>
         /// <para>
         /// <para> Indicates the certificate that needs to be associated with the instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CACertificateIdentifier { get; set; }
+        public System.String CACertificateIdentifier { get; set; }
+        #endregion
         
+        #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
         /// <para>True to copy all tags from the DB instance to snapshots of the DB instance; otherwise
@@ -137,8 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTagsToSnapshot { get; set; }
+        public System.Boolean CopyTagsToSnapshot { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
         /// <para> The new compute and memory capacity of the DB instance. To determine the instance
@@ -147,13 +165,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// during the next maintenance window, unless <code>ApplyImmediately</code> is specified
         /// as <code>true</code> for this request. </para><para>Default: Uses existing setting</para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
-        /// | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge
-        /// | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large</code></para>
+        /// | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge
+        /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
+        /// | db.t2.small | db.t2.medium | db.t2.large</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBInstanceClass { get; set; }
+        public System.String DBInstanceClass { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier. This value is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must be the identifier for an existing DB instance</li><li>Must contain
@@ -162,8 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB parameter group to apply to the DB instance. Changing this setting
@@ -175,8 +198,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DBParameterGroupName { get; set; }
+        public System.String DBParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter DBPortNumber
+        /// <summary>
+        /// <para>
+        /// <para> The port number on which the database accepts connections. </para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
+        /// values specified for options in the option group for the DB instance.</para><para>Your database will restart when you change the <code>DBPortNumber</code> value regardless
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
+        /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
+        /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 DBPortNumber { get; set; }
+        #endregion
+        
+        #region Parameter DBSecurityGroup
         /// <summary>
         /// <para>
         /// <para> A list of DB security groups to authorize on this DB instance. Changing this setting
@@ -188,7 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("DBSecurityGroups")]
         public System.String[] DBSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para> The version number of the database engine to upgrade to. Changing this parameter
@@ -201,8 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter Iops
         /// <summary>
         /// <para>
         /// <para> The new Provisioned IOPS (I/O operations per second) value for the RDS instance.
@@ -226,23 +269,55 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Iops { get; set; }
+        public System.Int32 Iops { get; set; }
+        #endregion
         
+        #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para> The new password for the DB instance master user. Can be any printable ASCII character
         /// except "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
-        /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL and Amazon Aurora), 8
-        /// to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL Server).</para><note> Amazon RDS API actions never return the password, so this action provides
+        /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora),
+        /// 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL
+        /// Server).</para><note> Amazon RDS API actions never return the password, so this action provides
         /// a way to regain access to a primary instance user if the password is lost. This includes
         /// restoring privileges that might have been accidentally revoked. </note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MasterUserPassword { get; set; }
+        public System.String MasterUserPassword { get; set; }
+        #endregion
         
+        #region Parameter MonitoringInterval
+        /// <summary>
+        /// <para>
+        /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
+        /// The default is 60.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MonitoringInterval { get; set; }
+        #endregion
+        
+        #region Parameter MonitoringRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
+        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
+        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MonitoringRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter MultiAZ
         /// <summary>
         /// <para>
         /// <para> Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does
@@ -254,8 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean MultiAZ { get; set; }
+        public System.Boolean MultiAZ { get; set; }
+        #endregion
         
+        #region Parameter NewDBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The new DB instance identifier for the DB instance when renaming a DB instance. When
@@ -268,8 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewDBInstanceIdentifier { get; set; }
+        public System.String NewDBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para> Indicates that the DB instance should be associated with the specified option group.
@@ -284,8 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
@@ -296,8 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredBackupWindow { get; set; }
+        public System.String PreferredBackupWindow { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para> The weekly time range (in UTC) during which system maintenance can occur, which might
@@ -311,8 +394,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter PubliclyAccessible
+        /// <summary>
+        /// <para>
+        /// <para>True to make the DB instance Internet-facing with a publicly resolvable DNS name,
+        /// which resolves to a public IP address. False to make the DB instance internal with
+        /// a DNS name that resolves to a private IP address. </para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
+        /// must be part of a public subnet and <code>PubliclyAccessible</code> must be true in
+        /// order for it to be publicly accessible. </para><para>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para> Default: false </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
         /// <summary>
         /// <para>
         /// <para> Specifies the storage type to be associated with the DB instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
@@ -321,8 +421,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StorageType { get; set; }
+        public System.String StorageType { get; set; }
+        #endregion
         
+        #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
         /// <para> The ARN from the Key Store with which to associate the instance for TDE encryption.
@@ -330,8 +432,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialArn { get; set; }
+        public System.String TdeCredentialArn { get; set; }
+        #endregion
         
+        #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
         /// <para> The password for the given ARN from the Key Store in order to access the device.
@@ -339,8 +443,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TdeCredentialPassword { get; set; }
+        public System.String TdeCredentialPassword { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A list of EC2 VPC security groups to authorize on this DB instance. This change is
@@ -351,7 +457,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -359,7 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -393,26 +501,33 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             context.DBParameterGroupName = this.DBParameterGroupName;
+            if (ParameterWasBound("DBPortNumber"))
+                context.DBPortNumber = this.DBPortNumber;
             if (this.DBSecurityGroup != null)
             {
-                context.DBSecurityGroups = new List<String>(this.DBSecurityGroup);
+                context.DBSecurityGroups = new List<System.String>(this.DBSecurityGroup);
             }
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
             context.MasterUserPassword = this.MasterUserPassword;
+            if (ParameterWasBound("MonitoringInterval"))
+                context.MonitoringInterval = this.MonitoringInterval;
+            context.MonitoringRoleArn = this.MonitoringRoleArn;
             if (ParameterWasBound("MultiAZ"))
                 context.MultiAZ = this.MultiAZ;
             context.NewDBInstanceIdentifier = this.NewDBInstanceIdentifier;
             context.OptionGroupName = this.OptionGroupName;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (ParameterWasBound("PubliclyAccessible"))
+                context.PubliclyAccessible = this.PubliclyAccessible;
             context.StorageType = this.StorageType;
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -425,7 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyDBInstanceRequest();
+            var request = new Amazon.RDS.Model.ModifyDBInstanceRequest();
             
             if (cmdletContext.AllocatedStorage != null)
             {
@@ -467,6 +582,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.DBParameterGroupName = cmdletContext.DBParameterGroupName;
             }
+            if (cmdletContext.DBPortNumber != null)
+            {
+                request.DBPortNumber = cmdletContext.DBPortNumber.Value;
+            }
             if (cmdletContext.DBSecurityGroups != null)
             {
                 request.DBSecurityGroups = cmdletContext.DBSecurityGroups;
@@ -482,6 +601,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MonitoringInterval != null)
+            {
+                request.MonitoringInterval = cmdletContext.MonitoringInterval.Value;
+            }
+            if (cmdletContext.MonitoringRoleArn != null)
+            {
+                request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
             }
             if (cmdletContext.MultiAZ != null)
             {
@@ -502,6 +629,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.PubliclyAccessible != null)
+            {
+                request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
             if (cmdletContext.StorageType != null)
             {
@@ -554,29 +685,33 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? AllocatedStorage { get; set; }
-            public Boolean? AllowMajorVersionUpgrade { get; set; }
-            public Boolean? ApplyImmediately { get; set; }
-            public Boolean? AutoMinorVersionUpgrade { get; set; }
-            public Int32? BackupRetentionPeriod { get; set; }
-            public String CACertificateIdentifier { get; set; }
-            public Boolean? CopyTagsToSnapshot { get; set; }
-            public String DBInstanceClass { get; set; }
-            public String DBInstanceIdentifier { get; set; }
-            public String DBParameterGroupName { get; set; }
-            public List<String> DBSecurityGroups { get; set; }
-            public String EngineVersion { get; set; }
-            public Int32? Iops { get; set; }
-            public String MasterUserPassword { get; set; }
-            public Boolean? MultiAZ { get; set; }
-            public String NewDBInstanceIdentifier { get; set; }
-            public String OptionGroupName { get; set; }
-            public String PreferredBackupWindow { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public String StorageType { get; set; }
-            public String TdeCredentialArn { get; set; }
-            public String TdeCredentialPassword { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Int32? AllocatedStorage { get; set; }
+            public System.Boolean? AllowMajorVersionUpgrade { get; set; }
+            public System.Boolean? ApplyImmediately { get; set; }
+            public System.Boolean? AutoMinorVersionUpgrade { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String CACertificateIdentifier { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
+            public System.String DBInstanceClass { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String DBParameterGroupName { get; set; }
+            public System.Int32? DBPortNumber { get; set; }
+            public List<System.String> DBSecurityGroups { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.Int32? Iops { get; set; }
+            public System.String MasterUserPassword { get; set; }
+            public System.Int32? MonitoringInterval { get; set; }
+            public System.String MonitoringRoleArn { get; set; }
+            public System.Boolean? MultiAZ { get; set; }
+            public System.String NewDBInstanceIdentifier { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String StorageType { get; set; }
+            public System.String TdeCredentialArn { get; set; }
+            public System.String TdeCredentialPassword { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

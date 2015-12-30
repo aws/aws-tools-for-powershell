@@ -57,8 +57,14 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="AWSSDK.APIGateway">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.APIGateway.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AutoScaling.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.AWSSupport.dll</HintPath>
@@ -111,6 +117,9 @@
     <Reference Include="AWSSDK.EC2">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ECR">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ECR.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ECS">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
@@ -132,8 +141,14 @@
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Inspector">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Inspector.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ImportExport">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ImportExport.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoT">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.IoT.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.KeyManagementService.dll</HintPath>
@@ -206,6 +221,12 @@
     </Reference>
     <Reference Include="AWSSDK.Elasticsearch">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.Elasticsearch.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WAF">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.WAF.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KinesisFirehose">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.KinesisFirehose.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

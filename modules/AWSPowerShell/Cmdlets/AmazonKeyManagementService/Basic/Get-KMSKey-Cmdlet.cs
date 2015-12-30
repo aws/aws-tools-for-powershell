@@ -35,10 +35,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the DescribeKey operation against AWS Key Management Service.", Operation = new[] {"DescribeKey"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.KeyMetadata",
         "This cmdlet returns a KeyMetadata object.",
-        "The service call response (type DescribeKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.DescribeKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GrantToken
+        /// <summary>
+        /// <para>
+        /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+        /// Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("GrantTokens")]
+        public System.String[] GrantToken { get; set; }
+        #endregion
+        
+        #region Parameter KeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key. This value can be a globally unique
@@ -48,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String KeyId { get; set; }
-        
+        public System.String KeyId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -61,6 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.GrantToken != null)
+            {
+                context.GrantTokens = new List<System.String>(this.GrantToken);
+            }
             context.KeyId = this.KeyId;
             
             var output = Execute(context) as CmdletOutput;
@@ -73,8 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeKeyRequest();
+            var request = new Amazon.KeyManagementService.Model.DescribeKeyRequest();
             
+            if (cmdletContext.GrantTokens != null)
+            {
+                request.GrantTokens = cmdletContext.GrantTokens;
+            }
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
@@ -114,7 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyId { get; set; }
+            public List<System.String> GrantTokens { get; set; }
+            public System.String KeyId { get; set; }
         }
         
     }

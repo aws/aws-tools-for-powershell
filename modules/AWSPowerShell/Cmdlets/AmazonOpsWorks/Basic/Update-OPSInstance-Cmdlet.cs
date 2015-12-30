@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateInstance operation against AWS OpsWorks.", Operation = new[] {"UpdateInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentVersion
         /// <summary>
         /// <para>
         /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li><code>INHERIT</code> - Use the stack's default agent version setting.</li><li><i>version_number</i> - Use the specified agent version. This value overrides
@@ -57,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AgentVersion { get; set; }
+        public System.String AgentVersion { get; set; }
+        #endregion
         
+        #region Parameter AmiId
         /// <summary>
         /// <para>
         /// <para>A custom AMI ID to be used to create the instance. The AMI must be based on one of
@@ -66,8 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AmiId { get; set; }
+        public System.String AmiId { get; set; }
+        #endregion
         
+        #region Parameter Architecture
         /// <summary>
         /// <para>
         /// <para>The instance architecture. Instance types do not necessarily support both architectures.
@@ -77,8 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Architecture Architecture { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.Architecture")]
+        public Amazon.OpsWorks.Architecture Architecture { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingType
         /// <summary>
         /// <para>
         /// <para>For load-based or time-based instances, the type. Windows stacks can use only time-based
@@ -86,24 +95,31 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public AutoScalingType AutoScalingType { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.AutoScalingType")]
+        public Amazon.OpsWorks.AutoScalingType AutoScalingType { get; set; }
+        #endregion
         
+        #region Parameter EbsOptimized
         /// <summary>
         /// <para>
         /// <para>This property cannot be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EbsOptimized { get; set; }
+        public System.Boolean EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The instance host name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Hostname { get; set; }
+        public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter InstallUpdatesOnBoot
         /// <summary>
         /// <para>
         /// <para>Whether to install operating system and package updates when the instance boots. The
@@ -116,16 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean InstallUpdatesOnBoot { get; set; }
+        public System.Boolean InstallUpdatesOnBoot { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type, such as <code>t2.micro</code>. For a list of supported instance
@@ -137,8 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceType { get; set; }
+        public System.String InstanceType { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The instance's layer IDs.</para>
@@ -147,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
+        #endregion
         
+        #region Parameter Os
         /// <summary>
         /// <para>
         /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
@@ -164,23 +188,29 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Os { get; set; }
+        public System.String Os { get; set; }
+        #endregion
         
+        #region Parameter SshKeyName
         /// <summary>
         /// <para>
         /// <para>The instance's Amazon EC2 key name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshKeyName { get; set; }
+        public System.String SshKeyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -188,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -219,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.InstanceType = this.InstanceType;
             if (this.LayerId != null)
             {
-                context.LayerIds = new List<String>(this.LayerId);
+                context.LayerIds = new List<System.String>(this.LayerId);
             }
             context.Os = this.Os;
             context.SshKeyName = this.SshKeyName;
@@ -234,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateInstanceRequest();
             
             if (cmdletContext.AgentVersion != null)
             {
@@ -321,18 +351,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AgentVersion { get; set; }
-            public String AmiId { get; set; }
-            public Architecture Architecture { get; set; }
-            public AutoScalingType AutoScalingType { get; set; }
-            public Boolean? EbsOptimized { get; set; }
-            public String Hostname { get; set; }
-            public Boolean? InstallUpdatesOnBoot { get; set; }
-            public String InstanceId { get; set; }
-            public String InstanceType { get; set; }
-            public List<String> LayerIds { get; set; }
-            public String Os { get; set; }
-            public String SshKeyName { get; set; }
+            public System.String AgentVersion { get; set; }
+            public System.String AmiId { get; set; }
+            public Amazon.OpsWorks.Architecture Architecture { get; set; }
+            public Amazon.OpsWorks.AutoScalingType AutoScalingType { get; set; }
+            public System.Boolean? EbsOptimized { get; set; }
+            public System.String Hostname { get; set; }
+            public System.Boolean? InstallUpdatesOnBoot { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String InstanceType { get; set; }
+            public List<System.String> LayerIds { get; set; }
+            public System.String Os { get; set; }
+            public System.String SshKeyName { get; set; }
         }
         
     }

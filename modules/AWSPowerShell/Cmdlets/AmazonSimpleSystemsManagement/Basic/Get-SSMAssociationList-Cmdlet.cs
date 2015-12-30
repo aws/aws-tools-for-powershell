@@ -28,18 +28,20 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the associations for the specified configuration document or instance.
+    /// Lists the associations for the specified SSM document or instance.
     /// </summary>
     [Cmdlet("Get", "SSMAssociationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Association")]
     [AWSCmdlet("Invokes the ListAssociations operation against Amazon Simple Systems Management.", Operation = new[] {"ListAssociations"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Association",
         "This cmdlet returns a collection of Association objects.",
-        "The service call response (type ListAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSSMAssociationListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationFilterList
         /// <summary>
         /// <para>
         /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public Amazon.SimpleSystemsManagement.Model.AssociationFilter[] AssociationFilterList { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this call. The call also returns a token
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -65,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -80,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             if (this.AssociationFilterList != null)
             {
-                context.AssociationFilterList = new List<AssociationFilter>(this.AssociationFilterList);
+                context.AssociationFilterList = new List<Amazon.SimpleSystemsManagement.Model.AssociationFilter>(this.AssociationFilterList);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -97,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListAssociationsRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.ListAssociationsRequest();
             if (cmdletContext.AssociationFilterList != null)
             {
                 request.AssociationFilterList = cmdletContext.AssociationFilterList;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 25;
@@ -219,9 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<AssociationFilter> AssociationFilterList { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.AssociationFilter> AssociationFilterList { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

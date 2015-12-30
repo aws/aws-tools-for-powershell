@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// users, groups, and roles that the policy is attached to. 
     /// </para><para>
     /// For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>Using IAM</i> guide. 
+    /// for Managed Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,37 +48,45 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreatePolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"CreatePolicyVersion"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.PolicyVersion",
         "This cmdlet returns a PolicyVersion object.",
-        "The service call response (type CreatePolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreatePolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
+        #endregion
         
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
         /// <para>The policy document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter SetAsDefault
         /// <summary>
         /// <para>
         /// <para>Specifies whether to set this version as the policy's default version.</para><para>When this parameter is <code>true</code>, the new policy version becomes the operative
         /// version; that is, the version that is in effect for the IAM users, groups, and roles
         /// that the policy is attached to.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-        /// for Managed Policies</a> in the <i>Using IAM</i> guide. </para>
+        /// for Managed Policies</a> in the <i>IAM User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SetAsDefault { get; set; }
+        public System.Boolean SetAsDefault { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -119,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePolicyVersionRequest();
+            var request = new Amazon.IdentityManagement.Model.CreatePolicyVersionRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -168,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
-            public String PolicyDocument { get; set; }
-            public Boolean? SetAsDefault { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public System.Boolean? SetAsDefault { get; set; }
         }
         
     }

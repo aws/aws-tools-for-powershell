@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketNotification operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketNotification"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketNotificationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter LambdaFunctionConfiguration
         /// <summary>
         /// <para>
         /// LambdaFunctionConfigurations are configuration for 
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("LambdaFunctionConfigurations")]
         public Amazon.S3.Model.LambdaFunctionConfiguration[] LambdaFunctionConfiguration { get; set; }
+        #endregion
         
+        #region Parameter QueueConfiguration
         /// <summary>
         /// <para>
         /// QueueConfigurations are configuration for Amazon S3 
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("QueueConfigurations")]
         public Amazon.S3.Model.QueueConfiguration[] QueueConfiguration { get; set; }
+        #endregion
         
+        #region Parameter TopicConfiguration
         /// <summary>
         /// <para>
         /// TopicConfigurations are configuration for Amazon S3 
@@ -76,14 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("TopicConfigurations")]
         public Amazon.S3.Model.TopicConfiguration[] TopicConfiguration { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -112,15 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             if (this.TopicConfiguration != null)
             {
-                context.TopicConfigurations = new List<TopicConfiguration>(this.TopicConfiguration);
+                context.TopicConfigurations = new List<Amazon.S3.Model.TopicConfiguration>(this.TopicConfiguration);
             }
             if (this.QueueConfiguration != null)
             {
-                context.QueueConfigurations = new List<QueueConfiguration>(this.QueueConfiguration);
+                context.QueueConfigurations = new List<Amazon.S3.Model.QueueConfiguration>(this.QueueConfiguration);
             }
             if (this.LambdaFunctionConfiguration != null)
             {
-                context.LambdaFunctionConfigurations = new List<LambdaFunctionConfiguration>(this.LambdaFunctionConfiguration);
+                context.LambdaFunctionConfigurations = new List<Amazon.S3.Model.LambdaFunctionConfiguration>(this.LambdaFunctionConfiguration);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -133,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketNotificationRequest();
+            var request = new Amazon.S3.Model.PutBucketNotificationRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -188,10 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public List<TopicConfiguration> TopicConfigurations { get; set; }
-            public List<QueueConfiguration> QueueConfigurations { get; set; }
-            public List<LambdaFunctionConfiguration> LambdaFunctionConfigurations { get; set; }
+            public System.String BucketName { get; set; }
+            public List<Amazon.S3.Model.TopicConfiguration> TopicConfigurations { get; set; }
+            public List<Amazon.S3.Model.QueueConfiguration> QueueConfigurations { get; set; }
+            public List<Amazon.S3.Model.LambdaFunctionConfiguration> LambdaFunctionConfigurations { get; set; }
         }
         
     }

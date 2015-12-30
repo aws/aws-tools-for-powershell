@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the GetDeployment operation against AWS CodeDeploy.", Operation = new[] {"GetDeployment"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.DeploymentInfo",
         "This cmdlet returns a DeploymentInfo object.",
-        "The service call response (type GetDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>An existing deployment ID associated with the applicable IAM user or AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeploymentId { get; set; }
-        
+        public System.String DeploymentId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDeploymentRequest();
+            var request = new Amazon.CodeDeploy.Model.GetDeploymentRequest();
             
             if (cmdletContext.DeploymentId != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeploymentId { get; set; }
+            public System.String DeploymentId { get; set; }
         }
         
     }

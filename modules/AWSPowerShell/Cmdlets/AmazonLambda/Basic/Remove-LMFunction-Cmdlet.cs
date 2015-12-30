@@ -32,8 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
-    /// When you delete a function the associated access policy is also deleted. You will
+    /// If you don't specify a function version, AWS Lambda will delete the function, including
+    /// all its versions, and any aliases pointing to the function versions.
+    /// </para><para>
+    /// When you delete a function the associated resource policy is also deleted. You will
     /// need to delete the event source mappings explicitly.
+    /// </para><para>
+    /// For information about function versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html">AWS
+    /// Lambda Function Versioning and Aliases</a>.
     /// </para><para>
     /// This operation requires permission for the <code>lambda:DeleteFunction</code> action.
     /// </para>
@@ -43,10 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the DeleteFunction operation against Amazon Lambda.", Operation = new[] {"DeleteFunction"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Lambda.Model.DeleteFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The Lambda function to delete.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -57,15 +65,37 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>Using this optional parameter you can specify a function version (but not the $LATEST
+        /// version) to direct AWS Lambda to delete a specific function version. If the function
+        /// version has one or more aliases pointing to it, you will get an error because you
+        /// cannot have aliases pointing to it. You can delete any function version but not the
+        /// $LATEST, that is, you cannot specify $LATEST as the value of this parameter. The $LATEST
+        /// version can be deleted only when you want to delete all the function versions and
+        /// aliases.</para><para>You can only specify a function version and not alias name using this parameter. You
+        /// cannot delete a function version using its alias.</para><para>If you don't specify this parameter, AWS Lambda will delete the function, including
+        /// all its versions and aliases.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Qualifier { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the FunctionName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -92,6 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            context.Qualifier = this.Qualifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -103,11 +134,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteFunctionRequest();
+            var request = new Amazon.Lambda.Model.DeleteFunctionRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             
             CmdletOutput output;
@@ -146,7 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
         }
         
     }

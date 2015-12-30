@@ -28,17 +28,15 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Associates the specified configuration document with the specified instance.
+    /// Associates the specified SSM document with the specified instance.
     /// 
     ///  
     /// <para>
-    /// When you associate a configuration document with an instance, the configuration agent
-    /// on the instance processes the configuration document and configures the instance as
-    /// specified.
+    /// When you associate an SSM document with an instance, the configuration agent on the
+    /// instance processes the document and configures the instance as specified.
     /// </para><para>
-    /// If you associate a configuration document with an instance that already has an associated
-    /// configuration document, we replace the current configuration document with the new
-    /// configuration document.
+    /// If you associate a document with an instance that already has an associated document,
+    /// the system throws the AssociationAlreadyExists exception.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,26 +44,43 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the CreateAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"CreateAssociation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
         "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type CreateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance.</para>
+        /// <para>The Windows Server instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// The parameters for the documents runtime configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Parameters")]
+        public System.Collections.Hashtable Parameter { get; set; }
+        #endregion
+        
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,6 +108,26 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             context.InstanceId = this.InstanceId;
             context.Name = this.Name;
+            if (this.Parameter != null)
+            {
+                context.Parameters = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Parameter.Keys)
+                {
+                    object hashValue = this.Parameter[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Parameters.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((String)s);
+                    }
+                    context.Parameters.Add((String)hashKey, valueSet);
+                }
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -104,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -113,6 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Parameters != null)
+            {
+                request.Parameters = cmdletContext.Parameters;
             }
             
             CmdletOutput output;
@@ -149,8 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String Name { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
+            public Dictionary<System.String, List<System.String>> Parameters { get; set; }
         }
         
     }

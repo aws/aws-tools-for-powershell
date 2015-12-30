@@ -36,6 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  This is an asynchronous call. If all the required information is provided, this API
     /// will initiate an export task and respond with the task Id. Once started, <code>DescribeExportTasks</code>
     /// can be used to get the status of an export task. 
+    /// </para><para>
+    ///  You can export logs from multiple log groups or multiple time ranges to the same
+    /// Amazon S3 bucket. To separate out log data for each export task, you can specify a
+    /// prefix that will be used as the Amazon S3 key prefix for all exported objects. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWLExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -43,19 +47,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the CreateExportTask operation against Amazon CloudWatch Logs.", Operation = new[] {"CreateExportTask"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.CreateExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCWLExportTaskCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>Name of Amazon S3 bucket to which the log data will be exported. <b>NOTE: Only buckets
-        /// in the same AWS region are supported</b></para>
+        /// <para>Name of Amazon S3 bucket to which the log data will be exported.</para><para><b>NOTE: Only buckets in the same AWS region are supported</b></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Destination { get; set; }
+        public System.String Destination { get; set; }
+        #endregion
         
+        #region Parameter DestinationPrefix
         /// <summary>
         /// <para>
         /// <para>Prefix that will be used as the start of Amazon S3 key for every object exported.
@@ -63,25 +70,32 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationPrefix { get; set; }
+        public System.String DestinationPrefix { get; set; }
+        #endregion
         
+        #region Parameter From
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the start time of the range for the request. Events with
-        /// a timestamp prior to this time will not be exported.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. It indicates the start time of the range for the request. Events with a timestamp
+        /// prior to this time will not be exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 From { get; set; }
+        public System.Int64 From { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the log group to export.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamNamePrefix
         /// <summary>
         /// <para>
         /// <para>Will only export log streams that match the provided logStreamNamePrefix. If you don't
@@ -89,25 +103,32 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LogStreamNamePrefix { get; set; }
+        public System.String LogStreamNamePrefix { get; set; }
+        #endregion
         
+        #region Parameter TaskName
         /// <summary>
         /// <para>
         /// <para>The name of the export task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TaskName { get; set; }
+        public System.String TaskName { get; set; }
+        #endregion
         
+        #region Parameter To
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the end time of the range for the request. Events with
-        /// a timestamp later than this time will not be exported.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. It indicates the end time of the range for the request. Events with a timestamp
+        /// later than this time will not be exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 To { get; set; }
+        public System.Int64 To { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -153,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateExportTaskRequest();
+            var request = new Amazon.CloudWatchLogs.Model.CreateExportTaskRequest();
             
             if (cmdletContext.Destination != null)
             {
@@ -218,13 +239,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Destination { get; set; }
-            public String DestinationPrefix { get; set; }
-            public Int64? From { get; set; }
-            public String LogGroupName { get; set; }
-            public String LogStreamNamePrefix { get; set; }
-            public String TaskName { get; set; }
-            public Int64? To { get; set; }
+            public System.String Destination { get; set; }
+            public System.String DestinationPrefix { get; set; }
+            public System.Int64? From { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String LogStreamNamePrefix { get; set; }
+            public System.String TaskName { get; set; }
+            public System.Int64? To { get; set; }
         }
         
     }

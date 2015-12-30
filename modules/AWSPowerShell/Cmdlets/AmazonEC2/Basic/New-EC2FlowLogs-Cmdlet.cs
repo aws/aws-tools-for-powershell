@@ -45,10 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateFlowLogsResponse")]
     [AWSCmdlet("Invokes the CreateFlowLogs operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateFlowLogs"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFlowLogsResponse",
-        "This cmdlet returns a CreateFlowLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.CreateFlowLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2FlowLogsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
@@ -57,24 +59,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter DeliverLogsPermissionArn
         /// <summary>
         /// <para>
         /// <para>The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliverLogsPermissionArn { get; set; }
+        public System.String DeliverLogsPermissionArn { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the CloudWatch log group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>One or more subnet, network interface, or VPC IDs.</para>
@@ -83,23 +91,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceIds")]
         public System.String[] ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The type of resource on which to create the flow log.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public FlowLogsResourceType ResourceType { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.FlowLogsResourceType")]
+        public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
+        #endregion
         
+        #region Parameter TrafficType
         /// <summary>
         /// <para>
         /// <para>The type of traffic to log.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TrafficType TrafficType { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.TrafficType")]
+        public Amazon.EC2.TrafficType TrafficType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -107,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -130,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LogGroupName = this.LogGroupName;
             if (this.ResourceId != null)
             {
-                context.ResourceIds = new List<String>(this.ResourceId);
+                context.ResourceIds = new List<System.String>(this.ResourceId);
             }
             context.ResourceType = this.ResourceType;
             context.TrafficType = this.TrafficType;
@@ -145,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateFlowLogsRequest();
+            var request = new Amazon.EC2.Model.CreateFlowLogsRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -206,12 +222,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String DeliverLogsPermissionArn { get; set; }
-            public String LogGroupName { get; set; }
-            public List<String> ResourceIds { get; set; }
-            public FlowLogsResourceType ResourceType { get; set; }
-            public TrafficType TrafficType { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String DeliverLogsPermissionArn { get; set; }
+            public System.String LogGroupName { get; set; }
+            public List<System.String> ResourceIds { get; set; }
+            public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
+            public Amazon.EC2.TrafficType TrafficType { get; set; }
         }
         
     }

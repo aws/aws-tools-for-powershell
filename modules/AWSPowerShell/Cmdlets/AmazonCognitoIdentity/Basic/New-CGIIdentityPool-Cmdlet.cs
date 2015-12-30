@@ -38,18 +38,23 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     [OutputType("Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse")]
     [AWSCmdlet("Invokes the CreateIdentityPool operation against Amazon Cognito Identity.", Operation = new[] {"CreateIdentityPool"})]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse",
-        "This cmdlet returns a CreateIdentityPoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowUnauthenticatedIdentity
         /// <summary>
         /// <para>
         /// <para>TRUE if the identity pool supports unauthenticated logins.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowUnauthenticatedIdentities { get; set; }
+        [Alias("AllowUnauthenticatedIdentities")]
+        public System.Boolean AllowUnauthenticatedIdentity { get; set; }
+        #endregion
         
+        #region Parameter DeveloperProviderName
         /// <summary>
         /// <para>
         /// <para>The "domain" by which Cognito will refer to your users. This name acts as a placeholder
@@ -60,16 +65,20 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeveloperProviderName { get; set; }
+        public System.String DeveloperProviderName { get; set; }
+        #endregion
         
+        #region Parameter IdentityPoolName
         /// <summary>
         /// <para>
         /// <para>A string that you provide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IdentityPoolName { get; set; }
+        public System.String IdentityPoolName { get; set; }
+        #endregion
         
+        #region Parameter OpenIdConnectProviderARNs
         /// <summary>
         /// <para>
         /// <para>A list of OpendID Connect provider ARNs.</para>
@@ -77,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] OpenIdConnectProviderARNs { get; set; }
+        #endregion
         
+        #region Parameter SupportedLoginProvider
         /// <summary>
         /// <para>
         /// <para>Optional key:value pairs mapping provider names to provider app IDs.</para>
@@ -86,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         [System.Management.Automation.Parameter]
         [Alias("SupportedLoginProviders")]
         public System.Collections.Hashtable SupportedLoginProvider { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -112,17 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("AllowUnauthenticatedIdentities"))
-                context.AllowUnauthenticatedIdentities = this.AllowUnauthenticatedIdentities;
+            if (ParameterWasBound("AllowUnauthenticatedIdentity"))
+                context.AllowUnauthenticatedIdentities = this.AllowUnauthenticatedIdentity;
             context.DeveloperProviderName = this.DeveloperProviderName;
             context.IdentityPoolName = this.IdentityPoolName;
             if (this.OpenIdConnectProviderARNs != null)
             {
-                context.OpenIdConnectProviderARNs = new List<String>(this.OpenIdConnectProviderARNs);
+                context.OpenIdConnectProviderARNs = new List<System.String>(this.OpenIdConnectProviderARNs);
             }
             if (this.SupportedLoginProvider != null)
             {
-                context.SupportedLoginProviders = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.SupportedLoginProviders = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SupportedLoginProvider.Keys)
                 {
                     context.SupportedLoginProviders.Add((String)hashKey, (String)(this.SupportedLoginProvider[hashKey]));
@@ -139,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateIdentityPoolRequest();
+            var request = new Amazon.CognitoIdentity.Model.CreateIdentityPoolRequest();
             
             if (cmdletContext.AllowUnauthenticatedIdentities != null)
             {
@@ -196,11 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowUnauthenticatedIdentities { get; set; }
-            public String DeveloperProviderName { get; set; }
-            public String IdentityPoolName { get; set; }
-            public List<String> OpenIdConnectProviderARNs { get; set; }
-            public Dictionary<String, String> SupportedLoginProviders { get; set; }
+            public System.Boolean? AllowUnauthenticatedIdentities { get; set; }
+            public System.String DeveloperProviderName { get; set; }
+            public System.String IdentityPoolName { get; set; }
+            public List<System.String> OpenIdConnectProviderARNs { get; set; }
+            public Dictionary<System.String, System.String> SupportedLoginProviders { get; set; }
         }
         
     }

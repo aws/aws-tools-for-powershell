@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the modifications made to your Reserved Instances. If no parameter is specified,
-    /// information about all your Reserved Instances modification requests is returned. If
+    /// Describes the modifications made to your Reserved instances. If no parameter is specified,
+    /// information about all your Reserved instances modification requests is returned. If
     /// a modification ID is specified, only information about the specific modification is
     /// returned.
     /// 
@@ -44,27 +44,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeReservedInstancesModifications operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeReservedInstancesModifications"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesModification",
         "This cmdlet returns a collection of ReservedInstancesModification objects.",
-        "The service call response (type DescribeReservedInstancesModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2ReservedInstancesModificationsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>client-token</code> - The idempotency token for the modification request.</para></li><li><para><code>create-date</code> - The time when the modification request was created.</para></li><li><para><code>effective-date</code> - The time when the modification becomes effective.</para></li><li><para><code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances
+        /// <para>One or more filters.</para><ul><li><para><code>client-token</code> - The idempotency token for the modification request.</para></li><li><para><code>create-date</code> - The time when the modification request was created.</para></li><li><para><code>effective-date</code> - The time when the modification becomes effective.</para></li><li><para><code>modification-result.reserved-instances-id</code> - The ID for the Reserved instances
         /// created as part of the modification request. This ID is only available when the status
         /// of the modification is <code>fulfilled</code>.</para></li><li><para><code>modification-result.target-configuration.availability-zone</code> - The Availability
-        /// Zone for the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-count </code> - The number
-        /// of new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-type</code> - The instance
-        /// type of the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.platform</code> - The network platform
-        /// of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</para></li><li><para><code>reserved-instances-modification-id</code> - The ID of the modification request.</para></li><li><para><code>status</code> - The status of the Reserved Instances modification request (<code>processing</code>
+        /// Zone for the new Reserved instances.</para></li><li><para><code>modification-result.target-configuration.instance-count </code> - The number
+        /// of new Reserved instances.</para></li><li><para><code>modification-result.target-configuration.instance-type</code> - The instance
+        /// type of the new Reserved instances.</para></li><li><para><code>modification-result.target-configuration.platform</code> - The network platform
+        /// of the new Reserved instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved instances modified.</para></li><li><para><code>reserved-instances-modification-id</code> - The ID of the modification request.</para></li><li><para><code>status</code> - The status of the Reserved instances modification request (<code>processing</code>
         /// | <code>fulfilled</code> | <code>failed</code>).</para></li><li><para><code>status-message</code> - The reason for the status.</para></li><li><para><code>update-date</code> - The time when the modification request was last updated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesModificationId
         /// <summary>
         /// <para>
         /// <para>IDs for the submitted modification request.</para>
@@ -73,15 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("ReservedInstancesModificationIds")]
         public System.String[] ReservedInstancesModificationId { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to retrieve the next page of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,12 +101,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             context.NextToken = this.NextToken;
             if (this.ReservedInstancesModificationId != null)
             {
-                context.ReservedInstancesModificationIds = new List<String>(this.ReservedInstancesModificationId);
+                context.ReservedInstancesModificationIds = new List<System.String>(this.ReservedInstancesModificationId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeReservedInstancesModificationsRequest();
+            var request = new Amazon.EC2.Model.DescribeReservedInstancesModificationsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -164,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public String NextToken { get; set; }
-            public List<String> ReservedInstancesModificationIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ReservedInstancesModificationIds { get; set; }
         }
         
     }

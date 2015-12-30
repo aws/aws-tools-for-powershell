@@ -39,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DescribeServiceAccessPolicies operation against Amazon CloudSearch.", Operation = new[] {"DescribeServiceAccessPolicies"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AccessPoliciesStatus",
         "This cmdlet returns a AccessPoliciesStatus object.",
-        "The service call response (type DescribeServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCSServiceAccessPolicyCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter Deployed
         /// <summary>
         /// <para>
         /// <para>Whether to display the deployed configuration (<code>true</code>) or include any pending
@@ -50,16 +52,18 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Deployed { get; set; }
+        public System.Boolean Deployed { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of the domain you want to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
-        
+        public System.String DomainName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeServiceAccessPoliciesRequest();
+            var request = new Amazon.CloudSearch.Model.DescribeServiceAccessPoliciesRequest();
             
             if (cmdletContext.Deployed != null)
             {
@@ -130,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Deployed { get; set; }
-            public String DomainName { get; set; }
+            public System.Boolean? Deployed { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

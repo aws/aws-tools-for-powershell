@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// the <b>Request Parameters</b> section for each parameter's default value. 
     /// </para></note><para>
     ///  For more information about using a password policy, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing
-    /// an IAM Password Policy</a> in the <i>Using IAM</i> guide. 
+    /// an IAM Password Policy</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMAccountPasswordPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,28 +44,34 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateAccountPasswordPolicy operation against AWS Identity and Access Management.", Operation = new[] {"UpdateAccountPasswordPolicy"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMAccountPasswordPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowUsersToChangePassword
         /// <summary>
         /// <para>
         /// <para> Allows all IAM users in your account to use the AWS Management Console to change
         /// their own passwords. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html">Letting
-        /// IAM Users Change Their Own Passwords</a> in the <i>Using IAM</i> guide. </para><para>Default value: false</para>
+        /// IAM Users Change Their Own Passwords</a> in the <i>IAM User Guide</i>. </para><para>Default value: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowUsersToChangePassword { get; set; }
+        public System.Boolean AllowUsersToChangePassword { get; set; }
+        #endregion
         
+        #region Parameter HardExpiry
         /// <summary>
         /// <para>
         /// <para>Prevents IAM users from setting a new password after their password has expired.</para><para>Default value: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean HardExpiry { get; set; }
+        public System.Boolean HardExpiry { get; set; }
+        #endregion
         
+        #region Parameter MaxPasswordAge
         /// <summary>
         /// <para>
         /// <para>The number of days that an IAM user password is valid. The default value of 0 means
@@ -73,16 +79,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MaxPasswordAge { get; set; }
+        public System.Int32 MaxPasswordAge { get; set; }
+        #endregion
         
+        #region Parameter MinimumPasswordLength
         /// <summary>
         /// <para>
         /// <para>The minimum number of characters allowed in an IAM user password.</para><para>Default value: 6</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MinimumPasswordLength { get; set; }
+        public System.Int32 MinimumPasswordLength { get; set; }
+        #endregion
         
+        #region Parameter PasswordReusePrevention
         /// <summary>
         /// <para>
         /// <para>Specifies the number of previous passwords that IAM users are prevented from reusing.
@@ -90,8 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 PasswordReusePrevention { get; set; }
+        public System.Int32 PasswordReusePrevention { get; set; }
+        #endregion
         
+        #region Parameter RequireLowercaseCharacter
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one lowercase character
@@ -99,8 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireLowercaseCharacters { get; set; }
+        [Alias("RequireLowercaseCharacters")]
+        public System.Boolean RequireLowercaseCharacter { get; set; }
+        #endregion
         
+        #region Parameter RequireNumber
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one numeric character (0
@@ -108,8 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireNumbers { get; set; }
+        [Alias("RequireNumbers")]
+        public System.Boolean RequireNumber { get; set; }
+        #endregion
         
+        #region Parameter RequireSymbol
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
@@ -117,8 +135,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireSymbols { get; set; }
+        [Alias("RequireSymbols")]
+        public System.Boolean RequireSymbol { get; set; }
+        #endregion
         
+        #region Parameter RequireUppercaseCharacter
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one uppercase character
@@ -126,8 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RequireUppercaseCharacters { get; set; }
+        [Alias("RequireUppercaseCharacters")]
+        public System.Boolean RequireUppercaseCharacter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -135,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -163,14 +187,14 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 context.MinimumPasswordLength = this.MinimumPasswordLength;
             if (ParameterWasBound("PasswordReusePrevention"))
                 context.PasswordReusePrevention = this.PasswordReusePrevention;
-            if (ParameterWasBound("RequireLowercaseCharacters"))
-                context.RequireLowercaseCharacters = this.RequireLowercaseCharacters;
-            if (ParameterWasBound("RequireNumbers"))
-                context.RequireNumbers = this.RequireNumbers;
-            if (ParameterWasBound("RequireSymbols"))
-                context.RequireSymbols = this.RequireSymbols;
-            if (ParameterWasBound("RequireUppercaseCharacters"))
-                context.RequireUppercaseCharacters = this.RequireUppercaseCharacters;
+            if (ParameterWasBound("RequireLowercaseCharacter"))
+                context.RequireLowercaseCharacters = this.RequireLowercaseCharacter;
+            if (ParameterWasBound("RequireNumber"))
+                context.RequireNumbers = this.RequireNumber;
+            if (ParameterWasBound("RequireSymbol"))
+                context.RequireSymbols = this.RequireSymbol;
+            if (ParameterWasBound("RequireUppercaseCharacter"))
+                context.RequireUppercaseCharacters = this.RequireUppercaseCharacter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -182,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAccountPasswordPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyRequest();
             
             if (cmdletContext.AllowUsersToChangePassword != null)
             {
@@ -255,15 +279,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowUsersToChangePassword { get; set; }
-            public Boolean? HardExpiry { get; set; }
-            public Int32? MaxPasswordAge { get; set; }
-            public Int32? MinimumPasswordLength { get; set; }
-            public Int32? PasswordReusePrevention { get; set; }
-            public Boolean? RequireLowercaseCharacters { get; set; }
-            public Boolean? RequireNumbers { get; set; }
-            public Boolean? RequireSymbols { get; set; }
-            public Boolean? RequireUppercaseCharacters { get; set; }
+            public System.Boolean? AllowUsersToChangePassword { get; set; }
+            public System.Boolean? HardExpiry { get; set; }
+            public System.Int32? MaxPasswordAge { get; set; }
+            public System.Int32? MinimumPasswordLength { get; set; }
+            public System.Int32? PasswordReusePrevention { get; set; }
+            public System.Boolean? RequireLowercaseCharacters { get; set; }
+            public System.Boolean? RequireNumbers { get; set; }
+            public System.Boolean? RequireSymbols { get; set; }
+            public System.Boolean? RequireUppercaseCharacters { get; set; }
         }
         
     }

@@ -47,18 +47,22 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeConfigurationSettings operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeConfigurationSettings"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ConfigurationSettingsDescription",
         "This cmdlet returns a collection of ConfigurationSettingsDescription objects.",
-        "The service call response (type DescribeConfigurationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeConfigurationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBConfigurationSettingCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The application for the environment or configuration template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the environment to describe. </para><para> Condition: You must specify either this or a TemplateName, but not both. If you specify
@@ -68,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para> The name of the configuration template to describe. </para><para> Conditional: You must specify either this parameter or an EnvironmentName, but not
@@ -79,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String TemplateName { get; set; }
-        
+        public System.String TemplateName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConfigurationSettingsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeConfigurationSettingsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -155,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String EnvironmentName { get; set; }
-            public String TemplateName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public System.String TemplateName { get; set; }
         }
         
     }

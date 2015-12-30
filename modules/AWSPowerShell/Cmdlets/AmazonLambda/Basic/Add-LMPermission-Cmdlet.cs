@@ -28,16 +28,23 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Adds a permission to the access policy associated with the specified AWS Lambda function.
-    /// In a "push event" model, the access policy attached to the Lambda function grants
-    /// Amazon S3 or a user application permission for the Lambda <code>lambda:Invoke</code>
-    /// action. For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS
-    /// Lambda: How it Works</a>. Each Lambda function has one access policy associated with
-    /// it. You can use the <code>AddPermission</code> API to add a permission to the policy.
-    /// You have one access policy but it can have multiple permission statements.
+    /// Adds a permission to the resource policy associated with the specified AWS Lambda
+    /// function. You use resource policies to grant permissions to event sources that use
+    /// "push" model. In "push" model, event sources (such as Amazon S3 and custom applications)
+    /// invoke your Lambda function. Each permission you add to the resource policy allows
+    /// an event source, permission to invoke the Lambda function. 
     /// 
     ///  
     /// <para>
+    /// For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS
+    /// Lambda: How it Works</a>. 
+    /// </para><para>
+    /// If you are using versioning feature (see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html">AWS
+    /// Lambda Function Versioning and Aliases</a>), a Lambda function can have multiple ARNs
+    /// that can be used to invoke the function. Note that, each permission you add to resource
+    /// policy using this API is specific to an ARN, specified using the <code>Qualifier</code>
+    /// parameter
+    /// </para><para>
     /// This operation requires permission for the <code>lambda:AddPermission</code> action.
     /// </para>
     /// </summary>
@@ -46,10 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the AddPermission operation against Amazon Lambda.", Operation = new[] {"AddPermission"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AddPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Lambda.Model.AddPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddLMPermissionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter Action
         /// <summary>
         /// <para>
         /// <para>The AWS Lambda action you want to allow in this statement. Each Lambda action is a
@@ -59,11 +68,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Action { get; set; }
+        public System.String Action { get; set; }
+        #endregion
         
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>Name of the Lambda function whose access policy you are updating by adding a new permission.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
+        /// <para>Name of the Lambda function whose resource policy you are updating by adding a new
+        /// permission.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
         /// specify Amazon Resource Name (ARN) of the function (for example, "arn:aws:lambda:us-west-2:account-id:function:ThumbNail").
         /// AWS Lambda also allows you to specify only the account ID qualifier (for example,
         /// "account-id:Thumbnail"). Note that the length constraint applies only to the ARN.
@@ -71,8 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The principal who is getting this permission. It can be Amazon S3 service Principal
@@ -83,8 +97,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Principal { get; set; }
+        public System.String Principal { get; set; }
+        #endregion
         
+        #region Parameter Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>You can specify this optional query parameter to specify function version or alias
+        /// name. The permission will then apply to the specific qualified ARN. For example, if
+        /// you specify function version 2 as the qualifier, then permission applies only when
+        /// request is made using qualified function ARN: </para><para><code>arn:aws:lambda:aws-region:acct-id:function:function-name:2</code></para><para>If you specify alias name, for example "PROD", then the permission is valid only for
+        /// requests made using the alias ARN:</para><para><code>arn:aws:lambda:aws-region:acct-id:function:function-name:PROD</code></para><para>If the qualifier is not specified, the permission is valid only when requests is made
+        /// using unqualified function ARN. </para><para><code>arn:aws:lambda:aws-region:acct-id:function:function-name</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Qualifier { get; set; }
+        #endregion
+        
+        #region Parameter SourceAccount
         /// <summary>
         /// <para>
         /// <para>The AWS account ID (without a hyphen) of the source owner. For example, if the <code>SourceArn</code>
@@ -96,8 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceAccount { get; set; }
+        public System.String SourceAccount { get; set; }
+        #endregion
         
+        #region Parameter SourceArn
         /// <summary>
         /// <para>
         /// <para>This is optional; however, when granting Amazon S3 permission to invoke your function,
@@ -109,16 +142,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceArn { get; set; }
+        public System.String SourceArn { get; set; }
+        #endregion
         
+        #region Parameter StatementId
         /// <summary>
         /// <para>
         /// <para>A unique statement identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StatementId { get; set; }
+        public System.String StatementId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -126,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -147,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.Action = this.Action;
             context.FunctionName = this.FunctionName;
             context.Principal = this.Principal;
+            context.Qualifier = this.Qualifier;
             context.SourceAccount = this.SourceAccount;
             context.SourceArn = this.SourceArn;
             context.StatementId = this.StatementId;
@@ -161,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddPermissionRequest();
+            var request = new Amazon.Lambda.Model.AddPermissionRequest();
             
             if (cmdletContext.Action != null)
             {
@@ -174,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Principal != null)
             {
                 request.Principal = cmdletContext.Principal;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             if (cmdletContext.SourceAccount != null)
             {
@@ -222,12 +264,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Action { get; set; }
-            public String FunctionName { get; set; }
-            public String Principal { get; set; }
-            public String SourceAccount { get; set; }
-            public String SourceArn { get; set; }
-            public String StatementId { get; set; }
+            public System.String Action { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Principal { get; set; }
+            public System.String Qualifier { get; set; }
+            public System.String SourceAccount { get; set; }
+            public System.String SourceArn { get; set; }
+            public System.String StatementId { get; set; }
         }
         
     }

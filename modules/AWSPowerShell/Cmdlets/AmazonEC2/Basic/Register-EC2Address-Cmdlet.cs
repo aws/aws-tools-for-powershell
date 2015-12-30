@@ -54,28 +54,37 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AssociateAddress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssociateAddress"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AssociateAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AssociateAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocationId
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AllocationId { get; set; }
+        public System.String AllocationId { get; set; }
+        #endregion
         
+        #region Parameter AllowReassociation
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] Allows an Elastic IP address that is already associated with an instance
-        /// or network interface to be re-associated with the specified instance or network interface.
-        /// Otherwise, the operation fails.</para><para>Default: <code>false</code></para>
+        /// <para>[EC2-VPC] For a VPC in an EC2-Classic account, specify true to allow an Elastic IP
+        /// address that is already associated with an instance or network interface to be reassociated
+        /// with the specified instance or network interface. Otherwise, the operation fails.
+        /// In a VPC in an EC2-VPC-only account, reassociation is automatic, therefore you can
+        /// specify false to ensure the operation fails if the Elastic IP address is already associated
+        /// with another resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowReassociation { get; set; }
+        public System.Boolean AllowReassociation { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify
@@ -84,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] The ID of the network interface. If the instance has more than one network
@@ -93,8 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] The primary or secondary private IP address to associate with the Elastic
@@ -103,16 +116,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PrivateIpAddress { get; set; }
+        public System.String PrivateIpAddress { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>The Elastic IP address. This is required for EC2-Classic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String PublicIp { get; set; }
+        public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -120,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -156,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssociateAddressRequest();
+            var request = new Amazon.EC2.Model.AssociateAddressRequest();
             
             if (cmdletContext.AllocationId != null)
             {
@@ -217,12 +234,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AllocationId { get; set; }
-            public Boolean? AllowReassociation { get; set; }
-            public String InstanceId { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public String PrivateIpAddress { get; set; }
-            public String PublicIp { get; set; }
+            public System.String AllocationId { get; set; }
+            public System.Boolean? AllowReassociation { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.String PrivateIpAddress { get; set; }
+            public System.String PublicIp { get; set; }
         }
         
     }

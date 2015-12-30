@@ -34,26 +34,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CancelImportTaskResponse")]
     [AWSCmdlet("Invokes the CancelImportTask operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelImportTask"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelImportTaskResponse",
-        "This cmdlet returns a CancelImportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.CancelImportTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEC2ImportTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CancelReason
         /// <summary>
         /// <para>
         /// <para>The reason for canceling the task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CancelReason { get; set; }
+        public System.String CancelReason { get; set; }
+        #endregion
         
+        #region Parameter ImportTaskId
         /// <summary>
         /// <para>
         /// <para>The ID of the import image or import snapshot task to be canceled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ImportTaskId { get; set; }
+        public System.String ImportTaskId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -92,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CancelImportTaskRequest();
+            var request = new Amazon.EC2.Model.CancelImportTaskRequest();
             
             if (cmdletContext.CancelReason != null)
             {
@@ -137,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CancelReason { get; set; }
-            public String ImportTaskId { get; set; }
+            public System.String CancelReason { get; set; }
+            public System.String ImportTaskId { get; set; }
         }
         
     }

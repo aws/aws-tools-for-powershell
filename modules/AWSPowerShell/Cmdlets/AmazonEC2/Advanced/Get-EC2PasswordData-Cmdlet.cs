@@ -34,26 +34,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("PasswordData", "string")]
     [AWSCmdlet("Invokes the GetPasswordData operation against Amazon Elastic Compute Cloud.", Operation = new [] {"GetPasswordData"})]
     [AWSCmdletOutput("PasswordData",
-        "If -Decrypt or -PemFile are not specified, returns PasswordData instance containing the encrypted password for later decryption.",
-        "The service response (type GetPasswordDataResponse) is added to the cmdlet entry in the $AWSHistory stack."
+        "If -Decrypt or -PemFile are not specified, returns a string containing the encrypted password for later decryption.",
+        "The service response (type Amazon.EC2.Model.GetPasswordDataResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     [AWSCmdletOutput("string", "If -Decrypt or -PemFile is specified, the decrypted password.")]
     public class GetEC2PasswordDataCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        #region Parameter InstanceId
         /// <summary>
-        /// <para>
         /// The ID of the instance for which to get the password.
-        /// </para>
         /// </summary>
         [Parameter(Position=0, ValueFromPipelineByPropertyName=true, Mandatory=true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
 
+        #region Parameter Decrypt
         /// <summary>
         /// If set, the instance password is decrypted and emitted to the pipeline as a string. 
         /// </summary>
         [Parameter]
         public SwitchParameter Decrypt { get; set; }
+        #endregion
 
+        #region Parameter PemFile 
         /// <summary>
         /// <para>
         /// The name of a .pem file containing the key materials corresponding to the keypair
@@ -65,12 +68,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// keypair materials from the local store maintained by the AWS Toolkit for Visual Studio, 
         /// if installed.
         /// </para>
-        /// <remarks>
+        /// <para>
         /// If -PemFile is specified, then -Decrypt is assumed.
-        /// </remarks>
+        /// </para>
         /// </summary>
         [Parameter]
-        public string PemFile { get; set; }
+        public System.String PemFile { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

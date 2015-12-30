@@ -50,10 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the RestoreFromClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"RestoreFromClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type RestoreFromClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.RestoreFromClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreRSFromClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> If <code>true</code>, major version upgrades can be applied during the maintenance
@@ -61,8 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowVersionUpgrade { get; set; }
+        public System.Boolean AllowVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AutomatedSnapshotRetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days that automated snapshots are retained. If the value is 0, automated
@@ -71,16 +75,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 AutomatedSnapshotRetentionPeriod { get; set; }
+        public System.Int32 AutomatedSnapshotRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para> The Amazon EC2 Availability Zone in which to restore the cluster. </para><para>Default: A random, system-chosen Availability Zone.</para><para>Example: <code>us-east-1a</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster that will be created from restoring the snapshot. </para><para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>Alphabetic
@@ -90,8 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the parameter group to be associated with this cluster. </para><para>Default: The default Amazon Redshift cluster parameter group. For information about
@@ -101,8 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClusterParameterGroupName { get; set; }
+        public System.String ClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter ClusterSecurityGroup
         /// <summary>
         /// <para>
         /// <para> A list of security groups to be associated with this cluster. </para><para> Default: The default cluster security group for Amazon Redshift. </para><para>Cluster security groups only apply to clusters outside of VPCs.</para>
@@ -111,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("ClusterSecurityGroups")]
         public System.String[] ClusterSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter ClusterSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the subnet group where you want to cluster restored. </para><para> A snapshot of cluster in VPC can be restored only in VPC. Therefore, you must provide
@@ -119,16 +133,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String ClusterSubnetGroupName { get; set; }
+        public System.String ClusterSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter ElasticIp
         /// <summary>
         /// <para>
         /// <para>The elastic IP (EIP) address for the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ElasticIp { get; set; }
+        public System.String ElasticIp { get; set; }
+        #endregion
         
+        #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses
@@ -136,8 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmClientCertificateIdentifier { get; set; }
+        public System.String HsmClientCertificateIdentifier { get; set; }
+        #endregion
         
+        #region Parameter HsmConfigurationIdentifier
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the HSM configuration that contains the information the Amazon
@@ -145,8 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String HsmConfigurationIdentifier { get; set; }
+        public System.String HsmConfigurationIdentifier { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
@@ -154,8 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter NodeType
         /// <summary>
         /// <para>
         /// <para> The node type that the restored cluster will be provisioned with.</para><para> Default: The node type of the cluster from which the snapshot was taken. You can
@@ -169,8 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NodeType { get; set; }
+        public System.String NodeType { get; set; }
+        #endregion
         
+        #region Parameter OwnerAccount
         /// <summary>
         /// <para>
         /// <para> The AWS customer account used to create or copy the snapshot. Required if you are
@@ -178,16 +204,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OwnerAccount { get; set; }
+        public System.String OwnerAccount { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the cluster accepts connections. </para><para>Default: The same port as the original cluster.</para><para>Constraints: Must be between <code>1115</code> and <code>65535</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para> The weekly time range (in UTC) during which automated cluster maintenance can occur.
@@ -197,16 +227,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
         /// <para> If <code>true</code>, the cluster can be accessed from a public network. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PubliclyAccessible { get; set; }
+        public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
         
+        #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The name of the cluster the source snapshot was created from. This parameter is required
@@ -215,8 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotClusterIdentifier { get; set; }
+        public System.String SnapshotClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The name of the snapshot from which to create the new cluster. This parameter isn't
@@ -224,8 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String SnapshotIdentifier { get; set; }
+        public System.String SnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
@@ -235,7 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -243,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -270,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ClusterParameterGroupName = this.ClusterParameterGroupName;
             if (this.ClusterSecurityGroup != null)
             {
-                context.ClusterSecurityGroups = new List<String>(this.ClusterSecurityGroup);
+                context.ClusterSecurityGroups = new List<System.String>(this.ClusterSecurityGroup);
             }
             context.ClusterSubnetGroupName = this.ClusterSubnetGroupName;
             context.ElasticIp = this.ElasticIp;
@@ -288,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -301,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreFromClusterSnapshotRequest();
+            var request = new Amazon.Redshift.Model.RestoreFromClusterSnapshotRequest();
             
             if (cmdletContext.AllowVersionUpgrade != null)
             {
@@ -414,25 +454,25 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowVersionUpgrade { get; set; }
-            public Int32? AutomatedSnapshotRetentionPeriod { get; set; }
-            public String AvailabilityZone { get; set; }
-            public String ClusterIdentifier { get; set; }
-            public String ClusterParameterGroupName { get; set; }
-            public List<String> ClusterSecurityGroups { get; set; }
-            public String ClusterSubnetGroupName { get; set; }
-            public String ElasticIp { get; set; }
-            public String HsmClientCertificateIdentifier { get; set; }
-            public String HsmConfigurationIdentifier { get; set; }
-            public String KmsKeyId { get; set; }
-            public String NodeType { get; set; }
-            public String OwnerAccount { get; set; }
-            public Int32? Port { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public Boolean? PubliclyAccessible { get; set; }
-            public String SnapshotClusterIdentifier { get; set; }
-            public String SnapshotIdentifier { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Boolean? AllowVersionUpgrade { get; set; }
+            public System.Int32? AutomatedSnapshotRetentionPeriod { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String ClusterParameterGroupName { get; set; }
+            public List<System.String> ClusterSecurityGroups { get; set; }
+            public System.String ClusterSubnetGroupName { get; set; }
+            public System.String ElasticIp { get; set; }
+            public System.String HsmClientCertificateIdentifier { get; set; }
+            public System.String HsmConfigurationIdentifier { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String NodeType { get; set; }
+            public System.String OwnerAccount { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String SnapshotClusterIdentifier { get; set; }
+            public System.String SnapshotIdentifier { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

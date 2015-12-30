@@ -47,33 +47,41 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the AttachElasticLoadBalancer operation against AWS OpsWorks.", Operation = new[] {"AttachElasticLoadBalancer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ElasticLoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AttachElasticLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.AttachElasticLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddOPSElasticLoadBalancerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter ElasticLoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The Elastic Load Balancing instance's name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ElasticLoadBalancerName { get; set; }
+        public System.String ElasticLoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>The ID of the layer that the Elastic Load Balancing instance is to be attached to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LayerId { get; set; }
+        public System.String LayerId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ElasticLoadBalancerName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -112,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachElasticLoadBalancerRequest();
+            var request = new Amazon.OpsWorks.Model.AttachElasticLoadBalancerRequest();
             
             if (cmdletContext.ElasticLoadBalancerName != null)
             {
@@ -159,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ElasticLoadBalancerName { get; set; }
-            public String LayerId { get; set; }
+            public System.String ElasticLoadBalancerName { get; set; }
+            public System.String LayerId { get; set; }
         }
         
     }

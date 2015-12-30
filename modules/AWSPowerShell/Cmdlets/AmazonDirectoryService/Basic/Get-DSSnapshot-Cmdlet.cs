@@ -45,19 +45,23 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the DescribeSnapshots operation against AWS Directory Service.", Operation = new[] {"DescribeSnapshots"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Snapshot",
         "This cmdlet returns a collection of Snapshot objects.",
-        "The service call response (type DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.DirectoryService.Model.DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to retrieve snapshot information for.</para>
+        /// <para>The identifier of the directory for which to retrieve snapshot information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>A list of identifiers of the snapshots to obtain the information for. If this member
@@ -68,15 +72,19 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("SnapshotIds")]
         public System.String[] SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of objects to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to <a>DescribeSnapshots</a>.
@@ -84,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.NextToken = this.NextToken;
             if (this.SnapshotId != null)
             {
-                context.SnapshotIds = new List<String>(this.SnapshotId);
+                context.SnapshotIds = new List<System.String>(this.SnapshotId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeSnapshotsRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeSnapshotsRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
@@ -171,10 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DirectoryId { get; set; }
-            public Int32? Limit { get; set; }
-            public String NextToken { get; set; }
-            public List<String> SnapshotIds { get; set; }
+            public System.String DirectoryId { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> SnapshotIds { get; set; }
         }
         
     }

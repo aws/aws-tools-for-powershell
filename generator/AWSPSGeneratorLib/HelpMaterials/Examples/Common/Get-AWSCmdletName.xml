@@ -86,4 +86,37 @@ Get-EC2Image            DescribeImages          Amazon Elastic Compute Cloud    
     </code>
     <description>Returns the name of the cmdlet that performs the same operation as the specified AWS CLI command. In this example, 'Get-EC2Image' is output. Any options (prefixed by --) in the AWS CLI command are ignored. The initial 'aws' can also be omitted. This format is useful when transcoding an AWS CLI sample to AWS PowerShell.</description>
   </example>
+  <example>
+	<code>
+PS C:\> Get-AWSCmdletName -Service ec2
+
+CmdletName                            ServiceOperation                       ServiceName
+----------                            ----------------                       -----------
+Add-EC2ClassicLinkVpc                 AttachClassicLinkVpc                   Amazon Elastic Compute Cloud
+Add-EC2InternetGateway                AttachInternetGateway                  Amazon Elastic Compute Cloud
+Add-EC2NetworkInterface               AttachNetworkInterface                 Amazon Elastic Compute Cloud
+...
+Get-ECSClusterDetail                  DescribeClusters                       Amazon EC2 Container Service
+Get-ECSClusters                       ListClusters                           Amazon EC2 Container Service
+Get-ECSClusterService                 ListServices                           Amazon EC2 Container Service
+...	
+	</code>
+	<description>Performs a search to list all cmdlets that have 'ec2' in either the service name or the cmdlet noun prefix. In this example this matches Amazon Elastic Compute Cloud (search term matches noun prefix) and Amazon EC2 Container Service (search term found in the name).</description>
+  </example>
+  <example>
+	<code>
+PS C:\> Get-AWSCmdletName -Service compute
+
+CmdletName                            ServiceOperation                       ServiceName
+----------                            ----------------                       -----------
+Add-EC2ClassicLinkVpc                 AttachClassicLinkVpc                   Amazon Elastic Compute Cloud
+Add-EC2InternetGateway                AttachInternetGateway                  Amazon Elastic Compute Cloud
+Add-EC2NetworkInterface               AttachNetworkInterface                 Amazon Elastic Compute Cloud
+...
+Unregister-EC2Image                   DeregisterImage                        Amazon Elastic Compute Cloud
+Unregister-EC2PrivateIpAddress        UnassignPrivateIpAddresses             Amazon Elastic Compute Cloud
+Unregister-EC2RouteTable              DisassociateRouteTable                 Amazon Elastic Compute Cloud
+	</code>
+	<description>Performs a search to list all cmdlets that have 'compute' in either the service name or the cmdlet noun prefix. In this example the match is for Amazon Elastic Compute Cloud only (search term found in the name).</description>
+  </example>
 </examples>

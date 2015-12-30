@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the GenerateRandom operation against AWS Key Management Service.", Operation = new[] {"GenerateRandom"})]
     [AWSCmdletOutput("System.IO.MemoryStream",
         "This cmdlet returns a MemoryStream object.",
-        "The service call response (type GenerateRandomResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.GenerateRandomResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSRandomCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NumberOfBytes
         /// <summary>
         /// <para>
         /// <para>Integer that contains the number of bytes to generate. Common values are 128, 256,
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public Int32 NumberOfBytes { get; set; }
+        public System.Int32 NumberOfBytes { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -86,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GenerateRandomRequest();
+            var request = new Amazon.KeyManagementService.Model.GenerateRandomRequest();
             
             if (cmdletContext.NumberOfBytes != null)
             {
@@ -127,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? NumberOfBytes { get; set; }
+            public System.Int32? NumberOfBytes { get; set; }
         }
         
     }

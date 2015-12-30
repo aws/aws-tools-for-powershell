@@ -28,7 +28,7 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Creates a new Amazon ECS cluster. By default, your account will receive a <code>default</code>
+    /// Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
     /// cluster when you launch your first container instance. However, you can create your
     /// own cluster with a unique name with the <code>CreateCluster</code> action.
     /// </summary>
@@ -37,20 +37,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the CreateCluster operation against Amazon EC2 Container Service.", Operation = new[] {"CreateCluster"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECSClusterCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>The name of your cluster. If you do not specify a name for your cluster, you will
-        /// create a cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase),
+        /// <para>The name of your cluster. If you do not specify a name for your cluster, you create
+        /// a cluster named <code>default</code>. Up to 255 letters (uppercase and lowercase),
         /// numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ClusterName { get; set; }
+        public System.String ClusterName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -88,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateClusterRequest();
+            var request = new Amazon.ECS.Model.CreateClusterRequest();
             
             if (cmdletContext.ClusterName != null)
             {
@@ -129,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterName { get; set; }
+            public System.String ClusterName { get; set; }
         }
         
     }

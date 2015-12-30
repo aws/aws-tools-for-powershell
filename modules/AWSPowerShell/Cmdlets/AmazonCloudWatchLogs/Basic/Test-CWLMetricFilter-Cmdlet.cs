@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the TestMetricFilter operation against Amazon CloudWatch Logs.", Operation = new[] {"TestMetricFilter"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.MetricFilterMatchRecord",
         "This cmdlet returns a collection of MetricFilterMatchRecord objects.",
-        "The service call response (type TestMetricFilterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.TestMetricFilterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class TestCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter FilterPattern
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String FilterPattern { get; set; }
+        public System.String FilterPattern { get; set; }
+        #endregion
         
+        #region Parameter LogEventMessage
         /// <summary>
         /// <para>
         /// <para>A list of log event messages to test.</para>
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("LogEventMessages")]
         public System.String[] LogEventMessage { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.FilterPattern = this.FilterPattern;
             if (this.LogEventMessage != null)
             {
-                context.LogEventMessages = new List<String>(this.LogEventMessage);
+                context.LogEventMessages = new List<System.String>(this.LogEventMessage);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -84,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TestMetricFilterRequest();
+            var request = new Amazon.CloudWatchLogs.Model.TestMetricFilterRequest();
             
             if (cmdletContext.FilterPattern != null)
             {
@@ -129,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FilterPattern { get; set; }
-            public List<String> LogEventMessages { get; set; }
+            public System.String FilterPattern { get; set; }
+            public List<System.String> LogEventMessages { get; set; }
         }
         
     }

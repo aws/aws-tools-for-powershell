@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the SetTimeBasedAutoScaling operation against AWS OpsWorks.", Operation = new[] {"SetTimeBasedAutoScaling"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetTimeBasedAutoScalingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetOPSTimeBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingSchedule_Friday
         /// <summary>
         /// <para>
         /// <para>The schedule for Friday.</para>
@@ -55,15 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Friday { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Monday
         /// <summary>
         /// <para>
         /// <para>The schedule for Monday.</para>
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Monday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Saturday
         /// <summary>
         /// <para>
         /// <para>The schedule for Saturday.</para>
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Saturday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Sunday
         /// <summary>
         /// <para>
         /// <para>The schedule for Sunday.</para>
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Sunday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Thursday
         /// <summary>
         /// <para>
         /// <para>The schedule for Thursday.</para>
@@ -95,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Thursday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Tuesday
         /// <summary>
         /// <para>
         /// <para>The schedule for Tuesday.</para>
@@ -103,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Tuesday { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingSchedule_Wednesday
         /// <summary>
         /// <para>
         /// <para>The schedule for Wednesday.</para>
@@ -111,14 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable AutoScalingSchedule_Wednesday { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -126,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -146,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.AutoScalingSchedule_Friday != null)
             {
-                context.AutoScalingSchedule_Friday = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AutoScalingSchedule_Friday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Friday.Keys)
                 {
                     context.AutoScalingSchedule_Friday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Friday[hashKey]));
@@ -154,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             }
             if (this.AutoScalingSchedule_Monday != null)
             {
-                context.AutoScalingSchedule_Monday = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AutoScalingSchedule_Monday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Monday.Keys)
                 {
                     context.AutoScalingSchedule_Monday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Monday[hashKey]));
@@ -162,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             }
             if (this.AutoScalingSchedule_Saturday != null)
             {
-                context.AutoScalingSchedule_Saturday = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AutoScalingSchedule_Saturday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Saturday.Keys)
                 {
                     context.AutoScalingSchedule_Saturday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Saturday[hashKey]));
@@ -170,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             }
             if (this.AutoScalingSchedule_Sunday != null)
             {
-                context.AutoScalingSchedule_Sunday = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AutoScalingSchedule_Sunday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Sunday.Keys)
                 {
                     context.AutoScalingSchedule_Sunday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Sunday[hashKey]));
@@ -178,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             }
             if (this.AutoScalingSchedule_Thursday != null)
             {
-                context.AutoScalingSchedule_Thursday = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AutoScalingSchedule_Thursday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Thursday.Keys)
                 {
                     context.AutoScalingSchedule_Thursday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Thursday[hashKey]));
@@ -186,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             }
             if (this.AutoScalingSchedule_Tuesday != null)
             {
-                context.AutoScalingSchedule_Tuesday = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AutoScalingSchedule_Tuesday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Tuesday.Keys)
                 {
                     context.AutoScalingSchedule_Tuesday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Tuesday[hashKey]));
@@ -194,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             }
             if (this.AutoScalingSchedule_Wednesday != null)
             {
-                context.AutoScalingSchedule_Wednesday = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.AutoScalingSchedule_Wednesday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Wednesday.Keys)
                 {
                     context.AutoScalingSchedule_Wednesday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Wednesday[hashKey]));
@@ -212,13 +232,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetTimeBasedAutoScalingRequest();
+            var request = new Amazon.OpsWorks.Model.SetTimeBasedAutoScalingRequest();
             
             
              // populate AutoScalingSchedule
             bool requestAutoScalingScheduleIsNull = true;
-            request.AutoScalingSchedule = new WeeklyAutoScalingSchedule();
-            Dictionary<String, String> requestAutoScalingSchedule_autoScalingSchedule_Friday = null;
+            request.AutoScalingSchedule = new Amazon.OpsWorks.Model.WeeklyAutoScalingSchedule();
+            Dictionary<System.String, System.String> requestAutoScalingSchedule_autoScalingSchedule_Friday = null;
             if (cmdletContext.AutoScalingSchedule_Friday != null)
             {
                 requestAutoScalingSchedule_autoScalingSchedule_Friday = cmdletContext.AutoScalingSchedule_Friday;
@@ -228,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AutoScalingSchedule.Friday = requestAutoScalingSchedule_autoScalingSchedule_Friday;
                 requestAutoScalingScheduleIsNull = false;
             }
-            Dictionary<String, String> requestAutoScalingSchedule_autoScalingSchedule_Monday = null;
+            Dictionary<System.String, System.String> requestAutoScalingSchedule_autoScalingSchedule_Monday = null;
             if (cmdletContext.AutoScalingSchedule_Monday != null)
             {
                 requestAutoScalingSchedule_autoScalingSchedule_Monday = cmdletContext.AutoScalingSchedule_Monday;
@@ -238,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AutoScalingSchedule.Monday = requestAutoScalingSchedule_autoScalingSchedule_Monday;
                 requestAutoScalingScheduleIsNull = false;
             }
-            Dictionary<String, String> requestAutoScalingSchedule_autoScalingSchedule_Saturday = null;
+            Dictionary<System.String, System.String> requestAutoScalingSchedule_autoScalingSchedule_Saturday = null;
             if (cmdletContext.AutoScalingSchedule_Saturday != null)
             {
                 requestAutoScalingSchedule_autoScalingSchedule_Saturday = cmdletContext.AutoScalingSchedule_Saturday;
@@ -248,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AutoScalingSchedule.Saturday = requestAutoScalingSchedule_autoScalingSchedule_Saturday;
                 requestAutoScalingScheduleIsNull = false;
             }
-            Dictionary<String, String> requestAutoScalingSchedule_autoScalingSchedule_Sunday = null;
+            Dictionary<System.String, System.String> requestAutoScalingSchedule_autoScalingSchedule_Sunday = null;
             if (cmdletContext.AutoScalingSchedule_Sunday != null)
             {
                 requestAutoScalingSchedule_autoScalingSchedule_Sunday = cmdletContext.AutoScalingSchedule_Sunday;
@@ -258,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AutoScalingSchedule.Sunday = requestAutoScalingSchedule_autoScalingSchedule_Sunday;
                 requestAutoScalingScheduleIsNull = false;
             }
-            Dictionary<String, String> requestAutoScalingSchedule_autoScalingSchedule_Thursday = null;
+            Dictionary<System.String, System.String> requestAutoScalingSchedule_autoScalingSchedule_Thursday = null;
             if (cmdletContext.AutoScalingSchedule_Thursday != null)
             {
                 requestAutoScalingSchedule_autoScalingSchedule_Thursday = cmdletContext.AutoScalingSchedule_Thursday;
@@ -268,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AutoScalingSchedule.Thursday = requestAutoScalingSchedule_autoScalingSchedule_Thursday;
                 requestAutoScalingScheduleIsNull = false;
             }
-            Dictionary<String, String> requestAutoScalingSchedule_autoScalingSchedule_Tuesday = null;
+            Dictionary<System.String, System.String> requestAutoScalingSchedule_autoScalingSchedule_Tuesday = null;
             if (cmdletContext.AutoScalingSchedule_Tuesday != null)
             {
                 requestAutoScalingSchedule_autoScalingSchedule_Tuesday = cmdletContext.AutoScalingSchedule_Tuesday;
@@ -278,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.AutoScalingSchedule.Tuesday = requestAutoScalingSchedule_autoScalingSchedule_Tuesday;
                 requestAutoScalingScheduleIsNull = false;
             }
-            Dictionary<String, String> requestAutoScalingSchedule_autoScalingSchedule_Wednesday = null;
+            Dictionary<System.String, System.String> requestAutoScalingSchedule_autoScalingSchedule_Wednesday = null;
             if (cmdletContext.AutoScalingSchedule_Wednesday != null)
             {
                 requestAutoScalingSchedule_autoScalingSchedule_Wednesday = cmdletContext.AutoScalingSchedule_Wednesday;
@@ -334,14 +354,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> AutoScalingSchedule_Friday { get; set; }
-            public Dictionary<String, String> AutoScalingSchedule_Monday { get; set; }
-            public Dictionary<String, String> AutoScalingSchedule_Saturday { get; set; }
-            public Dictionary<String, String> AutoScalingSchedule_Sunday { get; set; }
-            public Dictionary<String, String> AutoScalingSchedule_Thursday { get; set; }
-            public Dictionary<String, String> AutoScalingSchedule_Tuesday { get; set; }
-            public Dictionary<String, String> AutoScalingSchedule_Wednesday { get; set; }
-            public String InstanceId { get; set; }
+            public Dictionary<System.String, System.String> AutoScalingSchedule_Friday { get; set; }
+            public Dictionary<System.String, System.String> AutoScalingSchedule_Monday { get; set; }
+            public Dictionary<System.String, System.String> AutoScalingSchedule_Saturday { get; set; }
+            public Dictionary<System.String, System.String> AutoScalingSchedule_Sunday { get; set; }
+            public Dictionary<System.String, System.String> AutoScalingSchedule_Thursday { get; set; }
+            public Dictionary<System.String, System.String> AutoScalingSchedule_Tuesday { get; set; }
+            public Dictionary<System.String, System.String> AutoScalingSchedule_Wednesday { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

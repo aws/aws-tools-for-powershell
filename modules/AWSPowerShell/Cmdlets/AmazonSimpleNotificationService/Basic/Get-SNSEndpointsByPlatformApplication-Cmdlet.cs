@@ -43,19 +43,23 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the ListEndpointsByPlatformApplication operation against Amazon Simple Notification Service.", Operation = new[] {"ListEndpointsByPlatformApplication"})]
     [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.Endpoint",
         "This cmdlet returns a collection of Endpoint objects.",
-        "The service call response (type ListEndpointsByPlatformApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleNotificationService.Model.ListEndpointsByPlatformApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSNSEndpointsByPlatformApplicationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PlatformApplicationArn
         /// <summary>
         /// <para>
         /// <para>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PlatformApplicationArn { get; set; }
+        public System.String PlatformApplicationArn { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>NextToken string is used when calling ListEndpointsByPlatformApplication action to
@@ -63,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListEndpointsByPlatformApplicationRequest();
+            var request = new Amazon.SimpleNotificationService.Model.ListEndpointsByPlatformApplicationRequest();
             
             if (cmdletContext.PlatformApplicationArn != null)
             {
@@ -98,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -168,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public String PlatformApplicationArn { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String PlatformApplicationArn { get; set; }
         }
         
     }

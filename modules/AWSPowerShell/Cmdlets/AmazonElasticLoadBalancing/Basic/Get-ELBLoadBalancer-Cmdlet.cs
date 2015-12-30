@@ -36,11 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the DescribeLoadBalancers operation against Elastic Load Balancing.", Operation = new[] {"DescribeLoadBalancers"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.LoadBalancerDescription",
         "This cmdlet returns a collection of LoadBalancerDescription objects.",
-        "The service call response (type DescribeLoadBalancersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetELBLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The names of the load balancers.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("LoadBalancerNames")]
         public System.String[] LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter PageSize
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with this call (a number from 1 to 400). The
@@ -57,8 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 PageSize { get; set; }
+        public System.Int32 PageSize { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The marker for the next set of results. (You received this marker from a previous
@@ -66,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
-        
+        public System.String Marker { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -81,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.LoadBalancerName != null)
             {
-                context.LoadBalancerNames = new List<String>(this.LoadBalancerName);
+                context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("PageSize"))
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLoadBalancersRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.DescribeLoadBalancersRequest();
             
             if (cmdletContext.LoadBalancerNames != null)
             {
@@ -148,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> LoadBalancerNames { get; set; }
-            public String Marker { get; set; }
-            public Int32? PageSize { get; set; }
+            public List<System.String> LoadBalancerNames { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? PageSize { get; set; }
         }
         
     }

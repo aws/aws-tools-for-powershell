@@ -35,33 +35,41 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the UpdateApplication operation against AWS CodeDeploy.", Operation = new[] {"UpdateApplication"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.UpdateApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateCDApplicationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The current name of the application that you want to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter NewApplicationName
         /// <summary>
         /// <para>
         /// <para>The new name that you want to change the application to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewApplicationName { get; set; }
+        public System.String NewApplicationName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ApplicationName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateApplicationRequest();
+            var request = new Amazon.CodeDeploy.Model.UpdateApplicationRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -147,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String NewApplicationName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String NewApplicationName { get; set; }
         }
         
     }

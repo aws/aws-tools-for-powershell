@@ -2,13 +2,10 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>DP</ServiceNounPrefix>
+  <ServiceName>AWS Data Pipeline</ServiceName>
   <ServiceClientInterface>IAmazonDataPipeline</ServiceClientInterface>
   <ServiceClient>AmazonDataPipelineClient</ServiceClient>
   <ServiceNamespace>Amazon.DataPipeline</ServiceNamespace>
-
-  <RetainFullTypeNames>
-    <TypeName>Amazon.DataPipeline.Model.ParameterAttribute</TypeName> <!-- avoid collision with System.Management.Automation.ParameterAttribute -->
-  </RetainFullTypeNames>
 
   <PositionalParameters>PipelineId</PositionalParameters>
   <PipelineParameter>PipelineId</PipelineParameter>

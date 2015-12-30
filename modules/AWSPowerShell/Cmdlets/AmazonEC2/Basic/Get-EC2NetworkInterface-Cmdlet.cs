@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeNetworkInterfaces operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeNetworkInterfaces"})]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterface",
         "This cmdlet returns a collection of NetworkInterface objects.",
-        "The service call response (type DescribeNetworkInterfacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeNetworkInterfacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>addresses.private-ip-address</code> - The private IP addresses associated with
@@ -49,13 +51,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// interface was associated with an IP address.</para></li><li><para><code>association.allocation-id</code> - The allocation ID returned when you allocated
         /// the Elastic IP address for your network interface.</para></li><li><para><code>association.ip-owner-id</code> - The owner of the Elastic IP address associated
         /// with the network interface.</para></li><li><para><code>association.public-ip</code> - The address of the Elastic IP address bound to
-        /// the network interface.</para></li><li><para><code>association.public-dns-name</code> - The public DNS name for the network interface.</para></li><li><para><code>attachment.attachment-id</code> - The ID of the interface attachment.</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance to which the network
-        /// interface is attached.</para></li><li><para><code>attachment.instance-owner-id</code> - The owner ID of the instance to which
-        /// the network interface is attached.</para></li><li><para><code>attachment.device-index</code> - The device index to which the network interface
-        /// is attached.</para></li><li><para><code>attachment.status</code> - The status of the attachment (<code>attaching</code>
-        /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>attachment.attach.time</code> - The time that the network interface was attached
+        /// the network interface.</para></li><li><para><code>association.public-dns-name</code> - The public DNS name for the network interface.</para></li><li><para><code>attachment.attachment-id</code> - The ID of the interface attachment.</para></li><li><para><code>attachment.attach.time</code> - The time that the network interface was attached
         /// to an instance.</para></li><li><para><code>attachment.delete-on-termination</code> - Indicates whether the attachment is
-        /// deleted when an instance is terminated.</para></li><li><para><code>availability-zone</code> - The Availability Zone of the network interface.</para></li><li><para><code>description</code> - The description of the network interface.</para></li><li><para><code>group-id</code> - The ID of a security group associated with the network interface.</para></li><li><para><code>group-name</code> - The name of a security group associated with the network
+        /// deleted when an instance is terminated.</para></li><li><para><code>attachment.device-index</code> - The device index to which the network interface
+        /// is attached.</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance to which the network
+        /// interface is attached.</para></li><li><para><code>attachment.instance-owner-id</code> - The owner ID of the instance to which
+        /// the network interface is attached.</para></li><li><para><code>attachment.nat-gateway-id</code> - The ID of the NAT gateway to which the network
+        /// interface is attached.</para></li><li><para><code>attachment.status</code> - The status of the attachment (<code>attaching</code>
+        /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone of the network interface.</para></li><li><para><code>description</code> - The description of the network interface.</para></li><li><para><code>group-id</code> - The ID of a security group associated with the network interface.</para></li><li><para><code>group-name</code> - The name of a security group associated with the network
         /// interface.</para></li><li><para><code>mac-address</code> - The MAC address of the network interface.</para></li><li><para><code>network-interface-id</code> - The ID of the network interface.</para></li><li><para><code>owner-id</code> - The AWS account ID of the network interface owner.</para></li><li><para><code>private-ip-address</code> - The private IP address or addresses of the network
         /// interface.</para></li><li><para><code>private-dns-name</code> - The private DNS name of the network interface.</para></li><li><para><code>requester-id</code> - The ID of the entity that launched the instance on your
         /// behalf (for example, AWS Management Console, Auto Scaling, and so on).</para></li><li><para><code>requester-managed</code> - Indicates whether the network interface is being
@@ -63,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// so on).</para></li><li><para><code>source-desk-check</code> - Indicates whether the network interface performs
         /// source/destination checking. A value of <code>true</code> means checking is enabled,
         /// and <code>false</code> means checking is disabled. The value must be <code>false</code>
-        /// for the network interface to perform Network Address Translation (NAT) in your VPC.
+        /// for the network interface to perform network address translation (NAT) in your VPC.
         /// </para></li><li><para><code>status</code> - The status of the network interface. If the network interface
         /// is not attached to an instance, the status is <code>available</code>; if a network
         /// interface is attached to an instance the status is <code>in-use</code>.</para></li><li><para><code>subnet-id</code> - The ID of the subnet for the network interface.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
@@ -79,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>One or more network interface IDs.</para><para>Default: Describes all your network interfaces.</para>
@@ -88,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("NetworkInterfaceIds")]
         public System.String[] NetworkInterfaceId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -102,11 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.NetworkInterfaceId != null)
             {
-                context.NetworkInterfaceIds = new List<String>(this.NetworkInterfaceId);
+                context.NetworkInterfaceIds = new List<System.String>(this.NetworkInterfaceId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -119,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeNetworkInterfacesRequest();
+            var request = new Amazon.EC2.Model.DescribeNetworkInterfacesRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -164,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> NetworkInterfaceIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> NetworkInterfaceIds { get; set; }
         }
         
     }

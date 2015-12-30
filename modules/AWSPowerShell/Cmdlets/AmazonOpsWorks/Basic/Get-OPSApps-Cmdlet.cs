@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeApps operation against AWS OpsWorks.", Operation = new[] {"DescribeApps"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.App",
         "This cmdlet returns a collection of App objects.",
-        "The service call response (type DescribeAppsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeAppsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSAppsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppId
         /// <summary>
         /// <para>
         /// <para>An array of app IDs for the apps to be described. If you use this parameter, <code>DescribeApps</code>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("AppIds")]
         public System.String[] AppId { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The app stack ID. If you use this parameter, <code>DescribeApps</code> returns a description
@@ -65,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
-        
+        public System.String StackId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -80,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.AppId != null)
             {
-                context.AppIds = new List<String>(this.AppId);
+                context.AppIds = new List<System.String>(this.AppId);
             }
             context.StackId = this.StackId;
             
@@ -94,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAppsRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeAppsRequest();
             
             if (cmdletContext.AppIds != null)
             {
@@ -139,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AppIds { get; set; }
-            public String StackId { get; set; }
+            public List<System.String> AppIds { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

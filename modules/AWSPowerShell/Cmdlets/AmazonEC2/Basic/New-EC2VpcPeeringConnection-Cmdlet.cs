@@ -47,34 +47,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateVpcPeeringConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpcPeeringConnection"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcPeeringConnection",
         "This cmdlet returns a VpcPeeringConnection object.",
-        "The service call response (type CreateVpcPeeringConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVpcPeeringConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpcPeeringConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter PeerOwnerId
         /// <summary>
         /// <para>
         /// <para>The AWS account ID of the owner of the peer VPC.</para><para>Default: Your AWS account ID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PeerOwnerId { get; set; }
+        public System.String PeerOwnerId { get; set; }
+        #endregion
         
+        #region Parameter PeerVpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC with which you are creating the VPC peering connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String PeerVpcId { get; set; }
+        public System.String PeerVpcId { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the requester VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -114,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpcPeeringConnectionRequest();
+            var request = new Amazon.EC2.Model.CreateVpcPeeringConnectionRequest();
             
             if (cmdletContext.PeerOwnerId != null)
             {
@@ -163,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PeerOwnerId { get; set; }
-            public String PeerVpcId { get; set; }
-            public String VpcId { get; set; }
+            public System.String PeerOwnerId { get; set; }
+            public System.String PeerVpcId { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

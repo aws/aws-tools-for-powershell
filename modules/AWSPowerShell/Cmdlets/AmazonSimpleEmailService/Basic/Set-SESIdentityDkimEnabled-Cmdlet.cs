@@ -49,10 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the SetIdentityDkimEnabled operation against Amazon Simple Email Service.", Operation = new[] {"SetIdentityDkimEnabled"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetIdentityDkimEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSESIdentityDkimEnabledCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DkimEnabled
         /// <summary>
         /// <para>
         /// <para>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to
@@ -60,23 +62,29 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean DkimEnabled { get; set; }
+        public System.Boolean DkimEnabled { get; set; }
+        #endregion
         
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>The identity for which DKIM signing should be enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Identity { get; set; }
+        public System.String Identity { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Identity parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetIdentityDkimEnabledRequest();
+            var request = new Amazon.SimpleEmail.Model.SetIdentityDkimEnabledRequest();
             
             if (cmdletContext.DkimEnabled != null)
             {
@@ -163,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? DkimEnabled { get; set; }
-            public String Identity { get; set; }
+            public System.Boolean? DkimEnabled { get; set; }
+            public System.String Identity { get; set; }
         }
         
     }

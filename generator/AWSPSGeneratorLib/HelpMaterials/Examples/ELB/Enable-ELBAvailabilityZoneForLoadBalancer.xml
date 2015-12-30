@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Enable-ELBAvailabilityZoneForLoadBalancer -LoadBalancerName MyHTTPSLoadBalancer -AvailabilityZone "us-west-2a"</code>
-    <description>Adds a single Availability Zone to the set of zones for the specified load balancer.</description>
-  </example>
-  <example>
-    <code>Enable-ELBAvailabilityZoneForLoadBalancer -LoadBalancerName MyHTTPSLoadBalancer -AvailabilityZone @("us-west-2a","us-west-2b")</code>
-    <description>Adds the specified Availability Zones to the set of zones for the load balancer with name 'MyHTTPSLoadBalancer'.</description>
+    <code>PS C:\> Enable-ELBAvailabilityZoneForLoadBalancer -LoadBalancerName my-load-balancer -AvailabilityZone us-west-2a
+    
+us-west-2a
+us-west-2b</code>
+    <description>This example adds the specified Availability Zone to the specified load balancer. The output includes the complete list of Availability Zones.</description>
   </example>
 </examples>

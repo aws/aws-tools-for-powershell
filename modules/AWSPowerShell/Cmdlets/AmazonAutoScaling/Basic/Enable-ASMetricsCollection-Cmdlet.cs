@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the EnableMetricsCollection operation against Auto Scaling.", Operation = new[] {"EnableMetricsCollection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type EnableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.EnableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableASMetricsCollectionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter Granularity
         /// <summary>
         /// <para>
         /// <para>The granularity to associate with the metrics to collect. The only valid value is
@@ -60,25 +64,32 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Granularity { get; set; }
+        public System.String Granularity { get; set; }
+        #endregion
         
+        #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>One or more metrics. If you omit this parameter, all metrics are enabled.</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul><para>Note that the <code>GroupStandbyInstances</code> metric is not enabled by default.
+        /// <para>One or more of the following metrics. If you omit this parameter, all metrics are
+        /// enabled.</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul><para>Note that the <code>GroupStandbyInstances</code> metric is not enabled by default.
         /// You must explicitly request this metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Metrics")]
         public System.String[] Metric { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -108,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.Granularity = this.Granularity;
             if (this.Metric != null)
             {
-                context.Metrics = new List<String>(this.Metric);
+                context.Metrics = new List<System.String>(this.Metric);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -121,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableMetricsCollectionRequest();
+            var request = new Amazon.AutoScaling.Model.EnableMetricsCollectionRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -172,9 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public String Granularity { get; set; }
-            public List<String> Metrics { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.String Granularity { get; set; }
+            public List<System.String> Metrics { get; set; }
         }
         
     }

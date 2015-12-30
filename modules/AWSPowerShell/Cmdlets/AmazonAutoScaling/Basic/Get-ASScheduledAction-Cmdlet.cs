@@ -36,19 +36,23 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DescribeScheduledActions operation against Auto Scaling.", Operation = new[] {"DescribeScheduledActions"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.ScheduledUpdateGroupAction",
         "This cmdlet returns a collection of ScheduledUpdateGroupAction objects.",
-        "The service call response (type DescribeScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.AutoScaling.Model.DescribeScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetASScheduledActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The latest scheduled start time to return. If scheduled action names are provided,
@@ -56,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter ScheduledActionName
         /// <summary>
         /// <para>
         /// <para>Describes one or more scheduled actions. If you omit this list, the call describes
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ScheduledActionNames")]
         public System.String[] ScheduledActionName { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The earliest scheduled start time to return. If scheduled action names are provided,
@@ -78,8 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call.</para>
@@ -88,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -96,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -117,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.NextToken = this.NextToken;
             if (this.ScheduledActionName != null)
             {
-                context.ScheduledActionNames = new List<String>(this.ScheduledActionName);
+                context.ScheduledActionNames = new List<System.String>(this.ScheduledActionName);
             }
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -133,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeScheduledActionsRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeScheduledActionsRequest();
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
@@ -152,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -237,12 +249,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public DateTime? EndTime { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.DateTime? EndTime { get; set; }
             public int? MaxRecords { get; set; }
-            public String NextToken { get; set; }
-            public List<String> ScheduledActionNames { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ScheduledActionNames { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

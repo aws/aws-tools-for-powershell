@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  <important> You should understand the implications of changing a group's path or
     /// name. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming
-    /// Users and Groups</a> in the <i>Using IAM</i> guide. </important><note>To change a
+    /// Users and Groups</a> in the <i>IAM User Guide</i>. </important><note>To change a
     /// group name the requester must have appropriate permissions on both the source object
     /// and the target object. For example, to change Managers to MGRs, the entity making
     /// the request must have permission on Managers and MGRs, or must have permission on
@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateGroup operation against AWS Identity and Access Management.", Operation = new[] {"UpdateGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMGroupCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para> Name of the group to update. If you're changing the name of the group, this is the
@@ -54,31 +56,39 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
+        #endregion
         
+        #region Parameter NewGroupName
         /// <summary>
         /// <para>
         /// <para>New name for the group. Only include this if changing the group's name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String NewGroupName { get; set; }
+        public System.String NewGroupName { get; set; }
+        #endregion
         
+        #region Parameter NewPath
         /// <summary>
         /// <para>
         /// <para>New path for the group. Only include this if changing the group's path.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String NewPath { get; set; }
+        public System.String NewPath { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the GroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -118,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateGroupRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateGroupRequest();
             
             if (cmdletContext.GroupName != null)
             {
@@ -169,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupName { get; set; }
-            public String NewGroupName { get; set; }
-            public String NewPath { get; set; }
+            public System.String GroupName { get; set; }
+            public System.String NewGroupName { get; set; }
+            public System.String NewPath { get; set; }
         }
         
     }

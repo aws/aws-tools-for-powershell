@@ -38,72 +38,84 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the ListTasks operation against Amazon EC2 Container Service.", Operation = new[] {"ListTasks"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.ECS.Model.ListTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetECSTasksCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the tasks
-        /// you want to list. If you do not specify a cluster, the default cluster is assumed..</para>
+        /// to list. If you do not specify a cluster, the default cluster is assumed..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>The container instance UUID or full Amazon Resource Name (ARN) of the container instance
-        /// that you want to filter the <code>ListTasks</code> results with. Specifying a <code>containerInstance</code>
-        /// will limit the results to tasks that belong to that container instance.</para>
+        /// <para>The container instance ID or full Amazon Resource Name (ARN) of the container instance
+        /// with which to filter the <code>ListTasks</code> results. Specifying a <code>containerInstance</code>
+        /// limits the results to tasks that belong to that container instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContainerInstance { get; set; }
+        public System.String ContainerInstance { get; set; }
+        #endregion
         
+        #region Parameter DesiredStatus
         /// <summary>
         /// <para>
-        /// <para>The task status that you want to filter the <code>ListTasks</code> results with. Specifying
-        /// a <code>desiredStatus</code> of <code>STOPPED</code> will limit the results to tasks
-        /// that are in the <code>STOPPED</code> status, which can be useful for debugging tasks
-        /// that are not starting properly or have died or finished. The default status filter
-        /// is <code>RUNNING</code>.</para>
+        /// <para>The task status with which to filter the <code>ListTasks</code> results. Specifying
+        /// a <code>desiredStatus</code> of <code>STOPPED</code> limits the results to tasks that
+        /// are in the <code>STOPPED</code> status, which can be useful for debugging tasks that
+        /// are not starting properly or have died or finished. The default status filter is <code>RUNNING</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DesiredStatus DesiredStatus { get; set; }
+        [AWSConstantClassSource("Amazon.ECS.DesiredStatus")]
+        public Amazon.ECS.DesiredStatus DesiredStatus { get; set; }
+        #endregion
         
+        #region Parameter Family
         /// <summary>
         /// <para>
-        /// <para>The name of the family that you want to filter the <code>ListTasks</code> results
-        /// with. Specifying a <code>family</code> will limit the results to tasks that belong
-        /// to that family.</para>
+        /// <para>The name of the family with which to filter the <code>ListTasks</code> results. Specifying
+        /// a <code>family</code> limits the results to tasks that belong to that family.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Family { get; set; }
+        public System.String Family { get; set; }
+        #endregion
         
+        #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the service that you want to filter the <code>ListTasks</code> results
-        /// with. Specifying a <code>serviceName</code> will limit the results to tasks that belong
-        /// to that service.</para>
+        /// <para>The name of the service with which to filter the <code>ListTasks</code> results. Specifying
+        /// a <code>serviceName</code> limits the results to tasks that belong to that service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceName { get; set; }
+        public System.String ServiceName { get; set; }
+        #endregion
         
+        #region Parameter StartedBy
         /// <summary>
         /// <para>
-        /// <para>The <code>startedBy</code> value that you want to filter the task results with. Specifying
-        /// a <code>startedBy</code> value will limit the results to tasks that were started with
+        /// <para>The <code>startedBy</code> value with which to filter the task results. Specifying
+        /// a <code>startedBy</code> value limits the results to tasks that were started with
         /// that value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartedBy { get; set; }
+        public System.String StartedBy { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of task results returned by <code>ListTasks</code> in paginated
@@ -118,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListTasks</code>
@@ -129,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -163,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListTasksRequest();
+            var request = new Amazon.ECS.Model.ListTasksRequest();
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
@@ -190,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -275,14 +289,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public String ContainerInstance { get; set; }
-            public DesiredStatus DesiredStatus { get; set; }
-            public String Family { get; set; }
+            public System.String Cluster { get; set; }
+            public System.String ContainerInstance { get; set; }
+            public Amazon.ECS.DesiredStatus DesiredStatus { get; set; }
+            public System.String Family { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public String ServiceName { get; set; }
-            public String StartedBy { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String ServiceName { get; set; }
+            public System.String StartedBy { get; set; }
         }
         
     }

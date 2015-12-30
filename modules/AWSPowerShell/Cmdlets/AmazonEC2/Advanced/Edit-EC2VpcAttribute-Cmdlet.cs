@@ -30,44 +30,61 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ModifyVpcAttribute against Amazon Elastic Compute Cloud.", Operation = new [] {"ModifyVpcAttribute"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. Only one attribute can be modified per call."
-            + "The service response (type ModifyVpcAttributeResponse) is added to the cmdlet entry in the $AWSHistory stack."
+            + "The service response (type Amazon.EC2.Model.ModifyVpcAttributeResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEC2VpcAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         const string ParamSet_DnsSupport = "DnsSupportParamSet";
         const string ParamSet_DnsHostnames = "DnsHostnamesParamSet";
 
+        #region Parameter VpcId
         /// <summary>
-        /// <para>
-        /// VPC ID to modify.
-        /// </para>
+        /// The ID of the VPC to modify.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName=true, ValueFromPipeline = true, Mandatory = true)]
-        public String VpcId { get; set; }
-        
+        public System.String VpcId { get; set; }
+        #endregion
+
+        #region Parameter EnableDnsSupport
         /// <summary>
         /// <para>
-        /// Whether Dns is supported.
+        /// Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon 
+        /// provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC 
+        /// network range "plus two" will succeed. If disabled, the Amazon provided DNS service in the VPC that 
+        /// resolves public DNS hostnames to IP addresses is not enabled.
+        /// </para>
+        /// <para>
+        /// You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate 
+        /// requests for each attribute.
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_DnsSupport, Mandatory = true)]
-        public Boolean? EnableDnsSupport { get; set; }
-        
+        public System.Boolean? EnableDnsSupport { get; set; }
+        #endregion
+
+        #region Parameter EnableDnsHostnames
         /// <summary>
         /// <para>
-        /// Whether Dns hostnames are enabled.
+        /// Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the 
+        /// VPC get DNS hostnames; otherwise, they do not.
+        /// </para>
+        /// <para>
+        /// You cannot modify the DNS resolution and DNS hostnames attributes in the same request.Use separate requests for 
+        /// each attribute. Additionally you can only enable DNS hostnames if you've enabled DNS support.
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_DnsHostnames, Mandatory = true)]
-        public Boolean? EnableDnsHostnames { get; set; }
+        public System.Boolean? EnableDnsHostnames { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// This parameter overrides confirmation prompts to force the cmdlet to continue its operation. T
+        /// his parameter should always be used with caution.
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

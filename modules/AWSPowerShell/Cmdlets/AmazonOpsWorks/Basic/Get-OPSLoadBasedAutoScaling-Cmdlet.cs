@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeLoadBasedAutoScaling operation against AWS OpsWorks.", Operation = new[] {"DescribeLoadBasedAutoScaling"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.LoadBasedAutoScalingConfiguration",
         "This cmdlet returns a collection of LoadBasedAutoScalingConfiguration objects.",
-        "The service call response (type DescribeLoadBasedAutoScalingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeLoadBasedAutoScalingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSLoadBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>An array of layer IDs.</para>
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -69,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.LayerId != null)
             {
-                context.LayerIds = new List<String>(this.LayerId);
+                context.LayerIds = new List<System.String>(this.LayerId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -82,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLoadBasedAutoScalingRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeLoadBasedAutoScalingRequest();
             
             if (cmdletContext.LayerIds != null)
             {
@@ -123,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> LayerIds { get; set; }
+            public List<System.String> LayerIds { get; set; }
         }
         
     }

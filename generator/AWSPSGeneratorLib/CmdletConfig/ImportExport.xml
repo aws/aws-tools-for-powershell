@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>IE</ServiceNounPrefix>
+  <ServiceName>AWS Import/Export</ServiceName>
   <ServiceClientInterface>IAmazonImportExport</ServiceClientInterface>
   <ServiceClient>AmazonImportExportClient</ServiceClient>
   <ServiceNamespace>Amazon.ImportExport</ServiceNamespace>

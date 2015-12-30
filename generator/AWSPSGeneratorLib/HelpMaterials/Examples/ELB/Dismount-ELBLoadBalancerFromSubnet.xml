@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Dismount-ELBLoadBalancerFromSubnet -LoadBalancerName my-test-vpc-loadbalancer -Subnet "subnet-12345678"</code>
-    <description>Removes a single subnet from the set of subnets associated with the load balancer 'my-test-vpc-loadbalancer'.</description>
-  </example>
-  <example>
-    <code>Dismount-ELBLoadBalancerFromSubnet -LoadBalancerName my-test-vpc-loadbalancer -Subnet @("subnet-12345678", "subnet-87654321")</code>
-    <description>Removes multiple subnets from the set of subnets associated with the specified load balancer.</description>
+    <code>PS C:\> Dismount-ELBLoadBalancerFromSubnet -LoadBalancerName my-load-balancer -Subnet subnet-12345678
+    
+subnet-87654321</code>
+    <description>This example removes the specified subnet from the set of subnets configured for the specified load balancer. The output includes the remaining subnets.</description>
   </example>
 </examples>

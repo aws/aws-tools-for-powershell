@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateClusterSecurityGroup operation against Amazon Redshift.", Operation = new[] {"CreateClusterSecurityGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSecurityGroup",
         "This cmdlet returns a ClusterSecurityGroup object.",
-        "The service call response (type CreateClusterSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateClusterSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSClusterSecurityGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name for the security group. Amazon Redshift stores the value as a lowercase
@@ -56,16 +58,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterSecurityGroupName { get; set; }
+        public System.String ClusterSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> A description for the security group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -74,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.Description = this.Description;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -117,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateClusterSecurityGroupRequest();
+            var request = new Amazon.Redshift.Model.CreateClusterSecurityGroupRequest();
             
             if (cmdletContext.ClusterSecurityGroupName != null)
             {
@@ -166,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterSecurityGroupName { get; set; }
-            public String Description { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ClusterSecurityGroupName { get; set; }
+            public System.String Description { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

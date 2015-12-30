@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the EnterStandby operation against Auto Scaling.", Operation = new[] {"EnterStandby"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
-        "The service call response (type EnterStandbyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.EnterStandbyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnterASStandbyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>One or more instances to move into <code>Standby</code> mode. You must specify at
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InstanceIds")]
         public System.String[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter ShouldDecrementDesiredCapacity
         /// <summary>
         /// <para>
         /// <para>Specifies whether the instances moved to <code>Standby</code> mode count as part of
@@ -72,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean ShouldDecrementDesiredCapacity { get; set; }
+        public System.Boolean ShouldDecrementDesiredCapacity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -102,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.InstanceId != null)
             {
-                context.InstanceIds = new List<String>(this.InstanceId);
+                context.InstanceIds = new List<System.String>(this.InstanceId);
             }
             if (ParameterWasBound("ShouldDecrementDesiredCapacity"))
                 context.ShouldDecrementDesiredCapacity = this.ShouldDecrementDesiredCapacity;
@@ -117,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnterStandbyRequest();
+            var request = new Amazon.AutoScaling.Model.EnterStandbyRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -166,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> InstanceIds { get; set; }
-            public Boolean? ShouldDecrementDesiredCapacity { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> InstanceIds { get; set; }
+            public System.Boolean? ShouldDecrementDesiredCapacity { get; set; }
         }
         
     }

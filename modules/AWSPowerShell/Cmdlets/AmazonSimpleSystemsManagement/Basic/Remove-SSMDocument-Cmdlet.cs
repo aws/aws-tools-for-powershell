@@ -28,12 +28,12 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Deletes the specified configuration document.
+    /// Deletes the SSM document and all instance associations to the document.
     /// 
     ///  
     /// <para>
-    /// You must use <a>DeleteAssociation</a> to disassociate all instances that are associated
-    /// with the configuration document before you can delete it.
+    /// Before you delete the SSM document, we recommend that you use DeleteAssociation to
+    /// disassociate all instances that are associated with the document.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -41,25 +41,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the DeleteDocument operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteDocument"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDocumentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Name parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteDocumentRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -140,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

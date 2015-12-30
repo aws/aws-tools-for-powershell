@@ -36,13 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGDeliveryChannelStatus")]
     [OutputType("Amazon.ConfigService.Model.DeliveryChannelStatus")]
-    [AWSCmdlet("Invokes the DescribeDeliveryChannelStatus operation against Amazon Config.", Operation = new[] {"DescribeDeliveryChannelStatus"})]
+    [AWSCmdlet("Invokes the DescribeDeliveryChannelStatus operation against AWS Config.", Operation = new[] {"DescribeDeliveryChannelStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.DeliveryChannelStatus",
         "This cmdlet returns a collection of DeliveryChannelStatus objects.",
-        "The service call response (type DescribeDeliveryChannelStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeDeliveryChannelStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGDeliveryChannelStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
         /// <para>A list of delivery channel names.</para>
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DeliveryChannelNames")]
         public System.String[] DeliveryChannelName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -65,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.DeliveryChannelName != null)
             {
-                context.DeliveryChannelNames = new List<String>(this.DeliveryChannelName);
+                context.DeliveryChannelNames = new List<System.String>(this.DeliveryChannelName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDeliveryChannelStatusRequest();
+            var request = new Amazon.ConfigService.Model.DescribeDeliveryChannelStatusRequest();
             
             if (cmdletContext.DeliveryChannelNames != null)
             {
@@ -119,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DeliveryChannelNames { get; set; }
+            public List<System.String> DeliveryChannelNames { get; set; }
         }
         
     }

@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the GetOnPremisesInstance operation against AWS CodeDeploy.", Operation = new[] {"GetOnPremisesInstance"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.InstanceInfo",
         "This cmdlet returns a InstanceInfo object.",
-        "The service call response (type GetOnPremisesInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetOnPremisesInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceName
         /// <summary>
         /// <para>
         /// <para>The name of the on-premises instance to get information about</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String InstanceName { get; set; }
-        
+        public System.String InstanceName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetOnPremisesInstanceRequest();
+            var request = new Amazon.CodeDeploy.Model.GetOnPremisesInstanceRequest();
             
             if (cmdletContext.InstanceName != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceName { get; set; }
+            public System.String InstanceName { get; set; }
         }
         
     }

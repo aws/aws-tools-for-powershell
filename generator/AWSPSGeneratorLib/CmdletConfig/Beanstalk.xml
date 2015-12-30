@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EB</ServiceNounPrefix>
+  <ServiceName>AWS Elastic Beanstalk</ServiceName>
   <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
   <ServiceClient>AmazonElasticBeanstalkClient</ServiceClient>
   <ServiceNamespace>Amazon.ElasticBeanstalk</ServiceNamespace>
@@ -31,10 +32,10 @@
   </VerbMappings>
 
   <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" ServicePageSize="1000" />
-  
+
   <MetadataProperties>
     <Property>SolutionStackName</Property>
-	<Property>RefreshedAt</Property>
+    <Property>RefreshedAt</Property>
   </MetadataProperties>
 
   <PipelineByValueProperties>
@@ -50,6 +51,7 @@
   <ServiceOperations>
     <ServiceOperation MethodName="AbortEnvironmentUpdate" Verb="Stop" Output="Void" ShouldProcessTarget="EnvironmentName"/>
     <ServiceOperation MethodName="CheckDNSAvailability" Output="Response" />
+    <ServiceOperation MethodName="ComposeEnvironments" Verb="Group" />
     <ServiceOperation MethodName="CreateApplication" PositionalParameters="Description"/>
     <ServiceOperation MethodName="CreateApplicationVersion" PositionalParameters="VersionLabel;Description"/>
     <ServiceOperation MethodName="CreateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;SolutionStackName;EnvironmentId;Description;SourceConfiguration"/>
@@ -69,11 +71,11 @@
     <ServiceOperation MethodName="DescribeApplicationVersions" PositionalParameters="VersionLabels"/>
     <ServiceOperation MethodName="DescribeConfigurationOptions" />
     <ServiceOperation MethodName="DescribeConfigurationSettings" />
-	<ServiceOperation MethodName="DescribeEnvironmentHealth" PipelineParameter="EnvironmentId" Output="Response" />
+    <ServiceOperation MethodName="DescribeEnvironmentHealth" PipelineParameter="EnvironmentId" Output="Response" />
     <ServiceOperation MethodName="DescribeEnvironmentResources" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName"/>
     <ServiceOperation MethodName="DescribeEnvironments" PositionalParameters="EnvironmentIds;VersionLabel"/>
     <ServiceOperation MethodName="DescribeEvents"/>
-	<ServiceOperation MethodName="DescribeInstancesHealth" PipelineParameter="EnvironmentId" Noun="InstanceHealth" />
+    <ServiceOperation MethodName="DescribeInstancesHealth" PipelineParameter="EnvironmentId" Noun="InstanceHealth" />
     <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response"/>
     <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
       <PassThru>
@@ -88,7 +90,7 @@
         <Type>System.String</Type>
         <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
       </PassThru>
-    </ServiceOperation>  
+    </ServiceOperation>
     <ServiceOperation MethodName="RestartAppServer" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
       <PassThru>
         <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>

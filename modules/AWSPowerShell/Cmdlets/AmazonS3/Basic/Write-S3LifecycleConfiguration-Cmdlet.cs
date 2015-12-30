@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutLifecycleConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"PutLifecycleConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutLifecycleConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to have the lifecycle configuration applied.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter Configuration_Rule
         /// <summary>
         /// <para>
         /// These rules defined the lifecycle configuration.
@@ -56,14 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Rules")]
         public Amazon.S3.Model.LifecycleRule[] Configuration_Rule { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -92,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             if (this.Configuration_Rule != null)
             {
-                context.Configuration_Rules = new List<LifecycleRule>(this.Configuration_Rule);
+                context.Configuration_Rules = new List<Amazon.S3.Model.LifecycleRule>(this.Configuration_Rule);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -105,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutLifecycleConfigurationRequest();
+            var request = new Amazon.S3.Model.PutLifecycleConfigurationRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -114,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate Configuration
             bool requestConfigurationIsNull = true;
-            request.Configuration = new LifecycleConfiguration();
-            List<LifecycleRule> requestConfiguration_configuration_Rule = null;
+            request.Configuration = new Amazon.S3.Model.LifecycleConfiguration();
+            List<Amazon.S3.Model.LifecycleRule> requestConfiguration_configuration_Rule = null;
             if (cmdletContext.Configuration_Rules != null)
             {
                 requestConfiguration_configuration_Rule = cmdletContext.Configuration_Rules;
@@ -167,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public List<LifecycleRule> Configuration_Rules { get; set; }
+            public System.String BucketName { get; set; }
+            public List<Amazon.S3.Model.LifecycleRule> Configuration_Rules { get; set; }
         }
         
     }

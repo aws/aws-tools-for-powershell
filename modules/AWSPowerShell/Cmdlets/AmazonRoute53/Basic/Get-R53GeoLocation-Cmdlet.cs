@@ -34,13 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53GeoLocation")]
     [OutputType("Amazon.Route53.Model.GeoLocationDetails")]
-    [AWSCmdlet("Invokes the GetGeoLocation operation against AWS Route 53.", Operation = new[] {"GetGeoLocation"})]
+    [AWSCmdlet("Invokes the GetGeoLocation operation against Amazon Route 53.", Operation = new[] {"GetGeoLocation"})]
     [AWSCmdletOutput("Amazon.Route53.Model.GeoLocationDetails",
         "This cmdlet returns a GeoLocationDetails object.",
-        "The service call response (type GetGeoLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetGeoLocationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53GeoLocationCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ContinentCode
         /// <summary>
         /// <para>
         /// <para>The code for a continent geo location. Note: only continent locations have a continent
@@ -50,8 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContinentCode { get; set; }
+        public System.String ContinentCode { get; set; }
+        #endregion
         
+        #region Parameter CountryCode
         /// <summary>
         /// <para>
         /// <para>The code for a country geo location. The default location uses '*' for the country
@@ -60,8 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CountryCode { get; set; }
+        public System.String CountryCode { get; set; }
+        #endregion
         
+        #region Parameter SubdivisionCode
         /// <summary>
         /// <para>
         /// <para>The code for a country's subdivision (e.g., a province of Canada). A subdivision code
@@ -70,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SubdivisionCode { get; set; }
-        
+        public System.String SubdivisionCode { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetGeoLocationRequest();
+            var request = new Amazon.Route53.Model.GetGeoLocationRequest();
             
             if (cmdletContext.ContinentCode != null)
             {
@@ -146,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ContinentCode { get; set; }
-            public String CountryCode { get; set; }
-            public String SubdivisionCode { get; set; }
+            public System.String ContinentCode { get; set; }
+            public System.String CountryCode { get; set; }
+            public System.String SubdivisionCode { get; set; }
         }
         
     }

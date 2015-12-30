@@ -38,13 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Update", "R53DTagsForDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateTagsForDomain operation against AWS Route 53 Domains.", Operation = new[] {"UpdateTagsForDomain"})]
+    [AWSCmdlet("Invokes the UpdateTagsForDomain operation against Amazon Route 53 Domains.", Operation = new[] {"UpdateTagsForDomain"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Domains.Model.UpdateTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The domain for which you want to add or update tags.</para><para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -55,8 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter TagsToUpdate
         /// <summary>
         /// <para>
         /// <para>A list of the tag keys and values that you want to add or update. If you specify a
@@ -67,14 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.Route53Domains.Model.Tag[] TagsToUpdate { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DomainName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.DomainName = this.DomainName;
             if (this.TagsToUpdate != null)
             {
-                context.TagsToUpdate = new List<Tag>(this.TagsToUpdate);
+                context.TagsToUpdate = new List<Amazon.Route53Domains.Model.Tag>(this.TagsToUpdate);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateTagsForDomainRequest();
+            var request = new Amazon.Route53Domains.Model.UpdateTagsForDomainRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -163,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public List<Tag> TagsToUpdate { get; set; }
+            public System.String DomainName { get; set; }
+            public List<Amazon.Route53Domains.Model.Tag> TagsToUpdate { get; set; }
         }
         
     }

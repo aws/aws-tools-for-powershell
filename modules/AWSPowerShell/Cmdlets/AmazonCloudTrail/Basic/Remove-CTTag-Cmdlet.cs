@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Invokes the RemoveTags operation against AWS CloudTrail.", Operation = new[] {"RemoveTags"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCTTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the trail from which tags should be removed. The format of a
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter TagsList
         /// <summary>
         /// <para>
         /// <para>Specifies a list of tags to be removed. </para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.CloudTrail.Model.Tag[] TagsList { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -84,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             context.ResourceId = this.ResourceId;
             if (this.TagsList != null)
             {
-                context.TagsList = new List<Tag>(this.TagsList);
+                context.TagsList = new List<Amazon.CloudTrail.Model.Tag>(this.TagsList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsRequest();
+            var request = new Amazon.CloudTrail.Model.RemoveTagsRequest();
             
             if (cmdletContext.ResourceId != null)
             {
@@ -142,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceId { get; set; }
-            public List<Tag> TagsList { get; set; }
+            public System.String ResourceId { get; set; }
+            public List<Amazon.CloudTrail.Model.Tag> TagsList { get; set; }
         }
         
     }

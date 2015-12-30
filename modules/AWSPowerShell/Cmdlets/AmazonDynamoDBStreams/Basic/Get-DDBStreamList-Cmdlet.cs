@@ -40,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [OutputType("Amazon.DynamoDBv2.Model.ListStreamsResponse")]
     [AWSCmdlet("Invokes the ListStreams operation against Amazon DynamoDB.", Operation = new[] {"ListStreams"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.ListStreamsResponse",
-        "This cmdlet returns a ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DynamoDBv2.Model.ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDDBStreamListCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartStreamArn
         /// <summary>
         /// <para>
         /// <para>The ARN (Amazon Resource Name) of the first item that this operation will evaluate.
@@ -52,8 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExclusiveStartStreamArn { get; set; }
+        public System.String ExclusiveStartStreamArn { get; set; }
+        #endregion
         
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para>If this parameter is provided, then only the streams associated with this table name
@@ -61,16 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TableName { get; set; }
+        public System.String TableName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of streams to return. The upper limit is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 Limit { get; set; }
-        
+        public System.Int32 Limit { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListStreamsRequest();
+            var request = new Amazon.DynamoDBv2.Model.ListStreamsRequest();
             
             if (cmdletContext.ExclusiveStartStreamArn != null)
             {
@@ -146,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ExclusiveStartStreamArn { get; set; }
-            public Int32? Limit { get; set; }
-            public String TableName { get; set; }
+            public System.String ExclusiveStartStreamArn { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String TableName { get; set; }
         }
         
     }

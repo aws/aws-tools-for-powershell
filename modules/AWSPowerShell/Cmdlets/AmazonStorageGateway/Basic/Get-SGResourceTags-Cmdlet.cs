@@ -35,11 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Storage Gateway.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), ResourceARN (type String)"
+        "The service call response (type Amazon.StorageGateway.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), ResourceARN (type System.String)"
     )]
     public class GetSGResourceTagsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the list of tags returned be limited to the specified number of items.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An opaque string that indicates the position at which to begin returning the list
@@ -57,16 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceARN { get; set; }
-        
+        public System.String ResourceARN { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -94,14 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListTagsForResourceRequest();
+            var request = new Amazon.StorageGateway.Model.ListTagsForResourceRequest();
             if (cmdletContext.ResourceARN != null)
             {
                 request.ResourceARN = cmdletContext.ResourceARN;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -188,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
-            public String Marker { get; set; }
-            public String ResourceARN { get; set; }
+            public System.String Marker { get; set; }
+            public System.String ResourceARN { get; set; }
         }
         
     }

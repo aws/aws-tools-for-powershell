@@ -47,11 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Invokes the DescribeWorkspaceBundles operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspaceBundles"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceBundle",
         "This cmdlet returns a collection of WorkspaceBundle objects.",
-        "The service call response (type DescribeWorkspaceBundlesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetWKSWorkspaceBundlesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter BundleId
         /// <summary>
         /// <para>
         /// <para>An array of strings that contains the identifiers of the bundles to retrieve. This
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("BundleIds")]
         public System.String[] BundleId { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
@@ -69,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
+        #endregion
         
+        #region Parameter Owner
         /// <summary>
         /// <para>
         /// <para>The owner of the bundles to retrieve. This parameter cannot be combined with any other
@@ -78,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Owner { get; set; }
-        
+        public System.String Owner { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (this.BundleId != null)
             {
-                context.BundleIds = new List<String>(this.BundleId);
+                context.BundleIds = new List<System.String>(this.BundleId);
             }
             context.NextToken = this.NextToken;
             context.Owner = this.Owner;
@@ -108,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeWorkspaceBundlesRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeWorkspaceBundlesRequest();
             
             if (cmdletContext.BundleIds != null)
             {
@@ -159,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> BundleIds { get; set; }
-            public String NextToken { get; set; }
-            public String Owner { get; set; }
+            public List<System.String> BundleIds { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String Owner { get; set; }
         }
         
     }

@@ -35,6 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
+    /// Using the optional <code>Qualifier</code> parameter, you can specify a specific function
+    /// version for which you want this information. If you don't specify this parameter,
+    /// the API uses unqualified function ARN which return information about the $LATEST version
+    /// of the Lambda function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases-v2.html">AWS
+    /// Lambda Function Versioning and Aliases</a>.
+    /// </para><para>
     /// This operation requires permission for the <code>lambda:GetFunction</code> action.
     /// </para>
     /// </summary>
@@ -42,10 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]
     [AWSCmdlet("Invokes the GetFunction operation against Amazon Lambda.", Operation = new[] {"GetFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionResponse",
-        "This cmdlet returns a GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The Lambda function name. </para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -56,8 +64,23 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Qualifier
+        /// <summary>
+        /// <para>
+        /// <para>Using this optional parameter to specify a function version or alias name. If you
+        /// specify function version, the API uses qualified function ARN for the request and
+        /// returns information about the specific Lambda function version. If you specify alias
+        /// name, the API uses alias ARN and returns information about the function version to
+        /// which the alias points. If you don't provide this parameter, the API uses unqualified
+        /// function ARN and returns information about the $LATEST version of the Lambda function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Qualifier { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,6 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             };
             
             context.FunctionName = this.FunctionName;
+            context.Qualifier = this.Qualifier;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -81,11 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetFunctionRequest();
+            var request = new Amazon.Lambda.Model.GetFunctionRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
+            }
+            if (cmdletContext.Qualifier != null)
+            {
+                request.Qualifier = cmdletContext.Qualifier;
             }
             
             CmdletOutput output;
@@ -122,7 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FunctionName { get; set; }
+            public System.String FunctionName { get; set; }
+            public System.String Qualifier { get; set; }
         }
         
     }

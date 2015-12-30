@@ -32,23 +32,25 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  To create a new reusable delegationSet, send a <code>POST</code> request to the <code>2013-04-01/delegationset</code>
+    /// To create a new reusable delegationSet, send a <code>POST</code> request to the <code>2013-04-01/delegationset</code>
     /// resource. The request body must include an XML document with a <code>CreateReusableDelegationSetRequest</code>
     /// element. The response returns the <code>CreateReusableDelegationSetResponse</code>
     /// element that contains metadata about the delegationSet. 
     /// </para><para>
-    ///  If the optional parameter HostedZoneId is specified, it marks the delegationSet associated
+    /// If the optional parameter HostedZoneId is specified, it marks the delegationSet associated
     /// with that particular hosted zone as reusable. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.CreateReusableDelegationSetResponse")]
-    [AWSCmdlet("Invokes the CreateReusableDelegationSet operation against AWS Route 53.", Operation = new[] {"CreateReusableDelegationSet"})]
+    [AWSCmdlet("Invokes the CreateReusableDelegationSet operation against Amazon Route 53.", Operation = new[] {"CreateReusableDelegationSet"})]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateReusableDelegationSetResponse",
-        "This cmdlet returns a CreateReusableDelegationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.CreateReusableDelegationSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CallerReference
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed <code>CreateReusableDelegationSet</code>
@@ -60,8 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CallerReference { get; set; }
+        public System.String CallerReference { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
         /// <para>The ID of the hosted zone whose delegation set you want to mark as reusable. It is
@@ -69,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HostedZoneId { get; set; }
+        public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -109,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateReusableDelegationSetRequest();
+            var request = new Amazon.Route53.Model.CreateReusableDelegationSetRequest();
             
             if (cmdletContext.CallerReference != null)
             {
@@ -154,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CallerReference { get; set; }
-            public String HostedZoneId { get; set; }
+            public System.String CallerReference { get; set; }
+            public System.String HostedZoneId { get; set; }
         }
         
     }

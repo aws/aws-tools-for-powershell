@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the DescribeAlarmsForMetric operation against Amazon CloudWatch.", Operation = new[] {"DescribeAlarmsForMetric"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.MetricAlarm",
         "This cmdlet returns a collection of MetricAlarm objects.",
-        "The service call response (type DescribeAlarmsForMetricResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmsForMetricResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCWAlarmForMetricCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter Dimension
         /// <summary>
         /// <para>
         /// <para> The list of dimensions associated with the metric. </para>
@@ -48,47 +50,59 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("Dimensions")]
         public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
+        #endregion
         
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// <para> The name of the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String MetricName { get; set; }
+        public System.String MetricName { get; set; }
+        #endregion
         
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// <para> The namespace of the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Namespace { get; set; }
+        public System.String Namespace { get; set; }
+        #endregion
         
+        #region Parameter Period
         /// <summary>
         /// <para>
         /// <para> The period in seconds over which the statistic is applied. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Period { get; set; }
+        public System.Int32 Period { get; set; }
+        #endregion
         
+        #region Parameter Statistic
         /// <summary>
         /// <para>
         /// <para> The statistic for the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Statistic Statistic { get; set; }
+        [AWSConstantClassSource("Amazon.CloudWatch.Statistic")]
+        public Amazon.CloudWatch.Statistic Statistic { get; set; }
+        #endregion
         
+        #region Parameter Unit
         /// <summary>
         /// <para>
         /// <para> The unit for the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StandardUnit Unit { get; set; }
-        
+        [AWSConstantClassSource("Amazon.CloudWatch.StandardUnit")]
+        public Amazon.CloudWatch.StandardUnit Unit { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -102,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             
             if (this.Dimension != null)
             {
-                context.Dimensions = new List<Dimension>(this.Dimension);
+                context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
             context.MetricName = this.MetricName;
             context.Namespace = this.Namespace;
@@ -121,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAlarmsForMetricRequest();
+            var request = new Amazon.CloudWatch.Model.DescribeAlarmsForMetricRequest();
             
             if (cmdletContext.Dimensions != null)
             {
@@ -182,12 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Dimension> Dimensions { get; set; }
-            public String MetricName { get; set; }
-            public String Namespace { get; set; }
-            public Int32? Period { get; set; }
-            public Statistic Statistic { get; set; }
-            public StandardUnit Unit { get; set; }
+            public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
+            public System.String MetricName { get; set; }
+            public System.String Namespace { get; set; }
+            public System.Int32? Period { get; set; }
+            public Amazon.CloudWatch.Statistic Statistic { get; set; }
+            public Amazon.CloudWatch.StandardUnit Unit { get; set; }
         }
         
     }

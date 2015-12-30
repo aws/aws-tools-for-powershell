@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>KINF</ServiceNounPrefix>
+  <ServiceName>Amazon Kinesis Firehose</ServiceName>
+  <ServiceNamespace>Amazon.KinesisFirehose</ServiceNamespace>
+  <ServiceClientInterface>IAmazonKinesisFirehose</ServiceClientInterface>
+  <ServiceClient>AmazonKinesisFirehoseClient</ServiceClient>
+
+  <ServiceOperations>
+
+    <ServiceOperation MethodName="CreateDeliveryStream" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" />
+    <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" />
+    <ServiceOperation MethodName="DescribeDeliveryStream" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="ListDeliveryStreams" Verb="Get" Noun="DeliveryStreamList" NoPipelineParameter="true" Output="Response"/>
+    <ServiceOperation MethodName="PutRecord" Exclude="true" />
+    <ServiceOperation MethodName="PutRecordBatch" PipelineParameter="Records" Output="Response"/>
+    <ServiceOperation MethodName="UpdateDestination" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName"/>
+
+  </ServiceOperations>
+</ConfigModel>

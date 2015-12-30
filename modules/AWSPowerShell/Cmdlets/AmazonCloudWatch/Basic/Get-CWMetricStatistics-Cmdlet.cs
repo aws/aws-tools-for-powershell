@@ -61,10 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [OutputType("Amazon.CloudWatch.Model.GetMetricStatisticsResponse")]
     [AWSCmdlet("Invokes the GetMetricStatistics operation against Amazon CloudWatch.", Operation = new[] {"GetMetricStatistics"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.GetMetricStatisticsResponse",
-        "This cmdlet returns a GetMetricStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudWatch.Model.GetMetricStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCWMetricStatisticsCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter Dimension
         /// <summary>
         /// <para>
         /// <para> A list of dimensions describing qualities of the metric. </para>
@@ -73,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Dimensions")]
         public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> The time stamp to use for determining the last datapoint to return. The value specified
@@ -81,24 +85,30 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// <para> The name of the metric, with or without spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String MetricName { get; set; }
+        public System.String MetricName { get; set; }
+        #endregion
         
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// <para> The namespace of the metric, with or without spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Namespace { get; set; }
+        public System.String Namespace { get; set; }
+        #endregion
         
+        #region Parameter Period
         /// <summary>
         /// <para>
         /// <para> The granularity, in seconds, of the returned datapoints. <code>Period</code> must
@@ -106,8 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Period { get; set; }
+        public System.Int32 Period { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> The time stamp to use for determining the first datapoint to return. The value specified
@@ -115,8 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Statistic
         /// <summary>
         /// <para>
         /// <para> The metric statistics to return. For information about specific statistics returned
@@ -127,15 +141,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("Statistics")]
         public System.String[] Statistic { get; set; }
+        #endregion
         
+        #region Parameter Unit
         /// <summary>
         /// <para>
         /// <para> The unit for the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StandardUnit Unit { get; set; }
-        
+        [AWSConstantClassSource("Amazon.CloudWatch.StandardUnit")]
+        public Amazon.CloudWatch.StandardUnit Unit { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -149,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             
             if (this.Dimension != null)
             {
-                context.Dimensions = new List<Dimension>(this.Dimension);
+                context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
@@ -161,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.StartTime = this.StartTime;
             if (this.Statistic != null)
             {
-                context.Statistics = new List<String>(this.Statistic);
+                context.Statistics = new List<System.String>(this.Statistic);
             }
             context.Unit = this.Unit;
             
@@ -175,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetMetricStatisticsRequest();
+            var request = new Amazon.CloudWatch.Model.GetMetricStatisticsRequest();
             
             if (cmdletContext.Dimensions != null)
             {
@@ -244,14 +261,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Dimension> Dimensions { get; set; }
-            public DateTime? EndTime { get; set; }
-            public String MetricName { get; set; }
-            public String Namespace { get; set; }
-            public Int32? Period { get; set; }
-            public DateTime? StartTime { get; set; }
-            public List<String> Statistics { get; set; }
-            public StandardUnit Unit { get; set; }
+            public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public System.String MetricName { get; set; }
+            public System.String Namespace { get; set; }
+            public System.Int32? Period { get; set; }
+            public System.DateTime? StartTime { get; set; }
+            public List<System.String> Statistics { get; set; }
+            public Amazon.CloudWatch.StandardUnit Unit { get; set; }
         }
         
     }

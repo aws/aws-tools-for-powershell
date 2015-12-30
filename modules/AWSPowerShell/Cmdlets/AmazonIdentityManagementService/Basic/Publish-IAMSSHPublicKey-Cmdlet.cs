@@ -43,26 +43,32 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UploadSSHPublicKey operation against AWS Identity and Access Management.", Operation = new[] {"UploadSSHPublicKey"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SSHPublicKey",
         "This cmdlet returns a SSHPublicKey object.",
-        "The service call response (type UploadSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.UploadSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class PublishIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SSHPublicKeyBody
         /// <summary>
         /// <para>
         /// <para>The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SSHPublicKeyBody { get; set; }
+        public System.String SSHPublicKeyBody { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user to associate the SSH public key with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UploadSSHPublicKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.UploadSSHPublicKeyRequest();
             
             if (cmdletContext.SSHPublicKeyBody != null)
             {
@@ -146,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SSHPublicKeyBody { get; set; }
-            public String UserName { get; set; }
+            public System.String SSHPublicKeyBody { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

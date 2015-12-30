@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the PutMetricAlarm operation against Amazon CloudWatch.", Operation = new[] {"PutMetricAlarm"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutMetricAlarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatch.Model.PutMetricAlarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCWMetricAlarmCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionsEnabled
         /// <summary>
         /// <para>
         /// <para> Indicates whether or not actions should be executed during any changes to the alarm's
@@ -55,8 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ActionsEnabled { get; set; }
+        public System.Boolean ActionsEnabled { get; set; }
+        #endregion
         
+        #region Parameter AlarmAction
         /// <summary>
         /// <para>
         /// <para> The list of actions to execute when this alarm transitions into an <code>ALARM</code>
@@ -68,15 +72,19 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("AlarmActions")]
         public System.String[] AlarmAction { get; set; }
+        #endregion
         
+        #region Parameter AlarmDescription
         /// <summary>
         /// <para>
         /// <para> The description for the alarm. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String AlarmDescription { get; set; }
+        public System.String AlarmDescription { get; set; }
+        #endregion
         
+        #region Parameter AlarmName
         /// <summary>
         /// <para>
         /// <para> The descriptive name for the alarm. This name must be unique within the user's AWS
@@ -84,8 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AlarmName { get; set; }
+        public System.String AlarmName { get; set; }
+        #endregion
         
+        #region Parameter ComparisonOperator
         /// <summary>
         /// <para>
         /// <para> The arithmetic operation to use when comparing the specified <code>Statistic</code>
@@ -94,8 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ComparisonOperator ComparisonOperator { get; set; }
+        [AWSConstantClassSource("Amazon.CloudWatch.ComparisonOperator")]
+        public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
+        #endregion
         
+        #region Parameter Dimension
         /// <summary>
         /// <para>
         /// <para> The dimensions for the alarm's associated metric. </para>
@@ -104,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("Dimensions")]
         public Amazon.CloudWatch.Model.Dimension[] Dimension { get; set; }
+        #endregion
         
+        #region Parameter EvaluationPeriod
         /// <summary>
         /// <para>
         /// <para> The number of periods over which data is compared to the specified threshold. </para>
@@ -112,8 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("EvaluationPeriods")]
-        public Int32 EvaluationPeriod { get; set; }
+        public System.Int32 EvaluationPeriod { get; set; }
+        #endregion
         
+        #region Parameter InsufficientDataAction
         /// <summary>
         /// <para>
         /// <para> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code>
@@ -125,23 +142,29 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("InsufficientDataActions")]
         public System.String[] InsufficientDataAction { get; set; }
+        #endregion
         
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// <para> The name for the alarm's associated metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String MetricName { get; set; }
+        public System.String MetricName { get; set; }
+        #endregion
         
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// <para> The namespace for the alarm's associated metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Namespace { get; set; }
+        public System.String Namespace { get; set; }
+        #endregion
         
+        #region Parameter OKAction
         /// <summary>
         /// <para>
         /// <para> The list of actions to execute when this alarm transitions into an <code>OK</code>
@@ -153,46 +176,60 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("OKActions")]
         public System.String[] OKAction { get; set; }
+        #endregion
         
+        #region Parameter Period
         /// <summary>
         /// <para>
         /// <para> The period in seconds over which the specified statistic is applied. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Period { get; set; }
+        public System.Int32 Period { get; set; }
+        #endregion
         
+        #region Parameter Statistic
         /// <summary>
         /// <para>
         /// <para> The statistic to apply to the alarm's associated metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Statistic Statistic { get; set; }
+        [AWSConstantClassSource("Amazon.CloudWatch.Statistic")]
+        public Amazon.CloudWatch.Statistic Statistic { get; set; }
+        #endregion
         
+        #region Parameter Threshold
         /// <summary>
         /// <para>
         /// <para> The value against which the specified statistic is compared. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double Threshold { get; set; }
+        public System.Double Threshold { get; set; }
+        #endregion
         
+        #region Parameter Unit
         /// <summary>
         /// <para>
         /// <para> The unit for the alarm's associated metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StandardUnit Unit { get; set; }
+        [AWSConstantClassSource("Amazon.CloudWatch.StandardUnit")]
+        public Amazon.CloudWatch.StandardUnit Unit { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AlarmName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -200,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -222,26 +259,26 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.ActionsEnabled = this.ActionsEnabled;
             if (this.AlarmAction != null)
             {
-                context.AlarmActions = new List<String>(this.AlarmAction);
+                context.AlarmActions = new List<System.String>(this.AlarmAction);
             }
             context.AlarmDescription = this.AlarmDescription;
             context.AlarmName = this.AlarmName;
             context.ComparisonOperator = this.ComparisonOperator;
             if (this.Dimension != null)
             {
-                context.Dimensions = new List<Dimension>(this.Dimension);
+                context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
             if (ParameterWasBound("EvaluationPeriod"))
                 context.EvaluationPeriods = this.EvaluationPeriod;
             if (this.InsufficientDataAction != null)
             {
-                context.InsufficientDataActions = new List<String>(this.InsufficientDataAction);
+                context.InsufficientDataActions = new List<System.String>(this.InsufficientDataAction);
             }
             context.MetricName = this.MetricName;
             context.Namespace = this.Namespace;
             if (this.OKAction != null)
             {
-                context.OKActions = new List<String>(this.OKAction);
+                context.OKActions = new List<System.String>(this.OKAction);
             }
             if (ParameterWasBound("Period"))
                 context.Period = this.Period;
@@ -260,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutMetricAlarmRequest();
+            var request = new Amazon.CloudWatch.Model.PutMetricAlarmRequest();
             
             if (cmdletContext.ActionsEnabled != null)
             {
@@ -359,21 +396,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ActionsEnabled { get; set; }
-            public List<String> AlarmActions { get; set; }
-            public String AlarmDescription { get; set; }
-            public String AlarmName { get; set; }
-            public ComparisonOperator ComparisonOperator { get; set; }
-            public List<Dimension> Dimensions { get; set; }
-            public Int32? EvaluationPeriods { get; set; }
-            public List<String> InsufficientDataActions { get; set; }
-            public String MetricName { get; set; }
-            public String Namespace { get; set; }
-            public List<String> OKActions { get; set; }
-            public Int32? Period { get; set; }
-            public Statistic Statistic { get; set; }
-            public Double? Threshold { get; set; }
-            public StandardUnit Unit { get; set; }
+            public System.Boolean? ActionsEnabled { get; set; }
+            public List<System.String> AlarmActions { get; set; }
+            public System.String AlarmDescription { get; set; }
+            public System.String AlarmName { get; set; }
+            public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
+            public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
+            public System.Int32? EvaluationPeriods { get; set; }
+            public List<System.String> InsufficientDataActions { get; set; }
+            public System.String MetricName { get; set; }
+            public System.String Namespace { get; set; }
+            public List<System.String> OKActions { get; set; }
+            public System.Int32? Period { get; set; }
+            public Amazon.CloudWatch.Statistic Statistic { get; set; }
+            public System.Double? Threshold { get; set; }
+            public Amazon.CloudWatch.StandardUnit Unit { get; set; }
         }
         
     }

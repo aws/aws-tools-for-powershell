@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-DefaultAWSRegion -Region us-west-2</code>
+    <description>Sets the default region for all cmdlets in the current shell to 'us-west-2' (the parameter name can be omitted for brevity). Once a shell default has been set you can override the default by using the -Region parameter with the specific cmdlet(s) as required.</description>
+  </example>
+</examples>

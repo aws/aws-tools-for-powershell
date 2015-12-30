@@ -28,14 +28,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [Cmdlet("Test", "S3Bucket")]
     [OutputType(typeof(bool))]
     [AWSCmdlet("Tests that an S3 bucket exists.")]
-    [AWSCmdletOutput("Bool", "Returns true if the bucket exists, false if it doesn't. Returns true even if the bucket exists but belong to a different account.")]
+    [AWSCmdletOutput("System.Boolean", "Returns true if the bucket exists, false if it doesn't. Returns true even if the bucket exists but belong to a different account.")]
     public class TestS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        #region Parameter BucketName
         /// <summary>
         /// The name of the bucket to test existence and access.
         /// </summary>
         [Parameter(Position = 0, Mandatory = true, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public string BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

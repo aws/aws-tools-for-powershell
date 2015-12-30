@@ -46,10 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [OutputType("Amazon.DataPipeline.Model.PutPipelineDefinitionResponse")]
     [AWSCmdlet("Invokes the PutPipelineDefinition operation against AWS Data Pipeline.", Operation = new[] {"PutPipelineDefinition"})]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.PutPipelineDefinitionResponse",
-        "This cmdlet returns a PutPipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DataPipeline.Model.PutPipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteDPPipelineDefinitionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterObject
         /// <summary>
         /// <para>
         /// <para>The parameter objects used with the pipeline.</para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("ParameterObjects")]
         public Amazon.DataPipeline.Model.ParameterObject[] ParameterObject { get; set; }
+        #endregion
         
+        #region Parameter ParameterValue
         /// <summary>
         /// <para>
         /// <para>The parameter values used with the pipeline.</para>
@@ -67,15 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("ParameterValues")]
         public Amazon.DataPipeline.Model.ParameterValue[] ParameterValue { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter PipelineObject
         /// <summary>
         /// <para>
         /// <para>The objects that define the pipeline. These objects overwrite the existing pipeline
@@ -85,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("PipelineObjects")]
         public Amazon.DataPipeline.Model.PipelineObject[] PipelineObject { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -93,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -113,16 +123,16 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
             if (this.ParameterObject != null)
             {
-                context.ParameterObjects = new List<ParameterObject>(this.ParameterObject);
+                context.ParameterObjects = new List<Amazon.DataPipeline.Model.ParameterObject>(this.ParameterObject);
             }
             if (this.ParameterValue != null)
             {
-                context.ParameterValues = new List<ParameterValue>(this.ParameterValue);
+                context.ParameterValues = new List<Amazon.DataPipeline.Model.ParameterValue>(this.ParameterValue);
             }
             context.PipelineId = this.PipelineId;
             if (this.PipelineObject != null)
             {
-                context.PipelineObjects = new List<PipelineObject>(this.PipelineObject);
+                context.PipelineObjects = new List<Amazon.DataPipeline.Model.PipelineObject>(this.PipelineObject);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -135,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutPipelineDefinitionRequest();
+            var request = new Amazon.DataPipeline.Model.PutPipelineDefinitionRequest();
             
             if (cmdletContext.ParameterObjects != null)
             {
@@ -188,10 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<ParameterObject> ParameterObjects { get; set; }
-            public List<ParameterValue> ParameterValues { get; set; }
-            public String PipelineId { get; set; }
-            public List<PipelineObject> PipelineObjects { get; set; }
+            public List<Amazon.DataPipeline.Model.ParameterObject> ParameterObjects { get; set; }
+            public List<Amazon.DataPipeline.Model.ParameterValue> ParameterValues { get; set; }
+            public System.String PipelineId { get; set; }
+            public List<Amazon.DataPipeline.Model.PipelineObject> PipelineObjects { get; set; }
         }
         
     }

@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeVpnConnections operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVpnConnections"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnConnection",
         "This cmdlet returns a collection of VpnConnection objects.",
-        "The service call response (type DescribeVpnConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeVpnConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2VpnConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>customer-gateway-configuration</code> - The configuration information for the
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VpnConnectionId
         /// <summary>
         /// <para>
         /// <para>One or more VPN connection IDs.</para><para>Default: Describes your VPN connections.</para>
@@ -78,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("VpnConnectionIds")]
         public System.String[] VpnConnectionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -92,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.VpnConnectionId != null)
             {
-                context.VpnConnectionIds = new List<String>(this.VpnConnectionId);
+                context.VpnConnectionIds = new List<System.String>(this.VpnConnectionId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -109,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeVpnConnectionsRequest();
+            var request = new Amazon.EC2.Model.DescribeVpnConnectionsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -154,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> VpnConnectionIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> VpnConnectionIds { get; set; }
         }
         
     }

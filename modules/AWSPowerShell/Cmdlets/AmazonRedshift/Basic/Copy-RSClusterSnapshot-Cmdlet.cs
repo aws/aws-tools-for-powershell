@@ -48,10 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CopyClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"CopyClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
-        "The service call response (type CopyClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CopyClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceSnapshotClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster the source snapshot was created from. This parameter
@@ -60,16 +62,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceSnapshotClusterIdentifier { get; set; }
+        public System.String SourceSnapshotClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SourceSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier for the source snapshot. </para><para>Constraints:</para><ul><li>Must be the identifier for a valid automated snapshot whose state is <code>available</code>.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceSnapshotIdentifier { get; set; }
+        public System.String SourceSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter TargetSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier given to the new manual snapshot. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank.</li><li>Must contain from 1 to 255 alphanumeric
@@ -79,8 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetSnapshotIdentifier { get; set; }
+        public System.String TargetSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyClusterSnapshotRequest();
+            var request = new Amazon.Redshift.Model.CopyClusterSnapshotRequest();
             
             if (cmdletContext.SourceSnapshotClusterIdentifier != null)
             {
@@ -169,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceSnapshotClusterIdentifier { get; set; }
-            public String SourceSnapshotIdentifier { get; set; }
-            public String TargetSnapshotIdentifier { get; set; }
+            public System.String SourceSnapshotClusterIdentifier { get; set; }
+            public System.String SourceSnapshotIdentifier { get; set; }
+            public System.String TargetSnapshotIdentifier { get; set; }
         }
         
     }

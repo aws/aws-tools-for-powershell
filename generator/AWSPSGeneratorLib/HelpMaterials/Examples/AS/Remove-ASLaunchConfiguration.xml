@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Remove-ASLaunchConfiguration -LaunchConfigurationName my-test-lc</code>
-    <description>Deletes the launch configuration named 'my-test-lc'. The specified launch configuration must not be attached to an Auto Scaling group. You are prompted for confirmation before deletion proceeds.</description>
+    <code>PS C:\> Remove-ASLaunchConfiguration -LaunchConfigurationName my-lc
+    
+Confirm
+Are you sure you want to perform this action?
+Performing operation "Remove-ASLaunchConfiguration (DeleteLaunchConfiguration)" on Target "my-lc".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</code>
+    <description>This example deletes the specified launch configuration if it is not attached to an Auto Scaling group. You are prompted for confirmation before the operation proceeds.</description>
   </example>
   <example>
-    <code>Remove-ASLaunchConfiguration -LaunchConfigurationName my-test-lc -Force</code>
-    <description>Deletes the launch configuration named 'my-test-lc'. The specified launch configuration must not be attached to an Auto Scaling group. You are not prompted for confirmation before deletion proceeds.</description>
+    <code>PS C:\> Remove-ASLaunchConfiguration -LaunchConfigurationName my-lc -Force</code>
+    <description>If you specify the Force parameter, you are not prompted for confirmation before the operation proceeds.</description>
   </example>
 </examples>

@@ -28,65 +28,80 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Updates the status of the configuration document associated with the specified instance.
+    /// Updates the status of the SSM document associated with the specified instance.
     /// </summary>
     [Cmdlet("Update", "SSMAssociationStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
     [AWSCmdlet("Invokes the UpdateAssociationStatus operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateAssociationStatus"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
         "This cmdlet returns a AssociationDescription object.",
-        "The service call response (type UpdateAssociationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSSMAssociationStatusCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationStatus_AdditionalInfo
         /// <summary>
         /// <para>
         /// <para>A user-defined string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AssociationStatus_AdditionalInfo { get; set; }
+        public System.String AssociationStatus_AdditionalInfo { get; set; }
+        #endregion
         
+        #region Parameter AssociationStatus_Date
         /// <summary>
         /// <para>
         /// <para>The date when the status changed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime AssociationStatus_Date { get; set; }
+        public System.DateTime AssociationStatus_Date { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter AssociationStatus_Message
         /// <summary>
         /// <para>
         /// <para>The reason for the status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AssociationStatus_Message { get; set; }
+        public System.String AssociationStatus_Message { get; set; }
+        #endregion
         
+        #region Parameter AssociationStatus_Name
         /// <summary>
         /// <para>
         /// <para>The status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public AssociationStatusName AssociationStatus_Name { get; set; }
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.AssociationStatusName")]
+        public Amazon.SimpleSystemsManagement.AssociationStatusName AssociationStatus_Name { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -130,13 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAssociationStatusRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.UpdateAssociationStatusRequest();
             
             
              // populate AssociationStatus
             bool requestAssociationStatusIsNull = true;
-            request.AssociationStatus = new AssociationStatus();
-            String requestAssociationStatus_associationStatus_AdditionalInfo = null;
+            request.AssociationStatus = new Amazon.SimpleSystemsManagement.Model.AssociationStatus();
+            System.String requestAssociationStatus_associationStatus_AdditionalInfo = null;
             if (cmdletContext.AssociationStatus_AdditionalInfo != null)
             {
                 requestAssociationStatus_associationStatus_AdditionalInfo = cmdletContext.AssociationStatus_AdditionalInfo;
@@ -146,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 request.AssociationStatus.AdditionalInfo = requestAssociationStatus_associationStatus_AdditionalInfo;
                 requestAssociationStatusIsNull = false;
             }
-            DateTime? requestAssociationStatus_associationStatus_Date = null;
+            System.DateTime? requestAssociationStatus_associationStatus_Date = null;
             if (cmdletContext.AssociationStatus_Date != null)
             {
                 requestAssociationStatus_associationStatus_Date = cmdletContext.AssociationStatus_Date.Value;
@@ -156,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 request.AssociationStatus.Date = requestAssociationStatus_associationStatus_Date.Value;
                 requestAssociationStatusIsNull = false;
             }
-            String requestAssociationStatus_associationStatus_Message = null;
+            System.String requestAssociationStatus_associationStatus_Message = null;
             if (cmdletContext.AssociationStatus_Message != null)
             {
                 requestAssociationStatus_associationStatus_Message = cmdletContext.AssociationStatus_Message;
@@ -166,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 request.AssociationStatus.Message = requestAssociationStatus_associationStatus_Message;
                 requestAssociationStatusIsNull = false;
             }
-            AssociationStatusName requestAssociationStatus_associationStatus_Name = null;
+            Amazon.SimpleSystemsManagement.AssociationStatusName requestAssociationStatus_associationStatus_Name = null;
             if (cmdletContext.AssociationStatus_Name != null)
             {
                 requestAssociationStatus_associationStatus_Name = cmdletContext.AssociationStatus_Name;
@@ -224,12 +239,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssociationStatus_AdditionalInfo { get; set; }
-            public DateTime? AssociationStatus_Date { get; set; }
-            public String AssociationStatus_Message { get; set; }
-            public AssociationStatusName AssociationStatus_Name { get; set; }
-            public String InstanceId { get; set; }
-            public String Name { get; set; }
+            public System.String AssociationStatus_AdditionalInfo { get; set; }
+            public System.DateTime? AssociationStatus_Date { get; set; }
+            public System.String AssociationStatus_Message { get; set; }
+            public Amazon.SimpleSystemsManagement.AssociationStatusName AssociationStatus_Name { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

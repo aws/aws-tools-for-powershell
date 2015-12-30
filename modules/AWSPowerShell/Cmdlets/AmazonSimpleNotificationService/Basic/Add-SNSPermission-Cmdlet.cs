@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the AddPermission operation against Amazon Simple Notification Service.", Operation = new[] {"AddPermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TopicArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddSNSPermissionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionName
         /// <summary>
         /// <para>
         /// <para>The action you want to allow for the specified principal(s).</para><para>Valid values: any Amazon SNS action name.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("ActionNames")]
         public System.String[] ActionName { get; set; }
+        #endregion
         
+        #region Parameter AWSAccountId
         /// <summary>
         /// <para>
         /// <para>The AWS account IDs of the users (principals) who will be given access to the specified
@@ -59,30 +63,38 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("AWSAccountIds")]
         public System.String[] AWSAccountId { get; set; }
+        #endregion
         
+        #region Parameter Label
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the new policy statement.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Label { get; set; }
+        public System.String Label { get; set; }
+        #endregion
         
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic whose access control policy you wish to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TopicArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -90,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -110,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             
             if (this.ActionName != null)
             {
-                context.ActionName = new List<String>(this.ActionName);
+                context.ActionName = new List<System.String>(this.ActionName);
             }
             if (this.AWSAccountId != null)
             {
-                context.AWSAccountId = new List<String>(this.AWSAccountId);
+                context.AWSAccountId = new List<System.String>(this.AWSAccountId);
             }
             context.Label = this.Label;
             context.TopicArn = this.TopicArn;
@@ -129,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddPermissionRequest();
+            var request = new Amazon.SimpleNotificationService.Model.AddPermissionRequest();
             
             if (cmdletContext.ActionName != null)
             {
@@ -184,10 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ActionName { get; set; }
-            public List<String> AWSAccountId { get; set; }
-            public String Label { get; set; }
-            public String TopicArn { get; set; }
+            public List<System.String> ActionName { get; set; }
+            public List<System.String> AWSAccountId { get; set; }
+            public System.String Label { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

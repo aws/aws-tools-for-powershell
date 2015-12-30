@@ -33,13 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DDomainAuthCode")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RetrieveDomainAuthCode operation against AWS Route 53 Domains.", Operation = new[] {"RetrieveDomainAuthCode"})]
+    [AWSCmdlet("Invokes the RetrieveDomainAuthCode operation against Amazon Route 53 Domains.", Operation = new[] {"RetrieveDomainAuthCode"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RetrieveDomainAuthCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.RetrieveDomainAuthCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53DDomainAuthCodeCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -47,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
-        
+        public System.String DomainName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RetrieveDomainAuthCodeRequest();
+            var request = new Amazon.Route53Domains.Model.RetrieveDomainAuthCodeRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -113,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

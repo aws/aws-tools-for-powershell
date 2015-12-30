@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the DeleteTapeArchive operation against AWS Storage Gateway.", Operation = new[] {"DeleteTapeArchive"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeleteTapeArchiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DeleteTapeArchiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSGTapeArchiveCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter TapeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the virtual tape to delete from the virtual tape
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TapeARN { get; set; }
+        public System.String TapeARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTapeArchiveRequest();
+            var request = new Amazon.StorageGateway.Model.DeleteTapeArchiveRequest();
             
             if (cmdletContext.TapeARN != null)
             {
@@ -126,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TapeARN { get; set; }
+            public System.String TapeARN { get; set; }
         }
         
     }

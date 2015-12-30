@@ -38,19 +38,23 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [AWSCmdlet("Invokes the ListJobs operation against AWS Import/Export.", Operation = new[] {"ListJobs"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.Job",
         "This cmdlet returns a collection of Job objects.",
-        "The service call response (type ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type Boolean)"
+        "The service call response (type Amazon.ImportExport.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean)"
     )]
     public class GetIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
+        
+        #region Parameter APIVersion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String APIVersion { get; set; }
+        public System.String APIVersion { get; set; }
+        #endregion
         
+        #region Parameter MaxJob
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -58,16 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxJobs")]
-        public Int32 MaxJob { get; set; }
+        public System.Int32 MaxJob { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Marker { get; set; }
-        
+        public System.String Marker { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -94,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListJobsRequest();
+            var request = new Amazon.ImportExport.Model.ListJobsRequest();
             
             if (cmdletContext.APIVersion != null)
             {
@@ -145,9 +151,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         internal class CmdletContext : ExecutorContext
         {
-            public String APIVersion { get; set; }
-            public String Marker { get; set; }
-            public Int32? MaxJobs { get; set; }
+            public System.String APIVersion { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxJobs { get; set; }
         }
         
     }

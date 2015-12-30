@@ -54,10 +54,12 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Invokes the UpdateTable operation against Amazon DynamoDB.", Operation = new[] {"UpdateTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns a TableDescription object.",
-        "The service call response (type UpdateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.UpdateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeDefinition
         /// <summary>
         /// <para>
         /// <para>An array of attributes that describe the key schema for the table and indexes. If
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("AttributeDefinitions")]
         public Amazon.DynamoDBv2.Model.AttributeDefinition[] AttributeDefinition { get; set; }
+        #endregion
         
+        #region Parameter GlobalSecondaryIndexUpdate
         /// <summary>
         /// <para>
         /// <para>An array of one or more global secondary indexes for the table. For each index in
@@ -80,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("GlobalSecondaryIndexUpdates")]
         public Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate[] GlobalSecondaryIndexUpdate { get; set; }
+        #endregion
         
+        #region Parameter ReadCapacity
         /// <summary>
         /// <para>
         /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
@@ -90,16 +96,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ProvisionedThroughput_ReadCapacityUnits")]
-        public Int64 ReadCapacity { get; set; }
+        public System.Int64 ReadCapacity { get; set; }
+        #endregion
         
+        #region Parameter StreamSpecification_StreamEnabled
         /// <summary>
         /// <para>
         /// <para>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean StreamSpecification_StreamEnabled { get; set; }
+        public System.Boolean StreamSpecification_StreamEnabled { get; set; }
+        #endregion
         
+        #region Parameter StreamSpecification_StreamViewType
         /// <summary>
         /// <para>
         /// <para>The DynamoDB Streams settings for the table. These settings consist of:</para><ul><li><para><i>StreamEnabled</i> - Indicates whether DynamoDB Streams is enabled (true) or disabled
@@ -113,16 +123,21 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public StreamViewType StreamSpecification_StreamViewType { get; set; }
+        [AWSConstantClassSource("Amazon.DynamoDBv2.StreamViewType")]
+        public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
+        #endregion
         
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para>The name of the table to be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TableName { get; set; }
+        public System.String TableName { get; set; }
+        #endregion
         
+        #region Parameter WriteCapacity
         /// <summary>
         /// <para>
         /// <para>The maximum number of writes consumed per second before DynamoDB returns a <i>ThrottlingException</i>.
@@ -132,8 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ProvisionedThroughput_WriteCapacityUnits")]
-        public Int64 WriteCapacity { get; set; }
+        public System.Int64 WriteCapacity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -141,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -161,11 +178,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             
             if (this.AttributeDefinition != null)
             {
-                context.AttributeDefinitions = new List<AttributeDefinition>(this.AttributeDefinition);
+                context.AttributeDefinitions = new List<Amazon.DynamoDBv2.Model.AttributeDefinition>(this.AttributeDefinition);
             }
             if (this.GlobalSecondaryIndexUpdate != null)
             {
-                context.GlobalSecondaryIndexUpdates = new List<GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
+                context.GlobalSecondaryIndexUpdates = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
             }
             if (ParameterWasBound("ReadCapacity"))
                 context.ReadCapacity = this.ReadCapacity;
@@ -186,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateTableRequest();
+            var request = new Amazon.DynamoDBv2.Model.UpdateTableRequest();
             
             if (cmdletContext.AttributeDefinitions != null)
             {
@@ -199,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             
              // populate ProvisionedThroughput
             bool requestProvisionedThroughputIsNull = true;
-            request.ProvisionedThroughput = new ProvisionedThroughput();
-            Int64? requestProvisionedThroughput_readCapacity = null;
+            request.ProvisionedThroughput = new Amazon.DynamoDBv2.Model.ProvisionedThroughput();
+            System.Int64? requestProvisionedThroughput_readCapacity = null;
             if (cmdletContext.ReadCapacity != null)
             {
                 requestProvisionedThroughput_readCapacity = cmdletContext.ReadCapacity.Value;
@@ -210,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 request.ProvisionedThroughput.ReadCapacityUnits = requestProvisionedThroughput_readCapacity.Value;
                 requestProvisionedThroughputIsNull = false;
             }
-            Int64? requestProvisionedThroughput_writeCapacity = null;
+            System.Int64? requestProvisionedThroughput_writeCapacity = null;
             if (cmdletContext.WriteCapacity != null)
             {
                 requestProvisionedThroughput_writeCapacity = cmdletContext.WriteCapacity.Value;
@@ -228,8 +245,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             
              // populate StreamSpecification
             bool requestStreamSpecificationIsNull = true;
-            request.StreamSpecification = new StreamSpecification();
-            Boolean? requestStreamSpecification_streamSpecification_StreamEnabled = null;
+            request.StreamSpecification = new Amazon.DynamoDBv2.Model.StreamSpecification();
+            System.Boolean? requestStreamSpecification_streamSpecification_StreamEnabled = null;
             if (cmdletContext.StreamSpecification_StreamEnabled != null)
             {
                 requestStreamSpecification_streamSpecification_StreamEnabled = cmdletContext.StreamSpecification_StreamEnabled.Value;
@@ -239,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 request.StreamSpecification.StreamEnabled = requestStreamSpecification_streamSpecification_StreamEnabled.Value;
                 requestStreamSpecificationIsNull = false;
             }
-            StreamViewType requestStreamSpecification_streamSpecification_StreamViewType = null;
+            Amazon.DynamoDBv2.StreamViewType requestStreamSpecification_streamSpecification_StreamViewType = null;
             if (cmdletContext.StreamSpecification_StreamViewType != null)
             {
                 requestStreamSpecification_streamSpecification_StreamViewType = cmdletContext.StreamSpecification_StreamViewType;
@@ -293,13 +310,13 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<AttributeDefinition> AttributeDefinitions { get; set; }
-            public List<GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdates { get; set; }
-            public Int64? ReadCapacity { get; set; }
-            public Int64? WriteCapacity { get; set; }
-            public Boolean? StreamSpecification_StreamEnabled { get; set; }
-            public StreamViewType StreamSpecification_StreamViewType { get; set; }
-            public String TableName { get; set; }
+            public List<Amazon.DynamoDBv2.Model.AttributeDefinition> AttributeDefinitions { get; set; }
+            public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdates { get; set; }
+            public System.Int64? ReadCapacity { get; set; }
+            public System.Int64? WriteCapacity { get; set; }
+            public System.Boolean? StreamSpecification_StreamEnabled { get; set; }
+            public Amazon.DynamoDBv2.StreamViewType StreamSpecification_StreamViewType { get; set; }
+            public System.String TableName { get; set; }
         }
         
     }

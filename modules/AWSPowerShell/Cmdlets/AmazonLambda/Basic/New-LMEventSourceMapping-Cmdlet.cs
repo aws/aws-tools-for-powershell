@@ -55,10 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.CreateEventSourceMappingResponse")]
     [AWSCmdlet("Invokes the CreateEventSourceMapping operation against Amazon Lambda.", Operation = new[] {"CreateEventSourceMapping"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateEventSourceMappingResponse",
-        "This cmdlet returns a CreateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.CreateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter BatchSize
         /// <summary>
         /// <para>
         /// <para>The largest number of records that AWS Lambda will retrieve from your event source
@@ -67,17 +69,21 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BatchSize { get; set; }
+        public System.Int32 BatchSize { get; set; }
+        #endregion
         
+        #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether AWS Lambda should begin polling the event source, the default is
-        /// not enabled. </para>
+        /// <para>Indicates whether AWS Lambda should begin polling the event source. By default, <code>Enabled</code>
+        /// is true. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter EventSourceArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream
@@ -87,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EventSourceArn { get; set; }
+        public System.String EventSourceArn { get; set; }
+        #endregion
         
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The Lambda function to invoke when AWS Lambda detects an event on the stream.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -99,8 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
+        public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter StartingPosition
         /// <summary>
         /// <para>
         /// <para>The position in the stream where AWS Lambda should start reading. For more information,
@@ -109,8 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EventSourcePosition StartingPosition { get; set; }
+        [AWSConstantClassSource("Amazon.Lambda.EventSourcePosition")]
+        public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -118,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -154,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateEventSourceMappingRequest();
+            var request = new Amazon.Lambda.Model.CreateEventSourceMappingRequest();
             
             if (cmdletContext.BatchSize != null)
             {
@@ -211,11 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? BatchSize { get; set; }
-            public Boolean? Enabled { get; set; }
-            public String EventSourceArn { get; set; }
-            public String FunctionName { get; set; }
-            public EventSourcePosition StartingPosition { get; set; }
+            public System.Int32? BatchSize { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public System.String EventSourceArn { get; set; }
+            public System.String FunctionName { get; set; }
+            public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
         }
         
     }

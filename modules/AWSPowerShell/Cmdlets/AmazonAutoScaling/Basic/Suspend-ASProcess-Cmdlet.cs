@@ -48,18 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the SuspendProcesses operation against Auto Scaling.", Operation = new[] {"SuspendProcesses"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SuspendProcessesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.SuspendProcessesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SuspendASProcessCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter ScalingProcess
         /// <summary>
         /// <para>
         /// <para>One or more of the following processes:</para><ul><li><para><code>Launch</code></para></li><li><para><code>Terminate</code></para></li><li><para><code>HealthCheck</code></para></li><li><para><code>ReplaceUnhealthy</code></para></li><li><para><code>AZRebalance</code></para></li><li><para><code>AlarmNotification</code></para></li><li><para><code>ScheduledActions</code></para></li><li><para><code>AddToLoadBalancer</code></para></li></ul>
@@ -68,14 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("ScalingProcesses")]
         public System.String[] ScalingProcess { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.ScalingProcess != null)
             {
-                context.ScalingProcesses = new List<String>(this.ScalingProcess);
+                context.ScalingProcesses = new List<System.String>(this.ScalingProcess);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -117,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SuspendProcessesRequest();
+            var request = new Amazon.AutoScaling.Model.SuspendProcessesRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -164,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> ScalingProcesses { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> ScalingProcesses { get; set; }
         }
         
     }

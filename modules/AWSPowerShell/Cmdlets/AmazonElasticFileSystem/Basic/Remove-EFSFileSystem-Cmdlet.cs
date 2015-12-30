@@ -51,25 +51,31 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the DeleteFileSystem operation against Amazon Elastic File System.", Operation = new[] {"DeleteFileSystem"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FileSystemId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteFileSystemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.DeleteFileSystemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEFSFileSystemCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>The ID of the file system you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String FileSystemId { get; set; }
+        public System.String FileSystemId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the FileSystemId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -107,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteFileSystemRequest();
+            var request = new Amazon.ElasticFileSystem.Model.DeleteFileSystemRequest();
             
             if (cmdletContext.FileSystemId != null)
             {
@@ -150,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FileSystemId { get; set; }
+            public System.String FileSystemId { get; set; }
         }
         
     }

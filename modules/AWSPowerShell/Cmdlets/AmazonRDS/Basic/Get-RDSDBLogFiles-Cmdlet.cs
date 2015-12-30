@@ -35,11 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DescribeDBLogFiles operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBLogFiles"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DescribeDBLogFilesDetails",
         "This cmdlet returns a collection of DescribeDBLogFilesDetails objects.",
-        "The service call response (type DescribeDBLogFilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.RDS.Model.DescribeDBLogFilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRDSDBLogFilesCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The customer-assigned name of the DB instance that contains the log files you want
@@ -49,8 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter FileLastWritten
         /// <summary>
         /// <para>
         /// <para> Filters the available log files for files written since the specified date, in POSIX
@@ -58,8 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 FileLastWritten { get; set; }
+        public System.Int64 FileLastWritten { get; set; }
+        #endregion
         
+        #region Parameter FilenameContains
         /// <summary>
         /// <para>
         /// <para> Filters the available log files for log file names that contain the specified string.
@@ -67,16 +73,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FilenameContains { get; set; }
+        public System.String FilenameContains { get; set; }
+        #endregion
         
+        #region Parameter FileSize
         /// <summary>
         /// <para>
         /// <para> Filters the available log files for files larger than the specified size. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 FileSize { get; set; }
+        public System.Int64 FileSize { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -85,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> The pagination token provided in the previous request. If this parameter is specified
@@ -94,8 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
@@ -106,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -126,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.FileSize = this.FileSize;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
@@ -143,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeDBLogFilesRequest();
+            var request = new Amazon.RDS.Model.DescribeDBLogFilesRequest();
             if (cmdletContext.DBInstanceIdentifier != null)
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
@@ -166,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -251,12 +265,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceIdentifier { get; set; }
-            public Int64? FileLastWritten { get; set; }
-            public String FilenameContains { get; set; }
-            public Int64? FileSize { get; set; }
-            public List<Filter> Filters { get; set; }
-            public String Marker { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.Int64? FileLastWritten { get; set; }
+            public System.String FilenameContains { get; set; }
+            public System.Int64? FileSize { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

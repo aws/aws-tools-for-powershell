@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the UpdateApplication operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateApplication"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationDescription",
         "This cmdlet returns a ApplicationDescription object.",
-        "The service call response (type UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.UpdateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateEBApplicationCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application to update. If no such application is found, <code>UpdateApplication</code>
@@ -49,8 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> A new description for the application. </para><para>Default: If not specified, AWS Elastic Beanstalk does not update the description.
@@ -58,8 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -98,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateApplicationRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.UpdateApplicationRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -143,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String Description { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String Description { get; set; }
         }
         
     }

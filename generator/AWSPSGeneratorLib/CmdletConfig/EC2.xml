@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EC2</ServiceNounPrefix>
+  <ServiceName>Amazon Elastic Compute Cloud</ServiceName>
   <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
   <ServiceClient>AmazonEC2Client</ServiceClient>
   <ServiceNamespace>Amazon.EC2</ServiceNamespace>
@@ -327,6 +328,18 @@
     <ServiceOperation MethodName="DetachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId"/>
     <ServiceOperation MethodName="DisableVpcClassicLink" />
     <ServiceOperation MethodName="EnableVpcClassicLink" />
+    
+    <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType"/>
+    <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="ModifyHosts" Output="Response" PipelineParameter="HostIds" PositionalParameters="AutoPlacement" />
+    <ServiceOperation MethodName="ModifyInstancePlacement"/>
+    <ServiceOperation MethodName="ReleaseHosts" Output="Response"/>
+    <ServiceOperation MethodName="DescribeIdFormat"/>
+    <ServiceOperation MethodName="ModifyIdFormat" Output="Void" PipelineParameter="Resource"/>
+
+    <ServiceOperation MethodName="CreateNatGateway" PipelineParameter="SubnetId" Output="Response" />
+    <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
+    <ServiceOperation MethodName="DeleteNatGateway" />
 
   </ServiceOperations>
 

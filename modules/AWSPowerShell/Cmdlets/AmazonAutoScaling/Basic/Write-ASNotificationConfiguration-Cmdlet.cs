@@ -46,18 +46,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the PutNotificationConfiguration operation against Auto Scaling.", Operation = new[] {"PutNotificationConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutNotificationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.PutNotificationConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteASNotificationConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter NotificationType
         /// <summary>
         /// <para>
         /// <para>The type of event that will cause the notification to be sent. For details about notification
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("NotificationTypes")]
         public System.String[] NotificationType { get; set; }
+        #endregion
         
+        #region Parameter TopicARN
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.
@@ -75,15 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String TopicARN { get; set; }
+        public System.String TopicARN { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -112,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.NotificationType != null)
             {
-                context.NotificationTypes = new List<String>(this.NotificationType);
+                context.NotificationTypes = new List<System.String>(this.NotificationType);
             }
             context.TopicARN = this.TopicARN;
             
@@ -126,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutNotificationConfigurationRequest();
+            var request = new Amazon.AutoScaling.Model.PutNotificationConfigurationRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -177,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> NotificationTypes { get; set; }
-            public String TopicARN { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> NotificationTypes { get; set; }
+            public System.String TopicARN { get; set; }
         }
         
     }

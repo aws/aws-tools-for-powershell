@@ -46,10 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the DescribePipelines operation against AWS Data Pipeline.", Operation = new[] {"DescribePipelines"})]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.PipelineDescription",
         "This cmdlet returns a collection of PipelineDescription objects.",
-        "The service call response (type DescribePipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.DescribePipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDPPipelineDescriptionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The IDs of the pipelines to describe. You can pass as many as 25 identifiers in a
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("PipelineIds")]
         public System.String[] PipelineId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
             if (this.PipelineId != null)
             {
-                context.PipelineIds = new List<String>(this.PipelineId);
+                context.PipelineIds = new List<System.String>(this.PipelineId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -86,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribePipelinesRequest();
+            var request = new Amazon.DataPipeline.Model.DescribePipelinesRequest();
             
             if (cmdletContext.PipelineIds != null)
             {
@@ -127,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> PipelineIds { get; set; }
+            public List<System.String> PipelineIds { get; set; }
         }
         
     }

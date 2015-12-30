@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeCustomerGateways operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeCustomerGateways"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CustomerGateway",
         "This cmdlet returns a collection of CustomerGateway objects.",
-        "The service call response (type DescribeCustomerGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeCustomerGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2CustomerGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CustomerGatewayId
         /// <summary>
         /// <para>
         /// <para>One or more customer gateway IDs.</para><para>Default: Describes all your customer gateways.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("CustomerGatewayIds")]
         public System.String[] CustomerGatewayId { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>bgp-asn</code> - The customer gateway's Border Gateway Protocol (BGP) Autonomous
@@ -74,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -88,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.CustomerGatewayId != null)
             {
-                context.CustomerGatewayIds = new List<String>(this.CustomerGatewayId);
+                context.CustomerGatewayIds = new List<System.String>(this.CustomerGatewayId);
             }
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -105,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeCustomerGatewaysRequest();
+            var request = new Amazon.EC2.Model.DescribeCustomerGatewaysRequest();
             
             if (cmdletContext.CustomerGatewayIds != null)
             {
@@ -150,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> CustomerGatewayIds { get; set; }
-            public List<Filter> Filters { get; set; }
+            public List<System.String> CustomerGatewayIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
         }
         
     }

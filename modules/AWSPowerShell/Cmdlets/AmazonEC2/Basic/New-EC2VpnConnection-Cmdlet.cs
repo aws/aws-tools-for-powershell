@@ -53,18 +53,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateVpnConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpnConnection"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnConnection",
         "This cmdlet returns a VpnConnection object.",
-        "The service call response (type CreateVpnConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVpnConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpnConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CustomerGatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of the customer gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CustomerGatewayId { get; set; }
+        public System.String CustomerGatewayId { get; set; }
+        #endregion
         
+        #region Parameter Options_StaticRoutesOnly
         /// <summary>
         /// <para>
         /// <para>Indicates whether the VPN connection uses static routes only. Static routes must be
@@ -73,24 +77,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("StaticRoutesOnly")]
-        public Boolean Options_StaticRoutesOnly { get; set; }
+        public System.Boolean Options_StaticRoutesOnly { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The type of VPN connection (<code>ipsec.1</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Type { get; set; }
+        public System.String Type { get; set; }
+        #endregion
         
+        #region Parameter VpnGatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of the virtual private gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VpnGatewayId { get; set; }
+        public System.String VpnGatewayId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -132,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpnConnectionRequest();
+            var request = new Amazon.EC2.Model.CreateVpnConnectionRequest();
             
             if (cmdletContext.CustomerGatewayId != null)
             {
@@ -141,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate Options
             bool requestOptionsIsNull = true;
-            request.Options = new VpnConnectionOptionsSpecification();
-            Boolean? requestOptions_options_StaticRoutesOnly = null;
+            request.Options = new Amazon.EC2.Model.VpnConnectionOptionsSpecification();
+            System.Boolean? requestOptions_options_StaticRoutesOnly = null;
             if (cmdletContext.Options_StaticRoutesOnly != null)
             {
                 requestOptions_options_StaticRoutesOnly = cmdletContext.Options_StaticRoutesOnly.Value;
@@ -200,10 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CustomerGatewayId { get; set; }
-            public Boolean? Options_StaticRoutesOnly { get; set; }
-            public String Type { get; set; }
-            public String VpnGatewayId { get; set; }
+            public System.String CustomerGatewayId { get; set; }
+            public System.Boolean? Options_StaticRoutesOnly { get; set; }
+            public System.String Type { get; set; }
+            public System.String VpnGatewayId { get; set; }
         }
         
     }

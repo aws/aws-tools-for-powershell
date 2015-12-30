@@ -45,14 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGDiscoveredResource")]
     [OutputType("Amazon.ConfigService.Model.ResourceIdentifier")]
-    [AWSCmdlet("Invokes the ListDiscoveredResources operation against Amazon Config.", Operation = new[] {"ListDiscoveredResources"})]
+    [AWSCmdlet("Invokes the ListDiscoveredResources operation against AWS Config.", Operation = new[] {"ListDiscoveredResources"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ResourceIdentifier",
         "This cmdlet returns a collection of ResourceIdentifier objects.",
-        "The service call response (type ListDiscoveredResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.ConfigService.Model.ListDiscoveredResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCFGDiscoveredResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter IncludeDeletedResource
         /// <summary>
         /// <para>
         /// <para>Specifies whether AWS Config includes deleted resources in the results. By default,
@@ -60,8 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean IncludeDeletedResources { get; set; }
+        [Alias("IncludeDeletedResources")]
+        public System.Boolean IncludeDeletedResource { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The IDs of only those resources that you want AWS Config to list in the response.
@@ -72,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ResourceIds")]
         public System.String[] ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceName
         /// <summary>
         /// <para>
         /// <para>The custom name of only those resources that you want AWS Config to list in the response.
@@ -81,16 +88,21 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceName { get; set; }
+        public System.String ResourceName { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The type of resources that you want AWS Config to list in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ResourceType ResourceType { get; set; }
+        [AWSConstantClassSource("Amazon.ConfigService.ResourceType")]
+        public Amazon.ConfigService.ResourceType ResourceType { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of resource identifiers returned on each page. The default is 100.
@@ -99,8 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
@@ -108,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -121,14 +135,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("IncludeDeletedResources"))
-                context.IncludeDeletedResources = this.IncludeDeletedResources;
+            if (ParameterWasBound("IncludeDeletedResource"))
+                context.IncludeDeletedResources = this.IncludeDeletedResource;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             if (this.ResourceId != null)
             {
-                context.ResourceIds = new List<String>(this.ResourceId);
+                context.ResourceIds = new List<System.String>(this.ResourceId);
             }
             context.ResourceName = this.ResourceName;
             context.ResourceType = this.ResourceType;
@@ -143,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDiscoveredResourcesRequest();
+            var request = new Amazon.ConfigService.Model.ListDiscoveredResourcesRequest();
             
             if (cmdletContext.IncludeDeletedResources != null)
             {
@@ -206,12 +220,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? IncludeDeletedResources { get; set; }
-            public Int32? Limit { get; set; }
-            public String NextToken { get; set; }
-            public List<String> ResourceIds { get; set; }
-            public String ResourceName { get; set; }
-            public ResourceType ResourceType { get; set; }
+            public System.Boolean? IncludeDeletedResources { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ResourceIds { get; set; }
+            public System.String ResourceName { get; set; }
+            public Amazon.ConfigService.ResourceType ResourceType { get; set; }
         }
         
     }

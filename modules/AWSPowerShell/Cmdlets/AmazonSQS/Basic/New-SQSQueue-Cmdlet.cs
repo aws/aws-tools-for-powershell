@@ -56,10 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the CreateQueue operation against Amazon Simple Queue Service.", Operation = new[] {"CreateQueue"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateQueueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.CreateQueueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSQSQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
@@ -83,15 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter QueueName
         /// <summary>
         /// <para>
         /// <para>The name for the queue to be created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueName { get; set; }
+        public System.String QueueName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -99,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -119,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.Attribute != null)
             {
-                context.Attributes = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
                     context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
@@ -137,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateQueueRequest();
+            var request = new Amazon.SQS.Model.CreateQueueRequest();
             
             if (cmdletContext.Attributes != null)
             {
@@ -182,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Dictionary<String, String> Attributes { get; set; }
-            public String QueueName { get; set; }
+            public Dictionary<System.String, System.String> Attributes { get; set; }
+            public System.String QueueName { get; set; }
         }
         
     }

@@ -39,33 +39,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ResetImageAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ResetImageAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ImageId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ResetImageAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ResetImageAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetEC2ImageAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The attribute to reset (currently you can only reset the launch permission attribute).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public ResetImageAttributeName Attribute { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.ResetImageAttributeName")]
+        public Amazon.EC2.ResetImageAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter ImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ImageId { get; set; }
+        public System.String ImageId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ImageId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetImageAttributeRequest();
+            var request = new Amazon.EC2.Model.ResetImageAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -151,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public ResetImageAttributeName Attribute { get; set; }
-            public String ImageId { get; set; }
+            public Amazon.EC2.ResetImageAttributeName Attribute { get; set; }
+            public System.String ImageId { get; set; }
         }
         
     }

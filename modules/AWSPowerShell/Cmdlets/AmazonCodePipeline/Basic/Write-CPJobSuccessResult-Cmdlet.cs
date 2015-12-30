@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the PutJobSuccessResult operation against AWS CodePipeline.", Operation = new[] {"PutJobSuccessResult"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutJobSuccessResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodePipeline.Model.PutJobSuccessResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCPJobSuccessResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter CurrentRevision_ChangeIdentifier
         /// <summary>
         /// <para>
         /// <para>The change identifier for the current revision.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CurrentRevision_ChangeIdentifier { get; set; }
+        public System.String CurrentRevision_ChangeIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ContinuationToken
         /// <summary>
         /// <para>
         /// <para>A system-generated token, such as a AWS CodeDeploy deployment ID, that the successful
@@ -55,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContinuationToken { get; set; }
+        public System.String ContinuationToken { get; set; }
+        #endregion
         
+        #region Parameter ExecutionDetails_ExternalExecutionId
         /// <summary>
         /// <para>
         /// <para>The system-generated unique ID of this action used to identify this job worker in
@@ -64,8 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExecutionDetails_ExternalExecutionId { get; set; }
+        public System.String ExecutionDetails_ExternalExecutionId { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID of the job that succeeded. This is the same ID returned
@@ -73,8 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String JobId { get; set; }
+        public System.String JobId { get; set; }
+        #endregion
         
+        #region Parameter ExecutionDetails_PercentComplete
         /// <summary>
         /// <para>
         /// <para>The percentage of work completed on the action, represented on a scale of zero to
@@ -82,31 +92,39 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 ExecutionDetails_PercentComplete { get; set; }
+        public System.Int32 ExecutionDetails_PercentComplete { get; set; }
+        #endregion
         
+        #region Parameter CurrentRevision_Revision
         /// <summary>
         /// <para>
         /// <para>The revision ID of the current version of an artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CurrentRevision_Revision { get; set; }
+        public System.String CurrentRevision_Revision { get; set; }
+        #endregion
         
+        #region Parameter ExecutionDetails_Summary
         /// <summary>
         /// <para>
         /// <para>The summary of the current status of the actions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExecutionDetails_Summary { get; set; }
+        public System.String ExecutionDetails_Summary { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -114,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -151,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutJobSuccessResultRequest();
+            var request = new Amazon.CodePipeline.Model.PutJobSuccessResultRequest();
             
             if (cmdletContext.ContinuationToken != null)
             {
@@ -160,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate CurrentRevision
             bool requestCurrentRevisionIsNull = true;
-            request.CurrentRevision = new CurrentRevision();
-            String requestCurrentRevision_currentRevision_ChangeIdentifier = null;
+            request.CurrentRevision = new Amazon.CodePipeline.Model.CurrentRevision();
+            System.String requestCurrentRevision_currentRevision_ChangeIdentifier = null;
             if (cmdletContext.CurrentRevision_ChangeIdentifier != null)
             {
                 requestCurrentRevision_currentRevision_ChangeIdentifier = cmdletContext.CurrentRevision_ChangeIdentifier;
@@ -171,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.CurrentRevision.ChangeIdentifier = requestCurrentRevision_currentRevision_ChangeIdentifier;
                 requestCurrentRevisionIsNull = false;
             }
-            String requestCurrentRevision_currentRevision_Revision = null;
+            System.String requestCurrentRevision_currentRevision_Revision = null;
             if (cmdletContext.CurrentRevision_Revision != null)
             {
                 requestCurrentRevision_currentRevision_Revision = cmdletContext.CurrentRevision_Revision;
@@ -189,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
              // populate ExecutionDetails
             bool requestExecutionDetailsIsNull = true;
-            request.ExecutionDetails = new ExecutionDetails();
-            String requestExecutionDetails_executionDetails_ExternalExecutionId = null;
+            request.ExecutionDetails = new Amazon.CodePipeline.Model.ExecutionDetails();
+            System.String requestExecutionDetails_executionDetails_ExternalExecutionId = null;
             if (cmdletContext.ExecutionDetails_ExternalExecutionId != null)
             {
                 requestExecutionDetails_executionDetails_ExternalExecutionId = cmdletContext.ExecutionDetails_ExternalExecutionId;
@@ -200,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ExecutionDetails.ExternalExecutionId = requestExecutionDetails_executionDetails_ExternalExecutionId;
                 requestExecutionDetailsIsNull = false;
             }
-            Int32? requestExecutionDetails_executionDetails_PercentComplete = null;
+            System.Int32? requestExecutionDetails_executionDetails_PercentComplete = null;
             if (cmdletContext.ExecutionDetails_PercentComplete != null)
             {
                 requestExecutionDetails_executionDetails_PercentComplete = cmdletContext.ExecutionDetails_PercentComplete.Value;
@@ -210,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ExecutionDetails.PercentComplete = requestExecutionDetails_executionDetails_PercentComplete.Value;
                 requestExecutionDetailsIsNull = false;
             }
-            String requestExecutionDetails_executionDetails_Summary = null;
+            System.String requestExecutionDetails_executionDetails_Summary = null;
             if (cmdletContext.ExecutionDetails_Summary != null)
             {
                 requestExecutionDetails_executionDetails_Summary = cmdletContext.ExecutionDetails_Summary;
@@ -266,13 +284,13 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ContinuationToken { get; set; }
-            public String CurrentRevision_ChangeIdentifier { get; set; }
-            public String CurrentRevision_Revision { get; set; }
-            public String ExecutionDetails_ExternalExecutionId { get; set; }
-            public Int32? ExecutionDetails_PercentComplete { get; set; }
-            public String ExecutionDetails_Summary { get; set; }
-            public String JobId { get; set; }
+            public System.String ContinuationToken { get; set; }
+            public System.String CurrentRevision_ChangeIdentifier { get; set; }
+            public System.String CurrentRevision_Revision { get; set; }
+            public System.String ExecutionDetails_ExternalExecutionId { get; set; }
+            public System.Int32? ExecutionDetails_PercentComplete { get; set; }
+            public System.String ExecutionDetails_Summary { get; set; }
+            public System.String JobId { get; set; }
         }
         
     }

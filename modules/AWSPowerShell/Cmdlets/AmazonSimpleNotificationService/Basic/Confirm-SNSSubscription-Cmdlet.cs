@@ -39,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the ConfirmSubscription operation against Amazon Simple Notification Service.", Operation = new[] {"ConfirmSubscription"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ConfirmSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.ConfirmSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmSNSSubscriptionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuthenticateOnUnsubscribe
         /// <summary>
         /// <para>
         /// <para>Disallows unauthenticated unsubscribes of the subscription.     If the value of this
@@ -52,24 +54,30 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String AuthenticateOnUnsubscribe { get; set; }
+        public System.String AuthenticateOnUnsubscribe { get; set; }
+        #endregion
         
+        #region Parameter Token
         /// <summary>
         /// <para>
         /// <para>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Token { get; set; }
+        public System.String Token { get; set; }
+        #endregion
         
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic for which you wish to confirm a subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -109,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConfirmSubscriptionRequest();
+            var request = new Amazon.SimpleNotificationService.Model.ConfirmSubscriptionRequest();
             
             if (cmdletContext.AuthenticateOnUnsubscribe != null)
             {
@@ -158,9 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AuthenticateOnUnsubscribe { get; set; }
-            public String Token { get; set; }
-            public String TopicArn { get; set; }
+            public System.String AuthenticateOnUnsubscribe { get; set; }
+            public System.String Token { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateClusterSubnetGroup operation against Amazon Redshift.", Operation = new[] {"CreateClusterSubnetGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSubnetGroup",
         "This cmdlet returns a ClusterSubnetGroup object.",
-        "The service call response (type CreateClusterSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateClusterSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSClusterSubnetGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> The name for the subnet group. Amazon Redshift stores the value as a lowercase string.
@@ -57,16 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterSubnetGroupName { get; set; }
+        public System.String ClusterSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para> An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single request.
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -85,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -93,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -115,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.Description = this.Description;
             if (this.SubnetId != null)
             {
-                context.SubnetIds = new List<String>(this.SubnetId);
+                context.SubnetIds = new List<System.String>(this.SubnetId);
             }
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -132,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateClusterSubnetGroupRequest();
+            var request = new Amazon.Redshift.Model.CreateClusterSubnetGroupRequest();
             
             if (cmdletContext.ClusterSubnetGroupName != null)
             {
@@ -185,10 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterSubnetGroupName { get; set; }
-            public String Description { get; set; }
-            public List<String> SubnetIds { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String ClusterSubnetGroupName { get; set; }
+            public System.String Description { get; set; }
+            public List<System.String> SubnetIds { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

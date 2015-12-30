@@ -53,10 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.CreateSnapshotResponse")]
     [AWSCmdlet("Invokes the CreateSnapshot operation against AWS Storage Gateway.", Operation = new[] {"CreateSnapshot"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateSnapshotResponse",
-        "This cmdlet returns a CreateSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.CreateSnapshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSGSnapshotCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter SnapshotDescription
         /// <summary>
         /// <para>
         /// <para>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
@@ -65,8 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SnapshotDescription { get; set; }
+        public System.String SnapshotDescription { get; set; }
+        #endregion
         
+        #region Parameter VolumeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation
@@ -74,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeARN { get; set; }
+        public System.String VolumeARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -114,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSnapshotRequest();
+            var request = new Amazon.StorageGateway.Model.CreateSnapshotRequest();
             
             if (cmdletContext.SnapshotDescription != null)
             {
@@ -159,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SnapshotDescription { get; set; }
-            public String VolumeARN { get; set; }
+            public System.String SnapshotDescription { get; set; }
+            public System.String VolumeARN { get; set; }
         }
         
     }

@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AssignPrivateIpAddresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssignPrivateIpAddresses"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NetworkInterfaceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AssignPrivateIpAddressesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.AssignPrivateIpAddressesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterEC2PrivateIpAddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowReassignment
         /// <summary>
         /// <para>
         /// <para>Indicates whether to allow an IP address that is already assigned to another network
@@ -58,16 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean AllowReassignment { get; set; }
+        public System.Boolean AllowReassignment { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>The ID of the network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
         /// <para>One or more IP addresses to be assigned as a secondary private IP address to the network
@@ -79,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("PrivateIpAddresses")]
         public System.String[] PrivateIpAddress { get; set; }
+        #endregion
         
+        #region Parameter SecondaryPrivateIpAddressCount
         /// <summary>
         /// <para>
         /// <para>The number of secondary IP addresses to assign to the network interface. You can't
@@ -87,15 +95,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 SecondaryPrivateIpAddressCount { get; set; }
+        public System.Int32 SecondaryPrivateIpAddressCount { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the NetworkInterfaceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -103,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -126,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             if (this.PrivateIpAddress != null)
             {
-                context.PrivateIpAddresses = new List<String>(this.PrivateIpAddress);
+                context.PrivateIpAddresses = new List<System.String>(this.PrivateIpAddress);
             }
             if (ParameterWasBound("SecondaryPrivateIpAddressCount"))
                 context.SecondaryPrivateIpAddressCount = this.SecondaryPrivateIpAddressCount;
@@ -141,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssignPrivateIpAddressesRequest();
+            var request = new Amazon.EC2.Model.AssignPrivateIpAddressesRequest();
             
             if (cmdletContext.AllowReassignment != null)
             {
@@ -196,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowReassignment { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public List<String> PrivateIpAddresses { get; set; }
-            public Int32? SecondaryPrivateIpAddressCount { get; set; }
+            public System.Boolean? AllowReassignment { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public List<System.String> PrivateIpAddresses { get; set; }
+            public System.Int32? SecondaryPrivateIpAddressCount { get; set; }
         }
         
     }

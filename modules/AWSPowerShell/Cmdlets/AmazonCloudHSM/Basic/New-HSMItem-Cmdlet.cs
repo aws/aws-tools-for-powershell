@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the CreateHsm operation against AWS Cloud HSM.", Operation = new[] {"CreateHsm"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.CreateHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>A user-defined token to ensure idempotence. Subsequent calls to this action with the
@@ -47,24 +49,30 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter EniIp
         /// <summary>
         /// <para>
         /// <para>The IP address to assign to the HSM's ENI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EniIp { get; set; }
+        public System.String EniIp { get; set; }
+        #endregion
         
+        #region Parameter ExternalId
         /// <summary>
         /// <para>
         /// <para>The external ID from <b>IamRoleArn</b>, if present.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExternalId { get; set; }
+        public System.String ExternalId { get; set; }
+        #endregion
         
+        #region Parameter IamRoleArn
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your
@@ -72,40 +80,51 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String IamRoleArn { get; set; }
+        public System.String IamRoleArn { get; set; }
+        #endregion
         
+        #region Parameter SshKey
         /// <summary>
         /// <para>
         /// <para>The SSH public key to install on the HSM.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshKey { get; set; }
+        public System.String SshKey { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The identifier of the subnet in your VPC in which to place the HSM.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionType
         /// <summary>
         /// <para>
         /// <para>The subscription type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SubscriptionType SubscriptionType { get; set; }
+        [AWSConstantClassSource("Amazon.CloudHSM.SubscriptionType")]
+        public Amazon.CloudHSM.SubscriptionType SubscriptionType { get; set; }
+        #endregion
         
+        #region Parameter SyslogIp
         /// <summary>
         /// <para>
         /// <para>The IP address for the syslog monitoring server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SyslogIp { get; set; }
+        public System.String SyslogIp { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -113,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -150,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateHsmRequest();
+            var request = new Amazon.CloudHSM.Model.CreateHsmRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -219,14 +238,14 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String EniIp { get; set; }
-            public String ExternalId { get; set; }
-            public String IamRoleArn { get; set; }
-            public String SshKey { get; set; }
-            public String SubnetId { get; set; }
-            public SubscriptionType SubscriptionType { get; set; }
-            public String SyslogIp { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String EniIp { get; set; }
+            public System.String ExternalId { get; set; }
+            public System.String IamRoleArn { get; set; }
+            public System.String SshKey { get; set; }
+            public System.String SubnetId { get; set; }
+            public Amazon.CloudHSM.SubscriptionType SubscriptionType { get; set; }
+            public System.String SyslogIp { get; set; }
         }
         
     }

@@ -37,43 +37,54 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the DescribeAlarmHistory operation against Amazon CloudWatch.", Operation = new[] {"DescribeAlarmHistory"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.AlarmHistoryItem",
         "This cmdlet returns a collection of AlarmHistoryItem objects.",
-        "The service call response (type DescribeAlarmHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWAlarmHistoryCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        
+        #region Parameter AlarmName
         /// <summary>
         /// <para>
         /// <para> The name of the alarm. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AlarmName { get; set; }
+        public System.String AlarmName { get; set; }
+        #endregion
         
+        #region Parameter EndDate
         /// <summary>
         /// <para>
         /// <para> The ending date to retrieve alarm history. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public DateTime EndDate { get; set; }
+        public System.DateTime EndDate { get; set; }
+        #endregion
         
+        #region Parameter HistoryItemType
         /// <summary>
         /// <para>
         /// <para> The type of alarm histories to retrieve. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public HistoryItemType HistoryItemType { get; set; }
+        [AWSConstantClassSource("Amazon.CloudWatch.HistoryItemType")]
+        public Amazon.CloudWatch.HistoryItemType HistoryItemType { get; set; }
+        #endregion
         
+        #region Parameter StartDate
         /// <summary>
         /// <para>
         /// <para> The starting date to retrieve alarm history. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public DateTime StartDate { get; set; }
+        public System.DateTime StartDate { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of alarm history records to retrieve. </para>
@@ -82,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> The token returned by a previous call to indicate that there is more data available.
@@ -90,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -124,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeAlarmHistoryRequest();
+            var request = new Amazon.CloudWatch.Model.DescribeAlarmHistoryRequest();
             if (cmdletContext.AlarmName != null)
             {
                 request.AlarmName = cmdletContext.AlarmName;
@@ -143,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -228,12 +241,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AlarmName { get; set; }
-            public DateTime? EndDate { get; set; }
-            public HistoryItemType HistoryItemType { get; set; }
+            public System.String AlarmName { get; set; }
+            public System.DateTime? EndDate { get; set; }
+            public Amazon.CloudWatch.HistoryItemType HistoryItemType { get; set; }
             public int? MaxRecords { get; set; }
-            public String NextToken { get; set; }
-            public DateTime? StartDate { get; set; }
+            public System.String NextToken { get; set; }
+            public System.DateTime? StartDate { get; set; }
         }
         
     }

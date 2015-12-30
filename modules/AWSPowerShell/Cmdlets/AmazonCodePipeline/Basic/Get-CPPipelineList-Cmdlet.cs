@@ -35,11 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the ListPipelines operation against AWS CodePipeline.", Operation = new[] {"ListPipelines"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineSummary",
         "This cmdlet returns a collection of PipelineSummary objects.",
-        "The service call response (type ListPipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodePipeline.Model.ListPipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCPPipelineListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list pipelines call, which can be
@@ -47,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListPipelinesRequest();
+            var request = new Amazon.CodePipeline.Model.ListPipelinesRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

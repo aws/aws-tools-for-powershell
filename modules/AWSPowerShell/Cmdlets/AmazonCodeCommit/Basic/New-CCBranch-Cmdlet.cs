@@ -38,18 +38,22 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the CreateBranch operation against AWS CodeCommit.", Operation = new[] {"CreateBranch"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RepositoryName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateBranchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeCommit.Model.CreateBranchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCCBranchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter BranchName
         /// <summary>
         /// <para>
         /// <para>The name of the new branch to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BranchName { get; set; }
+        public System.String BranchName { get; set; }
+        #endregion
         
+        #region Parameter CommitId
         /// <summary>
         /// <para>
         /// <para>The ID of the commit to point the new branch to.</para><note>If this commit ID is not specified, the new branch will point to the commit
@@ -57,23 +61,29 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CommitId { get; set; }
+        public System.String CommitId { get; set; }
+        #endregion
         
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The name of the repository in which you want to create the new branch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RepositoryName { get; set; }
+        public System.String RepositoryName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RepositoryName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -113,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateBranchRequest();
+            var request = new Amazon.CodeCommit.Model.CreateBranchRequest();
             
             if (cmdletContext.BranchName != null)
             {
@@ -164,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BranchName { get; set; }
-            public String CommitId { get; set; }
-            public String RepositoryName { get; set; }
+            public System.String BranchName { get; set; }
+            public System.String CommitId { get; set; }
+            public System.String RepositoryName { get; set; }
         }
         
     }

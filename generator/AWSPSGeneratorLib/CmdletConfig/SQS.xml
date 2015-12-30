@@ -2,13 +2,10 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SQS</ServiceNounPrefix>
+  <ServiceName>Amazon Simple Queue Service</ServiceName>
   <ServiceClientInterface>IAmazonSQS</ServiceClientInterface>
   <ServiceClient>AmazonSQSClient</ServiceClient>
   <ServiceNamespace>Amazon.SQS</ServiceNamespace>
-
-  <RetainFullTypeNames>
-    <TypeName>Amazon.SQS.Model.Attribute</TypeName> <!-- avoid collision with System.Attribute -->
-  </RetainFullTypeNames>
 
   <PositionalParameters>QueueUrl</PositionalParameters>
   <PipelineParameter>QueueUrl</PipelineParameter>

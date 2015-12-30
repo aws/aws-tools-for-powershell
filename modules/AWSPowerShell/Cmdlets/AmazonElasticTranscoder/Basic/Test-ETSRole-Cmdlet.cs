@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [OutputType("Amazon.ElasticTranscoder.Model.TestRoleResponse")]
     [AWSCmdlet("Invokes the TestRole operation against Amazon Elastic Transcoder.", Operation = new[] {"TestRole"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.TestRoleResponse",
-        "This cmdlet returns a TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticTranscoder.Model.TestRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class TestETSRoleCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter InputBucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket that contains media files to be transcoded. The action attempts
@@ -54,8 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String InputBucket { get; set; }
+        public System.String InputBucket { get; set; }
+        #endregion
         
+        #region Parameter OutputBucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket that Elastic Transcoder will write transcoded media files to.
@@ -63,8 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String OutputBucket { get; set; }
+        public System.String OutputBucket { get; set; }
+        #endregion
         
+        #region Parameter Role
         /// <summary>
         /// <para>
         /// <para>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to
@@ -72,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Role { get; set; }
+        public System.String Role { get; set; }
+        #endregion
         
+        #region Parameter Topic
         /// <summary>
         /// <para>
         /// <para>The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("Topics")]
         public System.String[] Topic { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.Role = this.Role;
             if (this.Topic != null)
             {
-                context.Topics = new List<String>(this.Topic);
+                context.Topics = new List<System.String>(this.Topic);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TestRoleRequest();
+            var request = new Amazon.ElasticTranscoder.Model.TestRoleRequest();
             
             if (cmdletContext.InputBucket != null)
             {
@@ -166,10 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InputBucket { get; set; }
-            public String OutputBucket { get; set; }
-            public String Role { get; set; }
-            public List<String> Topics { get; set; }
+            public System.String InputBucket { get; set; }
+            public System.String OutputBucket { get; set; }
+            public System.String Role { get; set; }
+            public List<System.String> Topics { get; set; }
         }
         
     }

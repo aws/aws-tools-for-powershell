@@ -35,26 +35,30 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the GetDeploymentInstance operation against AWS CodeDeploy.", Operation = new[] {"GetDeploymentInstance"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.InstanceSummary",
         "This cmdlet returns a InstanceSummary object.",
-        "The service call response (type GetDeploymentInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDDeploymentInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>The unique ID of a deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentId { get; set; }
+        public System.String DeploymentId { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The unique ID of an instance in the deployment's deployment group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceId { get; set; }
-        
+        public System.String InstanceId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDeploymentInstanceRequest();
+            var request = new Amazon.CodeDeploy.Model.GetDeploymentInstanceRequest();
             
             if (cmdletContext.DeploymentId != null)
             {
@@ -124,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeploymentId { get; set; }
-            public String InstanceId { get; set; }
+            public System.String DeploymentId { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

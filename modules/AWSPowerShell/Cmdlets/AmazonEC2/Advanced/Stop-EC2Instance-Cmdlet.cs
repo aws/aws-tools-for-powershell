@@ -55,14 +55,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.InstanceStateChange")]
     [AWSCmdlet("Invokes the StopInstances or TerminateInstances operations on one or more EC2 instances.", Operation = new [] {"StopInstances", "TerminateInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStateChange",
-                     "This cmdlet returns 0 or more InstanceStateChange instances.",
-                     "The service response (type StopInstancesResponse or TerminateInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."
+                     "This cmdlet returns 0 or more Amazon.EC2.Model.InstanceStateChange instances.",
+                     "The service response (type Amazon.EC2.Model.StopInstancesResponse or Amazon.EC2.Model.TerminateInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         const string ParamSet_StopInstances = "StopInstancesParamSet";
         const string ParamSet_TerminateInstances = "TerminateInstancesParamSet";
 
+        #region Parameter Instance
         /// <summary>
         /// Identifies the set of instances to stop or terminate. Accepts a string instance ID 
         /// or a collection of RunningInstance or Reservation objects.
@@ -70,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// processed.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline=true)]
-        public object[] Instance { get; set; }
+        public System.Object[] Instance { get; set; }
+        #endregion
 
+        #region Parameter ForceStop
         /// <summary>
         /// Forces the instance to stop. The instance will not have an opportunity to flush file system caches nor file
         /// system meta data. If you use this option, you must perform file system check and repair procedures. This 
@@ -80,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName=ParamSet_StopInstances)]
         public SwitchParameter ForceStop { get; set; }
+        #endregion
 
+        #region Parameter Terminate
         /// <summary>
         /// Signals that the command should Terminate the instance, instead of just stopping it. If this
         /// option is specified, the cmdlet prompts for user confirmation unless the -Force switch is
@@ -88,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_TerminateInstances)]
         public SwitchParameter Terminate { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// <para>
         /// If -Terminate is specified, the instance(s) specified are terminated with no further
@@ -101,6 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_TerminateInstances)]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

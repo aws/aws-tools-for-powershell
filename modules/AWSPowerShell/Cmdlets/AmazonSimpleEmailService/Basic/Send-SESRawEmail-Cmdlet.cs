@@ -72,10 +72,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the SendRawEmail operation against Amazon Simple Email Service.", Operation = new[] {"SendRawEmail"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type SendRawEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.SendRawEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendSESRawEmailCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RawMessage_Data
         /// <summary>
         /// <para>
         /// <para>The raw data of the message. The client must ensure that the message format complies
@@ -89,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream RawMessage_Data { get; set; }
+        #endregion
         
+        #region Parameter Destination
         /// <summary>
         /// <para>
         /// <para>A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.</para>
@@ -98,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Destinations")]
         public System.String[] Destination { get; set; }
+        #endregion
         
+        #region Parameter FromArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -112,8 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FromArn { get; set; }
+        public System.String FromArn { get; set; }
+        #endregion
         
+        #region Parameter ReturnPathArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -130,8 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ReturnPathArn { get; set; }
+        public System.String ReturnPathArn { get; set; }
+        #endregion
         
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para>The identity's email address. If you do not provide a value for this parameter, you
@@ -147,8 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Source { get; set; }
+        public System.String Source { get; set; }
+        #endregion
         
+        #region Parameter SourceArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -165,8 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceArn { get; set; }
+        public System.String SourceArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -174,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -194,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.Destination != null)
             {
-                context.Destinations = new List<String>(this.Destination);
+                context.Destinations = new List<System.String>(this.Destination);
             }
             context.FromArn = this.FromArn;
             context.RawMessage_Data = this.RawMessage_Data;
@@ -212,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SendRawEmailRequest();
+            var request = new Amazon.SimpleEmail.Model.SendRawEmailRequest();
             
             if (cmdletContext.Destinations != null)
             {
@@ -225,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
              // populate RawMessage
             bool requestRawMessageIsNull = true;
-            request.RawMessage = new RawMessage();
+            request.RawMessage = new Amazon.SimpleEmail.Model.RawMessage();
             System.IO.MemoryStream requestRawMessage_rawMessage_Data = null;
             if (cmdletContext.RawMessage_Data != null)
             {
@@ -288,12 +302,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Destinations { get; set; }
-            public String FromArn { get; set; }
+            public List<System.String> Destinations { get; set; }
+            public System.String FromArn { get; set; }
             public System.IO.MemoryStream RawMessage_Data { get; set; }
-            public String ReturnPathArn { get; set; }
-            public String Source { get; set; }
-            public String SourceArn { get; set; }
+            public System.String ReturnPathArn { get; set; }
+            public System.String Source { get; set; }
+            public System.String SourceArn { get; set; }
         }
         
     }

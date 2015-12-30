@@ -44,24 +44,40 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Write", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutDeliveryChannel operation against Amazon Config.", Operation = new[] {"PutDeliveryChannel"})]
+    [AWSCmdlet("Invokes the PutDeliveryChannel operation against AWS Config.", Operation = new[] {"PutDeliveryChannel"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryChannelName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.PutDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigSnapshotDeliveryProperties_DeliveryFrequency
+        /// <summary>
+        /// <para>
+        /// <para>The frequency with which a AWS Config recurringly delivers configuration snapshots.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency")]
+        [AWSConstantClassSource("Amazon.ConfigService.MaximumExecutionFrequency")]
+        public Amazon.ConfigService.MaximumExecutionFrequency ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
+        #endregion
+        
+        #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery channel. By default, AWS Config automatically assigns the
-        /// name "default" when creating the delivery channel. You cannot change the assigned
-        /// name. </para>
+        /// name "default" when creating the delivery channel. You cannot change the
+        /// assigned name. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DeliveryChannel_Name")]
-        public String DeliveryChannelName { get; set; }
+        public System.String DeliveryChannelName { get; set; }
+        #endregion
         
+        #region Parameter DeliveryChannel_S3BucketName
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket used to store configuration history for the delivery
@@ -69,16 +85,20 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryChannel_S3BucketName { get; set; }
+        public System.String DeliveryChannel_S3BucketName { get; set; }
+        #endregion
         
+        #region Parameter DeliveryChannel_S3KeyPrefix
         /// <summary>
         /// <para>
         /// <para>The prefix for the specified Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryChannel_S3KeyPrefix { get; set; }
+        public System.String DeliveryChannel_S3KeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter DeliveryChannel_SnsTopicARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the SNS topic that AWS Config delivers notifications
@@ -86,15 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeliveryChannel_SnsTopicARN { get; set; }
+        public System.String DeliveryChannel_SnsTopicARN { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DeliveryChannelName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 Credentials = this.CurrentCredentials
             };
             
+            context.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency = this.ConfigSnapshotDeliveryProperties_DeliveryFrequency;
             context.DeliveryChannelName = this.DeliveryChannelName;
             context.DeliveryChannel_S3BucketName = this.DeliveryChannel_S3BucketName;
             context.DeliveryChannel_S3KeyPrefix = this.DeliveryChannel_S3KeyPrefix;
@@ -135,13 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutDeliveryChannelRequest();
+            var request = new Amazon.ConfigService.Model.PutDeliveryChannelRequest();
             
             
              // populate DeliveryChannel
             bool requestDeliveryChannelIsNull = true;
-            request.DeliveryChannel = new DeliveryChannel();
-            String requestDeliveryChannel_deliveryChannelName = null;
+            request.DeliveryChannel = new Amazon.ConfigService.Model.DeliveryChannel();
+            System.String requestDeliveryChannel_deliveryChannelName = null;
             if (cmdletContext.DeliveryChannelName != null)
             {
                 requestDeliveryChannel_deliveryChannelName = cmdletContext.DeliveryChannelName;
@@ -151,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.Name = requestDeliveryChannel_deliveryChannelName;
                 requestDeliveryChannelIsNull = false;
             }
-            String requestDeliveryChannel_deliveryChannel_S3BucketName = null;
+            System.String requestDeliveryChannel_deliveryChannel_S3BucketName = null;
             if (cmdletContext.DeliveryChannel_S3BucketName != null)
             {
                 requestDeliveryChannel_deliveryChannel_S3BucketName = cmdletContext.DeliveryChannel_S3BucketName;
@@ -161,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.S3BucketName = requestDeliveryChannel_deliveryChannel_S3BucketName;
                 requestDeliveryChannelIsNull = false;
             }
-            String requestDeliveryChannel_deliveryChannel_S3KeyPrefix = null;
+            System.String requestDeliveryChannel_deliveryChannel_S3KeyPrefix = null;
             if (cmdletContext.DeliveryChannel_S3KeyPrefix != null)
             {
                 requestDeliveryChannel_deliveryChannel_S3KeyPrefix = cmdletContext.DeliveryChannel_S3KeyPrefix;
@@ -171,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.DeliveryChannel.S3KeyPrefix = requestDeliveryChannel_deliveryChannel_S3KeyPrefix;
                 requestDeliveryChannelIsNull = false;
             }
-            String requestDeliveryChannel_deliveryChannel_SnsTopicARN = null;
+            System.String requestDeliveryChannel_deliveryChannel_SnsTopicARN = null;
             if (cmdletContext.DeliveryChannel_SnsTopicARN != null)
             {
                 requestDeliveryChannel_deliveryChannel_SnsTopicARN = cmdletContext.DeliveryChannel_SnsTopicARN;
@@ -179,6 +204,31 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestDeliveryChannel_deliveryChannel_SnsTopicARN != null)
             {
                 request.DeliveryChannel.SnsTopicARN = requestDeliveryChannel_deliveryChannel_SnsTopicARN;
+                requestDeliveryChannelIsNull = false;
+            }
+            Amazon.ConfigService.Model.ConfigSnapshotDeliveryProperties requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = null;
+            
+             // populate ConfigSnapshotDeliveryProperties
+            bool requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryPropertiesIsNull = true;
+            requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = new Amazon.ConfigService.Model.ConfigSnapshotDeliveryProperties();
+            Amazon.ConfigService.MaximumExecutionFrequency requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency = null;
+            if (cmdletContext.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency != null)
+            {
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency = cmdletContext.DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency;
+            }
+            if (requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency != null)
+            {
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties.DeliveryFrequency = requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties_configSnapshotDeliveryProperties_DeliveryFrequency;
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryPropertiesIsNull = false;
+            }
+             // determine if requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties should be set to null
+            if (requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryPropertiesIsNull)
+            {
+                requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties = null;
+            }
+            if (requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties != null)
+            {
+                request.DeliveryChannel.ConfigSnapshotDeliveryProperties = requestDeliveryChannel_deliveryChannel_ConfigSnapshotDeliveryProperties;
                 requestDeliveryChannelIsNull = false;
             }
              // determine if request.DeliveryChannel should be set to null
@@ -223,10 +273,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryChannelName { get; set; }
-            public String DeliveryChannel_S3BucketName { get; set; }
-            public String DeliveryChannel_S3KeyPrefix { get; set; }
-            public String DeliveryChannel_SnsTopicARN { get; set; }
+            public Amazon.ConfigService.MaximumExecutionFrequency DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
+            public System.String DeliveryChannelName { get; set; }
+            public System.String DeliveryChannel_S3BucketName { get; set; }
+            public System.String DeliveryChannel_S3KeyPrefix { get; set; }
+            public System.String DeliveryChannel_SnsTopicARN { get; set; }
         }
         
     }

@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the GetPipeline operation against AWS CodePipeline.", Operation = new[] {"GetPipeline"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineDeclaration",
         "This cmdlet returns a PipelineDeclaration object.",
-        "The service call response (type GetPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.GetPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline for which you want to get information. Pipeline names must
@@ -48,8 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>The version number of the pipeline. If you do not specify a version, defaults to the
@@ -57,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Version { get; set; }
-        
+        public System.Int32 Version { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -84,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPipelineRequest();
+            var request = new Amazon.CodePipeline.Model.GetPipelineRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -129,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
-            public Int32? Version { get; set; }
+            public System.String Name { get; set; }
+            public System.Int32? Version { get; set; }
         }
         
     }

@@ -47,26 +47,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the RevokeSecurityGroupIngress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RevokeSecurityGroupIngress"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RevokeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.RevokeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RevokeEC2SecurityGroupIngressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupId
         /// <summary>
         /// <para>
         /// <para>The ID of the security group. Required for a security group in a nondefault VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GroupId { get; set; }
+        public System.String GroupId { get; set; }
+        #endregion
         
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>[EC2-Classic, default VPC] The name of the security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
+        #endregion
         
+        #region Parameter IpPermission
         /// <summary>
         /// <para>
         /// <para>A set of IP permissions. You can't specify a source security group and a CIDR IP address
@@ -76,14 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("IpPermissions")]
         public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the GroupId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -113,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.GroupName = this.GroupName;
             if (this.IpPermission != null)
             {
-                context.IpPermissions = new List<IpPermission>(this.IpPermission);
+                context.IpPermissions = new List<Amazon.EC2.Model.IpPermission>(this.IpPermission);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -126,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RevokeSecurityGroupIngressRequest();
+            var request = new Amazon.EC2.Model.RevokeSecurityGroupIngressRequest();
             
             if (cmdletContext.GroupId != null)
             {
@@ -177,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GroupId { get; set; }
-            public String GroupName { get; set; }
-            public List<IpPermission> IpPermissions { get; set; }
+            public System.String GroupId { get; set; }
+            public System.String GroupName { get; set; }
+            public List<Amazon.EC2.Model.IpPermission> IpPermissions { get; set; }
         }
         
     }

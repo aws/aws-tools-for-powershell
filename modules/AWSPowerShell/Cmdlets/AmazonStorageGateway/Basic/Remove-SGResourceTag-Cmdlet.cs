@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the RemoveTagsFromResource operation against AWS Storage Gateway.", Operation = new[] {"RemoveTagsFromResource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource you want to remove the tags from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceARN { get; set; }
+        public System.String ResourceARN { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>The keys of the tags you want to remove from the specified resource. A tag is composed
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.ResourceARN = this.ResourceARN;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -98,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveTagsFromResourceRequest();
+            var request = new Amazon.StorageGateway.Model.RemoveTagsFromResourceRequest();
             
             if (cmdletContext.ResourceARN != null)
             {
@@ -143,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ResourceARN { get; set; }
-            public List<String> TagKeys { get; set; }
+            public System.String ResourceARN { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

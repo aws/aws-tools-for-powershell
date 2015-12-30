@@ -61,34 +61,43 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateSubnet operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSubnet"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Subnet",
         "This cmdlet returns a Subnet object.",
-        "The service call response (type CreateSubnetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSubnetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2SubnetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone for the subnet.</para><para>Default: Amazon EC2 selects one for you (recommended).</para>
+        /// <para>The Availability Zone for the subnet.</para><para>Default: AWS selects one for you. If you create more than one subnet in your VPC,
+        /// we may not necessarily select a different zone for each subnet. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter CidrBlock
         /// <summary>
         /// <para>
         /// <para>The network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String CidrBlock { get; set; }
+        public System.String CidrBlock { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -128,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSubnetRequest();
+            var request = new Amazon.EC2.Model.CreateSubnetRequest();
             
             if (cmdletContext.AvailabilityZone != null)
             {
@@ -177,9 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZone { get; set; }
-            public String CidrBlock { get; set; }
-            public String VpcId { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.String CidrBlock { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

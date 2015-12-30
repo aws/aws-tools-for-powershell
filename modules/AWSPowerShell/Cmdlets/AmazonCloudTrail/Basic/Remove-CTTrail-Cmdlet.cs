@@ -29,17 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Deletes a trail. This operation must be called from the region in which the trail
-    /// was created.
+    /// was created. <code>DeleteTrail</code> cannot be called on the shadow trails (replicated
+    /// trails in other regions) of a trail that is enabled in all regions.
     /// </summary>
     [Cmdlet("Remove", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
     [AWSCmdlet("Invokes the DeleteTrail operation against AWS CloudTrail.", Operation = new[] {"DeleteTrail"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteTrailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudTrail.Model.DeleteTrailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Specifies the name or the CloudTrail ARN of the trail to be deleted. The format of
@@ -47,15 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Name parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteTrailRequest();
+            var request = new Amazon.CloudTrail.Model.DeleteTrailRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -136,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

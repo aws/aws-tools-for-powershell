@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// To change the password for a different user, see <a>UpdateLoginProfile</a>. For more
     /// information about modifying passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
-    /// Passwords</a> in the <i>Using IAM</i> guide. 
+    /// Passwords</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "IAMPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ChangePassword operation against AWS Identity and Access Management.", Operation = new[] {"ChangePassword"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OldPassword parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ChangePasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.ChangePasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditIAMPasswordCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPassword
         /// <summary>
         /// <para>
         /// <para>The new password. The new password must conform to the AWS account's password policy,
@@ -54,23 +56,29 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String NewPassword { get; set; }
+        public System.String NewPassword { get; set; }
+        #endregion
         
+        #region Parameter OldPassword
         /// <summary>
         /// <para>
         /// <para>The IAM user's current password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String OldPassword { get; set; }
+        public System.String OldPassword { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the OldPassword parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -109,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ChangePasswordRequest();
+            var request = new Amazon.IdentityManagement.Model.ChangePasswordRequest();
             
             if (cmdletContext.NewPassword != null)
             {
@@ -156,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NewPassword { get; set; }
-            public String OldPassword { get; set; }
+            public System.String NewPassword { get; set; }
+            public System.String OldPassword { get; set; }
         }
         
     }

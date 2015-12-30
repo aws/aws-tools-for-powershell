@@ -36,42 +36,52 @@ namespace Amazon.PowerShell.Cmdlets.IE
     [OutputType("Amazon.ImportExport.Model.GetShippingLabelResponse")]
     [AWSCmdlet("Invokes the GetShippingLabel operation against AWS Import/Export.", Operation = new[] {"GetShippingLabel"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.GetShippingLabelResponse",
-        "This cmdlet returns a GetShippingLabelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ImportExport.Model.GetShippingLabelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIEShippingLabelCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
+        
+        #region Parameter APIVersion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String APIVersion { get; set; }
+        public System.String APIVersion { get; set; }
+        #endregion
         
+        #region Parameter City
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String City { get; set; }
+        public System.String City { get; set; }
+        #endregion
         
+        #region Parameter Company
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Company { get; set; }
+        public System.String Company { get; set; }
+        #endregion
         
+        #region Parameter Country
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Country { get; set; }
+        public System.String Country { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -80,63 +90,77 @@ namespace Amazon.PowerShell.Cmdlets.IE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobIds")]
         public System.String[] JobId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter PhoneNumber
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PhoneNumber { get; set; }
+        public System.String PhoneNumber { get; set; }
+        #endregion
         
+        #region Parameter PostalCode
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PostalCode { get; set; }
+        public System.String PostalCode { get; set; }
+        #endregion
         
+        #region Parameter StateOrProvince
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StateOrProvince { get; set; }
+        public System.String StateOrProvince { get; set; }
+        #endregion
         
+        #region Parameter Street1
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Street1 { get; set; }
+        public System.String Street1 { get; set; }
+        #endregion
         
+        #region Parameter Street2
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Street2 { get; set; }
+        public System.String Street2 { get; set; }
+        #endregion
         
+        #region Parameter Street3
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Street3 { get; set; }
-        
+        public System.String Street3 { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -154,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
             context.Country = this.Country;
             if (this.JobId != null)
             {
-                context.JobIds = new List<String>(this.JobId);
+                context.JobIds = new List<System.String>(this.JobId);
             }
             context.Name = this.Name;
             context.PhoneNumber = this.PhoneNumber;
@@ -174,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetShippingLabelRequest();
+            var request = new Amazon.ImportExport.Model.GetShippingLabelRequest();
             
             if (cmdletContext.APIVersion != null)
             {
@@ -259,18 +283,18 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         internal class CmdletContext : ExecutorContext
         {
-            public String APIVersion { get; set; }
-            public String City { get; set; }
-            public String Company { get; set; }
-            public String Country { get; set; }
-            public List<String> JobIds { get; set; }
-            public String Name { get; set; }
-            public String PhoneNumber { get; set; }
-            public String PostalCode { get; set; }
-            public String StateOrProvince { get; set; }
-            public String Street1 { get; set; }
-            public String Street2 { get; set; }
-            public String Street3 { get; set; }
+            public System.String APIVersion { get; set; }
+            public System.String City { get; set; }
+            public System.String Company { get; set; }
+            public System.String Country { get; set; }
+            public List<System.String> JobIds { get; set; }
+            public System.String Name { get; set; }
+            public System.String PhoneNumber { get; set; }
+            public System.String PostalCode { get; set; }
+            public System.String StateOrProvince { get; set; }
+            public System.String Street1 { get; set; }
+            public System.String Street2 { get; set; }
+            public System.String Street3 { get; set; }
         }
         
     }

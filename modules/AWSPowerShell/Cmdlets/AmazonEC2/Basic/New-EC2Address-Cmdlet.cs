@@ -41,18 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.AllocateAddressResponse")]
     [AWSCmdlet("Invokes the AllocateAddress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AllocateAddress"})]
     [AWSCmdletOutput("Amazon.EC2.Model.AllocateAddressResponse",
-        "This cmdlet returns a AllocateAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.AllocateAddressResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Domain
         /// <summary>
         /// <para>
         /// <para>Set to <code>vpc</code> to allocate the address for use with instances in a VPC.</para><para>Default: The address is for use with instances in EC2-Classic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public DomainType Domain { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.DomainType")]
+        public Amazon.EC2.DomainType Domain { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AllocateAddressRequest();
+            var request = new Amazon.EC2.Model.AllocateAddressRequest();
             
             if (cmdletContext.Domain != null)
             {
@@ -131,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public DomainType Domain { get; set; }
+            public Amazon.EC2.DomainType Domain { get; set; }
         }
         
     }

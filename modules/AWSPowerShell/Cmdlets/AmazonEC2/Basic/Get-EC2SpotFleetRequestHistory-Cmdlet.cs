@@ -40,26 +40,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse")]
     [AWSCmdlet("Invokes the DescribeSpotFleetRequestHistory operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSpotFleetRequestHistory"})]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse",
-        "This cmdlet returns a DescribeSpotFleetRequestHistoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.DescribeSpotFleetRequestHistoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2SpotFleetRequestHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter EventType
         /// <summary>
         /// <para>
         /// <para>The type of events to describe. By default, all events are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EventType EventType { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.EventType")]
+        public Amazon.EC2.EventType EventType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. Specify a value between
@@ -69,24 +76,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
-        public Int32 MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
         /// <para>The ID of the Spot fleet request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SpotFleetRequestId { get; set; }
-        
+        public System.String SpotFleetRequestId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -116,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeSpotFleetRequestHistoryRequest();
+            var request = new Amazon.EC2.Model.DescribeSpotFleetRequestHistoryRequest();
             
             if (cmdletContext.EventType != null)
             {
@@ -173,11 +184,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public EventType EventType { get; set; }
-            public Int32? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public String SpotFleetRequestId { get; set; }
-            public DateTime? StartTime { get; set; }
+            public Amazon.EC2.EventType EventType { get; set; }
+            public System.Int32? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String SpotFleetRequestId { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

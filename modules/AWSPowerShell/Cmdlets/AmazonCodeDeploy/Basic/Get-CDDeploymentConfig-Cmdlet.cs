@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the GetDeploymentConfig operation against AWS CodeDeploy.", Operation = new[] {"GetDeploymentConfig"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.DeploymentConfigInfo",
         "This cmdlet returns a DeploymentConfigInfo object.",
-        "The service call response (type GetDeploymentConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
         /// <para>The name of an existing deployment configuration associated with the applicable IAM
@@ -46,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeploymentConfigName { get; set; }
-        
+        public System.String DeploymentConfigName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDeploymentConfigRequest();
+            var request = new Amazon.CodeDeploy.Model.GetDeploymentConfigRequest();
             
             if (cmdletContext.DeploymentConfigName != null)
             {
@@ -112,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeploymentConfigName { get; set; }
+            public System.String DeploymentConfigName { get; set; }
         }
         
     }

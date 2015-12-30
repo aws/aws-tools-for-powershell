@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// This call simply makes a termination request. The instances is not terminated immediately.
+    /// This call simply makes a termination request. The instance is not terminated immediately.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "ASInstanceInAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -40,27 +40,33 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the TerminateInstanceInAutoScalingGroup operation against Auto Scaling.", Operation = new[] {"TerminateInstanceInAutoScalingGroup"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a Activity object.",
-        "The service call response (type TerminateInstanceInAutoScalingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopASInstanceInAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the EC2 instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter ShouldDecrementDesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, terminating this instance also decrements the size of the Auto
+        /// <para>If <code>true</code>, terminating the instance also decrements the size of the Auto
         /// Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean ShouldDecrementDesiredCapacity { get; set; }
+        public System.Boolean ShouldDecrementDesiredCapacity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TerminateInstanceInAutoScalingGroupRequest();
+            var request = new Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -145,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public Boolean? ShouldDecrementDesiredCapacity { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Boolean? ShouldDecrementDesiredCapacity { get; set; }
         }
         
     }

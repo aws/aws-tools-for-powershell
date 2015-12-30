@@ -41,25 +41,31 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DeleteLaunchConfiguration operation against Auto Scaling.", Operation = new[] {"DeleteLaunchConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LaunchConfigurationName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveASLaunchConfigurationCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
         /// <para>The name of the launch configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LaunchConfigurationName { get; set; }
+        public System.String LaunchConfigurationName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LaunchConfigurationName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteLaunchConfigurationRequest();
+            var request = new Amazon.AutoScaling.Model.DeleteLaunchConfigurationRequest();
             
             if (cmdletContext.LaunchConfigurationName != null)
             {
@@ -140,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LaunchConfigurationName { get; set; }
+            public System.String LaunchConfigurationName { get; set; }
         }
         
     }

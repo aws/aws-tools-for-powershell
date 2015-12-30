@@ -32,29 +32,34 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53TagsForResource")]
     [OutputType("Amazon.Route53.Model.ResourceTagSet")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Route 53.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon Route 53.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ResourceTagSet",
         "This cmdlet returns a ResourceTagSet object.",
-        "The service call response (type ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53TagsForResourceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the resource for which you want to retrieve tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ResourceId { get; set; }
+        public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The type of the resource.</para><para>- The resource type for health checks is <code>healthcheck</code>.</para><para>- The resource type for hosted zones is <code>hostedzone</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TagResourceType ResourceType { get; set; }
-        
+        [AWSConstantClassSource("Amazon.Route53.TagResourceType")]
+        public Amazon.Route53.TagResourceType ResourceType { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsForResourceRequest();
+            var request = new Amazon.Route53.Model.ListTagsForResourceRequest();
             
             if (cmdletContext.ResourceType != null)
             {
@@ -124,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public TagResourceType ResourceType { get; set; }
-            public String ResourceId { get; set; }
+            public Amazon.Route53.TagResourceType ResourceType { get; set; }
+            public System.String ResourceId { get; set; }
         }
         
     }

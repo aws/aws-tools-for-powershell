@@ -62,35 +62,43 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateSecurityGroup operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSecurityGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2SecurityGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the security group. This is informational only.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
+        /// <para>A description for the security group. This is informational only.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=<![CDATA[&amp;]]>;{}!$*</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("GroupDescription")]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the security group.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
+        /// <para>The name of the security group.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=<![CDATA[&amp;]]>;{}!$*</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String GroupName { get; set; }
+        public System.String GroupName { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -130,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSecurityGroupRequest();
+            var request = new Amazon.EC2.Model.CreateSecurityGroupRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -179,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String GroupName { get; set; }
-            public String VpcId { get; set; }
+            public System.String Description { get; set; }
+            public System.String GroupName { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

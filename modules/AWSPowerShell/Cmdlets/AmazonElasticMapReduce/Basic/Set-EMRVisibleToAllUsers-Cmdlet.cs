@@ -39,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the SetVisibleToAllUsers operation against Amazon Elastic MapReduce.", Operation = new[] {"SetVisibleToAllUsers"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobFlowId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetVisibleToAllUsersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEMRVisibleToAllUsersCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
         /// <para>Identifiers of the job flows to receive the new visibility setting.</para>
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("JobFlowIds")]
         public System.String[] JobFlowId { get; set; }
+        #endregion
         
+        #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
         /// <para>Whether the specified job flows are visible to all IAM users of the AWS account associated
@@ -62,15 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean VisibleToAllUsers { get; set; }
+        [Alias("VisibleToAllUsers")]
+        public System.Boolean VisibleToAllUser { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobFlowId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -98,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.JobFlowId != null)
             {
-                context.JobFlowIds = new List<String>(this.JobFlowId);
+                context.JobFlowIds = new List<System.String>(this.JobFlowId);
             }
-            if (ParameterWasBound("VisibleToAllUsers"))
-                context.VisibleToAllUsers = this.VisibleToAllUsers;
+            if (ParameterWasBound("VisibleToAllUser"))
+                context.VisibleToAllUsers = this.VisibleToAllUser;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -113,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetVisibleToAllUsersRequest();
+            var request = new Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersRequest();
             
             if (cmdletContext.JobFlowIds != null)
             {
@@ -160,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> JobFlowIds { get; set; }
-            public Boolean? VisibleToAllUsers { get; set; }
+            public List<System.String> JobFlowIds { get; set; }
+            public System.Boolean? VisibleToAllUsers { get; set; }
         }
         
     }

@@ -37,18 +37,22 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.ResetClusterParameterGroupResponse")]
     [AWSCmdlet("Invokes the ResetClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"ResetClusterParameterGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ResetClusterParameterGroupResponse",
-        "This cmdlet returns a ResetClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Redshift.Model.ResetClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ResetRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the cluster parameter group to be reset. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        public System.String ParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para> An array of names of parameters to be reset. If <i>ResetAllParameters</i> option
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.Redshift.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter ResetAllParameter
         /// <summary>
         /// <para>
         /// <para> If <code>true</code>, all parameters in the specified parameter group will be reset
@@ -66,8 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ResetAllParameters { get; set; }
+        [Alias("ResetAllParameters")]
+        public System.Boolean ResetAllParameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -96,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ParameterGroupName = this.ParameterGroupName;
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.Redshift.Model.Parameter>(this.Parameter);
             }
-            if (ParameterWasBound("ResetAllParameters"))
-                context.ResetAllParameters = this.ResetAllParameters;
+            if (ParameterWasBound("ResetAllParameter"))
+                context.ResetAllParameters = this.ResetAllParameter;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -111,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ResetClusterParameterGroupRequest();
+            var request = new Amazon.Redshift.Model.ResetClusterParameterGroupRequest();
             
             if (cmdletContext.ParameterGroupName != null)
             {
@@ -160,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ParameterGroupName { get; set; }
-            public List<Parameter> Parameters { get; set; }
-            public Boolean? ResetAllParameters { get; set; }
+            public System.String ParameterGroupName { get; set; }
+            public List<Amazon.Redshift.Model.Parameter> Parameters { get; set; }
+            public System.Boolean? ResetAllParameters { get; set; }
         }
         
     }

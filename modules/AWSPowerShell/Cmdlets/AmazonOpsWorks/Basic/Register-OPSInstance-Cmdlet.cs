@@ -46,42 +46,52 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the RegisterInstance operation against AWS OpsWorks.", Operation = new[] {"RegisterInstance"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RegisterInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.RegisterInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceIdentity_Document
         /// <summary>
         /// <para>
         /// <para>A JSON document that contains the metadata. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceIdentity_Document { get; set; }
+        public System.String InstanceIdentity_Document { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The instance's hostname.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Hostname { get; set; }
+        public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter PrivateIp
         /// <summary>
         /// <para>
         /// <para>The instance's private IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PrivateIp { get; set; }
+        public System.String PrivateIp { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>The instance's public IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PublicIp { get; set; }
+        public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter RsaPublicKey
         /// <summary>
         /// <para>
         /// <para>The instances public RSA key. This key is used to encrypt communication between the
@@ -89,32 +99,40 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RsaPublicKey { get; set; }
+        public System.String RsaPublicKey { get; set; }
+        #endregion
         
+        #region Parameter RsaPublicKeyFingerprint
         /// <summary>
         /// <para>
         /// <para>The instances public RSA key fingerprint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RsaPublicKeyFingerprint { get; set; }
+        public System.String RsaPublicKeyFingerprint { get; set; }
+        #endregion
         
+        #region Parameter InstanceIdentity_Signature
         /// <summary>
         /// <para>
         /// <para>A signature that can be used to verify the document's accuracy and authenticity. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceIdentity_Signature { get; set; }
+        public System.String InstanceIdentity_Signature { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The ID of the stack that the instance is to be registered with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -122,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -159,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.RegisterInstanceRequest();
             
             if (cmdletContext.Hostname != null)
             {
@@ -168,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate InstanceIdentity
             bool requestInstanceIdentityIsNull = true;
-            request.InstanceIdentity = new InstanceIdentity();
-            String requestInstanceIdentity_instanceIdentity_Document = null;
+            request.InstanceIdentity = new Amazon.OpsWorks.Model.InstanceIdentity();
+            System.String requestInstanceIdentity_instanceIdentity_Document = null;
             if (cmdletContext.InstanceIdentity_Document != null)
             {
                 requestInstanceIdentity_instanceIdentity_Document = cmdletContext.InstanceIdentity_Document;
@@ -179,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.InstanceIdentity.Document = requestInstanceIdentity_instanceIdentity_Document;
                 requestInstanceIdentityIsNull = false;
             }
-            String requestInstanceIdentity_instanceIdentity_Signature = null;
+            System.String requestInstanceIdentity_instanceIdentity_Signature = null;
             if (cmdletContext.InstanceIdentity_Signature != null)
             {
                 requestInstanceIdentity_instanceIdentity_Signature = cmdletContext.InstanceIdentity_Signature;
@@ -249,14 +267,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Hostname { get; set; }
-            public String InstanceIdentity_Document { get; set; }
-            public String InstanceIdentity_Signature { get; set; }
-            public String PrivateIp { get; set; }
-            public String PublicIp { get; set; }
-            public String RsaPublicKey { get; set; }
-            public String RsaPublicKeyFingerprint { get; set; }
-            public String StackId { get; set; }
+            public System.String Hostname { get; set; }
+            public System.String InstanceIdentity_Document { get; set; }
+            public System.String InstanceIdentity_Signature { get; set; }
+            public System.String PrivateIp { get; set; }
+            public System.String PublicIp { get; set; }
+            public System.String RsaPublicKey { get; set; }
+            public System.String RsaPublicKeyFingerprint { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

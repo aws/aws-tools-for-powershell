@@ -49,18 +49,22 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the ModifyMountTargetSecurityGroups operation against Amazon Elastic File System.", Operation = new[] {"ModifyMountTargetSecurityGroups"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SecurityGroup parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyMountTargetSecurityGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEFSMountTargetSecurityGroupCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter MountTargetId
         /// <summary>
         /// <para>
         /// <para>The ID of the mount target whose security groups you want to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MountTargetId { get; set; }
+        public System.String MountTargetId { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
         /// <para>An array of up to five VPC security group IDs.</para>
@@ -69,14 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SecurityGroup parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             context.MountTargetId = this.MountTargetId;
             if (this.SecurityGroup != null)
             {
-                context.SecurityGroups = new List<String>(this.SecurityGroup);
+                context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -118,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyMountTargetSecurityGroupsRequest();
+            var request = new Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsRequest();
             
             if (cmdletContext.MountTargetId != null)
             {
@@ -165,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MountTargetId { get; set; }
-            public List<String> SecurityGroups { get; set; }
+            public System.String MountTargetId { get; set; }
+            public List<System.String> SecurityGroups { get; set; }
         }
         
     }

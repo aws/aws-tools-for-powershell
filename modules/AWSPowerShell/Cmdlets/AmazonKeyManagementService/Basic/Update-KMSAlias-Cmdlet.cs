@@ -28,19 +28,20 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Updates an alias to associate it with a different key.
+    /// Updates an alias to map it to a different key.
     /// 
     ///  
     /// <para>
+    /// An alias is not a property of a key. Therefore, an alias can be mapped to and unmapped
+    /// from an existing key without changing the properties of the key. 
+    /// </para><para>
     /// An alias name can contain only alphanumeric characters, forward slashes (/), underscores
     /// (_), and dashes (-). An alias must start with the word "alias" followed by a forward
     /// slash (alias/). An alias that begins with "aws" after the forward slash (alias/aws...)
     /// is reserved by Amazon Web Services (AWS). 
     /// </para><para>
-    /// An alias is not a property of a key. Therefore, an alias can be associated with and
-    /// disassociated from an existing key without changing the properties of the key. 
-    /// </para><para>
-    /// Note that you cannot create or update an alias that represents a key in another account.
+    /// The alias and the key it is mapped to must be in the same AWS account and the same
+    /// region.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KMSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,36 +49,46 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the UpdateAlias operation against AWS Key Management Service.", Operation = new[] {"UpdateAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetKeyId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KeyManagementService.Model.UpdateAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateKMSAliasCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// String that contains the name of the alias to
-        /// be modifed. The name must start with the word "alias" followed by a forward slash
-        /// (alias/). Aliases that begin with "alias/AWS" are reserved.
+        /// <para>String that contains the name of the alias to be modified. The name must start with
+        /// the word "alias" followed by a forward slash (alias/). Aliases that begin with "alias/aws"
+        /// are reserved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AliasName { get; set; }
+        public System.String AliasName { get; set; }
+        #endregion
         
+        #region Parameter TargetKeyId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the customer master key to be associated with the alias. This
-        /// value can be a globally unique identifier or the fully specified ARN of a key. <ul><li>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li></ul></para>
+        /// <para>Unique identifier of the customer master key to be mapped to the alias. This value
+        /// can be a globally unique identifier or the fully specified ARN of a key. <ul><li>Key
+        /// ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</li><li>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</li></ul></para><para>You can call <a>ListAliases</a> to verify that the alias is mapped to the correct
+        /// <code>TargetKeyId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TargetKeyId { get; set; }
+        public System.String TargetKeyId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TargetKeyId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -116,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateAliasRequest();
+            var request = new Amazon.KeyManagementService.Model.UpdateAliasRequest();
             
             if (cmdletContext.AliasName != null)
             {
@@ -163,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AliasName { get; set; }
-            public String TargetKeyId { get; set; }
+            public System.String AliasName { get; set; }
+            public System.String TargetKeyId { get; set; }
         }
         
     }

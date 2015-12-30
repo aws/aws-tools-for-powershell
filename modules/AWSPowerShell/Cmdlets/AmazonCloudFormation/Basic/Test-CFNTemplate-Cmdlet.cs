@@ -34,10 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [OutputType("Amazon.CloudFormation.Model.ValidateTemplateResponse")]
     [AWSCmdlet("Invokes the ValidateTemplate operation against AWS CloudFormation.", Operation = new[] {"ValidateTemplate"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.ValidateTemplateResponse",
-        "This cmdlet returns a ValidateTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudFormation.Model.ValidateTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class TestCFNTemplateCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter TemplateBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -47,8 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String TemplateBody { get; set; }
+        public System.String TemplateBody { get; set; }
+        #endregion
         
+        #region Parameter TemplateURL
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
@@ -59,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateURL { get; set; }
-        
+        public System.String TemplateURL { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ValidateTemplateRequest();
+            var request = new Amazon.CloudFormation.Model.ValidateTemplateRequest();
             
             if (cmdletContext.TemplateBody != null)
             {
@@ -130,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TemplateBody { get; set; }
-            public String TemplateURL { get; set; }
+            public System.String TemplateBody { get; set; }
+            public System.String TemplateURL { get; set; }
         }
         
     }

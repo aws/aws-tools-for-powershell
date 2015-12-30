@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the DescribeChapCredentials operation against AWS Storage Gateway.", Operation = new[] {"DescribeChapCredentials"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.ChapInfo",
         "This cmdlet returns a collection of ChapInfo objects.",
-        "The service call response (type DescribeChapCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.DescribeChapCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter TargetARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a>
@@ -48,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TargetARN { get; set; }
-        
+        public System.String TargetARN { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeChapCredentialsRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeChapCredentialsRequest();
             
             if (cmdletContext.TargetARN != null)
             {
@@ -114,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TargetARN { get; set; }
+            public System.String TargetARN { get; set; }
         }
         
     }

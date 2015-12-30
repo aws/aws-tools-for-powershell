@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the ModifyInstanceGroups operation against Amazon Elastic MapReduce.", Operation = new[] {"ModifyInstanceGroups"})]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceGroup parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ModifyInstanceGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceGroup
         /// <summary>
         /// <para>
         /// <para>Instance groups to change.</para>
@@ -49,14 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("InstanceGroups")]
         public Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig[] InstanceGroup { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceGroup parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -84,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.InstanceGroup != null)
             {
-                context.InstanceGroups = new List<InstanceGroupModifyConfig>(this.InstanceGroup);
+                context.InstanceGroups = new List<Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig>(this.InstanceGroup);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyInstanceGroupsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsRequest();
             
             if (cmdletContext.InstanceGroups != null)
             {
@@ -140,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<InstanceGroupModifyConfig> InstanceGroups { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig> InstanceGroups { get; set; }
         }
         
     }

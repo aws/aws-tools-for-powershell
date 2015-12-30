@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.GetBatchPredictionResponse")]
     [AWSCmdlet("Invokes the GetBatchPrediction operation against Amazon Machine Learning.", Operation = new[] {"GetBatchPrediction"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetBatchPredictionResponse",
-        "This cmdlet returns a GetBatchPredictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.MachineLearning.Model.GetBatchPredictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetMLBatchPredictionCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter BatchPredictionId
         /// <summary>
         /// <para>
         /// <para>An ID assigned to the <code>BatchPrediction</code> at creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String BatchPredictionId { get; set; }
-        
+        public System.String BatchPredictionId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetBatchPredictionRequest();
+            var request = new Amazon.MachineLearning.Model.GetBatchPredictionRequest();
             
             if (cmdletContext.BatchPredictionId != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BatchPredictionId { get; set; }
+            public System.String BatchPredictionId { get; set; }
         }
         
     }

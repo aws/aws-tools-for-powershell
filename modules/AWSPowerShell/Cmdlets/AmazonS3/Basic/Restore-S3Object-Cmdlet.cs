@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the RestoreObject operation against Amazon Simple Storage Service.", Operation = new[] {"RestoreObject"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RestoreObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.RestoreObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RestoreS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter CopyLifetimeInDays
         /// <summary>
         /// <para>
         /// Lifetime of the active copy in days
@@ -54,31 +58,39 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Days")]
-        public Int32 CopyLifetimeInDays { get; set; }
+        public System.Int32 CopyLifetimeInDays { get; set; }
+        #endregion
         
+        #region Parameter Key
         /// <summary>
         /// <para>
         /// This key indicates the S3 object to restore.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
+        #endregion
         
+        #region Parameter VersionId
         /// <summary>
         /// <para>
         /// VersionId used to reference a specific version of the object.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RestoreObjectRequest();
+            var request = new Amazon.S3.Model.RestoreObjectRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -175,10 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String Key { get; set; }
-            public Int32? CopyLifetimeInDays { get; set; }
-            public String VersionId { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String Key { get; set; }
+            public System.Int32? CopyLifetimeInDays { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

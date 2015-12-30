@@ -35,33 +35,39 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  <important> You can delete a reusable delegation set only if there are no associated
     /// hosted zones. If your reusable delegation set contains associated hosted zones, you
     /// must delete them before you can delete your reusable delegation set. If you try to
-    /// delete a reusable delegation set that contains associated hosted zones, Route 53 will
-    /// deny your request with a <code>DelegationSetInUse</code> error.</important>
+    /// delete a reusable delegation set that contains associated hosted zones, Amazon Route
+    /// 53 will deny your request with a <code>DelegationSetInUse</code> error.</important>
     /// </summary>
     [Cmdlet("Remove", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteReusableDelegationSet operation against AWS Route 53.", Operation = new[] {"DeleteReusableDelegationSet"})]
+    [AWSCmdlet("Invokes the DeleteReusableDelegationSet operation against Amazon Route 53.", Operation = new[] {"DeleteReusableDelegationSet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteReusableDelegationSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.DeleteReusableDelegationSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para> The ID of the reusable delegation set you want to delete.</para>
+        /// <para>The ID of the reusable delegation set you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Id parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteReusableDelegationSetRequest();
+            var request = new Amazon.Route53.Model.DeleteReusableDelegationSetRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -142,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

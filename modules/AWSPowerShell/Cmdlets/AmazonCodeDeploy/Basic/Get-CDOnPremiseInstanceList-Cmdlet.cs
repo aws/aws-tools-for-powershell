@@ -42,19 +42,24 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the ListOnPremisesInstances operation against AWS CodeDeploy.", Operation = new[] {"ListOnPremisesInstances"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ListOnPremisesInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeDeploy.Model.ListOnPremisesInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCDOnPremiseInstanceListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter RegistrationStatus
         /// <summary>
         /// <para>
         /// <para>The on-premises instances registration status:</para><ul><li>Deregistered: Include in the resulting list deregistered on-premises instances.</li><li>Registered: Include in the resulting list registered on-premises instances.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RegistrationStatus RegistrationStatus { get; set; }
+        [AWSConstantClassSource("Amazon.CodeDeploy.RegistrationStatus")]
+        public Amazon.CodeDeploy.RegistrationStatus RegistrationStatus { get; set; }
+        #endregion
         
+        #region Parameter TagFilter
         /// <summary>
         /// <para>
         /// <para>The on-premises instance tags that will be used to restrict the corresponding on-premises
@@ -64,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("TagFilters")]
         public Amazon.CodeDeploy.Model.TagFilter[] TagFilter { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list on-premises instances call,
@@ -72,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -89,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.RegistrationStatus = this.RegistrationStatus;
             if (this.TagFilter != null)
             {
-                context.TagFilters = new List<TagFilter>(this.TagFilter);
+                context.TagFilters = new List<Amazon.CodeDeploy.Model.TagFilter>(this.TagFilter);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -102,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListOnPremisesInstancesRequest();
+            var request = new Amazon.CodeDeploy.Model.ListOnPremisesInstancesRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -153,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public RegistrationStatus RegistrationStatus { get; set; }
-            public List<TagFilter> TagFilters { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CodeDeploy.RegistrationStatus RegistrationStatus { get; set; }
+            public List<Amazon.CodeDeploy.Model.TagFilter> TagFilters { get; set; }
         }
         
     }

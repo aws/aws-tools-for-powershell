@@ -51,18 +51,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the DescribeStackResources operation against AWS CloudFormation.", Operation = new[] {"DescribeStackResources"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackResource",
         "This cmdlet returns a collection of StackResource objects.",
-        "The service call response (type DescribeStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFNStackResourcesCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter LogicalResourceId
         /// <summary>
         /// <para>
         /// <para>The logical name of the resource as specified in the template.</para><para>Default: There is no default value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String LogicalResourceId { get; set; }
+        public System.String LogicalResourceId { get; set; }
+        #endregion
         
+        #region Parameter PhysicalResourceId
         /// <summary>
         /// <para>
         /// <para>The name or unique identifier that corresponds to a physical instance ID of a resource
@@ -74,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String PhysicalResourceId { get; set; }
+        public System.String PhysicalResourceId { get; set; }
+        #endregion
         
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which are not always
@@ -85,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
-        
+        public System.String StackName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -112,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStackResourcesRequest();
+            var request = new Amazon.CloudFormation.Model.DescribeStackResourcesRequest();
             
             if (cmdletContext.LogicalResourceId != null)
             {
@@ -161,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LogicalResourceId { get; set; }
-            public String PhysicalResourceId { get; set; }
-            public String StackName { get; set; }
+            public System.String LogicalResourceId { get; set; }
+            public System.String PhysicalResourceId { get; set; }
+            public System.String StackName { get; set; }
         }
         
     }

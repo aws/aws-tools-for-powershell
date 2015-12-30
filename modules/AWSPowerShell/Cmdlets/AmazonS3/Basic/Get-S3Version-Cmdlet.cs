@@ -34,18 +34,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.ListVersionsResponse")]
     [AWSCmdlet("Invokes the ListVersions operation against Amazon Simple Storage Service.", Operation = new[] {"ListVersions"})]
     [AWSCmdletOutput("Amazon.S3.Model.ListVersionsResponse",
-        "This cmdlet returns a ListVersionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.S3.Model.ListVersionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3VersionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket containing the objects.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter Encoding
         /// <summary>
         /// <para>
         /// Requests Amazon S3 to encode the object keys in the response and specifies
@@ -57,32 +61,41 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EncodingType Encoding { get; set; }
+        [AWSConstantClassSource("Amazon.S3.EncodingType")]
+        public Amazon.S3.EncodingType Encoding { get; set; }
+        #endregion
         
+        #region Parameter KeyMarker
         /// <summary>
         /// <para>
         /// Specifies the key to start with when listing objects in a bucket.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KeyMarker { get; set; }
+        public System.String KeyMarker { get; set; }
+        #endregion
         
+        #region Parameter VersionIdMarker
         /// <summary>
         /// <para>
         /// Specifies the object version you want to start listing from.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VersionIdMarker { get; set; }
+        public System.String VersionIdMarker { get; set; }
+        #endregion
         
+        #region Parameter Delimiter
         /// <summary>
         /// <para>
         /// A delimiter is a character you use to group keys.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Delimiter { get; set; }
+        public System.String Delimiter { get; set; }
+        #endregion
         
+        #region Parameter MaxKey
         /// <summary>
         /// <para>
         /// Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
@@ -90,16 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxKeys")]
-        public Int32 MaxKey { get; set; }
+        public System.Int32 MaxKey { get; set; }
+        #endregion
         
+        #region Parameter Prefix
         /// <summary>
         /// <para>
         /// Limits the response to keys that begin with the specified prefix.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Prefix { get; set; }
-        
+        public System.String Prefix { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -130,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListVersionsRequest();
+            var request = new Amazon.S3.Model.ListVersionsRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -195,13 +210,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String Delimiter { get; set; }
-            public String KeyMarker { get; set; }
-            public Int32? MaxKeys { get; set; }
-            public String Prefix { get; set; }
-            public String VersionIdMarker { get; set; }
-            public EncodingType Encoding { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String Delimiter { get; set; }
+            public System.String KeyMarker { get; set; }
+            public System.Int32? MaxKeys { get; set; }
+            public System.String Prefix { get; set; }
+            public System.String VersionIdMarker { get; set; }
+            public Amazon.S3.EncodingType Encoding { get; set; }
         }
         
     }

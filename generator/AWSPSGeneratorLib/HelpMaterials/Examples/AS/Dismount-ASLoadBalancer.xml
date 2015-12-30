@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Dismount-ASLoadBalancer -LoadBalancerName my-lb -AutoScalingGroupName my-asg</code>
+	<description>This example detaches the specified load balancer from the specified Auto Scaling group.</description>
+  </example>
+</examples>

@@ -28,33 +28,39 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets a replication configuration for the Amazon S3 bucket.
+    /// Creates a new replication configuration (or replaces an existing one, if present).
     /// </summary>
     [Cmdlet("Write", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
     [AWSCmdlet("Invokes the PutBucketReplication operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketReplication"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketReplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketReplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketReplicationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to have the replication configuration applied.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter Configuration_Role
         /// <summary>
         /// <para>
         /// Indicates the ARN of the role to assume.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Configuration_Role { get; set; }
+        public System.String Configuration_Role { get; set; }
+        #endregion
         
+        #region Parameter Configuration_Rule
         /// <summary>
         /// <para>
         /// Replication rules
@@ -63,14 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Rules")]
         public Amazon.S3.Model.ReplicationRule[] Configuration_Rule { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Configuration_Role = this.Configuration_Role;
             if (this.Configuration_Rule != null)
             {
-                context.Configuration_Rules = new List<ReplicationRule>(this.Configuration_Rule);
+                context.Configuration_Rules = new List<Amazon.S3.Model.ReplicationRule>(this.Configuration_Rule);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -113,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketReplicationRequest();
+            var request = new Amazon.S3.Model.PutBucketReplicationRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -122,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate Configuration
             bool requestConfigurationIsNull = true;
-            request.Configuration = new ReplicationConfiguration();
-            String requestConfiguration_configuration_Role = null;
+            request.Configuration = new Amazon.S3.Model.ReplicationConfiguration();
+            System.String requestConfiguration_configuration_Role = null;
             if (cmdletContext.Configuration_Role != null)
             {
                 requestConfiguration_configuration_Role = cmdletContext.Configuration_Role;
@@ -133,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.Configuration.Role = requestConfiguration_configuration_Role;
                 requestConfigurationIsNull = false;
             }
-            List<ReplicationRule> requestConfiguration_configuration_Rule = null;
+            List<Amazon.S3.Model.ReplicationRule> requestConfiguration_configuration_Rule = null;
             if (cmdletContext.Configuration_Rules != null)
             {
                 requestConfiguration_configuration_Rule = cmdletContext.Configuration_Rules;
@@ -185,9 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String Configuration_Role { get; set; }
-            public List<ReplicationRule> Configuration_Rules { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String Configuration_Role { get; set; }
+            public List<Amazon.S3.Model.ReplicationRule> Configuration_Rules { get; set; }
         }
         
     }

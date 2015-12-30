@@ -46,26 +46,32 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the UpdateSnapshotSchedule operation against AWS Storage Gateway.", Operation = new[] {"UpdateSnapshotSchedule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateSnapshotScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSGSnapshotScheduleCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Optional description of the snapshot that overwrites the existing description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter RecurrenceInHours
         /// <summary>
         /// <para>
         /// <para>Frequency of snapshots. Specify the number of hours between snapshots.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 RecurrenceInHours { get; set; }
+        public System.Int32 RecurrenceInHours { get; set; }
+        #endregion
         
+        #region Parameter StartAt
         /// <summary>
         /// <para>
         /// <para>The hour of the day at which the snapshot schedule begins represented as <i>hh</i>,
@@ -74,8 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 StartAt { get; set; }
+        public System.Int32 StartAt { get; set; }
+        #endregion
         
+        #region Parameter VolumeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation
@@ -83,8 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VolumeARN { get; set; }
+        public System.String VolumeARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -127,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateSnapshotScheduleRequest();
+            var request = new Amazon.StorageGateway.Model.UpdateSnapshotScheduleRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -180,10 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public Int32? RecurrenceInHours { get; set; }
-            public Int32? StartAt { get; set; }
-            public String VolumeARN { get; set; }
+            public System.String Description { get; set; }
+            public System.Int32? RecurrenceInHours { get; set; }
+            public System.Int32? StartAt { get; set; }
+            public System.String VolumeARN { get; set; }
         }
         
     }

@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>KIN</ServiceNounPrefix>
+  <ServiceName>Amazon Kinesis</ServiceName>
   <ServiceNamespace>Amazon.Kinesis</ServiceNamespace>
   <ServiceClientInterface>IAmazonKinesis</ServiceClientInterface>
   <ServiceClient>AmazonKinesisClient</ServiceClient>
@@ -36,7 +37,15 @@
         <Expression>cmdletContext.TagKeys</Expression>
         <Documentation>Returns the collection of tag keys that were removed</Documentation>
       </PassThru>
-    </ServiceOperation>  
+    </ServiceOperation>
+
+    <ServiceOperation MethodName="DecreaseStreamRetentionPeriod"
+                      Verb="Request" Noun="StreamRetentionPeriodDecrease"
+                      PipelineParameter="StreamName" Output="Void" />
+    <ServiceOperation MethodName="IncreaseStreamRetentionPeriod"
+                      Verb="Request" Noun="StreamRetentionPeriodIncrease"
+                      PipelineParameter="StreamName" Output="Void" />
+
     <ServiceOperation MethodName="SplitShard" Output="Void" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName"/>
     
   </ServiceOperations>

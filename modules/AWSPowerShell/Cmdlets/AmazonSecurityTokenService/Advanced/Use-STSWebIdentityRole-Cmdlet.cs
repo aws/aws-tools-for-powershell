@@ -46,16 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// Security Credentials for Mobile Apps Using Third-Party Identity Providers. </para>
     /// </summary>
     [Cmdlet("Use", "STSWebIdentityRole")]
-    [OutputType("AssumeRoleWithWebIdentityResult")]
+    [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult")]
     [AWSCmdlet("Invokes the AssumeRoleWithWebIdentity operation against AWS Security Token Service.", Operation = new [] {"AssumeRoleWithWebIdentity"})]
     [AWSClientCmdlet("AWS Security Token Service", "STS", "2011-06-15")]
-    [AWSCmdletOutput("AssumeRoleWithWebIdentityResult",
-        "This cmdlet returns a AssumeRoleWithWebIdentityResult instance. The service response (type AssumeRoleWithWebIdentityResponse) is added to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult",
+        "This cmdlet returns an Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResult instance. The service response (type Amazon.SecurityToken.Model.AssumeRoleWithWebIdentityResponse) is added to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UseSTSWebIdentityRoleCmdlet : BaseCmdlet, IExecutor
     {
         protected IAmazonSecurityTokenService Client { get; private set; }
 
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// The Amazon Resource Name (ARN) of the role that the caller is assuming.
@@ -64,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline = true)]
-        public String RoleArn { get; set; }
-        
+        public System.String RoleArn { get; set; }
+        #endregion
+
+        #region Parameter RoleSessionName
         /// <summary>
         /// <para>
         /// An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your
@@ -76,8 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 1)]
-        public String RoleSessionName { get; set; }
-        
+        public System.String RoleSessionName { get; set; }
+        #endregion
+
+        #region Parameter WebIdentityToken
         /// <summary>
         /// <para>
         /// The OAuth 2.0 access token or OpenID Connect id token that is provided by the identity provider. Your application must get this token by
@@ -88,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 2)]
-        public String WebIdentityToken { get; set; }
-        
+        public System.String WebIdentityToken { get; set; }
+        #endregion
+
+        #region Parameter ProviderId
         /// <summary>
         /// <para>
         /// Specify this value only for OAuth access tokens. Do not specify this value for OpenID Connect id tokens, such as <c>accounts.google.com</c>.
@@ -100,8 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 3)]
-        public String ProviderId { get; set; }
-        
+        public System.String ProviderId { get; set; }
+        #endregion
+
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// A supplemental policy that is associated with the temporary security credentials from the <c>AssumeRoleWithWebIdentity</c> call. The
@@ -112,8 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </para>
         /// </summary>
         [Parameter(Position = 4)]
-        public String Policy { get; set; }
-        
+        public System.String Policy { get; set; }
+        #endregion
+
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the
@@ -124,13 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [Parameter]
         [Alias("DurationSeconds")]
-        public Int32? Duration { get; set; }
+        public System.Int32? Duration { get; set; }
+        #endregion
 
+        #region Parameter Region
         /// <summary>
         /// The region to use. STS has a single endpoint irrespective of region, though STS in GovCloud has its own endpoint.
         /// </summary>
         [Parameter]
-        public String Region { get; set; }
+        public System.String Region { get; set; }
+        #endregion
 
         protected IAmazonSecurityTokenService CreateClient(string region)
         {

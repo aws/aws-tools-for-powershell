@@ -30,7 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Creates a new configuration recorder to record the selected resource configurations.
     /// 
-    /// 
     ///  
     /// <para>
     /// You can use this action to change the role <code>roleARN</code> and/or the <code>recordingGroup</code>
@@ -45,25 +44,42 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Write", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutConfigurationRecorder operation against Amazon Config.", Operation = new[] {"PutConfigurationRecorder"})]
+    [AWSCmdlet("Invokes the PutConfigurationRecorder operation against AWS Config.", Operation = new[] {"PutConfigurationRecorder"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationRecorderName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.PutConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RecordingGroup_AllSupported
         /// <summary>
         /// <para>
-        /// <para>Records all supported resource types in the recording group. For a list of supported
-        /// resource types, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
-        /// resource types</a>. If you specify <b>allSupported</b>, you cannot enumerate a list
-        /// of <b>resourceTypes</b>. </para>
+        /// <para>Specifies whether AWS Config records configuration changes for every supported type
+        /// of regional resource.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
+        /// type of regional resource, it automatically starts recording resources of that type.</para><para>If you set this option to <code>true</code>, you cannot enumerate a list of <code>resourceTypes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationRecorder_RecordingGroup_AllSupported")]
-        public Boolean RecordingGroup_AllSupported { get; set; }
+        public System.Boolean RecordingGroup_AllSupported { get; set; }
+        #endregion
         
+        #region Parameter RecordingGroup_IncludeGlobalResourceType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether AWS Config includes all supported types of global resources with
+        /// the resources that it records.</para><para>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code>
+        /// option to <code>true</code>.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
+        /// type of global resource, it automatically starts recording resources of that type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ConfigurationRecorder_RecordingGroup_IncludeGlobalResourceTypes")]
+        public System.Boolean RecordingGroup_IncludeGlobalResourceType { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
         /// <para>The name of the recorder. By default, AWS Config automatically assigns the name "default"
@@ -72,22 +88,27 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ConfigurationRecorder_Name")]
-        public String ConfigurationRecorderName { get; set; }
+        public System.String ConfigurationRecorderName { get; set; }
+        #endregion
         
+        #region Parameter RecordingGroup_ResourceType
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of strings representing valid AWS resource types (for example,
-        /// <code>AWS::EC2::Instance</code> or <code>AWS::CloudTrail::Trail</code>). <b>resourceTypes</b>
-        /// is only valid if you have chosen not to select <b>allSupported</b>. For a list of
-        /// valid <b>resourceTypes</b> values, see the <b>resourceType Value</b> column in the
-        /// following topic: <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
+        /// <para>A comma-separated list that specifies the types of AWS resources for which AWS Config
+        /// records configuration changes (for example, <code>AWS::EC2::Instance</code> or <code>AWS::CloudTrail::Trail</code>).</para><para>Before you can set this option to <code>true</code>, you must set the <code>allSupported</code>
+        /// option to <code>false</code>.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
+        /// type of resource, it will not record resources of that type unless you manually add
+        /// that type to your recording group.</para><para>For a list of valid <code>resourceTypes</code> values, see the <b>resourceType Value</b>
+        /// column in <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
         /// AWS Resource Types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationRecorder_RecordingGroup_ResourceTypes")]
         public System.String[] RecordingGroup_ResourceType { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationRecorder_RoleARN
         /// <summary>
         /// <para>
         /// <para>Amazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated
@@ -95,15 +116,19 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigurationRecorder_RoleARN { get; set; }
+        public System.String ConfigurationRecorder_RoleARN { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ConfigurationRecorderName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -111,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -132,9 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.ConfigurationRecorderName = this.ConfigurationRecorderName;
             if (ParameterWasBound("RecordingGroup_AllSupported"))
                 context.ConfigurationRecorder_RecordingGroup_AllSupported = this.RecordingGroup_AllSupported;
+            if (ParameterWasBound("RecordingGroup_IncludeGlobalResourceType"))
+                context.ConfigurationRecorder_RecordingGroup_IncludeGlobalResourceTypes = this.RecordingGroup_IncludeGlobalResourceType;
             if (this.RecordingGroup_ResourceType != null)
             {
-                context.ConfigurationRecorder_RecordingGroup_ResourceTypes = new List<String>(this.RecordingGroup_ResourceType);
+                context.ConfigurationRecorder_RecordingGroup_ResourceTypes = new List<System.String>(this.RecordingGroup_ResourceType);
             }
             context.ConfigurationRecorder_RoleARN = this.ConfigurationRecorder_RoleARN;
             
@@ -148,13 +175,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutConfigurationRecorderRequest();
+            var request = new Amazon.ConfigService.Model.PutConfigurationRecorderRequest();
             
             
              // populate ConfigurationRecorder
             bool requestConfigurationRecorderIsNull = true;
-            request.ConfigurationRecorder = new ConfigurationRecorder();
-            String requestConfigurationRecorder_configurationRecorderName = null;
+            request.ConfigurationRecorder = new Amazon.ConfigService.Model.ConfigurationRecorder();
+            System.String requestConfigurationRecorder_configurationRecorderName = null;
             if (cmdletContext.ConfigurationRecorderName != null)
             {
                 requestConfigurationRecorder_configurationRecorderName = cmdletContext.ConfigurationRecorderName;
@@ -164,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigurationRecorder.Name = requestConfigurationRecorder_configurationRecorderName;
                 requestConfigurationRecorderIsNull = false;
             }
-            String requestConfigurationRecorder_configurationRecorder_RoleARN = null;
+            System.String requestConfigurationRecorder_configurationRecorder_RoleARN = null;
             if (cmdletContext.ConfigurationRecorder_RoleARN != null)
             {
                 requestConfigurationRecorder_configurationRecorder_RoleARN = cmdletContext.ConfigurationRecorder_RoleARN;
@@ -174,12 +201,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 request.ConfigurationRecorder.RoleARN = requestConfigurationRecorder_configurationRecorder_RoleARN;
                 requestConfigurationRecorderIsNull = false;
             }
-            RecordingGroup requestConfigurationRecorder_configurationRecorder_RecordingGroup = null;
+            Amazon.ConfigService.Model.RecordingGroup requestConfigurationRecorder_configurationRecorder_RecordingGroup = null;
             
              // populate RecordingGroup
             bool requestConfigurationRecorder_configurationRecorder_RecordingGroupIsNull = true;
-            requestConfigurationRecorder_configurationRecorder_RecordingGroup = new RecordingGroup();
-            Boolean? requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_AllSupported = null;
+            requestConfigurationRecorder_configurationRecorder_RecordingGroup = new Amazon.ConfigService.Model.RecordingGroup();
+            System.Boolean? requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_AllSupported = null;
             if (cmdletContext.ConfigurationRecorder_RecordingGroup_AllSupported != null)
             {
                 requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_AllSupported = cmdletContext.ConfigurationRecorder_RecordingGroup_AllSupported.Value;
@@ -189,7 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 requestConfigurationRecorder_configurationRecorder_RecordingGroup.AllSupported = requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_AllSupported.Value;
                 requestConfigurationRecorder_configurationRecorder_RecordingGroupIsNull = false;
             }
-            List<String> requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_ResourceType = null;
+            System.Boolean? requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_IncludeGlobalResourceType = null;
+            if (cmdletContext.ConfigurationRecorder_RecordingGroup_IncludeGlobalResourceTypes != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_IncludeGlobalResourceType = cmdletContext.ConfigurationRecorder_RecordingGroup_IncludeGlobalResourceTypes.Value;
+            }
+            if (requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_IncludeGlobalResourceType != null)
+            {
+                requestConfigurationRecorder_configurationRecorder_RecordingGroup.IncludeGlobalResourceTypes = requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_IncludeGlobalResourceType.Value;
+                requestConfigurationRecorder_configurationRecorder_RecordingGroupIsNull = false;
+            }
+            List<System.String> requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_ResourceType = null;
             if (cmdletContext.ConfigurationRecorder_RecordingGroup_ResourceTypes != null)
             {
                 requestConfigurationRecorder_configurationRecorder_RecordingGroup_recordingGroup_ResourceType = cmdletContext.ConfigurationRecorder_RecordingGroup_ResourceTypes;
@@ -251,10 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConfigurationRecorderName { get; set; }
-            public Boolean? ConfigurationRecorder_RecordingGroup_AllSupported { get; set; }
-            public List<String> ConfigurationRecorder_RecordingGroup_ResourceTypes { get; set; }
-            public String ConfigurationRecorder_RoleARN { get; set; }
+            public System.String ConfigurationRecorderName { get; set; }
+            public System.Boolean? ConfigurationRecorder_RecordingGroup_AllSupported { get; set; }
+            public System.Boolean? ConfigurationRecorder_RecordingGroup_IncludeGlobalResourceTypes { get; set; }
+            public List<System.String> ConfigurationRecorder_RecordingGroup_ResourceTypes { get; set; }
+            public System.String ConfigurationRecorder_RoleARN { get; set; }
         }
         
     }

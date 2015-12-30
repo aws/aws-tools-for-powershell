@@ -57,18 +57,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyDBClusterParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBClusterParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster parameter group to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterParameterGroupName { get; set; }
+        public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of parameters in the DB cluster parameter group to modify.</para>
@@ -77,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Parameters")]
         public Amazon.RDS.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.RDS.Model.Parameter>(this.Parameter);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -119,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyDBClusterParameterGroupRequest();
+            var request = new Amazon.RDS.Model.ModifyDBClusterParameterGroupRequest();
             
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
@@ -164,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBClusterParameterGroupName { get; set; }
-            public List<Parameter> Parameters { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
+            public List<Amazon.RDS.Model.Parameter> Parameters { get; set; }
         }
         
     }

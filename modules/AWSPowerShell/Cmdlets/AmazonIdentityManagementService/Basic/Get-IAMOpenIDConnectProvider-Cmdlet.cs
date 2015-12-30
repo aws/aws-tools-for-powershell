@@ -34,10 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse")]
     [AWSCmdlet("Invokes the GetOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"GetOpenIDConnectProvider"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse",
-        "This cmdlet returns a GetOpenIDConnectProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to get information
@@ -46,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String OpenIDConnectProviderArn { get; set; }
-        
+        public System.String OpenIDConnectProviderArn { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetOpenIDConnectProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.GetOpenIDConnectProviderRequest();
             
             if (cmdletContext.OpenIDConnectProviderArn != null)
             {
@@ -112,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String OpenIDConnectProviderArn { get; set; }
+            public System.String OpenIDConnectProviderArn { get; set; }
         }
         
     }

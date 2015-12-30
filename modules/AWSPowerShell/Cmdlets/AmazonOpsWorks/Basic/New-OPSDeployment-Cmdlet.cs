@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the CreateDeployment operation against AWS OpsWorks.", Operation = new[] {"CreateDeployment"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CreateDeploymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewOPSDeploymentCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppId
         /// <summary>
         /// <para>
         /// <para>The app ID. This parameter is required for app deployments, but not for other deployment
@@ -55,8 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String AppId { get; set; }
+        public System.String AppId { get; set; }
+        #endregion
         
+        #region Parameter Command_Arg
         /// <summary>
         /// <para>
         /// <para>The arguments of those commands that take arguments. It should be set to a JSON object
@@ -73,15 +77,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("Command_Args")]
         public System.Collections.Hashtable Command_Arg { get; set; }
+        #endregion
         
+        #region Parameter Comment
         /// <summary>
         /// <para>
         /// <para>A user-defined comment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Comment { get; set; }
+        public System.String Comment { get; set; }
+        #endregion
         
+        #region Parameter CustomJson
         /// <summary>
         /// <para>
         /// <para>A string that contains user-defined, custom JSON. It is used to override the corresponding
@@ -91,8 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String CustomJson { get; set; }
+        public System.String CustomJson { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance IDs for the deployment targets.</para>
@@ -101,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         [Alias("InstanceIds")]
         public System.String[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Command_Name
         /// <summary>
         /// <para>
         /// <para>Specifies the operation. You can specify only one command.</para><para>For stacks, the following commands are available:</para><ul><li><code>execute_recipes</code>: Execute one or more recipes. To specify the
@@ -123,16 +135,21 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DeploymentCommandName Command_Name { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.DeploymentCommandName")]
+        public Amazon.OpsWorks.DeploymentCommandName Command_Name { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -140,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -161,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.AppId = this.AppId;
             if (this.Command_Arg != null)
             {
-                context.Command_Args = new Dictionary<String, List<String>>(StringComparer.Ordinal);
+                context.Command_Args = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Command_Arg.Keys)
                 {
                     object hashValue = this.Command_Arg[hashKey];
@@ -184,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.CustomJson = this.CustomJson;
             if (this.InstanceId != null)
             {
-                context.InstanceIds = new List<String>(this.InstanceId);
+                context.InstanceIds = new List<System.String>(this.InstanceId);
             }
             context.StackId = this.StackId;
             
@@ -198,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDeploymentRequest();
+            var request = new Amazon.OpsWorks.Model.CreateDeploymentRequest();
             
             if (cmdletContext.AppId != null)
             {
@@ -207,8 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
              // populate Command
             bool requestCommandIsNull = true;
-            request.Command = new DeploymentCommand();
-            Dictionary<String, List<String>> requestCommand_command_Arg = null;
+            request.Command = new Amazon.OpsWorks.Model.DeploymentCommand();
+            Dictionary<System.String, List<System.String>> requestCommand_command_Arg = null;
             if (cmdletContext.Command_Args != null)
             {
                 requestCommand_command_Arg = cmdletContext.Command_Args;
@@ -218,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.Command.Args = requestCommand_command_Arg;
                 requestCommandIsNull = false;
             }
-            DeploymentCommandName requestCommand_command_Name = null;
+            Amazon.OpsWorks.DeploymentCommandName requestCommand_command_Name = null;
             if (cmdletContext.Command_Name != null)
             {
                 requestCommand_command_Name = cmdletContext.Command_Name;
@@ -284,13 +301,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AppId { get; set; }
-            public Dictionary<String, List<String>> Command_Args { get; set; }
-            public DeploymentCommandName Command_Name { get; set; }
-            public String Comment { get; set; }
-            public String CustomJson { get; set; }
-            public List<String> InstanceIds { get; set; }
-            public String StackId { get; set; }
+            public System.String AppId { get; set; }
+            public Dictionary<System.String, List<System.String>> Command_Args { get; set; }
+            public Amazon.OpsWorks.DeploymentCommandName Command_Name { get; set; }
+            public System.String Comment { get; set; }
+            public System.String CustomJson { get; set; }
+            public List<System.String> InstanceIds { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

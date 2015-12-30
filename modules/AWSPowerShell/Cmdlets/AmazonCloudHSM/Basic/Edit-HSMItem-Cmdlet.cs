@@ -35,58 +35,72 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the ModifyHsm operation against AWS Cloud HSM.", Operation = new[] {"ModifyHsm"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.ModifyHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter EniIp
         /// <summary>
         /// <para>
         /// <para>The new IP address for the elastic network interface attached to the HSM.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EniIp { get; set; }
+        public System.String EniIp { get; set; }
+        #endregion
         
+        #region Parameter ExternalId
         /// <summary>
         /// <para>
         /// <para>The new external ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ExternalId { get; set; }
+        public System.String ExternalId { get; set; }
+        #endregion
         
+        #region Parameter HsmArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the HSM to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HsmArn { get; set; }
+        public System.String HsmArn { get; set; }
+        #endregion
         
+        #region Parameter IamRoleArn
         /// <summary>
         /// <para>
         /// <para>The new IAM role ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IamRoleArn { get; set; }
+        public System.String IamRoleArn { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The new identifier of the subnet that the HSM is in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter SyslogIp
         /// <summary>
         /// <para>
         /// <para>The new IP address for the syslog monitoring server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SyslogIp { get; set; }
+        public System.String SyslogIp { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -129,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyHsmRequest();
+            var request = new Amazon.CloudHSM.Model.ModifyHsmRequest();
             
             if (cmdletContext.EniIp != null)
             {
@@ -190,12 +204,12 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EniIp { get; set; }
-            public String ExternalId { get; set; }
-            public String HsmArn { get; set; }
-            public String IamRoleArn { get; set; }
-            public String SubnetId { get; set; }
-            public String SyslogIp { get; set; }
+            public System.String EniIp { get; set; }
+            public System.String ExternalId { get; set; }
+            public System.String HsmArn { get; set; }
+            public System.String IamRoleArn { get; set; }
+            public System.String SubnetId { get; set; }
+            public System.String SyslogIp { get; set; }
         }
         
     }

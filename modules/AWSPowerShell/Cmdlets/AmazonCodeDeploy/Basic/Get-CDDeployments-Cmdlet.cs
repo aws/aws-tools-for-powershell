@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the BatchGetDeployments operation against AWS CodeDeploy.", Operation = new[] {"BatchGetDeployments"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.DeploymentInfo",
         "This cmdlet returns a collection of DeploymentInfo objects.",
-        "The service call response (type BatchGetDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.BatchGetDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDDeploymentsCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>A list of deployment IDs, with multiple deployment IDs separated by spaces.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DeploymentIds")]
         public System.String[] DeploymentId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
             if (this.DeploymentId != null)
             {
-                context.DeploymentIds = new List<String>(this.DeploymentId);
+                context.DeploymentIds = new List<System.String>(this.DeploymentId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new BatchGetDeploymentsRequest();
+            var request = new Amazon.CodeDeploy.Model.BatchGetDeploymentsRequest();
             
             if (cmdletContext.DeploymentIds != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DeploymentIds { get; set; }
+            public List<System.String> DeploymentIds { get; set; }
         }
         
     }

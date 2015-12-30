@@ -53,10 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the CreateEvaluation operation against Amazon Machine Learning.", Operation = new[] {"CreateEvaluation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter EvaluationDataSourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the <code>DataSource</code> for the evaluation. The schema of the <code>DataSource</code>
@@ -64,16 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EvaluationDataSourceId { get; set; }
+        public System.String EvaluationDataSourceId { get; set; }
+        #endregion
         
+        #region Parameter EvaluationId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>Evaluation</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EvaluationId { get; set; }
+        public System.String EvaluationId { get; set; }
+        #endregion
         
+        #region Parameter EvaluationName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>Evaluation</code>.</para>
@@ -81,8 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Name")]
-        public String EvaluationName { get; set; }
+        public System.String EvaluationName { get; set; }
+        #endregion
         
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>The ID of the <code>MLModel</code> to evaluate.</para><para>The schema used in creating the <code>MLModel</code> must match the schema of the
@@ -91,8 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -100,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -133,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateEvaluationRequest();
+            var request = new Amazon.MachineLearning.Model.CreateEvaluationRequest();
             
             if (cmdletContext.EvaluationDataSourceId != null)
             {
@@ -186,10 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EvaluationDataSourceId { get; set; }
-            public String EvaluationId { get; set; }
-            public String EvaluationName { get; set; }
-            public String MLModelId { get; set; }
+            public System.String EvaluationDataSourceId { get; set; }
+            public System.String EvaluationId { get; set; }
+            public System.String EvaluationName { get; set; }
+            public System.String MLModelId { get; set; }
         }
         
     }

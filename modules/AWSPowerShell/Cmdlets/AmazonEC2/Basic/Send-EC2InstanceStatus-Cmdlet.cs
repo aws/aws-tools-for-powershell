@@ -44,26 +44,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the ReportInstanceStatus operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReportInstanceStatus"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Instance parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ReportInstanceStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.ReportInstanceStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendEC2InstanceStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Descriptive text about the health state of your instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 5)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The time at which the reported instance health state ended.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter Instance
         /// <summary>
         /// <para>
         /// <para>One or more instances.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("InstanceId","Instances")]
         public System.String[] Instance { get; set; }
+        #endregion
         
+        #region Parameter ReasonCode
         /// <summary>
         /// <para>
         /// <para>One or more reason codes that describes the health state of your instance.</para><ul><li><para><code>instance-stuck-in-state</code>: My instance is stuck in a state.</para></li><li><para><code>unresponsive</code>: My instance is unresponsive.</para></li><li><para><code>not-accepting-credentials</code>: My instance is not accepting my credentials.</para></li><li><para><code>password-not-available</code>: A password is not available for my instance.</para></li><li><para><code>performance-network</code>: My instance is experiencing performance problems
@@ -84,30 +92,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 4)]
         [Alias("ReasonCodes")]
         public System.String[] ReasonCode { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The time at which the reported instance health state began.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The status of all instances listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ReportStatusType Status { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.ReportStatusType")]
+        public Amazon.EC2.ReportStatusType Status { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Instance parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -138,11 +155,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.EndTime = this.EndTime;
             if (this.Instance != null)
             {
-                context.Instances = new List<String>(this.Instance);
+                context.Instances = new List<System.String>(this.Instance);
             }
             if (this.ReasonCode != null)
             {
-                context.ReasonCodes = new List<String>(this.ReasonCode);
+                context.ReasonCodes = new List<System.String>(this.ReasonCode);
             }
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -158,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReportInstanceStatusRequest();
+            var request = new Amazon.EC2.Model.ReportInstanceStatusRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -221,12 +238,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public DateTime? EndTime { get; set; }
-            public List<String> Instances { get; set; }
-            public List<String> ReasonCodes { get; set; }
-            public DateTime? StartTime { get; set; }
-            public ReportStatusType Status { get; set; }
+            public System.String Description { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public List<System.String> Instances { get; set; }
+            public List<System.String> ReasonCodes { get; set; }
+            public System.DateTime? StartTime { get; set; }
+            public Amazon.EC2.ReportStatusType Status { get; set; }
         }
         
     }

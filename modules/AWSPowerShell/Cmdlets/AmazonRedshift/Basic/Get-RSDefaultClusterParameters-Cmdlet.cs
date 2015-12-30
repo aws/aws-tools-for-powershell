@@ -42,18 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeDefaultClusterParameters operation against Amazon Redshift.", Operation = new[] {"DescribeDefaultClusterParameters"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.DefaultClusterParameters",
         "This cmdlet returns a DefaultClusterParameters object.",
-        "The service call response (type DescribeDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DescribeDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRSDefaultClusterParametersCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para> The name of the cluster parameter group family. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ParameterGroupFamily { get; set; }
+        public System.String ParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -66,8 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -79,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDefaultClusterParametersRequest();
+            var request = new Amazon.Redshift.Model.DescribeDefaultClusterParametersRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -155,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String ParameterGroupFamily { get; set; }
+            public System.String ParameterGroupFamily { get; set; }
         }
         
     }

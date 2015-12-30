@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribePlacementGroups operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribePlacementGroups"})]
     [AWSCmdletOutput("Amazon.EC2.Model.PlacementGroup",
         "This cmdlet returns a collection of PlacementGroup objects.",
-        "The service call response (type DescribePlacementGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribePlacementGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2PlacementGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>group-name</code> - The name of the placement group.</para></li><li><para><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter GroupName
         /// <summary>
         /// <para>
         /// <para>One or more placement group names.</para><para>Default: Describes all your placement groups, or only those otherwise specified.</para>
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("GroupNames")]
         public System.String[] GroupName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -73,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.GroupName != null)
             {
-                context.GroupNames = new List<String>(this.GroupName);
+                context.GroupNames = new List<System.String>(this.GroupName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribePlacementGroupsRequest();
+            var request = new Amazon.EC2.Model.DescribePlacementGroupsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -135,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> GroupNames { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> GroupNames { get; set; }
         }
         
     }

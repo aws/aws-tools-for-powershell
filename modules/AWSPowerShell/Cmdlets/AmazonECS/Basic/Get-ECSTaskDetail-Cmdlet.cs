@@ -34,28 +34,32 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.DescribeTasksResponse")]
     [AWSCmdlet("Invokes the DescribeTasks operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeTasks"})]
     [AWSCmdletOutput("Amazon.ECS.Model.DescribeTasksResponse",
-        "This cmdlet returns a DescribeTasksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ECS.Model.DescribeTasksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetECSTaskDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task
-        /// you want to describe. If you do not specify a cluster, the default cluster is assumed.</para>
+        /// to describe. If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter Task
         /// <summary>
         /// <para>
-        /// <para>A space-separated list of task UUIDs or full Amazon Resource Name (ARN) entries.</para>
+        /// <para>A space-separated list of task IDs or full Amazon Resource Name (ARN) entries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Tasks")]
         public System.String[] Task { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             if (this.Task != null)
             {
-                context.Tasks = new List<String>(this.Task);
+                context.Tasks = new List<System.String>(this.Task);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -83,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTasksRequest();
+            var request = new Amazon.ECS.Model.DescribeTasksRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -128,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public List<String> Tasks { get; set; }
+            public System.String Cluster { get; set; }
+            public List<System.String> Tasks { get; set; }
         }
         
     }

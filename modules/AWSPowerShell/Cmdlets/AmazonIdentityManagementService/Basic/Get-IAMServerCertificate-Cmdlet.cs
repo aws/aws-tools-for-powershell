@@ -29,24 +29,33 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Retrieves information about the specified server certificate.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about working with server certificates, including a list of AWS
+    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMServerCertificate")]
     [OutputType("Amazon.IdentityManagement.Model.ServerCertificate")]
     [AWSCmdlet("Invokes the GetServerCertificate operation against AWS Identity and Access Management.", Operation = new[] {"GetServerCertificate"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServerCertificate",
         "This cmdlet returns a ServerCertificate object.",
-        "The service call response (type GetServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ServerCertificateName
         /// <summary>
         /// <para>
         /// <para>The name of the server certificate you want to retrieve information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ServerCertificateName { get; set; }
-        
+        public System.String ServerCertificateName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetServerCertificateRequest();
+            var request = new Amazon.IdentityManagement.Model.GetServerCertificateRequest();
             
             if (cmdletContext.ServerCertificateName != null)
             {
@@ -111,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ServerCertificateName { get; set; }
+            public System.String ServerCertificateName { get; set; }
         }
         
     }

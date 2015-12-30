@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("Amazon.Lambda.Model.DeleteEventSourceMappingResponse")]
     [AWSCmdlet("Invokes the DeleteEventSourceMapping operation against Amazon Lambda.", Operation = new[] {"DeleteEventSourceMapping"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.DeleteEventSourceMappingResponse",
-        "This cmdlet returns a DeleteEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Lambda.Model.DeleteEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter UUID
         /// <summary>
         /// <para>
         /// <para>The event source mapping ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UUID { get; set; }
+        public System.String UUID { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteEventSourceMappingRequest();
+            var request = new Amazon.Lambda.Model.DeleteEventSourceMappingRequest();
             
             if (cmdletContext.UUID != null)
             {
@@ -131,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String UUID { get; set; }
+            public System.String UUID { get; set; }
         }
         
     }

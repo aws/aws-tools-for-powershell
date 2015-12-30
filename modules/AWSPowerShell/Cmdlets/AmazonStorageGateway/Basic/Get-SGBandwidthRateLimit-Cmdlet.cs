@@ -43,18 +43,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse")]
     [AWSCmdlet("Invokes the DescribeBandwidthRateLimit operation against AWS Storage Gateway.", Operation = new[] {"DescribeBandwidthRateLimit"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse",
-        "This cmdlet returns a DescribeBandwidthRateLimitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGBandwidthRateLimitCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
-        
+        public System.String GatewayARN { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeBandwidthRateLimitRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeBandwidthRateLimitRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
@@ -119,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
+            public System.String GatewayARN { get; set; }
         }
         
     }

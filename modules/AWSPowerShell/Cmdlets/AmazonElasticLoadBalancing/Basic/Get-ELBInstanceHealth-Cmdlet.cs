@@ -28,19 +28,23 @@ using Amazon.ElasticLoadBalancing.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB
 {
     /// <summary>
-    /// Describes the state of the specified instances registered with the specified load
+    /// Describes the state of the specified instances with respect to the specified load
     /// balancer. If no instances are specified, the call describes the state of all instances
-    /// registered with the load balancer, not including any terminated instances.
+    /// that are currently registered with the load balancer. If instances are specified,
+    /// their state is returned even if they are no longer registered with the load balancer.
+    /// The state of terminated instances is not returned.
     /// </summary>
     [Cmdlet("Get", "ELBInstanceHealth")]
     [OutputType("Amazon.ElasticLoadBalancing.Model.InstanceState")]
     [AWSCmdlet("Invokes the DescribeInstanceHealth operation against Elastic Load Balancing.", Operation = new[] {"DescribeInstanceHealth"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.InstanceState",
         "This cmdlet returns a collection of InstanceState objects.",
-        "The service call response (type DescribeInstanceHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetELBInstanceHealthCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Instance
         /// <summary>
         /// <para>
         /// <para>The IDs of the instances.</para>
@@ -49,15 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Instances")]
         public Amazon.ElasticLoadBalancing.Model.Instance[] Instance { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
-        
+        public System.String LoadBalancerName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             
             if (this.Instance != null)
             {
-                context.Instances = new List<Instance>(this.Instance);
+                context.Instances = new List<Amazon.ElasticLoadBalancing.Model.Instance>(this.Instance);
             }
             context.LoadBalancerName = this.LoadBalancerName;
             
@@ -85,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeInstanceHealthRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.DescribeInstanceHealthRequest();
             
             if (cmdletContext.Instances != null)
             {
@@ -130,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Instance> Instances { get; set; }
-            public String LoadBalancerName { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.Instance> Instances { get; set; }
+            public System.String LoadBalancerName { get; set; }
         }
         
     }

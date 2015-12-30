@@ -40,50 +40,62 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse")]
     [AWSCmdlet("Invokes the AllocateConnectionOnInterconnect operation against AWS Direct Connect.", Operation = new[] {"AllocateConnectionOnInterconnect"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse",
-        "This cmdlet returns a AllocateConnectionOnInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableDCConnectionOnInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter Bandwidth
         /// <summary>
         /// <para>
         /// <para>Bandwidth of the connection.</para><para>Example: "<i>500Mbps</i>"</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String Bandwidth { get; set; }
+        public System.String Bandwidth { get; set; }
+        #endregion
         
+        #region Parameter ConnectionName
         /// <summary>
         /// <para>
         /// <para>Name of the provisioned connection.</para><para>Example: "<i>500M Connection to AWS</i>"</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ConnectionName { get; set; }
+        public System.String ConnectionName { get; set; }
+        #endregion
         
+        #region Parameter InterconnectId
         /// <summary>
         /// <para>
         /// <para>ID of the interconnect on which the connection will be provisioned.</para><para>Example: dxcon-456abc78</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InterconnectId { get; set; }
+        public System.String InterconnectId { get; set; }
+        #endregion
         
+        #region Parameter OwnerAccount
         /// <summary>
         /// <para>
         /// <para>Numeric account Id of the customer for whom the connection will be provisioned.</para><para>Example: 123443215678</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String OwnerAccount { get; set; }
+        public System.String OwnerAccount { get; set; }
+        #endregion
         
+        #region Parameter Vlan
         /// <summary>
         /// <para>
         /// <para>The dedicated VLAN provisioned to the connection.</para><para>Example: 101</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public Int32 Vlan { get; set; }
+        public System.Int32 Vlan { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -126,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AllocateConnectionOnInterconnectRequest();
+            var request = new Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectRequest();
             
             if (cmdletContext.Bandwidth != null)
             {
@@ -183,11 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Bandwidth { get; set; }
-            public String ConnectionName { get; set; }
-            public String InterconnectId { get; set; }
-            public String OwnerAccount { get; set; }
-            public Int32? Vlan { get; set; }
+            public System.String Bandwidth { get; set; }
+            public System.String ConnectionName { get; set; }
+            public System.String InterconnectId { get; set; }
+            public System.String OwnerAccount { get; set; }
+            public System.Int32? Vlan { get; set; }
         }
         
     }

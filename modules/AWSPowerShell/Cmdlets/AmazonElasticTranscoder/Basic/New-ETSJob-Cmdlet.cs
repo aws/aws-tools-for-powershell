@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the CreateJob operation against Amazon Elastic Transcoder.", Operation = new[] {"CreateJob"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Job",
         "This cmdlet returns a Job object.",
-        "The service call response (type CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticTranscoder.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewETSJobCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter AlbumArt_Artwork
         /// <summary>
         /// <para>
         /// <para>The file to be used as album art. There can be multiple artworks associated with an
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_AlbumArt_Artwork")]
         public Amazon.ElasticTranscoder.Model.Artwork[] AlbumArt_Artwork { get; set; }
+        #endregion
         
+        #region Parameter Input_AspectRatio
         /// <summary>
         /// <para>
         /// <para> The aspect ratio of the input file. If you want Elastic Transcoder to automatically
@@ -67,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Input_AspectRatio { get; set; }
+        public System.String Input_AspectRatio { get; set; }
+        #endregion
         
+        #region Parameter Captions_CaptionFormat
         /// <summary>
         /// <para>
         /// <para>The array of file formats for the output captions. If you leave this value blank,
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Captions_CaptionFormats")]
         public Amazon.ElasticTranscoder.Model.CaptionFormat[] Captions_CaptionFormat { get; set; }
+        #endregion
         
+        #region Parameter Captions_CaptionSource
         /// <summary>
         /// <para>
         /// <para>Source files for the input sidecar captions used during the transcoding process. To
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Captions_CaptionSources")]
         public Amazon.ElasticTranscoder.Model.CaptionSource[] Captions_CaptionSource { get; set; }
+        #endregion
         
+        #region Parameter Output_Composition
         /// <summary>
         /// <para>
         /// <para>You can create an output file that contains an excerpt from the input file. This excerpt,
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.ElasticTranscoder.Model.Clip[] Output_Composition { get; set; }
+        #endregion
         
+        #region Parameter Input_Container
         /// <summary>
         /// <para>
         /// <para>The container type for the input file. If you want Elastic Transcoder to automatically
@@ -113,8 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Input_Container { get; set; }
+        public System.String Input_Container { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_DurationMilli
         /// <summary>
         /// <para>
         /// <para>The detected duration of the input file, in milliseconds.</para>
@@ -122,8 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_DurationMillis")]
-        public Int64 DetectedProperties_DurationMilli { get; set; }
+        public System.Int64 DetectedProperties_DurationMilli { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_FileSize
         /// <summary>
         /// <para>
         /// <para>The detected file size of the input file, in bytes.</para>
@@ -131,8 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_FileSize")]
-        public Int64 DetectedProperties_FileSize { get; set; }
+        public System.Int64 DetectedProperties_FileSize { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_FrameRate
         /// <summary>
         /// <para>
         /// <para>The detected frame rate of the input file, in frames per second.</para>
@@ -140,8 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_FrameRate")]
-        public String DetectedProperties_FrameRate { get; set; }
+        public System.String DetectedProperties_FrameRate { get; set; }
+        #endregion
         
+        #region Parameter Input_FrameRate
         /// <summary>
         /// <para>
         /// <para>The frame rate of the input file. If you want Elastic Transcoder to automatically
@@ -152,8 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Input_FrameRate { get; set; }
+        public System.String Input_FrameRate { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_Height
         /// <summary>
         /// <para>
         /// <para>The detected height of the input file, in pixels.</para>
@@ -161,8 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_Height")]
-        public Int32 DetectedProperties_Height { get; set; }
+        public System.Int32 DetectedProperties_Height { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionInitializationVector
         /// <summary>
         /// <para>
         /// <para>The series of random bits created by a random bit generator, unique for every encryption
@@ -173,8 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_InitializationVector")]
-        public String InputEncryptionInitializationVector { get; set; }
+        public System.String InputEncryptionInitializationVector { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionInitializationVector
         /// <summary>
         /// <para>
         /// <para>The series of random bits created by a random bit generator, unique for every encryption
@@ -185,8 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_InitializationVector")]
-        public String OutputEncryptionInitializationVector { get; set; }
+        public System.String OutputEncryptionInitializationVector { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_InitializationVector
         /// <summary>
         /// <para>
         /// <para>The series of random bits created by a random bit generator, unique for every encryption
@@ -197,8 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_InitializationVector")]
-        public String ThumbnailEncryption_InitializationVector { get; set; }
+        public System.String ThumbnailEncryption_InitializationVector { get; set; }
+        #endregion
         
+        #region Parameter Input_Interlaced
         /// <summary>
         /// <para>
         /// <para>Whether the input file is interlaced. If you want Elastic Transcoder to automatically
@@ -208,8 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Input_Interlaced { get; set; }
+        public System.String Input_Interlaced { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionKey
         /// <summary>
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
@@ -219,8 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_Key")]
-        public String InputEncryptionKey { get; set; }
+        public System.String InputEncryptionKey { get; set; }
+        #endregion
         
+        #region Parameter Input_Key
         /// <summary>
         /// <para>
         /// <para> The name of the file to transcode. Elsewhere in the body of the JSON block is the
@@ -232,8 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Input_Key { get; set; }
+        public System.String Input_Key { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionKey
         /// <summary>
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
@@ -243,8 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_Key")]
-        public String OutputEncryptionKey { get; set; }
+        public System.String OutputEncryptionKey { get; set; }
+        #endregion
         
+        #region Parameter Output_Key
         /// <summary>
         /// <para>
         /// <para> The name to assign to the transcoded file. Elastic Transcoder saves the file in the
@@ -254,8 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Output_Key { get; set; }
+        public System.String Output_Key { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_Key
         /// <summary>
         /// <para>
         /// <para>The data encryption key that you want Elastic Transcoder to use to encrypt your output
@@ -265,8 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_Key")]
-        public String ThumbnailEncryption_Key { get; set; }
+        public System.String ThumbnailEncryption_Key { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionKeyMd5
         /// <summary>
         /// <para>
         /// <para>The MD5 digest of the key that you used to encrypt your input file, or that you want
@@ -277,8 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_KeyMd5")]
-        public String InputEncryptionKeyMd5 { get; set; }
+        public System.String InputEncryptionKeyMd5 { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionKeyMd5
         /// <summary>
         /// <para>
         /// <para>The MD5 digest of the key that you used to encrypt your input file, or that you want
@@ -289,8 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_KeyMd5")]
-        public String OutputEncryptionKeyMd5 { get; set; }
+        public System.String OutputEncryptionKeyMd5 { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_KeyMd5
         /// <summary>
         /// <para>
         /// <para>The MD5 digest of the key that you used to encrypt your input file, or that you want
@@ -301,8 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_KeyMd5")]
-        public String ThumbnailEncryption_KeyMd5 { get; set; }
+        public System.String ThumbnailEncryption_KeyMd5 { get; set; }
+        #endregion
         
+        #region Parameter AlbumArt_MergePolicy
         /// <summary>
         /// <para>
         /// <para>A policy that determines how Elastic Transcoder will handle the existence of multiple
@@ -317,8 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_AlbumArt_MergePolicy")]
-        public String AlbumArt_MergePolicy { get; set; }
+        public System.String AlbumArt_MergePolicy { get; set; }
+        #endregion
         
+        #region Parameter Captions_MergePolicy
         /// <summary>
         /// <para>
         /// <para>A policy that determines how Elastic Transcoder handles the existence of multiple
@@ -335,8 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_Captions_MergePolicy")]
-        public String Captions_MergePolicy { get; set; }
+        public System.String Captions_MergePolicy { get; set; }
+        #endregion
         
+        #region Parameter InputEncryptionMode
         /// <summary>
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
@@ -355,8 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_Encryption_Mode")]
-        public String InputEncryptionMode { get; set; }
+        public System.String InputEncryptionMode { get; set; }
+        #endregion
         
+        #region Parameter OutputEncryptionMode
         /// <summary>
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
@@ -375,8 +429,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_Encryption_Mode")]
-        public String OutputEncryptionMode { get; set; }
+        public System.String OutputEncryptionMode { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailEncryption_Mode
         /// <summary>
         /// <para>
         /// <para>The specific server-side encryption mode that you want Elastic Transcoder to use when
@@ -395,8 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Output_ThumbnailEncryption_Mode")]
-        public String ThumbnailEncryption_Mode { get; set; }
+        public System.String ThumbnailEncryption_Mode { get; set; }
+        #endregion
         
+        #region Parameter OutputKeyPrefix
         /// <summary>
         /// <para>
         /// <para>The value, if any, that you want Elastic Transcoder to prepend to the names of all
@@ -404,8 +462,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OutputKeyPrefix { get; set; }
+        public System.String OutputKeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter Output
         /// <summary>
         /// <para>
         /// <para> A section of the request body that provides information about the transcoded (target)
@@ -416,7 +476,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Outputs")]
         public Amazon.ElasticTranscoder.Model.CreateJobOutput[] Output { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding.
@@ -426,8 +488,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Playlist
         /// <summary>
         /// <para>
         /// <para>If you specify a preset in <code>PresetId</code> for which the value of <code>Container</code>
@@ -438,7 +502,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Playlists")]
         public Amazon.ElasticTranscoder.Model.CreateJobPlaylist[] Playlist { get; set; }
+        #endregion
         
+        #region Parameter Output_PresetId
         /// <summary>
         /// <para>
         /// <para> The <code>Id</code> of the preset to use for this job. The preset determines the
@@ -447,8 +513,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Output_PresetId { get; set; }
+        public System.String Output_PresetId { get; set; }
+        #endregion
         
+        #region Parameter Input_Resolution
         /// <summary>
         /// <para>
         /// <para>This value must be <code>auto</code>, which causes Elastic Transcoder to automatically
@@ -456,8 +524,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Input_Resolution { get; set; }
+        public System.String Input_Resolution { get; set; }
+        #endregion
         
+        #region Parameter Output_Rotate
         /// <summary>
         /// <para>
         /// <para> The number of degrees clockwise by which you want Elastic Transcoder to rotate the
@@ -468,8 +538,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Output_Rotate { get; set; }
+        public System.String Output_Rotate { get; set; }
+        #endregion
         
+        #region Parameter Output_SegmentDuration
         /// <summary>
         /// <para>
         /// <para><important>(Outputs in Fragmented MP4 or MPEG-TS format only.</important>If you specify
@@ -487,8 +559,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Output_SegmentDuration { get; set; }
+        public System.String Output_SegmentDuration { get; set; }
+        #endregion
         
+        #region Parameter Output_ThumbnailPattern
         /// <summary>
         /// <para>
         /// <para>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so,
@@ -512,8 +586,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Output_ThumbnailPattern { get; set; }
+        public System.String Output_ThumbnailPattern { get; set; }
+        #endregion
         
+        #region Parameter UserMetadata
         /// <summary>
         /// <para>
         /// <para>User-defined metadata that you want to associate with an Elastic Transcoder job. You
@@ -524,7 +600,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable UserMetadata { get; set; }
+        #endregion
         
+        #region Parameter Output_Watermark
         /// <summary>
         /// <para>
         /// <para>Information about the watermarks that you want Elastic Transcoder to add to the video
@@ -535,7 +613,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Output_Watermarks")]
         public Amazon.ElasticTranscoder.Model.JobWatermark[] Output_Watermark { get; set; }
+        #endregion
         
+        #region Parameter DetectedProperties_Width
         /// <summary>
         /// <para>
         /// <para>The detected width of the input file, in pixels.</para>
@@ -543,8 +623,10 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_Width")]
-        public Int32 DetectedProperties_Width { get; set; }
+        public System.Int32 DetectedProperties_Width { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -552,7 +634,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -591,21 +673,21 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.Input_Resolution = this.Input_Resolution;
             if (this.AlbumArt_Artwork != null)
             {
-                context.Output_AlbumArt_Artwork = new List<Artwork>(this.AlbumArt_Artwork);
+                context.Output_AlbumArt_Artwork = new List<Amazon.ElasticTranscoder.Model.Artwork>(this.AlbumArt_Artwork);
             }
             context.Output_AlbumArt_MergePolicy = this.AlbumArt_MergePolicy;
             if (this.Captions_CaptionFormat != null)
             {
-                context.Output_Captions_CaptionFormats = new List<CaptionFormat>(this.Captions_CaptionFormat);
+                context.Output_Captions_CaptionFormats = new List<Amazon.ElasticTranscoder.Model.CaptionFormat>(this.Captions_CaptionFormat);
             }
             if (this.Captions_CaptionSource != null)
             {
-                context.Output_Captions_CaptionSources = new List<CaptionSource>(this.Captions_CaptionSource);
+                context.Output_Captions_CaptionSources = new List<Amazon.ElasticTranscoder.Model.CaptionSource>(this.Captions_CaptionSource);
             }
             context.Output_Captions_MergePolicy = this.Captions_MergePolicy;
             if (this.Output_Composition != null)
             {
-                context.Output_Composition = new List<Clip>(this.Output_Composition);
+                context.Output_Composition = new List<Amazon.ElasticTranscoder.Model.Clip>(this.Output_Composition);
             }
             context.OutputEncryptionInitializationVector = this.OutputEncryptionInitializationVector;
             context.OutputEncryptionKey = this.OutputEncryptionKey;
@@ -622,21 +704,21 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             context.Output_ThumbnailPattern = this.Output_ThumbnailPattern;
             if (this.Output_Watermark != null)
             {
-                context.Output_Watermarks = new List<JobWatermark>(this.Output_Watermark);
+                context.Output_Watermarks = new List<Amazon.ElasticTranscoder.Model.JobWatermark>(this.Output_Watermark);
             }
             context.OutputKeyPrefix = this.OutputKeyPrefix;
             if (this.Output != null)
             {
-                context.Outputs = new List<CreateJobOutput>(this.Output);
+                context.Outputs = new List<Amazon.ElasticTranscoder.Model.CreateJobOutput>(this.Output);
             }
             context.PipelineId = this.PipelineId;
             if (this.Playlist != null)
             {
-                context.Playlists = new List<CreateJobPlaylist>(this.Playlist);
+                context.Playlists = new List<Amazon.ElasticTranscoder.Model.CreateJobPlaylist>(this.Playlist);
             }
             if (this.UserMetadata != null)
             {
-                context.UserMetadata = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.UserMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UserMetadata.Keys)
                 {
                     context.UserMetadata.Add((String)hashKey, (String)(this.UserMetadata[hashKey]));
@@ -653,13 +735,13 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateJobRequest();
+            var request = new Amazon.ElasticTranscoder.Model.CreateJobRequest();
             
             
              // populate Input
             bool requestInputIsNull = true;
-            request.Input = new JobInput();
-            String requestInput_input_AspectRatio = null;
+            request.Input = new Amazon.ElasticTranscoder.Model.JobInput();
+            System.String requestInput_input_AspectRatio = null;
             if (cmdletContext.Input_AspectRatio != null)
             {
                 requestInput_input_AspectRatio = cmdletContext.Input_AspectRatio;
@@ -669,7 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.AspectRatio = requestInput_input_AspectRatio;
                 requestInputIsNull = false;
             }
-            String requestInput_input_Container = null;
+            System.String requestInput_input_Container = null;
             if (cmdletContext.Input_Container != null)
             {
                 requestInput_input_Container = cmdletContext.Input_Container;
@@ -679,7 +761,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.Container = requestInput_input_Container;
                 requestInputIsNull = false;
             }
-            String requestInput_input_FrameRate = null;
+            System.String requestInput_input_FrameRate = null;
             if (cmdletContext.Input_FrameRate != null)
             {
                 requestInput_input_FrameRate = cmdletContext.Input_FrameRate;
@@ -689,7 +771,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.FrameRate = requestInput_input_FrameRate;
                 requestInputIsNull = false;
             }
-            String requestInput_input_Interlaced = null;
+            System.String requestInput_input_Interlaced = null;
             if (cmdletContext.Input_Interlaced != null)
             {
                 requestInput_input_Interlaced = cmdletContext.Input_Interlaced;
@@ -699,7 +781,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.Interlaced = requestInput_input_Interlaced;
                 requestInputIsNull = false;
             }
-            String requestInput_input_Key = null;
+            System.String requestInput_input_Key = null;
             if (cmdletContext.Input_Key != null)
             {
                 requestInput_input_Key = cmdletContext.Input_Key;
@@ -709,7 +791,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.Key = requestInput_input_Key;
                 requestInputIsNull = false;
             }
-            String requestInput_input_Resolution = null;
+            System.String requestInput_input_Resolution = null;
             if (cmdletContext.Input_Resolution != null)
             {
                 requestInput_input_Resolution = cmdletContext.Input_Resolution;
@@ -719,12 +801,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.Resolution = requestInput_input_Resolution;
                 requestInputIsNull = false;
             }
-            Encryption requestInput_input_Encryption = null;
+            Amazon.ElasticTranscoder.Model.Encryption requestInput_input_Encryption = null;
             
              // populate Encryption
             bool requestInput_input_EncryptionIsNull = true;
-            requestInput_input_Encryption = new Encryption();
-            String requestInput_input_Encryption_inputEncryptionInitializationVector = null;
+            requestInput_input_Encryption = new Amazon.ElasticTranscoder.Model.Encryption();
+            System.String requestInput_input_Encryption_inputEncryptionInitializationVector = null;
             if (cmdletContext.InputEncryptionInitializationVector != null)
             {
                 requestInput_input_Encryption_inputEncryptionInitializationVector = cmdletContext.InputEncryptionInitializationVector;
@@ -734,7 +816,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestInput_input_Encryption.InitializationVector = requestInput_input_Encryption_inputEncryptionInitializationVector;
                 requestInput_input_EncryptionIsNull = false;
             }
-            String requestInput_input_Encryption_inputEncryptionKey = null;
+            System.String requestInput_input_Encryption_inputEncryptionKey = null;
             if (cmdletContext.InputEncryptionKey != null)
             {
                 requestInput_input_Encryption_inputEncryptionKey = cmdletContext.InputEncryptionKey;
@@ -744,7 +826,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestInput_input_Encryption.Key = requestInput_input_Encryption_inputEncryptionKey;
                 requestInput_input_EncryptionIsNull = false;
             }
-            String requestInput_input_Encryption_inputEncryptionKeyMd5 = null;
+            System.String requestInput_input_Encryption_inputEncryptionKeyMd5 = null;
             if (cmdletContext.InputEncryptionKeyMd5 != null)
             {
                 requestInput_input_Encryption_inputEncryptionKeyMd5 = cmdletContext.InputEncryptionKeyMd5;
@@ -754,7 +836,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestInput_input_Encryption.KeyMd5 = requestInput_input_Encryption_inputEncryptionKeyMd5;
                 requestInput_input_EncryptionIsNull = false;
             }
-            String requestInput_input_Encryption_inputEncryptionMode = null;
+            System.String requestInput_input_Encryption_inputEncryptionMode = null;
             if (cmdletContext.InputEncryptionMode != null)
             {
                 requestInput_input_Encryption_inputEncryptionMode = cmdletContext.InputEncryptionMode;
@@ -774,12 +856,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Input.Encryption = requestInput_input_Encryption;
                 requestInputIsNull = false;
             }
-            DetectedProperties requestInput_input_DetectedProperties = null;
+            Amazon.ElasticTranscoder.Model.DetectedProperties requestInput_input_DetectedProperties = null;
             
              // populate DetectedProperties
             bool requestInput_input_DetectedPropertiesIsNull = true;
-            requestInput_input_DetectedProperties = new DetectedProperties();
-            Int64? requestInput_input_DetectedProperties_detectedProperties_DurationMilli = null;
+            requestInput_input_DetectedProperties = new Amazon.ElasticTranscoder.Model.DetectedProperties();
+            System.Int64? requestInput_input_DetectedProperties_detectedProperties_DurationMilli = null;
             if (cmdletContext.Input_DetectedProperties_DurationMillis != null)
             {
                 requestInput_input_DetectedProperties_detectedProperties_DurationMilli = cmdletContext.Input_DetectedProperties_DurationMillis.Value;
@@ -789,7 +871,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestInput_input_DetectedProperties.DurationMillis = requestInput_input_DetectedProperties_detectedProperties_DurationMilli.Value;
                 requestInput_input_DetectedPropertiesIsNull = false;
             }
-            Int64? requestInput_input_DetectedProperties_detectedProperties_FileSize = null;
+            System.Int64? requestInput_input_DetectedProperties_detectedProperties_FileSize = null;
             if (cmdletContext.Input_DetectedProperties_FileSize != null)
             {
                 requestInput_input_DetectedProperties_detectedProperties_FileSize = cmdletContext.Input_DetectedProperties_FileSize.Value;
@@ -799,7 +881,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestInput_input_DetectedProperties.FileSize = requestInput_input_DetectedProperties_detectedProperties_FileSize.Value;
                 requestInput_input_DetectedPropertiesIsNull = false;
             }
-            String requestInput_input_DetectedProperties_detectedProperties_FrameRate = null;
+            System.String requestInput_input_DetectedProperties_detectedProperties_FrameRate = null;
             if (cmdletContext.Input_DetectedProperties_FrameRate != null)
             {
                 requestInput_input_DetectedProperties_detectedProperties_FrameRate = cmdletContext.Input_DetectedProperties_FrameRate;
@@ -809,7 +891,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestInput_input_DetectedProperties.FrameRate = requestInput_input_DetectedProperties_detectedProperties_FrameRate;
                 requestInput_input_DetectedPropertiesIsNull = false;
             }
-            Int32? requestInput_input_DetectedProperties_detectedProperties_Height = null;
+            System.Int32? requestInput_input_DetectedProperties_detectedProperties_Height = null;
             if (cmdletContext.Input_DetectedProperties_Height != null)
             {
                 requestInput_input_DetectedProperties_detectedProperties_Height = cmdletContext.Input_DetectedProperties_Height.Value;
@@ -819,7 +901,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestInput_input_DetectedProperties.Height = requestInput_input_DetectedProperties_detectedProperties_Height.Value;
                 requestInput_input_DetectedPropertiesIsNull = false;
             }
-            Int32? requestInput_input_DetectedProperties_detectedProperties_Width = null;
+            System.Int32? requestInput_input_DetectedProperties_detectedProperties_Width = null;
             if (cmdletContext.Input_DetectedProperties_Width != null)
             {
                 requestInput_input_DetectedProperties_detectedProperties_Width = cmdletContext.Input_DetectedProperties_Width.Value;
@@ -847,8 +929,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
             
              // populate Output
             bool requestOutputIsNull = true;
-            request.Output = new CreateJobOutput();
-            List<Clip> requestOutput_output_Composition = null;
+            request.Output = new Amazon.ElasticTranscoder.Model.CreateJobOutput();
+            List<Amazon.ElasticTranscoder.Model.Clip> requestOutput_output_Composition = null;
             if (cmdletContext.Output_Composition != null)
             {
                 requestOutput_output_Composition = cmdletContext.Output_Composition;
@@ -858,7 +940,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.Composition = requestOutput_output_Composition;
                 requestOutputIsNull = false;
             }
-            String requestOutput_output_Key = null;
+            System.String requestOutput_output_Key = null;
             if (cmdletContext.Output_Key != null)
             {
                 requestOutput_output_Key = cmdletContext.Output_Key;
@@ -868,7 +950,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.Key = requestOutput_output_Key;
                 requestOutputIsNull = false;
             }
-            String requestOutput_output_PresetId = null;
+            System.String requestOutput_output_PresetId = null;
             if (cmdletContext.Output_PresetId != null)
             {
                 requestOutput_output_PresetId = cmdletContext.Output_PresetId;
@@ -878,7 +960,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.PresetId = requestOutput_output_PresetId;
                 requestOutputIsNull = false;
             }
-            String requestOutput_output_Rotate = null;
+            System.String requestOutput_output_Rotate = null;
             if (cmdletContext.Output_Rotate != null)
             {
                 requestOutput_output_Rotate = cmdletContext.Output_Rotate;
@@ -888,7 +970,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.Rotate = requestOutput_output_Rotate;
                 requestOutputIsNull = false;
             }
-            String requestOutput_output_SegmentDuration = null;
+            System.String requestOutput_output_SegmentDuration = null;
             if (cmdletContext.Output_SegmentDuration != null)
             {
                 requestOutput_output_SegmentDuration = cmdletContext.Output_SegmentDuration;
@@ -898,7 +980,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.SegmentDuration = requestOutput_output_SegmentDuration;
                 requestOutputIsNull = false;
             }
-            String requestOutput_output_ThumbnailPattern = null;
+            System.String requestOutput_output_ThumbnailPattern = null;
             if (cmdletContext.Output_ThumbnailPattern != null)
             {
                 requestOutput_output_ThumbnailPattern = cmdletContext.Output_ThumbnailPattern;
@@ -908,7 +990,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.ThumbnailPattern = requestOutput_output_ThumbnailPattern;
                 requestOutputIsNull = false;
             }
-            List<JobWatermark> requestOutput_output_Watermark = null;
+            List<Amazon.ElasticTranscoder.Model.JobWatermark> requestOutput_output_Watermark = null;
             if (cmdletContext.Output_Watermarks != null)
             {
                 requestOutput_output_Watermark = cmdletContext.Output_Watermarks;
@@ -918,12 +1000,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.Watermarks = requestOutput_output_Watermark;
                 requestOutputIsNull = false;
             }
-            JobAlbumArt requestOutput_output_AlbumArt = null;
+            Amazon.ElasticTranscoder.Model.JobAlbumArt requestOutput_output_AlbumArt = null;
             
              // populate AlbumArt
             bool requestOutput_output_AlbumArtIsNull = true;
-            requestOutput_output_AlbumArt = new JobAlbumArt();
-            List<Artwork> requestOutput_output_AlbumArt_albumArt_Artwork = null;
+            requestOutput_output_AlbumArt = new Amazon.ElasticTranscoder.Model.JobAlbumArt();
+            List<Amazon.ElasticTranscoder.Model.Artwork> requestOutput_output_AlbumArt_albumArt_Artwork = null;
             if (cmdletContext.Output_AlbumArt_Artwork != null)
             {
                 requestOutput_output_AlbumArt_albumArt_Artwork = cmdletContext.Output_AlbumArt_Artwork;
@@ -933,7 +1015,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_AlbumArt.Artwork = requestOutput_output_AlbumArt_albumArt_Artwork;
                 requestOutput_output_AlbumArtIsNull = false;
             }
-            String requestOutput_output_AlbumArt_albumArt_MergePolicy = null;
+            System.String requestOutput_output_AlbumArt_albumArt_MergePolicy = null;
             if (cmdletContext.Output_AlbumArt_MergePolicy != null)
             {
                 requestOutput_output_AlbumArt_albumArt_MergePolicy = cmdletContext.Output_AlbumArt_MergePolicy;
@@ -953,12 +1035,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.AlbumArt = requestOutput_output_AlbumArt;
                 requestOutputIsNull = false;
             }
-            Captions requestOutput_output_Captions = null;
+            Amazon.ElasticTranscoder.Model.Captions requestOutput_output_Captions = null;
             
              // populate Captions
             bool requestOutput_output_CaptionsIsNull = true;
-            requestOutput_output_Captions = new Captions();
-            List<CaptionFormat> requestOutput_output_Captions_captions_CaptionFormat = null;
+            requestOutput_output_Captions = new Amazon.ElasticTranscoder.Model.Captions();
+            List<Amazon.ElasticTranscoder.Model.CaptionFormat> requestOutput_output_Captions_captions_CaptionFormat = null;
             if (cmdletContext.Output_Captions_CaptionFormats != null)
             {
                 requestOutput_output_Captions_captions_CaptionFormat = cmdletContext.Output_Captions_CaptionFormats;
@@ -968,7 +1050,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Captions.CaptionFormats = requestOutput_output_Captions_captions_CaptionFormat;
                 requestOutput_output_CaptionsIsNull = false;
             }
-            List<CaptionSource> requestOutput_output_Captions_captions_CaptionSource = null;
+            List<Amazon.ElasticTranscoder.Model.CaptionSource> requestOutput_output_Captions_captions_CaptionSource = null;
             if (cmdletContext.Output_Captions_CaptionSources != null)
             {
                 requestOutput_output_Captions_captions_CaptionSource = cmdletContext.Output_Captions_CaptionSources;
@@ -978,7 +1060,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Captions.CaptionSources = requestOutput_output_Captions_captions_CaptionSource;
                 requestOutput_output_CaptionsIsNull = false;
             }
-            String requestOutput_output_Captions_captions_MergePolicy = null;
+            System.String requestOutput_output_Captions_captions_MergePolicy = null;
             if (cmdletContext.Output_Captions_MergePolicy != null)
             {
                 requestOutput_output_Captions_captions_MergePolicy = cmdletContext.Output_Captions_MergePolicy;
@@ -998,12 +1080,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.Captions = requestOutput_output_Captions;
                 requestOutputIsNull = false;
             }
-            Encryption requestOutput_output_Encryption = null;
+            Amazon.ElasticTranscoder.Model.Encryption requestOutput_output_Encryption = null;
             
              // populate Encryption
             bool requestOutput_output_EncryptionIsNull = true;
-            requestOutput_output_Encryption = new Encryption();
-            String requestOutput_output_Encryption_outputEncryptionInitializationVector = null;
+            requestOutput_output_Encryption = new Amazon.ElasticTranscoder.Model.Encryption();
+            System.String requestOutput_output_Encryption_outputEncryptionInitializationVector = null;
             if (cmdletContext.OutputEncryptionInitializationVector != null)
             {
                 requestOutput_output_Encryption_outputEncryptionInitializationVector = cmdletContext.OutputEncryptionInitializationVector;
@@ -1013,7 +1095,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Encryption.InitializationVector = requestOutput_output_Encryption_outputEncryptionInitializationVector;
                 requestOutput_output_EncryptionIsNull = false;
             }
-            String requestOutput_output_Encryption_outputEncryptionKey = null;
+            System.String requestOutput_output_Encryption_outputEncryptionKey = null;
             if (cmdletContext.OutputEncryptionKey != null)
             {
                 requestOutput_output_Encryption_outputEncryptionKey = cmdletContext.OutputEncryptionKey;
@@ -1023,7 +1105,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Encryption.Key = requestOutput_output_Encryption_outputEncryptionKey;
                 requestOutput_output_EncryptionIsNull = false;
             }
-            String requestOutput_output_Encryption_outputEncryptionKeyMd5 = null;
+            System.String requestOutput_output_Encryption_outputEncryptionKeyMd5 = null;
             if (cmdletContext.OutputEncryptionKeyMd5 != null)
             {
                 requestOutput_output_Encryption_outputEncryptionKeyMd5 = cmdletContext.OutputEncryptionKeyMd5;
@@ -1033,7 +1115,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_Encryption.KeyMd5 = requestOutput_output_Encryption_outputEncryptionKeyMd5;
                 requestOutput_output_EncryptionIsNull = false;
             }
-            String requestOutput_output_Encryption_outputEncryptionMode = null;
+            System.String requestOutput_output_Encryption_outputEncryptionMode = null;
             if (cmdletContext.OutputEncryptionMode != null)
             {
                 requestOutput_output_Encryption_outputEncryptionMode = cmdletContext.OutputEncryptionMode;
@@ -1053,12 +1135,12 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 request.Output.Encryption = requestOutput_output_Encryption;
                 requestOutputIsNull = false;
             }
-            Encryption requestOutput_output_ThumbnailEncryption = null;
+            Amazon.ElasticTranscoder.Model.Encryption requestOutput_output_ThumbnailEncryption = null;
             
              // populate ThumbnailEncryption
             bool requestOutput_output_ThumbnailEncryptionIsNull = true;
-            requestOutput_output_ThumbnailEncryption = new Encryption();
-            String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_InitializationVector = null;
+            requestOutput_output_ThumbnailEncryption = new Amazon.ElasticTranscoder.Model.Encryption();
+            System.String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_InitializationVector = null;
             if (cmdletContext.Output_ThumbnailEncryption_InitializationVector != null)
             {
                 requestOutput_output_ThumbnailEncryption_thumbnailEncryption_InitializationVector = cmdletContext.Output_ThumbnailEncryption_InitializationVector;
@@ -1068,7 +1150,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_ThumbnailEncryption.InitializationVector = requestOutput_output_ThumbnailEncryption_thumbnailEncryption_InitializationVector;
                 requestOutput_output_ThumbnailEncryptionIsNull = false;
             }
-            String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_Key = null;
+            System.String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_Key = null;
             if (cmdletContext.Output_ThumbnailEncryption_Key != null)
             {
                 requestOutput_output_ThumbnailEncryption_thumbnailEncryption_Key = cmdletContext.Output_ThumbnailEncryption_Key;
@@ -1078,7 +1160,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_ThumbnailEncryption.Key = requestOutput_output_ThumbnailEncryption_thumbnailEncryption_Key;
                 requestOutput_output_ThumbnailEncryptionIsNull = false;
             }
-            String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_KeyMd5 = null;
+            System.String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_KeyMd5 = null;
             if (cmdletContext.Output_ThumbnailEncryption_KeyMd5 != null)
             {
                 requestOutput_output_ThumbnailEncryption_thumbnailEncryption_KeyMd5 = cmdletContext.Output_ThumbnailEncryption_KeyMd5;
@@ -1088,7 +1170,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 requestOutput_output_ThumbnailEncryption.KeyMd5 = requestOutput_output_ThumbnailEncryption_thumbnailEncryption_KeyMd5;
                 requestOutput_output_ThumbnailEncryptionIsNull = false;
             }
-            String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_Mode = null;
+            System.String requestOutput_output_ThumbnailEncryption_thumbnailEncryption_Mode = null;
             if (cmdletContext.Output_ThumbnailEncryption_Mode != null)
             {
                 requestOutput_output_ThumbnailEncryption_thumbnailEncryption_Mode = cmdletContext.Output_ThumbnailEncryption_Mode;
@@ -1168,46 +1250,46 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Input_AspectRatio { get; set; }
-            public String Input_Container { get; set; }
-            public Int64? Input_DetectedProperties_DurationMillis { get; set; }
-            public Int64? Input_DetectedProperties_FileSize { get; set; }
-            public String Input_DetectedProperties_FrameRate { get; set; }
-            public Int32? Input_DetectedProperties_Height { get; set; }
-            public Int32? Input_DetectedProperties_Width { get; set; }
-            public String InputEncryptionInitializationVector { get; set; }
-            public String InputEncryptionKey { get; set; }
-            public String InputEncryptionKeyMd5 { get; set; }
-            public String InputEncryptionMode { get; set; }
-            public String Input_FrameRate { get; set; }
-            public String Input_Interlaced { get; set; }
-            public String Input_Key { get; set; }
-            public String Input_Resolution { get; set; }
-            public List<Artwork> Output_AlbumArt_Artwork { get; set; }
-            public String Output_AlbumArt_MergePolicy { get; set; }
-            public List<CaptionFormat> Output_Captions_CaptionFormats { get; set; }
-            public List<CaptionSource> Output_Captions_CaptionSources { get; set; }
-            public String Output_Captions_MergePolicy { get; set; }
-            public List<Clip> Output_Composition { get; set; }
-            public String OutputEncryptionInitializationVector { get; set; }
-            public String OutputEncryptionKey { get; set; }
-            public String OutputEncryptionKeyMd5 { get; set; }
-            public String OutputEncryptionMode { get; set; }
-            public String Output_Key { get; set; }
-            public String Output_PresetId { get; set; }
-            public String Output_Rotate { get; set; }
-            public String Output_SegmentDuration { get; set; }
-            public String Output_ThumbnailEncryption_InitializationVector { get; set; }
-            public String Output_ThumbnailEncryption_Key { get; set; }
-            public String Output_ThumbnailEncryption_KeyMd5 { get; set; }
-            public String Output_ThumbnailEncryption_Mode { get; set; }
-            public String Output_ThumbnailPattern { get; set; }
-            public List<JobWatermark> Output_Watermarks { get; set; }
-            public String OutputKeyPrefix { get; set; }
-            public List<CreateJobOutput> Outputs { get; set; }
-            public String PipelineId { get; set; }
-            public List<CreateJobPlaylist> Playlists { get; set; }
-            public Dictionary<String, String> UserMetadata { get; set; }
+            public System.String Input_AspectRatio { get; set; }
+            public System.String Input_Container { get; set; }
+            public System.Int64? Input_DetectedProperties_DurationMillis { get; set; }
+            public System.Int64? Input_DetectedProperties_FileSize { get; set; }
+            public System.String Input_DetectedProperties_FrameRate { get; set; }
+            public System.Int32? Input_DetectedProperties_Height { get; set; }
+            public System.Int32? Input_DetectedProperties_Width { get; set; }
+            public System.String InputEncryptionInitializationVector { get; set; }
+            public System.String InputEncryptionKey { get; set; }
+            public System.String InputEncryptionKeyMd5 { get; set; }
+            public System.String InputEncryptionMode { get; set; }
+            public System.String Input_FrameRate { get; set; }
+            public System.String Input_Interlaced { get; set; }
+            public System.String Input_Key { get; set; }
+            public System.String Input_Resolution { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.Artwork> Output_AlbumArt_Artwork { get; set; }
+            public System.String Output_AlbumArt_MergePolicy { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.CaptionFormat> Output_Captions_CaptionFormats { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.CaptionSource> Output_Captions_CaptionSources { get; set; }
+            public System.String Output_Captions_MergePolicy { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.Clip> Output_Composition { get; set; }
+            public System.String OutputEncryptionInitializationVector { get; set; }
+            public System.String OutputEncryptionKey { get; set; }
+            public System.String OutputEncryptionKeyMd5 { get; set; }
+            public System.String OutputEncryptionMode { get; set; }
+            public System.String Output_Key { get; set; }
+            public System.String Output_PresetId { get; set; }
+            public System.String Output_Rotate { get; set; }
+            public System.String Output_SegmentDuration { get; set; }
+            public System.String Output_ThumbnailEncryption_InitializationVector { get; set; }
+            public System.String Output_ThumbnailEncryption_Key { get; set; }
+            public System.String Output_ThumbnailEncryption_KeyMd5 { get; set; }
+            public System.String Output_ThumbnailEncryption_Mode { get; set; }
+            public System.String Output_ThumbnailPattern { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.JobWatermark> Output_Watermarks { get; set; }
+            public System.String OutputKeyPrefix { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.CreateJobOutput> Outputs { get; set; }
+            public System.String PipelineId { get; set; }
+            public List<Amazon.ElasticTranscoder.Model.CreateJobPlaylist> Playlists { get; set; }
+            public Dictionary<System.String, System.String> UserMetadata { get; set; }
         }
         
     }

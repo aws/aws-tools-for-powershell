@@ -35,26 +35,33 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [OutputType("Amazon.CloudHSM.Model.GetConfigResponse")]
     [AWSCmdlet("Invokes the GetConfig operation against AWS Cloud HSM.", Operation = new[] {"GetConfig"})]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.GetConfigResponse",
-        "This cmdlet returns a GetConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudHSM.Model.GetConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetHSMConfigCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the client.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ClientArn { get; set; }
+        public System.String ClientArn { get; set; }
+        #endregion
         
+        #region Parameter ClientVersion
         /// <summary>
         /// <para>
         /// <para>The client version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ClientVersion ClientVersion { get; set; }
+        [AWSConstantClassSource("Amazon.CloudHSM.ClientVersion")]
+        public Amazon.CloudHSM.ClientVersion ClientVersion { get; set; }
+        #endregion
         
+        #region Parameter HapgList
         /// <summary>
         /// <para>
         /// <para>A list of ARNs that identify the high-availability partition groups that are associated
@@ -63,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] HapgList { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             context.ClientVersion = this.ClientVersion;
             if (this.HapgList != null)
             {
-                context.HapgList = new List<String>(this.HapgList);
+                context.HapgList = new List<System.String>(this.HapgList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -92,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetConfigRequest();
+            var request = new Amazon.CloudHSM.Model.GetConfigRequest();
             
             if (cmdletContext.ClientArn != null)
             {
@@ -141,9 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientArn { get; set; }
-            public ClientVersion ClientVersion { get; set; }
-            public List<String> HapgList { get; set; }
+            public System.String ClientArn { get; set; }
+            public Amazon.CloudHSM.ClientVersion ClientVersion { get; set; }
+            public List<System.String> HapgList { get; set; }
         }
         
     }

@@ -52,11 +52,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeInstanceStatus operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeInstanceStatus"})]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStatus",
         "This cmdlet returns a collection of InstanceStatus objects.",
-        "The service call response (type DescribeInstanceStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeInstanceStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2InstanceStatusCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code>
@@ -82,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter IncludeAllInstance
         /// <summary>
         /// <para>
         /// <para>When <code>true</code>, includes the health status for all instances. When <code>false</code>,
@@ -90,8 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean IncludeAllInstances { get; set; }
+        [Alias("IncludeAllInstances")]
+        public System.Boolean IncludeAllInstance { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>One or more instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para>
@@ -100,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InstanceIds")]
         public object[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
@@ -113,15 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token to retrieve the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -135,10 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
-            if (ParameterWasBound("IncludeAllInstances"))
-                context.IncludeAllInstances = this.IncludeAllInstances;
+            if (ParameterWasBound("IncludeAllInstance"))
+                context.IncludeAllInstances = this.IncludeAllInstance;
             if (this.InstanceId != null)
             {
                 context.InstanceIds = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
@@ -159,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeInstanceStatusRequest();
+            var request = new Amazon.EC2.Model.DescribeInstanceStatusRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -174,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -259,11 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public Boolean? IncludeAllInstances { get; set; }
-            public List<String> InstanceIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public System.Boolean? IncludeAllInstances { get; set; }
+            public List<System.String> InstanceIds { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

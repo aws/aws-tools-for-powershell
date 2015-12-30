@@ -36,34 +36,42 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse")]
     [AWSCmdlet("Invokes the UpdateGatewayInformation operation against AWS Storage Gateway.", Operation = new[] {"UpdateGatewayInformation"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateGatewayInformationResponse",
-        "This cmdlet returns a UpdateGatewayInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.UpdateGatewayInformationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSGGatewayInformationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter GatewayName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String GatewayName { get; set; }
+        public System.String GatewayName { get; set; }
+        #endregion
         
+        #region Parameter GatewayTimezone
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String GatewayTimezone { get; set; }
+        public System.String GatewayTimezone { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateGatewayInformationRequest();
+            var request = new Amazon.StorageGateway.Model.UpdateGatewayInformationRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
@@ -152,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
-            public String GatewayName { get; set; }
-            public String GatewayTimezone { get; set; }
+            public System.String GatewayARN { get; set; }
+            public System.String GatewayName { get; set; }
+            public System.String GatewayTimezone { get; set; }
         }
         
     }

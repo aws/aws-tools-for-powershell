@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the GetDeploymentGroup operation against AWS CodeDeploy.", Operation = new[] {"GetDeploymentGroup"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.DeploymentGroupInfo",
         "This cmdlet returns a DeploymentGroupInfo object.",
-        "The service call response (type GetDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
@@ -46,16 +48,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The name of an existing deployment group for the specified application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeploymentGroupName { get; set; }
-        
+        public System.String DeploymentGroupName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -80,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDeploymentGroupRequest();
+            var request = new Amazon.CodeDeploy.Model.GetDeploymentGroupRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -125,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String DeploymentGroupName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String DeploymentGroupName { get; set; }
         }
         
     }

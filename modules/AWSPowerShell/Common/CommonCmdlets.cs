@@ -26,18 +26,40 @@ using System.Management.Automation.Host;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using Amazon.Util;
+using Amazon.SecurityToken.SAML;
 
 namespace Amazon.PowerShell.Common
 {
     /// <summary>
-    /// Sets AWS default credentials and region for the shell if previously persisted. If not previously persisted,
-    /// requests the data from the interactive user. Persisted credentials are given the display/access name 'AWS PS Default'.
-    /// On exit, the defaults can be found in the $StoredAWSCredentials and $StoredAWSRegion shell variables.
+    /// <para>
+    /// Creates or updates the credential profile named 'default' and sets the profile, and optionally a region, 
+    /// as active in the current shell. The credential data to be stored in the 'default' profile can be provided 
+    /// from:
+    /// <ul>
+    /// <li>Supplied access and secret key parameters for AWS credentials</li>
+    /// <li>A pre-existing profile (an AWS credentials or SAML role profile can be specified)</li>
+    /// <li>A credentials object</li>
+    /// <li>Active credentials in the current shell (in the variable $StoredAWSCredentials)</li>
+    /// <li>EC2 role metadata (for instances launched with instance profiles)</li>
+    /// </ul>
+    /// A default region to assume when the default profile is active is also set using the -Region parameter or 
+    /// from a default region already set in the current shell. If a region setting cannot be determined from
+    /// a parameter or the shell you are prompted to select one.
+    /// </para>
+    /// <para>
+    /// In all cases a profile named 'default' will be created or updated to contain the specified credential and
+    /// region data. Note that if the credential source is another profile this cmdlet effectively copies the 
+    /// credential data from the source profile to the 'default' profile.
+    /// </para>
+    /// <para>
+    /// When the cmdlet exits the active credentials can be accessed in the shell via a variable named $StoredAWSCredentials. 
+    /// The active region can be found in the variable $StoredAWSRegion.
+    /// </para>
     /// </summary>
     [Cmdlet("Initialize", "AWSDefaults")]
-    [AWSCmdlet("Sets AWS default credentials and region for the shell if previously persisted. If not previously persisted, requests the data "
-                + "from the interactive user. Persisted credentials are given the display/access name 'AWS PS Default'. On exit, the defaults "
-                + "can be found in the $StoredAWSCredentials and $StoredAWSRegion shell variables.")]
+    [AWSCmdlet("Creates or updates the credential profile named 'default' using supplied keys, existing credentials or profile,"
+                + " or EC2 metadata. The profile and a default region is then set active in the current shell.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class InitializeDefaultsCmdlet : PSCmdlet, IDynamicParameters
@@ -65,7 +87,7 @@ namespace Amazon.PowerShell.Common
             var commonArguments = Parameters as IAWSCommonArguments;
             if (commonArguments != null)
             {
-                if (commonArguments.TryGetCredentials(out passedCredentials))
+                if (commonArguments.TryGetCredentials(Host, out passedCredentials))
                 {
                     WriteVerbose(string.Format("{0}: Credentials for this shell were set using {1}",
                                                MyInvocation.MyCommand.Name,
@@ -96,7 +118,20 @@ namespace Amazon.PowerShell.Common
 
             if (shouldSaveCredentials || shouldSaveRegion)
             {
-                SettingsStore.Save(SettingsStore.PSDefaultSettingName, defaultCredentials.Credentials, region);
+                var userSuppliedProfileName = commonArguments != null && !string.IsNullOrEmpty(commonArguments.ProfileName);
+
+                // if we loaded credentials (AWS or SAML) from a profile, use the copy function to
+                // set them as default otherwise we can end up with mixed settings data. If credentials
+                // were loaded from key parameters or instance profile, then we know they are AWS
+                // credentials but we still need to check for SAML data in the 'default' profile
+                // and clean it out to avoid a mix. Note that we get 'saved' source type for credentials
+                // the user just entered, so we have to do a check to see if the profile previously
+                // existed...
+                if (defaultCredentials.Source == CredentialsSource.Saved && userSuppliedProfileName)
+                    SettingsStore.SaveFromProfile(commonArguments.ProfileName, SettingsStore.PSDefaultSettingName, region);
+                else
+                    SettingsStore.SaveAWSCredentialProfile(SettingsStore.PSDefaultSettingName, defaultCredentials.Credentials, region);
+
                 WriteVerbose(string.Format("Default credentials and/or region have been stored to credentials profile '{0}' and set active for this shell.", SettingsStore.PSDefaultSettingName));
             }
 
@@ -165,7 +200,7 @@ namespace Amazon.PowerShell.Common
             else
             {
                 var storedCredentials = SettingsStore.GetDisplayNames();
-                if (storedCredentials.Count > 0)
+                if (storedCredentials.Any())
                 {
                     // If there are stored credentials, ask user which ones to use, or enter new ones
                     var choices = new Collection<ChoiceDescription>();
@@ -297,7 +332,7 @@ namespace Amazon.PowerShell.Common
                 var sdkInfo = FileVersionInfo.GetVersionInfo(sdkAssembly.Location);
                 sw.WriteLine();
                 sw.WriteLine(sdkInfo.ProductName);
-                sw.WriteLine("Version {0}", sdkInfo.FileVersion);
+                sw.WriteLine("Core Runtime Version {0}", sdkInfo.FileVersion);
                 sw.WriteLine(sdkInfo.LegalCopyright);
                 sw.WriteLine();
 
@@ -308,19 +343,7 @@ namespace Amazon.PowerShell.Common
                 sw.WriteLine("This software includes third party software subject to the following copyrights:");
                 sw.WriteLine("- Logging from log4net, Apache License"); 
                 sw.WriteLine("[http://logging.apache.org/log4net/license.html]");
-                /*
-                sw.WriteLine("- NGit for AWS Elastic Beanstalk incremental push");
-                sw.WriteLine("[https://github.com/mono/ngit/blob/master/NGit.license.txt]");
-                sw.WriteLine("- NSch dependency for NGit");
-                sw.WriteLine("[https://github.com/mono/ngit/blob/master/NSch.license.txt]");
-                sw.WriteLine("- Sharpen dependency for NGit");
-                sw.WriteLine("[https://github.com/mono/ngit/blob/master/Sharpen/AssemblyInfo.cs]");
-                sw.WriteLine("- ICSharpCode.SharpZipLib dependency for NGit");
-                sw.WriteLine("[http://www.icsharpcode.net/opensource/sharpziplib/]");
-                sw.WriteLine("- Mono.Posix.dll and Mono.Security.dll dependencies for NGit");
-                sw.WriteLine("[http://mono-project.com/FAQ:_Licensing#Licensing]");
-                sw.WriteLine();
-                */
+
                 WriteObject(sw.ToString());
             }
 
@@ -330,17 +353,25 @@ namespace Amazon.PowerShell.Common
                     .Where(t => t.IsAbstract && typeof(ServiceCmdlet).IsAssignableFrom(t))
                     .OrderBy(t => t.FullName)
                     .ToList();
+
+                var services = new SortedDictionary<string, PSObject>(StringComparer.Ordinal);
                 foreach (var client in clients)
                 {
                     var clientAttribute = client.GetCustomAttributes(typeof(AWSClientCmdletAttribute), false).FirstOrDefault() as AWSClientCmdletAttribute;
-                    if (clientAttribute != null)
+                    if (clientAttribute != null && !services.ContainsKey(clientAttribute.ServiceName))
                     {
-                        var attribute = new PSObject();
-                        attribute.Properties.Add(new PSNoteProperty("Service", clientAttribute.ServiceName));
-                        attribute.Properties.Add(new PSNoteProperty("Noun Prefix", clientAttribute.ServicePrefix));
-                        attribute.Properties.Add(new PSNoteProperty("Version", clientAttribute.Version));
-                        WriteObject(attribute);
+                        var o = new PSObject();
+                        o.Properties.Add(new PSNoteProperty("Service", clientAttribute.ServiceName));
+                        o.Properties.Add(new PSNoteProperty("Noun Prefix", clientAttribute.ServicePrefix));
+                        o.Properties.Add(new PSNoteProperty("Version", clientAttribute.Version));
+
+                        services.Add(clientAttribute.ServiceName, o);
                     }
+                }
+
+                foreach (var k in services.Keys)
+                {
+                    WriteObject(services[k]);
                 }
             }
         }

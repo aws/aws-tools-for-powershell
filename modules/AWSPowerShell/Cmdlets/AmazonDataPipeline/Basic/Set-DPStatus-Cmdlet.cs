@@ -39,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the SetStatus operation against AWS Data Pipeline.", Operation = new[] {"SetStatus"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the object ids when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SetStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataPipeline.Model.SetStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetDPStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ObjectId
         /// <summary>
         /// <para>
         /// <para>The IDs of the objects. The corresponding objects can be either physical or components,
@@ -52,15 +54,19 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("ObjectIds")]
         public System.String[] ObjectId { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline that contains the objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The status to be set on all the objects specified in <code>objectIds</code>. For components,
@@ -69,15 +75,19 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Status { get; set; }
+        public System.String Status { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the object ids.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
             if (this.ObjectId != null)
             {
-                context.ObjectIds = new List<String>(this.ObjectId);
+                context.ObjectIds = new List<System.String>(this.ObjectId);
             }
             context.PipelineId = this.PipelineId;
             context.Status = this.Status;
@@ -120,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SetStatusRequest();
+            var request = new Amazon.DataPipeline.Model.SetStatusRequest();
             
             if (cmdletContext.ObjectIds != null)
             {
@@ -171,9 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ObjectIds { get; set; }
-            public String PipelineId { get; set; }
-            public String Status { get; set; }
+            public List<System.String> ObjectIds { get; set; }
+            public System.String PipelineId { get; set; }
+            public System.String Status { get; set; }
         }
         
     }

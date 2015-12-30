@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [OutputType("Amazon.CodeCommit.Model.BatchGetRepositoriesResponse")]
     [AWSCmdlet("Invokes the BatchGetRepositories operation against AWS CodeCommit.", Operation = new[] {"BatchGetRepositories"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.BatchGetRepositoriesResponse",
-        "This cmdlet returns a BatchGetRepositoriesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CodeCommit.Model.BatchGetRepositoriesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCCRepositoryBatchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The names of the repositories to get information about.</para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("RepositoryNames")]
         public System.String[] RepositoryName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
             
             if (this.RepositoryName != null)
             {
-                context.RepositoryNames = new List<String>(this.RepositoryName);
+                context.RepositoryNames = new List<System.String>(this.RepositoryName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -81,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new BatchGetRepositoriesRequest();
+            var request = new Amazon.CodeCommit.Model.BatchGetRepositoriesRequest();
             
             if (cmdletContext.RepositoryNames != null)
             {
@@ -122,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> RepositoryNames { get; set; }
+            public List<System.String> RepositoryNames { get; set; }
         }
         
     }

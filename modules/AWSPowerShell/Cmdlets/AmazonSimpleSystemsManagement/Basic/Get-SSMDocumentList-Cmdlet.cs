@@ -28,18 +28,20 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes one or more of your configuration documents.
+    /// Describes one or more of your SSM documents.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier")]
     [AWSCmdlet("Invokes the ListDocuments operation against Amazon Simple Systems Management.", Operation = new[] {"ListDocuments"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier",
         "This cmdlet returns a collection of DocumentIdentifier objects.",
-        "The service call response (type ListDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSSMDocumentListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter DocumentFilterList
         /// <summary>
         /// <para>
         /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public Amazon.SimpleSystemsManagement.Model.DocumentFilter[] DocumentFilterList { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this call. The call also returns a token
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -65,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -80,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             if (this.DocumentFilterList != null)
             {
-                context.DocumentFilterList = new List<DocumentFilter>(this.DocumentFilterList);
+                context.DocumentFilterList = new List<Amazon.SimpleSystemsManagement.Model.DocumentFilter>(this.DocumentFilterList);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -97,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListDocumentsRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.ListDocumentsRequest();
             if (cmdletContext.DocumentFilterList != null)
             {
                 request.DocumentFilterList = cmdletContext.DocumentFilterList;
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 25;
@@ -219,9 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<DocumentFilter> DocumentFilterList { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.DocumentFilter> DocumentFilterList { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

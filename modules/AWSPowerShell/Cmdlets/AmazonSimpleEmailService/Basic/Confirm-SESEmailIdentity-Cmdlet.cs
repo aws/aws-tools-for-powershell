@@ -41,25 +41,31 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the VerifyEmailIdentity operation against Amazon Simple Email Service.", Operation = new[] {"VerifyEmailIdentity"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EmailAddress parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type VerifyEmailIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.VerifyEmailIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmSESEmailIdentityCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter EmailAddress
         /// <summary>
         /// <para>
         /// <para>The email address to be verified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String EmailAddress { get; set; }
+        public System.String EmailAddress { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the EmailAddress parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new VerifyEmailIdentityRequest();
+            var request = new Amazon.SimpleEmail.Model.VerifyEmailIdentityRequest();
             
             if (cmdletContext.EmailAddress != null)
             {
@@ -140,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EmailAddress { get; set; }
+            public System.String EmailAddress { get; set; }
         }
         
     }

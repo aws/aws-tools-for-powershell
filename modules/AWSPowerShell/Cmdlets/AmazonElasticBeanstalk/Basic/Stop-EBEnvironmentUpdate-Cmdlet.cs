@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the AbortEnvironmentUpdate operation against AWS Elastic Beanstalk.", Operation = new[] {"AbortEnvironmentUpdate"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type AbortEnvironmentUpdateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEBEnvironmentUpdateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para>This specifies the ID of the environment with the in-progress update that you want
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentId { get; set; }
+        public System.String EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para>This specifies the name of the environment with the in-progress update that you want
@@ -55,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AbortEnvironmentUpdateRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.AbortEnvironmentUpdateRequest();
             
             if (cmdletContext.EnvironmentId != null)
             {
@@ -140,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String EnvironmentId { get; set; }
-            public String EnvironmentName { get; set; }
+            public System.String EnvironmentId { get; set; }
+            public System.String EnvironmentName { get; set; }
         }
         
     }

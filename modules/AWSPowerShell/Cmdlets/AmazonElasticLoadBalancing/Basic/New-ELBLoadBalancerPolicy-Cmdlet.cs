@@ -42,18 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the CreateLoadBalancerPolicy operation against Elastic Load Balancing.", Operation = new[] {"CreateLoadBalancerPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateLoadBalancerPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewELBLoadBalancerPolicyCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter PolicyAttribute
         /// <summary>
         /// <para>
         /// <para>The attributes for the policy.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("PolicyAttributes")]
         public Amazon.ElasticLoadBalancing.Model.PolicyAttribute[] PolicyAttribute { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer policy to be created. This name must be unique within
@@ -70,23 +76,29 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PolicyTypeName
         /// <summary>
         /// <para>
         /// <para>The name of the base policy type. To get the list of policy types, use <a>DescribeLoadBalancerPolicyTypes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PolicyTypeName { get; set; }
+        public System.String PolicyTypeName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LoadBalancerName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -115,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             context.LoadBalancerName = this.LoadBalancerName;
             if (this.PolicyAttribute != null)
             {
-                context.PolicyAttributes = new List<PolicyAttribute>(this.PolicyAttribute);
+                context.PolicyAttributes = new List<Amazon.ElasticLoadBalancing.Model.PolicyAttribute>(this.PolicyAttribute);
             }
             context.PolicyName = this.PolicyName;
             context.PolicyTypeName = this.PolicyTypeName;
@@ -130,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateLoadBalancerPolicyRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.CreateLoadBalancerPolicyRequest();
             
             if (cmdletContext.LoadBalancerName != null)
             {
@@ -185,10 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LoadBalancerName { get; set; }
-            public List<PolicyAttribute> PolicyAttributes { get; set; }
-            public String PolicyName { get; set; }
-            public String PolicyTypeName { get; set; }
+            public System.String LoadBalancerName { get; set; }
+            public List<Amazon.ElasticLoadBalancing.Model.PolicyAttribute> PolicyAttributes { get; set; }
+            public System.String PolicyName { get; set; }
+            public System.String PolicyTypeName { get; set; }
         }
         
     }

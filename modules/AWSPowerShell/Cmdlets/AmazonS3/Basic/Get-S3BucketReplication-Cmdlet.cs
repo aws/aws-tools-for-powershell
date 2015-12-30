@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the GetBucketReplication operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketReplication"})]
     [AWSCmdletOutput("Amazon.S3.Model.ReplicationConfiguration",
         "This cmdlet returns a ReplicationConfiguration object.",
-        "The service call response (type GetBucketReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetBucketReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3BucketReplicationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
-        
+        public System.String BucketName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetBucketReplicationRequest();
+            var request = new Amazon.S3.Model.GetBucketReplicationRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
+            public System.String BucketName { get; set; }
         }
         
     }

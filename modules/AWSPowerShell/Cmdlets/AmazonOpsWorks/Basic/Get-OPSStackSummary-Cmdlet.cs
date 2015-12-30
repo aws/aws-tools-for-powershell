@@ -43,18 +43,20 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeStackSummary operation against AWS OpsWorks.", Operation = new[] {"DescribeStackSummary"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.StackSummary",
         "This cmdlet returns a StackSummary object.",
-        "The service call response (type DescribeStackSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeStackSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSStackSummaryCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
-        
+        public System.String StackId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStackSummaryRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeStackSummaryRequest();
             
             if (cmdletContext.StackId != null)
             {
@@ -119,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackId { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the CreatePipeline operation against AWS Data Pipeline.", Operation = new[] {"CreatePipeline"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The description for the pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name for the pipeline. You can use the same name for multiple pipelines associated
@@ -55,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tags to associate with the pipeline at creation. Tags let you control access
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.DataPipeline.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter UniqueId
         /// <summary>
         /// <para>
         /// <para>A unique identifier. This identifier is not the same as the pipeline identifier assigned
@@ -83,8 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String UniqueId { get; set; }
+        public System.String UniqueId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -114,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             context.Name = this.Name;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.DataPipeline.Model.Tag>(this.Tag);
             }
             context.UniqueId = this.UniqueId;
             
@@ -128,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePipelineRequest();
+            var request = new Amazon.DataPipeline.Model.CreatePipelineRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -181,10 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String Name { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String UniqueId { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public List<Amazon.DataPipeline.Model.Tag> Tags { get; set; }
+            public System.String UniqueId { get; set; }
         }
         
     }

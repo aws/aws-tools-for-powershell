@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeTrustedAdvisorCheckRefreshStatuses operation against AWS Support API.", Operation = new[] {"DescribeTrustedAdvisorCheckRefreshStatuses"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.TrustedAdvisorCheckRefreshStatus",
         "This cmdlet returns a collection of TrustedAdvisorCheckRefreshStatus objects.",
-        "The service call response (type DescribeTrustedAdvisorCheckRefreshStatusesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASATrustedAdvisorCheckRefreshStatusesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter CheckId
         /// <summary>
         /// <para>
         /// <para>The IDs of the Trusted Advisor checks.</para>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("CheckIds")]
         public System.String[] CheckId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             
             if (this.CheckId != null)
             {
-                context.CheckIds = new List<String>(this.CheckId);
+                context.CheckIds = new List<System.String>(this.CheckId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTrustedAdvisorCheckRefreshStatusesRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckRefreshStatusesRequest();
             
             if (cmdletContext.CheckIds != null)
             {
@@ -116,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> CheckIds { get; set; }
+            public List<System.String> CheckIds { get; set; }
         }
         
     }

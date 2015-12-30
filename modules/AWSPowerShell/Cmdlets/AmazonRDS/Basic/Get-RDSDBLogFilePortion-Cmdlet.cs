@@ -34,10 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [OutputType("Amazon.RDS.Model.DownloadDBLogFilePortionResponse")]
     [AWSCmdlet("Invokes the DownloadDBLogFilePortion operation against Amazon Relational Database Service.", Operation = new[] {"DownloadDBLogFilePortion"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DownloadDBLogFilePortionResponse",
-        "This cmdlet returns a DownloadDBLogFilePortionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.RDS.Model.DownloadDBLogFilePortionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRDSDBLogFilePortionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The customer-assigned name of the DB instance that contains the log files you want
@@ -47,16 +49,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter LogFileName
         /// <summary>
         /// <para>
         /// <para> The name of the log file to be downloaded. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String LogFileName { get; set; }
+        public System.String LogFileName { get; set; }
+        #endregion
         
+        #region Parameter NumberOfLines
         /// <summary>
         /// <para>
         /// <para> The number of lines to download. If the number of lines specified results in a file
@@ -72,8 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 NumberOfLines { get; set; }
+        public System.Int32 NumberOfLines { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> The pagination token provided in the previous request or "0". If the Marker parameter
@@ -83,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
-        
+        public System.String Marker { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -112,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DownloadDBLogFilePortionRequest();
+            var request = new Amazon.RDS.Model.DownloadDBLogFilePortionRequest();
             
             if (cmdletContext.DBInstanceIdentifier != null)
             {
@@ -165,10 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceIdentifier { get; set; }
-            public String LogFileName { get; set; }
-            public String Marker { get; set; }
-            public Int32? NumberOfLines { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String LogFileName { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? NumberOfLines { get; set; }
         }
         
     }

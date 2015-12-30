@@ -41,18 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [OutputType("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse")]
     [AWSCmdlet("Invokes the DescribeStackProvisioningParameters operation against AWS OpsWorks.", Operation = new[] {"DescribeStackProvisioningParameters"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse",
-        "This cmdlet returns a DescribeStackProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.OpsWorks.Model.DescribeStackProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSStackProvisioningParametersCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
-        
+        public System.String StackId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -76,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStackProvisioningParametersRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeStackProvisioningParametersRequest();
             
             if (cmdletContext.StackId != null)
             {
@@ -117,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StackId { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

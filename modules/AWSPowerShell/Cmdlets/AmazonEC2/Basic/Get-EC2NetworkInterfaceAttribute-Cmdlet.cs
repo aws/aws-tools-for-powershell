@@ -34,26 +34,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse")]
     [AWSCmdlet("Invokes the DescribeNetworkInterfaceAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeNetworkInterfaceAttribute"})]
     [AWSCmdletOutput("Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse",
-        "This cmdlet returns a DescribeNetworkInterfaceAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.DescribeNetworkInterfaceAttributeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attachment
         /// <summary>
         /// <para>
         /// <para>The <c>attachment</c> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Attachment { get; set; }
+        public System.String Attachment { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The <c>description</c> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Group
         /// <summary>
         /// <para>
         /// <para>The <c>groupSet</c> attribute.</para>
@@ -61,24 +67,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Groups")]
-        public String Group { get; set; }
+        public System.String Group { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>The ID of the network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter SourceDestCheck
         /// <summary>
         /// <para>
         /// <para>The <c>sourceDestCheck</c> attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceDestCheck { get; set; }
-        
+        public System.String SourceDestCheck { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeNetworkInterfaceAttributeRequest();
+            var request = new Amazon.EC2.Model.DescribeNetworkInterfaceAttributeRequest();
             
             if (cmdletContext.Attachment != null)
             {
@@ -163,11 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Attachment { get; set; }
-            public String Description { get; set; }
-            public String Groups { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public String SourceDestCheck { get; set; }
+            public System.String Attachment { get; set; }
+            public System.String Description { get; set; }
+            public System.String Groups { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.String SourceDestCheck { get; set; }
         }
         
     }

@@ -35,47 +35,57 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the DisableSso operation against AWS Directory Service.", Operation = new[] {"DisableSso"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DisableSsoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.DisableSsoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableDSSsoCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to disable single-sign on for.</para>
+        /// <para>The identifier of the directory for which to disable single-sign on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password of an alternate account to use to disable single-sign on. This is only
-        /// used for AD Connector directories. See the <i>UserName</i> parameter for more information.</para>
+        /// used for AD Connector directories. For more information, see the <i>UserName</i> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Password { get; set; }
+        public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The username of an alternate account to use to disable single-sign on. This is only
         /// used for AD Connector directories. This account must have privileges to remove a service
-        /// principle name. </para><para>If the AD Connector service account does not have privileges to remove a service principle
+        /// principal name. </para><para>If the AD Connector service account does not have privileges to remove a service principal
         /// name, you can specify an alternate account with the <i>UserName</i> and <i>Password</i>
         /// parameters. These credentials are only used to disable single sign-on and are not
         /// stored by the service. The AD Connector service account is not changed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -115,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableSsoRequest();
+            var request = new Amazon.DirectoryService.Model.DisableSsoRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
@@ -166,9 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DirectoryId { get; set; }
-            public String Password { get; set; }
-            public String UserName { get; set; }
+            public System.String DirectoryId { get; set; }
+            public System.String Password { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [OutputType("Amazon.CloudHSM.Model.DescribeHsmResponse")]
     [AWSCmdlet("Invokes the DescribeHsm operation against AWS Cloud HSM.", Operation = new[] {"DescribeHsm"})]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHsmResponse",
-        "This cmdlet returns a DescribeHsmResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudHSM.Model.DescribeHsmResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter HsmArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the HSM. Either the <i>HsmArn</i> or the <i>SerialNumber</i> parameter
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HsmArn { get; set; }
+        public System.String HsmArn { get; set; }
+        #endregion
         
+        #region Parameter HsmSerialNumber
         /// <summary>
         /// <para>
         /// <para>The serial number of the HSM. Either the <i>HsmArn</i> or the <i>HsmSerialNumber</i>
@@ -55,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String HsmSerialNumber { get; set; }
-        
+        public System.String HsmSerialNumber { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -81,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeHsmRequest();
+            var request = new Amazon.CloudHSM.Model.DescribeHsmRequest();
             
             if (cmdletContext.HsmArn != null)
             {
@@ -126,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HsmArn { get; set; }
-            public String HsmSerialNumber { get; set; }
+            public System.String HsmArn { get; set; }
+            public System.String HsmSerialNumber { get; set; }
         }
         
     }

@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the ModifyEventSubscription operation against Amazon Redshift.", Operation = new[] {"ModifyEventSubscription"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
-        "The service call response (type ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRSEventSubscriptionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Enabled
         /// <summary>
         /// <para>
         /// <para> A Boolean value indicating if the subscription is enabled. <code>true</code> indicates
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Enabled { get; set; }
+        public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter EventCategory
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Redshift event categories to be published by the event notification
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("EventCategories")]
         public System.String[] EventCategory { get; set; }
+        #endregion
         
+        #region Parameter Severity
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Redshift event severity to be published by the event notification
@@ -65,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Severity { get; set; }
+        public System.String Severity { get; set; }
+        #endregion
         
+        #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the SNS topic to be used by the event notification
@@ -74,8 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnsTopicArn { get; set; }
+        public System.String SnsTopicArn { get; set; }
+        #endregion
         
+        #region Parameter SourceId
         /// <summary>
         /// <para>
         /// <para> A list of one or more identifiers of Amazon Redshift source objects. All of the objects
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("SourceIds")]
         public System.String[] SourceId { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The type of source that will be generating the events. For example, if you want to
@@ -98,16 +110,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceType { get; set; }
+        public System.String SourceType { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionName
         /// <summary>
         /// <para>
         /// <para> The name of the modified Amazon Redshift event notification subscription. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SubscriptionName { get; set; }
+        public System.String SubscriptionName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -137,13 +153,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.Enabled = this.Enabled;
             if (this.EventCategory != null)
             {
-                context.EventCategories = new List<String>(this.EventCategory);
+                context.EventCategories = new List<System.String>(this.EventCategory);
             }
             context.Severity = this.Severity;
             context.SnsTopicArn = this.SnsTopicArn;
             if (this.SourceId != null)
             {
-                context.SourceIds = new List<String>(this.SourceId);
+                context.SourceIds = new List<System.String>(this.SourceId);
             }
             context.SourceType = this.SourceType;
             context.SubscriptionName = this.SubscriptionName;
@@ -158,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyEventSubscriptionRequest();
+            var request = new Amazon.Redshift.Model.ModifyEventSubscriptionRequest();
             
             if (cmdletContext.Enabled != null)
             {
@@ -223,13 +239,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Enabled { get; set; }
-            public List<String> EventCategories { get; set; }
-            public String Severity { get; set; }
-            public String SnsTopicArn { get; set; }
-            public List<String> SourceIds { get; set; }
-            public String SourceType { get; set; }
-            public String SubscriptionName { get; set; }
+            public System.Boolean? Enabled { get; set; }
+            public List<System.String> EventCategories { get; set; }
+            public System.String Severity { get; set; }
+            public System.String SnsTopicArn { get; set; }
+            public List<System.String> SourceIds { get; set; }
+            public System.String SourceType { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

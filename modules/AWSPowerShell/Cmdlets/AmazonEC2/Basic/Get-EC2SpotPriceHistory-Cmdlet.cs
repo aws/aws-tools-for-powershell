@@ -46,19 +46,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeSpotPriceHistory operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSpotPriceHistory"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotPrice",
         "This cmdlet returns a collection of SpotPrice objects.",
-        "The service call response (type DescribeSpotPriceHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.EC2.Model.DescribeSpotPriceHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetEC2SpotPriceHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>Filters the results by the specified Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The date and time, up to the current date, from which to stop retrieving the price
@@ -66,12 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone for which prices should be
-        /// returned.</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>m1.small</code>).</para></li><li><para><code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code>
+        /// returned.</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code>
         /// | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code>
         /// | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</para></li><li><para><code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards;
         /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The timestamp of the Spot price history, in UTC format (for
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>Filters the results by the specified instance types.</para>
@@ -91,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("InstanceTypes")]
         public System.String[] InstanceType { get; set; }
+        #endregion
         
+        #region Parameter ProductDescription
         /// <summary>
         /// <para>
         /// <para>Filters the results by the specified basic product descriptions.</para>
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("ProductDescriptions")]
         public System.String[] ProductDescription { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The date and time, up to the past 90 days, from which to start retrieving the price
@@ -108,8 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. Specify a value between
@@ -120,15 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -145,18 +161,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.EndTime = this.EndTime;
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.InstanceType != null)
             {
-                context.InstanceTypes = new List<String>(this.InstanceType);
+                context.InstanceTypes = new List<System.String>(this.InstanceType);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.ProductDescription != null)
             {
-                context.ProductDescriptions = new List<String>(this.ProductDescription);
+                context.ProductDescriptions = new List<System.String>(this.ProductDescription);
             }
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -172,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeSpotPriceHistoryRequest();
+            var request = new Amazon.EC2.Model.DescribeSpotPriceHistoryRequest();
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
@@ -199,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -284,14 +300,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZone { get; set; }
-            public DateTime? EndTime { get; set; }
-            public List<Filter> Filters { get; set; }
-            public List<String> InstanceTypes { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> InstanceTypes { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
-            public List<String> ProductDescriptions { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.String NextToken { get; set; }
+            public List<System.String> ProductDescriptions { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

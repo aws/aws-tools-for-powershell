@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetUser operation against AWS Identity and Access Management.", Operation = new[] {"GetUser"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.User",
         "This cmdlet returns a User object.",
-        "The service call response (type GetUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the user to get information about.</para><para>This parameter is optional. If it is not included, it defaults to the user making
@@ -53,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
-        
+        public System.String UserName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetUserRequest();
+            var request = new Amazon.IdentityManagement.Model.GetUserRequest();
             
             if (cmdletContext.UserName != null)
             {
@@ -119,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String UserName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

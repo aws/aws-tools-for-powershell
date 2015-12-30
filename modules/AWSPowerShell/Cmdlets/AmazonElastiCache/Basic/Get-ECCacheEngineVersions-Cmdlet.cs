@@ -36,11 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DescribeCacheEngineVersions operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheEngineVersions"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheEngineVersion",
         "This cmdlet returns a collection of CacheEngineVersion objects.",
-        "The service call response (type DescribeCacheEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetECCacheEngineVersionsCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para>The name of a specific cache parameter group family to return details for.</para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
@@ -48,8 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String CacheParameterGroupFamily { get; set; }
+        public System.String CacheParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter DefaultOnly
         /// <summary>
         /// <para>
         /// <para>If <i>true</i>, specifies that only the default version of the specified engine or
@@ -57,24 +61,30 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean DefaultOnly { get; set; }
+        public System.Boolean DefaultOnly { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
         /// <para>The cache engine to return. Valid values: <code>memcached</code> | <code>redis</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Engine { get; set; }
+        public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The cache engine version to return.</para><para>Example: <code>1.4.14</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EngineVersion { get; set; }
+        public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
@@ -84,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
@@ -96,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -128,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeCacheEngineVersionsRequest();
+            var request = new Amazon.ElastiCache.Model.DescribeCacheEngineVersionsRequest();
             if (cmdletContext.CacheParameterGroupFamily != null)
             {
                 request.CacheParameterGroupFamily = cmdletContext.CacheParameterGroupFamily;
@@ -147,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -232,11 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheParameterGroupFamily { get; set; }
-            public Boolean? DefaultOnly { get; set; }
-            public String Engine { get; set; }
-            public String EngineVersion { get; set; }
-            public String Marker { get; set; }
+            public System.String CacheParameterGroupFamily { get; set; }
+            public System.Boolean? DefaultOnly { get; set; }
+            public System.String Engine { get; set; }
+            public System.String EngineVersion { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
         }
         

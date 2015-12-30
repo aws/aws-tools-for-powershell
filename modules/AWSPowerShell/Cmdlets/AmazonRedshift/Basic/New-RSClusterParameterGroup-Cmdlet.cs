@@ -49,18 +49,22 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the CreateClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"CreateClusterParameterGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterParameterGroup",
         "This cmdlet returns a ClusterParameterGroup object.",
-        "The service call response (type CreateClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.CreateClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> A description of the parameter group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter ParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para> The Amazon Redshift engine version to which the cluster parameter group applies.
@@ -73,8 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ParameterGroupFamily { get; set; }
+        public System.String ParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the cluster parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens</li><li>First character
@@ -83,8 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        public System.String ParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -93,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -101,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -124,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ParameterGroupName = this.ParameterGroupName;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -137,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateClusterParameterGroupRequest();
+            var request = new Amazon.Redshift.Model.CreateClusterParameterGroupRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -190,10 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String ParameterGroupFamily { get; set; }
-            public String ParameterGroupName { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String Description { get; set; }
+            public System.String ParameterGroupFamily { get; set; }
+            public System.String ParameterGroupName { get; set; }
+            public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }
         
     }

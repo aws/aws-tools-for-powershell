@@ -45,11 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the DescribeSubscriptionFilters operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeSubscriptionFilters"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.SubscriptionFilter",
         "This cmdlet returns a collection of SubscriptionFilter objects.",
-        "The service call response (type DescribeSubscriptionFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeSubscriptionFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCWLSubscriptionFiltersCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter FilterNamePrefix
         /// <summary>
         /// <para>
         /// <para>Will only return subscription filters that match the provided filterNamePrefix. If
@@ -57,16 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FilterNamePrefix { get; set; }
+        public System.String FilterNamePrefix { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The log group name for which subscription filters are to be listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -75,15 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -111,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeSubscriptionFiltersRequest();
+            var request = new Amazon.CloudWatchLogs.Model.DescribeSubscriptionFiltersRequest();
             
             if (cmdletContext.FilterNamePrefix != null)
             {
@@ -166,10 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FilterNamePrefix { get; set; }
+            public System.String FilterNamePrefix { get; set; }
             public int? Limit { get; set; }
-            public String LogGroupName { get; set; }
-            public String NextToken { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

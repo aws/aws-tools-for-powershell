@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the ListOpenIDConnectProviders operation against AWS Identity and Access Management.", Operation = new[] {"ListOpenIDConnectProviders"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.OpenIDConnectProviderListEntry",
         "This cmdlet returns a collection of OpenIDConnectProviderListEntry objects.",
-        "The service call response (type ListOpenIDConnectProvidersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.ListOpenIDConnectProvidersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMOpenIDConnectProvidersCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListOpenIDConnectProvidersRequest();
+            var request = new Amazon.IdentityManagement.Model.ListOpenIDConnectProvidersRequest();
             
             
             CmdletOutput output;

@@ -37,34 +37,42 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the EvaluateExpression operation against AWS Data Pipeline.", Operation = new[] {"EvaluateExpression"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type EvaluateExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.EvaluateExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeDPExpressionCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Expression
         /// <summary>
         /// <para>
         /// <para>The expression to evaluate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Expression { get; set; }
+        public System.String Expression { get; set; }
+        #endregion
         
+        #region Parameter ObjectId
         /// <summary>
         /// <para>
         /// <para>The ID of the object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ObjectId { get; set; }
+        public System.String ObjectId { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String PipelineId { get; set; }
+        public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EvaluateExpressionRequest();
+            var request = new Amazon.DataPipeline.Model.EvaluateExpressionRequest();
             
             if (cmdletContext.Expression != null)
             {
@@ -153,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Expression { get; set; }
-            public String ObjectId { get; set; }
-            public String PipelineId { get; set; }
+            public System.String Expression { get; set; }
+            public System.String ObjectId { get; set; }
+            public System.String PipelineId { get; set; }
         }
         
     }

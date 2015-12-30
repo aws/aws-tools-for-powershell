@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.CP
     [AWSCmdlet("Invokes the PollForThirdPartyJobs operation against AWS CodePipeline.", Operation = new[] {"PollForThirdPartyJobs"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ThirdPartyJob",
         "This cmdlet returns a collection of ThirdPartyJob objects.",
-        "The service call response (type PollForThirdPartyJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CodePipeline.Model.PollForThirdPartyJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCPActionableThirdPartyJobsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionTypeId_Category
         /// <summary>
         /// <para>
         /// <para>A category defines what kind of action can be taken in the stage, and constrains the
@@ -54,16 +56,21 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ActionCategory ActionTypeId_Category { get; set; }
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionCategory")]
+        public Amazon.CodePipeline.ActionCategory ActionTypeId_Category { get; set; }
+        #endregion
         
+        #region Parameter MaxBatchSize
         /// <summary>
         /// <para>
         /// <para>The maximum number of jobs to return in a poll for jobs call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 MaxBatchSize { get; set; }
+        public System.Int32 MaxBatchSize { get; set; }
+        #endregion
         
+        #region Parameter ActionTypeId_Provider
         /// <summary>
         /// <para>
         /// <para>The provider of the service being called by the action. Valid providers are determined
@@ -72,24 +79,29 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ActionTypeId_Provider { get; set; }
+        public System.String ActionTypeId_Provider { get; set; }
+        #endregion
         
+        #region Parameter ActionTypeId_Version
         /// <summary>
         /// <para>
         /// <para>A string that identifies the action type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ActionTypeId_Version { get; set; }
+        public System.String ActionTypeId_Version { get; set; }
+        #endregion
         
+        #region Parameter ActionTypeId_Owner
         /// <summary>
         /// <para>
         /// <para>The creator of the action being called. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ActionOwner ActionTypeId_Owner { get; set; }
-        
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionOwner")]
+        public Amazon.CodePipeline.ActionOwner ActionTypeId_Owner { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -118,13 +130,13 @@ namespace Amazon.PowerShell.Cmdlets.CP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PollForThirdPartyJobsRequest();
+            var request = new Amazon.CodePipeline.Model.PollForThirdPartyJobsRequest();
             
             
              // populate ActionTypeId
             bool requestActionTypeIdIsNull = true;
-            request.ActionTypeId = new ActionTypeId();
-            ActionCategory requestActionTypeId_actionTypeId_Category = null;
+            request.ActionTypeId = new Amazon.CodePipeline.Model.ActionTypeId();
+            Amazon.CodePipeline.ActionCategory requestActionTypeId_actionTypeId_Category = null;
             if (cmdletContext.ActionTypeId_Category != null)
             {
                 requestActionTypeId_actionTypeId_Category = cmdletContext.ActionTypeId_Category;
@@ -134,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ActionTypeId.Category = requestActionTypeId_actionTypeId_Category;
                 requestActionTypeIdIsNull = false;
             }
-            ActionOwner requestActionTypeId_actionTypeId_Owner = null;
+            Amazon.CodePipeline.ActionOwner requestActionTypeId_actionTypeId_Owner = null;
             if (cmdletContext.ActionTypeId_Owner != null)
             {
                 requestActionTypeId_actionTypeId_Owner = cmdletContext.ActionTypeId_Owner;
@@ -144,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ActionTypeId.Owner = requestActionTypeId_actionTypeId_Owner;
                 requestActionTypeIdIsNull = false;
             }
-            String requestActionTypeId_actionTypeId_Provider = null;
+            System.String requestActionTypeId_actionTypeId_Provider = null;
             if (cmdletContext.ActionTypeId_Provider != null)
             {
                 requestActionTypeId_actionTypeId_Provider = cmdletContext.ActionTypeId_Provider;
@@ -154,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 request.ActionTypeId.Provider = requestActionTypeId_actionTypeId_Provider;
                 requestActionTypeIdIsNull = false;
             }
-            String requestActionTypeId_actionTypeId_Version = null;
+            System.String requestActionTypeId_actionTypeId_Version = null;
             if (cmdletContext.ActionTypeId_Version != null)
             {
                 requestActionTypeId_actionTypeId_Version = cmdletContext.ActionTypeId_Version;
@@ -208,11 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public ActionCategory ActionTypeId_Category { get; set; }
-            public ActionOwner ActionTypeId_Owner { get; set; }
-            public String ActionTypeId_Provider { get; set; }
-            public String ActionTypeId_Version { get; set; }
-            public Int32? MaxBatchSize { get; set; }
+            public Amazon.CodePipeline.ActionCategory ActionTypeId_Category { get; set; }
+            public Amazon.CodePipeline.ActionOwner ActionTypeId_Owner { get; set; }
+            public System.String ActionTypeId_Provider { get; set; }
+            public System.String ActionTypeId_Version { get; set; }
+            public System.Int32? MaxBatchSize { get; set; }
         }
         
     }

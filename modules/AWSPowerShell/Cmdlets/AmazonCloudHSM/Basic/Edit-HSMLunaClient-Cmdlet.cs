@@ -41,26 +41,32 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the ModifyLunaClient operation against AWS Cloud HSM.", Operation = new[] {"ModifyLunaClient"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.ModifyLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter Certificate
         /// <summary>
         /// <para>
         /// <para>The new certificate for the client. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Certificate { get; set; }
+        public System.String Certificate { get; set; }
+        #endregion
         
+        #region Parameter ClientArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the client.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String ClientArn { get; set; }
+        public System.String ClientArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyLunaClientRequest();
+            var request = new Amazon.CloudHSM.Model.ModifyLunaClientRequest();
             
             if (cmdletContext.Certificate != null)
             {
@@ -144,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Certificate { get; set; }
-            public String ClientArn { get; set; }
+            public System.String Certificate { get; set; }
+            public System.String ClientArn { get; set; }
         }
         
     }

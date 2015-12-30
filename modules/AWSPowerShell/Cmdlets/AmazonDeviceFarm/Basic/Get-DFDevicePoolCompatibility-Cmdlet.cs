@@ -34,26 +34,32 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [OutputType("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse")]
     [AWSCmdlet("Invokes the GetDevicePoolCompatibility operation against AWS Device Farm.", Operation = new[] {"GetDevicePoolCompatibility"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse",
-        "This cmdlet returns a GetDevicePoolCompatibilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDFDevicePoolCompatibilityCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the app that is associated with the specified device pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AppArn { get; set; }
+        public System.String AppArn { get; set; }
+        #endregion
         
+        #region Parameter DevicePoolArn
         /// <summary>
         /// <para>
         /// <para>The device pool's ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DevicePoolArn { get; set; }
+        public System.String DevicePoolArn { get; set; }
+        #endregion
         
+        #region Parameter TestType
         /// <summary>
         /// <para>
         /// <para>The test type for the specified device pool.</para><para>Allowed values include the following:</para><ul><li><para>BUILTIN_FUZZ: The built-in fuzz type.</para></li><li><para>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app,
@@ -61,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TestType TestType { get; set; }
-        
+        [AWSConstantClassSource("Amazon.DeviceFarm.TestType")]
+        public Amazon.DeviceFarm.TestType TestType { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -88,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDevicePoolCompatibilityRequest();
+            var request = new Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityRequest();
             
             if (cmdletContext.AppArn != null)
             {
@@ -137,9 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AppArn { get; set; }
-            public String DevicePoolArn { get; set; }
-            public TestType TestType { get; set; }
+            public System.String AppArn { get; set; }
+            public System.String DevicePoolArn { get; set; }
+            public Amazon.DeviceFarm.TestType TestType { get; set; }
         }
         
     }

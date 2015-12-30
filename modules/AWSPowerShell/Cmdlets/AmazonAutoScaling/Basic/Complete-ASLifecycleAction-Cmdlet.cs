@@ -50,18 +50,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the CompleteLifecycleAction operation against Auto Scaling.", Operation = new[] {"CompleteLifecycleAction"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CompleteLifecycleActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.CompleteLifecycleActionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CompleteASLifecycleActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group for the lifecycle hook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter LifecycleActionResult
         /// <summary>
         /// <para>
         /// <para>The action for the group to take. This parameter can be either <code>CONTINUE</code>
@@ -69,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LifecycleActionResult { get; set; }
+        public System.String LifecycleActionResult { get; set; }
+        #endregion
         
+        #region Parameter LifecycleActionToken
         /// <summary>
         /// <para>
         /// <para>A universally unique identifier (UUID) that identifies a specific lifecycle action
@@ -79,23 +85,29 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LifecycleActionToken { get; set; }
+        public System.String LifecycleActionToken { get; set; }
+        #endregion
         
+        #region Parameter LifecycleHookName
         /// <summary>
         /// <para>
         /// <para>The name of the lifecycle hook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LifecycleHookName { get; set; }
+        public System.String LifecycleHookName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -103,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -136,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CompleteLifecycleActionRequest();
+            var request = new Amazon.AutoScaling.Model.CompleteLifecycleActionRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -191,10 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public String LifecycleActionResult { get; set; }
-            public String LifecycleActionToken { get; set; }
-            public String LifecycleHookName { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.String LifecycleActionResult { get; set; }
+            public System.String LifecycleActionToken { get; set; }
+            public System.String LifecycleHookName { get; set; }
         }
         
     }

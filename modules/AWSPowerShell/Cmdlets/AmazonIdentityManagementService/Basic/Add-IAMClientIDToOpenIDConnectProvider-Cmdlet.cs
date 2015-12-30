@@ -42,18 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the AddClientIDToOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"AddClientIDToOpenIDConnectProvider"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type AddClientIDToOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddIAMClientIDToOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientID
         /// <summary>
         /// <para>
         /// <para>The client ID (also known as audience) to add to the IAM OpenID Connect provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientID { get; set; }
+        public System.String ClientID { get; set; }
+        #endregion
         
+        #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to add the
@@ -62,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OpenIDConnectProviderArn { get; set; }
+        public System.String OpenIDConnectProviderArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -102,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddClientIDToOpenIDConnectProviderRequest();
+            var request = new Amazon.IdentityManagement.Model.AddClientIDToOpenIDConnectProviderRequest();
             
             if (cmdletContext.ClientID != null)
             {
@@ -147,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientID { get; set; }
-            public String OpenIDConnectProviderArn { get; set; }
+            public System.String ClientID { get; set; }
+            public System.String OpenIDConnectProviderArn { get; set; }
         }
         
     }

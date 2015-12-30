@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the AddWorkingStorage operation against AWS Storage Gateway.", Operation = new[] {"AddWorkingStorage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type AddWorkingStorageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.AddWorkingStorageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddSGWorkingStorageCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter DiskId
         /// <summary>
         /// <para>
         /// <para>An array of strings that identify disks that are to be configured as working storage.
@@ -61,15 +63,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("DiskIds")]
         public System.String[] DiskId { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             
             if (this.DiskId != null)
             {
-                context.DiskIds = new List<String>(this.DiskId);
+                context.DiskIds = new List<System.String>(this.DiskId);
             }
             context.GatewayARN = this.GatewayARN;
             
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddWorkingStorageRequest();
+            var request = new Amazon.StorageGateway.Model.AddWorkingStorageRequest();
             
             if (cmdletContext.DiskIds != null)
             {
@@ -156,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DiskIds { get; set; }
-            public String GatewayARN { get; set; }
+            public List<System.String> DiskIds { get; set; }
+            public System.String GatewayARN { get; set; }
         }
         
     }

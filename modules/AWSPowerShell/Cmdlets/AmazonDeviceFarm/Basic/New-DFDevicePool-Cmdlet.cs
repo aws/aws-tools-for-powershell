@@ -35,34 +35,42 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the CreateDevicePool operation against AWS Device Farm.", Operation = new[] {"CreateDevicePool"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.DevicePool",
         "This cmdlet returns a DevicePool object.",
-        "The service call response (type CreateDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.CreateDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The device pool's description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The device pool's name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter ProjectArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the project for the device pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ProjectArn { get; set; }
+        public System.String ProjectArn { get; set; }
+        #endregion
         
+        #region Parameter Rule
         /// <summary>
         /// <para>
         /// <para>The device pool's rules.</para>
@@ -71,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Rules")]
         public Amazon.DeviceFarm.Model.Rule[] Rule { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -102,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.ProjectArn = this.ProjectArn;
             if (this.Rule != null)
             {
-                context.Rules = new List<Rule>(this.Rule);
+                context.Rules = new List<Amazon.DeviceFarm.Model.Rule>(this.Rule);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -115,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDevicePoolRequest();
+            var request = new Amazon.DeviceFarm.Model.CreateDevicePoolRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -168,10 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String Name { get; set; }
-            public String ProjectArn { get; set; }
-            public List<Rule> Rules { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public System.String ProjectArn { get; set; }
+            public List<Amazon.DeviceFarm.Model.Rule> Rules { get; set; }
         }
         
     }

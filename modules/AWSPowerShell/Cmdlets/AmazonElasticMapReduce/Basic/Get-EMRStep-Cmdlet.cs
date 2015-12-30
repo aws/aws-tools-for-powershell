@@ -35,26 +35,30 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the DescribeStep operation against Amazon Elastic MapReduce.", Operation = new[] {"DescribeStep"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Step",
         "This cmdlet returns a Step object.",
-        "The service call response (type DescribeStepResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.DescribeStepResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEMRStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
         /// <para>The identifier of the cluster with steps to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ClusterId { get; set; }
+        public System.String ClusterId { get; set; }
+        #endregion
         
+        #region Parameter StepId
         /// <summary>
         /// <para>
         /// <para>The identifier of the step to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StepId { get; set; }
-        
+        public System.String StepId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeStepRequest();
+            var request = new Amazon.ElasticMapReduce.Model.DescribeStepRequest();
             
             if (cmdletContext.ClusterId != null)
             {
@@ -124,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterId { get; set; }
-            public String StepId { get; set; }
+            public System.String ClusterId { get; set; }
+            public System.String StepId { get; set; }
         }
         
     }

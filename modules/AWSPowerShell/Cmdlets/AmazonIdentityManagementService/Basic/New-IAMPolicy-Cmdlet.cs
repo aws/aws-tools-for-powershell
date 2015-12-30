@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// This operation creates a policy version with a version identifier of <code>v1</code>
     /// and sets v1 as the policy's default version. For more information about policy versions,
     /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
-    /// for Managed Policies</a> in the <i>Using IAM</i> guide. 
+    /// for Managed Policies</a> in the <i>IAM User Guide</i>. 
     /// </para><para>
     /// For more information about managed policies in general, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,10 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreatePolicy operation against AWS Identity and Access Management.", Operation = new[] {"CreatePolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ManagedPolicy",
         "This cmdlet returns a ManagedPolicy object.",
-        "The service call response (type CreatePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreatePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A friendly description of the policy. </para><para>Typically used to store information about the permissions defined in the policy. For
@@ -58,33 +60,41 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Path
         /// <summary>
         /// <para>
         /// <para>The path for the policy. </para><para>For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-        /// Identifiers</a> in the <i>Using IAM</i> guide. </para><para>This parameter is optional. If it is not included, it defaults to a slash (/). </para>
+        /// Identifiers</a> in the <i>IAM User Guide</i>. </para><para>This parameter is optional. If it is not included, it defaults to a slash (/). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
+        #endregion
         
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
         /// <para>The policy document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -125,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreatePolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.CreatePolicyRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -178,10 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String Path { get; set; }
-            public String PolicyDocument { get; set; }
-            public String PolicyName { get; set; }
+            public System.String Description { get; set; }
+            public System.String Path { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

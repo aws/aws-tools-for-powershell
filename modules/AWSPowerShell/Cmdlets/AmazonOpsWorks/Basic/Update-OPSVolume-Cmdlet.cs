@@ -43,41 +43,51 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateVolume operation against AWS OpsWorks.", Operation = new[] {"UpdateVolume"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSVolumeCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter MountPoint
         /// <summary>
         /// <para>
         /// <para>The new mount point.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MountPoint { get; set; }
+        public System.String MountPoint { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The new name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter VolumeId
         /// <summary>
         /// <para>
         /// <para>The volume ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String VolumeId { get; set; }
+        public System.String VolumeId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the VolumeId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -117,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateVolumeRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateVolumeRequest();
             
             if (cmdletContext.MountPoint != null)
             {
@@ -168,9 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MountPoint { get; set; }
-            public String Name { get; set; }
-            public String VolumeId { get; set; }
+            public System.String MountPoint { get; set; }
+            public System.String Name { get; set; }
+            public System.String VolumeId { get; set; }
         }
         
     }

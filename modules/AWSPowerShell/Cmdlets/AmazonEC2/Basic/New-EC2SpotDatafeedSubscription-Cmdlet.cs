@@ -37,26 +37,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateSpotDatafeedSubscription operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSpotDatafeedSubscription"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotDatafeedSubscription",
         "This cmdlet returns a SpotDatafeedSubscription object.",
-        "The service call response (type CreateSpotDatafeedSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2SpotDatafeedSubscriptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Bucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket in which to store the Spot instance data feed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Bucket { get; set; }
+        public System.String Bucket { get; set; }
+        #endregion
         
+        #region Parameter Prefix
         /// <summary>
         /// <para>
         /// <para>A prefix for the data feed file names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Prefix { get; set; }
+        public System.String Prefix { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateSpotDatafeedSubscriptionRequest();
+            var request = new Amazon.EC2.Model.CreateSpotDatafeedSubscriptionRequest();
             
             if (cmdletContext.Bucket != null)
             {
@@ -140,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Bucket { get; set; }
-            public String Prefix { get; set; }
+            public System.String Bucket { get; set; }
+            public System.String Prefix { get; set; }
         }
         
     }

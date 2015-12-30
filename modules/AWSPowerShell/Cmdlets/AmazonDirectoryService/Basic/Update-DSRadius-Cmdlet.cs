@@ -36,34 +36,43 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the UpdateRadius operation against AWS Directory Service.", Operation = new[] {"UpdateRadius"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateRadiusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.UpdateRadiusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateDSRadiusCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RadiusSettings_AuthenticationProtocol
         /// <summary>
         /// <para>
         /// <para>The protocol specified for your RADIUS endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RadiusAuthenticationProtocol RadiusSettings_AuthenticationProtocol { get; set; }
+        [AWSConstantClassSource("Amazon.DirectoryService.RadiusAuthenticationProtocol")]
+        public Amazon.DirectoryService.RadiusAuthenticationProtocol RadiusSettings_AuthenticationProtocol { get; set; }
+        #endregion
         
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to update the RADIUS server information for.</para>
+        /// <para>The identifier of the directory for which to update the RADIUS server information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_DisplayLabel
         /// <summary>
         /// <para>
         /// <para>Not currently used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RadiusSettings_DisplayLabel { get; set; }
+        public System.String RadiusSettings_DisplayLabel { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusPort
         /// <summary>
         /// <para>
         /// <para>The port that your RADIUS server is using for communications. Your on-premises network
@@ -71,8 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 RadiusSettings_RadiusPort { get; set; }
+        public System.Int32 RadiusSettings_RadiusPort { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusRetry
         /// <summary>
         /// <para>
         /// <para>The maximum number of times that communication with the RADIUS server is attempted.
@@ -81,8 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("RadiusSettings_RadiusRetries")]
-        public Int32 RadiusSettings_RadiusRetry { get; set; }
+        public System.Int32 RadiusSettings_RadiusRetry { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusServer
         /// <summary>
         /// <para>
         /// <para>An array of strings that contains the IP addresses of the RADIUS server endpoints,
@@ -92,38 +105,48 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("RadiusSettings_RadiusServers")]
         public System.String[] RadiusSettings_RadiusServer { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusTimeout
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, to wait for the RADIUS server to respond.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 RadiusSettings_RadiusTimeout { get; set; }
+        public System.Int32 RadiusSettings_RadiusTimeout { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_SharedSecret
         /// <summary>
         /// <para>
         /// <para>The shared secret code that was specified when your RADIUS endpoints were created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RadiusSettings_SharedSecret { get; set; }
+        public System.String RadiusSettings_SharedSecret { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_UseSameUsername
         /// <summary>
         /// <para>
         /// <para>Not currently used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RadiusSettings_UseSameUsername { get; set; }
+        public System.Boolean RadiusSettings_UseSameUsername { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -131,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -158,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 context.RadiusSettings_RadiusRetries = this.RadiusSettings_RadiusRetry;
             if (this.RadiusSettings_RadiusServer != null)
             {
-                context.RadiusSettings_RadiusServers = new List<String>(this.RadiusSettings_RadiusServer);
+                context.RadiusSettings_RadiusServers = new List<System.String>(this.RadiusSettings_RadiusServer);
             }
             if (ParameterWasBound("RadiusSettings_RadiusTimeout"))
                 context.RadiusSettings_RadiusTimeout = this.RadiusSettings_RadiusTimeout;
@@ -176,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateRadiusRequest();
+            var request = new Amazon.DirectoryService.Model.UpdateRadiusRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
@@ -185,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
             
              // populate RadiusSettings
             bool requestRadiusSettingsIsNull = true;
-            request.RadiusSettings = new RadiusSettings();
-            RadiusAuthenticationProtocol requestRadiusSettings_radiusSettings_AuthenticationProtocol = null;
+            request.RadiusSettings = new Amazon.DirectoryService.Model.RadiusSettings();
+            Amazon.DirectoryService.RadiusAuthenticationProtocol requestRadiusSettings_radiusSettings_AuthenticationProtocol = null;
             if (cmdletContext.RadiusSettings_AuthenticationProtocol != null)
             {
                 requestRadiusSettings_radiusSettings_AuthenticationProtocol = cmdletContext.RadiusSettings_AuthenticationProtocol;
@@ -196,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.RadiusSettings.AuthenticationProtocol = requestRadiusSettings_radiusSettings_AuthenticationProtocol;
                 requestRadiusSettingsIsNull = false;
             }
-            String requestRadiusSettings_radiusSettings_DisplayLabel = null;
+            System.String requestRadiusSettings_radiusSettings_DisplayLabel = null;
             if (cmdletContext.RadiusSettings_DisplayLabel != null)
             {
                 requestRadiusSettings_radiusSettings_DisplayLabel = cmdletContext.RadiusSettings_DisplayLabel;
@@ -206,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.RadiusSettings.DisplayLabel = requestRadiusSettings_radiusSettings_DisplayLabel;
                 requestRadiusSettingsIsNull = false;
             }
-            Int32? requestRadiusSettings_radiusSettings_RadiusPort = null;
+            System.Int32? requestRadiusSettings_radiusSettings_RadiusPort = null;
             if (cmdletContext.RadiusSettings_RadiusPort != null)
             {
                 requestRadiusSettings_radiusSettings_RadiusPort = cmdletContext.RadiusSettings_RadiusPort.Value;
@@ -216,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.RadiusSettings.RadiusPort = requestRadiusSettings_radiusSettings_RadiusPort.Value;
                 requestRadiusSettingsIsNull = false;
             }
-            Int32? requestRadiusSettings_radiusSettings_RadiusRetry = null;
+            System.Int32? requestRadiusSettings_radiusSettings_RadiusRetry = null;
             if (cmdletContext.RadiusSettings_RadiusRetries != null)
             {
                 requestRadiusSettings_radiusSettings_RadiusRetry = cmdletContext.RadiusSettings_RadiusRetries.Value;
@@ -226,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.RadiusSettings.RadiusRetries = requestRadiusSettings_radiusSettings_RadiusRetry.Value;
                 requestRadiusSettingsIsNull = false;
             }
-            List<String> requestRadiusSettings_radiusSettings_RadiusServer = null;
+            List<System.String> requestRadiusSettings_radiusSettings_RadiusServer = null;
             if (cmdletContext.RadiusSettings_RadiusServers != null)
             {
                 requestRadiusSettings_radiusSettings_RadiusServer = cmdletContext.RadiusSettings_RadiusServers;
@@ -236,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.RadiusSettings.RadiusServers = requestRadiusSettings_radiusSettings_RadiusServer;
                 requestRadiusSettingsIsNull = false;
             }
-            Int32? requestRadiusSettings_radiusSettings_RadiusTimeout = null;
+            System.Int32? requestRadiusSettings_radiusSettings_RadiusTimeout = null;
             if (cmdletContext.RadiusSettings_RadiusTimeout != null)
             {
                 requestRadiusSettings_radiusSettings_RadiusTimeout = cmdletContext.RadiusSettings_RadiusTimeout.Value;
@@ -246,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.RadiusSettings.RadiusTimeout = requestRadiusSettings_radiusSettings_RadiusTimeout.Value;
                 requestRadiusSettingsIsNull = false;
             }
-            String requestRadiusSettings_radiusSettings_SharedSecret = null;
+            System.String requestRadiusSettings_radiusSettings_SharedSecret = null;
             if (cmdletContext.RadiusSettings_SharedSecret != null)
             {
                 requestRadiusSettings_radiusSettings_SharedSecret = cmdletContext.RadiusSettings_SharedSecret;
@@ -256,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.RadiusSettings.SharedSecret = requestRadiusSettings_radiusSettings_SharedSecret;
                 requestRadiusSettingsIsNull = false;
             }
-            Boolean? requestRadiusSettings_radiusSettings_UseSameUsername = null;
+            System.Boolean? requestRadiusSettings_radiusSettings_UseSameUsername = null;
             if (cmdletContext.RadiusSettings_UseSameUsername != null)
             {
                 requestRadiusSettings_radiusSettings_UseSameUsername = cmdletContext.RadiusSettings_UseSameUsername.Value;
@@ -308,15 +331,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DirectoryId { get; set; }
-            public RadiusAuthenticationProtocol RadiusSettings_AuthenticationProtocol { get; set; }
-            public String RadiusSettings_DisplayLabel { get; set; }
-            public Int32? RadiusSettings_RadiusPort { get; set; }
-            public Int32? RadiusSettings_RadiusRetries { get; set; }
-            public List<String> RadiusSettings_RadiusServers { get; set; }
-            public Int32? RadiusSettings_RadiusTimeout { get; set; }
-            public String RadiusSettings_SharedSecret { get; set; }
-            public Boolean? RadiusSettings_UseSameUsername { get; set; }
+            public System.String DirectoryId { get; set; }
+            public Amazon.DirectoryService.RadiusAuthenticationProtocol RadiusSettings_AuthenticationProtocol { get; set; }
+            public System.String RadiusSettings_DisplayLabel { get; set; }
+            public System.Int32? RadiusSettings_RadiusPort { get; set; }
+            public System.Int32? RadiusSettings_RadiusRetries { get; set; }
+            public List<System.String> RadiusSettings_RadiusServers { get; set; }
+            public System.Int32? RadiusSettings_RadiusTimeout { get; set; }
+            public System.String RadiusSettings_SharedSecret { get; set; }
+            public System.Boolean? RadiusSettings_UseSameUsername { get; set; }
         }
         
     }

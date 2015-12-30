@@ -35,32 +35,37 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the ListDistributions operation against Amazon CloudFront.", Operation = new[] {"ListDistributions"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.DistributionList",
         "This cmdlet returns a DistributionList object.",
-        "The service call response (type ListDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFDistributionsCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
-        /// Use this when paginating results to indicate where
-        /// to begin in your list of distributions. The results include distributions in the list
-        /// that occur after the marker. To get the next page of results, set the Marker to the
-        /// value of the NextMarker from the current page's response (which is also the ID of
-        /// the last distribution on that page).
+        /// Use Marker and MaxItems to control pagination of
+        /// results. If you have more than MaxItems distributions that satisfy the request, the
+        /// response includes a NextMarker element. To get the next page of results, submit another
+        /// request. For the value of Marker, specify the value of NextMarker from the last response.
+        /// (For the first request, omit Marker.)
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// The maximum number of distributions you want
-        /// in the response body.
+        /// The maximum number of distributions that you
+        /// want CloudFront to return in the response body. The maximum and default values are
+        /// both 100.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public String MaxItem { get; set; }
-        
+        public System.String MaxItem { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListDistributionsRequest();
+            var request = new Amazon.CloudFront.Model.ListDistributionsRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -130,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public String MaxItems { get; set; }
+            public System.String Marker { get; set; }
+            public System.String MaxItems { get; set; }
         }
         
     }

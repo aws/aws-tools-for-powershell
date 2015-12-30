@@ -43,11 +43,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the ListPlatformApplications operation against Amazon Simple Notification Service.", Operation = new[] {"ListPlatformApplications"})]
     [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.PlatformApplication",
         "This cmdlet returns a collection of PlatformApplication objects.",
-        "The service call response (type ListPlatformApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleNotificationService.Model.ListPlatformApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSNSPlatformApplicationsCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>NextToken string is used when calling ListPlatformApplications action to retrieve
@@ -55,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -81,11 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListPlatformApplicationsRequest();
+            var request = new Amazon.SimpleNotificationService.Model.ListPlatformApplicationsRequest();
             
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -155,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

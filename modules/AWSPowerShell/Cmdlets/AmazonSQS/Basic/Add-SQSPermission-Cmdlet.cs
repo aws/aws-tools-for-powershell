@@ -50,10 +50,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the AddPermission operation against Amazon Simple Queue Service.", Operation = new[] {"AddPermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.AddPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddSQSPermissionCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Action
         /// <summary>
         /// <para>
         /// <para>The action the client wants to allow for the specified principal. The following are
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("ActionNames","Actions")]
         public System.String[] Action { get; set; }
+        #endregion
         
+        #region Parameter AWSAccountId
         /// <summary>
         /// <para>
         /// <para>The AWS account number of the <a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>
@@ -82,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("AWSAccountIds")]
         public System.String[] AWSAccountId { get; set; }
+        #endregion
         
+        #region Parameter Label
         /// <summary>
         /// <para>
         /// <para>The unique identification of the permission you're setting (e.g., <code>AliceSendMessage</code>).
@@ -91,23 +97,29 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Label { get; set; }
+        public System.String Label { get; set; }
+        #endregion
         
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the QueueUrl parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -115,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -135,11 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.Action != null)
             {
-                context.Actions = new List<String>(this.Action);
+                context.Actions = new List<System.String>(this.Action);
             }
             if (this.AWSAccountId != null)
             {
-                context.AWSAccountIds = new List<String>(this.AWSAccountId);
+                context.AWSAccountIds = new List<System.String>(this.AWSAccountId);
             }
             context.Label = this.Label;
             context.QueueUrl = this.QueueUrl;
@@ -154,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddPermissionRequest();
+            var request = new Amazon.SQS.Model.AddPermissionRequest();
             
             if (cmdletContext.Actions != null)
             {
@@ -209,10 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Actions { get; set; }
-            public List<String> AWSAccountIds { get; set; }
-            public String Label { get; set; }
-            public String QueueUrl { get; set; }
+            public List<System.String> Actions { get; set; }
+            public List<System.String> AWSAccountIds { get; set; }
+            public System.String Label { get; set; }
+            public System.String QueueUrl { get; set; }
         }
         
     }

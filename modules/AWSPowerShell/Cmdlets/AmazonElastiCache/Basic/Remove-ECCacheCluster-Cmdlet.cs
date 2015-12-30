@@ -45,10 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DeleteCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"DeleteCacheCluster"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
         "This cmdlet returns a CacheCluster object.",
-        "The service call response (type DeleteCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheClusterId
         /// <summary>
         /// <para>
         /// <para>The cache cluster identifier for the cluster to be deleted. This parameter is not
@@ -56,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheClusterId { get; set; }
+        public System.String CacheClusterId { get; set; }
+        #endregion
         
+        #region Parameter FinalSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The user-supplied name of a final cache cluster snapshot. This is the unique name
@@ -66,8 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalSnapshotIdentifier { get; set; }
+        public System.String FinalSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteCacheClusterRequest();
+            var request = new Amazon.ElastiCache.Model.DeleteCacheClusterRequest();
             
             if (cmdletContext.CacheClusterId != null)
             {
@@ -151,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheClusterId { get; set; }
-            public String FinalSnapshotIdentifier { get; set; }
+            public System.String CacheClusterId { get; set; }
+            public System.String FinalSnapshotIdentifier { get; set; }
         }
         
     }

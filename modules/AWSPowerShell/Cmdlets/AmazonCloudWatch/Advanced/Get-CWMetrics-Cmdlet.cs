@@ -35,11 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
     [AWSCmdlet("Invokes the ListMetrics operation against Amazon CloudWatch.", Operation = new [] {"ListMetrics"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.Metric",
         "This cmdlet returns 0 or more Metric instances.",
-        "The service response (type ListMetricsResponse) is added to the cmdlet entry in the $AWSHistory stack.",
+        "The service response (type Amazon.CloudWatch.Model.ListMetricsResponse) is added to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as notes to the service response type instance in the history stack: NextToken (type String)"
     )]
     public class GetCWMetricsCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// The namespace to filter against.
@@ -48,8 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Namespace { get; set; }
-        
+        public System.String Namespace { get; set; }
+        #endregion
+
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// The name of the metric to filter against.
@@ -58,8 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </para>
         /// </summary>
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String MetricName { get; set; }
-        
+        public System.String MetricName { get; set; }
+        #endregion
+
+        #region Parameter Dimension
         /// <summary>
         /// <para>
         /// A list of dimensions to filter against.
@@ -70,15 +75,19 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [Parameter(Position = 2)]
         [Alias("Dimensions")]
         public Amazon.CloudWatch.Model.DimensionFilter[] Dimension { get; set; }
-        
+        #endregion
+
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// The token returned by a previous call to indicate that there is more data available.
         /// </para>
         /// </summary>
         [Parameter]
-        public String NextToken { get; set; }
+        public System.String NextToken { get; set; }
+        #endregion
 
+        #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all metrics to the pipeline. If set,
         /// the cmdlet will retrieve only the next 'page' of results (max 500 entries) using the 
@@ -86,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [Parameter]
         public SwitchParameter NoAutoIteration { get; set; }
-        
+        #endregion
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

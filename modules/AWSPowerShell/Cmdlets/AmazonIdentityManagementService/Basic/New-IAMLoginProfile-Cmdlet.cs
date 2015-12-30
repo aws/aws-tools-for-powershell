@@ -38,34 +38,42 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateLoginProfile operation against AWS Identity and Access Management.", Operation = new[] {"CreateLoginProfile"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.LoginProfile",
         "This cmdlet returns a LoginProfile object.",
-        "The service call response (type CreateLoginProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateLoginProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMLoginProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The new password for the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Password { get; set; }
+        public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter PasswordResetRequired
         /// <summary>
         /// <para>
         /// <para> Specifies whether the user is required to set a new password on next sign-in. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean PasswordResetRequired { get; set; }
+        public System.Boolean PasswordResetRequired { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the user to create a password for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateLoginProfileRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateLoginProfileRequest();
             
             if (cmdletContext.Password != null)
             {
@@ -155,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Password { get; set; }
-            public Boolean? PasswordResetRequired { get; set; }
-            public String UserName { get; set; }
+            public System.String Password { get; set; }
+            public System.Boolean? PasswordResetRequired { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

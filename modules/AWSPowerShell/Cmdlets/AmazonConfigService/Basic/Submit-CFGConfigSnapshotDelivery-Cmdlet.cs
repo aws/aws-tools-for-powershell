@@ -38,21 +38,25 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Submit", "CFGConfigSnapshotDelivery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeliverConfigSnapshot operation against Amazon Config.", Operation = new[] {"DeliverConfigSnapshot"})]
+    [AWSCmdlet("Invokes the DeliverConfigSnapshot operation against AWS Config.", Operation = new[] {"DeliverConfigSnapshot"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type DeliverConfigSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DeliverConfigSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SubmitCFGConfigSnapshotDeliveryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery channel through which the snapshot is delivered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeliveryChannelName { get; set; }
+        public System.String DeliveryChannelName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeliverConfigSnapshotRequest();
+            var request = new Amazon.ConfigService.Model.DeliverConfigSnapshotRequest();
             
             if (cmdletContext.DeliveryChannelName != null)
             {
@@ -131,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryChannelName { get; set; }
+            public System.String DeliveryChannelName { get; set; }
         }
         
     }

@@ -50,34 +50,42 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the AuthorizeClusterSecurityGroupIngress operation against Amazon Redshift.", Operation = new[] {"AuthorizeClusterSecurityGroupIngress"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSecurityGroup",
         "This cmdlet returns a ClusterSecurityGroup object.",
-        "The service call response (type AuthorizeClusterSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ApproveRSClusterSecurityGroupIngressCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter CIDRIP
         /// <summary>
         /// <para>
         /// <para> The IP range to be added the Amazon Redshift security group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CIDRIP { get; set; }
+        public System.String CIDRIP { get; set; }
+        #endregion
         
+        #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the security group to which the ingress rule is added. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterSecurityGroupName { get; set; }
+        public System.String ClusterSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The EC2 security group to be added the Amazon Redshift security group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupName { get; set; }
+        public System.String EC2SecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
         /// <para> The AWS account number of the owner of the security group specified by the <i>EC2SecurityGroupName</i>
@@ -85,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupOwnerId { get; set; }
+        public System.String EC2SecurityGroupOwnerId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -127,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AuthorizeClusterSecurityGroupIngressRequest();
+            var request = new Amazon.Redshift.Model.AuthorizeClusterSecurityGroupIngressRequest();
             
             if (cmdletContext.CIDRIP != null)
             {
@@ -180,10 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CIDRIP { get; set; }
-            public String ClusterSecurityGroupName { get; set; }
-            public String EC2SecurityGroupName { get; set; }
-            public String EC2SecurityGroupOwnerId { get; set; }
+            public System.String CIDRIP { get; set; }
+            public System.String ClusterSecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupOwnerId { get; set; }
         }
         
     }

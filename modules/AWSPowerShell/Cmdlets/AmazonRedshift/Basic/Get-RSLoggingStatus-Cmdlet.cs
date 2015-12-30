@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.DescribeLoggingStatusResponse")]
     [AWSCmdlet("Invokes the DescribeLoggingStatus operation against Amazon Redshift.", Operation = new[] {"DescribeLoggingStatus"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.DescribeLoggingStatusResponse",
-        "This cmdlet returns a DescribeLoggingStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Redshift.Model.DescribeLoggingStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRSLoggingStatusCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster to get the logging status from. </para><para>Example: <code>examplecluster</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
-        
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLoggingStatusRequest();
+            var request = new Amazon.Redshift.Model.DescribeLoggingStatusRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
+            public System.String ClusterIdentifier { get; set; }
         }
         
     }

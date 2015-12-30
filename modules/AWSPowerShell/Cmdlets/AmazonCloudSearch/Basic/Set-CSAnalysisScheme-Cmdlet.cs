@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DefineAnalysisScheme operation against Amazon CloudSearch.", Operation = new[] {"DefineAnalysisScheme"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AnalysisSchemeStatus",
         "This cmdlet returns a AnalysisSchemeStatus object.",
-        "The service call response (type DefineAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DefineAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetCSAnalysisSchemeCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter AnalysisOptions_AlgorithmicStemming
         /// <summary>
         /// <para>
         /// <para>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>,
@@ -52,32 +54,42 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_AlgorithmicStemming")]
-        public AlgorithmicStemming AnalysisOptions_AlgorithmicStemming { get; set; }
+        [AWSConstantClassSource("Amazon.CloudSearch.AlgorithmicStemming")]
+        public Amazon.CloudSearch.AlgorithmicStemming AnalysisOptions_AlgorithmicStemming { get; set; }
+        #endregion
         
+        #region Parameter AnalysisScheme_AnalysisSchemeLanguage
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public AnalysisSchemeLanguage AnalysisScheme_AnalysisSchemeLanguage { get; set; }
+        [AWSConstantClassSource("Amazon.CloudSearch.AnalysisSchemeLanguage")]
+        public Amazon.CloudSearch.AnalysisSchemeLanguage AnalysisScheme_AnalysisSchemeLanguage { get; set; }
+        #endregion
         
+        #region Parameter AnalysisScheme_AnalysisSchemeName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AnalysisScheme_AnalysisSchemeName { get; set; }
+        public System.String AnalysisScheme_AnalysisSchemeName { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_JapaneseTokenizationDictionary
         /// <summary>
         /// <para>
         /// <para>A JSON array that contains a collection of terms, tokens, readings and part of speech
@@ -88,8 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary")]
-        public String AnalysisOptions_JapaneseTokenizationDictionary { get; set; }
+        public System.String AnalysisOptions_JapaneseTokenizationDictionary { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_StemmingDictionary
         /// <summary>
         /// <para>
         /// <para>A JSON object that contains a collection of string:value pairs that each map a term
@@ -102,8 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_StemmingDictionary")]
-        public String AnalysisOptions_StemmingDictionary { get; set; }
+        public System.String AnalysisOptions_StemmingDictionary { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_Stopword
         /// <summary>
         /// <para>
         /// <para>A JSON array of terms to ignore during indexing and searching. For example, <code>["a",
@@ -113,8 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_Stopwords")]
-        public String AnalysisOptions_Stopword { get; set; }
+        public System.String AnalysisOptions_Stopword { get; set; }
+        #endregion
         
+        #region Parameter AnalysisOptions_Synonym
         /// <summary>
         /// <para>
         /// <para>A JSON object that defines synonym groups and aliases. A synonym group is an array
@@ -129,8 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AnalysisScheme_AnalysisOptions_Synonyms")]
-        public String AnalysisOptions_Synonym { get; set; }
+        public System.String AnalysisOptions_Synonym { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -138,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -175,13 +195,13 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DefineAnalysisSchemeRequest();
+            var request = new Amazon.CloudSearch.Model.DefineAnalysisSchemeRequest();
             
             
              // populate AnalysisScheme
             bool requestAnalysisSchemeIsNull = true;
-            request.AnalysisScheme = new AnalysisScheme();
-            AnalysisSchemeLanguage requestAnalysisScheme_analysisScheme_AnalysisSchemeLanguage = null;
+            request.AnalysisScheme = new Amazon.CloudSearch.Model.AnalysisScheme();
+            Amazon.CloudSearch.AnalysisSchemeLanguage requestAnalysisScheme_analysisScheme_AnalysisSchemeLanguage = null;
             if (cmdletContext.AnalysisScheme_AnalysisSchemeLanguage != null)
             {
                 requestAnalysisScheme_analysisScheme_AnalysisSchemeLanguage = cmdletContext.AnalysisScheme_AnalysisSchemeLanguage;
@@ -191,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.AnalysisScheme.AnalysisSchemeLanguage = requestAnalysisScheme_analysisScheme_AnalysisSchemeLanguage;
                 requestAnalysisSchemeIsNull = false;
             }
-            String requestAnalysisScheme_analysisScheme_AnalysisSchemeName = null;
+            System.String requestAnalysisScheme_analysisScheme_AnalysisSchemeName = null;
             if (cmdletContext.AnalysisScheme_AnalysisSchemeName != null)
             {
                 requestAnalysisScheme_analysisScheme_AnalysisSchemeName = cmdletContext.AnalysisScheme_AnalysisSchemeName;
@@ -201,12 +221,12 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 request.AnalysisScheme.AnalysisSchemeName = requestAnalysisScheme_analysisScheme_AnalysisSchemeName;
                 requestAnalysisSchemeIsNull = false;
             }
-            AnalysisOptions requestAnalysisScheme_analysisScheme_AnalysisOptions = null;
+            Amazon.CloudSearch.Model.AnalysisOptions requestAnalysisScheme_analysisScheme_AnalysisOptions = null;
             
              // populate AnalysisOptions
             bool requestAnalysisScheme_analysisScheme_AnalysisOptionsIsNull = true;
-            requestAnalysisScheme_analysisScheme_AnalysisOptions = new AnalysisOptions();
-            AlgorithmicStemming requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_AlgorithmicStemming = null;
+            requestAnalysisScheme_analysisScheme_AnalysisOptions = new Amazon.CloudSearch.Model.AnalysisOptions();
+            Amazon.CloudSearch.AlgorithmicStemming requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_AlgorithmicStemming = null;
             if (cmdletContext.AnalysisScheme_AnalysisOptions_AlgorithmicStemming != null)
             {
                 requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_AlgorithmicStemming = cmdletContext.AnalysisScheme_AnalysisOptions_AlgorithmicStemming;
@@ -216,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestAnalysisScheme_analysisScheme_AnalysisOptions.AlgorithmicStemming = requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_AlgorithmicStemming;
                 requestAnalysisScheme_analysisScheme_AnalysisOptionsIsNull = false;
             }
-            String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_JapaneseTokenizationDictionary = null;
+            System.String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_JapaneseTokenizationDictionary = null;
             if (cmdletContext.AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary != null)
             {
                 requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_JapaneseTokenizationDictionary = cmdletContext.AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary;
@@ -226,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestAnalysisScheme_analysisScheme_AnalysisOptions.JapaneseTokenizationDictionary = requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_JapaneseTokenizationDictionary;
                 requestAnalysisScheme_analysisScheme_AnalysisOptionsIsNull = false;
             }
-            String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_StemmingDictionary = null;
+            System.String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_StemmingDictionary = null;
             if (cmdletContext.AnalysisScheme_AnalysisOptions_StemmingDictionary != null)
             {
                 requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_StemmingDictionary = cmdletContext.AnalysisScheme_AnalysisOptions_StemmingDictionary;
@@ -236,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestAnalysisScheme_analysisScheme_AnalysisOptions.StemmingDictionary = requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_StemmingDictionary;
                 requestAnalysisScheme_analysisScheme_AnalysisOptionsIsNull = false;
             }
-            String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_Stopword = null;
+            System.String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_Stopword = null;
             if (cmdletContext.AnalysisScheme_AnalysisOptions_Stopwords != null)
             {
                 requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_Stopword = cmdletContext.AnalysisScheme_AnalysisOptions_Stopwords;
@@ -246,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 requestAnalysisScheme_analysisScheme_AnalysisOptions.Stopwords = requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_Stopword;
                 requestAnalysisScheme_analysisScheme_AnalysisOptionsIsNull = false;
             }
-            String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_Synonym = null;
+            System.String requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_Synonym = null;
             if (cmdletContext.AnalysisScheme_AnalysisOptions_Synonyms != null)
             {
                 requestAnalysisScheme_analysisScheme_AnalysisOptions_analysisOptions_Synonym = cmdletContext.AnalysisScheme_AnalysisOptions_Synonyms;
@@ -310,14 +330,14 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public AlgorithmicStemming AnalysisScheme_AnalysisOptions_AlgorithmicStemming { get; set; }
-            public String AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary { get; set; }
-            public String AnalysisScheme_AnalysisOptions_StemmingDictionary { get; set; }
-            public String AnalysisScheme_AnalysisOptions_Stopwords { get; set; }
-            public String AnalysisScheme_AnalysisOptions_Synonyms { get; set; }
-            public AnalysisSchemeLanguage AnalysisScheme_AnalysisSchemeLanguage { get; set; }
-            public String AnalysisScheme_AnalysisSchemeName { get; set; }
-            public String DomainName { get; set; }
+            public Amazon.CloudSearch.AlgorithmicStemming AnalysisScheme_AnalysisOptions_AlgorithmicStemming { get; set; }
+            public System.String AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary { get; set; }
+            public System.String AnalysisScheme_AnalysisOptions_StemmingDictionary { get; set; }
+            public System.String AnalysisScheme_AnalysisOptions_Stopwords { get; set; }
+            public System.String AnalysisScheme_AnalysisOptions_Synonyms { get; set; }
+            public Amazon.CloudSearch.AnalysisSchemeLanguage AnalysisScheme_AnalysisSchemeLanguage { get; set; }
+            public System.String AnalysisScheme_AnalysisSchemeName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

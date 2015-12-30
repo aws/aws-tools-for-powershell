@@ -37,26 +37,32 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the UpdateVTLDeviceType operation against AWS Storage Gateway.", Operation = new[] {"UpdateVTLDeviceType"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type UpdateVTLDeviceTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSGVTLDeviceTypeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeviceType
         /// <summary>
         /// <para>
         /// <para>The type of medium changer you want to select.</para><para><i>Valid Values</i>: "STK-L700", "AWS-Gateway-VTL"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DeviceType { get; set; }
+        public System.String DeviceType { get; set; }
+        #endregion
         
+        #region Parameter VTLDeviceARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the medium changer you want to select.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VTLDeviceARN { get; set; }
+        public System.String VTLDeviceARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateVTLDeviceTypeRequest();
+            var request = new Amazon.StorageGateway.Model.UpdateVTLDeviceTypeRequest();
             
             if (cmdletContext.DeviceType != null)
             {
@@ -140,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeviceType { get; set; }
-            public String VTLDeviceARN { get; set; }
+            public System.String DeviceType { get; set; }
+            public System.String VTLDeviceARN { get; set; }
         }
         
     }

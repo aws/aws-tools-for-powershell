@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBCluster"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
-        "The service call response (type ModifyDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
         /// <para>A value that specifies whether the modifications in this request and any pending modifications
@@ -51,18 +53,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ApplyImmediately { get; set; }
+        public System.Boolean ApplyImmediately { get; set; }
+        #endregion
         
+        #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days for which automated backups are retained. Setting this parameter
-        /// to a positive number enables backups. Setting this parameter to 0 disables automated
-        /// backups. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 0 to 35</li></ul>
+        /// <para>The number of days for which automated backups are retained. You must specify a minimum
+        /// value of 1. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 1 to 35</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 BackupRetentionPeriod { get; set; }
+        public System.Int32 BackupRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive.
@@ -72,16 +77,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterIdentifier { get; set; }
+        public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster parameter group to use for the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DBClusterParameterGroupName { get; set; }
+        public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para>The new password for the master database user. This password can contain any printable
@@ -89,8 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String MasterUserPassword { get; set; }
+        public System.String MasterUserPassword { get; set; }
+        #endregion
         
+        #region Parameter NewDBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This
@@ -100,8 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NewDBClusterIdentifier { get; set; }
+        public System.String NewDBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
@@ -115,16 +128,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String OptionGroupName { get; set; }
+        public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the DB cluster accepts connections. </para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Port { get; set; }
+        public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
@@ -136,8 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredBackupWindow { get; set; }
+        public System.String PreferredBackupWindow { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
@@ -147,8 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PreferredMaintenanceWindow { get; set; }
+        public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A lst of VPC security groups that the DB cluster will belong to. </para>
@@ -157,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -165,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -198,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             if (this.VpcSecurityGroupId != null)
             {
-                context.VpcSecurityGroupIds = new List<String>(this.VpcSecurityGroupId);
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -211,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyDBClusterRequest();
+            var request = new Amazon.RDS.Model.ModifyDBClusterRequest();
             
             if (cmdletContext.ApplyImmediately != null)
             {
@@ -292,17 +315,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ApplyImmediately { get; set; }
-            public Int32? BackupRetentionPeriod { get; set; }
-            public String DBClusterIdentifier { get; set; }
-            public String DBClusterParameterGroupName { get; set; }
-            public String MasterUserPassword { get; set; }
-            public String NewDBClusterIdentifier { get; set; }
-            public String OptionGroupName { get; set; }
-            public Int32? Port { get; set; }
-            public String PreferredBackupWindow { get; set; }
-            public String PreferredMaintenanceWindow { get; set; }
-            public List<String> VpcSecurityGroupIds { get; set; }
+            public System.Boolean? ApplyImmediately { get; set; }
+            public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
+            public System.String MasterUserPassword { get; set; }
+            public System.String NewDBClusterIdentifier { get; set; }
+            public System.String OptionGroupName { get; set; }
+            public System.Int32? Port { get; set; }
+            public System.String PreferredBackupWindow { get; set; }
+            public System.String PreferredMaintenanceWindow { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

@@ -41,26 +41,30 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.GetDataSourceResponse")]
     [AWSCmdlet("Invokes the GetDataSource operation against Amazon Machine Learning.", Operation = new[] {"GetDataSource"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetDataSourceResponse",
-        "This cmdlet returns a GetDataSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.MachineLearning.Model.GetDataSourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetMLDataSourceCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>DataSource</code> at creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter VerboseResponse
         /// <summary>
         /// <para>
         /// <para>Specifies whether the <code>GetDataSource</code> operation should return <code>DataSourceSchema</code>.</para><para>If true, <code>DataSourceSchema</code> is returned.</para><para>If false, <code>DataSourceSchema</code> is not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean VerboseResponse { get; set; }
-        
+        public System.Boolean VerboseResponse { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -86,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDataSourceRequest();
+            var request = new Amazon.MachineLearning.Model.GetDataSourceRequest();
             
             if (cmdletContext.DataSourceId != null)
             {
@@ -131,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DataSourceId { get; set; }
-            public Boolean? VerboseResponse { get; set; }
+            public System.String DataSourceId { get; set; }
+            public System.Boolean? VerboseResponse { get; set; }
         }
         
     }

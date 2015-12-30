@@ -49,21 +49,25 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the DescribeDirectories operation against AWS Directory Service.", Operation = new[] {"DescribeDirectories"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.DirectoryDescription",
         "This cmdlet returns a collection of DirectoryDescription objects.",
-        "The service call response (type DescribeDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.DirectoryService.Model.DescribeDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>A list of identifiers of the directories to obtain the information for. If this member
-        /// is null, all directories that belong to the current account are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
+        /// <para>A list of identifiers of the directories for which to obtain the information. If this
+        /// member is null, all directories that belong to the current account are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DirectoryIds")]
         public System.String[] DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return. If this value is zero, the maximum number of
@@ -71,8 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Limit { get; set; }
+        public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <i>DescribeDirectoriesResult.NextToken</i> value from a previous call to <a>DescribeDirectories</a>.
@@ -80,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             
             if (this.DirectoryId != null)
             {
-                context.DirectoryIds = new List<String>(this.DirectoryId);
+                context.DirectoryIds = new List<System.String>(this.DirectoryId);
             }
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeDirectoriesRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeDirectoriesRequest();
             
             if (cmdletContext.DirectoryIds != null)
             {
@@ -162,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DirectoryIds { get; set; }
-            public Int32? Limit { get; set; }
-            public String NextToken { get; set; }
+            public List<System.String> DirectoryIds { get; set; }
+            public System.Int32? Limit { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

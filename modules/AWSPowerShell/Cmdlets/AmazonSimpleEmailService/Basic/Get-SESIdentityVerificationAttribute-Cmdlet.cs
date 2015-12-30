@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the GetIdentityVerificationAttributes operation against Amazon Simple Email Service.", Operation = new[] {"GetIdentityVerificationAttributes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type GetIdentityVerificationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.GetIdentityVerificationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSESIdentityVerificationAttributeCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>A list of identities.</para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("Identities")]
         public System.String[] Identity { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.Identity != null)
             {
-                context.Identities = new List<String>(this.Identity);
+                context.Identities = new List<System.String>(this.Identity);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -81,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetIdentityVerificationAttributesRequest();
+            var request = new Amazon.SimpleEmail.Model.GetIdentityVerificationAttributesRequest();
             
             if (cmdletContext.Identities != null)
             {
@@ -122,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Identities { get; set; }
+            public List<System.String> Identities { get; set; }
         }
         
     }

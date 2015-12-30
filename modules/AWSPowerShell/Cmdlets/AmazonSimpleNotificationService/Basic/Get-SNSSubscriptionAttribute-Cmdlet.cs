@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the GetSubscriptionAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"GetSubscriptionAttributes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type GetSubscriptionAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSNSSubscriptionAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SubscriptionArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the subscription whose properties you want to get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SubscriptionArn { get; set; }
-        
+        public System.String SubscriptionArn { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetSubscriptionAttributesRequest();
+            var request = new Amazon.SimpleNotificationService.Model.GetSubscriptionAttributesRequest();
             
             if (cmdletContext.SubscriptionArn != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SubscriptionArn { get; set; }
+            public System.String SubscriptionArn { get; set; }
         }
         
     }

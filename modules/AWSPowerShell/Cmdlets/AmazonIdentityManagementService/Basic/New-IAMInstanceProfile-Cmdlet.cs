@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     ///  For information about the number of instance profiles you can create, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>Using IAM</i> guide. 
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "IAMInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -42,18 +42,22 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateInstanceProfile operation against AWS Identity and Access Management.", Operation = new[] {"CreateInstanceProfile"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.InstanceProfile",
         "This cmdlet returns a InstanceProfile object.",
-        "The service call response (type CreateInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
         /// <para>The name of the instance profile to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceProfileName { get; set; }
+        public System.String InstanceProfileName { get; set; }
+        #endregion
         
+        #region Parameter Path
         /// <summary>
         /// <para>
         /// <para> The path to the instance profile. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -61,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateInstanceProfileRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateInstanceProfileRequest();
             
             if (cmdletContext.InstanceProfileName != null)
             {
@@ -146,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceProfileName { get; set; }
-            public String Path { get; set; }
+            public System.String InstanceProfileName { get; set; }
+            public System.String Path { get; set; }
         }
         
     }

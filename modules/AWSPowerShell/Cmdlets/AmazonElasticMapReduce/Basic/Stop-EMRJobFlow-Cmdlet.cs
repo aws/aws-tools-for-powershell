@@ -46,10 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the TerminateJobFlows operation against Amazon Elastic MapReduce.", Operation = new[] {"TerminateJobFlows"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobFlowId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type TerminateJobFlowsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
         /// <para>A list of job flows to be shutdown.</para>
@@ -58,14 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("JobFlowIds")]
         public System.String[] JobFlowId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobFlowId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
             if (this.JobFlowId != null)
             {
-                context.JobFlowIds = new List<String>(this.JobFlowId);
+                context.JobFlowIds = new List<System.String>(this.JobFlowId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new TerminateJobFlowsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.TerminateJobFlowsRequest();
             
             if (cmdletContext.JobFlowIds != null)
             {
@@ -149,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> JobFlowIds { get; set; }
+            public List<System.String> JobFlowIds { get; set; }
         }
         
     }

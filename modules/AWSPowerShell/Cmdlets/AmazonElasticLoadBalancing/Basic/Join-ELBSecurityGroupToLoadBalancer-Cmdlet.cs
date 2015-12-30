@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html">Manage
-    /// Security Groups for Amazon VPC</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-groups.html#elb-vpc-security-groups">Security
+    /// Groups for Load Balancers in a VPC</a> in the <i>Elastic Load Balancing Developer
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Join", "ELBSecurityGroupToLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -43,18 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     [AWSCmdlet("Invokes the ApplySecurityGroupsToLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"ApplySecurityGroupsToLoadBalancer"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type ApplySecurityGroupsToLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticLoadBalancing.Model.ApplySecurityGroupsToLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class JoinELBSecurityGroupToLoadBalancerCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LoadBalancerName { get; set; }
+        public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
         /// <para>The IDs of the security groups to associate with the load balancer. Note that you
@@ -64,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             context.LoadBalancerName = this.LoadBalancerName;
             if (this.SecurityGroup != null)
             {
-                context.SecurityGroups = new List<String>(this.SecurityGroup);
+                context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -106,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ApplySecurityGroupsToLoadBalancerRequest();
+            var request = new Amazon.ElasticLoadBalancing.Model.ApplySecurityGroupsToLoadBalancerRequest();
             
             if (cmdletContext.LoadBalancerName != null)
             {
@@ -151,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String LoadBalancerName { get; set; }
-            public List<String> SecurityGroups { get; set; }
+            public System.String LoadBalancerName { get; set; }
+            public List<System.String> SecurityGroups { get; set; }
         }
         
     }

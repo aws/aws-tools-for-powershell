@@ -44,18 +44,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.DescribeWorkingStorageResponse")]
     [AWSCmdlet("Invokes the DescribeWorkingStorage operation against AWS Storage Gateway.", Operation = new[] {"DescribeWorkingStorage"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeWorkingStorageResponse",
-        "This cmdlet returns a DescribeWorkingStorageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.DescribeWorkingStorageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGWorkingStorageCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
-        
+        public System.String GatewayARN { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeWorkingStorageRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeWorkingStorageRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
@@ -120,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
+            public System.String GatewayARN { get; set; }
         }
         
     }

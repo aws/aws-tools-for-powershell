@@ -35,41 +35,51 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DeleteNetworkAclEntry operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteNetworkAclEntry"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NetworkAclId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteNetworkAclEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DeleteNetworkAclEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveEC2NetworkAclEntryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Egress
         /// <summary>
         /// <para>
         /// <para>Indicates whether the rule is an egress rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean Egress { get; set; }
+        public System.Boolean Egress { get; set; }
+        #endregion
         
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>The ID of the network ACL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NetworkAclId { get; set; }
+        public System.String NetworkAclId { get; set; }
+        #endregion
         
+        #region Parameter RuleNumber
         /// <summary>
         /// <para>
         /// <para>The rule number of the entry to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 RuleNumber { get; set; }
+        public System.Int32 RuleNumber { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the NetworkAclId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -111,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteNetworkAclEntryRequest();
+            var request = new Amazon.EC2.Model.DeleteNetworkAclEntryRequest();
             
             if (cmdletContext.Egress != null)
             {
@@ -162,9 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? Egress { get; set; }
-            public String NetworkAclId { get; set; }
-            public Int32? RuleNumber { get; set; }
+            public System.Boolean? Egress { get; set; }
+            public System.String NetworkAclId { get; set; }
+            public System.Int32? RuleNumber { get; set; }
         }
         
     }

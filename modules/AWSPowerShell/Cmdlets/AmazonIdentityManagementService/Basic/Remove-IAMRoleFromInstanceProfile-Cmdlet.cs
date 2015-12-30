@@ -44,33 +44,41 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the RemoveRoleFromInstanceProfile operation against AWS Identity and Access Management.", Operation = new[] {"RemoveRoleFromInstanceProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceProfileName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RemoveRoleFromInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveIAMRoleFromInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
         /// <para>The name of the instance profile to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceProfileName { get; set; }
+        public System.String InstanceProfileName { get; set; }
+        #endregion
         
+        #region Parameter RoleName
         /// <summary>
         /// <para>
         /// <para>The name of the role to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String RoleName { get; set; }
+        public System.String RoleName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceProfileName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -109,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RemoveRoleFromInstanceProfileRequest();
+            var request = new Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileRequest();
             
             if (cmdletContext.InstanceProfileName != null)
             {
@@ -156,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceProfileName { get; set; }
-            public String RoleName { get; set; }
+            public System.String InstanceProfileName { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

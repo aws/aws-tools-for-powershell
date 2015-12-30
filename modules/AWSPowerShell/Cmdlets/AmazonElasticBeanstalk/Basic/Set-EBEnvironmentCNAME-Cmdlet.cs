@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the SwapEnvironmentCNAMEs operation against AWS Elastic Beanstalk.", Operation = new[] {"SwapEnvironmentCNAMEs"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SourceEnvironmentId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type SwapEnvironmentCNAMEsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetEBEnvironmentCNAMECmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter DestinationEnvironmentId
         /// <summary>
         /// <para>
         /// <para> The ID of the destination environment. </para><para> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or
@@ -48,8 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String DestinationEnvironmentId { get; set; }
+        public System.String DestinationEnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter DestinationEnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the destination environment. </para><para> Condition: You must specify at least the <code>DestinationEnvironmentID</code> or
@@ -59,8 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String DestinationEnvironmentName { get; set; }
+        public System.String DestinationEnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter SourceEnvironmentId
         /// <summary>
         /// <para>
         /// <para> The ID of the source environment. </para><para> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
@@ -70,8 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceEnvironmentId { get; set; }
+        public System.String SourceEnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter SourceEnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the source environment. </para><para> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
@@ -81,15 +89,19 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SourceEnvironmentName { get; set; }
+        public System.String SourceEnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the SourceEnvironmentId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -97,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -130,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SwapEnvironmentCNAMEsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsRequest();
             
             if (cmdletContext.DestinationEnvironmentId != null)
             {
@@ -185,10 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DestinationEnvironmentId { get; set; }
-            public String DestinationEnvironmentName { get; set; }
-            public String SourceEnvironmentId { get; set; }
-            public String SourceEnvironmentName { get; set; }
+            public System.String DestinationEnvironmentId { get; set; }
+            public System.String DestinationEnvironmentName { get; set; }
+            public System.String SourceEnvironmentId { get; set; }
+            public System.String SourceEnvironmentName { get; set; }
         }
         
     }

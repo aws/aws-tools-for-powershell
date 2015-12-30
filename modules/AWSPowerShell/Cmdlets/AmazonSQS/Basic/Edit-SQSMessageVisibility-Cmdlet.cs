@@ -62,18 +62,22 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     [AWSCmdlet("Invokes the ChangeMessageVisibility operation against Amazon Simple Queue Service.", Operation = new[] {"ChangeMessageVisibility"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ChangeMessageVisibilityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SQS.Model.ChangeMessageVisibilityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditSQSMessageVisibilityCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String QueueUrl { get; set; }
+        public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter ReceiptHandle
         /// <summary>
         /// <para>
         /// <para>The receipt handle associated with the message whose visibility timeout should be
@@ -81,8 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String ReceiptHandle { get; set; }
+        public System.String ReceiptHandle { get; set; }
+        #endregion
         
+        #region Parameter VisibilityTimeout
         /// <summary>
         /// <para>
         /// <para>The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the message's
@@ -90,15 +96,19 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Int32 VisibilityTimeout { get; set; }
+        public System.Int32 VisibilityTimeout { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the QueueUrl parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -106,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -139,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ChangeMessageVisibilityRequest();
+            var request = new Amazon.SQS.Model.ChangeMessageVisibilityRequest();
             
             if (cmdletContext.QueueUrl != null)
             {
@@ -190,9 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String QueueUrl { get; set; }
-            public String ReceiptHandle { get; set; }
-            public Int32? VisibilityTimeout { get; set; }
+            public System.String QueueUrl { get; set; }
+            public System.String ReceiptHandle { get; set; }
+            public System.Int32? VisibilityTimeout { get; set; }
         }
         
     }

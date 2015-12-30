@@ -35,26 +35,32 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     [AWSCmdlet("Invokes the ModifyHapg operation against AWS Cloud HSM.", Operation = new[] {"ModifyHapg"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ModifyHapgResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudHSM.Model.ModifyHapgResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditHSMPartitionGroupCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter HapgArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the high-availability partition group to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HapgArn { get; set; }
+        public System.String HapgArn { get; set; }
+        #endregion
         
+        #region Parameter Label
         /// <summary>
         /// <para>
         /// <para>The new label for the high-availability partition group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Label { get; set; }
+        public System.String Label { get; set; }
+        #endregion
         
+        #region Parameter PartitionSerialList
         /// <summary>
         /// <para>
         /// <para>The list of partition serial numbers to make members of the high-availability partition
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] PartitionSerialList { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             context.Label = this.Label;
             if (this.PartitionSerialList != null)
             {
-                context.PartitionSerialList = new List<String>(this.PartitionSerialList);
+                context.PartitionSerialList = new List<System.String>(this.PartitionSerialList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -106,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyHapgRequest();
+            var request = new Amazon.CloudHSM.Model.ModifyHapgRequest();
             
             if (cmdletContext.HapgArn != null)
             {
@@ -155,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HapgArn { get; set; }
-            public String Label { get; set; }
-            public List<String> PartitionSerialList { get; set; }
+            public System.String HapgArn { get; set; }
+            public System.String Label { get; set; }
+            public List<System.String> PartitionSerialList { get; set; }
         }
         
     }

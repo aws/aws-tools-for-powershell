@@ -35,25 +35,31 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteHsmClientCertificate operation against Amazon Redshift.", Operation = new[] {"DeleteHsmClientCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the HsmClientCertificateIdentifier parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteHsmClientCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Redshift.Model.DeleteHsmClientCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSHsmClientCertificateCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the HSM client certificate to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String HsmClientCertificateIdentifier { get; set; }
+        public System.String HsmClientCertificateIdentifier { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the HsmClientCertificateIdentifier parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -61,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteHsmClientCertificateRequest();
+            var request = new Amazon.Redshift.Model.DeleteHsmClientCertificateRequest();
             
             if (cmdletContext.HsmClientCertificateIdentifier != null)
             {
@@ -134,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HsmClientCertificateIdentifier { get; set; }
+            public System.String HsmClientCertificateIdentifier { get; set; }
         }
         
     }

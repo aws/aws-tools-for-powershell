@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DisassociateRouteTable operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DisassociateRouteTable"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AssociationId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DisassociateRouteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.DisassociateRouteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UnregisterEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationId
         /// <summary>
         /// <para>
         /// <para>The association ID representing the current association between the route table and
@@ -54,15 +56,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AssociationId { get; set; }
+        public System.String AssociationId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AssociationId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisassociateRouteTableRequest();
+            var request = new Amazon.EC2.Model.DisassociateRouteTableRequest();
             
             if (cmdletContext.AssociationId != null)
             {
@@ -143,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AssociationId { get; set; }
+            public System.String AssociationId { get; set; }
         }
         
     }

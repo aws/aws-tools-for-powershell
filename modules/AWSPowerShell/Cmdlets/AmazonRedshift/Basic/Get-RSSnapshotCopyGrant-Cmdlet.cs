@@ -43,19 +43,23 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DescribeSnapshotCopyGrants operation against Amazon Redshift.", Operation = new[] {"DescribeSnapshotCopyGrants"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.SnapshotCopyGrant",
         "This cmdlet returns a collection of SnapshotCopyGrant objects.",
-        "The service call response (type DescribeSnapshotCopyGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String)"
+        "The service call response (type Amazon.Redshift.Model.DescribeSnapshotCopyGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
     public class GetRSSnapshotCopyGrantCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter SnapshotCopyGrantName
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot copy grant.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotCopyGrantName { get; set; }
+        public System.String SnapshotCopyGrantName { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>A tag key or keys for which you want to return all matching resources that are associated
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter TagValue
         /// <summary>
         /// <para>
         /// <para>A tag value or values for which you want to return all matching resources that are
@@ -81,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("TagValues")]
         public System.String[] TagValue { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -95,8 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -108,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -126,11 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.SnapshotCopyGrantName = this.SnapshotCopyGrantName;
             if (this.TagKey != null)
             {
-                context.TagKeys = new List<String>(this.TagKey);
+                context.TagKeys = new List<System.String>(this.TagKey);
             }
             if (this.TagValue != null)
             {
-                context.TagValues = new List<String>(this.TagValue);
+                context.TagValues = new List<System.String>(this.TagValue);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -144,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeSnapshotCopyGrantsRequest();
+            var request = new Amazon.Redshift.Model.DescribeSnapshotCopyGrantsRequest();
             if (cmdletContext.SnapshotCopyGrantName != null)
             {
                 request.SnapshotCopyGrantName = cmdletContext.SnapshotCopyGrantName;
@@ -159,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -274,11 +284,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
-            public String SnapshotCopyGrantName { get; set; }
-            public List<String> TagKeys { get; set; }
-            public List<String> TagValues { get; set; }
+            public System.String SnapshotCopyGrantName { get; set; }
+            public List<System.String> TagKeys { get; set; }
+            public List<System.String> TagValues { get; set; }
         }
         
     }

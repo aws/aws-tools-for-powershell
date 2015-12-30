@@ -1,4 +1,4 @@
-﻿/*******************************************************************************
+/*******************************************************************************
  *  Copyright 2012-2013 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
  *  this file except in compliance with the License. A copy of the License is located at
@@ -36,88 +36,113 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     + "or uses the TransferUtility to download the S3 object to a local file.",
                     Operation = new [] {"CopyObject"})]
     [AWSCmdletOutput("Amazon.S3.Model.CopyObjectResponse or System.IO.FileInfo",
-        "This cmdlet returns a CopyObjectResponse instance from the service when copying to another S3 object. "
+        "This cmdlet returns an Amazon.S3.Model.CopyObjectResponse instance from the service when copying to another S3 object. "
             + " When copying from S3 to the local file system, the cmdlet returns a FileInfo instance representing the local file.",
-        "The service response (type CopyObjectResponse) is also added to the cmdlet entry in the $AWSHistory stack regardless of S3->S3 or S3->local file copy mode."
+        "The service response (type Amazon.S3.Model.CopyObjectResponse) is also added to the cmdlet entry in the $AWSHistory stack regardless of S3->S3 or S3->local file copy mode."
     )]
     public class CopyS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        #region Parameter BucketName
         /// <summary>
         /// The name of the bucket containing the source object.
         /// </summary>
         [Parameter(Position = 0, Mandatory = true, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("SourceBucket")]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
 
+        #region Parameter Key
         /// <summary>
         /// The key of the source object to copy.
         /// </summary>
         [Parameter(Position = 1, Mandatory = true)]
         [Alias("SourceKey")]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
+        #endregion
 
+        #region Parameter VersionId
         /// <summary>
         /// Specifies the version of the source object to copy.
         /// </summary>
         [Parameter]
         [Alias("SourceVersionId")]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
+        #endregion
 
         #region Copy to S3 Target Parameters
 
+        #region Parameter DestinationKey
         /// <summary>
         /// The key for the copy of the source S3 object.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = "S3toS3ParamSet", Mandatory=true)]
-        public String DestinationKey { get; set; }
+        public System.String DestinationKey { get; set; }
+        #endregion
 
+        #region Parameter DestinationBucket
         /// <summary>
         /// The name of the bucket that will contain the copied object. If not specified,
         /// the copy is to another S3 object in the source bucket.
         /// </summary>
         [Parameter(Position = 3, ParameterSetName = "S3toS3ParamSet")]
-        public String DestinationBucket { get; set; }
+        public System.String DestinationBucket { get; set; }
+        #endregion
 
+        #region Parameter MetadataDirective
         /// <summary>
         /// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
         /// Valid values are COPY or REPLACE. COPY is the default if not specified.
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
-        public string MetadataDirective { get; set; }
+        [AWSConstantClassSource("Amazon.S3.S3MetadataDirective")]
+        public Amazon.S3.S3MetadataDirective MetadataDirective { get; set; }
+        #endregion
 
+        #region Parameter ContentType
         /// <summary>
         /// Sets the content type of the target object; if not specified an attempt is made to infer it using the destination
         /// or source object keys.
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
-        public String ContentType { get; set; }
+        public System.String ContentType { get; set; }
+        #endregion
 
+        #region Parameter CannedACLName
         /// <summary>
         /// Specifies the canned ACL (access control list) of permissions to be applied to the S3 bucket.
-        /// Please refer to <see cref="T:Amazon.S3.Model.S3CannedACL" /> for information on S3 Canned ACLs.
+        /// Please refer to <a href="http://docs.aws.amazon.com/sdkfornet/v3/apidocs/Index.html?page=S3/TS3_S3CannedACL.html&tocid=Amazon_S3_S3CannedACL">Amazon.S3.Model.S3CannedACL</a> for information on S3 Canned ACLs.
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
-        public string CannedACLName { get; set; }
+        [AWSConstantClassSource("Amazon.S3.S3CannedACL")]
+        public Amazon.S3.S3CannedACL CannedACLName { get; set; }
+        #endregion
 
+        #region Parameter PublicReadOnly
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-only permissions
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
         public SwitchParameter PublicReadOnly { get; set; }
+        #endregion
 
+        #region Parameter PublicReadWrite
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-write permissions
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
         public SwitchParameter PublicReadWrite { get; set; }
+        #endregion
 
+        #region Parameter StandardStorage
         /// <summary>
         /// Specifies the STANDARD storage class, which is the default storage class for S3 objects.
         /// Provides a 99.999999999% durability guarantee.
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
         public SwitchParameter StandardStorage { get; set; }
+        #endregion
 
+        #region Parameter ReducedRedundancyStorage
         /// <summary>
         /// Specifies S3 should use REDUCED_REDUNDANCY storage class for the object. This
         /// provides a reduced (99.99%) durability guarantee at a lower
@@ -128,115 +153,151 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
         public SwitchParameter ReducedRedundancyStorage { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryption
         /// <summary>
         /// Specifies the encryption used on the server to store the content.
-        /// Allowable values: None, AES256, AWSKMS.
+        /// Allowable values: None, AES256, aws:kms.
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
-        public string ServerSideEncryption { get; set; }
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionMethod")]
+        public Amazon.S3.ServerSideEncryptionMethod ServerSideEncryption { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionKeyManagementServiceKeyId
         /// <summary>
         /// Specifies the AWS KMS key for Amazon S3 to use to encrypt the object.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+        public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+        #endregion
 
+        #region Parameter WebsiteRedirectLocation
         /// <summary>
-        /// Gets and sets the WebsiteRedirectLocation property.
         /// If this is set then when a GET request is made from the S3 website endpoint a 301 HTTP status code
         /// will be returned indicating a redirect with this value as the redirect location.
         /// </summary>
         [Parameter(ParameterSetName = "S3toS3ParamSet")]
-        public String WebsiteRedirectLocation { get; set; }
+        public System.String WebsiteRedirectLocation { get; set; }
+        #endregion
 
+        #region Parameter Metadata
         /// <summary>
         /// Metadata headers to set on the object.
         /// </summary>
         [Parameter]
-        public Hashtable Metadata { get; set; }
+        public System.Collections.Hashtable Metadata { get; set; }
+        #endregion
 
+        #region Parameter HeaderCollection
         /// <summary>
         /// Response headers to set on the object.
         /// </summary>
         [Parameter]
         [Alias("Headers")]
-        public Hashtable HeaderCollection { get; set; }
+        public System.Collections.Hashtable HeaderCollection { get; set; }
+        #endregion
 
         #endregion
 
         #region Copy to Local File Parameters
 
+        #region Parameter LocalFile
         /// <summary>
         /// The full path to the local file that will be created.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = "LocalFileParamSet", Mandatory = true)]
-        public String LocalFile { get; set; }
+        public System.String LocalFile { get; set; }
+        #endregion
 
         #endregion
 
+        #region Parameter ETagToMatch
         /// <summary>
         /// Copies the object if its entity tag (ETag) matches the specified tag; otherwise return a PreconditionFailed.
         /// </summary>
         [Parameter]
-        public String ETagToMatch { get; set; }
+        public System.String ETagToMatch { get; set; }
+        #endregion
 
+        #region Parameter ETagToNotMatch
         /// <summary>
         /// Copies the object if its entity tag (ETag) is different than the specified Etag; otherwise returns an error.
         /// </summary>
         [Parameter]
-        public String ETagToNotMatch { get; set; }
+        public System.String ETagToNotMatch { get; set; }
+        #endregion
 
+        #region Parameter ModifiedSinceDate
         /// <summary>
         /// Copies the object if it has been modified since the specified time; otherwise returns an error.
         /// </summary>
         [Parameter]
-        public DateTime ModifiedSinceDate { get; set; }
+        public System.DateTime ModifiedSinceDate { get; set; }
+        #endregion
 
+        #region Parameter UnmodifiedSinceDate
         /// <summary>
         /// Copies the object if it hasn't been modified since the specified time; otherwise returns a PreconditionFailed.
         /// </summary>
         [Parameter]
-        public DateTime UnmodifiedSinceDate { get; set; }
+        public System.DateTime UnmodifiedSinceDate { get; set; }
+        #endregion
 
+        #region Parameter CopySourceServerSideEncryptionCustomerMethod
         /// <summary>
         /// Specifies the server-side encryption algorithm used on the source object with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
         [Parameter]
-        public string CopySourceServerSideEncryptionCustomerMethod { get; set; }
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
+        public Amazon.S3.ServerSideEncryptionCustomerMethod CopySourceServerSideEncryptionCustomerMethod { get; set; }
+        #endregion
 
+        #region Parameter CopySourceServerSideEncryptionCustomerProvidedKey
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 used on the source object.
         /// </summary>
         [Parameter]
-        public string CopySourceServerSideEncryptionCustomerProvidedKey { get; set; }
+        public System.String CopySourceServerSideEncryptionCustomerProvidedKey { get; set; }
+        #endregion
 
+        #region Parameter CopySourceServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 used on the source object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
         [Parameter]
-        public string CopySourceServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        public System.String CopySourceServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// Specifies the server-side encryption algorithm to be used with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerMethod { get; set; }
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
+        public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerProvidedKey
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 to use to decrypt the object.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerProvidedKey { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
         [Parameter]
-        public string ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -244,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {
@@ -286,18 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (ParameterWasBound("UnmodifiedSinceDate"))
                 UnmodifiedSinceDate = this.UnmodifiedSinceDate;
 
-            if (!string.IsNullOrEmpty(this.MetadataDirective))
-            {
-                try
-                {
-                    context.MetadataDirective = (S3MetadataDirective)Enum.Parse(typeof(S3MetadataDirective), this.MetadataDirective, true);
-                }
-                catch (ArgumentException e)
-                {
-                    string errMsg = "Invalid S3MetadataDirective value; allowable values: " + string.Join(", ", Enum.GetNames(typeof(S3MetadataDirective)));
-                    ThrowArgumentError(errMsg, this.MetadataDirective, e);
-                }
-            }
+            if (ParameterWasBound("MetadataDirective"))
+                context.MetadataDirective = this.MetadataDirective;
 
             if (!string.IsNullOrEmpty(this.CannedACLName))
             {

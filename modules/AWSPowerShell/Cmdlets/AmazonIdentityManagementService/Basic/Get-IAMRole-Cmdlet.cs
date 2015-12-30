@@ -39,18 +39,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetRole operation against AWS Identity and Access Management.", Operation = new[] {"GetRole"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role",
         "This cmdlet returns a Role object.",
-        "The service call response (type GetRoleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetRoleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMRoleCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RoleName
         /// <summary>
         /// <para>
         /// <para>The name of the role to get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String RoleName { get; set; }
-        
+        public System.String RoleName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetRoleRequest();
+            var request = new Amazon.IdentityManagement.Model.GetRoleRequest();
             
             if (cmdletContext.RoleName != null)
             {
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String RoleName { get; set; }
+            public System.String RoleName { get; set; }
         }
         
     }

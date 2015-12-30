@@ -32,12 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DOperationDetail")]
     [OutputType("Amazon.Route53Domains.Model.GetOperationDetailResponse")]
-    [AWSCmdlet("Invokes the GetOperationDetail operation against AWS Route 53 Domains.", Operation = new[] {"GetOperationDetail"})]
+    [AWSCmdlet("Invokes the GetOperationDetail operation against Amazon Route 53 Domains.", Operation = new[] {"GetOperationDetail"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.GetOperationDetailResponse",
-        "This cmdlet returns a GetOperationDetailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53Domains.Model.GetOperationDetailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53DOperationDetailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter OperationId
         /// <summary>
         /// <para>
         /// <para>The identifier for the operation for which you want to get the status. Amazon Route
@@ -45,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String OperationId { get; set; }
-        
+        public System.String OperationId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetOperationDetailRequest();
+            var request = new Amazon.Route53Domains.Model.GetOperationDetailRequest();
             
             if (cmdletContext.OperationId != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String OperationId { get; set; }
+            public System.String OperationId { get; set; }
         }
         
     }

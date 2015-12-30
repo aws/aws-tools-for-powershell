@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [AWSCmdlet("Invokes the UpdateContainerAgent operation against Amazon EC2 Container Service.", Operation = new[] {"UpdateContainerAgent"})]
     [AWSCmdletOutput("Amazon.ECS.Model.ContainerInstance",
         "This cmdlet returns a ContainerInstance object.",
-        "The service call response (type UpdateContainerAgentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ECS.Model.UpdateContainerAgentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateECSContainerAgentCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that your container
@@ -58,17 +60,21 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>The container instance UUID or full Amazon Resource Name (ARN) entries for the container
+        /// <para>The container instance ID or full Amazon Resource Name (ARN) entries for the container
         /// instance on which you would like to update the Amazon ECS container agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ContainerInstance { get; set; }
+        public System.String ContainerInstance { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -107,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateContainerAgentRequest();
+            var request = new Amazon.ECS.Model.UpdateContainerAgentRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -152,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public String ContainerInstance { get; set; }
+            public System.String Cluster { get; set; }
+            public System.String ContainerInstance { get; set; }
         }
         
     }

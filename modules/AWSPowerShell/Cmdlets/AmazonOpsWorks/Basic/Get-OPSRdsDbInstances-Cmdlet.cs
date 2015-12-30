@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeRdsDbInstances operation against AWS OpsWorks.", Operation = new[] {"DescribeRdsDbInstances"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.RdsDbInstance",
         "This cmdlet returns a collection of RdsDbInstance objects.",
-        "The service call response (type DescribeRdsDbInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeRdsDbInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSRdsDbInstancesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter RdsDbInstanceArn
         /// <summary>
         /// <para>
         /// <para>An array containing the ARNs of the instances to be described.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("RdsDbInstanceArns")]
         public System.String[] RdsDbInstanceArn { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID that the instances are registered with. The operation returns descriptions
@@ -62,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
-        
+        public System.String StackId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -77,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.RdsDbInstanceArn != null)
             {
-                context.RdsDbInstanceArns = new List<String>(this.RdsDbInstanceArn);
+                context.RdsDbInstanceArns = new List<System.String>(this.RdsDbInstanceArn);
             }
             context.StackId = this.StackId;
             
@@ -91,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeRdsDbInstancesRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeRdsDbInstancesRequest();
             
             if (cmdletContext.RdsDbInstanceArns != null)
             {
@@ -136,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> RdsDbInstanceArns { get; set; }
-            public String StackId { get; set; }
+            public List<System.String> RdsDbInstanceArns { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

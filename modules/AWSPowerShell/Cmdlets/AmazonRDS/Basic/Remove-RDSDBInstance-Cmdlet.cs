@@ -51,10 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the DeleteDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
-        "The service call response (type DeleteDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.DeleteDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier for the DB instance to be deleted. This parameter isn't
@@ -64,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBInstanceIdentifier { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
@@ -75,8 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalDBSnapshotIdentifier { get; set; }
+        public System.String FinalDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SkipFinalSnapshot
         /// <summary>
         /// <para>
         /// <para> Determines whether a final DB snapshot is created before the DB instance is deleted.
@@ -88,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SkipFinalSnapshot { get; set; }
+        public System.Boolean SkipFinalSnapshot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -97,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -130,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDBInstanceRequest();
+            var request = new Amazon.RDS.Model.DeleteDBInstanceRequest();
             
             if (cmdletContext.DBInstanceIdentifier != null)
             {
@@ -179,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBInstanceIdentifier { get; set; }
-            public String FinalDBSnapshotIdentifier { get; set; }
-            public Boolean? SkipFinalSnapshot { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String FinalDBSnapshotIdentifier { get; set; }
+            public System.Boolean? SkipFinalSnapshot { get; set; }
         }
         
     }

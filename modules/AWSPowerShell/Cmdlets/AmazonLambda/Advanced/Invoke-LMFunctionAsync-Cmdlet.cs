@@ -41,34 +41,37 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [OutputType("System.Int32")]
     [AWSCmdlet("Invokes the InvokeAsync operation against Amazon Lambda.", Operation = new [] {"InvokeAsync"})]
     [AWSCmdletOutput("System.Int32",
-        "This cmdlet returns a Int32 object.",
-        "The service call response (type InvokeAsyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a System.Int32 object.",
+        "The service call response (type Amazon.Lambda.Model.InvokeAsyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class InvokeLMFunctionAsyncCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// Gets and sets the property FunctionName. 
-        /// <para>
-        /// The cloud function name.
+        /// The Lambda function name.
         /// </para>
+        /// <para>
+        /// Length constraints: Minimum length of 1. Maximum length of 140.
+        /// </para>
+        /// <para>
+        /// Pattern: (arn:aws:lambda:)?([a-z]{2}-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String FunctionName { get; set; }
-        
+        public System.String FunctionName { get; set; }
+        #endregion
+
+        #region Parameter InvokeArg
         /// <summary>
-        /// <para>
-        /// Gets and sets the property InvokeArgs. 
-        /// <para>
-        /// JSON that you want to provide to your cloud function as input.
-        /// </para>
-        /// </para>
+        /// JSON that you want to provide to your Lambda function as input.
         /// </summary>
         [Parameter(Position = 1)]
         [Alias("InvokeArgs")]
-        public String InvokeArg { get; set; }
+        public System.String InvokeArg { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,6 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

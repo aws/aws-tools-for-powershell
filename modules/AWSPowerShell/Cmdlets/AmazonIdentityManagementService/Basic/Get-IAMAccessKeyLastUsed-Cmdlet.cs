@@ -36,18 +36,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse")]
     [AWSCmdlet("Invokes the GetAccessKeyLastUsed operation against AWS Identity and Access Management.", Operation = new[] {"GetAccessKeyLastUsed"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse",
-        "This cmdlet returns a GetAccessKeyLastUsedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetAccessKeyLastUsedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMAccessKeyLastUsedCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccessKeyId
         /// <summary>
         /// <para>
         /// <para>The identifier of an access key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AccessKeyId { get; set; }
-        
+        public System.String AccessKeyId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -71,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetAccessKeyLastUsedRequest();
+            var request = new Amazon.IdentityManagement.Model.GetAccessKeyLastUsedRequest();
             
             if (cmdletContext.AccessKeyId != null)
             {
@@ -112,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AccessKeyId { get; set; }
+            public System.String AccessKeyId { get; set; }
         }
         
     }

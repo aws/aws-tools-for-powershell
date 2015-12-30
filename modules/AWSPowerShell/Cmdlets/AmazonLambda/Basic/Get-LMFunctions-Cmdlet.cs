@@ -42,11 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
     [AWSCmdlet("Invokes the ListFunctions operation against Amazon Lambda.", Operation = new[] {"ListFunctions"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.FunctionConfiguration",
         "This cmdlet returns a collection of FunctionConfiguration objects.",
-        "The service call response (type ListFunctionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type String)"
+        "The service call response (type Amazon.Lambda.Model.ListFunctionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
     public class GetLMFunctionsCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code>
@@ -54,8 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Optional integer. Specifies the maximum number of AWS Lambda functions to return in
@@ -64,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public Int32 MaxItem { get; set; }
-        
+        public System.Int32 MaxItem { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListFunctionsRequest();
+            var request = new Amazon.Lambda.Model.ListFunctionsRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -138,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public Int32? MaxItems { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxItems { get; set; }
         }
         
     }

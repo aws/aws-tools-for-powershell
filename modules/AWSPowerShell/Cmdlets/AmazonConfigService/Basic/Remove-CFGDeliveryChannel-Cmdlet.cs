@@ -39,28 +39,34 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Remove", "CFGDeliveryChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDeliveryChannel operation against Amazon Config.", Operation = new[] {"DeleteDeliveryChannel"})]
+    [AWSCmdlet("Invokes the DeleteDeliveryChannel operation against AWS Config.", Operation = new[] {"DeleteDeliveryChannel"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryChannelName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ConfigService.Model.DeleteDeliveryChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCFGDeliveryChannelCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryChannelName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery channel to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DeliveryChannelName { get; set; }
+        public System.String DeliveryChannelName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DeliveryChannelName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -98,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteDeliveryChannelRequest();
+            var request = new Amazon.ConfigService.Model.DeleteDeliveryChannelRequest();
             
             if (cmdletContext.DeliveryChannelName != null)
             {
@@ -141,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DeliveryChannelName { get; set; }
+            public System.String DeliveryChannelName { get; set; }
         }
         
     }

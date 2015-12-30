@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     [AWSCmdlet("Invokes the CreateKey operation against AWS Key Management Service.", Operation = new[] {"CreateKey"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.KeyMetadata",
         "This cmdlet returns a KeyMetadata object.",
-        "The service call response (type CreateKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.KeyManagementService.Model.CreateKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Description of the key. We recommend that you choose a description that helps your
@@ -49,8 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter KeyUsage
         /// <summary>
         /// <para>
         /// <para>Specifies the intended use of the key. Currently this defaults to ENCRYPT/DECRYPT,
@@ -58,17 +62,22 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public KeyUsageType KeyUsage { get; set; }
+        [AWSConstantClassSource("Amazon.KeyManagementService.KeyUsageType")]
+        public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>Policy to be attached to the key. This is required and delegates back to the account.
-        /// The key is the root of trust. </para>
+        /// <para>Policy to attach to the key. This is required and delegates back to the account. The
+        /// key is the root of trust. The policy size limit is 32 KiB (32768 bytes). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Policy { get; set; }
+        public System.String Policy { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -108,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateKeyRequest();
+            var request = new Amazon.KeyManagementService.Model.CreateKeyRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -157,9 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public KeyUsageType KeyUsage { get; set; }
-            public String Policy { get; set; }
+            public System.String Description { get; set; }
+            public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
+            public System.String Policy { get; set; }
         }
         
     }

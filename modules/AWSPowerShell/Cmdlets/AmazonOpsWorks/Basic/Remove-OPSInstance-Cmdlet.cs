@@ -46,41 +46,52 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DeleteInstance operation against AWS OpsWorks.", Operation = new[] {"DeleteInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.DeleteInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeleteElasticIp
         /// <summary>
         /// <para>
         /// <para>Whether to delete the instance Elastic IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Boolean DeleteElasticIp { get; set; }
+        public System.Boolean DeleteElasticIp { get; set; }
+        #endregion
         
+        #region Parameter DeleteVolume
         /// <summary>
         /// <para>
         /// <para>Whether to delete the instance's Amazon EBS volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean DeleteVolumes { get; set; }
+        [Alias("DeleteVolumes")]
+        public System.Boolean DeleteVolume { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -108,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (ParameterWasBound("DeleteElasticIp"))
                 context.DeleteElasticIp = this.DeleteElasticIp;
-            if (ParameterWasBound("DeleteVolumes"))
-                context.DeleteVolumes = this.DeleteVolumes;
+            if (ParameterWasBound("DeleteVolume"))
+                context.DeleteVolumes = this.DeleteVolume;
             context.InstanceId = this.InstanceId;
             
             var output = Execute(context) as CmdletOutput;
@@ -122,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.DeleteInstanceRequest();
             
             if (cmdletContext.DeleteElasticIp != null)
             {
@@ -173,9 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? DeleteElasticIp { get; set; }
-            public Boolean? DeleteVolumes { get; set; }
-            public String InstanceId { get; set; }
+            public System.Boolean? DeleteElasticIp { get; set; }
+            public System.Boolean? DeleteVolumes { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

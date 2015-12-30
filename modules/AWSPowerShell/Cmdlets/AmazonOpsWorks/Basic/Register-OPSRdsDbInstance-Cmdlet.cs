@@ -42,49 +42,61 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the RegisterRdsDbInstance operation against AWS OpsWorks.", Operation = new[] {"RegisterRdsDbInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type RegisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterOPSRdsDbInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter DbPassword
         /// <summary>
         /// <para>
         /// <para>The database password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DbPassword { get; set; }
+        public System.String DbPassword { get; set; }
+        #endregion
         
+        #region Parameter DbUser
         /// <summary>
         /// <para>
         /// <para>The database's master user name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DbUser { get; set; }
+        public System.String DbUser { get; set; }
+        #endregion
         
+        #region Parameter RdsDbInstanceArn
         /// <summary>
         /// <para>
         /// <para>The Amazon RDS instance's ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String RdsDbInstanceArn { get; set; }
+        public System.String RdsDbInstanceArn { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StackId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -125,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterRdsDbInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.RegisterRdsDbInstanceRequest();
             
             if (cmdletContext.DbPassword != null)
             {
@@ -180,10 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DbPassword { get; set; }
-            public String DbUser { get; set; }
-            public String RdsDbInstanceArn { get; set; }
-            public String StackId { get; set; }
+            public System.String DbPassword { get; set; }
+            public System.String DbUser { get; set; }
+            public System.String RdsDbInstanceArn { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

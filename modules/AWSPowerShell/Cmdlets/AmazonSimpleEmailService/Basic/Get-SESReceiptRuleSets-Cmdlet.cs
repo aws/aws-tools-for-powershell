@@ -46,11 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the ListReceiptRuleSets operation against Amazon Simple Email Service.", Operation = new[] {"ListReceiptRuleSets"})]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.ReceiptRuleSetMetadata",
         "This cmdlet returns a collection of ReceiptRuleSetMetadata objects.",
-        "The service call response (type ListReceiptRuleSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.SimpleEmail.Model.ListReceiptRuleSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetSESReceiptRuleSetsCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate
@@ -58,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -83,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListReceiptRuleSetsRequest();
+            var request = new Amazon.SimpleEmail.Model.ListReceiptRuleSetsRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -126,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

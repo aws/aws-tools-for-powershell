@@ -46,10 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [OutputType("Amazon.IdentityManagement.Model.ListEntitiesForPolicyResponse")]
     [AWSCmdlet("Invokes the ListEntitiesForPolicy operation against AWS Identity and Access Management.", Operation = new[] {"ListEntitiesForPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ListEntitiesForPolicyResponse",
-        "This cmdlet returns a ListEntitiesForPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.ListEntitiesForPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMEntitiesForPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter EntityFilter
         /// <summary>
         /// <para>
         /// <para>The entity type to use for filtering the results. </para><para>For example, when <code>EntityFilter</code> is <code>Role</code>, only the roles that
@@ -59,8 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EntityType EntityFilter { get; set; }
+        [AWSConstantClassSource("Amazon.IdentityManagement.EntityType")]
+        public Amazon.IdentityManagement.EntityType EntityFilter { get; set; }
+        #endregion
         
+        #region Parameter PathPrefix
         /// <summary>
         /// <para>
         /// <para>The path prefix for filtering the results. This parameter is optional. If it is not
@@ -68,38 +73,48 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PathPrefix { get; set; }
+        public System.String PathPrefix { get; set; }
+        #endregion
         
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
         /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
-        /// element in the response you received to inform the next call about where to start.</para>
+        /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
-        /// want in the response. If there are additional items beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100.</para>
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. In that
+        /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
+        /// <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public Int32 MaxItem { get; set; }
-        
+        public System.Int32 MaxItem { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -128,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListEntitiesForPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.ListEntitiesForPolicyRequest();
             
             if (cmdletContext.EntityFilter != null)
             {
@@ -185,11 +200,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public EntityType EntityFilter { get; set; }
-            public String Marker { get; set; }
-            public Int32? MaxItems { get; set; }
-            public String PathPrefix { get; set; }
-            public String PolicyArn { get; set; }
+            public Amazon.IdentityManagement.EntityType EntityFilter { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxItems { get; set; }
+            public System.String PathPrefix { get; set; }
+            public System.String PolicyArn { get; set; }
         }
         
     }

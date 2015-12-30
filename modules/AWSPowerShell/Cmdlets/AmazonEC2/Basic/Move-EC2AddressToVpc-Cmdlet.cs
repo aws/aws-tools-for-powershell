@@ -39,18 +39,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.MoveAddressToVpcResponse")]
     [AWSCmdlet("Invokes the MoveAddressToVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"MoveAddressToVpc"})]
     [AWSCmdletOutput("Amazon.EC2.Model.MoveAddressToVpcResponse",
-        "This cmdlet returns a MoveAddressToVpcResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.MoveAddressToVpcResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class MoveEC2AddressToVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>The Elastic IP address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String PublicIp { get; set; }
+        public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -88,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new MoveAddressToVpcRequest();
+            var request = new Amazon.EC2.Model.MoveAddressToVpcRequest();
             
             if (cmdletContext.PublicIp != null)
             {
@@ -129,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PublicIp { get; set; }
+            public System.String PublicIp { get; set; }
         }
         
     }

@@ -38,21 +38,23 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DTagsForDomain")]
     [OutputType("Amazon.Route53Domains.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForDomain operation against AWS Route 53 Domains.", Operation = new[] {"ListTagsForDomain"})]
+    [AWSCmdlet("Invokes the ListTagsForDomain operation against Amazon Route 53 Domains.", Operation = new[] {"ListTagsForDomain"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type ListTagsForDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.ListTagsForDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The domain for which you want to get a list of tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
-        
+        public System.String DomainName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -76,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsForDomainRequest();
+            var request = new Amazon.Route53Domains.Model.ListTagsForDomainRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -117,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
+            public System.String DomainName { get; set; }
         }
         
     }

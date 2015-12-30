@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the CreateCacheParameterGroup operation against Amazon ElastiCache.", Operation = new[] {"CreateCacheParameterGroup"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheParameterGroup",
         "This cmdlet returns a CacheParameterGroup object.",
-        "The service call response (type CreateCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.CreateCacheParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECCacheParameterGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para>The name of the cache parameter group family the cache parameter group can be used
@@ -48,24 +50,30 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String CacheParameterGroupFamily { get; set; }
+        public System.String CacheParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
         /// <para>A user-specified name for the cache parameter group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheParameterGroupName { get; set; }
+        public System.String CacheParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A user-specified description for the cache parameter group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCacheParameterGroupRequest();
+            var request = new Amazon.ElastiCache.Model.CreateCacheParameterGroupRequest();
             
             if (cmdletContext.CacheParameterGroupFamily != null)
             {
@@ -154,9 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheParameterGroupFamily { get; set; }
-            public String CacheParameterGroupName { get; set; }
-            public String Description { get; set; }
+            public System.String CacheParameterGroupFamily { get; set; }
+            public System.String CacheParameterGroupName { get; set; }
+            public System.String Description { get; set; }
         }
         
     }

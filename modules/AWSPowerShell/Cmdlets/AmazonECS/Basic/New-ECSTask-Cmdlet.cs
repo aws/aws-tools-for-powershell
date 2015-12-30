@@ -28,8 +28,8 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Start a task using random placement and the default Amazon ECS scheduler. If you want
-    /// to use your own scheduler or place a task on a specific container instance, use <code>StartTask</code>
+    /// Start a task using random placement and the default Amazon ECS scheduler. To use your
+    /// own scheduler or place a task on a specific container instance, use <code>StartTask</code>
     /// instead.
     /// 
     ///  <important><para>
@@ -40,19 +40,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     [OutputType("Amazon.ECS.Model.RunTaskResponse")]
     [AWSCmdlet("Invokes the RunTask operation against Amazon EC2 Container Service.", Operation = new[] {"RunTask"})]
     [AWSCmdletOutput("Amazon.ECS.Model.RunTaskResponse",
-        "This cmdlet returns a RunTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ECS.Model.RunTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that you want to
-        /// run your task on. If you do not specify a cluster, the default cluster is assumed..</para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of the cluster on which to run your
+        /// task. If you do not specify a cluster, the default cluster is assumed..</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Cluster { get; set; }
+        public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter Overrides_ContainerOverride
         /// <summary>
         /// <para>
         /// <para>One or more container overrides sent to a task.</para>
@@ -61,16 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("Overrides_ContainerOverrides")]
         public Amazon.ECS.Model.ContainerOverride[] Overrides_ContainerOverride { get; set; }
+        #endregion
         
+        #region Parameter Count
         /// <summary>
         /// <para>
-        /// <para>The number of instantiations of the specified task that you would like to place on
-        /// your cluster.</para><important><para>The <code>count</code> parameter is limited to 10 tasks per call.</para></important>
+        /// <para>The number of instantiations of the specified task to place on your cluster.</para><important><para>The <code>count</code> parameter is limited to 10 tasks per call.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Count { get; set; }
+        public System.Int32 Count { get; set; }
+        #endregion
         
+        #region Parameter StartedBy
         /// <summary>
         /// <para>
         /// <para>An optional tag specified when a task is started. For example if you automatically
@@ -82,19 +89,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartedBy { get; set; }
+        public System.String StartedBy { get; set; }
+        #endregion
         
+        #region Parameter TaskDefinition
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition that you want to run. If a
-        /// <code>revision</code> is not specified, the latest <code>ACTIVE</code> revision is
-        /// used.</para>
+        /// full Amazon Resource Name (ARN) of the task definition to run. If a <code>revision</code>
+        /// is not specified, the latest <code>ACTIVE</code> revision is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TaskDefinition { get; set; }
+        public System.String TaskDefinition { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -125,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Count = this.Count;
             if (this.Overrides_ContainerOverride != null)
             {
-                context.Overrides_ContainerOverrides = new List<ContainerOverride>(this.Overrides_ContainerOverride);
+                context.Overrides_ContainerOverrides = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
             }
             context.StartedBy = this.StartedBy;
             context.TaskDefinition = this.TaskDefinition;
@@ -140,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RunTaskRequest();
+            var request = new Amazon.ECS.Model.RunTaskRequest();
             
             if (cmdletContext.Cluster != null)
             {
@@ -153,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
              // populate Overrides
             bool requestOverridesIsNull = true;
-            request.Overrides = new TaskOverride();
-            List<ContainerOverride> requestOverrides_overrides_ContainerOverride = null;
+            request.Overrides = new Amazon.ECS.Model.TaskOverride();
+            List<Amazon.ECS.Model.ContainerOverride> requestOverrides_overrides_ContainerOverride = null;
             if (cmdletContext.Overrides_ContainerOverrides != null)
             {
                 requestOverrides_overrides_ContainerOverride = cmdletContext.Overrides_ContainerOverrides;
@@ -212,11 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Cluster { get; set; }
-            public Int32? Count { get; set; }
-            public List<ContainerOverride> Overrides_ContainerOverrides { get; set; }
-            public String StartedBy { get; set; }
-            public String TaskDefinition { get; set; }
+            public System.String Cluster { get; set; }
+            public System.Int32? Count { get; set; }
+            public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverrides { get; set; }
+            public System.String StartedBy { get; set; }
+            public System.String TaskDefinition { get; set; }
         }
         
     }

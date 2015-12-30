@@ -37,26 +37,32 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the RevokeCacheSecurityGroupIngress operation against Amazon ElastiCache.", Operation = new[] {"RevokeCacheSecurityGroupIngress"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSecurityGroup",
         "This cmdlet returns a CacheSecurityGroup object.",
-        "The service call response (type RevokeCacheSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RevokeECCacheSecurityGroupIngressCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the cache security group to revoke ingress from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String CacheSecurityGroupName { get; set; }
+        public System.String CacheSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon EC2 security group to revoke access from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupName { get; set; }
+        public System.String EC2SecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
         /// <para>The AWS account number of the Amazon EC2 security group owner. Note that this is not
@@ -65,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String EC2SecurityGroupOwnerId { get; set; }
+        public System.String EC2SecurityGroupOwnerId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -74,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -106,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RevokeCacheSecurityGroupIngressRequest();
+            var request = new Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressRequest();
             
             if (cmdletContext.CacheSecurityGroupName != null)
             {
@@ -155,9 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CacheSecurityGroupName { get; set; }
-            public String EC2SecurityGroupName { get; set; }
-            public String EC2SecurityGroupOwnerId { get; set; }
+            public System.String CacheSecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupName { get; set; }
+            public System.String EC2SecurityGroupOwnerId { get; set; }
         }
         
     }

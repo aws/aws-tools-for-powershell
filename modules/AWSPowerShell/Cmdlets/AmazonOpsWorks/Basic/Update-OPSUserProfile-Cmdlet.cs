@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the UpdateUserProfile operation against AWS OpsWorks.", Operation = new[] {"UpdateUserProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IamUserArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.OpsWorks.Model.UpdateUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateOPSUserProfileCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowSelfManagement
         /// <summary>
         /// <para>
         /// <para>Whether users can specify their own SSH public key through the My Settings page. For
@@ -54,24 +56,30 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean AllowSelfManagement { get; set; }
+        public System.Boolean AllowSelfManagement { get; set; }
+        #endregion
         
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>The user IAM ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String IamUserArn { get; set; }
+        public System.String IamUserArn { get; set; }
+        #endregion
         
+        #region Parameter SshPublicKey
         /// <summary>
         /// <para>
         /// <para>The user's new SSH public key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshPublicKey { get; set; }
+        public System.String SshPublicKey { get; set; }
+        #endregion
         
+        #region Parameter SshUsername
         /// <summary>
         /// <para>
         /// <para>The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9], '-', and
@@ -82,15 +90,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshUsername { get; set; }
+        public System.String SshUsername { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the IamUserArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -132,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateUserProfileRequest();
+            var request = new Amazon.OpsWorks.Model.UpdateUserProfileRequest();
             
             if (cmdletContext.AllowSelfManagement != null)
             {
@@ -187,10 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? AllowSelfManagement { get; set; }
-            public String IamUserArn { get; set; }
-            public String SshPublicKey { get; set; }
-            public String SshUsername { get; set; }
+            public System.Boolean? AllowSelfManagement { get; set; }
+            public System.String IamUserArn { get; set; }
+            public System.String SshPublicKey { get; set; }
+            public System.String SshUsername { get; set; }
         }
         
     }

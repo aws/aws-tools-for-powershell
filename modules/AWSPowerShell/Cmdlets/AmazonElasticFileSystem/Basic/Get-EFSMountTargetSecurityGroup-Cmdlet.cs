@@ -44,18 +44,20 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the DescribeMountTargetSecurityGroups operation against Amazon Elastic File System.", Operation = new[] {"DescribeMountTargetSecurityGroups"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type DescribeMountTargetSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticFileSystem.Model.DescribeMountTargetSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEFSMountTargetSecurityGroupCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter MountTargetId
         /// <summary>
         /// <para>
         /// <para>The ID of the mount target whose security groups you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String MountTargetId { get; set; }
-        
+        public System.String MountTargetId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeMountTargetSecurityGroupsRequest();
+            var request = new Amazon.ElasticFileSystem.Model.DescribeMountTargetSecurityGroupsRequest();
             
             if (cmdletContext.MountTargetId != null)
             {
@@ -120,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MountTargetId { get; set; }
+            public System.String MountTargetId { get; set; }
         }
         
     }

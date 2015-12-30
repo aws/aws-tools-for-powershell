@@ -59,18 +59,22 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the RunJobFlow operation against Amazon Elastic MapReduce.", Operation = new[] {"RunJobFlow"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RunJobFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.RunJobFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdditionalInfo
         /// <summary>
         /// <para>
         /// <para>A JSON string for selecting additional features.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AdditionalInfo { get; set; }
+        public System.String AdditionalInfo { get; set; }
+        #endregion
         
+        #region Parameter Instances_AdditionalMasterSecurityGroup
         /// <summary>
         /// <para>
         /// <para>A list of additional Amazon EC2 security group IDs for the master node.</para>
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_AdditionalMasterSecurityGroups")]
         public System.String[] Instances_AdditionalMasterSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Instances_AdditionalSlaveSecurityGroup
         /// <summary>
         /// <para>
         /// <para>A list of additional Amazon EC2 security group IDs for the slave nodes.</para>
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_AdditionalSlaveSecurityGroups")]
         public System.String[] Instances_AdditionalSlaveSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter AmiVersion
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
@@ -102,8 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AmiVersion { get; set; }
+        public System.String AmiVersion { get; set; }
+        #endregion
         
+        #region Parameter Application
         /// <summary>
         /// <para>
         /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout",
@@ -113,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Applications")]
         public Amazon.ElasticMapReduce.Model.Application[] Application { get; set; }
+        #endregion
         
+        #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The Amazon EC2 Availability Zone for the job flow.</para>
@@ -121,8 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Instances_Placement_AvailabilityZone")]
-        public String Placement_AvailabilityZone { get; set; }
+        public System.String Placement_AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter BootstrapAction
         /// <summary>
         /// <para>
         /// <para> A list of bootstrap actions that will be run before Hadoop is started on the cluster
@@ -132,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("BootstrapActions")]
         public Amazon.ElasticMapReduce.Model.BootstrapActionConfig[] BootstrapAction { get; set; }
+        #endregion
         
+        #region Parameter Configuration
         /// <summary>
         /// <para>
         /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The list of configurations supplied for the EMR cluster you are creating.</para>
@@ -141,7 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Configurations")]
         public Amazon.ElasticMapReduce.Model.Configuration[] Configuration { get; set; }
+        #endregion
         
+        #region Parameter Instances_Ec2KeyName
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon EC2 key pair that can be used to ssh to the master node as
@@ -149,8 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Instances_Ec2KeyName { get; set; }
+        public System.String Instances_Ec2KeyName { get; set; }
+        #endregion
         
+        #region Parameter Instances_Ec2SubnetId
         /// <summary>
         /// <para>
         /// <para> To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter
@@ -162,26 +182,30 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Instances_Ec2SubnetId { get; set; }
+        public System.String Instances_Ec2SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Instances_EmrManagedMasterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group (managed by Amazon ElasticMapReduce)
-        /// for the master node.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the master node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Instances_EmrManagedMasterSecurityGroup { get; set; }
+        public System.String Instances_EmrManagedMasterSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Instances_EmrManagedSlaveSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group (managed by Amazon ElasticMapReduce)
-        /// for the slave nodes.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the slave nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Instances_EmrManagedSlaveSecurityGroup { get; set; }
+        public System.String Instances_EmrManagedSlaveSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Instances_HadoopVersion
         /// <summary>
         /// <para>
         /// <para>The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20"
@@ -192,16 +216,20 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Instances_HadoopVersion { get; set; }
+        public System.String Instances_HadoopVersion { get; set; }
+        #endregion
         
+        #region Parameter Instances_InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of Amazon EC2 instances used to execute the job flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Instances_InstanceCount { get; set; }
+        public System.Int32 Instances_InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter Instances_InstanceGroup
         /// <summary>
         /// <para>
         /// <para>Configuration for the job flow's instance groups.</para>
@@ -210,25 +238,33 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_InstanceGroups")]
         public Amazon.ElasticMapReduce.Model.InstanceGroupConfig[] Instances_InstanceGroup { get; set; }
+        #endregion
         
+        #region Parameter JobFlowRole
         /// <summary>
         /// <para>
-        /// <para>An IAM role for the job flow. The EC2 instances of the job flow assume this role.
-        /// The default role is <code>EMRJobflowDefault</code>. In order to use the default role,
-        /// you must have already created it using the CLI.</para>
+        /// <para>Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2
+        /// instances of the cluster assume this role. The default role is <code>EMR_EC2_DefaultRole</code>.
+        /// In order to use the default role, you must have already created it using the CLI or
+        /// console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String JobFlowRole { get; set; }
+        public System.String JobFlowRole { get; set; }
+        #endregion
         
+        #region Parameter Instances_KeepJobFlowAliveWhenNoStep
         /// <summary>
         /// <para>
         /// <para>Specifies whether the job flow should be kept alive after completing all steps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Instances_KeepJobFlowAliveWhenNoSteps { get; set; }
+        [Alias("Instances_KeepJobFlowAliveWhenNoSteps")]
+        public System.Boolean Instances_KeepJobFlowAliveWhenNoStep { get; set; }
+        #endregion
         
+        #region Parameter LogUri
         /// <summary>
         /// <para>
         /// <para>The location in Amazon S3 to write the log files of the job flow. If a value is not
@@ -236,24 +272,30 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String LogUri { get; set; }
+        public System.String LogUri { get; set; }
+        #endregion
         
+        #region Parameter Instances_MasterInstanceType
         /// <summary>
         /// <para>
         /// <para>The EC2 instance type of the master node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Instances_MasterInstanceType { get; set; }
+        public System.String Instances_MasterInstanceType { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the job flow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter NewSupportedProduct
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
@@ -272,7 +314,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("NewSupportedProducts")]
         public Amazon.ElasticMapReduce.Model.SupportedProductConfig[] NewSupportedProduct { get; set; }
+        #endregion
         
+        #region Parameter ReleaseLabel
         /// <summary>
         /// <para>
         /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use
@@ -280,8 +324,21 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ReleaseLabel { get; set; }
+        public System.String ReleaseLabel { get; set; }
+        #endregion
         
+        #region Parameter Instances_ServiceAccessSecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon EC2 security group for the Amazon EMR service to access
+        /// clusters in VPC private subnets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Instances_ServiceAccessSecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRole
         /// <summary>
         /// <para>
         /// <para>The IAM role that will be assumed by the Amazon EMR service to access AWS resources
@@ -289,16 +346,20 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceRole { get; set; }
+        public System.String ServiceRole { get; set; }
+        #endregion
         
+        #region Parameter Instances_SlaveInstanceType
         /// <summary>
         /// <para>
         /// <para>The EC2 instance type of the slave nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Instances_SlaveInstanceType { get; set; }
+        public System.String Instances_SlaveInstanceType { get; set; }
+        #endregion
         
+        #region Parameter Step
         /// <summary>
         /// <para>
         /// <para>A list of steps to be executed by the job flow.</para>
@@ -307,7 +368,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Steps")]
         public Amazon.ElasticMapReduce.Model.StepConfig[] Step { get; set; }
+        #endregion
         
+        #region Parameter SupportedProduct
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
@@ -320,7 +383,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("SupportedProducts")]
         public System.String[] SupportedProduct { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</para>
@@ -329,7 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.ElasticMapReduce.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Instances_TerminationProtected
         /// <summary>
         /// <para>
         /// <para>Specifies whether to lock the job flow to prevent the Amazon EC2 instances from being
@@ -337,8 +404,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Instances_TerminationProtected { get; set; }
+        public System.Boolean Instances_TerminationProtected { get; set; }
+        #endregion
         
+        #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
         /// <para>Whether the job flow is visible to all IAM users of the AWS account associated with
@@ -349,8 +418,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean VisibleToAllUsers { get; set; }
+        [Alias("VisibleToAllUsers")]
+        public System.Boolean VisibleToAllUser { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -358,7 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -380,23 +452,23 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.AmiVersion = this.AmiVersion;
             if (this.Application != null)
             {
-                context.Applications = new List<Application>(this.Application);
+                context.Applications = new List<Amazon.ElasticMapReduce.Model.Application>(this.Application);
             }
             if (this.BootstrapAction != null)
             {
-                context.BootstrapActions = new List<BootstrapActionConfig>(this.BootstrapAction);
+                context.BootstrapActions = new List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig>(this.BootstrapAction);
             }
             if (this.Configuration != null)
             {
-                context.Configurations = new List<Configuration>(this.Configuration);
+                context.Configurations = new List<Amazon.ElasticMapReduce.Model.Configuration>(this.Configuration);
             }
             if (this.Instances_AdditionalMasterSecurityGroup != null)
             {
-                context.Instances_AdditionalMasterSecurityGroups = new List<String>(this.Instances_AdditionalMasterSecurityGroup);
+                context.Instances_AdditionalMasterSecurityGroups = new List<System.String>(this.Instances_AdditionalMasterSecurityGroup);
             }
             if (this.Instances_AdditionalSlaveSecurityGroup != null)
             {
-                context.Instances_AdditionalSlaveSecurityGroups = new List<String>(this.Instances_AdditionalSlaveSecurityGroup);
+                context.Instances_AdditionalSlaveSecurityGroups = new List<System.String>(this.Instances_AdditionalSlaveSecurityGroup);
             }
             context.Instances_Ec2KeyName = this.Instances_Ec2KeyName;
             context.Instances_Ec2SubnetId = this.Instances_Ec2SubnetId;
@@ -407,12 +479,13 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Instances_InstanceCount = this.Instances_InstanceCount;
             if (this.Instances_InstanceGroup != null)
             {
-                context.Instances_InstanceGroups = new List<InstanceGroupConfig>(this.Instances_InstanceGroup);
+                context.Instances_InstanceGroups = new List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig>(this.Instances_InstanceGroup);
             }
-            if (ParameterWasBound("Instances_KeepJobFlowAliveWhenNoSteps"))
-                context.Instances_KeepJobFlowAliveWhenNoSteps = this.Instances_KeepJobFlowAliveWhenNoSteps;
+            if (ParameterWasBound("Instances_KeepJobFlowAliveWhenNoStep"))
+                context.Instances_KeepJobFlowAliveWhenNoSteps = this.Instances_KeepJobFlowAliveWhenNoStep;
             context.Instances_MasterInstanceType = this.Instances_MasterInstanceType;
             context.Instances_Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.Instances_ServiceAccessSecurityGroup = this.Instances_ServiceAccessSecurityGroup;
             context.Instances_SlaveInstanceType = this.Instances_SlaveInstanceType;
             if (ParameterWasBound("Instances_TerminationProtected"))
                 context.Instances_TerminationProtected = this.Instances_TerminationProtected;
@@ -421,24 +494,24 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.Name = this.Name;
             if (this.NewSupportedProduct != null)
             {
-                context.NewSupportedProducts = new List<SupportedProductConfig>(this.NewSupportedProduct);
+                context.NewSupportedProducts = new List<Amazon.ElasticMapReduce.Model.SupportedProductConfig>(this.NewSupportedProduct);
             }
             context.ReleaseLabel = this.ReleaseLabel;
             context.ServiceRole = this.ServiceRole;
             if (this.Step != null)
             {
-                context.Steps = new List<StepConfig>(this.Step);
+                context.Steps = new List<Amazon.ElasticMapReduce.Model.StepConfig>(this.Step);
             }
             if (this.SupportedProduct != null)
             {
-                context.SupportedProducts = new List<String>(this.SupportedProduct);
+                context.SupportedProducts = new List<System.String>(this.SupportedProduct);
             }
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElasticMapReduce.Model.Tag>(this.Tag);
             }
-            if (ParameterWasBound("VisibleToAllUsers"))
-                context.VisibleToAllUsers = this.VisibleToAllUsers;
+            if (ParameterWasBound("VisibleToAllUser"))
+                context.VisibleToAllUsers = this.VisibleToAllUser;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -450,7 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RunJobFlowRequest();
+            var request = new Amazon.ElasticMapReduce.Model.RunJobFlowRequest();
             
             if (cmdletContext.AdditionalInfo != null)
             {
@@ -475,8 +548,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             
              // populate Instances
             bool requestInstancesIsNull = true;
-            request.Instances = new JobFlowInstancesConfig();
-            List<String> requestInstances_instances_AdditionalMasterSecurityGroup = null;
+            request.Instances = new Amazon.ElasticMapReduce.Model.JobFlowInstancesConfig();
+            List<System.String> requestInstances_instances_AdditionalMasterSecurityGroup = null;
             if (cmdletContext.Instances_AdditionalMasterSecurityGroups != null)
             {
                 requestInstances_instances_AdditionalMasterSecurityGroup = cmdletContext.Instances_AdditionalMasterSecurityGroups;
@@ -486,7 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.AdditionalMasterSecurityGroups = requestInstances_instances_AdditionalMasterSecurityGroup;
                 requestInstancesIsNull = false;
             }
-            List<String> requestInstances_instances_AdditionalSlaveSecurityGroup = null;
+            List<System.String> requestInstances_instances_AdditionalSlaveSecurityGroup = null;
             if (cmdletContext.Instances_AdditionalSlaveSecurityGroups != null)
             {
                 requestInstances_instances_AdditionalSlaveSecurityGroup = cmdletContext.Instances_AdditionalSlaveSecurityGroups;
@@ -496,7 +569,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.AdditionalSlaveSecurityGroups = requestInstances_instances_AdditionalSlaveSecurityGroup;
                 requestInstancesIsNull = false;
             }
-            String requestInstances_instances_Ec2KeyName = null;
+            System.String requestInstances_instances_Ec2KeyName = null;
             if (cmdletContext.Instances_Ec2KeyName != null)
             {
                 requestInstances_instances_Ec2KeyName = cmdletContext.Instances_Ec2KeyName;
@@ -506,7 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.Ec2KeyName = requestInstances_instances_Ec2KeyName;
                 requestInstancesIsNull = false;
             }
-            String requestInstances_instances_Ec2SubnetId = null;
+            System.String requestInstances_instances_Ec2SubnetId = null;
             if (cmdletContext.Instances_Ec2SubnetId != null)
             {
                 requestInstances_instances_Ec2SubnetId = cmdletContext.Instances_Ec2SubnetId;
@@ -516,7 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.Ec2SubnetId = requestInstances_instances_Ec2SubnetId;
                 requestInstancesIsNull = false;
             }
-            String requestInstances_instances_EmrManagedMasterSecurityGroup = null;
+            System.String requestInstances_instances_EmrManagedMasterSecurityGroup = null;
             if (cmdletContext.Instances_EmrManagedMasterSecurityGroup != null)
             {
                 requestInstances_instances_EmrManagedMasterSecurityGroup = cmdletContext.Instances_EmrManagedMasterSecurityGroup;
@@ -526,7 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.EmrManagedMasterSecurityGroup = requestInstances_instances_EmrManagedMasterSecurityGroup;
                 requestInstancesIsNull = false;
             }
-            String requestInstances_instances_EmrManagedSlaveSecurityGroup = null;
+            System.String requestInstances_instances_EmrManagedSlaveSecurityGroup = null;
             if (cmdletContext.Instances_EmrManagedSlaveSecurityGroup != null)
             {
                 requestInstances_instances_EmrManagedSlaveSecurityGroup = cmdletContext.Instances_EmrManagedSlaveSecurityGroup;
@@ -536,7 +609,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.EmrManagedSlaveSecurityGroup = requestInstances_instances_EmrManagedSlaveSecurityGroup;
                 requestInstancesIsNull = false;
             }
-            String requestInstances_instances_HadoopVersion = null;
+            System.String requestInstances_instances_HadoopVersion = null;
             if (cmdletContext.Instances_HadoopVersion != null)
             {
                 requestInstances_instances_HadoopVersion = cmdletContext.Instances_HadoopVersion;
@@ -546,7 +619,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.HadoopVersion = requestInstances_instances_HadoopVersion;
                 requestInstancesIsNull = false;
             }
-            Int32? requestInstances_instances_InstanceCount = null;
+            System.Int32? requestInstances_instances_InstanceCount = null;
             if (cmdletContext.Instances_InstanceCount != null)
             {
                 requestInstances_instances_InstanceCount = cmdletContext.Instances_InstanceCount.Value;
@@ -556,7 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.InstanceCount = requestInstances_instances_InstanceCount.Value;
                 requestInstancesIsNull = false;
             }
-            List<InstanceGroupConfig> requestInstances_instances_InstanceGroup = null;
+            List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig> requestInstances_instances_InstanceGroup = null;
             if (cmdletContext.Instances_InstanceGroups != null)
             {
                 requestInstances_instances_InstanceGroup = cmdletContext.Instances_InstanceGroups;
@@ -566,17 +639,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.InstanceGroups = requestInstances_instances_InstanceGroup;
                 requestInstancesIsNull = false;
             }
-            Boolean? requestInstances_instances_KeepJobFlowAliveWhenNoSteps = null;
+            System.Boolean? requestInstances_instances_KeepJobFlowAliveWhenNoStep = null;
             if (cmdletContext.Instances_KeepJobFlowAliveWhenNoSteps != null)
             {
-                requestInstances_instances_KeepJobFlowAliveWhenNoSteps = cmdletContext.Instances_KeepJobFlowAliveWhenNoSteps.Value;
+                requestInstances_instances_KeepJobFlowAliveWhenNoStep = cmdletContext.Instances_KeepJobFlowAliveWhenNoSteps.Value;
             }
-            if (requestInstances_instances_KeepJobFlowAliveWhenNoSteps != null)
+            if (requestInstances_instances_KeepJobFlowAliveWhenNoStep != null)
             {
-                request.Instances.KeepJobFlowAliveWhenNoSteps = requestInstances_instances_KeepJobFlowAliveWhenNoSteps.Value;
+                request.Instances.KeepJobFlowAliveWhenNoSteps = requestInstances_instances_KeepJobFlowAliveWhenNoStep.Value;
                 requestInstancesIsNull = false;
             }
-            String requestInstances_instances_MasterInstanceType = null;
+            System.String requestInstances_instances_MasterInstanceType = null;
             if (cmdletContext.Instances_MasterInstanceType != null)
             {
                 requestInstances_instances_MasterInstanceType = cmdletContext.Instances_MasterInstanceType;
@@ -586,7 +659,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.MasterInstanceType = requestInstances_instances_MasterInstanceType;
                 requestInstancesIsNull = false;
             }
-            String requestInstances_instances_SlaveInstanceType = null;
+            System.String requestInstances_instances_ServiceAccessSecurityGroup = null;
+            if (cmdletContext.Instances_ServiceAccessSecurityGroup != null)
+            {
+                requestInstances_instances_ServiceAccessSecurityGroup = cmdletContext.Instances_ServiceAccessSecurityGroup;
+            }
+            if (requestInstances_instances_ServiceAccessSecurityGroup != null)
+            {
+                request.Instances.ServiceAccessSecurityGroup = requestInstances_instances_ServiceAccessSecurityGroup;
+                requestInstancesIsNull = false;
+            }
+            System.String requestInstances_instances_SlaveInstanceType = null;
             if (cmdletContext.Instances_SlaveInstanceType != null)
             {
                 requestInstances_instances_SlaveInstanceType = cmdletContext.Instances_SlaveInstanceType;
@@ -596,7 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.SlaveInstanceType = requestInstances_instances_SlaveInstanceType;
                 requestInstancesIsNull = false;
             }
-            Boolean? requestInstances_instances_TerminationProtected = null;
+            System.Boolean? requestInstances_instances_TerminationProtected = null;
             if (cmdletContext.Instances_TerminationProtected != null)
             {
                 requestInstances_instances_TerminationProtected = cmdletContext.Instances_TerminationProtected.Value;
@@ -606,12 +689,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.TerminationProtected = requestInstances_instances_TerminationProtected.Value;
                 requestInstancesIsNull = false;
             }
-            PlacementType requestInstances_instances_Placement = null;
+            Amazon.ElasticMapReduce.Model.PlacementType requestInstances_instances_Placement = null;
             
              // populate Placement
             bool requestInstances_instances_PlacementIsNull = true;
-            requestInstances_instances_Placement = new PlacementType();
-            String requestInstances_instances_Placement_placement_AvailabilityZone = null;
+            requestInstances_instances_Placement = new Amazon.ElasticMapReduce.Model.PlacementType();
+            System.String requestInstances_instances_Placement_placement_AvailabilityZone = null;
             if (cmdletContext.Instances_Placement_AvailabilityZone != null)
             {
                 requestInstances_instances_Placement_placement_AvailabilityZone = cmdletContext.Instances_Placement_AvailabilityZone;
@@ -711,35 +794,36 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AdditionalInfo { get; set; }
-            public String AmiVersion { get; set; }
-            public List<Application> Applications { get; set; }
-            public List<BootstrapActionConfig> BootstrapActions { get; set; }
-            public List<Configuration> Configurations { get; set; }
-            public List<String> Instances_AdditionalMasterSecurityGroups { get; set; }
-            public List<String> Instances_AdditionalSlaveSecurityGroups { get; set; }
-            public String Instances_Ec2KeyName { get; set; }
-            public String Instances_Ec2SubnetId { get; set; }
-            public String Instances_EmrManagedMasterSecurityGroup { get; set; }
-            public String Instances_EmrManagedSlaveSecurityGroup { get; set; }
-            public String Instances_HadoopVersion { get; set; }
-            public Int32? Instances_InstanceCount { get; set; }
-            public List<InstanceGroupConfig> Instances_InstanceGroups { get; set; }
-            public Boolean? Instances_KeepJobFlowAliveWhenNoSteps { get; set; }
-            public String Instances_MasterInstanceType { get; set; }
-            public String Instances_Placement_AvailabilityZone { get; set; }
-            public String Instances_SlaveInstanceType { get; set; }
-            public Boolean? Instances_TerminationProtected { get; set; }
-            public String JobFlowRole { get; set; }
-            public String LogUri { get; set; }
-            public String Name { get; set; }
-            public List<SupportedProductConfig> NewSupportedProducts { get; set; }
-            public String ReleaseLabel { get; set; }
-            public String ServiceRole { get; set; }
-            public List<StepConfig> Steps { get; set; }
-            public List<String> SupportedProducts { get; set; }
-            public List<Tag> Tags { get; set; }
-            public Boolean? VisibleToAllUsers { get; set; }
+            public System.String AdditionalInfo { get; set; }
+            public System.String AmiVersion { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.Application> Applications { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig> BootstrapActions { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.Configuration> Configurations { get; set; }
+            public List<System.String> Instances_AdditionalMasterSecurityGroups { get; set; }
+            public List<System.String> Instances_AdditionalSlaveSecurityGroups { get; set; }
+            public System.String Instances_Ec2KeyName { get; set; }
+            public System.String Instances_Ec2SubnetId { get; set; }
+            public System.String Instances_EmrManagedMasterSecurityGroup { get; set; }
+            public System.String Instances_EmrManagedSlaveSecurityGroup { get; set; }
+            public System.String Instances_HadoopVersion { get; set; }
+            public System.Int32? Instances_InstanceCount { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.InstanceGroupConfig> Instances_InstanceGroups { get; set; }
+            public System.Boolean? Instances_KeepJobFlowAliveWhenNoSteps { get; set; }
+            public System.String Instances_MasterInstanceType { get; set; }
+            public System.String Instances_Placement_AvailabilityZone { get; set; }
+            public System.String Instances_ServiceAccessSecurityGroup { get; set; }
+            public System.String Instances_SlaveInstanceType { get; set; }
+            public System.Boolean? Instances_TerminationProtected { get; set; }
+            public System.String JobFlowRole { get; set; }
+            public System.String LogUri { get; set; }
+            public System.String Name { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProducts { get; set; }
+            public System.String ReleaseLabel { get; set; }
+            public System.String ServiceRole { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.StepConfig> Steps { get; set; }
+            public List<System.String> SupportedProducts { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.Tag> Tags { get; set; }
+            public System.Boolean? VisibleToAllUsers { get; set; }
         }
         
     }

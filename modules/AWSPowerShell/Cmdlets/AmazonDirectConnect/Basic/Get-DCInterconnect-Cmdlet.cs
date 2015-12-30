@@ -40,18 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the DescribeInterconnects operation against AWS Direct Connect.", Operation = new[] {"DescribeInterconnects"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Interconnect",
         "This cmdlet returns a collection of Interconnect objects.",
-        "The service call response (type DescribeInterconnectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.DescribeInterconnectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter InterconnectId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InterconnectId { get; set; }
-        
+        public System.String InterconnectId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeInterconnectsRequest();
+            var request = new Amazon.DirectConnect.Model.DescribeInterconnectsRequest();
             
             if (cmdletContext.InterconnectId != null)
             {
@@ -116,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InterconnectId { get; set; }
+            public System.String InterconnectId { get; set; }
         }
         
     }

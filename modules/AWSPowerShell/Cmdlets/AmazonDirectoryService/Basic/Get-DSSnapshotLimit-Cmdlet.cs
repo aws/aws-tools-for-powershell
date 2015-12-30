@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the GetSnapshotLimits operation against AWS Directory Service.", Operation = new[] {"GetSnapshotLimits"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.SnapshotLimits",
         "This cmdlet returns a SnapshotLimits object.",
-        "The service call response (type GetSnapshotLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.GetSnapshotLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDSSnapshotLimitCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// <para>Contains the identifier of the directory to obtain the limits for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
-        
+        public System.String DirectoryId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetSnapshotLimitsRequest();
+            var request = new Amazon.DirectoryService.Model.GetSnapshotLimitsRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DirectoryId { get; set; }
+            public System.String DirectoryId { get; set; }
         }
         
     }

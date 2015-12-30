@@ -51,7 +51,9 @@ RequiredModules = @()
 # who want to work with generic types when the type parameter is in an 
 # external SDK assembly.
 RequiredAssemblies = @(
+  "AWSSDK.APIGateway.dll",
   "AWSSDK.AutoScaling.dll",
+  "AWSSDK.AWSMarketplaceCommerceAnalytics.dll",
   "AWSSDK.AWSSupport.dll",
   "AWSSDK.CloudFormation.dll",
   "AWSSDK.CloudFront.dll",
@@ -73,6 +75,7 @@ RequiredAssemblies = @(
   "AWSSDK.DirectoryService.dll",
   "AWSSDK.DynamoDBv2.dll",
   "AWSSDK.EC2.dll",
+  "AWSSDK.ECR.dll",
   "AWSSDK.ECS.dll",
   "AWSSDK.ElastiCache.dll",
   "AWSSDK.ElasticBeanstalk.dll",
@@ -83,8 +86,11 @@ RequiredAssemblies = @(
   "AWSSDK.ElasticTranscoder.dll",
   "AWSSDK.IdentityManagement.dll",
   "AWSSDK.ImportExport.dll",
+  "AWSSDK.Inspector.dll",
+  "AWSSDK.IoT.dll",
   "AWSSDK.KeyManagementService.dll",
   "AWSSDK.Kinesis.dll",
+  "AWSSDK.KinesisFirehose.dll",
   "AWSSDK.Lambda.dll",
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.OpsWorks.dll",
@@ -100,6 +106,7 @@ RequiredAssemblies = @(
   "AWSSDK.SimpleWorkflow.dll",
   "AWSSDK.SQS.dll",
   "AWSSDK.StorageGateway.dll",
+  "AWSSDK.WAF.dll",
   "AWSSDK.WorkSpaces.dll"
 )
 

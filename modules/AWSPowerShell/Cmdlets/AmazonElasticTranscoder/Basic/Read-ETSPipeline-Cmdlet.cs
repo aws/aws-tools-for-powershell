@@ -35,19 +35,23 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     [AWSCmdlet("Invokes the ReadPipeline operation against Amazon Elastic Transcoder.", Operation = new[] {"ReadPipeline"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Pipeline",
         "This cmdlet returns a Pipeline object.",
-        "The service call response (type ReadPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Warnings (type List&lt;Warning&gt;)"
+        "The service call response (type Amazon.ElasticTranscoder.Model.ReadPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Warnings (type List&lt;Amazon.ElasticTranscoder.Model.Warning&gt;)"
     )]
     public class ReadETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>The identifier of the pipeline to read.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReadPipelineRequest();
+            var request = new Amazon.ElasticTranscoder.Model.ReadPipelineRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -128,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

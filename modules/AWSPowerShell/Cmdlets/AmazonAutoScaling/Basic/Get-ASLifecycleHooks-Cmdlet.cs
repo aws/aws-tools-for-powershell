@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DescribeLifecycleHooks operation against Auto Scaling.", Operation = new[] {"DescribeLifecycleHooks"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.LifecycleHook",
         "This cmdlet returns a collection of LifecycleHook objects.",
-        "The service call response (type DescribeLifecycleHooksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.DescribeLifecycleHooksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetASLifecycleHooksCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter LifecycleHookName
         /// <summary>
         /// <para>
         /// <para>The names of one or more lifecycle hooks.</para>
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("LifecycleHookNames")]
         public System.String[] LifecycleHookName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.LifecycleHookName != null)
             {
-                context.LifecycleHookNames = new List<String>(this.LifecycleHookName);
+                context.LifecycleHookNames = new List<System.String>(this.LifecycleHookName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -83,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeLifecycleHooksRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeLifecycleHooksRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -128,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> LifecycleHookNames { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> LifecycleHookNames { get; set; }
         }
         
     }

@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [OutputType("Amazon.S3.Model.GetObjectMetadataResponse")]
     [AWSCmdlet("Invokes the GetObjectMetadata operation against Amazon Simple Storage Service.", Operation = new[] {"GetObjectMetadata"})]
     [AWSCmdletOutput("Amazon.S3.Model.GetObjectMetadataResponse",
-        "This cmdlet returns a GetObjectMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.S3.Model.GetObjectMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3ObjectMetadataCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket that contains the object.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter EtagToMatch
         /// <summary>
         /// <para>
         /// ETag to be matched as a pre-condition for returning the object,
@@ -55,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EtagToMatch { get; set; }
+        public System.String EtagToMatch { get; set; }
+        #endregion
         
+        #region Parameter EtagToNotMatch
         /// <summary>
         /// <para>
         /// ETag that should not be matched as a pre-condition for returning the object,
@@ -64,16 +70,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String EtagToNotMatch { get; set; }
+        public System.String EtagToNotMatch { get; set; }
+        #endregion
         
+        #region Parameter Key
         /// <summary>
         /// <para>
         /// The key of the object.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
+        #endregion
         
+        #region Parameter ModifiedSinceDate
         /// <summary>
         /// <para>
         /// Returns the object only if it has been modified since the specified time, 
@@ -81,16 +91,21 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ModifiedSinceDate { get; set; }
+        public System.DateTime ModifiedSinceDate { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// <para>
         /// The Server-side encryption algorithm to be used with the customer provided key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
+        public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionCustomerProvidedKey
         /// <summary>
         /// <para>
         /// The base64-encoded encryption key for Amazon S3 to use to decrypt the object
@@ -101,8 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServerSideEncryptionCustomerProvidedKey { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+        #endregion
         
+        #region Parameter ServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
         /// <para>
         /// The MD5 of the customer encryption key specified in the ServerSideEncryptionCustomerProvidedKey property. The MD5 is
@@ -110,8 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        #endregion
         
+        #region Parameter UnmodifiedSinceDate
         /// <summary>
         /// <para>
         /// Returns the object only if it has not been modified since the specified time, 
@@ -119,16 +138,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime UnmodifiedSinceDate { get; set; }
+        public System.DateTime UnmodifiedSinceDate { get; set; }
+        #endregion
         
+        #region Parameter VersionId
         /// <summary>
         /// <para>
         /// VersionId used to reference a specific version of the object.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VersionId { get; set; }
-        
+        public System.String VersionId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -163,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetObjectMetadataRequest();
+            var request = new Amazon.S3.Model.GetObjectMetadataRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -240,16 +261,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String EtagToMatch { get; set; }
-            public DateTime? ModifiedSinceDate { get; set; }
-            public String EtagToNotMatch { get; set; }
-            public DateTime? UnmodifiedSinceDate { get; set; }
-            public String Key { get; set; }
-            public String VersionId { get; set; }
-            public ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
-            public String ServerSideEncryptionCustomerProvidedKey { get; set; }
-            public String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String EtagToMatch { get; set; }
+            public System.DateTime? ModifiedSinceDate { get; set; }
+            public System.String EtagToNotMatch { get; set; }
+            public System.DateTime? UnmodifiedSinceDate { get; set; }
+            public System.String Key { get; set; }
+            public System.String VersionId { get; set; }
+            public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+            public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+            public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         }
         
     }

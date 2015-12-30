@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the CreateInstance operation against AWS OpsWorks.", Operation = new[] {"CreateInstance"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.CreateInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentVersion
         /// <summary>
         /// <para>
         /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li><code>INHERIT</code> - Use the stack's default agent version setting.</li><li><i>version_number</i> - Use the specified agent version. This value overrides
@@ -58,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AgentVersion { get; set; }
+        public System.String AgentVersion { get; set; }
+        #endregion
         
+        #region Parameter AmiId
         /// <summary>
         /// <para>
         /// <para>A custom AMI ID to be used to create the instance. The AMI should be based on one
@@ -68,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AmiId { get; set; }
+        public System.String AmiId { get; set; }
+        #endregion
         
+        #region Parameter Architecture
         /// <summary>
         /// <para>
         /// <para>The instance architecture. The default option is <code>x86_64</code>. Instance types
@@ -79,8 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Architecture Architecture { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.Architecture")]
+        public Amazon.OpsWorks.Architecture Architecture { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingType
         /// <summary>
         /// <para>
         /// <para>For load-based or time-based instances, the type. Windows stacks can use only time-based
@@ -88,8 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public AutoScalingType AutoScalingType { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.AutoScalingType")]
+        public Amazon.OpsWorks.AutoScalingType AutoScalingType { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The instance Availability Zone. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
@@ -97,8 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block
@@ -109,23 +123,29 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("BlockDeviceMappings")]
         public Amazon.OpsWorks.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter EbsOptimized
         /// <summary>
         /// <para>
         /// <para>Whether to create an Amazon EBS-optimized instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean EbsOptimized { get; set; }
+        public System.Boolean EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The instance host name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Hostname { get; set; }
+        public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter InstallUpdatesOnBoot
         /// <summary>
         /// <para>
         /// <para>Whether to install operating system and package updates when the instance boots. The
@@ -138,8 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean InstallUpdatesOnBoot { get; set; }
+        public System.Boolean InstallUpdatesOnBoot { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type, such as <code>t2.micro</code>. For a list of supported instance
@@ -151,8 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String InstanceType { get; set; }
+        public System.String InstanceType { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>An array that contains the instance's layer IDs.</para>
@@ -161,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
+        #endregion
         
+        #region Parameter Os
         /// <summary>
         /// <para>
         /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
@@ -177,8 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Os { get; set; }
+        public System.String Os { get; set; }
+        #endregion
         
+        #region Parameter RootDeviceType
         /// <summary>
         /// <para>
         /// <para>The instance root device type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage
@@ -186,24 +214,31 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RootDeviceType RootDeviceType { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.RootDeviceType")]
+        public Amazon.OpsWorks.RootDeviceType RootDeviceType { get; set; }
+        #endregion
         
+        #region Parameter SshKeyName
         /// <summary>
         /// <para>
         /// <para>The instance's Amazon EC2 key-pair name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SshKeyName { get; set; }
+        public System.String SshKeyName { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance's subnet. If the stack is running in a VPC, you can use this
@@ -212,16 +247,21 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SubnetId { get; set; }
+        public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter VirtualizationType
         /// <summary>
         /// <para>
         /// <para>The instance's virtualization type, <code>paravirtual</code> or <code>hvm</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public VirtualizationType VirtualizationType { get; set; }
+        [AWSConstantClassSource("Amazon.OpsWorks.VirtualizationType")]
+        public Amazon.OpsWorks.VirtualizationType VirtualizationType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -229,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -254,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.AvailabilityZone = this.AvailabilityZone;
             if (this.BlockDeviceMapping != null)
             {
-                context.BlockDeviceMappings = new List<BlockDeviceMapping>(this.BlockDeviceMapping);
+                context.BlockDeviceMappings = new List<Amazon.OpsWorks.Model.BlockDeviceMapping>(this.BlockDeviceMapping);
             }
             if (ParameterWasBound("EbsOptimized"))
                 context.EbsOptimized = this.EbsOptimized;
@@ -264,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             context.InstanceType = this.InstanceType;
             if (this.LayerId != null)
             {
-                context.LayerIds = new List<String>(this.LayerId);
+                context.LayerIds = new List<System.String>(this.LayerId);
             }
             context.Os = this.Os;
             context.RootDeviceType = this.RootDeviceType;
@@ -283,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateInstanceRequest();
+            var request = new Amazon.OpsWorks.Model.CreateInstanceRequest();
             
             if (cmdletContext.AgentVersion != null)
             {
@@ -388,23 +428,23 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AgentVersion { get; set; }
-            public String AmiId { get; set; }
-            public Architecture Architecture { get; set; }
-            public AutoScalingType AutoScalingType { get; set; }
-            public String AvailabilityZone { get; set; }
-            public List<BlockDeviceMapping> BlockDeviceMappings { get; set; }
-            public Boolean? EbsOptimized { get; set; }
-            public String Hostname { get; set; }
-            public Boolean? InstallUpdatesOnBoot { get; set; }
-            public String InstanceType { get; set; }
-            public List<String> LayerIds { get; set; }
-            public String Os { get; set; }
-            public RootDeviceType RootDeviceType { get; set; }
-            public String SshKeyName { get; set; }
-            public String StackId { get; set; }
-            public String SubnetId { get; set; }
-            public VirtualizationType VirtualizationType { get; set; }
+            public System.String AgentVersion { get; set; }
+            public System.String AmiId { get; set; }
+            public Amazon.OpsWorks.Architecture Architecture { get; set; }
+            public Amazon.OpsWorks.AutoScalingType AutoScalingType { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public List<Amazon.OpsWorks.Model.BlockDeviceMapping> BlockDeviceMappings { get; set; }
+            public System.Boolean? EbsOptimized { get; set; }
+            public System.String Hostname { get; set; }
+            public System.Boolean? InstallUpdatesOnBoot { get; set; }
+            public System.String InstanceType { get; set; }
+            public List<System.String> LayerIds { get; set; }
+            public System.String Os { get; set; }
+            public Amazon.OpsWorks.RootDeviceType RootDeviceType { get; set; }
+            public System.String SshKeyName { get; set; }
+            public System.String StackId { get; set; }
+            public System.String SubnetId { get; set; }
+            public Amazon.OpsWorks.VirtualizationType VirtualizationType { get; set; }
         }
         
     }

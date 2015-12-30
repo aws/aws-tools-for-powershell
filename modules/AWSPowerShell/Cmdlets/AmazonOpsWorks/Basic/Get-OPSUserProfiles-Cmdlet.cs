@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeUserProfiles operation against AWS OpsWorks.", Operation = new[] {"DescribeUserProfiles"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.UserProfile",
         "This cmdlet returns a collection of UserProfile objects.",
-        "The service call response (type DescribeUserProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeUserProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSUserProfilesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>An array of IAM user ARNs that identify the users to be described. </para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("IamUserArns")]
         public System.String[] IamUserArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -68,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             
             if (this.IamUserArn != null)
             {
-                context.IamUserArns = new List<String>(this.IamUserArn);
+                context.IamUserArns = new List<System.String>(this.IamUserArn);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -81,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeUserProfilesRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeUserProfilesRequest();
             
             if (cmdletContext.IamUserArns != null)
             {
@@ -122,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> IamUserArns { get; set; }
+            public List<System.String> IamUserArns { get; set; }
         }
         
     }

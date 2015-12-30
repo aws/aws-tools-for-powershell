@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the ReorderReceiptRuleSet operation against Amazon Simple Email Service.", Operation = new[] {"ReorderReceiptRuleSet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ReorderReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SetSESReceiptRuleSetOrderCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RuleName
         /// <summary>
         /// <para>
         /// <para>A list of the specified receipt rule set's receipt rules in the order that you want
@@ -57,22 +59,28 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("RuleNames")]
         public System.String[] RuleName { get; set; }
+        #endregion
         
+        #region Parameter RuleSetName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule set to reorder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String RuleSetName { get; set; }
+        public System.String RuleSetName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the RuleName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.RuleName != null)
             {
-                context.RuleNames = new List<String>(this.RuleName);
+                context.RuleNames = new List<System.String>(this.RuleName);
             }
             context.RuleSetName = this.RuleSetName;
             
@@ -114,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReorderReceiptRuleSetRequest();
+            var request = new Amazon.SimpleEmail.Model.ReorderReceiptRuleSetRequest();
             
             if (cmdletContext.RuleNames != null)
             {
@@ -161,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> RuleNames { get; set; }
-            public String RuleSetName { get; set; }
+            public List<System.String> RuleNames { get; set; }
+            public System.String RuleSetName { get; set; }
         }
         
     }

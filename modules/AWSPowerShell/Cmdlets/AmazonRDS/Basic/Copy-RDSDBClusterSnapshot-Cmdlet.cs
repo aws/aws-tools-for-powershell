@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the CopyDBClusterSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"CopyDBClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshot",
         "This cmdlet returns a DBClusterSnapshot object.",
-        "The service call response (type CopyDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CopyDBClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRDSDBClusterSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.
@@ -49,8 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceDBClusterSnapshotIdentifier { get; set; }
+        public System.String SourceDBClusterSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TargetDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the new DB cluster snapshot to create from the source DB cluster
@@ -69,8 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetDBClusterSnapshotIdentifier { get; set; }
+        public System.String TargetDBClusterSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SourceDBClusterSnapshotIdentifier = this.SourceDBClusterSnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBClusterSnapshotIdentifier = this.TargetDBClusterSnapshotIdentifier;
             
@@ -113,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyDBClusterSnapshotRequest();
+            var request = new Amazon.RDS.Model.CopyDBClusterSnapshotRequest();
             
             if (cmdletContext.SourceDBClusterSnapshotIdentifier != null)
             {
@@ -162,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String SourceDBClusterSnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TargetDBClusterSnapshotIdentifier { get; set; }
+            public System.String SourceDBClusterSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TargetDBClusterSnapshotIdentifier { get; set; }
         }
         
     }

@@ -49,11 +49,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the DescribeCases operation against AWS Support API.", Operation = new[] {"DescribeCases"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.CaseDetails",
         "This cmdlet returns a collection of CaseDetails objects.",
-        "The service call response (type DescribeCasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.AWSSupport.Model.DescribeCasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetASACasesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AfterTime
         /// <summary>
         /// <para>
         /// <para>The start date for a filtered date search on support case communications. Case communications
@@ -61,8 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AfterTime { get; set; }
+        public System.String AfterTime { get; set; }
+        #endregion
         
+        #region Parameter BeforeTime
         /// <summary>
         /// <para>
         /// <para>The end date for a filtered date search on support case communications. Case communications
@@ -70,8 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BeforeTime { get; set; }
+        public System.String BeforeTime { get; set; }
+        #endregion
         
+        #region Parameter CaseIdList
         /// <summary>
         /// <para>
         /// <para>A list of ID numbers of the support cases you want returned. The maximum number of
@@ -80,15 +86,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] CaseIdList { get; set; }
+        #endregion
         
+        #region Parameter DisplayId
         /// <summary>
         /// <para>
         /// <para>The ID displayed for a case in the AWS Support Center user interface. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String DisplayId { get; set; }
+        public System.String DisplayId { get; set; }
+        #endregion
         
+        #region Parameter IncludeCommunication
         /// <summary>
         /// <para>
         /// <para>Specifies whether communications should be included in the <a>DescribeCases</a> results.
@@ -96,8 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean IncludeCommunications { get; set; }
+        [Alias("IncludeCommunications")]
+        public System.Boolean IncludeCommunication { get; set; }
+        #endregion
         
+        #region Parameter IncludeResolvedCase
         /// <summary>
         /// <para>
         /// <para>Specifies whether resolved support cases should be included in the <a>DescribeCases</a>
@@ -105,8 +118,11 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean IncludeResolvedCases { get; set; }
+        [Alias("IncludeResolvedCases")]
+        public System.Boolean IncludeResolvedCase { get; set; }
+        #endregion
         
+        #region Parameter Language
         /// <summary>
         /// <para>
         /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
@@ -115,8 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Language { get; set; }
+        public System.String Language { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return before paginating.</para>
@@ -125,15 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A resumption point for pagination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -149,13 +169,13 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             context.BeforeTime = this.BeforeTime;
             if (this.CaseIdList != null)
             {
-                context.CaseIdList = new List<String>(this.CaseIdList);
+                context.CaseIdList = new List<System.String>(this.CaseIdList);
             }
             context.DisplayId = this.DisplayId;
-            if (ParameterWasBound("IncludeCommunications"))
-                context.IncludeCommunications = this.IncludeCommunications;
-            if (ParameterWasBound("IncludeResolvedCases"))
-                context.IncludeResolvedCases = this.IncludeResolvedCases;
+            if (ParameterWasBound("IncludeCommunication"))
+                context.IncludeCommunications = this.IncludeCommunication;
+            if (ParameterWasBound("IncludeResolvedCase"))
+                context.IncludeResolvedCases = this.IncludeResolvedCase;
             context.Language = this.Language;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
@@ -172,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeCasesRequest();
+            var request = new Amazon.AWSSupport.Model.DescribeCasesRequest();
             if (cmdletContext.AfterTime != null)
             {
                 request.AfterTime = cmdletContext.AfterTime;
@@ -203,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -288,15 +308,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AfterTime { get; set; }
-            public String BeforeTime { get; set; }
-            public List<String> CaseIdList { get; set; }
-            public String DisplayId { get; set; }
-            public Boolean? IncludeCommunications { get; set; }
-            public Boolean? IncludeResolvedCases { get; set; }
-            public String Language { get; set; }
+            public System.String AfterTime { get; set; }
+            public System.String BeforeTime { get; set; }
+            public List<System.String> CaseIdList { get; set; }
+            public System.String DisplayId { get; set; }
+            public System.Boolean? IncludeCommunications { get; set; }
+            public System.Boolean? IncludeResolvedCases { get; set; }
+            public System.String Language { get; set; }
             public int? MaxResults { get; set; }
-            public String NextToken { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

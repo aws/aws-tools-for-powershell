@@ -28,17 +28,19 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates an AD Connector to connect an on-premises directory.
+    /// Creates an AD Connector to connect to an on-premises directory.
     /// </summary>
     [Cmdlet("Connect", "DSDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
     [AWSCmdlet("Invokes the ConnectDirectory operation against AWS Directory Service.", Operation = new[] {"ConnectDirectory"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type ConnectDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.ConnectDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConnectDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConnectSettings_CustomerDnsIp
         /// <summary>
         /// <para>
         /// <para>A list of one or more IP addresses of DNS servers or domain controllers in the on-premises
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("ConnectSettings_CustomerDnsIps")]
         public System.String[] ConnectSettings_CustomerDnsIp { get; set; }
+        #endregion
         
+        #region Parameter ConnectSettings_CustomerUserName
         /// <summary>
         /// <para>
         /// <para>The username of an account in the on-premises directory that is used to connect to
@@ -57,65 +61,82 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConnectSettings_CustomerUserName { get; set; }
+        public System.String ConnectSettings_CustomerUserName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A textual description for the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The fully-qualified name of the on-premises directory, such as <code>corp.example.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password for the on-premises user account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Password { get; set; }
+        public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter ShortName
         /// <summary>
         /// <para>
         /// <para>The NetBIOS name of the on-premises directory, such as <code>CORP</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ShortName { get; set; }
+        public System.String ShortName { get; set; }
+        #endregion
         
+        #region Parameter Size
         /// <summary>
         /// <para>
         /// <para>The size of the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DirectorySize Size { get; set; }
+        [AWSConstantClassSource("Amazon.DirectoryService.DirectorySize")]
+        public Amazon.DirectoryService.DirectorySize Size { get; set; }
+        #endregion
         
+        #region Parameter ConnectSettings_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet identifiers in the VPC that the AD Connector is created in.</para>
+        /// <para>A list of subnet identifiers in the VPC in which the AD Connector is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConnectSettings_SubnetIds")]
         public System.String[] ConnectSettings_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter ConnectSettings_VpcId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the VPC that the AD Connector is created in.</para>
+        /// <para>The identifier of the VPC in which the AD Connector is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConnectSettings_VpcId { get; set; }
+        public System.String ConnectSettings_VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -123,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -143,12 +164,12 @@ namespace Amazon.PowerShell.Cmdlets.DS
             
             if (this.ConnectSettings_CustomerDnsIp != null)
             {
-                context.ConnectSettings_CustomerDnsIps = new List<String>(this.ConnectSettings_CustomerDnsIp);
+                context.ConnectSettings_CustomerDnsIps = new List<System.String>(this.ConnectSettings_CustomerDnsIp);
             }
             context.ConnectSettings_CustomerUserName = this.ConnectSettings_CustomerUserName;
             if (this.ConnectSettings_SubnetId != null)
             {
-                context.ConnectSettings_SubnetIds = new List<String>(this.ConnectSettings_SubnetId);
+                context.ConnectSettings_SubnetIds = new List<System.String>(this.ConnectSettings_SubnetId);
             }
             context.ConnectSettings_VpcId = this.ConnectSettings_VpcId;
             context.Description = this.Description;
@@ -167,13 +188,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConnectDirectoryRequest();
+            var request = new Amazon.DirectoryService.Model.ConnectDirectoryRequest();
             
             
              // populate ConnectSettings
             bool requestConnectSettingsIsNull = true;
-            request.ConnectSettings = new DirectoryConnectSettings();
-            List<String> requestConnectSettings_connectSettings_CustomerDnsIp = null;
+            request.ConnectSettings = new Amazon.DirectoryService.Model.DirectoryConnectSettings();
+            List<System.String> requestConnectSettings_connectSettings_CustomerDnsIp = null;
             if (cmdletContext.ConnectSettings_CustomerDnsIps != null)
             {
                 requestConnectSettings_connectSettings_CustomerDnsIp = cmdletContext.ConnectSettings_CustomerDnsIps;
@@ -183,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.ConnectSettings.CustomerDnsIps = requestConnectSettings_connectSettings_CustomerDnsIp;
                 requestConnectSettingsIsNull = false;
             }
-            String requestConnectSettings_connectSettings_CustomerUserName = null;
+            System.String requestConnectSettings_connectSettings_CustomerUserName = null;
             if (cmdletContext.ConnectSettings_CustomerUserName != null)
             {
                 requestConnectSettings_connectSettings_CustomerUserName = cmdletContext.ConnectSettings_CustomerUserName;
@@ -193,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.ConnectSettings.CustomerUserName = requestConnectSettings_connectSettings_CustomerUserName;
                 requestConnectSettingsIsNull = false;
             }
-            List<String> requestConnectSettings_connectSettings_SubnetId = null;
+            List<System.String> requestConnectSettings_connectSettings_SubnetId = null;
             if (cmdletContext.ConnectSettings_SubnetIds != null)
             {
                 requestConnectSettings_connectSettings_SubnetId = cmdletContext.ConnectSettings_SubnetIds;
@@ -203,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 request.ConnectSettings.SubnetIds = requestConnectSettings_connectSettings_SubnetId;
                 requestConnectSettingsIsNull = false;
             }
-            String requestConnectSettings_connectSettings_VpcId = null;
+            System.String requestConnectSettings_connectSettings_VpcId = null;
             if (cmdletContext.ConnectSettings_VpcId != null)
             {
                 requestConnectSettings_connectSettings_VpcId = cmdletContext.ConnectSettings_VpcId;
@@ -273,15 +294,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ConnectSettings_CustomerDnsIps { get; set; }
-            public String ConnectSettings_CustomerUserName { get; set; }
-            public List<String> ConnectSettings_SubnetIds { get; set; }
-            public String ConnectSettings_VpcId { get; set; }
-            public String Description { get; set; }
-            public String Name { get; set; }
-            public String Password { get; set; }
-            public String ShortName { get; set; }
-            public DirectorySize Size { get; set; }
+            public List<System.String> ConnectSettings_CustomerDnsIps { get; set; }
+            public System.String ConnectSettings_CustomerUserName { get; set; }
+            public List<System.String> ConnectSettings_SubnetIds { get; set; }
+            public System.String ConnectSettings_VpcId { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
+            public System.String Password { get; set; }
+            public System.String ShortName { get; set; }
+            public Amazon.DirectoryService.DirectorySize Size { get; set; }
         }
         
     }

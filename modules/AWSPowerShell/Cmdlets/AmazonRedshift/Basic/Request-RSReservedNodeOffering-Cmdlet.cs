@@ -45,26 +45,32 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the PurchaseReservedNodeOffering operation against Amazon Redshift.", Operation = new[] {"PurchaseReservedNodeOffering"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNode",
         "This cmdlet returns a ReservedNode object.",
-        "The service call response (type PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter NodeCount
         /// <summary>
         /// <para>
         /// <para>The number of reserved nodes you want to purchase.</para><para>Default: <code>1</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 NodeCount { get; set; }
+        public System.Int32 NodeCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedNodeOfferingId
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the reserved node offering you want to purchase.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReservedNodeOfferingId { get; set; }
+        public System.String ReservedNodeOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -104,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PurchaseReservedNodeOfferingRequest();
+            var request = new Amazon.Redshift.Model.PurchaseReservedNodeOfferingRequest();
             
             if (cmdletContext.NodeCount != null)
             {
@@ -149,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Int32? NodeCount { get; set; }
-            public String ReservedNodeOfferingId { get; set; }
+            public System.Int32? NodeCount { get; set; }
+            public System.String ReservedNodeOfferingId { get; set; }
         }
         
     }

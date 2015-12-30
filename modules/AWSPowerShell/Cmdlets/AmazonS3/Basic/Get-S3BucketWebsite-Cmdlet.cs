@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the GetBucketWebsite operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketWebsite"})]
     [AWSCmdletOutput("Amazon.S3.Model.WebsiteConfiguration",
         "This cmdlet returns a WebsiteConfiguration object.",
-        "The service call response (type GetBucketWebsiteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.S3.Model.GetBucketWebsiteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetS3BucketWebsiteCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to be queried.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
-        
+        public System.String BucketName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetBucketWebsiteRequest();
+            var request = new Amazon.S3.Model.GetBucketWebsiteRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
+            public System.String BucketName { get; set; }
         }
         
     }

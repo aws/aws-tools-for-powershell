@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateInternetGateway"})]
     [AWSCmdletOutput("Amazon.EC2.Model.InternetGateway",
         "This cmdlet returns a InternetGateway object.",
-        "The service call response (type CreateInternetGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateInternetGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2InternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -82,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateInternetGatewayRequest();
+            var request = new Amazon.EC2.Model.CreateInternetGatewayRequest();
             
             
             CmdletOutput output;

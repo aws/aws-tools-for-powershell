@@ -50,18 +50,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CopySnapshot operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CopySnapshot"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CopySnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CopySnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the EBS snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter DestinationRegion
         /// <summary>
         /// <para>
         /// <para>The destination region to use in the <code>PresignedUrl</code> parameter of a snapshot
@@ -73,8 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationRegion { get; set; }
+        public System.String DestinationRegion { get; set; }
+        #endregion
         
+        #region Parameter Encrypted
         /// <summary>
         /// <para>
         /// <para>Specifies whether the destination snapshot should be encrypted. There is no way to
@@ -86,8 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Encrypted { get; set; }
+        public System.Boolean Encrypted { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when creating
@@ -102,24 +110,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter SourceRegion
         /// <summary>
         /// <para>
         /// <para>The ID of the region that contains the snapshot to be copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SourceRegion { get; set; }
+        public System.String SourceRegion { get; set; }
+        #endregion
         
+        #region Parameter SourceSnapshotId
         /// <summary>
         /// <para>
         /// <para>The ID of the EBS snapshot to copy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceSnapshotId { get; set; }
+        public System.String SourceSnapshotId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -127,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -163,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopySnapshotRequest();
+            var request = new Amazon.EC2.Model.CopySnapshotRequest();
             
             if (cmdletContext.Description != null)
             {
@@ -224,12 +238,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Description { get; set; }
-            public String DestinationRegion { get; set; }
-            public Boolean? Encrypted { get; set; }
-            public String KmsKeyId { get; set; }
-            public String SourceRegion { get; set; }
-            public String SourceSnapshotId { get; set; }
+            public System.String Description { get; set; }
+            public System.String DestinationRegion { get; set; }
+            public System.Boolean? Encrypted { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String SourceRegion { get; set; }
+            public System.String SourceSnapshotId { get; set; }
         }
         
     }

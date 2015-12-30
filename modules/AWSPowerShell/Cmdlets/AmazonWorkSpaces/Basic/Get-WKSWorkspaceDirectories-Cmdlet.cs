@@ -44,11 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Invokes the DescribeWorkspaceDirectories operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspaceDirectories"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceDirectory",
         "This cmdlet returns a collection of WorkspaceDirectory objects.",
-        "The service call response (type DescribeWorkspaceDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetWKSWorkspaceDirectoriesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// <para>An array of strings that contains the directory identifiers to retrieve information
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DirectoryIds")]
         public System.String[] DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
@@ -66,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -81,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (this.DirectoryId != null)
             {
-                context.DirectoryIds = new List<String>(this.DirectoryId);
+                context.DirectoryIds = new List<System.String>(this.DirectoryId);
             }
             context.NextToken = this.NextToken;
             
@@ -95,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeWorkspaceDirectoriesRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesRequest();
             
             if (cmdletContext.DirectoryIds != null)
             {
@@ -142,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DirectoryIds { get; set; }
-            public String NextToken { get; set; }
+            public List<System.String> DirectoryIds { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

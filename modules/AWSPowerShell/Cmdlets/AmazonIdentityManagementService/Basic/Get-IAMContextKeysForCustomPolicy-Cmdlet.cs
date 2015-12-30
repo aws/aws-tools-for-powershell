@@ -48,19 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetContextKeysForCustomPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetContextKeysForCustomPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type GetContextKeysForCustomPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetContextKeysForCustomPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMContextKeysForCustomPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyInputList
         /// <summary>
         /// <para>
         /// <para>A list of policies for which you want list of context keys used in <code>Condition</code>
-        /// elements.</para>
+        /// elements. Each document is specified as a string containing the complete, valid JSON
+        /// text of an IAM policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] PolicyInputList { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -74,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             if (this.PolicyInputList != null)
             {
-                context.PolicyInputList = new List<String>(this.PolicyInputList);
+                context.PolicyInputList = new List<System.String>(this.PolicyInputList);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -87,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetContextKeysForCustomPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.GetContextKeysForCustomPolicyRequest();
             
             if (cmdletContext.PolicyInputList != null)
             {
@@ -128,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> PolicyInputList { get; set; }
+            public List<System.String> PolicyInputList { get; set; }
         }
         
     }

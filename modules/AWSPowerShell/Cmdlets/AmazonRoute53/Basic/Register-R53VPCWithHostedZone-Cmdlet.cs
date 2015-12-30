@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
+    /// To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
     /// zone ID</i>/associatevpc</code> resource. The request body must include an XML document
     /// with a <code>AssociateVPCWithHostedZoneRequest</code> element. The response returns
     /// the <code>AssociateVPCWithHostedZoneResponse</code> element that contains <code>ChangeInfo</code>
@@ -43,46 +43,57 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Register", "R53VPCWithHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the AssociateVPCWithHostedZone operation against AWS Route 53.", Operation = new[] {"AssociateVPCWithHostedZone"})]
+    [AWSCmdlet("Invokes the AssociateVPCWithHostedZone operation against Amazon Route 53.", Operation = new[] {"AssociateVPCWithHostedZone"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type AssociateVPCWithHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.AssociateVPCWithHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterR53VPCWithHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Comment
         /// <summary>
         /// <para>
         /// <para><i>Optional:</i> Any comments you want to include about a <code>AssociateVPCWithHostedZoneRequest</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Comment { get; set; }
+        public System.String Comment { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone you want to associate your VPC with.</para><para>Note that you cannot associate a VPC with a hosted zone that doesn't have an existing
+        /// <para>The ID of the hosted zone you want to associate your VPC with.</para><para>Note that you cannot associate a VPC with a hosted zone that doesn't have an existing
         /// VPC association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HostedZoneId { get; set; }
+        public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String VPC_VPCId { get; set; }
+        public System.String VPC_VPCId { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public VPCRegion VPC_VPCRegion { get; set; }
+        [AWSConstantClassSource("Amazon.Route53.VPCRegion")]
+        public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -90,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -123,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AssociateVPCWithHostedZoneRequest();
+            var request = new Amazon.Route53.Model.AssociateVPCWithHostedZoneRequest();
             
             if (cmdletContext.HostedZoneId != null)
             {
@@ -132,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             
              // populate VPC
             bool requestVPCIsNull = true;
-            request.VPC = new VPC();
-            VPCRegion requestVPC_vPC_VPCRegion = null;
+            request.VPC = new Amazon.Route53.Model.VPC();
+            Amazon.Route53.VPCRegion requestVPC_vPC_VPCRegion = null;
             if (cmdletContext.VPC_VPCRegion != null)
             {
                 requestVPC_vPC_VPCRegion = cmdletContext.VPC_VPCRegion;
@@ -143,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.VPC.VPCRegion = requestVPC_vPC_VPCRegion;
                 requestVPCIsNull = false;
             }
-            String requestVPC_vPC_VPCId = null;
+            System.String requestVPC_vPC_VPCId = null;
             if (cmdletContext.VPC_VPCId != null)
             {
                 requestVPC_vPC_VPCId = cmdletContext.VPC_VPCId;
@@ -197,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HostedZoneId { get; set; }
-            public VPCRegion VPC_VPCRegion { get; set; }
-            public String VPC_VPCId { get; set; }
-            public String Comment { get; set; }
+            public System.String HostedZoneId { get; set; }
+            public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+            public System.String VPC_VPCId { get; set; }
+            public System.String Comment { get; set; }
         }
         
     }

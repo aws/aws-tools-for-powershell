@@ -33,13 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53ReusableDelegationSet")]
     [OutputType("Amazon.Route53.Model.DelegationSet")]
-    [AWSCmdlet("Invokes the GetReusableDelegationSet operation against AWS Route 53.", Operation = new[] {"GetReusableDelegationSet"})]
+    [AWSCmdlet("Invokes the GetReusableDelegationSet operation against Amazon Route 53.", Operation = new[] {"GetReusableDelegationSet"})]
     [AWSCmdletOutput("Amazon.Route53.Model.DelegationSet",
         "This cmdlet returns a DelegationSet object.",
-        "The service call response (type GetReusableDelegationSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.GetReusableDelegationSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>The ID of the reusable delegation set for which you want to get a list of the name
@@ -47,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
-        
+        public System.String Id { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetReusableDelegationSetRequest();
+            var request = new Amazon.Route53.Model.GetReusableDelegationSetRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -113,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

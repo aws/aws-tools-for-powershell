@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the ScheduleRun operation against AWS Device Farm.", Operation = new[] {"ScheduleRun"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Run",
         "This cmdlet returns a Run object.",
-        "The service call response (type ScheduleRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.ScheduleRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SubmitDFTestRunCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the app to schedule a run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AppArn { get; set; }
+        public System.String AppArn { get; set; }
+        #endregion
         
+        #region Parameter Configuration_AuxiliaryApp
         /// <summary>
         /// <para>
         /// <para>A list of auxiliary apps for the run.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_AuxiliaryApps")]
         public System.String[] Configuration_AuxiliaryApp { get; set; }
+        #endregion
         
+        #region Parameter Configuration_BillingMethod
         /// <summary>
         /// <para>
         /// <para>Specifies the billing method for a test run: <code>metered</code> or <code>unmetered</code>.
@@ -63,8 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public BillingMethod Configuration_BillingMethod { get; set; }
+        [AWSConstantClassSource("Amazon.DeviceFarm.BillingMethod")]
+        public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+        #endregion
         
+        #region Parameter Radios_Bluetooth
         /// <summary>
         /// <para>
         /// <para>True if Bluetooth is enabled at the beginning of the test; otherwise, false.</para>
@@ -72,16 +81,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Bluetooth")]
-        public Boolean Radios_Bluetooth { get; set; }
+        public System.Boolean Radios_Bluetooth { get; set; }
+        #endregion
         
+        #region Parameter DevicePoolArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the device pool for the run to be scheduled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DevicePoolArn { get; set; }
+        public System.String DevicePoolArn { get; set; }
+        #endregion
         
+        #region Parameter Configuration_ExtraDataPackageArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the extra data for the run. The extra data is a .zip file that AWS Device
@@ -89,16 +102,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Configuration_ExtraDataPackageArn { get; set; }
+        public System.String Configuration_ExtraDataPackageArn { get; set; }
+        #endregion
         
+        #region Parameter Test_Filter
         /// <summary>
         /// <para>
         /// <para>The test's filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Test_Filter { get; set; }
+        public System.String Test_Filter { get; set; }
+        #endregion
         
+        #region Parameter Radios_Gp
         /// <summary>
         /// <para>
         /// <para>True if GPS is enabled at the beginning of the test; otherwise, false.</para>
@@ -106,8 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Gps")]
-        public Boolean Radios_Gps { get; set; }
+        public System.Boolean Radios_Gp { get; set; }
+        #endregion
         
+        #region Parameter Location_Latitude
         /// <summary>
         /// <para>
         /// <para>The latitude.</para>
@@ -115,16 +134,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Location_Latitude")]
-        public Double Location_Latitude { get; set; }
+        public System.Double Location_Latitude { get; set; }
+        #endregion
         
+        #region Parameter Configuration_Locale
         /// <summary>
         /// <para>
         /// <para>Information about the locale that is used for the run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Configuration_Locale { get; set; }
+        public System.String Configuration_Locale { get; set; }
+        #endregion
         
+        #region Parameter Location_Longitude
         /// <summary>
         /// <para>
         /// <para>The longitude.</para>
@@ -132,24 +155,30 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Location_Longitude")]
-        public Double Location_Longitude { get; set; }
+        public System.Double Location_Longitude { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name for the run to be scheduled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Configuration_NetworkProfileArn
         /// <summary>
         /// <para>
         /// <para>Reserved for internal use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Configuration_NetworkProfileArn { get; set; }
+        public System.String Configuration_NetworkProfileArn { get; set; }
+        #endregion
         
+        #region Parameter Radios_Nfc
         /// <summary>
         /// <para>
         /// <para>True if NFC is enabled at the beginning of the test; otherwise, false.</para>
@@ -157,8 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Nfc")]
-        public Boolean Radios_Nfc { get; set; }
+        public System.Boolean Radios_Nfc { get; set; }
+        #endregion
         
+        #region Parameter Test_Parameter
         /// <summary>
         /// <para>
         /// <para>The test's parameters, such as test framework parameters and fixture settings.</para>
@@ -167,23 +198,29 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Test_Parameters")]
         public System.Collections.Hashtable Test_Parameter { get; set; }
+        #endregion
         
+        #region Parameter ProjectArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the project for the run to be scheduled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ProjectArn { get; set; }
+        public System.String ProjectArn { get; set; }
+        #endregion
         
+        #region Parameter Test_TestPackageArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the uploaded test that will be run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Test_TestPackageArn { get; set; }
+        public System.String Test_TestPackageArn { get; set; }
+        #endregion
         
+        #region Parameter Test_Type
         /// <summary>
         /// <para>
         /// <para>The test's type.</para><para>Must be one of the following values:</para><ul><li><para>BUILTIN_FUZZ: The built-in fuzz type.</para></li><li><para>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app,
@@ -191,8 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public TestType Test_Type { get; set; }
+        [AWSConstantClassSource("Amazon.DeviceFarm.TestType")]
+        public Amazon.DeviceFarm.TestType Test_Type { get; set; }
+        #endregion
         
+        #region Parameter Radios_Wifi
         /// <summary>
         /// <para>
         /// <para>True if Wi-Fi is enabled at the beginning of the test; otherwise, false.</para>
@@ -200,8 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Wifi")]
-        public Boolean Radios_Wifi { get; set; }
+        public System.Boolean Radios_Wifi { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -209,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -230,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.AppArn = this.AppArn;
             if (this.Configuration_AuxiliaryApp != null)
             {
-                context.Configuration_AuxiliaryApps = new List<String>(this.Configuration_AuxiliaryApp);
+                context.Configuration_AuxiliaryApps = new List<System.String>(this.Configuration_AuxiliaryApp);
             }
             context.Configuration_BillingMethod = this.Configuration_BillingMethod;
             context.Configuration_ExtraDataPackageArn = this.Configuration_ExtraDataPackageArn;
@@ -242,8 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.Configuration_NetworkProfileArn = this.Configuration_NetworkProfileArn;
             if (ParameterWasBound("Radios_Bluetooth"))
                 context.Configuration_Radios_Bluetooth = this.Radios_Bluetooth;
-            if (ParameterWasBound("Radios_Gps"))
-                context.Configuration_Radios_Gps = this.Radios_Gps;
+            if (ParameterWasBound("Radios_Gp"))
+                context.Configuration_Radios_Gps = this.Radios_Gp;
             if (ParameterWasBound("Radios_Nfc"))
                 context.Configuration_Radios_Nfc = this.Radios_Nfc;
             if (ParameterWasBound("Radios_Wifi"))
@@ -254,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
             context.Test_Filter = this.Test_Filter;
             if (this.Test_Parameter != null)
             {
-                context.Test_Parameters = new Dictionary<String, String>(StringComparer.Ordinal);
+                context.Test_Parameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Test_Parameter.Keys)
                 {
                     context.Test_Parameters.Add((String)hashKey, (String)(this.Test_Parameter[hashKey]));
@@ -273,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ScheduleRunRequest();
+            var request = new Amazon.DeviceFarm.Model.ScheduleRunRequest();
             
             if (cmdletContext.AppArn != null)
             {
@@ -282,8 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             
              // populate Configuration
             bool requestConfigurationIsNull = true;
-            request.Configuration = new ScheduleRunConfiguration();
-            List<String> requestConfiguration_configuration_AuxiliaryApp = null;
+            request.Configuration = new Amazon.DeviceFarm.Model.ScheduleRunConfiguration();
+            List<System.String> requestConfiguration_configuration_AuxiliaryApp = null;
             if (cmdletContext.Configuration_AuxiliaryApps != null)
             {
                 requestConfiguration_configuration_AuxiliaryApp = cmdletContext.Configuration_AuxiliaryApps;
@@ -293,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Configuration.AuxiliaryApps = requestConfiguration_configuration_AuxiliaryApp;
                 requestConfigurationIsNull = false;
             }
-            BillingMethod requestConfiguration_configuration_BillingMethod = null;
+            Amazon.DeviceFarm.BillingMethod requestConfiguration_configuration_BillingMethod = null;
             if (cmdletContext.Configuration_BillingMethod != null)
             {
                 requestConfiguration_configuration_BillingMethod = cmdletContext.Configuration_BillingMethod;
@@ -303,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Configuration.BillingMethod = requestConfiguration_configuration_BillingMethod;
                 requestConfigurationIsNull = false;
             }
-            String requestConfiguration_configuration_ExtraDataPackageArn = null;
+            System.String requestConfiguration_configuration_ExtraDataPackageArn = null;
             if (cmdletContext.Configuration_ExtraDataPackageArn != null)
             {
                 requestConfiguration_configuration_ExtraDataPackageArn = cmdletContext.Configuration_ExtraDataPackageArn;
@@ -313,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Configuration.ExtraDataPackageArn = requestConfiguration_configuration_ExtraDataPackageArn;
                 requestConfigurationIsNull = false;
             }
-            String requestConfiguration_configuration_Locale = null;
+            System.String requestConfiguration_configuration_Locale = null;
             if (cmdletContext.Configuration_Locale != null)
             {
                 requestConfiguration_configuration_Locale = cmdletContext.Configuration_Locale;
@@ -323,7 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Configuration.Locale = requestConfiguration_configuration_Locale;
                 requestConfigurationIsNull = false;
             }
-            String requestConfiguration_configuration_NetworkProfileArn = null;
+            System.String requestConfiguration_configuration_NetworkProfileArn = null;
             if (cmdletContext.Configuration_NetworkProfileArn != null)
             {
                 requestConfiguration_configuration_NetworkProfileArn = cmdletContext.Configuration_NetworkProfileArn;
@@ -333,12 +375,12 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Configuration.NetworkProfileArn = requestConfiguration_configuration_NetworkProfileArn;
                 requestConfigurationIsNull = false;
             }
-            Location requestConfiguration_configuration_Location = null;
+            Amazon.DeviceFarm.Model.Location requestConfiguration_configuration_Location = null;
             
              // populate Location
             bool requestConfiguration_configuration_LocationIsNull = true;
-            requestConfiguration_configuration_Location = new Location();
-            Double? requestConfiguration_configuration_Location_location_Latitude = null;
+            requestConfiguration_configuration_Location = new Amazon.DeviceFarm.Model.Location();
+            System.Double? requestConfiguration_configuration_Location_location_Latitude = null;
             if (cmdletContext.Configuration_Location_Latitude != null)
             {
                 requestConfiguration_configuration_Location_location_Latitude = cmdletContext.Configuration_Location_Latitude.Value;
@@ -348,7 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 requestConfiguration_configuration_Location.Latitude = requestConfiguration_configuration_Location_location_Latitude.Value;
                 requestConfiguration_configuration_LocationIsNull = false;
             }
-            Double? requestConfiguration_configuration_Location_location_Longitude = null;
+            System.Double? requestConfiguration_configuration_Location_location_Longitude = null;
             if (cmdletContext.Configuration_Location_Longitude != null)
             {
                 requestConfiguration_configuration_Location_location_Longitude = cmdletContext.Configuration_Location_Longitude.Value;
@@ -368,12 +410,12 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Configuration.Location = requestConfiguration_configuration_Location;
                 requestConfigurationIsNull = false;
             }
-            Radios requestConfiguration_configuration_Radios = null;
+            Amazon.DeviceFarm.Model.Radios requestConfiguration_configuration_Radios = null;
             
              // populate Radios
             bool requestConfiguration_configuration_RadiosIsNull = true;
-            requestConfiguration_configuration_Radios = new Radios();
-            Boolean? requestConfiguration_configuration_Radios_radios_Bluetooth = null;
+            requestConfiguration_configuration_Radios = new Amazon.DeviceFarm.Model.Radios();
+            System.Boolean? requestConfiguration_configuration_Radios_radios_Bluetooth = null;
             if (cmdletContext.Configuration_Radios_Bluetooth != null)
             {
                 requestConfiguration_configuration_Radios_radios_Bluetooth = cmdletContext.Configuration_Radios_Bluetooth.Value;
@@ -383,17 +425,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 requestConfiguration_configuration_Radios.Bluetooth = requestConfiguration_configuration_Radios_radios_Bluetooth.Value;
                 requestConfiguration_configuration_RadiosIsNull = false;
             }
-            Boolean? requestConfiguration_configuration_Radios_radios_Gps = null;
+            System.Boolean? requestConfiguration_configuration_Radios_radios_Gp = null;
             if (cmdletContext.Configuration_Radios_Gps != null)
             {
-                requestConfiguration_configuration_Radios_radios_Gps = cmdletContext.Configuration_Radios_Gps.Value;
+                requestConfiguration_configuration_Radios_radios_Gp = cmdletContext.Configuration_Radios_Gps.Value;
             }
-            if (requestConfiguration_configuration_Radios_radios_Gps != null)
+            if (requestConfiguration_configuration_Radios_radios_Gp != null)
             {
-                requestConfiguration_configuration_Radios.Gps = requestConfiguration_configuration_Radios_radios_Gps.Value;
+                requestConfiguration_configuration_Radios.Gps = requestConfiguration_configuration_Radios_radios_Gp.Value;
                 requestConfiguration_configuration_RadiosIsNull = false;
             }
-            Boolean? requestConfiguration_configuration_Radios_radios_Nfc = null;
+            System.Boolean? requestConfiguration_configuration_Radios_radios_Nfc = null;
             if (cmdletContext.Configuration_Radios_Nfc != null)
             {
                 requestConfiguration_configuration_Radios_radios_Nfc = cmdletContext.Configuration_Radios_Nfc.Value;
@@ -403,7 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 requestConfiguration_configuration_Radios.Nfc = requestConfiguration_configuration_Radios_radios_Nfc.Value;
                 requestConfiguration_configuration_RadiosIsNull = false;
             }
-            Boolean? requestConfiguration_configuration_Radios_radios_Wifi = null;
+            System.Boolean? requestConfiguration_configuration_Radios_radios_Wifi = null;
             if (cmdletContext.Configuration_Radios_Wifi != null)
             {
                 requestConfiguration_configuration_Radios_radios_Wifi = cmdletContext.Configuration_Radios_Wifi.Value;
@@ -443,8 +485,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             
              // populate Test
             bool requestTestIsNull = true;
-            request.Test = new ScheduleRunTest();
-            String requestTest_test_Filter = null;
+            request.Test = new Amazon.DeviceFarm.Model.ScheduleRunTest();
+            System.String requestTest_test_Filter = null;
             if (cmdletContext.Test_Filter != null)
             {
                 requestTest_test_Filter = cmdletContext.Test_Filter;
@@ -454,7 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Test.Filter = requestTest_test_Filter;
                 requestTestIsNull = false;
             }
-            Dictionary<String, String> requestTest_test_Parameter = null;
+            Dictionary<System.String, System.String> requestTest_test_Parameter = null;
             if (cmdletContext.Test_Parameters != null)
             {
                 requestTest_test_Parameter = cmdletContext.Test_Parameters;
@@ -464,7 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Test.Parameters = requestTest_test_Parameter;
                 requestTestIsNull = false;
             }
-            String requestTest_test_TestPackageArn = null;
+            System.String requestTest_test_TestPackageArn = null;
             if (cmdletContext.Test_TestPackageArn != null)
             {
                 requestTest_test_TestPackageArn = cmdletContext.Test_TestPackageArn;
@@ -474,7 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.Test.TestPackageArn = requestTest_test_TestPackageArn;
                 requestTestIsNull = false;
             }
-            TestType requestTest_test_Type = null;
+            Amazon.DeviceFarm.TestType requestTest_test_Type = null;
             if (cmdletContext.Test_Type != null)
             {
                 requestTest_test_Type = cmdletContext.Test_Type;
@@ -524,25 +566,25 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AppArn { get; set; }
-            public List<String> Configuration_AuxiliaryApps { get; set; }
-            public BillingMethod Configuration_BillingMethod { get; set; }
-            public String Configuration_ExtraDataPackageArn { get; set; }
-            public String Configuration_Locale { get; set; }
-            public Double? Configuration_Location_Latitude { get; set; }
-            public Double? Configuration_Location_Longitude { get; set; }
-            public String Configuration_NetworkProfileArn { get; set; }
-            public Boolean? Configuration_Radios_Bluetooth { get; set; }
-            public Boolean? Configuration_Radios_Gps { get; set; }
-            public Boolean? Configuration_Radios_Nfc { get; set; }
-            public Boolean? Configuration_Radios_Wifi { get; set; }
-            public String DevicePoolArn { get; set; }
-            public String Name { get; set; }
-            public String ProjectArn { get; set; }
-            public String Test_Filter { get; set; }
-            public Dictionary<String, String> Test_Parameters { get; set; }
-            public String Test_TestPackageArn { get; set; }
-            public TestType Test_Type { get; set; }
+            public System.String AppArn { get; set; }
+            public List<System.String> Configuration_AuxiliaryApps { get; set; }
+            public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+            public System.String Configuration_ExtraDataPackageArn { get; set; }
+            public System.String Configuration_Locale { get; set; }
+            public System.Double? Configuration_Location_Latitude { get; set; }
+            public System.Double? Configuration_Location_Longitude { get; set; }
+            public System.String Configuration_NetworkProfileArn { get; set; }
+            public System.Boolean? Configuration_Radios_Bluetooth { get; set; }
+            public System.Boolean? Configuration_Radios_Gps { get; set; }
+            public System.Boolean? Configuration_Radios_Nfc { get; set; }
+            public System.Boolean? Configuration_Radios_Wifi { get; set; }
+            public System.String DevicePoolArn { get; set; }
+            public System.String Name { get; set; }
+            public System.String ProjectArn { get; set; }
+            public System.String Test_Filter { get; set; }
+            public Dictionary<System.String, System.String> Test_Parameters { get; set; }
+            public System.String Test_TestPackageArn { get; set; }
+            public Amazon.DeviceFarm.TestType Test_Type { get; set; }
         }
         
     }

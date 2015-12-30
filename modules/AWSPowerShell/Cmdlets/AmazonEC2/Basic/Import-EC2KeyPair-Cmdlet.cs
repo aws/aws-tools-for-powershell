@@ -44,18 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.ImportKeyPairResponse")]
     [AWSCmdlet("Invokes the ImportKeyPair operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ImportKeyPair"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportKeyPairResponse",
-        "This cmdlet returns a ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.ImportKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ImportEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyName
         /// <summary>
         /// <para>
         /// <para>A unique name for the key pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String KeyName { get; set; }
+        public System.String KeyName { get; set; }
+        #endregion
         
+        #region Parameter PublicKeyMaterial
         /// <summary>
         /// <para>
         /// <para>The public key. You must base64 encode the public key material before sending it to
@@ -63,8 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String PublicKeyMaterial { get; set; }
+        public System.String PublicKeyMaterial { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ImportKeyPairRequest();
+            var request = new Amazon.EC2.Model.ImportKeyPairRequest();
             
             if (cmdletContext.KeyName != null)
             {
@@ -148,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String KeyName { get; set; }
-            public String PublicKeyMaterial { get; set; }
+            public System.String KeyName { get; set; }
+            public System.String PublicKeyMaterial { get; set; }
         }
         
     }

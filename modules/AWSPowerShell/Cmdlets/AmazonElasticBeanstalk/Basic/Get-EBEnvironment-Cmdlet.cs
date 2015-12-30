@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeEnvironments operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeEnvironments"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentDescription",
         "This cmdlet returns a collection of EnvironmentDescription objects.",
-        "The service call response (type DescribeEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentId
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("EnvironmentIds")]
         public System.String[] EnvironmentId { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnvironmentNames")]
         public System.String[] EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter IncludedDeletedBackTo
         /// <summary>
         /// <para>
         /// <para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
@@ -75,8 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime IncludedDeletedBackTo { get; set; }
+        public System.DateTime IncludedDeletedBackTo { get; set; }
+        #endregion
         
+        #region Parameter IncludeDeleted
         /// <summary>
         /// <para>
         /// <para>Indicates whether to include deleted environments: </para><para><code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code>
@@ -84,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean IncludeDeleted { get; set; }
+        public System.Boolean IncludeDeleted { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to include
@@ -93,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VersionLabel { get; set; }
-        
+        public System.String VersionLabel { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -109,11 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.ApplicationName = this.ApplicationName;
             if (this.EnvironmentId != null)
             {
-                context.EnvironmentIds = new List<String>(this.EnvironmentId);
+                context.EnvironmentIds = new List<System.String>(this.EnvironmentId);
             }
             if (this.EnvironmentName != null)
             {
-                context.EnvironmentNames = new List<String>(this.EnvironmentName);
+                context.EnvironmentNames = new List<System.String>(this.EnvironmentName);
             }
             if (ParameterWasBound("IncludedDeletedBackTo"))
                 context.IncludedDeletedBackTo = this.IncludedDeletedBackTo;
@@ -131,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeEnvironmentsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeEnvironmentsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -192,12 +204,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public List<String> EnvironmentIds { get; set; }
-            public List<String> EnvironmentNames { get; set; }
-            public DateTime? IncludedDeletedBackTo { get; set; }
-            public Boolean? IncludeDeleted { get; set; }
-            public String VersionLabel { get; set; }
+            public System.String ApplicationName { get; set; }
+            public List<System.String> EnvironmentIds { get; set; }
+            public List<System.String> EnvironmentNames { get; set; }
+            public System.DateTime? IncludedDeletedBackTo { get; set; }
+            public System.Boolean? IncludeDeleted { get; set; }
+            public System.String VersionLabel { get; set; }
         }
         
     }

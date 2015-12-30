@@ -42,11 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [AWSCmdlet("Invokes the ListPublicKeys operation against AWS CloudTrail.", Operation = new[] {"ListPublicKeys"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.PublicKey",
         "This cmdlet returns a collection of PublicKey objects.",
-        "The service call response (type ListPublicKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudTrail.Model.ListPublicKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCTPublicKeyCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>Optionally specifies, in UTC, the end of the time range to look up public keys for
@@ -54,8 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>Optionally specifies, in UTC, the start of the time range to look up public keys for
@@ -64,16 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -101,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListPublicKeysRequest();
+            var request = new Amazon.CloudTrail.Model.ListPublicKeysRequest();
             
             if (cmdletContext.EndTime != null)
             {
@@ -152,9 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public DateTime? EndTime { get; set; }
-            public String NextToken { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public System.String NextToken { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.UpdateChapCredentialsResponse")]
     [AWSCmdlet("Invokes the UpdateChapCredentials operation against AWS Storage Gateway.", Operation = new[] {"UpdateChapCredentials"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateChapCredentialsResponse",
-        "This cmdlet returns a UpdateChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.UpdateChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter InitiatorName
         /// <summary>
         /// <para>
         /// <para>The iSCSI initiator that connects to the target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String InitiatorName { get; set; }
+        public System.String InitiatorName { get; set; }
+        #endregion
         
+        #region Parameter SecretToAuthenticateInitiator
         /// <summary>
         /// <para>
         /// <para>The secret key that the initiator (for example, the Windows client) must provide to
@@ -60,8 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String SecretToAuthenticateInitiator { get; set; }
+        public System.String SecretToAuthenticateInitiator { get; set; }
+        #endregion
         
+        #region Parameter SecretToAuthenticateTarget
         /// <summary>
         /// <para>
         /// <para>The secret key that the target must provide to participate in mutual CHAP with the
@@ -69,8 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String SecretToAuthenticateTarget { get; set; }
+        public System.String SecretToAuthenticateTarget { get; set; }
+        #endregion
         
+        #region Parameter TargetARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a>
@@ -78,8 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TargetARN { get; set; }
+        public System.String TargetARN { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateChapCredentialsRequest();
+            var request = new Amazon.StorageGateway.Model.UpdateChapCredentialsRequest();
             
             if (cmdletContext.InitiatorName != null)
             {
@@ -173,10 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InitiatorName { get; set; }
-            public String SecretToAuthenticateInitiator { get; set; }
-            public String SecretToAuthenticateTarget { get; set; }
-            public String TargetARN { get; set; }
+            public System.String InitiatorName { get; set; }
+            public System.String SecretToAuthenticateInitiator { get; set; }
+            public System.String SecretToAuthenticateTarget { get; set; }
+            public System.String TargetARN { get; set; }
         }
         
     }

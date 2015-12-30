@@ -54,26 +54,32 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     [AWSCmdlet("Invokes the DescribeJobFlows operation against Amazon Elastic MapReduce.", Operation = new[] {"DescribeJobFlows"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.JobFlowDetail",
         "This cmdlet returns a collection of JobFlowDetail objects.",
-        "The service call response (type DescribeJobFlowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticMapReduce.Model.DescribeJobFlowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter CreatedAfter
         /// <summary>
         /// <para>
         /// <para>Return only job flows created after this date and time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime CreatedAfter { get; set; }
+        public System.DateTime CreatedAfter { get; set; }
+        #endregion
         
+        #region Parameter CreatedBefore
         /// <summary>
         /// <para>
         /// <para>Return only job flows created before this date and time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime CreatedBefore { get; set; }
+        public System.DateTime CreatedBefore { get; set; }
+        #endregion
         
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
         /// <para>Return only job flows whose job flow ID is contained in this list. </para>
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("JobFlowIds")]
         public System.String[] JobFlowId { get; set; }
+        #endregion
         
+        #region Parameter JobFlowState
         /// <summary>
         /// <para>
         /// <para>Return only job flows whose state is contained in this list.</para>
@@ -91,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("JobFlowStates")]
         public System.String[] JobFlowState { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -109,11 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.CreatedBefore = this.CreatedBefore;
             if (this.JobFlowId != null)
             {
-                context.JobFlowIds = new List<String>(this.JobFlowId);
+                context.JobFlowIds = new List<System.String>(this.JobFlowId);
             }
             if (this.JobFlowState != null)
             {
-                context.JobFlowStates = new List<String>(this.JobFlowState);
+                context.JobFlowStates = new List<System.String>(this.JobFlowState);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -126,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeJobFlowsRequest();
+            var request = new Amazon.ElasticMapReduce.Model.DescribeJobFlowsRequest();
             
             if (cmdletContext.CreatedAfter != null)
             {
@@ -179,10 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         internal class CmdletContext : ExecutorContext
         {
-            public DateTime? CreatedAfter { get; set; }
-            public DateTime? CreatedBefore { get; set; }
-            public List<String> JobFlowIds { get; set; }
-            public List<String> JobFlowStates { get; set; }
+            public System.DateTime? CreatedAfter { get; set; }
+            public System.DateTime? CreatedBefore { get; set; }
+            public List<System.String> JobFlowIds { get; set; }
+            public List<System.String> JobFlowStates { get; set; }
         }
         
     }

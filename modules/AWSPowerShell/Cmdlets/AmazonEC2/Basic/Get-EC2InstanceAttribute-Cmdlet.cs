@@ -40,26 +40,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeInstanceAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeInstanceAttribute"})]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceAttribute",
         "This cmdlet returns a InstanceAttribute object.",
-        "The service call response (type DescribeInstanceAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeInstanceAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2InstanceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The instance attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public InstanceAttributeName Attribute { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.InstanceAttributeName")]
+        public Amazon.EC2.InstanceAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
-        
+        public System.String InstanceId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -84,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeInstanceAttributeRequest();
+            var request = new Amazon.EC2.Model.DescribeInstanceAttributeRequest();
             
             if (cmdletContext.Attribute != null)
             {
@@ -129,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public InstanceAttributeName Attribute { get; set; }
-            public String InstanceId { get; set; }
+            public Amazon.EC2.InstanceAttributeName Attribute { get; set; }
+            public System.String InstanceId { get; set; }
         }
         
     }

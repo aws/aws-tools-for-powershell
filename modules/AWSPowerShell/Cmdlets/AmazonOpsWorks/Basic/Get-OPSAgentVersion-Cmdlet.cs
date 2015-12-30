@@ -37,26 +37,32 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribeAgentVersions operation against AWS OpsWorks.", Operation = new[] {"DescribeAgentVersions"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.AgentVersion",
         "This cmdlet returns a collection of AgentVersion objects.",
-        "The service call response (type DescribeAgentVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribeAgentVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSAgentVersionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationManager_Name
         /// <summary>
         /// <para>
         /// <para>The name. This parameter must be set to "Chef".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigurationManager_Name { get; set; }
+        public System.String ConfigurationManager_Name { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
+        public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationManager_Version
         /// <summary>
         /// <para>
         /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
@@ -64,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ConfigurationManager_Version { get; set; }
-        
+        public System.String ConfigurationManager_Version { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,13 +97,13 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAgentVersionsRequest();
+            var request = new Amazon.OpsWorks.Model.DescribeAgentVersionsRequest();
             
             
              // populate ConfigurationManager
             bool requestConfigurationManagerIsNull = true;
-            request.ConfigurationManager = new StackConfigurationManager();
-            String requestConfigurationManager_configurationManager_Name = null;
+            request.ConfigurationManager = new Amazon.OpsWorks.Model.StackConfigurationManager();
+            System.String requestConfigurationManager_configurationManager_Name = null;
             if (cmdletContext.ConfigurationManager_Name != null)
             {
                 requestConfigurationManager_configurationManager_Name = cmdletContext.ConfigurationManager_Name;
@@ -107,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 request.ConfigurationManager.Name = requestConfigurationManager_configurationManager_Name;
                 requestConfigurationManagerIsNull = false;
             }
-            String requestConfigurationManager_configurationManager_Version = null;
+            System.String requestConfigurationManager_configurationManager_Version = null;
             if (cmdletContext.ConfigurationManager_Version != null)
             {
                 requestConfigurationManager_configurationManager_Version = cmdletContext.ConfigurationManager_Version;
@@ -161,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ConfigurationManager_Name { get; set; }
-            public String ConfigurationManager_Version { get; set; }
-            public String StackId { get; set; }
+            public System.String ConfigurationManager_Name { get; set; }
+            public System.String ConfigurationManager_Version { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

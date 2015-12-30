@@ -44,58 +44,72 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [OutputType("Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse")]
     [AWSCmdlet("Invokes the CreateCachediSCSIVolume operation against AWS Storage Gateway.", Operation = new[] {"CreateCachediSCSIVolume"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse",
-        "This cmdlet returns a CreateCachediSCSIVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSGCachediSCSIVolumeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 5)]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public String NetworkInterfaceId { get; set; }
+        public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter TargetName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String TargetName { get; set; }
+        public System.String TargetName { get; set; }
+        #endregion
         
+        #region Parameter VolumeSizeInBytes
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int64 VolumeSizeInBytes { get; set; }
+        public System.Int64 VolumeSizeInBytes { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -103,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -139,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCachediSCSIVolumeRequest();
+            var request = new Amazon.StorageGateway.Model.CreateCachediSCSIVolumeRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -200,12 +214,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String GatewayARN { get; set; }
-            public String NetworkInterfaceId { get; set; }
-            public String SnapshotId { get; set; }
-            public String TargetName { get; set; }
-            public Int64? VolumeSizeInBytes { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String GatewayARN { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.String SnapshotId { get; set; }
+            public System.String TargetName { get; set; }
+            public System.Int64? VolumeSizeInBytes { get; set; }
         }
         
     }

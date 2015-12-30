@@ -41,11 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the DescribeVTLDevices operation against AWS Storage Gateway.", Operation = new[] {"DescribeVTLDevices"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.VTLDevice",
         "This cmdlet returns a collection of VTLDevice objects.",
-        "The service call response (type DescribeVTLDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: GatewayARN (type String), Marker (type String)"
+        "The service call response (type Amazon.StorageGateway.Model.DescribeVTLDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: GatewayARN (type System.String), Marker (type System.String)"
     )]
     public class GetSGVTLDevicesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter VTLDeviceARNs
         /// <summary>
         /// <para>
         /// <para>An array of strings, where each string represents the Amazon Resource Name (ARN) of
@@ -55,15 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] VTLDeviceARNs { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the number of VTL devices described be limited to the specified number.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An opaque string that indicates the position at which to begin describing the VTL
@@ -81,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
-        
+        public System.String Marker { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.Marker = this.Marker;
             if (this.VTLDeviceARNs != null)
             {
-                context.VTLDeviceARNs = new List<String>(this.VTLDeviceARNs);
+                context.VTLDeviceARNs = new List<System.String>(this.VTLDeviceARNs);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -114,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeVTLDevicesRequest();
+            var request = new Amazon.StorageGateway.Model.DescribeVTLDevicesRequest();
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
@@ -125,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
@@ -211,10 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
+            public System.String GatewayARN { get; set; }
             public int? Limit { get; set; }
-            public String Marker { get; set; }
-            public List<String> VTLDeviceARNs { get; set; }
+            public System.String Marker { get; set; }
+            public List<System.String> VTLDeviceARNs { get; set; }
         }
         
     }

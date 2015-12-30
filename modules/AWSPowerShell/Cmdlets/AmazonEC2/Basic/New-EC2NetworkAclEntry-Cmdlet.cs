@@ -54,66 +54,83 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateNetworkAclEntry operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateNetworkAclEntry"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NetworkAclId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateNetworkAclEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.EC2.Model.CreateNetworkAclEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2NetworkAclEntryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CidrBlock
         /// <summary>
         /// <para>
         /// <para>The network range to allow or deny, in CIDR notation (for example <code>172.16.0.0/24</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String CidrBlock { get; set; }
+        public System.String CidrBlock { get; set; }
+        #endregion
         
+        #region Parameter IcmpTypeCode_Code
         /// <summary>
         /// <para>
         /// <para>The ICMP type. A value of -1 means all types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 IcmpTypeCode_Code { get; set; }
+        public System.Int32 IcmpTypeCode_Code { get; set; }
+        #endregion
         
+        #region Parameter Egress
         /// <summary>
         /// <para>
         /// <para>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean Egress { get; set; }
+        public System.Boolean Egress { get; set; }
+        #endregion
         
+        #region Parameter PortRange_From
         /// <summary>
         /// <para>
         /// <para>The first port in the range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 PortRange_From { get; set; }
+        public System.Int32 PortRange_From { get; set; }
+        #endregion
         
+        #region Parameter NetworkAclId
         /// <summary>
         /// <para>
         /// <para>The ID of the network ACL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String NetworkAclId { get; set; }
+        public System.String NetworkAclId { get; set; }
+        #endregion
         
+        #region Parameter Protocol
         /// <summary>
         /// <para>
         /// <para>The protocol. A value of -1 means all protocols.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Protocol { get; set; }
+        public System.String Protocol { get; set; }
+        #endregion
         
+        #region Parameter RuleAction
         /// <summary>
         /// <para>
         /// <para>Indicates whether to allow or deny the traffic that matches the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public RuleAction RuleAction { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.RuleAction")]
+        public Amazon.EC2.RuleAction RuleAction { get; set; }
+        #endregion
         
+        #region Parameter RuleNumber
         /// <summary>
         /// <para>
         /// <para>The rule number for the entry (for example, 100). ACL entries are processed in ascending
@@ -121,31 +138,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 RuleNumber { get; set; }
+        public System.Int32 RuleNumber { get; set; }
+        #endregion
         
+        #region Parameter PortRange_To
         /// <summary>
         /// <para>
         /// <para>The last port in the range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 PortRange_To { get; set; }
+        public System.Int32 PortRange_To { get; set; }
+        #endregion
         
+        #region Parameter IcmpTypeCode_Type
         /// <summary>
         /// <para>
         /// <para>The ICMP code. A value of -1 means all codes for the specified ICMP type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 IcmpTypeCode_Type { get; set; }
+        public System.Int32 IcmpTypeCode_Type { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the NetworkAclId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -153,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -198,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateNetworkAclEntryRequest();
+            var request = new Amazon.EC2.Model.CreateNetworkAclEntryRequest();
             
             if (cmdletContext.CidrBlock != null)
             {
@@ -211,8 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate IcmpTypeCode
             bool requestIcmpTypeCodeIsNull = true;
-            request.IcmpTypeCode = new IcmpTypeCode();
-            Int32? requestIcmpTypeCode_icmpTypeCode_Code = null;
+            request.IcmpTypeCode = new Amazon.EC2.Model.IcmpTypeCode();
+            System.Int32? requestIcmpTypeCode_icmpTypeCode_Code = null;
             if (cmdletContext.IcmpTypeCode_Code != null)
             {
                 requestIcmpTypeCode_icmpTypeCode_Code = cmdletContext.IcmpTypeCode_Code.Value;
@@ -222,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.IcmpTypeCode.Code = requestIcmpTypeCode_icmpTypeCode_Code.Value;
                 requestIcmpTypeCodeIsNull = false;
             }
-            Int32? requestIcmpTypeCode_icmpTypeCode_Type = null;
+            System.Int32? requestIcmpTypeCode_icmpTypeCode_Type = null;
             if (cmdletContext.IcmpTypeCode_Type != null)
             {
                 requestIcmpTypeCode_icmpTypeCode_Type = cmdletContext.IcmpTypeCode_Type.Value;
@@ -244,8 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate PortRange
             bool requestPortRangeIsNull = true;
-            request.PortRange = new PortRange();
-            Int32? requestPortRange_portRange_From = null;
+            request.PortRange = new Amazon.EC2.Model.PortRange();
+            System.Int32? requestPortRange_portRange_From = null;
             if (cmdletContext.PortRange_From != null)
             {
                 requestPortRange_portRange_From = cmdletContext.PortRange_From.Value;
@@ -255,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.PortRange.From = requestPortRange_portRange_From.Value;
                 requestPortRangeIsNull = false;
             }
-            Int32? requestPortRange_portRange_To = null;
+            System.Int32? requestPortRange_portRange_To = null;
             if (cmdletContext.PortRange_To != null)
             {
                 requestPortRange_portRange_To = cmdletContext.PortRange_To.Value;
@@ -319,16 +344,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String CidrBlock { get; set; }
-            public Boolean? Egress { get; set; }
-            public Int32? IcmpTypeCode_Code { get; set; }
-            public Int32? IcmpTypeCode_Type { get; set; }
-            public String NetworkAclId { get; set; }
-            public Int32? PortRange_From { get; set; }
-            public Int32? PortRange_To { get; set; }
-            public String Protocol { get; set; }
-            public RuleAction RuleAction { get; set; }
-            public Int32? RuleNumber { get; set; }
+            public System.String CidrBlock { get; set; }
+            public System.Boolean? Egress { get; set; }
+            public System.Int32? IcmpTypeCode_Code { get; set; }
+            public System.Int32? IcmpTypeCode_Type { get; set; }
+            public System.String NetworkAclId { get; set; }
+            public System.Int32? PortRange_From { get; set; }
+            public System.Int32? PortRange_To { get; set; }
+            public System.String Protocol { get; set; }
+            public Amazon.EC2.RuleAction RuleAction { get; set; }
+            public System.Int32? RuleNumber { get; set; }
         }
         
     }

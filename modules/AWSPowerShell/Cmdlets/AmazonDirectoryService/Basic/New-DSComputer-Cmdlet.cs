@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.DS
     [AWSCmdlet("Invokes the CreateComputer operation against AWS Directory Service.", Operation = new[] {"CreateComputer"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Computer",
         "This cmdlet returns a Computer object.",
-        "The service call response (type CreateComputerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectoryService.Model.CreateComputerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDSComputerCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComputerAttribute
         /// <summary>
         /// <para>
         /// <para>An array of <a>Attribute</a> objects that contain any LDAP attributes to apply to
@@ -49,23 +51,29 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("ComputerAttributes")]
         public Amazon.DirectoryService.Model.Attribute[] ComputerAttribute { get; set; }
+        #endregion
         
+        #region Parameter ComputerName
         /// <summary>
         /// <para>
         /// <para>The name of the computer account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ComputerName { get; set; }
+        public System.String ComputerName { get; set; }
+        #endregion
         
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to create the computer account in.</para>
+        /// <para>The identifier of the directory in which to create the computer account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter OrganizationalUnitDistinguishedName
         /// <summary>
         /// <para>
         /// <para>The fully-qualified distinguished name of the organizational unit to place the computer
@@ -73,8 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String OrganizationalUnitDistinguishedName { get; set; }
+        public System.String OrganizationalUnitDistinguishedName { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>A one-time password that is used to join the computer to the directory. You should
@@ -82,8 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Password { get; set; }
+        public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -128,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateComputerRequest();
+            var request = new Amazon.DirectoryService.Model.CreateComputerRequest();
             
             if (cmdletContext.ComputerAttributes != null)
             {
@@ -186,10 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal class CmdletContext : ExecutorContext
         {
             public List<Amazon.DirectoryService.Model.Attribute> ComputerAttributes { get; set; }
-            public String ComputerName { get; set; }
-            public String DirectoryId { get; set; }
-            public String OrganizationalUnitDistinguishedName { get; set; }
-            public String Password { get; set; }
+            public System.String ComputerName { get; set; }
+            public System.String DirectoryId { get; set; }
+            public System.String OrganizationalUnitDistinguishedName { get; set; }
+            public System.String Password { get; set; }
         }
         
     }

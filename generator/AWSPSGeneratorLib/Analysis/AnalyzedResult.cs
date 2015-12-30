@@ -12,7 +12,21 @@ namespace AWSPowerShellGenerator.Analysis
 {
     internal class AnalyzedResult
     {
+        /// <summary>
+        /// The SDK type holding the full response data from the api call.
+        /// The true output will be either one or more members of this type
+        /// or a nested type. For most services and operations, this type
+        /// is the same as ReturnType.
+        /// </summary>
         public Type ResponseType { get; private set; }
+
+        /// <summary>
+        /// The output type of the method that contains the actual result data.
+        /// Usually the same as ResponseType except for scenarios where the SDK
+        /// generator has wrapped the true output into another type addressed
+        /// by a member of ResponseType.
+        /// </summary>
+        public Type ReturnType { get; private set; }
 
         public enum ResultOutputTypes
         {
@@ -32,9 +46,6 @@ namespace AWSPowerShellGenerator.Analysis
         // analyzed as a SinglePropertyResult output type
         public SimplePropertyInfo SingleResultProperty { get; private set; }
 
-        // For a SinglePropertyResult output type, this refer to the single property. For
-        // a MultiPropertyResult output type, they refer to the Response class 
-        public Type ReturnType { get; private set; }
         public string[] ReturnTypeDescription { get; private set; }
 
         /// <summary>
@@ -46,7 +57,14 @@ namespace AWSPowerShellGenerator.Analysis
 
         public AnalyzedResult(CmdletGenerator generator, OperationAnalyzer operationAnalyzer)
         {
-            ResponseType = operationAnalyzer.ReturnType;
+            // for most services, these are the same types. For some services (like SWF) the
+            // SDK generates a wrapper class inside the response that contains the actual
+            // return data. On exit from this analysis, ReturnType may update further if
+            // the cmdlet returns a collection to represent the collection types, not the
+            // type hosting the collection.
+            ResponseType = operationAnalyzer.ResponseType;
+            ReturnType = operationAnalyzer.ReturnType;
+
             OutputType = ResultOutputTypes.Empty;
 
             Func<PropertyInfo, bool> isMetadataProperty = p =>
@@ -58,7 +76,7 @@ namespace AWSPowerShellGenerator.Analysis
             // if the response type has a base class with matching prefix but ending
             // in 'Result', use that to get the real properties considered output. S3 does
             // not have this structure.
-            var inspectedType = ResponseType;
+            var inspectedType = ReturnType;
             if (ResponseType.BaseType != null)
             {
                 if (ResponseType.BaseType.Name.EndsWith("Result", StringComparison.Ordinal))
@@ -100,13 +118,15 @@ namespace AWSPowerShellGenerator.Analysis
                         // the 'standard' text declaring no output (except with -passthru) is added in the cmdlet source writer,
                         // as there are some variants
                         ReturnType = null;
-                        returnTypeDescription.Add(string.Format(StringConstants.ServiceResponseFormatText, OperationAnalyzer.GetValidTypeName(ResponseType, operationAnalyzer.CurrentModel)));
+                        returnTypeDescription.Add(string.Format(StringConstants.ServiceResponseFormatText, 
+                                                                OperationAnalyzer.GetValidTypeName(ResponseType, operationAnalyzer.CurrentModel)));
                     }
                     break;
                 case ResultOutputTypes.MultiProperty:
                     {
                         ReturnType = inspectedType;
-                        returnTypeDescription.Add(string.Format(StringConstants.MultipleOutputPropertiesFormatText, OperationAnalyzer.GetValidTypeName(inspectedType, operationAnalyzer.CurrentModel)));
+                        returnTypeDescription.Add(string.Format(StringConstants.MultipleOutputPropertiesFormatText, 
+                                                                OperationAnalyzer.GetValidTypeName(inspectedType, operationAnalyzer.CurrentModel)));
                     }
                     break;
                 case ResultOutputTypes.SingleProperty:

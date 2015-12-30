@@ -46,10 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [OutputType("Amazon.AWSSupport.Model.AddAttachmentsToSetResponse")]
     [AWSCmdlet("Invokes the AddAttachmentsToSet operation against AWS Support API.", Operation = new[] {"AddAttachmentsToSet"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.AddAttachmentsToSetResponse",
-        "This cmdlet returns a AddAttachmentsToSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.AWSSupport.Model.AddAttachmentsToSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddASAAttachmentsToSetCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attachment
         /// <summary>
         /// <para>
         /// <para>One or more attachments to add to the set. The limit is 3 attachments per set, and
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("Attachments")]
         public Amazon.AWSSupport.Model.Attachment[] Attachment { get; set; }
+        #endregion
         
+        #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
         /// <para>The ID of the attachment set. If an <code>AttachmentSetId</code> is not specified,
@@ -69,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String AttachmentSetId { get; set; }
+        public System.String AttachmentSetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -98,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             
             if (this.Attachment != null)
             {
-                context.Attachments = new List<Attachment>(this.Attachment);
+                context.Attachments = new List<Amazon.AWSSupport.Model.Attachment>(this.Attachment);
             }
             context.AttachmentSetId = this.AttachmentSetId;
             
@@ -112,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AddAttachmentsToSetRequest();
+            var request = new Amazon.AWSSupport.Model.AddAttachmentsToSetRequest();
             
             if (cmdletContext.Attachments != null)
             {
@@ -157,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Attachment> Attachments { get; set; }
-            public String AttachmentSetId { get; set; }
+            public List<Amazon.AWSSupport.Model.Attachment> Attachments { get; set; }
+            public System.String AttachmentSetId { get; set; }
         }
         
     }

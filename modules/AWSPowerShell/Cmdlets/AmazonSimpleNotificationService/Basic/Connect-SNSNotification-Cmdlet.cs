@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     [AWSCmdlet("Invokes the Subscribe operation against Amazon Simple Notification Service.", Operation = new[] {"Subscribe"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type SubscribeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleNotificationService.Model.SubscribeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConnectSNSNotificationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Endpoint
         /// <summary>
         /// <para>
         /// <para>The endpoint that you want to receive notifications. Endpoints vary by protocol:</para><ul><li>For the <code>http</code> protocol, the endpoint is an URL beginning
@@ -55,8 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Endpoint { get; set; }
+        public System.String Endpoint { get; set; }
+        #endregion
         
+        #region Parameter Protocol
         /// <summary>
         /// <para>
         /// <para>The protocol you want to use. Supported protocols include:</para><ul><li><code>http</code> -- delivery of JSON-encoded message via HTTP POST</li><li><code>https</code> -- delivery of JSON-encoded message via HTTPS POST</li><li><code>email</code> -- delivery of message via SMTP</li><li><code>email-json</code>
@@ -67,16 +71,20 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Protocol { get; set; }
+        public System.String Protocol { get; set; }
+        #endregion
         
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic you want to subscribe to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TopicArn { get; set; }
+        public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SubscribeRequest();
+            var request = new Amazon.SimpleNotificationService.Model.SubscribeRequest();
             
             if (cmdletContext.Endpoint != null)
             {
@@ -165,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Endpoint { get; set; }
-            public String Protocol { get; set; }
-            public String TopicArn { get; set; }
+            public System.String Endpoint { get; set; }
+            public System.String Protocol { get; set; }
+            public System.String TopicArn { get; set; }
         }
         
     }

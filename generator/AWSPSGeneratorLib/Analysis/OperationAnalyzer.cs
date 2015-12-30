@@ -59,18 +59,37 @@ namespace AWSPowerShellGenerator.Analysis
         public List<SimplePropertyInfo> RequestProperties { get; private set; }
 
         /// <summary>
+        /// Returns any autoiteration settings that apply, defined at either the operation
+        /// or service level.
+        /// </summary>
+        public AutoIteration AutoIterateSettings
+        {
+            get
+            {
+                return CurrentOperation.AutoIterate != null ? CurrentOperation.AutoIterate : CurrentModel.AutoIterate;
+                //if (CurrentOperation.AutoIterate != null)
+                //    return CurrentOperation.AutoIterate;
+
+                //if (CurrentModel.AutoIterate != null && !CurrentModel.AutoIterate.ExclusionSet.Contains(CurrentOperation.MethodName))
+                //    return CurrentModel.AutoIterate;
+
+                //return null;
+            }
+        }
+
+        /// <summary>
         /// Helper to indicate if codegen should emit an iteration pattern
         /// </summary>
         public bool GenerateIterationCode
         {
             get
             {
-                if (CurrentModel.AutoIterate == null)
+                var autoIteration = AutoIterateSettings;
+                if (autoIteration == null)
                     return false;
 
-                // we only have iteration patterns at service model level currently
-                var autoIteration = CurrentModel.AutoIterate;
-                var pattern = CurrentModel.AutoIterate.Pattern;
+                var pattern = autoIteration.Pattern;
+
                 if (pattern == AutoIteration.AutoIteratePattern.None
                         || autoIteration.ExclusionSet.Contains(CurrentOperation.MethodName))
                     return false;
@@ -102,10 +121,8 @@ namespace AWSPowerShellGenerator.Analysis
         {
             get
             {
-                if (CurrentModel.AutoIterate == null)
-                    return AutoIteration.AutoIteratePattern.None;
-
-                return CurrentModel.AutoIterate.Pattern;
+                var autoIteration = AutoIterateSettings;
+                return autoIteration != null ? autoIteration.Pattern : AutoIteration.AutoIteratePattern.None;
             }
         }
 
@@ -126,7 +143,18 @@ namespace AWSPowerShellGenerator.Analysis
         public Type RequestType { get; private set; }
 
         /// <summary>
-        /// The output type of the method that contains the actual result data
+        /// The SDK type holding the full response data from the api call.
+        /// The true output will be either one or more members of this type
+        /// or a nested type. The result analyzer will determine which should
+        /// be used.
+        /// </summary>
+        public Type ResponseType { get; private set; }
+
+        /// <summary>
+        /// The output type of the method that contains the actual result data.
+        /// Usually the same as ResponseType except for scenarios where the SDK
+        /// generator has wrapped the true output into another type addressed
+        /// by a member of ResponseType.
         /// </summary>
         public Type ReturnType { get; private set; }
 
@@ -385,7 +413,24 @@ namespace AWSPowerShellGenerator.Analysis
             Method = methodInfo;
 
             RequestType = GetRequestType(methodInfo);
-            ReturnType = methodInfo.ReturnType;
+            ResponseType = methodInfo.ReturnType;
+
+            if (string.IsNullOrEmpty(CurrentOperation.OutputWrapper))
+                ReturnType = ResponseType;
+            else
+            {
+                // the true return type exists as a nested member inside the
+                // method response type so we must go one layer deeper to get
+                // at the class containing the data to analyze for output
+                var outputMember = ResponseType.GetMember(CurrentOperation.OutputWrapper).FirstOrDefault();
+                if (outputMember != null && outputMember.MemberType == MemberTypes.Property)
+                    ReturnType = ((PropertyInfo)outputMember).PropertyType;
+                else
+                {
+                    Logger.LogError("OutputWrapper configured for '{0}' but member property not found in SDK response type.", CurrentOperation.OutputWrapper);
+                    return;
+                }
+            }
 
             // determine cmdlet verb/noun based on inspection or config directions
             if (!DetermineVerbAndNoun(generator))
@@ -497,6 +542,17 @@ namespace AWSPowerShellGenerator.Analysis
         /// at either the operation or model level.
         /// </summary>
         /// <param name="analyzedName"></param>
+        /// <returns></returns>
+        public bool IsExcludedParameter(string analyzedName)
+        {
+            return IsExcludedParameter(analyzedName, CurrentModel, CurrentOperation);
+        }
+
+        /// <summary>
+        /// Returns true if the parameter (identified by fully flattened name) is tagged as excluded
+        /// at either the operation or model level.
+        /// </summary>
+        /// <param name="analyzedName"></param>
         /// <param name="model"></param>
         /// <param name="operation"></param>
         /// <returns></returns>
@@ -577,19 +633,8 @@ namespace AWSPowerShellGenerator.Analysis
                 throw new Exception(string.Format("Can't determine generic type. Type = [{0}], GenericType = [{1}]", type.FullName, genericType.FullName));
             }
 
-            // test if the type is within the scope of the namespaces added to the cmdlet and if so,
-            // return the non-namespaced type name (unless we have instruction to retain the fully qualified
-            // name to avoid name collisions)
+            // always return namespace-scoped type names to avoid cross-service conflicts
             string scopedName = string.Format("{0}.{1}", type.Namespace, type.Name);
-            if (!currentModel.RetainFullTypeNames.Contains(scopedName, StringComparer.Ordinal))
-            {
-                if ((string.Compare(type.Namespace, currentModel.ServiceNamespace, StringComparison.Ordinal) == 0)
-                        || (string.Compare(type.Namespace, currentModel.ServiceNamespace + ".Model", StringComparison.Ordinal) == 0)
-                        || BaseSourceCodeWriter.DefaultNamespaces.Contains<string>(type.Namespace, StringComparer.Ordinal)
-                        || currentModel.AdditionalNamespaces.Contains(type.Namespace, StringComparer.Ordinal))
-                    return type.Name;
-            }
-
             return scopedName;
         }
 
@@ -670,7 +715,7 @@ namespace AWSPowerShellGenerator.Analysis
         {
             get
             {
-                var iterationSettings = CurrentModel.AutoIterate;
+                var iterationSettings = AutoIterateSettings;
                 if (iterationSettings == null)
                     return AnalyzedParameters.Count;
 
@@ -1458,7 +1503,11 @@ namespace AWSPowerShellGenerator.Analysis
 
         private bool IsEmitLimiter(string propertyName)
         {
-            return IsEmitLimiter(propertyName, CurrentModel.AutoIterate, CurrentOperation.MethodName);
+            var autoIteration = AutoIterateSettings;
+            if (autoIteration == null)
+                return false;
+
+            return IsEmitLimiter(propertyName, autoIteration, CurrentOperation.MethodName);
         }
 
         public static bool AreRequestFieldsPresent(IEnumerable<SimplePropertyInfo> requestProperties, params string[] fieldNames)

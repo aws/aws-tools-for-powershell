@@ -44,10 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
     [AWSCmdlet("Invokes the DeleteReplicationGroup operation against Amazon ElastiCache.", Operation = new[] {"DeleteReplicationGroup"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup",
         "This cmdlet returns a ReplicationGroup object.",
-        "The service call response (type DeleteReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElastiCache.Model.DeleteReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter FinalSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para>The name of a final node group snapshot. ElastiCache creates the snapshot from the
@@ -57,16 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalSnapshotIdentifier { get; set; }
+        public System.String FinalSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
         /// <para>The identifier for the cluster to be deleted. This parameter is not case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ReplicationGroupId { get; set; }
+        public System.String ReplicationGroupId { get; set; }
+        #endregion
         
+        #region Parameter RetainPrimaryCluster
         /// <summary>
         /// <para>
         /// <para>If set to <i>true</i>, all of the read replicas will be deleted, but the primary node
@@ -74,8 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean RetainPrimaryCluster { get; set; }
+        public System.Boolean RetainPrimaryCluster { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteReplicationGroupRequest();
+            var request = new Amazon.ElastiCache.Model.DeleteReplicationGroupRequest();
             
             if (cmdletContext.FinalSnapshotIdentifier != null)
             {
@@ -165,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FinalSnapshotIdentifier { get; set; }
-            public String ReplicationGroupId { get; set; }
-            public Boolean? RetainPrimaryCluster { get; set; }
+            public System.String FinalSnapshotIdentifier { get; set; }
+            public System.String ReplicationGroupId { get; set; }
+            public System.Boolean? RetainPrimaryCluster { get; set; }
         }
         
     }

@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     [AWSCmdlet("Invokes the DescribePermissions operation against AWS OpsWorks.", Operation = new[] {"DescribePermissions"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Permission",
         "This cmdlet returns a collection of Permission objects.",
-        "The service call response (type DescribePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.OpsWorks.Model.DescribePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetOPSPermissionsCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>The user's IAM ARN. For more information about IAM ARNs, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
@@ -53,16 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String IamUserArn { get; set; }
+        public System.String IamUserArn { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackId { get; set; }
-        
+        public System.String StackId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -87,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribePermissionsRequest();
+            var request = new Amazon.OpsWorks.Model.DescribePermissionsRequest();
             
             if (cmdletContext.IamUserArn != null)
             {
@@ -132,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IamUserArn { get; set; }
-            public String StackId { get; set; }
+            public System.String IamUserArn { get; set; }
+            public System.String StackId { get; set; }
         }
         
     }

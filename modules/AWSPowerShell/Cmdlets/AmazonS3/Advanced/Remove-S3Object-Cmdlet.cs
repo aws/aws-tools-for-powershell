@@ -33,57 +33,70 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [Cmdlet("Remove", "S3Object", DefaultParameterSetName = ParamSet_SingleObject, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType(new Type[] { typeof(DeleteObjectResponse), typeof(DeleteObjectsResponse) })]
     [AWSCmdlet("Invokes the DeleteObjects operation against Amazon S3.", Operation = new [] {"DeleteObjects"})]
-    [AWSCmdletOutput("DeleteObjectResponse instance if deleting a single object or DeleteObjectsResponse instance for multi-object delete.")]
+    [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectResponse instance if deleting a single object or Amazon.S3.Model.DeleteObjectsResponse instance for multi-object delete.")]
     public class RemoveS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         const string ParamSet_SingleObject = "SingleObjDeleteSet";
         const string Paramset_MultipleObject = "MultiObjDeleteSet";
 
+        #region Parameter BucketName
         /// <summary>
         /// The name of the bucket containing the object(s) to be removed.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
 
         #region Single Object Delete Parameters
 
+        #region Parameter Key
         /// <summary>
         /// Key value identifying a single object in S3 to remove.
         /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_SingleObject, ValueFromPipelineByPropertyName = true)]
-        public String Key { get; set; }
+        public System.String Key { get; set; }
+        #endregion
 
+        #region Parameter VersionId
         /// <summary>
         /// If specified, the specific version of the S3 object is removed.
         /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_SingleObject)]
-        public String VersionId { get; set; }
+        public System.String VersionId { get; set; }
+        #endregion
 
         #endregion
 
         #region Multi-Object Delete Parameters
 
+        #region Parameter VersionKey
         /// <summary>
         /// Collection of KeyVersion objects describing the S3 objects to be deleted.
         /// </summary>
         [Parameter(ParameterSetName = Paramset_MultipleObject)]
         [Alias("VersionKeys")]
-        public KeyVersion[] VersionKey { get; set; }
+        public Amazon.S3.Model.KeyVersion[] VersionKey { get; set; }
+        #endregion
 
+        #region Parameter InputObject
         /// <summary>
         /// Collection of S3Object instances describing the S3 objects to be deleted.
         /// </summary>
         [Parameter(ParameterSetName = Paramset_MultipleObject, ValueFromPipeline = true)]
         [Alias("InputObjects")]
-        public S3Object[] InputObject { get; set; }
+        public Amazon.S3.Model.S3Object[] InputObject { get; set; }
+        #endregion
 
+        #region Parameter KeyCollection
         /// <summary>
         /// Collection of key names describing the S3 objects to be deleted.
         /// </summary>
         [Parameter(ParameterSetName = Paramset_MultipleObject)]
         [Alias("Keys")]
-        public string[] KeyCollection { get; set; }
+        public System.String[] KeyCollection { get; set; }
+        #endregion
 
+        #region Parameter ReportErrorsOnly
         /// <summary>
         /// <para>
         /// If set when deleting multiple objects the service response will include only those 
@@ -99,11 +112,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Alias("Quiet")]
         [Parameter(ParameterSetName = Paramset_MultipleObject)]
         public SwitchParameter ReportErrorsOnly { get; set; }
+        #endregion
 
         #endregion
 
         #region Shared Parameters
 
+        #region Parameter SerialNumber
         /// <summary>
         /// <para>
         /// Specifies the serial number of the multi-factor authentication device 
@@ -117,8 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         [Alias("MfaCodes_First")]
-        public String SerialNumber { get; set; }
+        public System.String SerialNumber { get; set; }
+        #endregion
 
+        #region Parameter AuthenticationValue
         /// <summary>
         /// <para>
         /// Specifies the current token/code displayed on the multi-factor authentication device 
@@ -132,8 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         [Alias("MfaCodes_Second")]
-        public String AuthenticationValue { get; set; }
+        public System.String AuthenticationValue { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -141,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         #endregion
 

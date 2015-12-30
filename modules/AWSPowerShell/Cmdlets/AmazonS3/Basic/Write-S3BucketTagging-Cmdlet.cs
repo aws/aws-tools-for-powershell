@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketTagging operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketTagging"})]
     [AWSCmdletOutput("None or Amazon.S3.Model.Tag",
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketTaggingCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to apply the tags to.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter TagSet
         /// <summary>
         /// <para>
         /// The collection of tags.
@@ -55,14 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("TagSets")]
         public Amazon.S3.Model.Tag[] TagSet { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of Tag objects that were added.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.BucketName = this.BucketName;
             if (this.TagSet != null)
             {
-                context.TagSet = new List<Tag>(this.TagSet);
+                context.TagSet = new List<Amazon.S3.Model.Tag>(this.TagSet);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketTaggingRequest();
+            var request = new Amazon.S3.Model.PutBucketTaggingRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -151,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public List<Tag> TagSet { get; set; }
+            public System.String BucketName { get; set; }
+            public List<Amazon.S3.Model.Tag> TagSet { get; set; }
         }
         
     }

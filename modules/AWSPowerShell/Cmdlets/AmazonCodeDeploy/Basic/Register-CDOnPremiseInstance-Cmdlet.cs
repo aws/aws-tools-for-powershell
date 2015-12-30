@@ -35,26 +35,32 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdlet("Invokes the RegisterOnPremisesInstance operation against AWS CodeDeploy.", Operation = new[] {"RegisterOnPremisesInstance"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type RegisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM user to associate with the on-premises instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IamUserArn { get; set; }
+        public System.String IamUserArn { get; set; }
+        #endregion
         
+        #region Parameter InstanceName
         /// <summary>
         /// <para>
         /// <para>The name of the on-premises instance to register.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String InstanceName { get; set; }
+        public System.String InstanceName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RegisterOnPremisesInstanceRequest();
+            var request = new Amazon.CodeDeploy.Model.RegisterOnPremisesInstanceRequest();
             
             if (cmdletContext.IamUserArn != null)
             {
@@ -138,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal class CmdletContext : ExecutorContext
         {
-            public String IamUserArn { get; set; }
-            public String InstanceName { get; set; }
+            public System.String IamUserArn { get; set; }
+            public System.String InstanceName { get; set; }
         }
         
     }

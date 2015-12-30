@@ -36,24 +36,31 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private const string AbsoluteParameterSetName = "Absolute";
         private const string RelativeParameterSetName = "Relative";
 
+        #region Parameter BucketName
         /// <summary>
         /// The name of the bucket containing multipart uploads.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
 
+        #region Parameter InitiatedDate
         /// <summary>
         /// The date before which the multipart uploads were initiated.
         /// </summary>
         [Parameter(Position = 1, Mandatory = true, ParameterSetName = AbsoluteParameterSetName)]
-        public DateTime InitiatedDate { get; set; }
+        public System.DateTime InitiatedDate { get; set; }
+        #endregion
 
+        #region Parameter DaysBefore
         /// <summary>
         /// The number of days ago that the multipart uploads were initiated.
         /// </summary>
         [Parameter(Position = 1, Mandatory = true, ParameterSetName = RelativeParameterSetName)]
-        public int DaysBefore { get; set; }
+        public System.Int32 DaysBefore { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -61,6 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

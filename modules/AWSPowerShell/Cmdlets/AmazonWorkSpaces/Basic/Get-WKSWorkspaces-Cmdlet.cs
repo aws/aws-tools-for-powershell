@@ -46,11 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [AWSCmdlet("Invokes the DescribeWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.Workspace",
         "This cmdlet returns a collection of Workspace objects.",
-        "The service call response (type DescribeWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetWKSWorkspacesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter BundleId
         /// <summary>
         /// <para>
         /// <para>The identifier of a bundle to obtain the WorkSpaces for. All WorkSpaces that are created
@@ -59,8 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String BundleId { get; set; }
+        public System.String BundleId { get; set; }
+        #endregion
         
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// <para>Specifies the directory identifier to which to limit the WorkSpaces. Optionally, you
@@ -69,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DirectoryId { get; set; }
+        public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>Used with the <code>DirectoryId</code> parameter to specify the directory user for
@@ -78,8 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
         /// <para>An array of strings that contain the identifiers of the WorkSpaces for which to retrieve
@@ -91,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("WorkspaceIds")]
         public System.String[] WorkspaceId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return.</para>
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
@@ -108,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -129,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.UserName = this.UserName;
             if (this.WorkspaceId != null)
             {
-                context.WorkspaceIds = new List<String>(this.WorkspaceId);
+                context.WorkspaceIds = new List<System.String>(this.WorkspaceId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -143,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeWorkspacesRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeWorkspacesRequest();
             if (cmdletContext.BundleId != null)
             {
                 request.BundleId = cmdletContext.BundleId;
@@ -162,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
@@ -247,12 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BundleId { get; set; }
-            public String DirectoryId { get; set; }
+            public System.String BundleId { get; set; }
+            public System.String DirectoryId { get; set; }
             public int? Limit { get; set; }
-            public String NextToken { get; set; }
-            public String UserName { get; set; }
-            public List<String> WorkspaceIds { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String UserName { get; set; }
+            public List<System.String> WorkspaceIds { get; set; }
         }
         
     }

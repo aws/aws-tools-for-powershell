@@ -43,18 +43,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the PutMetricFilter operation against Amazon CloudWatch Logs.", Operation = new[] {"PutMetricFilter"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutMetricFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.PutMetricFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter FilterName
         /// <summary>
         /// <para>
         /// <para>A name for the metric filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String FilterName { get; set; }
+        public System.String FilterName { get; set; }
+        #endregion
         
+        #region Parameter FilterPattern
         /// <summary>
         /// <para>
         /// <para>A valid CloudWatch Logs filter pattern for extracting metric data out of ingested
@@ -62,16 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String FilterPattern { get; set; }
+        public System.String FilterPattern { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the log group to associate the metric filter with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter MetricTransformation
         /// <summary>
         /// <para>
         /// <para>A collection of information needed to define how metric data gets emitted.</para>
@@ -80,14 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MetricTransformations")]
         public Amazon.CloudWatchLogs.Model.MetricTransformation[] MetricTransformation { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LogGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -118,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.LogGroupName = this.LogGroupName;
             if (this.MetricTransformation != null)
             {
-                context.MetricTransformations = new List<MetricTransformation>(this.MetricTransformation);
+                context.MetricTransformations = new List<Amazon.CloudWatchLogs.Model.MetricTransformation>(this.MetricTransformation);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -131,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutMetricFilterRequest();
+            var request = new Amazon.CloudWatchLogs.Model.PutMetricFilterRequest();
             
             if (cmdletContext.FilterName != null)
             {
@@ -186,10 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FilterName { get; set; }
-            public String FilterPattern { get; set; }
-            public String LogGroupName { get; set; }
-            public List<MetricTransformation> MetricTransformations { get; set; }
+            public System.String FilterName { get; set; }
+            public System.String FilterPattern { get; set; }
+            public System.String LogGroupName { get; set; }
+            public List<Amazon.CloudWatchLogs.Model.MetricTransformation> MetricTransformations { get; set; }
         }
         
     }

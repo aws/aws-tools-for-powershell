@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeRegions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeRegions"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Region",
         "This cmdlet returns a collection of Region objects.",
-        "The service call response (type DescribeRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2RegionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>endpoint</code> - The endpoint of the region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</para></li><li><para><code>region-name</code> - The name of the region (for example, <code>us-east-1</code>).</para></li></ul>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter RegionName
         /// <summary>
         /// <para>
         /// <para>The names of one or more regions.</para>
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("RegionNames")]
         public System.String[] RegionName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -76,11 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.RegionName != null)
             {
-                context.RegionNames = new List<String>(this.RegionName);
+                context.RegionNames = new List<System.String>(this.RegionName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -93,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeRegionsRequest();
+            var request = new Amazon.EC2.Model.DescribeRegionsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -138,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> RegionNames { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> RegionNames { get; set; }
         }
         
     }

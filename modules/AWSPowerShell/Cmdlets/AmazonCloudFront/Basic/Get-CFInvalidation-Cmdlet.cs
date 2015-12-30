@@ -35,26 +35,30 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the GetInvalidation operation against Amazon CloudFront.", Operation = new[] {"GetInvalidation"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.Invalidation",
         "This cmdlet returns a Invalidation object.",
-        "The service call response (type GetInvalidationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.GetInvalidationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFInvalidationCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter DistributionId
         /// <summary>
         /// <para>
         /// The distribution's id.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DistributionId { get; set; }
+        public System.String DistributionId { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// The invalidation's id.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String Id { get; set; }
-        
+        public System.String Id { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -79,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetInvalidationRequest();
+            var request = new Amazon.CloudFront.Model.GetInvalidationRequest();
             
             if (cmdletContext.DistributionId != null)
             {
@@ -124,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DistributionId { get; set; }
-            public String Id { get; set; }
+            public System.String DistributionId { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

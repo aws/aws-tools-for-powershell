@@ -35,33 +35,39 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// associated with this health check. If resource record sets are associated with this
     /// health check, you must disassociate them before you can delete your health check.
     /// If you try to delete a health check that is associated with resource record sets,
-    /// Route 53 will deny your request with a <code>HealthCheckInUse</code> error. For information
-    /// about disassociating the records from your health check, see <a>ChangeResourceRecordSets</a>.</important>
+    /// Amazon Route 53 will deny your request with a <code>HealthCheckInUse</code> error.
+    /// For information about disassociating the records from your health check, see <a>ChangeResourceRecordSets</a>.</important>
     /// </summary>
     [Cmdlet("Remove", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteHealthCheck operation against AWS Route 53.", Operation = new[] {"DeleteHealthCheck"})]
+    [AWSCmdlet("Invokes the DeleteHealthCheck operation against Amazon Route 53.", Operation = new[] {"DeleteHealthCheck"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the HealthCheckId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteHealthCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53.Model.DeleteHealthCheckResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HealthCheckId
         /// <summary>
         /// <para>
         /// <para>The ID of the health check to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String HealthCheckId { get; set; }
+        public System.String HealthCheckId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the HealthCheckId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -99,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteHealthCheckRequest();
+            var request = new Amazon.Route53.Model.DeleteHealthCheckRequest();
             
             if (cmdletContext.HealthCheckId != null)
             {
@@ -142,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String HealthCheckId { get; set; }
+            public System.String HealthCheckId { get; set; }
         }
         
     }

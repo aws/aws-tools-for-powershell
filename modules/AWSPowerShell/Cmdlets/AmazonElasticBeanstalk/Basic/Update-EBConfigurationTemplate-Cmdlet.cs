@@ -40,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [OutputType("Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse")]
     [AWSCmdlet("Invokes the UpdateConfigurationTemplate operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateConfigurationTemplate"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse",
-        "This cmdlet returns a UpdateConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateEBConfigurationTemplateCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of the application associated with the configuration template to update.</para><para> If no application is found with this name, <code>UpdateConfigurationTemplate</code>
@@ -51,16 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A new description for the configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Description { get; set; }
+        public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter OptionSetting
         /// <summary>
         /// <para>
         /// <para> A list of configuration option settings to update with the new specified option value.
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("OptionSettings")]
         public Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting[] OptionSetting { get; set; }
+        #endregion
         
+        #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
         /// <para> A list of configuration options to remove from the configuration set. </para><para> Constraint: You can remove only <code>UserDefined</code> configuration options. </para>
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] OptionsToRemove { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para>The name of the configuration template to update.</para><para> If no configuration template is found with this name, <code>UpdateConfigurationTemplate</code>
@@ -86,8 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String TemplateName { get; set; }
+        public System.String TemplateName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -117,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.Description = this.Description;
             if (this.OptionSetting != null)
             {
-                context.OptionSettings = new List<ConfigurationOptionSetting>(this.OptionSetting);
+                context.OptionSettings = new List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting>(this.OptionSetting);
             }
             if (this.OptionsToRemove != null)
             {
-                context.OptionsToRemove = new List<OptionSpecification>(this.OptionsToRemove);
+                context.OptionsToRemove = new List<Amazon.ElasticBeanstalk.Model.OptionSpecification>(this.OptionsToRemove);
             }
             context.TemplateName = this.TemplateName;
             
@@ -135,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateConfigurationTemplateRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.UpdateConfigurationTemplateRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -192,11 +204,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String Description { get; set; }
-            public List<ConfigurationOptionSetting> OptionSettings { get; set; }
-            public List<OptionSpecification> OptionsToRemove { get; set; }
-            public String TemplateName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String Description { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> OptionsToRemove { get; set; }
+            public System.String TemplateName { get; set; }
         }
         
     }

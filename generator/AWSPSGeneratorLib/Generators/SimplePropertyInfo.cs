@@ -152,6 +152,32 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
+        /// <summary>
+        /// If true the parameter type derives from the SDK's ConstantClass
+        /// enumeration type and ValidSet attribution should be generated
+        /// for the parameter.
+        /// </summary>
+        public bool IsConstrainedToSet
+        {
+            get; private set;
+        }
+
+        public IEnumerable<string> ConstrainedSetMembers
+        {
+            get
+            {
+                if (!IsConstrainedToSet)
+                    throw new InvalidOperationException(string.Format("ConstrainedSetMembers called on parameter ({0}) that is not constrained.", Name));
+
+                if (!ConstrainedMemberSets.ContainsKey(PropertyType.FullName))
+                {
+                    var setMembers = GetValidateSetMembers(PropertyType);
+                    ConstrainedMemberSets.Add(PropertyType.FullName, setMembers);
+                }
+
+                return ConstrainedMemberSets[PropertyType.FullName];
+            }
+        }
 
         public bool IsReadWrite { get; private set; }
         public XmlDocument DocumentationSource { get; private set; }
@@ -245,59 +271,35 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        // 'flattens' all documentation for a member by tracing through the parent hierarchy
-        // and building a doc string. Unfortunately, this can yield documentation like this
-        // for a parameter:
-        //
-        // "The AccessLog documentation: The AccessLog data type. The AccessLog.LoadBalancerAttributes documentation: 
-        // The LoadBalancerAttributes data type. The AccessLog.LoadBalancerAttributes.EmitInterval documentation: Gets and 
-        // sets the property EmitInterval. The interval for publishing the access logs. You can specify an interval of either 
-        // 5 minutes or 60 minutes. Default: 60 minutes"
-        //
-        /*public string FlattenedDocumentation
+        public static Dictionary<string, IEnumerable<string>> ConstrainedMemberSets
         {
             get
             {
-                using (var writer = new StringWriter())
-                {
-                    var parentHierarchy = string.Empty;
-                    var hasParent = Parent != null;
-                    var parent = Parent;
-                    while (parent != null)
-                    {
-                        if (!string.IsNullOrEmpty(parentHierarchy)) 
-                            parentHierarchy = parentHierarchy + ".";
-                        parentHierarchy = parentHierarchy + parent.Name;
-                        var parentDocumentation = DocumentationUtils.GetTypeDocumentation(parent.PropertyType, DocumentationSource);
-                        writer.WriteLine("<para>");
-                        writer.WriteLine("The {0} documentation:", parentHierarchy);
-                        writer.WriteLine(parentDocumentation);
-                        writer.WriteLine("</para>");
-                        parent = parent.Parent;
-                    }
-
-                    if (!string.IsNullOrEmpty(parentHierarchy)) 
-                        parentHierarchy = parentHierarchy + ".";
-                    parentHierarchy = parentHierarchy + Name;
-                    var propertyDocumentation = DocumentationUtils.GetPropertyDocumentation(DeclaringType, Name, DocumentationSource);
-
-                    writer.WriteLine("<para>");
-                    if (hasParent)
-                    {
-                        writer.WriteLine("The {0} documentation:", parentHierarchy);
-                        writer.WriteLine(propertyDocumentation);
-                    }
-                    else
-                    {
-                        writer.WriteLine(propertyDocumentation);
-                    }
-                    writer.WriteLine("</para>");
-
-                    var finalDoc = writer.ToString();
-                    return finalDoc.Trim();
-                }
+                return _constrainedMemberSets;
             }
-        }*/
+        }
+
+        /// <summary>
+        /// Extracts the field values for a property that is derived from the SDK's ConstantClass
+        /// enumeration type.
+        /// </summary>
+        /// <param name="propertyType">The ConstantClass-derived type to be inspected</param>
+        /// <returns>Collection of strings representing the valid values</returns>
+        public static IEnumerable<string> GetValidateSetMembers(Type propertyType)
+        {
+            // order the set to help user at command prompt; ignore case since PowerShell is case insensitive and
+            // SDK member styling varies
+            var memberSet = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            var fields = propertyType.GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.GetField);
+            foreach (var f in fields)
+            {
+                var v = f.GetValue(null).ToString();
+                memberSet.Add(v);
+            }
+
+            return memberSet;
+        }
 
         #endregion
 
@@ -357,11 +359,18 @@ namespace AWSPowerShellGenerator.Generators
             // the Parameter attribute info
             PsParameterAttribute 
                 = propertyInfo.GetCustomAttributes(typeof (ParameterAttribute), false).FirstOrDefault() as ParameterAttribute;
+
+            IsConstrainedToSet = PropertyType.BaseType != null && PropertyType.BaseType.FullName.Equals("Amazon.Runtime.ConstantClass", StringComparison.Ordinal);
         }
 
         #endregion
 
-        #region Private methods
+        #region Private members
+
+        // as we can run across repeated use of ConstantClass-derived types when generating cmdlets for a service,
+        // we cache those we come across to avoid repeated inspection, keyed by typename
+        private static Dictionary<string, IEnumerable<string>> _constrainedMemberSets = new Dictionary<string, IEnumerable<string>>();
+
 
         private static bool IsNullableValueType(Type type)
         {
@@ -489,7 +498,7 @@ namespace AWSPowerShellGenerator.Generators
         //private static HashSet<string> XMLNodesToIgnore = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "b", "i", "c" };
         private static HashSet<string> XMLNodesToCopyAsIs = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {
-            "list", "see", "istruncated", "copy", "a", "br", "b", "i", "c", "emphasis", "important", "code", "member", "title", "caution"
+            "list", "see", "istruncated", "copy", "a", "br", "b", "i", "c", "p", "emphasis", "important", "code", "member", "title", "caution"
         };
         private static HashSet<string> XMLNodesToNewline = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
         {

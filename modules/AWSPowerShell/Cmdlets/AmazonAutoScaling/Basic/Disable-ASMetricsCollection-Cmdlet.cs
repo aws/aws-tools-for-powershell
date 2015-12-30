@@ -35,34 +35,43 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the DisableMetricsCollection operation against Auto Scaling.", Operation = new[] {"DisableMetricsCollection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DisableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.DisableMetricsCollectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class DisableASMetricsCollectionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>One or more metrics. If you omit this parameter, all metrics are disabled.</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul>
+        /// <para>One or more of the following metrics. If you omit this parameter, all metrics are
+        /// disabled.</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Metrics")]
         public System.String[] Metric { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.AutoScalingGroupName = this.AutoScalingGroupName;
             if (this.Metric != null)
             {
-                context.Metrics = new List<String>(this.Metric);
+                context.Metrics = new List<System.String>(this.Metric);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -104,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DisableMetricsCollectionRequest();
+            var request = new Amazon.AutoScaling.Model.DisableMetricsCollectionRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -151,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public List<String> Metrics { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public List<System.String> Metrics { get; set; }
         }
         
     }

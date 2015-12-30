@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [OutputType("Amazon.Redshift.Model.ModifyClusterParameterGroupResponse")]
     [AWSCmdlet("Invokes the ModifyClusterParameterGroup operation against Amazon Redshift.", Operation = new[] {"ModifyClusterParameterGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ModifyClusterParameterGroupResponse",
-        "This cmdlet returns a ModifyClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Redshift.Model.ModifyClusterParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the parameter group to be modified. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ParameterGroupName { get; set; }
+        public System.String ParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para> An array of parameters to be modified. A maximum of 20 parameters can be modified
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Parameters")]
         public Amazon.Redshift.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -93,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.ParameterGroupName = this.ParameterGroupName;
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.Redshift.Model.Parameter>(this.Parameter);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -106,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyClusterParameterGroupRequest();
+            var request = new Amazon.Redshift.Model.ModifyClusterParameterGroupRequest();
             
             if (cmdletContext.ParameterGroupName != null)
             {
@@ -151,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ParameterGroupName { get; set; }
-            public List<Parameter> Parameters { get; set; }
+            public System.String ParameterGroupName { get; set; }
+            public List<Amazon.Redshift.Model.Parameter> Parameters { get; set; }
         }
         
     }

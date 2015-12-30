@@ -55,10 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     [AWSCmdlet("Invokes the SendEmail operation against Amazon Simple Email Service.", Operation = new[] {"SendEmail"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type SendEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleEmail.Model.SendEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class SendSESEmailCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Destination_BccAddress
         /// <summary>
         /// <para>
         /// <para>The BCC: field(s) of the message.</para>
@@ -67,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Destination_BccAddresses")]
         public System.String[] Destination_BccAddress { get; set; }
+        #endregion
         
+        #region Parameter Destination_CcAddress
         /// <summary>
         /// <para>
         /// <para>The CC: field(s) of the message.</para>
@@ -76,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Destination_CcAddresses")]
         public System.String[] Destination_CcAddress { get; set; }
+        #endregion
         
+        #region Parameter Html_Charset
         /// <summary>
         /// <para>
         /// <para>The character set of the content.</para>
@@ -84,8 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Html_Charset")]
-        public String Html_Charset { get; set; }
+        public System.String Html_Charset { get; set; }
+        #endregion
         
+        #region Parameter Text_Charset
         /// <summary>
         /// <para>
         /// <para>The character set of the content.</para>
@@ -93,8 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Text_Charset")]
-        public String Text_Charset { get; set; }
+        public System.String Text_Charset { get; set; }
+        #endregion
         
+        #region Parameter Subject_Charset
         /// <summary>
         /// <para>
         /// <para>The character set of the content.</para>
@@ -102,8 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Message_Subject_Charset")]
-        public String Subject_Charset { get; set; }
+        public System.String Subject_Charset { get; set; }
+        #endregion
         
+        #region Parameter Html_Data
         /// <summary>
         /// <para>
         /// <para>The textual data of the content.</para>
@@ -111,8 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Html_Data")]
-        public String Html_Data { get; set; }
+        public System.String Html_Data { get; set; }
+        #endregion
         
+        #region Parameter Text_Data
         /// <summary>
         /// <para>
         /// <para>The textual data of the content.</para>
@@ -120,8 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Message_Body_Text_Data")]
-        public String Text_Data { get; set; }
+        public System.String Text_Data { get; set; }
+        #endregion
         
+        #region Parameter Subject_Data
         /// <summary>
         /// <para>
         /// <para>The textual data of the content.</para>
@@ -129,8 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Message_Subject_Data")]
-        public String Subject_Data { get; set; }
+        public System.String Subject_Data { get; set; }
+        #endregion
         
+        #region Parameter ReplyToAddress
         /// <summary>
         /// <para>
         /// <para>The reply-to email address(es) for the message. If the recipient replies to the message,
@@ -140,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("ReplyToAddresses")]
         public System.String[] ReplyToAddress { get; set; }
+        #endregion
         
+        #region Parameter ReturnPath
         /// <summary>
         /// <para>
         /// <para>The email address to which bounces and complaints are to be forwarded when feedback
@@ -153,8 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ReturnPath { get; set; }
+        public System.String ReturnPath { get; set; }
+        #endregion
         
+        #region Parameter ReturnPathArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -167,8 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ReturnPathArn { get; set; }
+        public System.String ReturnPathArn { get; set; }
+        #endregion
         
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para>The email address that is sending the email. This email address must be either individually
@@ -185,8 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Source { get; set; }
+        public System.String Source { get; set; }
+        #endregion
         
+        #region Parameter SourceArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -199,8 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SourceArn { get; set; }
+        public System.String SourceArn { get; set; }
+        #endregion
         
+        #region Parameter Destination_ToAddress
         /// <summary>
         /// <para>
         /// <para>The To: field(s) of the message.</para>
@@ -209,7 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Destination_ToAddresses")]
         public System.String[] Destination_ToAddress { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -217,7 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -237,15 +267,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
             if (this.Destination_BccAddress != null)
             {
-                context.Destination_BccAddresses = new List<String>(this.Destination_BccAddress);
+                context.Destination_BccAddresses = new List<System.String>(this.Destination_BccAddress);
             }
             if (this.Destination_CcAddress != null)
             {
-                context.Destination_CcAddresses = new List<String>(this.Destination_CcAddress);
+                context.Destination_CcAddresses = new List<System.String>(this.Destination_CcAddress);
             }
             if (this.Destination_ToAddress != null)
             {
-                context.Destination_ToAddresses = new List<String>(this.Destination_ToAddress);
+                context.Destination_ToAddresses = new List<System.String>(this.Destination_ToAddress);
             }
             context.Message_Body_Html_Charset = this.Html_Charset;
             context.Message_Body_Html_Data = this.Html_Data;
@@ -255,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             context.Message_Subject_Data = this.Subject_Data;
             if (this.ReplyToAddress != null)
             {
-                context.ReplyToAddresses = new List<String>(this.ReplyToAddress);
+                context.ReplyToAddresses = new List<System.String>(this.ReplyToAddress);
             }
             context.ReturnPath = this.ReturnPath;
             context.ReturnPathArn = this.ReturnPathArn;
@@ -272,13 +302,13 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new SendEmailRequest();
+            var request = new Amazon.SimpleEmail.Model.SendEmailRequest();
             
             
              // populate Destination
             bool requestDestinationIsNull = true;
-            request.Destination = new Destination();
-            List<String> requestDestination_destination_BccAddress = null;
+            request.Destination = new Amazon.SimpleEmail.Model.Destination();
+            List<System.String> requestDestination_destination_BccAddress = null;
             if (cmdletContext.Destination_BccAddresses != null)
             {
                 requestDestination_destination_BccAddress = cmdletContext.Destination_BccAddresses;
@@ -288,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Destination.BccAddresses = requestDestination_destination_BccAddress;
                 requestDestinationIsNull = false;
             }
-            List<String> requestDestination_destination_CcAddress = null;
+            List<System.String> requestDestination_destination_CcAddress = null;
             if (cmdletContext.Destination_CcAddresses != null)
             {
                 requestDestination_destination_CcAddress = cmdletContext.Destination_CcAddresses;
@@ -298,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Destination.CcAddresses = requestDestination_destination_CcAddress;
                 requestDestinationIsNull = false;
             }
-            List<String> requestDestination_destination_ToAddress = null;
+            List<System.String> requestDestination_destination_ToAddress = null;
             if (cmdletContext.Destination_ToAddresses != null)
             {
                 requestDestination_destination_ToAddress = cmdletContext.Destination_ToAddresses;
@@ -316,18 +346,18 @@ namespace Amazon.PowerShell.Cmdlets.SES
             
              // populate Message
             bool requestMessageIsNull = true;
-            request.Message = new Message();
-            Body requestMessage_message_Body = null;
+            request.Message = new Amazon.SimpleEmail.Model.Message();
+            Amazon.SimpleEmail.Model.Body requestMessage_message_Body = null;
             
              // populate Body
             bool requestMessage_message_BodyIsNull = true;
-            requestMessage_message_Body = new Body();
-            Content requestMessage_message_Body_message_Body_Html = null;
+            requestMessage_message_Body = new Amazon.SimpleEmail.Model.Body();
+            Amazon.SimpleEmail.Model.Content requestMessage_message_Body_message_Body_Html = null;
             
              // populate Html
             bool requestMessage_message_Body_message_Body_HtmlIsNull = true;
-            requestMessage_message_Body_message_Body_Html = new Content();
-            String requestMessage_message_Body_message_Body_Html_html_Charset = null;
+            requestMessage_message_Body_message_Body_Html = new Amazon.SimpleEmail.Model.Content();
+            System.String requestMessage_message_Body_message_Body_Html_html_Charset = null;
             if (cmdletContext.Message_Body_Html_Charset != null)
             {
                 requestMessage_message_Body_message_Body_Html_html_Charset = cmdletContext.Message_Body_Html_Charset;
@@ -337,7 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 requestMessage_message_Body_message_Body_Html.Charset = requestMessage_message_Body_message_Body_Html_html_Charset;
                 requestMessage_message_Body_message_Body_HtmlIsNull = false;
             }
-            String requestMessage_message_Body_message_Body_Html_html_Data = null;
+            System.String requestMessage_message_Body_message_Body_Html_html_Data = null;
             if (cmdletContext.Message_Body_Html_Data != null)
             {
                 requestMessage_message_Body_message_Body_Html_html_Data = cmdletContext.Message_Body_Html_Data;
@@ -357,12 +387,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 requestMessage_message_Body.Html = requestMessage_message_Body_message_Body_Html;
                 requestMessage_message_BodyIsNull = false;
             }
-            Content requestMessage_message_Body_message_Body_Text = null;
+            Amazon.SimpleEmail.Model.Content requestMessage_message_Body_message_Body_Text = null;
             
              // populate Text
             bool requestMessage_message_Body_message_Body_TextIsNull = true;
-            requestMessage_message_Body_message_Body_Text = new Content();
-            String requestMessage_message_Body_message_Body_Text_text_Charset = null;
+            requestMessage_message_Body_message_Body_Text = new Amazon.SimpleEmail.Model.Content();
+            System.String requestMessage_message_Body_message_Body_Text_text_Charset = null;
             if (cmdletContext.Message_Body_Text_Charset != null)
             {
                 requestMessage_message_Body_message_Body_Text_text_Charset = cmdletContext.Message_Body_Text_Charset;
@@ -372,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 requestMessage_message_Body_message_Body_Text.Charset = requestMessage_message_Body_message_Body_Text_text_Charset;
                 requestMessage_message_Body_message_Body_TextIsNull = false;
             }
-            String requestMessage_message_Body_message_Body_Text_text_Data = null;
+            System.String requestMessage_message_Body_message_Body_Text_text_Data = null;
             if (cmdletContext.Message_Body_Text_Data != null)
             {
                 requestMessage_message_Body_message_Body_Text_text_Data = cmdletContext.Message_Body_Text_Data;
@@ -402,12 +432,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 request.Message.Body = requestMessage_message_Body;
                 requestMessageIsNull = false;
             }
-            Content requestMessage_message_Subject = null;
+            Amazon.SimpleEmail.Model.Content requestMessage_message_Subject = null;
             
              // populate Subject
             bool requestMessage_message_SubjectIsNull = true;
-            requestMessage_message_Subject = new Content();
-            String requestMessage_message_Subject_subject_Charset = null;
+            requestMessage_message_Subject = new Amazon.SimpleEmail.Model.Content();
+            System.String requestMessage_message_Subject_subject_Charset = null;
             if (cmdletContext.Message_Subject_Charset != null)
             {
                 requestMessage_message_Subject_subject_Charset = cmdletContext.Message_Subject_Charset;
@@ -417,7 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 requestMessage_message_Subject.Charset = requestMessage_message_Subject_subject_Charset;
                 requestMessage_message_SubjectIsNull = false;
             }
-            String requestMessage_message_Subject_subject_Data = null;
+            System.String requestMessage_message_Subject_subject_Data = null;
             if (cmdletContext.Message_Subject_Data != null)
             {
                 requestMessage_message_Subject_subject_Data = cmdletContext.Message_Subject_Data;
@@ -497,20 +527,20 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Destination_BccAddresses { get; set; }
-            public List<String> Destination_CcAddresses { get; set; }
-            public List<String> Destination_ToAddresses { get; set; }
-            public String Message_Body_Html_Charset { get; set; }
-            public String Message_Body_Html_Data { get; set; }
-            public String Message_Body_Text_Charset { get; set; }
-            public String Message_Body_Text_Data { get; set; }
-            public String Message_Subject_Charset { get; set; }
-            public String Message_Subject_Data { get; set; }
-            public List<String> ReplyToAddresses { get; set; }
-            public String ReturnPath { get; set; }
-            public String ReturnPathArn { get; set; }
-            public String Source { get; set; }
-            public String SourceArn { get; set; }
+            public List<System.String> Destination_BccAddresses { get; set; }
+            public List<System.String> Destination_CcAddresses { get; set; }
+            public List<System.String> Destination_ToAddresses { get; set; }
+            public System.String Message_Body_Html_Charset { get; set; }
+            public System.String Message_Body_Html_Data { get; set; }
+            public System.String Message_Body_Text_Charset { get; set; }
+            public System.String Message_Body_Text_Data { get; set; }
+            public System.String Message_Subject_Charset { get; set; }
+            public System.String Message_Subject_Data { get; set; }
+            public List<System.String> ReplyToAddresses { get; set; }
+            public System.String ReturnPath { get; set; }
+            public System.String ReturnPathArn { get; set; }
+            public System.String Source { get; set; }
+            public System.String SourceArn { get; set; }
         }
         
     }

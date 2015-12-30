@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the CreateVirtualMFADevice operation against AWS Identity and Access Management.", Operation = new[] {"CreateVirtualMFADevice"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.VirtualMFADevice",
         "This cmdlet returns a VirtualMFADevice object.",
-        "The service call response (type CreateVirtualMFADeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewIAMVirtualMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Path
         /// <summary>
         /// <para>
         /// <para> The path for the virtual MFA device. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -58,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Path { get; set; }
+        public System.String Path { get; set; }
+        #endregion
         
+        #region Parameter VirtualMFADeviceName
         /// <summary>
         /// <para>
         /// <para> The name of the virtual MFA device. Use with path to uniquely identify a virtual
@@ -67,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String VirtualMFADeviceName { get; set; }
+        public System.String VirtualMFADeviceName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -107,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVirtualMFADeviceRequest();
+            var request = new Amazon.IdentityManagement.Model.CreateVirtualMFADeviceRequest();
             
             if (cmdletContext.Path != null)
             {
@@ -152,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Path { get; set; }
-            public String VirtualMFADeviceName { get; set; }
+            public System.String Path { get; set; }
+            public System.String VirtualMFADeviceName { get; set; }
         }
         
     }

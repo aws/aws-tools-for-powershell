@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a> API. 
     /// </para><para>
     /// For more information about the types of policies, refer to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
-    /// Policies and Inline Policies</a> in the <i>Using IAM</i> guide. 
+    /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMPolicyVersion")]
@@ -48,26 +48,30 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetPolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"GetPolicyVersion"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.PolicyVersion",
         "This cmdlet returns a PolicyVersion object.",
-        "The service call response (type GetPolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetPolicyVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMPolicyVersionCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyArn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyArn { get; set; }
+        public System.String PolicyArn { get; set; }
+        #endregion
         
+        #region Parameter VersionId
         /// <summary>
         /// <para>
         /// <para>Identifies the policy version to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String VersionId { get; set; }
-        
+        public System.String VersionId { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -92,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetPolicyVersionRequest();
+            var request = new Amazon.IdentityManagement.Model.GetPolicyVersionRequest();
             
             if (cmdletContext.PolicyArn != null)
             {
@@ -137,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String PolicyArn { get; set; }
-            public String VersionId { get; set; }
+            public System.String PolicyArn { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

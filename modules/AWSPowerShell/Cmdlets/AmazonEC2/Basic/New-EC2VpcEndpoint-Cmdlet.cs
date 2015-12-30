@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [OutputType("Amazon.EC2.Model.CreateVpcEndpointResponse")]
     [AWSCmdlet("Invokes the CreateVpcEndpoint operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpcEndpoint"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateVpcEndpointResponse",
-        "This cmdlet returns a CreateVpcEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.EC2.Model.CreateVpcEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
@@ -55,8 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
         /// <para>A policy to attach to the endpoint that controls access to the service. The policy
@@ -65,8 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String PolicyDocument { get; set; }
+        public System.String PolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter RouteTableId
         /// <summary>
         /// <para>
         /// <para>One or more route table IDs.</para>
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RouteTableIds")]
         public System.String[] RouteTableId { get; set; }
+        #endregion
         
+        #region Parameter ServiceName
         /// <summary>
         /// <para>
         /// <para>The AWS service name, in the form <code>com.amazonaws.<i>region</i>.<i>service</i></code>.
@@ -83,16 +91,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ServiceName { get; set; }
+        public System.String ServiceName { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC in which the endpoint will be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -100,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -122,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.PolicyDocument = this.PolicyDocument;
             if (this.RouteTableId != null)
             {
-                context.RouteTableIds = new List<String>(this.RouteTableId);
+                context.RouteTableIds = new List<System.String>(this.RouteTableId);
             }
             context.ServiceName = this.ServiceName;
             context.VpcId = this.VpcId;
@@ -137,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVpcEndpointRequest();
+            var request = new Amazon.EC2.Model.CreateVpcEndpointRequest();
             
             if (cmdletContext.ClientToken != null)
             {
@@ -194,11 +206,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClientToken { get; set; }
-            public String PolicyDocument { get; set; }
-            public List<String> RouteTableIds { get; set; }
-            public String ServiceName { get; set; }
-            public String VpcId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String PolicyDocument { get; set; }
+            public List<System.String> RouteTableIds { get; set; }
+            public System.String ServiceName { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

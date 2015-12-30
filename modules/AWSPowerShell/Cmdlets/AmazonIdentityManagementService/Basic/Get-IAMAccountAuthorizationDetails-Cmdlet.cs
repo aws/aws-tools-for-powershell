@@ -37,16 +37,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     /// You can optionally filter the results using the <code>Filter</code> parameter. You
     /// can paginate the results using the <code>MaxItems</code> and <code>Marker</code> parameters.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMAccountAuthorizationDetails")]
     [OutputType("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse")]
     [AWSCmdlet("Invokes the GetAccountAuthorizationDetails operation against AWS Identity and Access Management.", Operation = new[] {"GetAccountAuthorizationDetails"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse",
-        "This cmdlet returns a GetAccountAuthorizationDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMAccountAuthorizationDetailsCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>A list of entity types (user, group, role, local managed policy, or AWS managed policy)
@@ -55,29 +58,37 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] Filter { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
         /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
-        /// element in the response you received to inform the next call about where to start.</para>
+        /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
-        /// want in the response. If there are additional items beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100.</para>
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>This parameter is optional. If you do not include it, it defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. In that
+        /// case, the <code>IsTruncated</code> response element returns <code>true</code> and
+        /// <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public Int32 MaxItem { get; set; }
-        
+        public System.Int32 MaxItem { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             if (this.Filter != null)
             {
-                context.Filter = new List<String>(this.Filter);
+                context.Filter = new List<System.String>(this.Filter);
             }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxItem"))
@@ -107,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetAccountAuthorizationDetailsRequest();
+            var request = new Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsRequest();
             
             if (cmdletContext.Filter != null)
             {
@@ -156,9 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Filter { get; set; }
-            public String Marker { get; set; }
-            public Int32? MaxItems { get; set; }
+            public List<System.String> Filter { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxItems { get; set; }
         }
         
     }

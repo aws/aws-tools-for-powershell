@@ -38,13 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorders")]
     [OutputType("Amazon.ConfigService.Model.ConfigurationRecorder")]
-    [AWSCmdlet("Invokes the DescribeConfigurationRecorders operation against Amazon Config.", Operation = new[] {"DescribeConfigurationRecorders"})]
+    [AWSCmdlet("Invokes the DescribeConfigurationRecorders operation against AWS Config.", Operation = new[] {"DescribeConfigurationRecorders"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationRecorder",
         "This cmdlet returns a collection of ConfigurationRecorder objects.",
-        "The service call response (type DescribeConfigurationRecordersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ConfigService.Model.DescribeConfigurationRecordersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGConfigurationRecordersCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
         /// <para>A list of configuration recorder names.</para>
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationRecorderNames")]
         public System.String[] ConfigurationRecorderName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -67,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             
             if (this.ConfigurationRecorderName != null)
             {
-                context.ConfigurationRecorderNames = new List<String>(this.ConfigurationRecorderName);
+                context.ConfigurationRecorderNames = new List<System.String>(this.ConfigurationRecorderName);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -80,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConfigurationRecordersRequest();
+            var request = new Amazon.ConfigService.Model.DescribeConfigurationRecordersRequest();
             
             if (cmdletContext.ConfigurationRecorderNames != null)
             {
@@ -121,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> ConfigurationRecorderNames { get; set; }
+            public List<System.String> ConfigurationRecorderNames { get; set; }
         }
         
     }

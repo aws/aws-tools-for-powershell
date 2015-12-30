@@ -39,18 +39,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the RequestSpotInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RequestSpotInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotInstanceRequest",
         "This cmdlet returns a collection of SpotInstanceRequest objects.",
-        "The service call response (type RequestSpotInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.RequestSpotInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestEC2SpotInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter LaunchSpecification_AddressingType
         /// <summary>
         /// <para>
         /// <para>Deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchSpecification_AddressingType { get; set; }
+        public System.String LaunchSpecification_AddressingType { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_AllSecurityGroup
         /// <summary>
         /// <para>
         /// <para>One or more security groups. When requesting instances in a VPC, you must specify
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_AllSecurityGroups")]
         public Amazon.EC2.Model.GroupIdentifier[] LaunchSpecification_AllSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter IamInstanceProfile_Arn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the instance profile.</para>
@@ -69,17 +75,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_IamInstanceProfile_Arn")]
-        public String IamInstanceProfile_Arn { get; set; }
+        public System.String IamInstanceProfile_Arn { get; set; }
+        #endregion
         
+        #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone.</para>
+        /// <para>The Availability Zones. To specify multiple Availability Zones, separate them using
+        /// commas; for example, "us-west-2a, us-west-2b".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_Placement_AvailabilityZone")]
-        public String Placement_AvailabilityZone { get; set; }
+        public System.String Placement_AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZoneGroup
         /// <summary>
         /// <para>
         /// <para>The user-specified name for a logical grouping of bids.</para><para>When you specify an Availability Zone group in a Spot Instance request, all Spot instances
@@ -97,8 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AvailabilityZoneGroup { get; set; }
+        public System.String AvailabilityZoneGroup { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>One or more block device mapping entries.</para>
@@ -107,7 +120,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_BlockDeviceMappings")]
         public Amazon.EC2.Model.BlockDeviceMapping[] LaunchSpecification_BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter BlockDurationMinute
+        /// <summary>
+        /// <para>
+        /// <para>The required duration for the Spot instances, in minutes. This value must be a multiple
+        /// of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot instance receives its instance ID.
+        /// At the end of the duration period, Amazon EC2 marks the Spot instance for termination
+        /// and provides a Spot instance termination notice, which gives the instance a two-minute
+        /// warning before it terminates.</para><para>Note that you can't specify an Availability Zone group or a launch group if you specify
+        /// a duration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("BlockDurationMinutes")]
+        public System.Int32 BlockDurationMinute { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -116,8 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String ClientToken { get; set; }
+        public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_EbsOptimized
         /// <summary>
         /// <para>
         /// <para>Indicates whether the instance is optimized for EBS I/O. This optimization provides
@@ -127,8 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean LaunchSpecification_EbsOptimized { get; set; }
+        public System.Boolean LaunchSpecification_EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
         /// <para>The name of the placement group (for cluster instances).</para>
@@ -136,48 +171,61 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_Placement_GroupName")]
-        public String Placement_GroupName { get; set; }
+        public System.String Placement_GroupName { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_ImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchSpecification_ImageId { get; set; }
+        public System.String LaunchSpecification_ImageId { get; set; }
+        #endregion
         
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
         /// <para>The maximum number of Spot instances to launch.</para><para>Default: 1</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 InstanceCount { get; set; }
+        public System.Int32 InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public InstanceType LaunchSpecification_InstanceType { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.InstanceType")]
+        public Amazon.EC2.InstanceType LaunchSpecification_InstanceType { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_KernelId
         /// <summary>
         /// <para>
         /// <para>The ID of the kernel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchSpecification_KernelId { get; set; }
+        public System.String LaunchSpecification_KernelId { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_KeyName
         /// <summary>
         /// <para>
         /// <para>The name of the key pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchSpecification_KeyName { get; set; }
+        public System.String LaunchSpecification_KeyName { get; set; }
+        #endregion
         
+        #region Parameter LaunchGroup
         /// <summary>
         /// <para>
         /// <para>The instance launch group. Launch groups are Spot instances that launch together and
@@ -185,16 +233,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchGroup { get; set; }
+        public System.String LaunchGroup { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_MonitoringEnabled
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean LaunchSpecification_MonitoringEnabled { get; set; }
+        public System.Boolean LaunchSpecification_MonitoringEnabled { get; set; }
+        #endregion
         
+        #region Parameter IamInstanceProfile_Name
         /// <summary>
         /// <para>
         /// <para>The name of the instance profile.</para>
@@ -202,8 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_IamInstanceProfile_Name")]
-        public String IamInstanceProfile_Name { get; set; }
+        public System.String IamInstanceProfile_Name { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_NetworkInterface
         /// <summary>
         /// <para>
         /// <para>One or more network interfaces.</para>
@@ -212,15 +266,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_NetworkInterfaces")]
         public Amazon.EC2.Model.InstanceNetworkInterfaceSpecification[] LaunchSpecification_NetworkInterface { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_RamdiskId
         /// <summary>
         /// <para>
         /// <para>The ID of the RAM disk.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchSpecification_RamdiskId { get; set; }
+        public System.String LaunchSpecification_RamdiskId { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_SecurityGroup
         /// <summary>
         /// <para>
         /// <para>One or more security group names.</para>
@@ -229,39 +287,50 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_SecurityGroups")]
         public System.String[] LaunchSpecification_SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter SpotPrice
         /// <summary>
         /// <para>
         /// <para>The maximum hourly price (bid) for any Spot instance launched to fulfill the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SpotPrice { get; set; }
+        public System.String SpotPrice { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet in which to launch the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchSpecification_SubnetId { get; set; }
+        public System.String LaunchSpecification_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The Spot instance request type.</para><para>Default: <code>one-time</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SpotInstanceType Type { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.SpotInstanceType")]
+        public Amazon.EC2.SpotInstanceType Type { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_UserData
         /// <summary>
         /// <para>
         /// <para>The Base64-encoded MIME user data to make available to the instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String LaunchSpecification_UserData { get; set; }
+        public System.String LaunchSpecification_UserData { get; set; }
+        #endregion
         
+        #region Parameter ValidFrom
         /// <summary>
         /// <para>
         /// <para>The start date of the request. If this is a one-time request, the request becomes
@@ -271,8 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ValidFrom { get; set; }
+        public System.DateTime ValidFrom { get; set; }
+        #endregion
         
+        #region Parameter ValidUntil
         /// <summary>
         /// <para>
         /// <para>The end date of the request. If this is a one-time request, the request remains active
@@ -282,8 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime ValidUntil { get; set; }
+        public System.DateTime ValidUntil { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -291,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -310,6 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             };
             
             context.AvailabilityZoneGroup = this.AvailabilityZoneGroup;
+            if (ParameterWasBound("BlockDurationMinute"))
+                context.BlockDurationMinutes = this.BlockDurationMinute;
             context.ClientToken = this.ClientToken;
             if (ParameterWasBound("InstanceCount"))
                 context.InstanceCount = this.InstanceCount;
@@ -317,11 +392,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LaunchSpecification_AddressingType = this.LaunchSpecification_AddressingType;
             if (this.LaunchSpecification_AllSecurityGroup != null)
             {
-                context.LaunchSpecification_AllSecurityGroups = new List<GroupIdentifier>(this.LaunchSpecification_AllSecurityGroup);
+                context.LaunchSpecification_AllSecurityGroups = new List<Amazon.EC2.Model.GroupIdentifier>(this.LaunchSpecification_AllSecurityGroup);
             }
             if (this.LaunchSpecification_BlockDeviceMapping != null)
             {
-                context.LaunchSpecification_BlockDeviceMappings = new List<BlockDeviceMapping>(this.LaunchSpecification_BlockDeviceMapping);
+                context.LaunchSpecification_BlockDeviceMappings = new List<Amazon.EC2.Model.BlockDeviceMapping>(this.LaunchSpecification_BlockDeviceMapping);
             }
             if (ParameterWasBound("LaunchSpecification_EbsOptimized"))
                 context.LaunchSpecification_EbsOptimized = this.LaunchSpecification_EbsOptimized;
@@ -335,14 +410,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.LaunchSpecification_MonitoringEnabled = this.LaunchSpecification_MonitoringEnabled;
             if (this.LaunchSpecification_NetworkInterface != null)
             {
-                context.LaunchSpecification_NetworkInterfaces = new List<InstanceNetworkInterfaceSpecification>(this.LaunchSpecification_NetworkInterface);
+                context.LaunchSpecification_NetworkInterfaces = new List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification>(this.LaunchSpecification_NetworkInterface);
             }
             context.LaunchSpecification_Placement_AvailabilityZone = this.Placement_AvailabilityZone;
             context.LaunchSpecification_Placement_GroupName = this.Placement_GroupName;
             context.LaunchSpecification_RamdiskId = this.LaunchSpecification_RamdiskId;
             if (this.LaunchSpecification_SecurityGroup != null)
             {
-                context.LaunchSpecification_SecurityGroups = new List<String>(this.LaunchSpecification_SecurityGroup);
+                context.LaunchSpecification_SecurityGroups = new List<System.String>(this.LaunchSpecification_SecurityGroup);
             }
             context.LaunchSpecification_SubnetId = this.LaunchSpecification_SubnetId;
             context.LaunchSpecification_UserData = this.LaunchSpecification_UserData;
@@ -363,11 +438,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RequestSpotInstancesRequest();
+            var request = new Amazon.EC2.Model.RequestSpotInstancesRequest();
             
             if (cmdletContext.AvailabilityZoneGroup != null)
             {
                 request.AvailabilityZoneGroup = cmdletContext.AvailabilityZoneGroup;
+            }
+            if (cmdletContext.BlockDurationMinutes != null)
+            {
+                request.BlockDurationMinutes = cmdletContext.BlockDurationMinutes.Value;
             }
             if (cmdletContext.ClientToken != null)
             {
@@ -384,8 +463,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
              // populate LaunchSpecification
             bool requestLaunchSpecificationIsNull = true;
-            request.LaunchSpecification = new LaunchSpecification();
-            String requestLaunchSpecification_launchSpecification_AddressingType = null;
+            request.LaunchSpecification = new Amazon.EC2.Model.LaunchSpecification();
+            System.String requestLaunchSpecification_launchSpecification_AddressingType = null;
             if (cmdletContext.LaunchSpecification_AddressingType != null)
             {
                 requestLaunchSpecification_launchSpecification_AddressingType = cmdletContext.LaunchSpecification_AddressingType;
@@ -395,7 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.AddressingType = requestLaunchSpecification_launchSpecification_AddressingType;
                 requestLaunchSpecificationIsNull = false;
             }
-            List<GroupIdentifier> requestLaunchSpecification_launchSpecification_AllSecurityGroup = null;
+            List<Amazon.EC2.Model.GroupIdentifier> requestLaunchSpecification_launchSpecification_AllSecurityGroup = null;
             if (cmdletContext.LaunchSpecification_AllSecurityGroups != null)
             {
                 requestLaunchSpecification_launchSpecification_AllSecurityGroup = cmdletContext.LaunchSpecification_AllSecurityGroups;
@@ -405,7 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.AllSecurityGroups = requestLaunchSpecification_launchSpecification_AllSecurityGroup;
                 requestLaunchSpecificationIsNull = false;
             }
-            List<BlockDeviceMapping> requestLaunchSpecification_launchSpecification_BlockDeviceMapping = null;
+            List<Amazon.EC2.Model.BlockDeviceMapping> requestLaunchSpecification_launchSpecification_BlockDeviceMapping = null;
             if (cmdletContext.LaunchSpecification_BlockDeviceMappings != null)
             {
                 requestLaunchSpecification_launchSpecification_BlockDeviceMapping = cmdletContext.LaunchSpecification_BlockDeviceMappings;
@@ -415,7 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.BlockDeviceMappings = requestLaunchSpecification_launchSpecification_BlockDeviceMapping;
                 requestLaunchSpecificationIsNull = false;
             }
-            Boolean? requestLaunchSpecification_launchSpecification_EbsOptimized = null;
+            System.Boolean? requestLaunchSpecification_launchSpecification_EbsOptimized = null;
             if (cmdletContext.LaunchSpecification_EbsOptimized != null)
             {
                 requestLaunchSpecification_launchSpecification_EbsOptimized = cmdletContext.LaunchSpecification_EbsOptimized.Value;
@@ -425,7 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.EbsOptimized = requestLaunchSpecification_launchSpecification_EbsOptimized.Value;
                 requestLaunchSpecificationIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_ImageId = null;
+            System.String requestLaunchSpecification_launchSpecification_ImageId = null;
             if (cmdletContext.LaunchSpecification_ImageId != null)
             {
                 requestLaunchSpecification_launchSpecification_ImageId = cmdletContext.LaunchSpecification_ImageId;
@@ -435,7 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.ImageId = requestLaunchSpecification_launchSpecification_ImageId;
                 requestLaunchSpecificationIsNull = false;
             }
-            InstanceType requestLaunchSpecification_launchSpecification_InstanceType = null;
+            Amazon.EC2.InstanceType requestLaunchSpecification_launchSpecification_InstanceType = null;
             if (cmdletContext.LaunchSpecification_InstanceType != null)
             {
                 requestLaunchSpecification_launchSpecification_InstanceType = cmdletContext.LaunchSpecification_InstanceType;
@@ -445,7 +524,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.InstanceType = requestLaunchSpecification_launchSpecification_InstanceType;
                 requestLaunchSpecificationIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_KernelId = null;
+            System.String requestLaunchSpecification_launchSpecification_KernelId = null;
             if (cmdletContext.LaunchSpecification_KernelId != null)
             {
                 requestLaunchSpecification_launchSpecification_KernelId = cmdletContext.LaunchSpecification_KernelId;
@@ -455,7 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.KernelId = requestLaunchSpecification_launchSpecification_KernelId;
                 requestLaunchSpecificationIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_KeyName = null;
+            System.String requestLaunchSpecification_launchSpecification_KeyName = null;
             if (cmdletContext.LaunchSpecification_KeyName != null)
             {
                 requestLaunchSpecification_launchSpecification_KeyName = cmdletContext.LaunchSpecification_KeyName;
@@ -465,7 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.KeyName = requestLaunchSpecification_launchSpecification_KeyName;
                 requestLaunchSpecificationIsNull = false;
             }
-            Boolean? requestLaunchSpecification_launchSpecification_MonitoringEnabled = null;
+            System.Boolean? requestLaunchSpecification_launchSpecification_MonitoringEnabled = null;
             if (cmdletContext.LaunchSpecification_MonitoringEnabled != null)
             {
                 requestLaunchSpecification_launchSpecification_MonitoringEnabled = cmdletContext.LaunchSpecification_MonitoringEnabled.Value;
@@ -475,7 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.MonitoringEnabled = requestLaunchSpecification_launchSpecification_MonitoringEnabled.Value;
                 requestLaunchSpecificationIsNull = false;
             }
-            List<InstanceNetworkInterfaceSpecification> requestLaunchSpecification_launchSpecification_NetworkInterface = null;
+            List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> requestLaunchSpecification_launchSpecification_NetworkInterface = null;
             if (cmdletContext.LaunchSpecification_NetworkInterfaces != null)
             {
                 requestLaunchSpecification_launchSpecification_NetworkInterface = cmdletContext.LaunchSpecification_NetworkInterfaces;
@@ -485,7 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.NetworkInterfaces = requestLaunchSpecification_launchSpecification_NetworkInterface;
                 requestLaunchSpecificationIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_RamdiskId = null;
+            System.String requestLaunchSpecification_launchSpecification_RamdiskId = null;
             if (cmdletContext.LaunchSpecification_RamdiskId != null)
             {
                 requestLaunchSpecification_launchSpecification_RamdiskId = cmdletContext.LaunchSpecification_RamdiskId;
@@ -495,7 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.RamdiskId = requestLaunchSpecification_launchSpecification_RamdiskId;
                 requestLaunchSpecificationIsNull = false;
             }
-            List<String> requestLaunchSpecification_launchSpecification_SecurityGroup = null;
+            List<System.String> requestLaunchSpecification_launchSpecification_SecurityGroup = null;
             if (cmdletContext.LaunchSpecification_SecurityGroups != null)
             {
                 requestLaunchSpecification_launchSpecification_SecurityGroup = cmdletContext.LaunchSpecification_SecurityGroups;
@@ -505,7 +584,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.SecurityGroups = requestLaunchSpecification_launchSpecification_SecurityGroup;
                 requestLaunchSpecificationIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_SubnetId = null;
+            System.String requestLaunchSpecification_launchSpecification_SubnetId = null;
             if (cmdletContext.LaunchSpecification_SubnetId != null)
             {
                 requestLaunchSpecification_launchSpecification_SubnetId = cmdletContext.LaunchSpecification_SubnetId;
@@ -515,7 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.SubnetId = requestLaunchSpecification_launchSpecification_SubnetId;
                 requestLaunchSpecificationIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_UserData = null;
+            System.String requestLaunchSpecification_launchSpecification_UserData = null;
             if (cmdletContext.LaunchSpecification_UserData != null)
             {
                 requestLaunchSpecification_launchSpecification_UserData = cmdletContext.LaunchSpecification_UserData;
@@ -525,12 +604,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.UserData = requestLaunchSpecification_launchSpecification_UserData;
                 requestLaunchSpecificationIsNull = false;
             }
-            IamInstanceProfileSpecification requestLaunchSpecification_launchSpecification_IamInstanceProfile = null;
+            Amazon.EC2.Model.IamInstanceProfileSpecification requestLaunchSpecification_launchSpecification_IamInstanceProfile = null;
             
              // populate IamInstanceProfile
             bool requestLaunchSpecification_launchSpecification_IamInstanceProfileIsNull = true;
-            requestLaunchSpecification_launchSpecification_IamInstanceProfile = new IamInstanceProfileSpecification();
-            String requestLaunchSpecification_launchSpecification_IamInstanceProfile_iamInstanceProfile_Arn = null;
+            requestLaunchSpecification_launchSpecification_IamInstanceProfile = new Amazon.EC2.Model.IamInstanceProfileSpecification();
+            System.String requestLaunchSpecification_launchSpecification_IamInstanceProfile_iamInstanceProfile_Arn = null;
             if (cmdletContext.LaunchSpecification_IamInstanceProfile_Arn != null)
             {
                 requestLaunchSpecification_launchSpecification_IamInstanceProfile_iamInstanceProfile_Arn = cmdletContext.LaunchSpecification_IamInstanceProfile_Arn;
@@ -540,7 +619,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestLaunchSpecification_launchSpecification_IamInstanceProfile.Arn = requestLaunchSpecification_launchSpecification_IamInstanceProfile_iamInstanceProfile_Arn;
                 requestLaunchSpecification_launchSpecification_IamInstanceProfileIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_IamInstanceProfile_iamInstanceProfile_Name = null;
+            System.String requestLaunchSpecification_launchSpecification_IamInstanceProfile_iamInstanceProfile_Name = null;
             if (cmdletContext.LaunchSpecification_IamInstanceProfile_Name != null)
             {
                 requestLaunchSpecification_launchSpecification_IamInstanceProfile_iamInstanceProfile_Name = cmdletContext.LaunchSpecification_IamInstanceProfile_Name;
@@ -560,12 +639,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.LaunchSpecification.IamInstanceProfile = requestLaunchSpecification_launchSpecification_IamInstanceProfile;
                 requestLaunchSpecificationIsNull = false;
             }
-            SpotPlacement requestLaunchSpecification_launchSpecification_Placement = null;
+            Amazon.EC2.Model.SpotPlacement requestLaunchSpecification_launchSpecification_Placement = null;
             
              // populate Placement
             bool requestLaunchSpecification_launchSpecification_PlacementIsNull = true;
-            requestLaunchSpecification_launchSpecification_Placement = new SpotPlacement();
-            String requestLaunchSpecification_launchSpecification_Placement_placement_AvailabilityZone = null;
+            requestLaunchSpecification_launchSpecification_Placement = new Amazon.EC2.Model.SpotPlacement();
+            System.String requestLaunchSpecification_launchSpecification_Placement_placement_AvailabilityZone = null;
             if (cmdletContext.LaunchSpecification_Placement_AvailabilityZone != null)
             {
                 requestLaunchSpecification_launchSpecification_Placement_placement_AvailabilityZone = cmdletContext.LaunchSpecification_Placement_AvailabilityZone;
@@ -575,7 +654,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 requestLaunchSpecification_launchSpecification_Placement.AvailabilityZone = requestLaunchSpecification_launchSpecification_Placement_placement_AvailabilityZone;
                 requestLaunchSpecification_launchSpecification_PlacementIsNull = false;
             }
-            String requestLaunchSpecification_launchSpecification_Placement_placement_GroupName = null;
+            System.String requestLaunchSpecification_launchSpecification_Placement_placement_GroupName = null;
             if (cmdletContext.LaunchSpecification_Placement_GroupName != null)
             {
                 requestLaunchSpecification_launchSpecification_Placement_placement_GroupName = cmdletContext.LaunchSpecification_Placement_GroupName;
@@ -651,32 +730,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZoneGroup { get; set; }
-            public String ClientToken { get; set; }
-            public Int32? InstanceCount { get; set; }
-            public String LaunchGroup { get; set; }
-            public String LaunchSpecification_AddressingType { get; set; }
-            public List<GroupIdentifier> LaunchSpecification_AllSecurityGroups { get; set; }
-            public List<BlockDeviceMapping> LaunchSpecification_BlockDeviceMappings { get; set; }
-            public Boolean? LaunchSpecification_EbsOptimized { get; set; }
-            public String LaunchSpecification_IamInstanceProfile_Arn { get; set; }
-            public String LaunchSpecification_IamInstanceProfile_Name { get; set; }
-            public String LaunchSpecification_ImageId { get; set; }
-            public InstanceType LaunchSpecification_InstanceType { get; set; }
-            public String LaunchSpecification_KernelId { get; set; }
-            public String LaunchSpecification_KeyName { get; set; }
-            public Boolean? LaunchSpecification_MonitoringEnabled { get; set; }
-            public List<InstanceNetworkInterfaceSpecification> LaunchSpecification_NetworkInterfaces { get; set; }
-            public String LaunchSpecification_Placement_AvailabilityZone { get; set; }
-            public String LaunchSpecification_Placement_GroupName { get; set; }
-            public String LaunchSpecification_RamdiskId { get; set; }
-            public List<String> LaunchSpecification_SecurityGroups { get; set; }
-            public String LaunchSpecification_SubnetId { get; set; }
-            public String LaunchSpecification_UserData { get; set; }
-            public String SpotPrice { get; set; }
-            public SpotInstanceType Type { get; set; }
-            public DateTime? ValidFrom { get; set; }
-            public DateTime? ValidUntil { get; set; }
+            public System.String AvailabilityZoneGroup { get; set; }
+            public System.Int32? BlockDurationMinutes { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.Int32? InstanceCount { get; set; }
+            public System.String LaunchGroup { get; set; }
+            public System.String LaunchSpecification_AddressingType { get; set; }
+            public List<Amazon.EC2.Model.GroupIdentifier> LaunchSpecification_AllSecurityGroups { get; set; }
+            public List<Amazon.EC2.Model.BlockDeviceMapping> LaunchSpecification_BlockDeviceMappings { get; set; }
+            public System.Boolean? LaunchSpecification_EbsOptimized { get; set; }
+            public System.String LaunchSpecification_IamInstanceProfile_Arn { get; set; }
+            public System.String LaunchSpecification_IamInstanceProfile_Name { get; set; }
+            public System.String LaunchSpecification_ImageId { get; set; }
+            public Amazon.EC2.InstanceType LaunchSpecification_InstanceType { get; set; }
+            public System.String LaunchSpecification_KernelId { get; set; }
+            public System.String LaunchSpecification_KeyName { get; set; }
+            public System.Boolean? LaunchSpecification_MonitoringEnabled { get; set; }
+            public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> LaunchSpecification_NetworkInterfaces { get; set; }
+            public System.String LaunchSpecification_Placement_AvailabilityZone { get; set; }
+            public System.String LaunchSpecification_Placement_GroupName { get; set; }
+            public System.String LaunchSpecification_RamdiskId { get; set; }
+            public List<System.String> LaunchSpecification_SecurityGroups { get; set; }
+            public System.String LaunchSpecification_SubnetId { get; set; }
+            public System.String LaunchSpecification_UserData { get; set; }
+            public System.String SpotPrice { get; set; }
+            public Amazon.EC2.SpotInstanceType Type { get; set; }
+            public System.DateTime? ValidFrom { get; set; }
+            public System.DateTime? ValidUntil { get; set; }
         }
         
     }

@@ -43,10 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetSSHPublicKey operation against AWS Identity and Access Management.", Operation = new[] {"GetSSHPublicKey"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SSHPublicKey",
         "This cmdlet returns a SSHPublicKey object.",
-        "The service call response (type GetSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMSSHPublicKeyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Encoding
         /// <summary>
         /// <para>
         /// <para>Specifies the public key encoding format to use in the response. To retrieve the public
@@ -55,24 +57,29 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public EncodingType Encoding { get; set; }
+        [AWSConstantClassSource("Amazon.IdentityManagement.EncodingType")]
+        public Amazon.IdentityManagement.EncodingType Encoding { get; set; }
+        #endregion
         
+        #region Parameter SSHPublicKeyId
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the SSH public key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SSHPublicKeyId { get; set; }
+        public System.String SSHPublicKeyId { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user associated with the SSH public key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String UserName { get; set; }
-        
+        public System.String UserName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -98,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetSSHPublicKeyRequest();
+            var request = new Amazon.IdentityManagement.Model.GetSSHPublicKeyRequest();
             
             if (cmdletContext.Encoding != null)
             {
@@ -147,9 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public EncodingType Encoding { get; set; }
-            public String SSHPublicKeyId { get; set; }
-            public String UserName { get; set; }
+            public Amazon.IdentityManagement.EncodingType Encoding { get; set; }
+            public System.String SSHPublicKeyId { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

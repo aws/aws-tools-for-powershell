@@ -41,10 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon Relational Database Service.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.RDS.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetRDSTagForResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ResourceName
         /// <summary>
         /// <para>
         /// <para>The Amazon RDS resource with tags to be listed. This value is an Amazon Resource Name
@@ -62,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ResourceName { get; set; }
-        
+        public System.String ResourceName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -77,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.RDS.Model.Filter>(this.Filter);
             }
             context.ResourceName = this.ResourceName;
             
@@ -91,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListTagsForResourceRequest();
+            var request = new Amazon.RDS.Model.ListTagsForResourceRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -136,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public String ResourceName { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filters { get; set; }
+            public System.String ResourceName { get; set; }
         }
         
     }

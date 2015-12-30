@@ -35,26 +35,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
     [AWSCmdlet("Invokes the PutBucketWebsite operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketWebsite"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type PutBucketWebsiteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.Model.PutBucketWebsiteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteS3BucketWebsiteCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to apply the configuration to.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String BucketName { get; set; }
+        public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter WebsiteConfiguration_ErrorDocument
         /// <summary>
         /// <para>
         /// The ErrorDocument value, an object key name to use when a 4XX class error occurs.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String WebsiteConfiguration_ErrorDocument { get; set; }
+        public System.String WebsiteConfiguration_ErrorDocument { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_HostName
         /// <summary>
         /// <para>
         /// Name of the host where requests will be redirected.
@@ -62,8 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_HostName")]
-        public String RedirectAllRequestsTo_HostName { get; set; }
+        public System.String RedirectAllRequestsTo_HostName { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_HttpRedirectCode
         /// <summary>
         /// <para>
         /// The HTTP redirect code to use on the response. Not required if one of the siblings is present.
@@ -71,8 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_HttpRedirectCode")]
-        public String RedirectAllRequestsTo_HttpRedirectCode { get; set; }
+        public System.String RedirectAllRequestsTo_HttpRedirectCode { get; set; }
+        #endregion
         
+        #region Parameter WebsiteConfiguration_IndexDocumentSuffix
         /// <summary>
         /// <para>
         /// <para>This value is a suffix that is appended to a request that is for a "directory" 
@@ -84,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String WebsiteConfiguration_IndexDocumentSuffix { get; set; }
+        public System.String WebsiteConfiguration_IndexDocumentSuffix { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_Protocol
         /// <summary>
         /// <para>
         /// Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
@@ -93,8 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_Protocol")]
-        public String RedirectAllRequestsTo_Protocol { get; set; }
+        public System.String RedirectAllRequestsTo_Protocol { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_ReplaceKeyPrefixWith
         /// <summary>
         /// <para>
         /// The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the
@@ -104,8 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyPrefixWith")]
-        public String RedirectAllRequestsTo_ReplaceKeyPrefixWith { get; set; }
+        public System.String RedirectAllRequestsTo_ReplaceKeyPrefixWith { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_ReplaceKeyWith
         /// <summary>
         /// <para>
         /// The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is
@@ -114,8 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith")]
-        public String RedirectAllRequestsTo_ReplaceKeyWith { get; set; }
+        public System.String RedirectAllRequestsTo_ReplaceKeyWith { get; set; }
+        #endregion
         
+        #region Parameter WebsiteConfiguration_RoutingRule
         /// <summary>
         /// <para>
         /// The list of routing rules that can be used for configuring redirects if certain conditions are meet.
@@ -124,14 +142,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RoutingRules")]
         public Amazon.S3.Model.RoutingRule[] WebsiteConfiguration_RoutingRule { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -139,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -167,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith = this.RedirectAllRequestsTo_ReplaceKeyWith;
             if (this.WebsiteConfiguration_RoutingRule != null)
             {
-                context.WebsiteConfiguration_RoutingRules = new List<RoutingRule>(this.WebsiteConfiguration_RoutingRule);
+                context.WebsiteConfiguration_RoutingRules = new List<Amazon.S3.Model.RoutingRule>(this.WebsiteConfiguration_RoutingRule);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -180,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutBucketWebsiteRequest();
+            var request = new Amazon.S3.Model.PutBucketWebsiteRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -189,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
              // populate WebsiteConfiguration
             bool requestWebsiteConfigurationIsNull = true;
-            request.WebsiteConfiguration = new WebsiteConfiguration();
-            String requestWebsiteConfiguration_websiteConfiguration_ErrorDocument = null;
+            request.WebsiteConfiguration = new Amazon.S3.Model.WebsiteConfiguration();
+            System.String requestWebsiteConfiguration_websiteConfiguration_ErrorDocument = null;
             if (cmdletContext.WebsiteConfiguration_ErrorDocument != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_ErrorDocument = cmdletContext.WebsiteConfiguration_ErrorDocument;
@@ -200,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.WebsiteConfiguration.ErrorDocument = requestWebsiteConfiguration_websiteConfiguration_ErrorDocument;
                 requestWebsiteConfigurationIsNull = false;
             }
-            String requestWebsiteConfiguration_websiteConfiguration_IndexDocumentSuffix = null;
+            System.String requestWebsiteConfiguration_websiteConfiguration_IndexDocumentSuffix = null;
             if (cmdletContext.WebsiteConfiguration_IndexDocumentSuffix != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_IndexDocumentSuffix = cmdletContext.WebsiteConfiguration_IndexDocumentSuffix;
@@ -210,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.WebsiteConfiguration.IndexDocumentSuffix = requestWebsiteConfiguration_websiteConfiguration_IndexDocumentSuffix;
                 requestWebsiteConfigurationIsNull = false;
             }
-            List<RoutingRule> requestWebsiteConfiguration_websiteConfiguration_RoutingRule = null;
+            List<Amazon.S3.Model.RoutingRule> requestWebsiteConfiguration_websiteConfiguration_RoutingRule = null;
             if (cmdletContext.WebsiteConfiguration_RoutingRules != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_RoutingRule = cmdletContext.WebsiteConfiguration_RoutingRules;
@@ -220,12 +242,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.WebsiteConfiguration.RoutingRules = requestWebsiteConfiguration_websiteConfiguration_RoutingRule;
                 requestWebsiteConfigurationIsNull = false;
             }
-            RoutingRuleRedirect requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo = null;
+            Amazon.S3.Model.RoutingRuleRedirect requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo = null;
             
              // populate RedirectAllRequestsTo
             bool requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsToIsNull = true;
-            requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo = new RoutingRuleRedirect();
-            String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HostName = null;
+            requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo = new Amazon.S3.Model.RoutingRuleRedirect();
+            System.String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HostName = null;
             if (cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_HostName != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HostName = cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_HostName;
@@ -235,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo.HostName = requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HostName;
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsToIsNull = false;
             }
-            String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HttpRedirectCode = null;
+            System.String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HttpRedirectCode = null;
             if (cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_HttpRedirectCode != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HttpRedirectCode = cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_HttpRedirectCode;
@@ -245,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo.HttpRedirectCode = requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_HttpRedirectCode;
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsToIsNull = false;
             }
-            String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_Protocol = null;
+            System.String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_Protocol = null;
             if (cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_Protocol != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_Protocol = cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_Protocol;
@@ -255,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo.Protocol = requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_Protocol;
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsToIsNull = false;
             }
-            String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_ReplaceKeyPrefixWith = null;
+            System.String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_ReplaceKeyPrefixWith = null;
             if (cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyPrefixWith != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_ReplaceKeyPrefixWith = cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyPrefixWith;
@@ -265,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo.ReplaceKeyPrefixWith = requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_ReplaceKeyPrefixWith;
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsToIsNull = false;
             }
-            String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_ReplaceKeyWith = null;
+            System.String requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_ReplaceKeyWith = null;
             if (cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith != null)
             {
                 requestWebsiteConfiguration_websiteConfiguration_RedirectAllRequestsTo_redirectAllRequestsTo_ReplaceKeyWith = cmdletContext.WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith;
@@ -327,15 +349,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal class CmdletContext : ExecutorContext
         {
-            public String BucketName { get; set; }
-            public String WebsiteConfiguration_ErrorDocument { get; set; }
-            public String WebsiteConfiguration_IndexDocumentSuffix { get; set; }
-            public String WebsiteConfiguration_RedirectAllRequestsTo_HostName { get; set; }
-            public String WebsiteConfiguration_RedirectAllRequestsTo_HttpRedirectCode { get; set; }
-            public String WebsiteConfiguration_RedirectAllRequestsTo_Protocol { get; set; }
-            public String WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyPrefixWith { get; set; }
-            public String WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith { get; set; }
-            public List<RoutingRule> WebsiteConfiguration_RoutingRules { get; set; }
+            public System.String BucketName { get; set; }
+            public System.String WebsiteConfiguration_ErrorDocument { get; set; }
+            public System.String WebsiteConfiguration_IndexDocumentSuffix { get; set; }
+            public System.String WebsiteConfiguration_RedirectAllRequestsTo_HostName { get; set; }
+            public System.String WebsiteConfiguration_RedirectAllRequestsTo_HttpRedirectCode { get; set; }
+            public System.String WebsiteConfiguration_RedirectAllRequestsTo_Protocol { get; set; }
+            public System.String WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyPrefixWith { get; set; }
+            public System.String WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith { get; set; }
+            public List<Amazon.S3.Model.RoutingRule> WebsiteConfiguration_RoutingRules { get; set; }
         }
         
     }

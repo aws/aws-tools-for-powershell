@@ -35,18 +35,20 @@ namespace Amazon.PowerShell.Cmdlets.DF
     [AWSCmdlet("Invokes the GetDevicePool operation against AWS Device Farm.", Operation = new[] {"GetDevicePool"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.DevicePool",
         "This cmdlet returns a DevicePool object.",
-        "The service call response (type GetDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DeviceFarm.Model.GetDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDFDevicePoolCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
         /// <summary>
         /// <para>
         /// <para>The device pool's ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Arn { get; set; }
-        
+        public System.String Arn { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetDevicePoolRequest();
+            var request = new Amazon.DeviceFarm.Model.GetDevicePoolRequest();
             
             if (cmdletContext.Arn != null)
             {
@@ -111,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Arn { get; set; }
+            public System.String Arn { get; set; }
         }
         
     }

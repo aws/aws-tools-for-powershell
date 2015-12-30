@@ -43,18 +43,20 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     [AWSCmdlet("Invokes the DescribeTable operation against Amazon DynamoDB.", Operation = new[] {"DescribeTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns a TableDescription object.",
-        "The service call response (type DescribeTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DynamoDBv2.Model.DescribeTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
+        
+        #region Parameter TableName
         /// <summary>
         /// <para>
         /// <para> The name of the table to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TableName { get; set; }
-        
+        public System.String TableName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeTableRequest();
+            var request = new Amazon.DynamoDBv2.Model.DescribeTableRequest();
             
             if (cmdletContext.TableName != null)
             {
@@ -119,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String TableName { get; set; }
+            public System.String TableName { get; set; }
         }
         
     }

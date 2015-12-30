@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetAccountPasswordPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetAccountPasswordPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.PasswordPolicy",
         "This cmdlet returns a PasswordPolicy object.",
-        "The service call response (type GetAccountPasswordPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetAccountPasswordPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMAccountPasswordPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetAccountPasswordPolicyRequest();
+            var request = new Amazon.IdentityManagement.Model.GetAccountPasswordPolicyRequest();
             
             
             CmdletOutput output;

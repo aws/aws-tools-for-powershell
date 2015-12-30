@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the EnableSnapshotCopy operation against Amazon Redshift.", Operation = new[] {"EnableSnapshotCopy"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type EnableSnapshotCopyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.EnableSnapshotCopyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EnableRSSnapshotCopyCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the source cluster to copy snapshots from. </para><para> Constraints: Must be the valid name of an existing cluster that does not already
@@ -47,8 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DestinationRegion
         /// <summary>
         /// <para>
         /// <para> The destination region that you want to copy snapshots to. </para><para> Constraints: Must be the name of a valid region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
@@ -56,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DestinationRegion { get; set; }
+        public System.String DestinationRegion { get; set; }
+        #endregion
         
+        #region Parameter RetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days to retain automated snapshots in the destination region after
@@ -65,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 RetentionPeriod { get; set; }
+        public System.Int32 RetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter SnapshotCopyGrantName
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
@@ -74,8 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String SnapshotCopyGrantName { get; set; }
+        public System.String SnapshotCopyGrantName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -117,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new EnableSnapshotCopyRequest();
+            var request = new Amazon.Redshift.Model.EnableSnapshotCopyRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -170,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
-            public String DestinationRegion { get; set; }
-            public Int32? RetentionPeriod { get; set; }
-            public String SnapshotCopyGrantName { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String DestinationRegion { get; set; }
+            public System.Int32? RetentionPeriod { get; set; }
+            public System.String SnapshotCopyGrantName { get; set; }
         }
         
     }

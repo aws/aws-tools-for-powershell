@@ -48,10 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the AttachClassicLinkVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AttachClassicLinkVpc"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type AttachClassicLinkVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.AttachClassicLinkVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class AddEC2ClassicLinkVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Group
         /// <summary>
         /// <para>
         /// <para>The ID of one or more of the VPC's security groups. You cannot specify security groups
@@ -61,23 +63,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Groups")]
         public System.String[] Group { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of a ClassicLink-enabled VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VpcId { get; set; }
+        public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Group != null)
             {
-                context.Groups = new List<String>(this.Group);
+                context.Groups = new List<System.String>(this.Group);
             }
             context.InstanceId = this.InstanceId;
             context.VpcId = this.VpcId;
@@ -120,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new AttachClassicLinkVpcRequest();
+            var request = new Amazon.EC2.Model.AttachClassicLinkVpcRequest();
             
             if (cmdletContext.Groups != null)
             {
@@ -169,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Groups { get; set; }
-            public String InstanceId { get; set; }
-            public String VpcId { get; set; }
+            public List<System.String> Groups { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }

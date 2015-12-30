@@ -28,14 +28,14 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Disassociates the specified configuration document from the specified instance.
+    /// Disassociates the specified SSM document from the specified instance.
     /// 
     ///  
     /// <para>
-    /// When you disassociate a configuration document from an instance, it does not change
-    /// the configuration of the instance. To change the configuration state of an instance
-    /// after you disassociate a configuration document, you must create a new configuration
-    /// document with the desired configuration and associate it with the instance.
+    /// When you disassociate an SSM document from an instance, it does not change the configuration
+    /// of the instance. To change the configuration state of an instance after you disassociate
+    /// a document, you must create a new document with the desired configuration and associate
+    /// it with the instance.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -43,33 +43,41 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the DeleteAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteAssociation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type DeleteAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceId { get; set; }
+        public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration document.</para>
+        /// <para>The name of the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -108,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteAssociationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteAssociationRequest();
             
             if (cmdletContext.InstanceId != null)
             {
@@ -155,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceId { get; set; }
-            public String Name { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

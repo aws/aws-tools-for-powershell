@@ -28,18 +28,26 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Copies the specified DBSnapshot. The source DBSnapshot must be in the "available"
-    /// state.
+    /// Copies the specified DBSnapshot. The source DB snapshot must be in the "available"
+    /// state. 
+    /// 
+    ///  
+    /// <para>
+    /// If you are copying from a shared manual DB snapshot, the <code>SourceDBSnapshotIdentifier</code>
+    /// must be the ARN of the shared DB snapshot.
+    /// </para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]
     [AWSCmdlet("Invokes the CopyDBSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"CopyDBSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshot",
         "This cmdlet returns a DBSnapshot object.",
-        "The service call response (type CopyDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.CopyDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class CopyRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter CopyTag
         /// <summary>
         /// <para>
         /// <para>True to copy all tags from the source DB snapshot to the target DB snapshot; otherwise
@@ -47,11 +55,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean CopyTags { get; set; }
+        [Alias("CopyTags")]
+        public System.Boolean CopyTag { get; set; }
+        #endregion
         
+        #region Parameter SourceDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The identifier for the source DB snapshot. </para><para>Constraints:</para><ul><li>Must specify a valid system snapshot in the "available" state.</li><li>If
+        /// <para> The identifier for the source DB snapshot. </para><para>If you are copying from a shared manual DB snapshot, this must be the ARN of the shared
+        /// DB snapshot.</para><para>Constraints:</para><ul><li>Must specify a valid system snapshot in the "available" state.</li><li>If
         /// the source snapshot is in the same region as the copy, specify a valid DB snapshot
         /// identifier.</li><li>If the source snapshot is in a different region than the copy,
         /// specify a valid DB snapshot ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html">
@@ -59,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String SourceDBSnapshotIdentifier { get; set; }
+        public System.String SourceDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -69,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TargetDBSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier for the copied snapshot. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank</li><li>Must contain from 1 to 255 alphanumeric
@@ -78,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String TargetDBSnapshotIdentifier { get; set; }
+        public System.String TargetDBSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -87,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -105,12 +123,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("CopyTags"))
-                context.CopyTags = this.CopyTags;
+            if (ParameterWasBound("CopyTag"))
+                context.CopyTags = this.CopyTag;
             context.SourceDBSnapshotIdentifier = this.SourceDBSnapshotIdentifier;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
             }
             context.TargetDBSnapshotIdentifier = this.TargetDBSnapshotIdentifier;
             
@@ -124,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CopyDBSnapshotRequest();
+            var request = new Amazon.RDS.Model.CopyDBSnapshotRequest();
             
             if (cmdletContext.CopyTags != null)
             {
@@ -177,10 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? CopyTags { get; set; }
-            public String SourceDBSnapshotIdentifier { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TargetDBSnapshotIdentifier { get; set; }
+            public System.Boolean? CopyTags { get; set; }
+            public System.String SourceDBSnapshotIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tags { get; set; }
+            public System.String TargetDBSnapshotIdentifier { get; set; }
         }
         
     }

@@ -34,10 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [OutputType("Amazon.CloudFront.Model.CreateDistributionResponse")]
     [AWSCmdlet("Invokes the CreateDistribution operation against Amazon CloudFront.", Operation = new[] {"CreateDistribution"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateDistributionResponse",
-        "This cmdlet returns a CreateDistributionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudFront.Model.CreateDistributionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
         /// The Amazon S3 bucket to store the access logs in,
@@ -46,8 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_Bucket")]
-        public String Logging_Bucket { get; set; }
+        public System.String Logging_Bucket { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_CallerReference
         /// <summary>
         /// <para>
         /// A unique number that ensures the request
@@ -62,28 +66,91 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DistributionConfig_CallerReference { get; set; }
+        public System.String DistributionConfig_CallerReference { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_Certificate
         /// <summary>
         /// <para>
-        /// If you want viewers to use
-        /// HTTPS to request your objects and you're using the CloudFront domain name of your
-        /// distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
+        /// If you want viewers to use HTTPS to request
+        /// your objects and you're using an alternate domain name in your object URLs (for example,
+        /// https://example.com/logo.jpg), set to the IAM certificate identifier of the custom
+        /// viewer certificate for this distribution.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_ViewerCertificate_Certificate")]
+        public System.String ViewerCertificate_Certificate { get; set; }
+        #endregion
+        
+        #region Parameter ViewerCertificate_CertificateSource
+        /// <summary>
+        /// <para>
+        /// If you want viewers to use HTTPS to
+        /// request your objects and you're using the CloudFront domain name of your distribution
+        /// in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
+        /// set to "cloudfront". If you want viewers to use HTTPS to request your objects and
+        /// you're using an alternate domain name in your object URLs (for example, https://example.com/logo.jpg),
+        /// set to "iam", and update the Certificate field with the IAM certificate identifier
+        /// of the custom viewer certificate for this distribution.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_ViewerCertificate_CertificateSource")]
+        [AWSConstantClassSource("Amazon.CloudFront.CertificateSource")]
+        public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
+        #endregion
+        
+        #region Parameter ViewerCertificate_CloudFrontDefaultCertificate
+        /// <summary>
+        /// <para>
+        /// Note: this field is deprecated.
+        /// Please use "cloudfront" as CertificateSource and omit specifying a Certificate. If
+        /// you want viewers to use HTTPS to request your objects and you're using the CloudFront
+        /// domain name of your distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
         /// set to true. Omit this value if you are setting an IAMCertificateId.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate")]
-        public Boolean ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
+        public System.Boolean ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_Comment
         /// <summary>
         /// <para>
         /// Any comments you want to include about the distribution.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DistributionConfig_Comment { get; set; }
+        public System.String DistributionConfig_Comment { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_Compress
+        /// <summary>
+        /// <para>
+        /// Whether you want CloudFront to automatically
+        /// compress content for web requests that include Accept-Encoding: gzip in the request
+        /// header. If so, specify true; if not, specify false. CloudFront compresses files larger
+        /// than 1000 bytes and less than 1 megabyte for both Amazon S3 and custom origins. When
+        /// a CloudFront edge location is unusually busy, some files might not be compressed.
+        /// The value of the Content-Type header must be on the list of file types that CloudFront
+        /// will compress. For the current list, see <a href="http://docs.aws.amazon.com/console/cloudfront/compressed-content">Serving
+        /// Compressed Content</a> in the Amazon CloudFront Developer Guide. If you configure
+        /// CloudFront to compress content, CloudFront removes the ETag response header from the
+        /// objects that it compresses. The ETag header indicates that the version in a CloudFront
+        /// edge cache is identical to the version on the origin server, but after compression
+        /// the two versions are no longer identical. As a result, for compressed objects, CloudFront
+        /// can't use the ETag header to determine whether an expired object in the CloudFront
+        /// edge cache is still the latest version.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_DefaultCacheBehavior_Compress")]
+        public System.Boolean DefaultCacheBehavior_Compress { get; set; }
+        #endregion
+        
+        #region Parameter DistributionConfig_DefaultRootObject
         /// <summary>
         /// <para>
         /// The object that you want CloudFront
@@ -98,8 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DistributionConfig_DefaultRootObject { get; set; }
+        public System.String DistributionConfig_DefaultRootObject { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_DefaultTTL
         /// <summary>
         /// <para>
         /// If you don't configure your origin to add a
@@ -113,8 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_DefaultTTL")]
-        public Int64 DefaultCacheBehavior_DefaultTTL { get; set; }
+        public System.Int64 DefaultCacheBehavior_DefaultTTL { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want to require end users
@@ -123,8 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled")]
-        public Boolean TrustedSigners_Enabled { get; set; }
+        public System.Boolean TrustedSigners_Enabled { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_Enabled
         /// <summary>
         /// <para>
         /// Whether the distribution is enabled to accept
@@ -132,8 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean DistributionConfig_Enabled { get; set; }
+        public System.Boolean DistributionConfig_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Logging_Enabled
         /// <summary>
         /// <para>
         /// Specifies whether you want CloudFront to save
@@ -146,8 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_Enabled")]
-        public Boolean Logging_Enabled { get; set; }
+        public System.Boolean Logging_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Cookies_Forward
         /// <summary>
         /// <para>
         /// Use this element to specify whether you want CloudFront
@@ -158,20 +235,27 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward")]
-        public ItemSelection Cookies_Forward { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFront.ItemSelection")]
+        public Amazon.CloudFront.ItemSelection Cookies_Forward { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
-        /// If you want viewers to use HTTPS to request
-        /// your objects and you're using an alternate domain name in your object URLs (for example,
-        /// https://example.com/logo.jpg), specify the IAM certificate identifier of the custom
-        /// viewer certificate for this distribution. Specify either this value or CloudFrontDefaultCertificate.
+        /// Note: this field is deprecated. Please
+        /// use "iam" as CertificateSource and specify the IAM certificate Id as the Certificate.
+        /// If you want viewers to use HTTPS to request your objects and you're using an alternate
+        /// domain name in your object URLs (for example, https://example.com/logo.jpg), specify
+        /// the IAM certificate identifier of the custom viewer certificate for this distribution.
+        /// Specify either this value or CloudFrontDefaultCertificate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_IAMCertificateId")]
-        public String ViewerCertificate_IAMCertificateId { get; set; }
+        public System.String ViewerCertificate_IAMCertificateId { get; set; }
+        #endregion
         
+        #region Parameter Logging_IncludeCookie
         /// <summary>
         /// <para>
         /// Specifies whether you want CloudFront to
@@ -184,8 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_IncludeCookies")]
-        public Boolean Logging_IncludeCookies { get; set; }
+        public System.Boolean Logging_IncludeCookie { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains CNAME elements,
@@ -195,7 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Aliases_Items")]
         public System.String[] Aliases_Item { get; set; }
+        #endregion
         
+        #region Parameter CacheBehaviors_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains cache behaviors
@@ -205,7 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CacheBehaviors_Items")]
         public Amazon.CloudFront.Model.CacheBehavior[] CacheBehaviors_Item { get; set; }
+        #endregion
         
+        #region Parameter CustomErrorResponses_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains custom error
@@ -215,7 +305,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CustomErrorResponses_Items")]
         public Amazon.CloudFront.Model.CustomErrorResponse[] CustomErrorResponses_Item { get; set; }
+        #endregion
         
+        #region Parameter CachedMethods_Item
         /// <summary>
         /// <para>
         /// A complex type that contains the HTTP methods that
@@ -225,7 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items")]
         public System.String[] CachedMethods_Item { get; set; }
+        #endregion
         
+        #region Parameter AllowedMethods_Item
         /// <summary>
         /// <para>
         /// A complex type that contains the HTTP methods that
@@ -235,7 +329,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items")]
         public System.String[] AllowedMethods_Item { get; set; }
+        #endregion
         
+        #region Parameter WhitelistedNames_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains whitelisted
@@ -245,7 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items")]
         public System.String[] WhitelistedNames_Item { get; set; }
+        #endregion
         
+        #region Parameter Headers_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains a Name element
@@ -256,7 +354,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items")]
         public System.String[] Headers_Item { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Item
         /// <summary>
         /// <para>
         /// Optional: A complex type that contains trusted signers
@@ -266,7 +366,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items")]
         public System.String[] TrustedSigners_Item { get; set; }
+        #endregion
         
+        #region Parameter Origins_Item
         /// <summary>
         /// <para>
         /// A complex type that contains origins for this distribution.
@@ -275,7 +377,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Origins_Items")]
         public Amazon.CloudFront.Model.Origin[] Origins_Item { get; set; }
+        #endregion
         
+        #region Parameter GeoRestriction_Item
         /// <summary>
         /// <para>
         /// A complex type that contains a Location element
@@ -292,7 +396,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Restrictions_GeoRestriction_Items")]
         public System.String[] GeoRestriction_Item { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_MaxTTL
         /// <summary>
         /// <para>
         /// The maximum amount of time (in seconds) that an
@@ -305,8 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_MaxTTL")]
-        public Int64 DefaultCacheBehavior_MaxTTL { get; set; }
+        public System.Int64 DefaultCacheBehavior_MaxTTL { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_MinimumProtocolVersion
         /// <summary>
         /// <para>
         /// Specify the minimum version of
@@ -323,8 +431,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_MinimumProtocolVersion")]
-        public MinimumProtocolVersion ViewerCertificate_MinimumProtocolVersion { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFront.MinimumProtocolVersion")]
+        public Amazon.CloudFront.MinimumProtocolVersion ViewerCertificate_MinimumProtocolVersion { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_MinTTL
         /// <summary>
         /// <para>
         /// The minimum amount of time that you want objects
@@ -335,8 +446,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_MinTTL")]
-        public Int64 DefaultCacheBehavior_MinTTL { get; set; }
+        public System.Int64 DefaultCacheBehavior_MinTTL { get; set; }
+        #endregion
         
+        #region Parameter Logging_Prefix
         /// <summary>
         /// <para>
         /// An optional string that you want CloudFront to
@@ -347,8 +460,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Logging_Prefix")]
-        public String Logging_Prefix { get; set; }
+        public System.String Logging_Prefix { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_PriceClass
         /// <summary>
         /// <para>
         /// A complex type that contains information about
@@ -356,8 +471,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public PriceClass DistributionConfig_PriceClass { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFront.PriceClass")]
+        public Amazon.CloudFront.PriceClass DistributionConfig_PriceClass { get; set; }
+        #endregion
         
+        #region Parameter Aliases_Quantity
         /// <summary>
         /// <para>
         /// The number of CNAMEs, if any, for this distribution.
@@ -365,8 +483,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Aliases_Quantity")]
-        public Int32 Aliases_Quantity { get; set; }
+        public System.Int32 Aliases_Quantity { get; set; }
+        #endregion
         
+        #region Parameter CacheBehaviors_Quantity
         /// <summary>
         /// <para>
         /// The number of cache behaviors for this distribution.
@@ -374,8 +494,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CacheBehaviors_Quantity")]
-        public Int32 CacheBehaviors_Quantity { get; set; }
+        public System.Int32 CacheBehaviors_Quantity { get; set; }
+        #endregion
         
+        #region Parameter CustomErrorResponses_Quantity
         /// <summary>
         /// <para>
         /// The number of custom error responses for this
@@ -384,8 +506,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_CustomErrorResponses_Quantity")]
-        public Int32 CustomErrorResponses_Quantity { get; set; }
+        public System.Int32 CustomErrorResponses_Quantity { get; set; }
+        #endregion
         
+        #region Parameter CachedMethods_Quantity
         /// <summary>
         /// <para>
         /// The number of HTTP methods for which you want
@@ -395,8 +519,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity")]
-        public Int32 CachedMethods_Quantity { get; set; }
+        public System.Int32 CachedMethods_Quantity { get; set; }
+        #endregion
         
+        #region Parameter AllowedMethods_Quantity
         /// <summary>
         /// <para>
         /// The number of HTTP methods that you want CloudFront
@@ -407,8 +533,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity")]
-        public Int32 AllowedMethods_Quantity { get; set; }
+        public System.Int32 AllowedMethods_Quantity { get; set; }
+        #endregion
         
+        #region Parameter WhitelistedNames_Quantity
         /// <summary>
         /// <para>
         /// The number of whitelisted cookies for this cache
@@ -417,8 +545,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity")]
-        public Int32 WhitelistedNames_Quantity { get; set; }
+        public System.Int32 WhitelistedNames_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Headers_Quantity
         /// <summary>
         /// <para>
         /// The number of different headers that you want
@@ -431,8 +561,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity")]
-        public Int32 Headers_Quantity { get; set; }
+        public System.Int32 Headers_Quantity { get; set; }
+        #endregion
         
+        #region Parameter TrustedSigners_Quantity
         /// <summary>
         /// <para>
         /// The number of trusted signers for this cache
@@ -441,8 +573,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity")]
-        public Int32 TrustedSigners_Quantity { get; set; }
+        public System.Int32 TrustedSigners_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Origins_Quantity
         /// <summary>
         /// <para>
         /// The number of origins for this distribution.
@@ -450,8 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Origins_Quantity")]
-        public Int32 Origins_Quantity { get; set; }
+        public System.Int32 Origins_Quantity { get; set; }
+        #endregion
         
+        #region Parameter GeoRestriction_Quantity
         /// <summary>
         /// <para>
         /// When geo restriction is enabled, this is the
@@ -461,8 +597,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Restrictions_GeoRestriction_Quantity")]
-        public Int32 GeoRestriction_Quantity { get; set; }
+        public System.Int32 GeoRestriction_Quantity { get; set; }
+        #endregion
         
+        #region Parameter ForwardedValues_QueryString
         /// <summary>
         /// <para>
         /// Indicates whether you want CloudFront to forward
@@ -472,8 +610,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString")]
-        public Boolean ForwardedValues_QueryString { get; set; }
+        public System.Boolean ForwardedValues_QueryString { get; set; }
+        #endregion
         
+        #region Parameter GeoRestriction_RestrictionType
         /// <summary>
         /// <para>
         /// The method that you want to use to restrict
@@ -486,8 +626,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_Restrictions_GeoRestriction_RestrictionType")]
-        public GeoRestrictionType GeoRestriction_RestrictionType { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFront.GeoRestrictionType")]
+        public Amazon.CloudFront.GeoRestrictionType GeoRestriction_RestrictionType { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_SmoothStreaming
         /// <summary>
         /// <para>
         /// Indicates whether you want to distribute
@@ -497,8 +640,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_SmoothStreaming")]
-        public Boolean DefaultCacheBehavior_SmoothStreaming { get; set; }
+        public System.Boolean DefaultCacheBehavior_SmoothStreaming { get; set; }
+        #endregion
         
+        #region Parameter ViewerCertificate_SSLSupportMethod
         /// <summary>
         /// <para>
         /// If you specify a value for IAMCertificateId,
@@ -514,8 +659,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_ViewerCertificate_SSLSupportMethod")]
-        public SSLSupportMethod ViewerCertificate_SSLSupportMethod { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFront.SSLSupportMethod")]
+        public Amazon.CloudFront.SSLSupportMethod ViewerCertificate_SSLSupportMethod { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_TargetOriginId
         /// <summary>
         /// <para>
         /// The value of ID for the origin that you
@@ -525,8 +673,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_TargetOriginId")]
-        public String DefaultCacheBehavior_TargetOriginId { get; set; }
+        public System.String DefaultCacheBehavior_TargetOriginId { get; set; }
+        #endregion
         
+        #region Parameter DefaultCacheBehavior_ViewerProtocolPolicy
         /// <summary>
         /// <para>
         /// Use this element to specify the protocol
@@ -540,8 +690,22 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy")]
-        public ViewerProtocolPolicy DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFront.ViewerProtocolPolicy")]
+        public Amazon.CloudFront.ViewerProtocolPolicy DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
+        #endregion
         
+        #region Parameter DistributionConfig_WebACLId
+        /// <summary>
+        /// <para>
+        /// (Optional) If you're using AWS WAF to filter
+        /// CloudFront requests, the Id of the AWS WAF web ACL that is associated with the distribution.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DistributionConfig_WebACLId { get; set; }
+        #endregion
+        
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -549,7 +713,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -569,13 +733,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
             
             if (this.Aliases_Item != null)
             {
-                context.DistributionConfig_Aliases_Items = new List<String>(this.Aliases_Item);
+                context.DistributionConfig_Aliases_Items = new List<System.String>(this.Aliases_Item);
             }
             if (ParameterWasBound("Aliases_Quantity"))
                 context.DistributionConfig_Aliases_Quantity = this.Aliases_Quantity;
             if (this.CacheBehaviors_Item != null)
             {
-                context.DistributionConfig_CacheBehaviors_Items = new List<CacheBehavior>(this.CacheBehaviors_Item);
+                context.DistributionConfig_CacheBehaviors_Items = new List<Amazon.CloudFront.Model.CacheBehavior>(this.CacheBehaviors_Item);
             }
             if (ParameterWasBound("CacheBehaviors_Quantity"))
                 context.DistributionConfig_CacheBehaviors_Quantity = this.CacheBehaviors_Quantity;
@@ -583,34 +747,36 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.DistributionConfig_Comment = this.DistributionConfig_Comment;
             if (this.CustomErrorResponses_Item != null)
             {
-                context.DistributionConfig_CustomErrorResponses_Items = new List<CustomErrorResponse>(this.CustomErrorResponses_Item);
+                context.DistributionConfig_CustomErrorResponses_Items = new List<Amazon.CloudFront.Model.CustomErrorResponse>(this.CustomErrorResponses_Item);
             }
             if (ParameterWasBound("CustomErrorResponses_Quantity"))
                 context.DistributionConfig_CustomErrorResponses_Quantity = this.CustomErrorResponses_Quantity;
             if (this.CachedMethods_Item != null)
             {
-                context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items = new List<String>(this.CachedMethods_Item);
+                context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items = new List<System.String>(this.CachedMethods_Item);
             }
             if (ParameterWasBound("CachedMethods_Quantity"))
                 context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity = this.CachedMethods_Quantity;
             if (this.AllowedMethods_Item != null)
             {
-                context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items = new List<String>(this.AllowedMethods_Item);
+                context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items = new List<System.String>(this.AllowedMethods_Item);
             }
             if (ParameterWasBound("AllowedMethods_Quantity"))
                 context.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity = this.AllowedMethods_Quantity;
+            if (ParameterWasBound("DefaultCacheBehavior_Compress"))
+                context.DistributionConfig_DefaultCacheBehavior_Compress = this.DefaultCacheBehavior_Compress;
             if (ParameterWasBound("DefaultCacheBehavior_DefaultTTL"))
                 context.DistributionConfig_DefaultCacheBehavior_DefaultTTL = this.DefaultCacheBehavior_DefaultTTL;
             context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward = this.Cookies_Forward;
             if (this.WhitelistedNames_Item != null)
             {
-                context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items = new List<String>(this.WhitelistedNames_Item);
+                context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items = new List<System.String>(this.WhitelistedNames_Item);
             }
             if (ParameterWasBound("WhitelistedNames_Quantity"))
                 context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity = this.WhitelistedNames_Quantity;
             if (this.Headers_Item != null)
             {
-                context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items = new List<String>(this.Headers_Item);
+                context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items = new List<System.String>(this.Headers_Item);
             }
             if (ParameterWasBound("Headers_Quantity"))
                 context.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity = this.Headers_Quantity;
@@ -627,7 +793,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled = this.TrustedSigners_Enabled;
             if (this.TrustedSigners_Item != null)
             {
-                context.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items = new List<String>(this.TrustedSigners_Item);
+                context.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items = new List<System.String>(this.TrustedSigners_Item);
             }
             if (ParameterWasBound("TrustedSigners_Quantity"))
                 context.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity = this.TrustedSigners_Quantity;
@@ -638,28 +804,31 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.DistributionConfig_Logging_Bucket = this.Logging_Bucket;
             if (ParameterWasBound("Logging_Enabled"))
                 context.DistributionConfig_Logging_Enabled = this.Logging_Enabled;
-            if (ParameterWasBound("Logging_IncludeCookies"))
-                context.DistributionConfig_Logging_IncludeCookies = this.Logging_IncludeCookies;
+            if (ParameterWasBound("Logging_IncludeCookie"))
+                context.DistributionConfig_Logging_IncludeCookies = this.Logging_IncludeCookie;
             context.DistributionConfig_Logging_Prefix = this.Logging_Prefix;
             if (this.Origins_Item != null)
             {
-                context.DistributionConfig_Origins_Items = new List<Origin>(this.Origins_Item);
+                context.DistributionConfig_Origins_Items = new List<Amazon.CloudFront.Model.Origin>(this.Origins_Item);
             }
             if (ParameterWasBound("Origins_Quantity"))
                 context.DistributionConfig_Origins_Quantity = this.Origins_Quantity;
             context.DistributionConfig_PriceClass = this.DistributionConfig_PriceClass;
             if (this.GeoRestriction_Item != null)
             {
-                context.DistributionConfig_Restrictions_GeoRestriction_Items = new List<String>(this.GeoRestriction_Item);
+                context.DistributionConfig_Restrictions_GeoRestriction_Items = new List<System.String>(this.GeoRestriction_Item);
             }
             if (ParameterWasBound("GeoRestriction_Quantity"))
                 context.DistributionConfig_Restrictions_GeoRestriction_Quantity = this.GeoRestriction_Quantity;
             context.DistributionConfig_Restrictions_GeoRestriction_RestrictionType = this.GeoRestriction_RestrictionType;
+            context.DistributionConfig_ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
+            context.DistributionConfig_ViewerCertificate_CertificateSource = this.ViewerCertificate_CertificateSource;
             if (ParameterWasBound("ViewerCertificate_CloudFrontDefaultCertificate"))
                 context.DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate = this.ViewerCertificate_CloudFrontDefaultCertificate;
             context.DistributionConfig_ViewerCertificate_IAMCertificateId = this.ViewerCertificate_IAMCertificateId;
             context.DistributionConfig_ViewerCertificate_MinimumProtocolVersion = this.ViewerCertificate_MinimumProtocolVersion;
             context.DistributionConfig_ViewerCertificate_SSLSupportMethod = this.ViewerCertificate_SSLSupportMethod;
+            context.DistributionConfig_WebACLId = this.DistributionConfig_WebACLId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -671,13 +840,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDistributionRequest();
+            var request = new Amazon.CloudFront.Model.CreateDistributionRequest();
             
             
              // populate DistributionConfig
             bool requestDistributionConfigIsNull = true;
-            request.DistributionConfig = new DistributionConfig();
-            String requestDistributionConfig_distributionConfig_CallerReference = null;
+            request.DistributionConfig = new Amazon.CloudFront.Model.DistributionConfig();
+            System.String requestDistributionConfig_distributionConfig_CallerReference = null;
             if (cmdletContext.DistributionConfig_CallerReference != null)
             {
                 requestDistributionConfig_distributionConfig_CallerReference = cmdletContext.DistributionConfig_CallerReference;
@@ -687,7 +856,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.CallerReference = requestDistributionConfig_distributionConfig_CallerReference;
                 requestDistributionConfigIsNull = false;
             }
-            String requestDistributionConfig_distributionConfig_Comment = null;
+            System.String requestDistributionConfig_distributionConfig_Comment = null;
             if (cmdletContext.DistributionConfig_Comment != null)
             {
                 requestDistributionConfig_distributionConfig_Comment = cmdletContext.DistributionConfig_Comment;
@@ -697,7 +866,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.Comment = requestDistributionConfig_distributionConfig_Comment;
                 requestDistributionConfigIsNull = false;
             }
-            String requestDistributionConfig_distributionConfig_DefaultRootObject = null;
+            System.String requestDistributionConfig_distributionConfig_DefaultRootObject = null;
             if (cmdletContext.DistributionConfig_DefaultRootObject != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultRootObject = cmdletContext.DistributionConfig_DefaultRootObject;
@@ -707,7 +876,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.DefaultRootObject = requestDistributionConfig_distributionConfig_DefaultRootObject;
                 requestDistributionConfigIsNull = false;
             }
-            Boolean? requestDistributionConfig_distributionConfig_Enabled = null;
+            System.Boolean? requestDistributionConfig_distributionConfig_Enabled = null;
             if (cmdletContext.DistributionConfig_Enabled != null)
             {
                 requestDistributionConfig_distributionConfig_Enabled = cmdletContext.DistributionConfig_Enabled.Value;
@@ -717,7 +886,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.Enabled = requestDistributionConfig_distributionConfig_Enabled.Value;
                 requestDistributionConfigIsNull = false;
             }
-            PriceClass requestDistributionConfig_distributionConfig_PriceClass = null;
+            Amazon.CloudFront.PriceClass requestDistributionConfig_distributionConfig_PriceClass = null;
             if (cmdletContext.DistributionConfig_PriceClass != null)
             {
                 requestDistributionConfig_distributionConfig_PriceClass = cmdletContext.DistributionConfig_PriceClass;
@@ -727,17 +896,27 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.PriceClass = requestDistributionConfig_distributionConfig_PriceClass;
                 requestDistributionConfigIsNull = false;
             }
-            Restrictions requestDistributionConfig_distributionConfig_Restrictions = null;
+            System.String requestDistributionConfig_distributionConfig_WebACLId = null;
+            if (cmdletContext.DistributionConfig_WebACLId != null)
+            {
+                requestDistributionConfig_distributionConfig_WebACLId = cmdletContext.DistributionConfig_WebACLId;
+            }
+            if (requestDistributionConfig_distributionConfig_WebACLId != null)
+            {
+                request.DistributionConfig.WebACLId = requestDistributionConfig_distributionConfig_WebACLId;
+                requestDistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.Restrictions requestDistributionConfig_distributionConfig_Restrictions = null;
             
              // populate Restrictions
             bool requestDistributionConfig_distributionConfig_RestrictionsIsNull = true;
-            requestDistributionConfig_distributionConfig_Restrictions = new Restrictions();
-            GeoRestriction requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction = null;
+            requestDistributionConfig_distributionConfig_Restrictions = new Amazon.CloudFront.Model.Restrictions();
+            Amazon.CloudFront.Model.GeoRestriction requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction = null;
             
              // populate GeoRestriction
             bool requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestrictionIsNull = true;
-            requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction = new GeoRestriction();
-            List<String> requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Item = null;
+            requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction = new Amazon.CloudFront.Model.GeoRestriction();
+            List<System.String> requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Item = null;
             if (cmdletContext.DistributionConfig_Restrictions_GeoRestriction_Items != null)
             {
                 requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Item = cmdletContext.DistributionConfig_Restrictions_GeoRestriction_Items;
@@ -747,7 +926,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction.Items = requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Item;
                 requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestrictionIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Quantity = null;
             if (cmdletContext.DistributionConfig_Restrictions_GeoRestriction_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Quantity = cmdletContext.DistributionConfig_Restrictions_GeoRestriction_Quantity.Value;
@@ -757,7 +936,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction.Quantity = requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_Quantity.Value;
                 requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestrictionIsNull = false;
             }
-            GeoRestrictionType requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_RestrictionType = null;
+            Amazon.CloudFront.GeoRestrictionType requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_RestrictionType = null;
             if (cmdletContext.DistributionConfig_Restrictions_GeoRestriction_RestrictionType != null)
             {
                 requestDistributionConfig_distributionConfig_Restrictions_distributionConfig_Restrictions_GeoRestriction_geoRestriction_RestrictionType = cmdletContext.DistributionConfig_Restrictions_GeoRestriction_RestrictionType;
@@ -787,12 +966,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.Restrictions = requestDistributionConfig_distributionConfig_Restrictions;
                 requestDistributionConfigIsNull = false;
             }
-            Aliases requestDistributionConfig_distributionConfig_Aliases = null;
+            Amazon.CloudFront.Model.Aliases requestDistributionConfig_distributionConfig_Aliases = null;
             
              // populate Aliases
             bool requestDistributionConfig_distributionConfig_AliasesIsNull = true;
-            requestDistributionConfig_distributionConfig_Aliases = new Aliases();
-            List<String> requestDistributionConfig_distributionConfig_Aliases_aliases_Item = null;
+            requestDistributionConfig_distributionConfig_Aliases = new Amazon.CloudFront.Model.Aliases();
+            List<System.String> requestDistributionConfig_distributionConfig_Aliases_aliases_Item = null;
             if (cmdletContext.DistributionConfig_Aliases_Items != null)
             {
                 requestDistributionConfig_distributionConfig_Aliases_aliases_Item = cmdletContext.DistributionConfig_Aliases_Items;
@@ -802,7 +981,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_Aliases.Items = requestDistributionConfig_distributionConfig_Aliases_aliases_Item;
                 requestDistributionConfig_distributionConfig_AliasesIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_Aliases_aliases_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_Aliases_aliases_Quantity = null;
             if (cmdletContext.DistributionConfig_Aliases_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_Aliases_aliases_Quantity = cmdletContext.DistributionConfig_Aliases_Quantity.Value;
@@ -822,12 +1001,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.Aliases = requestDistributionConfig_distributionConfig_Aliases;
                 requestDistributionConfigIsNull = false;
             }
-            CacheBehaviors requestDistributionConfig_distributionConfig_CacheBehaviors = null;
+            Amazon.CloudFront.Model.CacheBehaviors requestDistributionConfig_distributionConfig_CacheBehaviors = null;
             
              // populate CacheBehaviors
             bool requestDistributionConfig_distributionConfig_CacheBehaviorsIsNull = true;
-            requestDistributionConfig_distributionConfig_CacheBehaviors = new CacheBehaviors();
-            List<CacheBehavior> requestDistributionConfig_distributionConfig_CacheBehaviors_cacheBehaviors_Item = null;
+            requestDistributionConfig_distributionConfig_CacheBehaviors = new Amazon.CloudFront.Model.CacheBehaviors();
+            List<Amazon.CloudFront.Model.CacheBehavior> requestDistributionConfig_distributionConfig_CacheBehaviors_cacheBehaviors_Item = null;
             if (cmdletContext.DistributionConfig_CacheBehaviors_Items != null)
             {
                 requestDistributionConfig_distributionConfig_CacheBehaviors_cacheBehaviors_Item = cmdletContext.DistributionConfig_CacheBehaviors_Items;
@@ -837,7 +1016,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_CacheBehaviors.Items = requestDistributionConfig_distributionConfig_CacheBehaviors_cacheBehaviors_Item;
                 requestDistributionConfig_distributionConfig_CacheBehaviorsIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_CacheBehaviors_cacheBehaviors_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_CacheBehaviors_cacheBehaviors_Quantity = null;
             if (cmdletContext.DistributionConfig_CacheBehaviors_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_CacheBehaviors_cacheBehaviors_Quantity = cmdletContext.DistributionConfig_CacheBehaviors_Quantity.Value;
@@ -857,12 +1036,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.CacheBehaviors = requestDistributionConfig_distributionConfig_CacheBehaviors;
                 requestDistributionConfigIsNull = false;
             }
-            CustomErrorResponses requestDistributionConfig_distributionConfig_CustomErrorResponses = null;
+            Amazon.CloudFront.Model.CustomErrorResponses requestDistributionConfig_distributionConfig_CustomErrorResponses = null;
             
              // populate CustomErrorResponses
             bool requestDistributionConfig_distributionConfig_CustomErrorResponsesIsNull = true;
-            requestDistributionConfig_distributionConfig_CustomErrorResponses = new CustomErrorResponses();
-            List<CustomErrorResponse> requestDistributionConfig_distributionConfig_CustomErrorResponses_customErrorResponses_Item = null;
+            requestDistributionConfig_distributionConfig_CustomErrorResponses = new Amazon.CloudFront.Model.CustomErrorResponses();
+            List<Amazon.CloudFront.Model.CustomErrorResponse> requestDistributionConfig_distributionConfig_CustomErrorResponses_customErrorResponses_Item = null;
             if (cmdletContext.DistributionConfig_CustomErrorResponses_Items != null)
             {
                 requestDistributionConfig_distributionConfig_CustomErrorResponses_customErrorResponses_Item = cmdletContext.DistributionConfig_CustomErrorResponses_Items;
@@ -872,7 +1051,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_CustomErrorResponses.Items = requestDistributionConfig_distributionConfig_CustomErrorResponses_customErrorResponses_Item;
                 requestDistributionConfig_distributionConfig_CustomErrorResponsesIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_CustomErrorResponses_customErrorResponses_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_CustomErrorResponses_customErrorResponses_Quantity = null;
             if (cmdletContext.DistributionConfig_CustomErrorResponses_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_CustomErrorResponses_customErrorResponses_Quantity = cmdletContext.DistributionConfig_CustomErrorResponses_Quantity.Value;
@@ -892,12 +1071,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.CustomErrorResponses = requestDistributionConfig_distributionConfig_CustomErrorResponses;
                 requestDistributionConfigIsNull = false;
             }
-            Origins requestDistributionConfig_distributionConfig_Origins = null;
+            Amazon.CloudFront.Model.Origins requestDistributionConfig_distributionConfig_Origins = null;
             
              // populate Origins
             bool requestDistributionConfig_distributionConfig_OriginsIsNull = true;
-            requestDistributionConfig_distributionConfig_Origins = new Origins();
-            List<Origin> requestDistributionConfig_distributionConfig_Origins_origins_Item = null;
+            requestDistributionConfig_distributionConfig_Origins = new Amazon.CloudFront.Model.Origins();
+            List<Amazon.CloudFront.Model.Origin> requestDistributionConfig_distributionConfig_Origins_origins_Item = null;
             if (cmdletContext.DistributionConfig_Origins_Items != null)
             {
                 requestDistributionConfig_distributionConfig_Origins_origins_Item = cmdletContext.DistributionConfig_Origins_Items;
@@ -907,7 +1086,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_Origins.Items = requestDistributionConfig_distributionConfig_Origins_origins_Item;
                 requestDistributionConfig_distributionConfig_OriginsIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_Origins_origins_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_Origins_origins_Quantity = null;
             if (cmdletContext.DistributionConfig_Origins_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_Origins_origins_Quantity = cmdletContext.DistributionConfig_Origins_Quantity.Value;
@@ -927,12 +1106,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.Origins = requestDistributionConfig_distributionConfig_Origins;
                 requestDistributionConfigIsNull = false;
             }
-            LoggingConfig requestDistributionConfig_distributionConfig_Logging = null;
+            Amazon.CloudFront.Model.LoggingConfig requestDistributionConfig_distributionConfig_Logging = null;
             
              // populate Logging
             bool requestDistributionConfig_distributionConfig_LoggingIsNull = true;
-            requestDistributionConfig_distributionConfig_Logging = new LoggingConfig();
-            String requestDistributionConfig_distributionConfig_Logging_logging_Bucket = null;
+            requestDistributionConfig_distributionConfig_Logging = new Amazon.CloudFront.Model.LoggingConfig();
+            System.String requestDistributionConfig_distributionConfig_Logging_logging_Bucket = null;
             if (cmdletContext.DistributionConfig_Logging_Bucket != null)
             {
                 requestDistributionConfig_distributionConfig_Logging_logging_Bucket = cmdletContext.DistributionConfig_Logging_Bucket;
@@ -942,7 +1121,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_Logging.Bucket = requestDistributionConfig_distributionConfig_Logging_logging_Bucket;
                 requestDistributionConfig_distributionConfig_LoggingIsNull = false;
             }
-            Boolean? requestDistributionConfig_distributionConfig_Logging_logging_Enabled = null;
+            System.Boolean? requestDistributionConfig_distributionConfig_Logging_logging_Enabled = null;
             if (cmdletContext.DistributionConfig_Logging_Enabled != null)
             {
                 requestDistributionConfig_distributionConfig_Logging_logging_Enabled = cmdletContext.DistributionConfig_Logging_Enabled.Value;
@@ -952,17 +1131,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_Logging.Enabled = requestDistributionConfig_distributionConfig_Logging_logging_Enabled.Value;
                 requestDistributionConfig_distributionConfig_LoggingIsNull = false;
             }
-            Boolean? requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookies = null;
+            System.Boolean? requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookie = null;
             if (cmdletContext.DistributionConfig_Logging_IncludeCookies != null)
             {
-                requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookies = cmdletContext.DistributionConfig_Logging_IncludeCookies.Value;
+                requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookie = cmdletContext.DistributionConfig_Logging_IncludeCookies.Value;
             }
-            if (requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookies != null)
+            if (requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookie != null)
             {
-                requestDistributionConfig_distributionConfig_Logging.IncludeCookies = requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookies.Value;
+                requestDistributionConfig_distributionConfig_Logging.IncludeCookies = requestDistributionConfig_distributionConfig_Logging_logging_IncludeCookie.Value;
                 requestDistributionConfig_distributionConfig_LoggingIsNull = false;
             }
-            String requestDistributionConfig_distributionConfig_Logging_logging_Prefix = null;
+            System.String requestDistributionConfig_distributionConfig_Logging_logging_Prefix = null;
             if (cmdletContext.DistributionConfig_Logging_Prefix != null)
             {
                 requestDistributionConfig_distributionConfig_Logging_logging_Prefix = cmdletContext.DistributionConfig_Logging_Prefix;
@@ -982,12 +1161,32 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.Logging = requestDistributionConfig_distributionConfig_Logging;
                 requestDistributionConfigIsNull = false;
             }
-            ViewerCertificate requestDistributionConfig_distributionConfig_ViewerCertificate = null;
+            Amazon.CloudFront.Model.ViewerCertificate requestDistributionConfig_distributionConfig_ViewerCertificate = null;
             
              // populate ViewerCertificate
             bool requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = true;
-            requestDistributionConfig_distributionConfig_ViewerCertificate = new ViewerCertificate();
-            Boolean? requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate = null;
+            requestDistributionConfig_distributionConfig_ViewerCertificate = new Amazon.CloudFront.Model.ViewerCertificate();
+            System.String requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate = null;
+            if (cmdletContext.DistributionConfig_ViewerCertificate_Certificate != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate = cmdletContext.DistributionConfig_ViewerCertificate_Certificate;
+            }
+            if (requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate.Certificate = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate;
+                requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
+            }
+            Amazon.CloudFront.CertificateSource requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource = null;
+            if (cmdletContext.DistributionConfig_ViewerCertificate_CertificateSource != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource = cmdletContext.DistributionConfig_ViewerCertificate_CertificateSource;
+            }
+            if (requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate.CertificateSource = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CertificateSource;
+                requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
+            }
+            System.Boolean? requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate != null)
             {
                 requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate = cmdletContext.DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate.Value;
@@ -997,7 +1196,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_ViewerCertificate.CloudFrontDefaultCertificate = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_CloudFrontDefaultCertificate.Value;
                 requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
             }
-            String requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_IAMCertificateId = null;
+            System.String requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_IAMCertificateId = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_IAMCertificateId != null)
             {
                 requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_IAMCertificateId = cmdletContext.DistributionConfig_ViewerCertificate_IAMCertificateId;
@@ -1007,7 +1206,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_ViewerCertificate.IAMCertificateId = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_IAMCertificateId;
                 requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
             }
-            MinimumProtocolVersion requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_MinimumProtocolVersion = null;
+            Amazon.CloudFront.MinimumProtocolVersion requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_MinimumProtocolVersion = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_MinimumProtocolVersion != null)
             {
                 requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_MinimumProtocolVersion = cmdletContext.DistributionConfig_ViewerCertificate_MinimumProtocolVersion;
@@ -1017,7 +1216,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_ViewerCertificate.MinimumProtocolVersion = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_MinimumProtocolVersion;
                 requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
             }
-            SSLSupportMethod requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_SSLSupportMethod = null;
+            Amazon.CloudFront.SSLSupportMethod requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_SSLSupportMethod = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_SSLSupportMethod != null)
             {
                 requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_SSLSupportMethod = cmdletContext.DistributionConfig_ViewerCertificate_SSLSupportMethod;
@@ -1037,12 +1236,22 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.ViewerCertificate = requestDistributionConfig_distributionConfig_ViewerCertificate;
                 requestDistributionConfigIsNull = false;
             }
-            DefaultCacheBehavior requestDistributionConfig_distributionConfig_DefaultCacheBehavior = null;
+            Amazon.CloudFront.Model.DefaultCacheBehavior requestDistributionConfig_distributionConfig_DefaultCacheBehavior = null;
             
              // populate DefaultCacheBehavior
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior = new DefaultCacheBehavior();
-            Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior = new Amazon.CloudFront.Model.DefaultCacheBehavior();
+            System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress = null;
+            if (cmdletContext.DistributionConfig_DefaultCacheBehavior_Compress != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress = cmdletContext.DistributionConfig_DefaultCacheBehavior_Compress.Value;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.Compress = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress.Value;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
+            System.Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_DefaultTTL != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = cmdletContext.DistributionConfig_DefaultCacheBehavior_DefaultTTL.Value;
@@ -1052,7 +1261,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.DefaultTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = null;
+            System.Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_MaxTTL != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = cmdletContext.DistributionConfig_DefaultCacheBehavior_MaxTTL.Value;
@@ -1062,7 +1271,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.MaxTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL = null;
+            System.Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_MinTTL != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL = cmdletContext.DistributionConfig_DefaultCacheBehavior_MinTTL.Value;
@@ -1072,7 +1281,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.MinTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_SmoothStreaming = null;
+            System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_SmoothStreaming = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_SmoothStreaming != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_SmoothStreaming = cmdletContext.DistributionConfig_DefaultCacheBehavior_SmoothStreaming.Value;
@@ -1082,7 +1291,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.SmoothStreaming = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_SmoothStreaming.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            String requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_TargetOriginId = null;
+            System.String requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_TargetOriginId = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_TargetOriginId != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_TargetOriginId = cmdletContext.DistributionConfig_DefaultCacheBehavior_TargetOriginId;
@@ -1092,7 +1301,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.TargetOriginId = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_TargetOriginId;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            ViewerProtocolPolicy requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ViewerProtocolPolicy = null;
+            Amazon.CloudFront.ViewerProtocolPolicy requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ViewerProtocolPolicy = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ViewerProtocolPolicy = cmdletContext.DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy;
@@ -1102,12 +1311,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.ViewerProtocolPolicy = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_ViewerProtocolPolicy;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            AllowedMethods requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods = null;
+            Amazon.CloudFront.Model.AllowedMethods requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods = null;
             
              // populate AllowedMethods
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethodsIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods = new AllowedMethods();
-            List<String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Item = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods = new Amazon.CloudFront.Model.AllowedMethods();
+            List<System.String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Item = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Item = cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items;
@@ -1117,7 +1326,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods.Items = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Item;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethodsIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Quantity = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Quantity = cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity.Value;
@@ -1127,12 +1336,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods.Quantity = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_allowedMethods_Quantity.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethodsIsNull = false;
             }
-            CachedMethods requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods = null;
+            Amazon.CloudFront.Model.CachedMethods requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods = null;
             
              // populate CachedMethods
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethodsIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods = new CachedMethods();
-            List<String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_cachedMethods_Item = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods = new Amazon.CloudFront.Model.CachedMethods();
+            List<System.String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_cachedMethods_Item = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_cachedMethods_Item = cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items;
@@ -1142,7 +1351,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods.Items = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_cachedMethods_Item;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethodsIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_cachedMethods_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_cachedMethods_Quantity = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods_distributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_cachedMethods_Quantity = cmdletContext.DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity.Value;
@@ -1172,12 +1381,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.AllowedMethods = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_AllowedMethods;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            ForwardedValues requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues = null;
+            Amazon.CloudFront.Model.ForwardedValues requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues = null;
             
              // populate ForwardedValues
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValuesIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues = new ForwardedValues();
-            Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_forwardedValues_QueryString = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues = new Amazon.CloudFront.Model.ForwardedValues();
+            System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_forwardedValues_QueryString = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_forwardedValues_QueryString = cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString.Value;
@@ -1187,12 +1396,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues.QueryString = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_forwardedValues_QueryString.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValuesIsNull = false;
             }
-            CookiePreference requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies = null;
+            Amazon.CloudFront.Model.CookiePreference requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies = null;
             
              // populate Cookies
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_CookiesIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies = new CookiePreference();
-            ItemSelection requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_cookies_Forward = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies = new Amazon.CloudFront.Model.CookiePreference();
+            Amazon.CloudFront.ItemSelection requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_cookies_Forward = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_cookies_Forward = cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward;
@@ -1202,12 +1411,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies.Forward = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_cookies_Forward;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_CookiesIsNull = false;
             }
-            CookieNames requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames = null;
+            Amazon.CloudFront.Model.CookieNames requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames = null;
             
              // populate WhitelistedNames
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNamesIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames = new CookieNames();
-            List<String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_whitelistedNames_Item = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames = new Amazon.CloudFront.Model.CookieNames();
+            List<System.String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_whitelistedNames_Item = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_whitelistedNames_Item = cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items;
@@ -1217,7 +1426,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames.Items = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_whitelistedNames_Item;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNamesIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_whitelistedNames_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_whitelistedNames_Quantity = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_whitelistedNames_Quantity = cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity.Value;
@@ -1247,12 +1456,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues.Cookies = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValuesIsNull = false;
             }
-            Headers requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers = null;
+            Amazon.CloudFront.Model.Headers requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers = null;
             
              // populate Headers
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_HeadersIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers = new Headers();
-            List<String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_headers_Item = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers = new Amazon.CloudFront.Model.Headers();
+            List<System.String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_headers_Item = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_headers_Item = cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items;
@@ -1262,7 +1471,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers.Items = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_headers_Item;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_HeadersIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_headers_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_headers_Quantity = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues_distributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_headers_Quantity = cmdletContext.DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity.Value;
@@ -1292,12 +1501,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.ForwardedValues = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
-            TrustedSigners requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners = null;
+            Amazon.CloudFront.Model.TrustedSigners requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners = null;
             
              // populate TrustedSigners
             bool requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = true;
-            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners = new TrustedSigners();
-            Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled = null;
+            requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners = new Amazon.CloudFront.Model.TrustedSigners();
+            System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled = cmdletContext.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled.Value;
@@ -1307,7 +1516,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners.Enabled = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Enabled.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
             }
-            List<String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item = null;
+            List<System.String> requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item = cmdletContext.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items;
@@ -1317,7 +1526,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners.Items = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Item;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSignersIsNull = false;
             }
-            Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity = null;
+            System.Int32? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity = null;
             if (cmdletContext.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners_trustedSigners_Quantity = cmdletContext.DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity.Value;
@@ -1387,49 +1596,53 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> DistributionConfig_Aliases_Items { get; set; }
-            public Int32? DistributionConfig_Aliases_Quantity { get; set; }
-            public List<CacheBehavior> DistributionConfig_CacheBehaviors_Items { get; set; }
-            public Int32? DistributionConfig_CacheBehaviors_Quantity { get; set; }
-            public String DistributionConfig_CallerReference { get; set; }
-            public String DistributionConfig_Comment { get; set; }
-            public List<CustomErrorResponse> DistributionConfig_CustomErrorResponses_Items { get; set; }
-            public Int32? DistributionConfig_CustomErrorResponses_Quantity { get; set; }
-            public List<String> DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items { get; set; }
-            public Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity { get; set; }
-            public List<String> DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items { get; set; }
-            public Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity { get; set; }
-            public Int64? DistributionConfig_DefaultCacheBehavior_DefaultTTL { get; set; }
-            public ItemSelection DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward { get; set; }
-            public List<String> DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items { get; set; }
-            public Int32? DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity { get; set; }
-            public List<String> DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items { get; set; }
-            public Int32? DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity { get; set; }
-            public Boolean? DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString { get; set; }
-            public Int64? DistributionConfig_DefaultCacheBehavior_MaxTTL { get; set; }
-            public Int64? DistributionConfig_DefaultCacheBehavior_MinTTL { get; set; }
-            public Boolean? DistributionConfig_DefaultCacheBehavior_SmoothStreaming { get; set; }
-            public String DistributionConfig_DefaultCacheBehavior_TargetOriginId { get; set; }
-            public Boolean? DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled { get; set; }
-            public List<String> DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items { get; set; }
-            public Int32? DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity { get; set; }
-            public ViewerProtocolPolicy DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
-            public String DistributionConfig_DefaultRootObject { get; set; }
-            public Boolean? DistributionConfig_Enabled { get; set; }
-            public String DistributionConfig_Logging_Bucket { get; set; }
-            public Boolean? DistributionConfig_Logging_Enabled { get; set; }
-            public Boolean? DistributionConfig_Logging_IncludeCookies { get; set; }
-            public String DistributionConfig_Logging_Prefix { get; set; }
-            public List<Origin> DistributionConfig_Origins_Items { get; set; }
-            public Int32? DistributionConfig_Origins_Quantity { get; set; }
-            public PriceClass DistributionConfig_PriceClass { get; set; }
-            public List<String> DistributionConfig_Restrictions_GeoRestriction_Items { get; set; }
-            public Int32? DistributionConfig_Restrictions_GeoRestriction_Quantity { get; set; }
-            public GeoRestrictionType DistributionConfig_Restrictions_GeoRestriction_RestrictionType { get; set; }
-            public Boolean? DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
-            public String DistributionConfig_ViewerCertificate_IAMCertificateId { get; set; }
-            public MinimumProtocolVersion DistributionConfig_ViewerCertificate_MinimumProtocolVersion { get; set; }
-            public SSLSupportMethod DistributionConfig_ViewerCertificate_SSLSupportMethod { get; set; }
+            public List<System.String> DistributionConfig_Aliases_Items { get; set; }
+            public System.Int32? DistributionConfig_Aliases_Quantity { get; set; }
+            public List<Amazon.CloudFront.Model.CacheBehavior> DistributionConfig_CacheBehaviors_Items { get; set; }
+            public System.Int32? DistributionConfig_CacheBehaviors_Quantity { get; set; }
+            public System.String DistributionConfig_CallerReference { get; set; }
+            public System.String DistributionConfig_Comment { get; set; }
+            public List<Amazon.CloudFront.Model.CustomErrorResponse> DistributionConfig_CustomErrorResponses_Items { get; set; }
+            public System.Int32? DistributionConfig_CustomErrorResponses_Quantity { get; set; }
+            public List<System.String> DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Items { get; set; }
+            public System.Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_CachedMethods_Quantity { get; set; }
+            public List<System.String> DistributionConfig_DefaultCacheBehavior_AllowedMethods_Items { get; set; }
+            public System.Int32? DistributionConfig_DefaultCacheBehavior_AllowedMethods_Quantity { get; set; }
+            public System.Boolean? DistributionConfig_DefaultCacheBehavior_Compress { get; set; }
+            public System.Int64? DistributionConfig_DefaultCacheBehavior_DefaultTTL { get; set; }
+            public Amazon.CloudFront.ItemSelection DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward { get; set; }
+            public List<System.String> DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Items { get; set; }
+            public System.Int32? DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_WhitelistedNames_Quantity { get; set; }
+            public List<System.String> DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Items { get; set; }
+            public System.Int32? DistributionConfig_DefaultCacheBehavior_ForwardedValues_Headers_Quantity { get; set; }
+            public System.Boolean? DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString { get; set; }
+            public System.Int64? DistributionConfig_DefaultCacheBehavior_MaxTTL { get; set; }
+            public System.Int64? DistributionConfig_DefaultCacheBehavior_MinTTL { get; set; }
+            public System.Boolean? DistributionConfig_DefaultCacheBehavior_SmoothStreaming { get; set; }
+            public System.String DistributionConfig_DefaultCacheBehavior_TargetOriginId { get; set; }
+            public System.Boolean? DistributionConfig_DefaultCacheBehavior_TrustedSigners_Enabled { get; set; }
+            public List<System.String> DistributionConfig_DefaultCacheBehavior_TrustedSigners_Items { get; set; }
+            public System.Int32? DistributionConfig_DefaultCacheBehavior_TrustedSigners_Quantity { get; set; }
+            public Amazon.CloudFront.ViewerProtocolPolicy DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy { get; set; }
+            public System.String DistributionConfig_DefaultRootObject { get; set; }
+            public System.Boolean? DistributionConfig_Enabled { get; set; }
+            public System.String DistributionConfig_Logging_Bucket { get; set; }
+            public System.Boolean? DistributionConfig_Logging_Enabled { get; set; }
+            public System.Boolean? DistributionConfig_Logging_IncludeCookies { get; set; }
+            public System.String DistributionConfig_Logging_Prefix { get; set; }
+            public List<Amazon.CloudFront.Model.Origin> DistributionConfig_Origins_Items { get; set; }
+            public System.Int32? DistributionConfig_Origins_Quantity { get; set; }
+            public Amazon.CloudFront.PriceClass DistributionConfig_PriceClass { get; set; }
+            public List<System.String> DistributionConfig_Restrictions_GeoRestriction_Items { get; set; }
+            public System.Int32? DistributionConfig_Restrictions_GeoRestriction_Quantity { get; set; }
+            public Amazon.CloudFront.GeoRestrictionType DistributionConfig_Restrictions_GeoRestriction_RestrictionType { get; set; }
+            public System.String DistributionConfig_ViewerCertificate_Certificate { get; set; }
+            public Amazon.CloudFront.CertificateSource DistributionConfig_ViewerCertificate_CertificateSource { get; set; }
+            public System.Boolean? DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
+            public System.String DistributionConfig_ViewerCertificate_IAMCertificateId { get; set; }
+            public Amazon.CloudFront.MinimumProtocolVersion DistributionConfig_ViewerCertificate_MinimumProtocolVersion { get; set; }
+            public Amazon.CloudFront.SSLSupportMethod DistributionConfig_ViewerCertificate_SSLSupportMethod { get; set; }
+            public System.String DistributionConfig_WebACLId { get; set; }
         }
         
     }

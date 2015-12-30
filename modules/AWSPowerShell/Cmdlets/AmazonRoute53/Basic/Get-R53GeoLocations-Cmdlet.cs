@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  By default, the list of geo locations is displayed on a single page. You can control
+    /// By default, the list of geo locations is displayed on a single page. You can control
     /// the length of the page that is displayed by using the <code>MaxItems</code> parameter.
     /// If the list is truncated, <code>IsTruncated</code> will be set to <i>true</i> and
     /// a combination of <code>NextContinentCode, NextCountryCode, NextSubdivisionCode</code>
@@ -47,12 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53GeoLocations")]
     [OutputType("Amazon.Route53.Model.ListGeoLocationsResponse")]
-    [AWSCmdlet("Invokes the ListGeoLocations operation against AWS Route 53.", Operation = new[] {"ListGeoLocations"})]
+    [AWSCmdlet("Invokes the ListGeoLocations operation against Amazon Route 53.", Operation = new[] {"ListGeoLocations"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ListGeoLocationsResponse",
-        "This cmdlet returns a ListGeoLocationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.Route53.Model.ListGeoLocationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetR53GeoLocationsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter StartContinentCode
         /// <summary>
         /// <para>
         /// <para>The first continent code in the lexicographic ordering of geo locations that you want
@@ -63,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartContinentCode { get; set; }
+        public System.String StartContinentCode { get; set; }
+        #endregion
         
+        #region Parameter StartCountryCode
         /// <summary>
         /// <para>
         /// <para>The first country code in the lexicographic ordering of geo locations that you want
@@ -73,8 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartCountryCode { get; set; }
+        public System.String StartCountryCode { get; set; }
+        #endregion
         
+        #region Parameter StartSubdivisionCode
         /// <summary>
         /// <para>
         /// <para>The first subdivision code in the lexicographic ordering of geo locations that you
@@ -83,8 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StartSubdivisionCode { get; set; }
+        public System.String StartSubdivisionCode { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of geo locations you want in the response body.</para>
@@ -93,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -121,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListGeoLocationsRequest();
+            var request = new Amazon.Route53.Model.ListGeoLocationsRequest();
             
             if (cmdletContext.StartContinentCode != null)
             {
@@ -174,9 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String StartContinentCode { get; set; }
-            public String StartCountryCode { get; set; }
-            public String StartSubdivisionCode { get; set; }
+            public System.String StartContinentCode { get; set; }
+            public System.String StartCountryCode { get; set; }
+            public System.String StartSubdivisionCode { get; set; }
             public int? MaxItems { get; set; }
         }
         

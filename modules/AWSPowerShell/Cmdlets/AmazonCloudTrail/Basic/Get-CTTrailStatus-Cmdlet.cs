@@ -37,19 +37,22 @@ namespace Amazon.PowerShell.Cmdlets.CT
     [OutputType("Amazon.CloudTrail.Model.GetTrailStatusResponse")]
     [AWSCmdlet("Invokes the GetTrailStatus operation against AWS CloudTrail.", Operation = new[] {"GetTrailStatus"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.GetTrailStatusResponse",
-        "This cmdlet returns a GetTrailStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudTrail.Model.GetTrailStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCTTrailStatusCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Specifies the name or the CloudTrail ARN of the trail for which you are requesting
-        /// status. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
+        /// status. To get the status of a shadow trail (a replication of the trail in another
+        /// region), you must specify its ARN. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Name { get; set; }
-        
+        public System.String Name { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -73,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetTrailStatusRequest();
+            var request = new Amazon.CloudTrail.Model.GetTrailStatusRequest();
             
             if (cmdletContext.Name != null)
             {
@@ -114,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Name { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

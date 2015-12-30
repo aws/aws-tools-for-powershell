@@ -28,12 +28,12 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Creates a configuration document.
+    /// Creates an SSM document.
     /// 
     ///  
     /// <para>
-    /// After you create a configuration document, you can use <a>CreateAssociation</a> to
-    /// associate it with one or more running instances.
+    /// After you create an SSM document, you can use <a>CreateAssociation</a> to associate
+    /// it with one or more running instances.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -41,27 +41,33 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     [AWSCmdlet("Invokes the CreateDocument operation against Amazon Simple Systems Management.", Operation = new[] {"CreateDocument"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
         "This cmdlet returns a DocumentDescription object.",
-        "The service call response (type CreateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>A valid JSON file. For more information about the contents of this file, see <a href="http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html">Configuration
+        /// <para>A valid JSON string. For more information about the contents of this string, see <a href="http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html">SSM
         /// Document</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Content { get; set; }
+        public System.String Content { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the configuration document.</para>
+        /// <para>A name for the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String Name { get; set; }
+        public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -100,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDocumentRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.CreateDocumentRequest();
             
             if (cmdletContext.Content != null)
             {
@@ -145,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Content { get; set; }
-            public String Name { get; set; }
+            public System.String Content { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

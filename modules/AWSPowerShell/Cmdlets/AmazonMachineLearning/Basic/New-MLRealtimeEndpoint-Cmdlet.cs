@@ -36,10 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse")]
     [AWSCmdlet("Invokes the CreateRealtimeEndpoint operation against Amazon Machine Learning.", Operation = new[] {"CreateRealtimeEndpoint"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse",
-        "This cmdlet returns a CreateRealtimeEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.MachineLearning.Model.CreateRealtimeEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLRealtimeEndpointCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>MLModel</code> during creation.</para>
@@ -47,8 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -86,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateRealtimeEndpointRequest();
+            var request = new Amazon.MachineLearning.Model.CreateRealtimeEndpointRequest();
             
             if (cmdletContext.MLModelId != null)
             {
@@ -127,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MLModelId { get; set; }
+            public System.String MLModelId { get; set; }
         }
         
     }

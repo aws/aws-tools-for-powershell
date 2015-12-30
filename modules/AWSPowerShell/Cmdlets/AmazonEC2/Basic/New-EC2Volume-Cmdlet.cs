@@ -54,10 +54,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the CreateVolume operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVolume"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Volume",
         "This cmdlet returns a Volume object.",
-        "The service call response (type CreateVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.CreateVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The Availability Zone in which to create the volume. Use <a>DescribeAvailabilityZones</a>
@@ -65,8 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        public String AvailabilityZone { get; set; }
+        public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter Encrypted
         /// <summary>
         /// <para>
         /// <para>Specifies whether the volume should be encrypted. Encrypted Amazon EBS volumes may
@@ -79,8 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 5)]
-        public Boolean Encrypted { get; set; }
+        public System.Boolean Encrypted { get; set; }
+        #endregion
         
+        #region Parameter Iops
         /// <summary>
         /// <para>
         /// <para>Only valid for Provisioned IOPS (SSD) volumes. The number of I/O operations per second
@@ -88,8 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 Iops { get; set; }
+        public System.Int32 Iops { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>The full ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK)
@@ -103,8 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String KmsKeyId { get; set; }
+        public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter Size
         /// <summary>
         /// <para>
         /// <para>The size of the volume, in GiBs.</para><para>Constraints: <code>1-1024</code> for <code>standard</code> volumes, <code>1-16384</code>
@@ -115,16 +125,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public Int32 Size { get; set; }
+        public System.Int32 Size { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>The snapshot from which to create the volume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String SnapshotId { get; set; }
+        public System.String SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter VolumeType
         /// <summary>
         /// <para>
         /// <para>The volume type. This can be <code>gp2</code> for General Purpose (SSD) volumes, <code>io1</code>
@@ -132,8 +146,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public VolumeType VolumeType { get; set; }
+        [AWSConstantClassSource("Amazon.EC2.VolumeType")]
+        public Amazon.EC2.VolumeType VolumeType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -141,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -180,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateVolumeRequest();
+            var request = new Amazon.EC2.Model.CreateVolumeRequest();
             
             if (cmdletContext.AvailabilityZone != null)
             {
@@ -245,13 +262,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AvailabilityZone { get; set; }
-            public Boolean? Encrypted { get; set; }
-            public Int32? Iops { get; set; }
-            public String KmsKeyId { get; set; }
-            public Int32? Size { get; set; }
-            public String SnapshotId { get; set; }
-            public VolumeType VolumeType { get; set; }
+            public System.String AvailabilityZone { get; set; }
+            public System.Boolean? Encrypted { get; set; }
+            public System.Int32? Iops { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.Int32? Size { get; set; }
+            public System.String SnapshotId { get; set; }
+            public Amazon.EC2.VolumeType VolumeType { get; set; }
         }
         
     }

@@ -37,10 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the CreateStack operation against AWS CloudFormation.", Operation = new[] {"CreateStack"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFormation.Model.CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter Capability
         /// <summary>
         /// <para>
         /// <para>A list of capabilities that you must specify before AWS CloudFormation can create
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Capabilities")]
         public System.String[] Capability { get; set; }
+        #endregion
         
+        #region Parameter DisableRollback
         /// <summary>
         /// <para>
         /// <para>Set to <code>true</code> to disable rollback of the stack if stack creation failed.
@@ -71,8 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean DisableRollback { get; set; }
+        public System.Boolean DisableRollback { get; set; }
+        #endregion
         
+        #region Parameter NotificationARNs
         /// <summary>
         /// <para>
         /// <para>The Simple Notification Service (SNS) topic ARNs to publish stack related events.
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] NotificationARNs { get; set; }
+        #endregion
         
+        #region Parameter OnFailure
         /// <summary>
         /// <para>
         /// <para>Determines what action will be taken if stack creation fails. This must be one of:
@@ -91,8 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public OnFailure OnFailure { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFormation.OnFailure")]
+        public Amazon.CloudFormation.OnFailure OnFailure { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of <code>Parameter</code> structures that specify input parameters for the
@@ -102,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.CloudFormation.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The template resource types that you have permissions to work with for this create
@@ -122,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("ResourceTypes")]
         public System.String[] ResourceType { get; set; }
+        #endregion
         
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name that is associated with the stack. The name must be unique in the region
@@ -132,8 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the stack policy body. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
@@ -143,8 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyBody { get; set; }
+        public System.String StackPolicyBody { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyURL
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the stack policy. The URL must point to a policy (max
@@ -154,8 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String StackPolicyURL { get; set; }
+        public System.String StackPolicyURL { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A set of user-defined <code>Tags</code> to associate with this stack, represented
@@ -166,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.CloudFormation.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TemplateBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -176,8 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateBody { get; set; }
+        public System.String TemplateBody { get; set; }
+        #endregion
         
+        #region Parameter TemplateURL
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
@@ -188,8 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TemplateURL { get; set; }
+        public System.String TemplateURL { get; set; }
+        #endregion
         
+        #region Parameter TimeoutInMinutes
         /// <summary>
         /// <para>
         /// <para>The amount of time that can pass before the stack status becomes CREATE_FAILED; if
@@ -198,8 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Int32 TimeoutInMinutes { get; set; }
+        public System.Int32 TimeoutInMinutes { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -207,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -227,29 +256,29 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             
             if (this.Capability != null)
             {
-                context.Capabilities = new List<String>(this.Capability);
+                context.Capabilities = new List<System.String>(this.Capability);
             }
             if (ParameterWasBound("DisableRollback"))
                 context.DisableRollback = this.DisableRollback;
             if (this.NotificationARNs != null)
             {
-                context.NotificationARNs = new List<String>(this.NotificationARNs);
+                context.NotificationARNs = new List<System.String>(this.NotificationARNs);
             }
             context.OnFailure = this.OnFailure;
             if (this.Parameter != null)
             {
-                context.Parameters = new List<Parameter>(this.Parameter);
+                context.Parameters = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
             }
             if (this.ResourceType != null)
             {
-                context.ResourceTypes = new List<String>(this.ResourceType);
+                context.ResourceTypes = new List<System.String>(this.ResourceType);
             }
             context.StackName = this.StackName;
             context.StackPolicyBody = this.StackPolicyBody;
             context.StackPolicyURL = this.StackPolicyURL;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.CloudFormation.Model.Tag>(this.Tag);
             }
             context.TemplateBody = this.TemplateBody;
             context.TemplateURL = this.TemplateURL;
@@ -266,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateStackRequest();
+            var request = new Amazon.CloudFormation.Model.CreateStackRequest();
             
             if (cmdletContext.Capabilities != null)
             {
@@ -355,19 +384,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> Capabilities { get; set; }
-            public Boolean? DisableRollback { get; set; }
-            public List<String> NotificationARNs { get; set; }
-            public OnFailure OnFailure { get; set; }
-            public List<Parameter> Parameters { get; set; }
-            public List<String> ResourceTypes { get; set; }
-            public String StackName { get; set; }
-            public String StackPolicyBody { get; set; }
-            public String StackPolicyURL { get; set; }
-            public List<Tag> Tags { get; set; }
-            public String TemplateBody { get; set; }
-            public String TemplateURL { get; set; }
-            public Int32? TimeoutInMinutes { get; set; }
+            public List<System.String> Capabilities { get; set; }
+            public System.Boolean? DisableRollback { get; set; }
+            public List<System.String> NotificationARNs { get; set; }
+            public Amazon.CloudFormation.OnFailure OnFailure { get; set; }
+            public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
+            public List<System.String> ResourceTypes { get; set; }
+            public System.String StackName { get; set; }
+            public System.String StackPolicyBody { get; set; }
+            public System.String StackPolicyURL { get; set; }
+            public List<Amazon.CloudFormation.Model.Tag> Tags { get; set; }
+            public System.String TemplateBody { get; set; }
+            public System.String TemplateURL { get; set; }
+            public System.Int32? TimeoutInMinutes { get; set; }
         }
         
     }

@@ -41,18 +41,22 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [AWSCmdlet("Invokes the ConfirmPublicVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"ConfirmPublicVirtualInterface"})]
     [AWSCmdletOutput("Amazon.DirectConnect.VirtualInterfaceState",
         "This cmdlet returns a VirtualInterfaceState object.",
-        "The service call response (type ConfirmPublicVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DirectConnect.Model.ConfirmPublicVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class ConfirmDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String VirtualInterfaceId { get; set; }
+        public System.String VirtualInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ConfirmPublicVirtualInterfaceRequest();
+            var request = new Amazon.DirectConnect.Model.ConfirmPublicVirtualInterfaceRequest();
             
             if (cmdletContext.VirtualInterfaceId != null)
             {
@@ -131,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String VirtualInterfaceId { get; set; }
+            public System.String VirtualInterfaceId { get; set; }
         }
         
     }

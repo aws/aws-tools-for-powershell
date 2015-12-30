@@ -41,13 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Update", "R53DDomainNameservers", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateDomainNameservers operation against AWS Route 53 Domains.", Operation = new[] {"UpdateDomainNameservers"})]
+    [AWSCmdlet("Invokes the UpdateDomainNameservers operation against Amazon Route 53 Domains.", Operation = new[] {"UpdateDomainNameservers"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type UpdateDomainNameserversResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53Domains.Model.UpdateDomainNameserversResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateR53DDomainNameserversCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -55,16 +57,20 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter FIAuthKey
         /// <summary>
         /// <para>
         /// <para>The authorization key for .fi domains</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FIAuthKey { get; set; }
+        public System.String FIAuthKey { get; set; }
+        #endregion
         
+        #region Parameter Nameserver
         /// <summary>
         /// <para>
         /// <para>A list of new name servers for the domain.</para><para>Type: Complex</para><para>Children: <code>Name</code>, <code>GlueIps</code></para><para>Required: Yes</para>
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter]
         [Alias("Nameservers")]
         public Amazon.Route53Domains.Model.Nameserver[] Nameserver { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.FIAuthKey = this.FIAuthKey;
             if (this.Nameserver != null)
             {
-                context.Nameservers = new List<Nameserver>(this.Nameserver);
+                context.Nameservers = new List<Amazon.Route53Domains.Model.Nameserver>(this.Nameserver);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateDomainNameserversRequest();
+            var request = new Amazon.Route53Domains.Model.UpdateDomainNameserversRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -165,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String FIAuthKey { get; set; }
-            public List<Nameserver> Nameservers { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String FIAuthKey { get; set; }
+            public List<Amazon.Route53Domains.Model.Nameserver> Nameservers { get; set; }
         }
         
     }

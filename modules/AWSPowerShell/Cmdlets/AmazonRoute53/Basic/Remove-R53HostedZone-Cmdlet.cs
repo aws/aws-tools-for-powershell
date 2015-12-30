@@ -39,26 +39,30 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// other than the default SOA record and NS resource record sets. If your hosted zone
     /// contains other resource record sets, you must delete them before you can delete your
     /// hosted zone. If you try to delete a hosted zone that contains other resource record
-    /// sets, Route 53 will deny your request with a <code>HostedZoneNotEmpty</code> error.
-    /// For information about deleting records from your hosted zone, see <a>ChangeResourceRecordSets</a>.</important>
+    /// sets, Amazon Route 53 will deny your request with a <code>HostedZoneNotEmpty</code>
+    /// error. For information about deleting records from your hosted zone, see <a>ChangeResourceRecordSets</a>.</important>
     /// </summary>
     [Cmdlet("Remove", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the DeleteHostedZone operation against AWS Route 53.", Operation = new[] {"DeleteHostedZone"})]
+    [AWSCmdlet("Invokes the DeleteHostedZone operation against Amazon Route 53.", Operation = new[] {"DeleteHostedZone"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
-        "The service call response (type DeleteHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Route53.Model.DeleteHostedZoneResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone you want to delete.</para>
+        /// <para>The ID of the hosted zone you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String Id { get; set; }
+        public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -66,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -96,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteHostedZoneRequest();
+            var request = new Amazon.Route53.Model.DeleteHostedZoneRequest();
             
             if (cmdletContext.Id != null)
             {
@@ -137,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Id { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

@@ -66,26 +66,32 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     [AWSCmdlet("Invokes the CreateCase operation against AWS Support API.", Operation = new[] {"CreateCase"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AWSSupport.Model.CreateCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewASACaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
         /// <para>The ID of a set of one or more attachments for the case. Create the set by using <a>AddAttachmentsToSet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String AttachmentSetId { get; set; }
+        public System.String AttachmentSetId { get; set; }
+        #endregion
         
+        #region Parameter CategoryCode
         /// <summary>
         /// <para>
         /// <para>The category of problem for the AWS Support case. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
-        public String CategoryCode { get; set; }
+        public System.String CategoryCode { get; set; }
+        #endregion
         
+        #region Parameter CcEmailAddress
         /// <summary>
         /// <para>
         /// <para>A list of email addresses that AWS Support copies on case correspondence.</para>
@@ -94,15 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("CcEmailAddresses")]
         public System.String[] CcEmailAddress { get; set; }
+        #endregion
         
+        #region Parameter CommunicationBody
         /// <summary>
         /// <para>
         /// <para>The communication body text when you create an AWS Support case by calling <a>CreateCase</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
-        public String CommunicationBody { get; set; }
+        public System.String CommunicationBody { get; set; }
+        #endregion
         
+        #region Parameter IssueType
         /// <summary>
         /// <para>
         /// <para>The type of issue for the case. You can specify either "customer-service" or "technical."
@@ -110,8 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String IssueType { get; set; }
+        public System.String IssueType { get; set; }
+        #endregion
         
+        #region Parameter Language
         /// <summary>
         /// <para>
         /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
@@ -120,16 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Language { get; set; }
+        public System.String Language { get; set; }
+        #endregion
         
+        #region Parameter ServiceCode
         /// <summary>
         /// <para>
         /// <para>The code for the AWS service returned by the call to <a>DescribeServices</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ServiceCode { get; set; }
+        public System.String ServiceCode { get; set; }
+        #endregion
         
+        #region Parameter SeverityCode
         /// <summary>
         /// <para>
         /// <para>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</para><note><para>The availability of severity levels depends on each customer's support subscription.
@@ -138,16 +154,20 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String SeverityCode { get; set; }
+        public System.String SeverityCode { get; set; }
+        #endregion
         
+        #region Parameter Subject
         /// <summary>
         /// <para>
         /// <para>The title of the AWS Support case.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String Subject { get; set; }
+        public System.String Subject { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -155,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -177,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
             context.CategoryCode = this.CategoryCode;
             if (this.CcEmailAddress != null)
             {
-                context.CcEmailAddresses = new List<String>(this.CcEmailAddress);
+                context.CcEmailAddresses = new List<System.String>(this.CcEmailAddress);
             }
             context.CommunicationBody = this.CommunicationBody;
             context.IssueType = this.IssueType;
@@ -196,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateCaseRequest();
+            var request = new Amazon.AWSSupport.Model.CreateCaseRequest();
             
             if (cmdletContext.AttachmentSetId != null)
             {
@@ -269,15 +289,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AttachmentSetId { get; set; }
-            public String CategoryCode { get; set; }
-            public List<String> CcEmailAddresses { get; set; }
-            public String CommunicationBody { get; set; }
-            public String IssueType { get; set; }
-            public String Language { get; set; }
-            public String ServiceCode { get; set; }
-            public String SeverityCode { get; set; }
-            public String Subject { get; set; }
+            public System.String AttachmentSetId { get; set; }
+            public System.String CategoryCode { get; set; }
+            public List<System.String> CcEmailAddresses { get; set; }
+            public System.String CommunicationBody { get; set; }
+            public System.String IssueType { get; set; }
+            public System.String Language { get; set; }
+            public System.String ServiceCode { get; set; }
+            public System.String SeverityCode { get; set; }
+            public System.String Subject { get; set; }
         }
         
     }

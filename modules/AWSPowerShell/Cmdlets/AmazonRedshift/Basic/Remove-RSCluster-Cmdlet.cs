@@ -52,10 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.RS
     [AWSCmdlet("Invokes the DeleteCluster operation against Amazon Redshift.", Operation = new[] {"DeleteCluster"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
-        "The service call response (type DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Redshift.Model.DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster to be deleted. </para><para>Constraints:</para><ul><li>Must contain lowercase characters.</li><li>Must contain from 1 to 63 alphanumeric
@@ -64,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ClusterIdentifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter FinalClusterSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the final snapshot that is to be created immediately before deleting
@@ -75,8 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FinalClusterSnapshotIdentifier { get; set; }
+        public System.String FinalClusterSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SkipFinalClusterSnapshot
         /// <summary>
         /// <para>
         /// <para> Determines whether a final snapshot of the cluster is created before Amazon Redshift
@@ -87,8 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean SkipFinalClusterSnapshot { get; set; }
+        public System.Boolean SkipFinalClusterSnapshot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -129,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteClusterRequest();
+            var request = new Amazon.Redshift.Model.DeleteClusterRequest();
             
             if (cmdletContext.ClusterIdentifier != null)
             {
@@ -178,9 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ClusterIdentifier { get; set; }
-            public String FinalClusterSnapshotIdentifier { get; set; }
-            public Boolean? SkipFinalClusterSnapshot { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String FinalClusterSnapshotIdentifier { get; set; }
+            public System.Boolean? SkipFinalClusterSnapshot { get; set; }
         }
         
     }

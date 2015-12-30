@@ -35,27 +35,35 @@ namespace Amazon.PowerShell.Cmdlets.CC
     [AWSCmdlet("Invokes the ListRepositories operation against AWS CodeCommit.", Operation = new[] {"ListRepositories"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryNameIdPair",
         "This cmdlet returns a collection of RepositoryNameIdPair objects.",
-        "The service call response (type ListRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CodeCommit.Model.ListRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCCRepositoryListCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter Order
         /// <summary>
         /// <para>
         /// <para>The order in which to sort the results of a list repositories operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public OrderEnum Order { get; set; }
+        [AWSConstantClassSource("Amazon.CodeCommit.OrderEnum")]
+        public Amazon.CodeCommit.OrderEnum Order { get; set; }
+        #endregion
         
+        #region Parameter SortBy
         /// <summary>
         /// <para>
         /// <para>The criteria used to sort the results of a list repositories operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SortByEnum SortBy { get; set; }
+        [AWSConstantClassSource("Amazon.CodeCommit.SortByEnum")]
+        public Amazon.CodeCommit.SortByEnum SortBy { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An enumeration token that allows the operation to batch the results of the operation.
@@ -64,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListRepositoriesRequest();
+            var request = new Amazon.CodeCommit.Model.ListRepositoriesRequest();
             
             if (cmdletContext.NextToken != null)
             {
@@ -142,9 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public OrderEnum Order { get; set; }
-            public SortByEnum SortBy { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CodeCommit.OrderEnum Order { get; set; }
+            public Amazon.CodeCommit.SortByEnum SortBy { get; set; }
         }
         
     }

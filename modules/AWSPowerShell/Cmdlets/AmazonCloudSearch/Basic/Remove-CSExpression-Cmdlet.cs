@@ -37,26 +37,32 @@ namespace Amazon.PowerShell.Cmdlets.CS
     [AWSCmdlet("Invokes the DeleteExpression operation against Amazon CloudSearch.", Operation = new[] {"DeleteExpression"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ExpressionStatus",
         "This cmdlet returns a ExpressionStatus object.",
-        "The service call response (type DeleteExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudSearch.Model.DeleteExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveCSExpressionCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DomainName { get; set; }
+        public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter ExpressionName
         /// <summary>
         /// <para>
         /// <para>The name of the <code><a>Expression</a></code> to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String ExpressionName { get; set; }
+        public System.String ExpressionName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DeleteExpressionRequest();
+            var request = new Amazon.CloudSearch.Model.DeleteExpressionRequest();
             
             if (cmdletContext.DomainName != null)
             {
@@ -140,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DomainName { get; set; }
-            public String ExpressionName { get; set; }
+            public System.String DomainName { get; set; }
+            public System.String ExpressionName { get; set; }
         }
         
     }

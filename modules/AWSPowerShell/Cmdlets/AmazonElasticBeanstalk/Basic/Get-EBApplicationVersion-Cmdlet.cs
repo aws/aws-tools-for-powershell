@@ -28,36 +28,41 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Returns descriptions for existing application versions.
+    /// Retrieve a list of application versions stored in your AWS Elastic Beanstalk storage
+    /// bucket.
     /// </summary>
     [Cmdlet("Get", "EBApplicationVersion")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
     [AWSCmdlet("Invokes the DescribeApplicationVersions operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeApplicationVersions"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription",
         "This cmdlet returns a collection of ApplicationVersionDescription objects.",
-        "The service call response (type DescribeApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
-        /// ones that are associated with the specified application. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
+        /// ones that are associated with the specified application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para> If specified, restricts the returned descriptions to only include ones that have
-        /// the specified version labels. </para>
+        /// <para>If specified, restricts the returned descriptions to only include ones that have the
+        /// specified version labels.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("VersionLabels")]
         public System.String[] VersionLabel { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -72,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.ApplicationName = this.ApplicationName;
             if (this.VersionLabel != null)
             {
-                context.VersionLabels = new List<String>(this.VersionLabel);
+                context.VersionLabels = new List<System.String>(this.VersionLabel);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -85,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeApplicationVersionsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -130,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public List<String> VersionLabels { get; set; }
+            public System.String ApplicationName { get; set; }
+            public List<System.String> VersionLabels { get; set; }
         }
         
     }

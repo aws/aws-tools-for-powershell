@@ -52,10 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [AWSCmdlet("Invokes the CreateDataSourceFromRDS operation against Amazon Machine Learning.", Operation = new[] {"CreateDataSourceFromRDS"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type CreateDataSourceFromRDSResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromRDSResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewMLDataSourceFromRDSCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComputeStatistic
         /// <summary>
         /// <para>
         /// <para>The compute statistics for a <code>DataSource</code>. The statistics are generated
@@ -66,8 +68,11 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean ComputeStatistics { get; set; }
+        [Alias("ComputeStatistics")]
+        public System.Boolean ComputeStatistic { get; set; }
+        #endregion
         
+        #region Parameter DatabaseInformation_DatabaseName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -75,8 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseInformation_DatabaseName")]
-        public String DatabaseInformation_DatabaseName { get; set; }
+        public System.String DatabaseInformation_DatabaseName { get; set; }
+        #endregion
         
+        #region Parameter RDSData_DataRearrangement
         /// <summary>
         /// <para>
         /// <para>DataRearrangement - A JSON string that represents the splitting requirement of a <code>DataSource</code>.
@@ -84,8 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_DataRearrangement { get; set; }
+        public System.String RDSData_DataRearrangement { get; set; }
+        #endregion
         
+        #region Parameter RDSData_DataSchema
         /// <summary>
         /// <para>
         /// <para>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>.
@@ -100,16 +109,20 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_DataSchema { get; set; }
+        public System.String RDSData_DataSchema { get; set; }
+        #endregion
         
+        #region Parameter RDSData_DataSchemaUri
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 location of the <code>DataSchema</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_DataSchemaUri { get; set; }
+        public System.String RDSData_DataSchemaUri { get; set; }
+        #endregion
         
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>DataSource</code>. Typically,
@@ -117,16 +130,20 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceId { get; set; }
+        public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter DataSourceName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>DataSource</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String DataSourceName { get; set; }
+        public System.String DataSourceName { get; set; }
+        #endregion
         
+        #region Parameter DatabaseInformation_InstanceIdentifier
         /// <summary>
         /// <para>
         /// <para>The ID of an RDS DB instance.</para>
@@ -134,8 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseInformation_InstanceIdentifier")]
-        public String DatabaseInformation_InstanceIdentifier { get; set; }
+        public System.String DatabaseInformation_InstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DatabaseCredentials_Password
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -143,8 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseCredentials_Password")]
-        public String DatabaseCredentials_Password { get; set; }
+        public System.String DatabaseCredentials_Password { get; set; }
+        #endregion
         
+        #region Parameter RDSData_ResourceRole
         /// <summary>
         /// <para>
         /// <para>The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute Cloud
@@ -154,8 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_ResourceRole { get; set; }
+        public System.String RDSData_ResourceRole { get; set; }
+        #endregion
         
+        #region Parameter RoleARN
         /// <summary>
         /// <para>
         /// <para>The role that Amazon ML assumes on behalf of the user to create and activate a data
@@ -164,8 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RoleARN { get; set; }
+        public System.String RoleARN { get; set; }
+        #endregion
         
+        #region Parameter RDSData_S3StagingLocation
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon
@@ -173,8 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_S3StagingLocation { get; set; }
+        public System.String RDSData_S3StagingLocation { get; set; }
+        #endregion
         
+        #region Parameter RDSData_SecurityGroupId
         /// <summary>
         /// <para>
         /// <para>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that
@@ -186,15 +213,19 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("RDSData_SecurityGroupIds")]
         public System.String[] RDSData_SecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter RDSData_SelectSqlQuery
         /// <summary>
         /// <para>
         /// <para>The query that is used to retrieve the observation data for the <code>DataSource</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_SelectSqlQuery { get; set; }
+        public System.String RDSData_SelectSqlQuery { get; set; }
+        #endregion
         
+        #region Parameter RDSData_ServiceRole
         /// <summary>
         /// <para>
         /// <para>The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to monitor
@@ -204,8 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_ServiceRole { get; set; }
+        public System.String RDSData_ServiceRole { get; set; }
+        #endregion
         
+        #region Parameter RDSData_SubnetId
         /// <summary>
         /// <para>
         /// <para>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is
@@ -213,8 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RDSData_SubnetId { get; set; }
+        public System.String RDSData_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter DatabaseCredentials_Username
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -222,8 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseCredentials_Username")]
-        public String DatabaseCredentials_Username { get; set; }
+        public System.String DatabaseCredentials_Username { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -231,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -249,8 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 Credentials = this.CurrentCredentials
             };
             
-            if (ParameterWasBound("ComputeStatistics"))
-                context.ComputeStatistics = this.ComputeStatistics;
+            if (ParameterWasBound("ComputeStatistic"))
+                context.ComputeStatistics = this.ComputeStatistic;
             context.DataSourceId = this.DataSourceId;
             context.DataSourceName = this.DataSourceName;
             context.RDSData_DatabaseCredentials_Password = this.DatabaseCredentials_Password;
@@ -264,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
             context.RDSData_S3StagingLocation = this.RDSData_S3StagingLocation;
             if (this.RDSData_SecurityGroupId != null)
             {
-                context.RDSData_SecurityGroupIds = new List<String>(this.RDSData_SecurityGroupId);
+                context.RDSData_SecurityGroupIds = new List<System.String>(this.RDSData_SecurityGroupId);
             }
             context.RDSData_SelectSqlQuery = this.RDSData_SelectSqlQuery;
             context.RDSData_ServiceRole = this.RDSData_ServiceRole;
@@ -281,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateDataSourceFromRDSRequest();
+            var request = new Amazon.MachineLearning.Model.CreateDataSourceFromRDSRequest();
             
             if (cmdletContext.ComputeStatistics != null)
             {
@@ -298,8 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
             
              // populate RDSData
             bool requestRDSDataIsNull = true;
-            request.RDSData = new RDSDataSpec();
-            String requestRDSData_rDSData_DataRearrangement = null;
+            request.RDSData = new Amazon.MachineLearning.Model.RDSDataSpec();
+            System.String requestRDSData_rDSData_DataRearrangement = null;
             if (cmdletContext.RDSData_DataRearrangement != null)
             {
                 requestRDSData_rDSData_DataRearrangement = cmdletContext.RDSData_DataRearrangement;
@@ -309,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.DataRearrangement = requestRDSData_rDSData_DataRearrangement;
                 requestRDSDataIsNull = false;
             }
-            String requestRDSData_rDSData_DataSchema = null;
+            System.String requestRDSData_rDSData_DataSchema = null;
             if (cmdletContext.RDSData_DataSchema != null)
             {
                 requestRDSData_rDSData_DataSchema = cmdletContext.RDSData_DataSchema;
@@ -319,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.DataSchema = requestRDSData_rDSData_DataSchema;
                 requestRDSDataIsNull = false;
             }
-            String requestRDSData_rDSData_DataSchemaUri = null;
+            System.String requestRDSData_rDSData_DataSchemaUri = null;
             if (cmdletContext.RDSData_DataSchemaUri != null)
             {
                 requestRDSData_rDSData_DataSchemaUri = cmdletContext.RDSData_DataSchemaUri;
@@ -329,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.DataSchemaUri = requestRDSData_rDSData_DataSchemaUri;
                 requestRDSDataIsNull = false;
             }
-            String requestRDSData_rDSData_ResourceRole = null;
+            System.String requestRDSData_rDSData_ResourceRole = null;
             if (cmdletContext.RDSData_ResourceRole != null)
             {
                 requestRDSData_rDSData_ResourceRole = cmdletContext.RDSData_ResourceRole;
@@ -339,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.ResourceRole = requestRDSData_rDSData_ResourceRole;
                 requestRDSDataIsNull = false;
             }
-            String requestRDSData_rDSData_S3StagingLocation = null;
+            System.String requestRDSData_rDSData_S3StagingLocation = null;
             if (cmdletContext.RDSData_S3StagingLocation != null)
             {
                 requestRDSData_rDSData_S3StagingLocation = cmdletContext.RDSData_S3StagingLocation;
@@ -349,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.S3StagingLocation = requestRDSData_rDSData_S3StagingLocation;
                 requestRDSDataIsNull = false;
             }
-            List<String> requestRDSData_rDSData_SecurityGroupId = null;
+            List<System.String> requestRDSData_rDSData_SecurityGroupId = null;
             if (cmdletContext.RDSData_SecurityGroupIds != null)
             {
                 requestRDSData_rDSData_SecurityGroupId = cmdletContext.RDSData_SecurityGroupIds;
@@ -359,7 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.SecurityGroupIds = requestRDSData_rDSData_SecurityGroupId;
                 requestRDSDataIsNull = false;
             }
-            String requestRDSData_rDSData_SelectSqlQuery = null;
+            System.String requestRDSData_rDSData_SelectSqlQuery = null;
             if (cmdletContext.RDSData_SelectSqlQuery != null)
             {
                 requestRDSData_rDSData_SelectSqlQuery = cmdletContext.RDSData_SelectSqlQuery;
@@ -369,7 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.SelectSqlQuery = requestRDSData_rDSData_SelectSqlQuery;
                 requestRDSDataIsNull = false;
             }
-            String requestRDSData_rDSData_ServiceRole = null;
+            System.String requestRDSData_rDSData_ServiceRole = null;
             if (cmdletContext.RDSData_ServiceRole != null)
             {
                 requestRDSData_rDSData_ServiceRole = cmdletContext.RDSData_ServiceRole;
@@ -379,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.ServiceRole = requestRDSData_rDSData_ServiceRole;
                 requestRDSDataIsNull = false;
             }
-            String requestRDSData_rDSData_SubnetId = null;
+            System.String requestRDSData_rDSData_SubnetId = null;
             if (cmdletContext.RDSData_SubnetId != null)
             {
                 requestRDSData_rDSData_SubnetId = cmdletContext.RDSData_SubnetId;
@@ -389,12 +426,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.SubnetId = requestRDSData_rDSData_SubnetId;
                 requestRDSDataIsNull = false;
             }
-            RDSDatabaseCredentials requestRDSData_rDSData_DatabaseCredentials = null;
+            Amazon.MachineLearning.Model.RDSDatabaseCredentials requestRDSData_rDSData_DatabaseCredentials = null;
             
              // populate DatabaseCredentials
             bool requestRDSData_rDSData_DatabaseCredentialsIsNull = true;
-            requestRDSData_rDSData_DatabaseCredentials = new RDSDatabaseCredentials();
-            String requestRDSData_rDSData_DatabaseCredentials_databaseCredentials_Password = null;
+            requestRDSData_rDSData_DatabaseCredentials = new Amazon.MachineLearning.Model.RDSDatabaseCredentials();
+            System.String requestRDSData_rDSData_DatabaseCredentials_databaseCredentials_Password = null;
             if (cmdletContext.RDSData_DatabaseCredentials_Password != null)
             {
                 requestRDSData_rDSData_DatabaseCredentials_databaseCredentials_Password = cmdletContext.RDSData_DatabaseCredentials_Password;
@@ -404,7 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 requestRDSData_rDSData_DatabaseCredentials.Password = requestRDSData_rDSData_DatabaseCredentials_databaseCredentials_Password;
                 requestRDSData_rDSData_DatabaseCredentialsIsNull = false;
             }
-            String requestRDSData_rDSData_DatabaseCredentials_databaseCredentials_Username = null;
+            System.String requestRDSData_rDSData_DatabaseCredentials_databaseCredentials_Username = null;
             if (cmdletContext.RDSData_DatabaseCredentials_Username != null)
             {
                 requestRDSData_rDSData_DatabaseCredentials_databaseCredentials_Username = cmdletContext.RDSData_DatabaseCredentials_Username;
@@ -424,12 +461,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 request.RDSData.DatabaseCredentials = requestRDSData_rDSData_DatabaseCredentials;
                 requestRDSDataIsNull = false;
             }
-            RDSDatabase requestRDSData_rDSData_DatabaseInformation = null;
+            Amazon.MachineLearning.Model.RDSDatabase requestRDSData_rDSData_DatabaseInformation = null;
             
              // populate DatabaseInformation
             bool requestRDSData_rDSData_DatabaseInformationIsNull = true;
-            requestRDSData_rDSData_DatabaseInformation = new RDSDatabase();
-            String requestRDSData_rDSData_DatabaseInformation_databaseInformation_DatabaseName = null;
+            requestRDSData_rDSData_DatabaseInformation = new Amazon.MachineLearning.Model.RDSDatabase();
+            System.String requestRDSData_rDSData_DatabaseInformation_databaseInformation_DatabaseName = null;
             if (cmdletContext.RDSData_DatabaseInformation_DatabaseName != null)
             {
                 requestRDSData_rDSData_DatabaseInformation_databaseInformation_DatabaseName = cmdletContext.RDSData_DatabaseInformation_DatabaseName;
@@ -439,7 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 requestRDSData_rDSData_DatabaseInformation.DatabaseName = requestRDSData_rDSData_DatabaseInformation_databaseInformation_DatabaseName;
                 requestRDSData_rDSData_DatabaseInformationIsNull = false;
             }
-            String requestRDSData_rDSData_DatabaseInformation_databaseInformation_InstanceIdentifier = null;
+            System.String requestRDSData_rDSData_DatabaseInformation_databaseInformation_InstanceIdentifier = null;
             if (cmdletContext.RDSData_DatabaseInformation_InstanceIdentifier != null)
             {
                 requestRDSData_rDSData_DatabaseInformation_databaseInformation_InstanceIdentifier = cmdletContext.RDSData_DatabaseInformation_InstanceIdentifier;
@@ -503,23 +540,23 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public Boolean? ComputeStatistics { get; set; }
-            public String DataSourceId { get; set; }
-            public String DataSourceName { get; set; }
-            public String RDSData_DatabaseCredentials_Password { get; set; }
-            public String RDSData_DatabaseCredentials_Username { get; set; }
-            public String RDSData_DatabaseInformation_DatabaseName { get; set; }
-            public String RDSData_DatabaseInformation_InstanceIdentifier { get; set; }
-            public String RDSData_DataRearrangement { get; set; }
-            public String RDSData_DataSchema { get; set; }
-            public String RDSData_DataSchemaUri { get; set; }
-            public String RDSData_ResourceRole { get; set; }
-            public String RDSData_S3StagingLocation { get; set; }
-            public List<String> RDSData_SecurityGroupIds { get; set; }
-            public String RDSData_SelectSqlQuery { get; set; }
-            public String RDSData_ServiceRole { get; set; }
-            public String RDSData_SubnetId { get; set; }
-            public String RoleARN { get; set; }
+            public System.Boolean? ComputeStatistics { get; set; }
+            public System.String DataSourceId { get; set; }
+            public System.String DataSourceName { get; set; }
+            public System.String RDSData_DatabaseCredentials_Password { get; set; }
+            public System.String RDSData_DatabaseCredentials_Username { get; set; }
+            public System.String RDSData_DatabaseInformation_DatabaseName { get; set; }
+            public System.String RDSData_DatabaseInformation_InstanceIdentifier { get; set; }
+            public System.String RDSData_DataRearrangement { get; set; }
+            public System.String RDSData_DataSchema { get; set; }
+            public System.String RDSData_DataSchemaUri { get; set; }
+            public System.String RDSData_ResourceRole { get; set; }
+            public System.String RDSData_S3StagingLocation { get; set; }
+            public List<System.String> RDSData_SecurityGroupIds { get; set; }
+            public System.String RDSData_SelectSqlQuery { get; set; }
+            public System.String RDSData_ServiceRole { get; set; }
+            public System.String RDSData_SubnetId { get; set; }
+            public System.String RoleARN { get; set; }
         }
         
     }

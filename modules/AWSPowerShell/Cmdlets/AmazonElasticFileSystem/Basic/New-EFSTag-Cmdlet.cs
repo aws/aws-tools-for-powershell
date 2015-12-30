@@ -45,10 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     [AWSCmdlet("Invokes the CreateTags operation against Amazon Elastic File System.", Operation = new[] {"CreateTags"})]
     [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.Tag",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Tag parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticFileSystem.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>String. The ID of the file system whose tags you want to modify. This operation modifies
@@ -56,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String FileSystemId { get; set; }
+        public System.String FileSystemId { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para> An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
@@ -67,14 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Tags")]
         public Amazon.ElasticFileSystem.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Tag parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             context.FileSystemId = this.FileSystemId;
             if (this.Tag != null)
             {
-                context.Tags = new List<Tag>(this.Tag);
+                context.Tags = new List<Amazon.ElasticFileSystem.Model.Tag>(this.Tag);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateTagsRequest();
+            var request = new Amazon.ElasticFileSystem.Model.CreateTagsRequest();
             
             if (cmdletContext.FileSystemId != null)
             {
@@ -163,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String FileSystemId { get; set; }
-            public List<Tag> Tags { get; set; }
+            public System.String FileSystemId { get; set; }
+            public List<Amazon.ElasticFileSystem.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -51,34 +51,42 @@ namespace Amazon.PowerShell.Cmdlets.DC
     [OutputType("Amazon.DirectConnect.Model.CreateInterconnectResponse")]
     [AWSCmdlet("Invokes the CreateInterconnect operation against AWS Direct Connect.", Operation = new[] {"CreateInterconnect"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateInterconnectResponse",
-        "This cmdlet returns a CreateInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.DirectConnect.Model.CreateInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter Bandwidth
         /// <summary>
         /// <para>
         /// <para>The port bandwidth</para><para>Example: 1Gbps</para><para>Default: None</para><para>Available values: 1Gbps,10Gbps</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String Bandwidth { get; set; }
+        public System.String Bandwidth { get; set; }
+        #endregion
         
+        #region Parameter InterconnectName
         /// <summary>
         /// <para>
         /// <para>The name of the interconnect.</para><para>Example: "<i>1G Interconnect to AWS</i>"</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String InterconnectName { get; set; }
+        public System.String InterconnectName { get; set; }
+        #endregion
         
+        #region Parameter Location
         /// <summary>
         /// <para>
         /// <para>Where the interconnect is located</para><para>Example: EqSV5</para><para>Default: None</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String Location { get; set; }
+        public System.String Location { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -118,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateInterconnectRequest();
+            var request = new Amazon.DirectConnect.Model.CreateInterconnectRequest();
             
             if (cmdletContext.Bandwidth != null)
             {
@@ -167,9 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Bandwidth { get; set; }
-            public String InterconnectName { get; set; }
-            public String Location { get; set; }
+            public System.String Bandwidth { get; set; }
+            public System.String InterconnectName { get; set; }
+            public System.String Location { get; set; }
         }
         
     }

@@ -35,18 +35,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
     [AWSCmdlet("Invokes the ExecutePolicy operation against Auto Scaling.", Operation = new[] {"ExecutePolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type ExecutePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.ExecutePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StartASPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String AutoScalingGroupName { get; set; }
+        public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter BreachThreshold
         /// <summary>
         /// <para>
         /// <para>The breach threshold for the alarm.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
@@ -54,8 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double BreachThreshold { get; set; }
+        public System.Double BreachThreshold { get; set; }
+        #endregion
         
+        #region Parameter HonorCooldown
         /// <summary>
         /// <para>
         /// <para>If this parameter is true, Auto Scaling waits for the cooldown period to complete
@@ -65,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public Boolean HonorCooldown { get; set; }
+        public System.Boolean HonorCooldown { get; set; }
+        #endregion
         
+        #region Parameter MetricValue
         /// <summary>
         /// <para>
         /// <para>The metric value to compare to <code>BreachThreshold</code>. This enables you to execute
@@ -78,23 +86,29 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Double MetricValue { get; set; }
+        public System.Double MetricValue { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String PolicyName { get; set; }
+        public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -102,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -139,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ExecutePolicyRequest();
+            var request = new Amazon.AutoScaling.Model.ExecutePolicyRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -198,11 +212,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String AutoScalingGroupName { get; set; }
-            public Double? BreachThreshold { get; set; }
-            public Boolean? HonorCooldown { get; set; }
-            public Double? MetricValue { get; set; }
-            public String PolicyName { get; set; }
+            public System.String AutoScalingGroupName { get; set; }
+            public System.Double? BreachThreshold { get; set; }
+            public System.Boolean? HonorCooldown { get; set; }
+            public System.Double? MetricValue { get; set; }
+            public System.String PolicyName { get; set; }
         }
         
     }

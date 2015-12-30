@@ -48,10 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.DP
     [AWSCmdlet("Invokes the ReportTaskProgress operation against AWS Data Pipeline.", Operation = new[] {"ReportTaskProgress"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
-        "The service call response (type ReportTaskProgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.DataPipeline.Model.ReportTaskProgressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateDPTaskProgressCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Field
         /// <summary>
         /// <para>
         /// <para>Key-value pairs that define the properties of the ReportTaskProgressInput object.</para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("Fields")]
         public Amazon.DataPipeline.Model.Field[] Field { get; set; }
+        #endregion
         
+        #region Parameter TaskId
         /// <summary>
         /// <para>
         /// <para>The ID of the task assigned to the task runner. This value is provided in the response
@@ -68,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String TaskId { get; set; }
+        public System.String TaskId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -77,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -97,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
             
             if (this.Field != null)
             {
-                context.Fields = new List<Field>(this.Field);
+                context.Fields = new List<Amazon.DataPipeline.Model.Field>(this.Field);
             }
             context.TaskId = this.TaskId;
             
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ReportTaskProgressRequest();
+            var request = new Amazon.DataPipeline.Model.ReportTaskProgressRequest();
             
             if (cmdletContext.Fields != null)
             {
@@ -156,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Field> Fields { get; set; }
-            public String TaskId { get; set; }
+            public List<Amazon.DataPipeline.Model.Field> Fields { get; set; }
+            public System.String TaskId { get; set; }
         }
         
     }

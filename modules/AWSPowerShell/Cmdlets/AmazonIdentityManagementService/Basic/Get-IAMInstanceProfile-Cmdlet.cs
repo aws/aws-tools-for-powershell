@@ -38,18 +38,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the GetInstanceProfile operation against AWS Identity and Access Management.", Operation = new[] {"GetInstanceProfile"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.InstanceProfile",
         "This cmdlet returns a InstanceProfile object.",
-        "The service call response (type GetInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.IdentityManagement.Model.GetInstanceProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetIAMInstanceProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
         /// <para>The name of the instance profile to get information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String InstanceProfileName { get; set; }
-        
+        public System.String InstanceProfileName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetInstanceProfileRequest();
+            var request = new Amazon.IdentityManagement.Model.GetInstanceProfileRequest();
             
             if (cmdletContext.InstanceProfileName != null)
             {
@@ -114,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String InstanceProfileName { get; set; }
+            public System.String InstanceProfileName { get; set; }
         }
         
     }

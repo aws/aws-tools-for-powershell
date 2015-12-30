@@ -49,10 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeSpotInstanceRequests operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSpotInstanceRequests"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotInstanceRequest",
         "This cmdlet returns a collection of SpotInstanceRequest objects.",
-        "The service call response (type DescribeSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2SpotInstanceRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone-group</code> - The Availability Zone group.</para></li><li><para><code>create-time</code> - The time stamp when the Spot instance request was created.</para></li><li><para><code>fault-code</code> - The fault code related to the request.</para></li><li><para><code>fault-message</code> - The fault message related to the request.</para></li><li><para><code>instance-id</code> - The ID of the instance that fulfilled the request.</para></li><li><para><code>launch-group</code> - The Spot instance launch group.</para></li><li><para><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// EBS volume (for example, <code>/dev/sdh</code>).</para></li><li><para><code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot used
         /// for the Amazon EBS volume.</para></li><li><para><code>launch.block-device-mapping.volume-size</code> - The size of the Amazon EBS
         /// volume, in GiB.</para></li><li><para><code>launch.block-device-mapping.volume-type</code> - The type of the Amazon EBS
-        /// volume (<code>gp2</code> | <code>standard</code> | <code>io1</code>).</para></li><li><para><code>launch.group-id</code> - The security group for the instance.</para></li><li><para><code>launch.image-id</code> - The ID of the AMI.</para></li><li><para><code>launch.instance-type</code> - The type of instance (for example, <code>m1.small</code>).</para></li><li><para><code>launch.kernel-id</code> - The kernel ID.</para></li><li><para><code>launch.key-name</code> - The name of the key pair the instance launched with.</para></li><li><para><code>launch.monitoring-enabled</code> - Whether monitoring is enabled for the Spot
+        /// volume (<code>gp2</code> | <code>standard</code> | <code>io1</code>).</para></li><li><para><code>launch.group-id</code> - The security group for the instance.</para></li><li><para><code>launch.image-id</code> - The ID of the AMI.</para></li><li><para><code>launch.instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>launch.kernel-id</code> - The kernel ID.</para></li><li><para><code>launch.key-name</code> - The name of the key pair the instance launched with.</para></li><li><para><code>launch.monitoring-enabled</code> - Whether monitoring is enabled for the Spot
         /// instance.</para></li><li><para><code>launch.ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>network-interface.network-interface-id</code> - The ID of the network interface.</para></li><li><para><code>network-interface.device-index</code> - The index of the device for the network
         /// interface attachment on the instance.</para></li><li><para><code>network-interface.subnet-id</code> - The ID of the subnet for the instance.</para></li><li><para><code>network-interface.description</code> - A description of the network interface.</para></li><li><para><code>network-interface.private-ip-address</code> - The primary private IP address
         /// of the network interface.</para></li><li><para><code>network-interface.delete-on-termination</code> - Indicates whether the network
@@ -89,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter SpotInstanceRequestId
         /// <summary>
         /// <para>
         /// <para>One or more Spot instance request IDs.</para>
@@ -98,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("SpotInstanceRequestIds")]
         public System.String[] SpotInstanceRequestId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -112,11 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.SpotInstanceRequestId != null)
             {
-                context.SpotInstanceRequestIds = new List<String>(this.SpotInstanceRequestId);
+                context.SpotInstanceRequestIds = new List<System.String>(this.SpotInstanceRequestId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -129,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeSpotInstanceRequestsRequest();
+            var request = new Amazon.EC2.Model.DescribeSpotInstanceRequestsRequest();
             
             if (cmdletContext.Filters != null)
             {
@@ -174,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Filter> Filters { get; set; }
-            public List<String> SpotInstanceRequestIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> SpotInstanceRequestIds { get; set; }
         }
         
     }

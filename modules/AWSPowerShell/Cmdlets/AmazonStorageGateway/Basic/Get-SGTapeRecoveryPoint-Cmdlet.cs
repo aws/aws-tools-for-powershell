@@ -44,18 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.SG
     [AWSCmdlet("Invokes the RetrieveTapeRecoveryPoint operation against AWS Storage Gateway.", Operation = new[] {"RetrieveTapeRecoveryPoint"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
-        "The service call response (type RetrieveTapeRecoveryPointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetSGTapeRecoveryPointCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String GatewayARN { get; set; }
+        public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter TapeARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the virtual tape for which you want to retrieve
@@ -63,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TapeARN { get; set; }
-        
+        public System.String TapeARN { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -89,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new RetrieveTapeRecoveryPointRequest();
+            var request = new Amazon.StorageGateway.Model.RetrieveTapeRecoveryPointRequest();
             
             if (cmdletContext.GatewayARN != null)
             {
@@ -134,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public String GatewayARN { get; set; }
-            public String TapeARN { get; set; }
+            public System.String GatewayARN { get; set; }
+            public System.String TapeARN { get; set; }
         }
         
     }

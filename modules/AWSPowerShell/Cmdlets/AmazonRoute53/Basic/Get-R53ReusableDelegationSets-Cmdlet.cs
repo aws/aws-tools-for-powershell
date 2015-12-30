@@ -41,14 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53ReusableDelegationSets")]
     [OutputType("Amazon.Route53.Model.DelegationSet")]
-    [AWSCmdlet("Invokes the ListReusableDelegationSets operation against AWS Route 53.", Operation = new[] {"ListReusableDelegationSets"})]
+    [AWSCmdlet("Invokes the ListReusableDelegationSets operation against Amazon Route 53.", Operation = new[] {"ListReusableDelegationSets"})]
     [AWSCmdletOutput("Amazon.Route53.Model.DelegationSet",
         "This cmdlet returns a collection of DelegationSet objects.",
-        "The service call response (type ListReusableDelegationSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type String), IsTruncated (type Boolean), NextMarker (type String), MaxItems (type String)"
+        "The service call response (type Amazon.Route53.Model.ListReusableDelegationSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String), IsTruncated (type System.Boolean), NextMarker (type System.String), MaxItems (type System.String)"
     )]
     public class GetR53ReusableDelegationSetsCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>If the request returned more than one page of results, submit another request and
@@ -58,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Specify the maximum number of reusable delegation sets to return per page of results.</para>
@@ -68,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new ListReusableDelegationSetsRequest();
+            var request = new Amazon.Route53.Model.ListReusableDelegationSetsRequest();
             
             // Initialize loop variants and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
@@ -216,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
+            public System.String Marker { get; set; }
             public int? MaxItems { get; set; }
         }
         

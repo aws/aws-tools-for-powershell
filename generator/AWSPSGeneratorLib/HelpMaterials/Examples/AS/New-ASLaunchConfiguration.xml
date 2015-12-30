@@ -1,19 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>New-ASLaunchConfiguration -LaunchConfigurationName my-launch-cfg -InstanceType "m1.small" -ImageId "ami-123456"</code>
-    <description>Creates a new launch configuration named 'my-launch-cfg'. Amazon EC2 instances created by Auto Scaling groups using this launch configuration will use specified image and instance type.</description>
-  </example>
-  <example>
-    <code>New-ASLaunchConfiguration -LaunchConfigurationName my-launch-cfg -InstanceType "m1.small" -ImageId "ami-123456" -KeyName "myKeyPair" -InstanceMonitoring_Enabled $true -SecurityGroup @("secGroup1", "secGroup2")</code>
-    <description>Creates a new launch configuration named 'my-launch-cfg'. Amazon EC2 instances created by Auto Scaling groups using this launch configuration will use specified image and instance type, will be launched using the key pair 'myKeyPair' and have CloudWatch monitoring enabled. The instances will be created using the security groups named 'secGroup1' and 'secGroup2'. If the security groups are Amazon EC2 groups, either the group name or group IDs can be specified. For VPC security groups the security group IDs must be specified.</description>
-  </example>
-  <example>
-    <code>New-ASLaunchConfiguration -LaunchConfigurationName my-launch-cfg -InstanceType "m1.small" -ImageId "ami-123456" -IamInstanceProfile "my-ec2-instanceprofile"</code>
-    <description>Creates a new launch configuration named 'my-launch-cfg'. Amazon EC2 instances created by Auto Scaling groups using this launch configuration will use specified image and instance type. The instances will assume the IAM profile or role 'my-ec2-instanceprofile'. You can also specify the role ARN for the -IamInstanceProfile parameter.</description>
-  </example>
-  <example>
-    <code>New-ASLaunchConfiguration -LaunchConfigurationName my-launch-cfg -InstanceType "m1.small" -ImageId "ami-123456" -AssociatePublicIpAddress $true</code>
-    <description>Creates a new launch configuration named 'my-launch-cfg' that if used to launch instances in a VPC will cause a public IP address to be assigned to the new instances.</description>
+    <code>PS C:\> New-ASLaunchConfiguration -LaunchConfigurationName my-lc -InstanceType "m3.medium" -ImageId "ami-12345678" -SecurityGroup "sg-12345678" -IamInstanceProfile "myIamRole"</code>
+    <description>This example creates a launch configuration named 'my-lc'. The EC2 instances launched by Auto Scaling groups that use this launch configuration use specified instance type, AMI, security group, and IAM role.</description>
   </example>
 </examples>

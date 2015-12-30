@@ -56,68 +56,65 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     [OutputType("Amazon.CloudSearchDomain.Model.UploadDocumentsResult")]
     [AWSCmdlet("Invokes the UploadDocuments operation against Amazon CloudSearchDomain.", Operation = new [] {"UploadDocuments"})]
     [AWSCmdletOutput("Amazon.CloudSearchDomain.Model.UploadDocumentsResult",
-        "This cmdlet returns a UploadDocumentsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns an Amazon.CloudSearchDomain.Model.UploadDocumentsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCSDDocumentsCmdlet : AmazonCloudSearchDomainClientCmdlet, IExecutor
     {
         const string ParamSet_FromLocalFile = "FromLocalFileParamSet";        
         const string ParamSet_FromStream = "FromStreamParamSet";
 
+        #region Parameter ServiceUrl
         /// <summary>
-        /// <para>
-        /// Gets and sets the property ServiceUrl. 
-        /// <para>
         /// Specifies the Search or Document service endpoint.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
-        public String ServiceUrl { get; set; }
+        public System.String ServiceUrl { get; set; }
+        #endregion
 
+        #region Parameter ContentType
         /// <summary>
-        /// <para>
-        /// Gets and sets the property ContentType. 
-        /// <para>
         /// The format of the batch you are uploading. Amazon CloudSearch supports two document
         /// batch formats:
-        /// </para><ul><li>application/json</li><li>application/xml</li></ul>
-        /// </para>
+        /// <ul><li>application/json</li><li>application/xml</li></ul>
         /// </summary>
         [Parameter(Mandatory = true)]
-        public ContentType ContentType { get; set; }
-        
+        [AWSConstantClassSource("Amazon.CloudSearchDomain.ContentType")]
+        public Amazon.CloudSearchDomain.ContentType ContentType { get; set; }
+        #endregion
+
+        #region Parameter Document
         /// <summary>
-        /// <para>
-        /// Gets and sets the property Documents. 
-        /// <para>
         /// A batch of documents formatted in JSON or HTML.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_FromStream, Mandatory= true)]
         [Alias("Documents")]
         public System.IO.Stream Document { get; set; }
-        
+        #endregion
+
+        #region Parameter FilePath 
         /// <summary>
-        /// <para>
         /// <para>
         /// The full path and name to a file that contains a batch of documents to be uploaded.
         /// The batch of documents should be formatted in JSON or HTML.        
         /// If this property is set, the UploadDocumentsRequest.Documents property is ignored.
-        /// </para><para>
-        /// For WinRT and Windows Phone this property must be in the form of "ms-appdata:///local/file.txt".
         /// </para>
+        /// <para>
+        /// For WinRT and Windows Phone this property must be in the form of "ms-appdata:///local/file.txt".
         /// </para>
         /// </summary>
         [Parameter(ParameterSetName = ParamSet_FromLocalFile, Mandatory = true)]
-        public String FilePath { get; set; }
+        public System.String FilePath { get; set; }
+        #endregion
 
+        #region Parameter UseAnonymousCredentials
         /// <summary>
         /// If set, the cmdlet calls the service operation using anonymous credentials.
         /// </summary>
         [Parameter]
         public SwitchParameter UseAnonymousCredentials { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -125,6 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

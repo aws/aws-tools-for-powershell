@@ -42,10 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdlet("Invokes the DescribeAddresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeAddresses"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Address",
         "This cmdlet returns a collection of Address objects.",
-        "The service call response (type DescribeAddressesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeAddressesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocationId
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] One or more allocation IDs.</para><para>Default: Describes all your Elastic IP addresses.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("AllocationIds")]
         public System.String[] AllocationId { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</para></li><li><para><code>association-id</code> - [EC2-VPC] The association ID for the address.</para></li><li><para><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>)
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>[EC2-Classic] One or more Elastic IP addresses.</para><para>Default: Describes all your Elastic IP addresses.</para>
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("PublicIps")]
         public System.String[] PublicIp { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -90,15 +96,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.AllocationId != null)
             {
-                context.AllocationIds = new List<String>(this.AllocationId);
+                context.AllocationIds = new List<System.String>(this.AllocationId);
             }
             if (this.Filter != null)
             {
-                context.Filters = new List<Filter>(this.Filter);
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
             if (this.PublicIp != null)
             {
-                context.PublicIps = new List<String>(this.PublicIp);
+                context.PublicIps = new List<System.String>(this.PublicIp);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -111,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeAddressesRequest();
+            var request = new Amazon.EC2.Model.DescribeAddressesRequest();
             
             if (cmdletContext.AllocationIds != null)
             {
@@ -160,9 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<String> AllocationIds { get; set; }
-            public List<Filter> Filters { get; set; }
-            public List<String> PublicIps { get; set; }
+            public List<System.String> AllocationIds { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> PublicIps { get; set; }
         }
         
     }

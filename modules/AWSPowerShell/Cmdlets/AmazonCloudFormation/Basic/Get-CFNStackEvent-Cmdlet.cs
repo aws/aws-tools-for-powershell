@@ -40,11 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     [AWSCmdlet("Invokes the DescribeStackEvents operation against AWS CloudFormation.", Operation = new[] {"DescribeStackEvents"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackEvent",
         "This cmdlet returns a collection of StackEvent objects.",
-        "The service call response (type DescribeStackEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type String)"
+        "The service call response (type Amazon.CloudFormation.Model.DescribeStackEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public class GetCFNStackEventCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which are not always
@@ -53,16 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String StackName { get; set; }
+        public System.String StackName { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>String that identifies the start of the next list of events, if there is one.</para><para>Default: There is no default value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -88,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new DescribeStackEventsRequest();
+            var request = new Amazon.CloudFormation.Model.DescribeStackEventsRequest();
             
             if (cmdletContext.StackName != null)
             {
@@ -96,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             
             // Initialize loop variant and commence piping
-            String _nextMarker = null;
+            System.String _nextMarker = null;
             bool _userControllingPaging = false;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
@@ -166,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NextToken { get; set; }
-            public String StackName { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String StackName { get; set; }
         }
         
     }

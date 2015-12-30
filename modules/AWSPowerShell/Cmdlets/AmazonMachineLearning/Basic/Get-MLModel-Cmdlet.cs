@@ -39,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.ML
     [OutputType("Amazon.MachineLearning.Model.GetMLModelResponse")]
     [AWSCmdlet("Invokes the GetMLModel operation against Amazon Machine Learning.", Operation = new[] {"GetMLModel"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.GetMLModelResponse",
-        "This cmdlet returns a GetMLModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.MachineLearning.Model.GetMLModelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetMLModelCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>The ID assigned to the <code>MLModel</code> at creation.</para>
@@ -50,16 +52,18 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
-        public String MLModelId { get; set; }
+        public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter VerboseResponse
         /// <summary>
         /// <para>
         /// <para>Specifies whether the <code>GetMLModel</code> operation should return <code>Recipe</code>.</para><para>If true, <code>Recipe</code> is returned.</para><para>If false, <code>Recipe</code> is not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean VerboseResponse { get; set; }
-        
+        public System.Boolean VerboseResponse { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetMLModelRequest();
+            var request = new Amazon.MachineLearning.Model.GetMLModelRequest();
             
             if (cmdletContext.MLModelId != null)
             {
@@ -130,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         internal class CmdletContext : ExecutorContext
         {
-            public String MLModelId { get; set; }
-            public Boolean? VerboseResponse { get; set; }
+            public System.String MLModelId { get; set; }
+            public System.Boolean? VerboseResponse { get; set; }
         }
         
     }

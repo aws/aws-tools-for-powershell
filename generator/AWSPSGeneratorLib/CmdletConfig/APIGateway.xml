@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>AG</ServiceNounPrefix>
+  <ServiceName>Amazon API Gateway</ServiceName>
+  <ServiceClientInterface>IAmazonAPIGateway</ServiceClientInterface>
+  <ServiceClient>AmazonAPIGatewayClient</ServiceClient>
+  <ServiceNamespace>Amazon.APIGateway</ServiceNamespace>
+
+  <AutoIterate EmitLimit="Limit"
+               Start="Position"
+               Next="Position" />
+
+  <PipelineByValueProperties>
+    <Property>ClientCertificateId</Property>
+    <Property>RestApiId</Property>
+    <Property>DeploymentId</Property>
+    <Property>ResourceId</Property>
+    <Property>ModelName</Property>
+    <Property>DomainName</Property>
+    <Property>StageName</Property>
+    <Property>ParentId</Property>
+  </PipelineByValueProperties>
+
+  <PipelineParameter>RestApiId</PipelineParameter>
+
+  <MetadataProperties>
+    <Property>Position</Property>
+  </MetadataProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateApiKey" Output="Response"/>
+    <ServiceOperation MethodName="CreateBasePathMapping" Output="Response" ShouldProcessTarget="DomainName"/>
+    <ServiceOperation MethodName="CreateDeployment" Output="Response" ShouldProcessTarget="StageName"/>
+    <ServiceOperation MethodName="CreateDomainName" Output="Response" ShouldProcessTarget="DomainName"/>
+    <ServiceOperation MethodName="CreateModel" Output="Response" ShouldProcessTarget="Name"/>
+    <ServiceOperation MethodName="CreateResource" Output="Response" ShouldProcessTarget="ParentId"/>
+    <ServiceOperation MethodName="CreateRestApi" Output="Response"/>
+    <ServiceOperation MethodName="CreateStage" Output="Response" ShouldProcessTarget="StageName"/>
+    <ServiceOperation MethodName="DeleteApiKey" Output="Void"/>
+    <ServiceOperation MethodName="DeleteBasePathMapping" Output="Void"/>
+    <ServiceOperation MethodName="DeleteClientCertificate" Output="Void"/>
+    <ServiceOperation MethodName="DeleteDeployment" Output="Void" ShouldProcessTarget="DeploymentId"/>
+    <ServiceOperation MethodName="DeleteDomainName" Output="Void"/>
+    <ServiceOperation MethodName="DeleteIntegration" Output="Void" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="DeleteIntegrationResponse" Output="Void" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="DeleteMethod" Output="Void" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="DeleteMethodResponse" Output="Void" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="DeleteModel" Output="Void" ShouldProcessTarget="ModelName"/>
+    <ServiceOperation MethodName="DeleteResource" Output="Void" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="DeleteRestApi" Output="Void"/>
+    <ServiceOperation MethodName="DeleteStage" Output="Void" ShouldProcessTarget="StageName"/>
+    <ServiceOperation MethodName="FlushStageCache" Output="Void" ShouldProcessTarget="StageName" Verb="Clear"/>
+    <ServiceOperation MethodName="GenerateClientCertificate" Output="Response" Verb="New" />
+    <ServiceOperation MethodName="GetAccount" Output="Response" />
+    <ServiceOperation MethodName="GetApiKey" Output="Response" />
+    <ServiceOperation MethodName="GetBasePathMapping" Output="Response" />
+    <ServiceOperation MethodName="GetClientCertificate" Output="Response" />
+    <ServiceOperation MethodName="GetDeployment" Output="Response" />
+    <ServiceOperation MethodName="GetDomainName" Output="Response" />
+    <ServiceOperation MethodName="GetIntegration" Output="Response" />
+    <ServiceOperation MethodName="GetIntegrationResponse" Output="Response" />
+    <ServiceOperation MethodName="GetMethod" Output="Response" />
+    <ServiceOperation MethodName="GetMethodResponse" Output="Response" />
+    <ServiceOperation MethodName="GetModel" Output="Response" />
+    <ServiceOperation MethodName="GetModelTemplate" />
+    <ServiceOperation MethodName="GetResource" Output="Response" />
+    <ServiceOperation MethodName="GetRestApi" Output="Response"/>
+    <ServiceOperation MethodName="GetSdk" Output="Response" />
+    <ServiceOperation MethodName="GetStage" Output="Response" />
+    <ServiceOperation MethodName="PutIntegration" Output="Response" ShouldProcessTarget="ResourceId">
+      <Params>
+        <Param Name="Credentials" NewName="TargetCredential" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="PutIntegrationResponse" Output="Response" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="PutMethod" Output="Response" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="PutMethodResponse" Output="Response" ShouldProcessTarget="ResourceId"/>
+    <ServiceOperation MethodName="TestInvokeMethod" Output="Response"/>
+    <ServiceOperation MethodName="UpdateAccount" Output="Response"/>
+    <ServiceOperation MethodName="UpdateApiKey" Output="Response" ShouldProcessTarget="ApiKey"/>
+    <ServiceOperation MethodName="UpdateBasePathMapping" Output="Response"/>
+    <ServiceOperation MethodName="UpdateClientCertificate" Output="Response"/>
+    <ServiceOperation MethodName="UpdateDeployment" Output="Response" />
+    <ServiceOperation MethodName="UpdateDomainName" Output="Response" />
+    <ServiceOperation MethodName="UpdateIntegration" Output="Response" />
+    <ServiceOperation MethodName="UpdateIntegrationResponse" Output="Response" />
+    <ServiceOperation MethodName="UpdateMethod" Output="Response" />
+    <ServiceOperation MethodName="UpdateMethodResponse" Output="Response" />
+    <ServiceOperation MethodName="UpdateModel" Output="Response" />
+    <ServiceOperation MethodName="UpdateResource" Output="Response" />
+    <ServiceOperation MethodName="UpdateRestApi" Output="Response" />
+    <ServiceOperation MethodName="UpdateStage" Output="Response" />
+
+    <ServiceOperation MethodName="GetApiKeys"
+                      Noun="ApiKeyList"
+                      />
+    <ServiceOperation MethodName="GetBasePathMappings"
+                      Noun="BasePathMappingList"
+                      />
+    <ServiceOperation MethodName="GetClientCertificates"
+                      Noun="ClientCertificateList"
+                      />
+    <ServiceOperation MethodName="GetDeployments"
+                      Noun="DeploymentList"
+                      />
+    <ServiceOperation MethodName="GetDomainNames"
+                      Noun="DomainNameList"
+                      />
+    <ServiceOperation MethodName="GetModels"
+                      Noun="ModelList"
+                      />
+    <ServiceOperation MethodName="GetResources"
+                      Noun="ResourceList"
+                      />
+    <ServiceOperation MethodName="GetRestApis"
+                      Noun="RestApiList"
+                      />
+    <ServiceOperation MethodName="GetStages"
+                      Noun="StageList"
+                      />
+  </ServiceOperations>
+
+</ConfigModel>

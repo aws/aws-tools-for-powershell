@@ -48,18 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [AWSCmdlet("Invokes the PutDestination operation against Amazon CloudWatch Logs.", Operation = new[] {"PutDestination"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Destination",
         "This cmdlet returns a Destination object.",
-        "The service call response (type PutDestinationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudWatchLogs.Model.PutDestinationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCWLDestinationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DestinationName
         /// <summary>
         /// <para>
         /// <para>A name for the destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public String DestinationName { get; set; }
+        public System.String DestinationName { get; set; }
+        #endregion
         
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to do Amazon
@@ -67,16 +71,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String RoleArn { get; set; }
+        public System.String RoleArn { get; set; }
+        #endregion
         
+        #region Parameter TargetArn
         /// <summary>
         /// <para>
         /// <para>The ARN of an Amazon Kinesis stream to deliver matching log events to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String TargetArn { get; set; }
+        public System.String TargetArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -116,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new PutDestinationRequest();
+            var request = new Amazon.CloudWatchLogs.Model.PutDestinationRequest();
             
             if (cmdletContext.DestinationName != null)
             {
@@ -165,9 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DestinationName { get; set; }
-            public String RoleArn { get; set; }
-            public String TargetArn { get; set; }
+            public System.String DestinationName { get; set; }
+            public System.String RoleArn { get; set; }
+            public System.String TargetArn { get; set; }
         }
         
     }

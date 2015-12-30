@@ -46,34 +46,42 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     [OutputType("Amazon.CloudWatchLogs.Model.GetLogEventsResponse")]
     [AWSCmdlet("Invokes the GetLogEvents operation against Amazon CloudWatch Logs.", Operation = new[] {"GetLogEvents"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.GetLogEventsResponse",
-        "This cmdlet returns a GetLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.CloudWatchLogs.Model.GetLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime EndTime { get; set; }
+        public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the log group to query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public String LogGroupName { get; set; }
+        public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the log stream to query.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String LogStreamName { get; set; }
+        public System.String LogStreamName { get; set; }
+        #endregion
         
+        #region Parameter StartFromHead
         /// <summary>
         /// <para>
         /// <para>If set to true, the earliest log events would be returned first. The default is false
@@ -81,16 +89,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Boolean StartFromHead { get; set; }
+        public System.Boolean StartFromHead { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public DateTime StartTime { get; set; }
+        public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of log events returned in the response. If you don't specify a
@@ -101,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> A string token used for pagination that points to the next page of results. It must
@@ -111,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String NextToken { get; set; }
-        
+        public System.String NextToken { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -146,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new GetLogEventsRequest();
+            var request = new Amazon.CloudWatchLogs.Model.GetLogEventsRequest();
             
             if (cmdletContext.EndTime != null)
             {
@@ -211,13 +225,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal class CmdletContext : ExecutorContext
         {
-            public DateTime? EndTime { get; set; }
+            public System.DateTime? EndTime { get; set; }
             public int? Limit { get; set; }
-            public String LogGroupName { get; set; }
-            public String LogStreamName { get; set; }
-            public String NextToken { get; set; }
-            public Boolean? StartFromHead { get; set; }
-            public DateTime? StartTime { get; set; }
+            public System.String LogGroupName { get; set; }
+            public System.String LogStreamName { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Boolean? StartFromHead { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

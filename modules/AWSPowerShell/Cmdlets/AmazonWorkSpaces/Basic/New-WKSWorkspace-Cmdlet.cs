@@ -38,10 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     [OutputType("Amazon.WorkSpaces.Model.CreateWorkspacesResponse")]
     [AWSCmdlet("Invokes the CreateWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"CreateWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.CreateWorkspacesResponse",
-        "This cmdlet returns a CreateWorkspacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "This cmdlet returns a Amazon.WorkSpaces.Model.CreateWorkspacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class NewWKSWorkspaceCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter Workspace
         /// <summary>
         /// <para>
         /// <para>An array of structures that specify the WorkSpaces to create.</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Workspaces")]
         public Amazon.WorkSpaces.Model.WorkspaceRequest[] Workspace { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -78,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             if (this.Workspace != null)
             {
-                context.Workspaces = new List<WorkspaceRequest>(this.Workspace);
+                context.Workspaces = new List<Amazon.WorkSpaces.Model.WorkspaceRequest>(this.Workspace);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -91,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new CreateWorkspacesRequest();
+            var request = new Amazon.WorkSpaces.Model.CreateWorkspacesRequest();
             
             if (cmdletContext.Workspaces != null)
             {
@@ -132,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<WorkspaceRequest> Workspaces { get; set; }
+            public List<Amazon.WorkSpaces.Model.WorkspaceRequest> Workspaces { get; set; }
         }
         
     }

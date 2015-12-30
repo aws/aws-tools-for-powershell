@@ -36,18 +36,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     [AWSCmdlet("Invokes the ModifyDBSubnetGroup operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBSubnetGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSubnetGroup",
         "This cmdlet returns a DBSubnetGroup object.",
-        "The service call response (type ModifyDBSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.RDS.Model.ModifyDBSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class EditRDSDBSubnetGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBSubnetGroupDescription
         /// <summary>
         /// <para>
         /// <para> The description for the DB subnet group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String DBSubnetGroupDescription { get; set; }
+        public System.String DBSubnetGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> The name for the DB subnet group. This value is stored as a lowercase string. </para><para>Constraints: Must contain no more than 255 alphanumeric characters or hyphens. Must
@@ -55,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String DBSubnetGroupName { get; set; }
+        public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para> The EC2 subnet IDs for the DB subnet group. </para>
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -95,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             if (this.SubnetId != null)
             {
-                context.SubnetIds = new List<String>(this.SubnetId);
+                context.SubnetIds = new List<System.String>(this.SubnetId);
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -108,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ModifyDBSubnetGroupRequest();
+            var request = new Amazon.RDS.Model.ModifyDBSubnetGroupRequest();
             
             if (cmdletContext.DBSubnetGroupDescription != null)
             {
@@ -157,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal class CmdletContext : ExecutorContext
         {
-            public String DBSubnetGroupDescription { get; set; }
-            public String DBSubnetGroupName { get; set; }
-            public List<String> SubnetIds { get; set; }
+            public System.String DBSubnetGroupDescription { get; set; }
+            public System.String DBSubnetGroupName { get; set; }
+            public List<System.String> SubnetIds { get; set; }
         }
         
     }

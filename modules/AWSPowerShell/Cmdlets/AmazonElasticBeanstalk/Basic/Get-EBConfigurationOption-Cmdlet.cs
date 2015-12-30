@@ -38,11 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the DescribeConfigurationOptions operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeConfigurationOptions"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ConfigurationOptionDescription",
         "This cmdlet returns a collection of ConfigurationOptionDescription objects.",
-        "The service call response (type DescribeConfigurationOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: SolutionStackName (type String)"
+        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: SolutionStackName (type System.String)"
     )]
     public class GetEBConfigurationOptionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application associated with the configuration template or environment.
@@ -51,16 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String ApplicationName { get; set; }
+        public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the environment whose configuration options you want to describe. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String EnvironmentName { get; set; }
+        public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter Option
         /// <summary>
         /// <para>
         /// <para> If specified, restricts the descriptions to only the specified options. </para>
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("Options")]
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] Option { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para> The name of the configuration template whose configuration options you want to describe.
@@ -77,8 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String TemplateName { get; set; }
+        public System.String TemplateName { get; set; }
+        #endregion
         
+        #region Parameter SolutionStackName
         /// <summary>
         /// <para>
         /// <para> The name of the solution stack whose configuration options you want to describe.
@@ -86,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public String SolutionStackName { get; set; }
-        
+        public System.String SolutionStackName { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -103,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.EnvironmentName = this.EnvironmentName;
             if (this.Option != null)
             {
-                context.Options = new List<OptionSpecification>(this.Option);
+                context.Options = new List<Amazon.ElasticBeanstalk.Model.OptionSpecification>(this.Option);
             }
             context.SolutionStackName = this.SolutionStackName;
             context.TemplateName = this.TemplateName;
@@ -118,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new DescribeConfigurationOptionsRequest();
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeConfigurationOptionsRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
@@ -177,11 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal class CmdletContext : ExecutorContext
         {
-            public String ApplicationName { get; set; }
-            public String EnvironmentName { get; set; }
-            public List<OptionSpecification> Options { get; set; }
-            public String SolutionStackName { get; set; }
-            public String TemplateName { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String EnvironmentName { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> Options { get; set; }
+            public System.String SolutionStackName { get; set; }
+            public System.String TemplateName { get; set; }
         }
         
     }

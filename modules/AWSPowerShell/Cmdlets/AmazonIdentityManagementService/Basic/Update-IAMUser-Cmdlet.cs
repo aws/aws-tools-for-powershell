@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  <important> You should understand the implications of changing a user's path or name.
     /// For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming
-    /// Users and Groups</a> in the <i>Using IAM</i> guide. </important><note> To change
-    /// a user name the requester must have appropriate permissions on both the source object
+    /// Users and Groups</a> in the <i>IAM User Guide</i>. </important><note> To change a
+    /// user name the requester must have appropriate permissions on both the source object
     /// and the target object. For example, to change Bob to Robert, the entity making the
     /// request must have permission on Bob and Robert, or must have permission on all (*).
     /// For more information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html" target="blank">Permissions and Policies</a>. </note>
@@ -43,26 +43,32 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     [AWSCmdlet("Invokes the UpdateUser operation against AWS Identity and Access Management.", Operation = new[] {"UpdateUser"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type UpdateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IdentityManagement.Model.UpdateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class UpdateIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPath
         /// <summary>
         /// <para>
         /// <para>New path for the user. Include this parameter only if you're changing the user's path.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
-        public String NewPath { get; set; }
+        public System.String NewPath { get; set; }
+        #endregion
         
+        #region Parameter NewUserName
         /// <summary>
         /// <para>
         /// <para>New name for the user. Include this parameter only if you're changing the user's name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
-        public String NewUserName { get; set; }
+        public System.String NewUserName { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>Name of the user to update. If you're changing the name of the user, this is the original
@@ -70,15 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public String UserName { get; set; }
+        public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the UserName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -118,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new UpdateUserRequest();
+            var request = new Amazon.IdentityManagement.Model.UpdateUserRequest();
             
             if (cmdletContext.NewPath != null)
             {
@@ -169,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         internal class CmdletContext : ExecutorContext
         {
-            public String NewPath { get; set; }
-            public String NewUserName { get; set; }
-            public String UserName { get; set; }
+            public System.String NewPath { get; set; }
+            public System.String NewUserName { get; set; }
+            public System.String UserName { get; set; }
         }
         
     }

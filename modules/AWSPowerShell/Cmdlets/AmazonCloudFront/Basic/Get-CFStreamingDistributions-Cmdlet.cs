@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     [AWSCmdlet("Invokes the ListStreamingDistributions operation against Amazon CloudFront.", Operation = new[] {"ListStreamingDistributions"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.StreamingDistributionList",
         "This cmdlet returns a StreamingDistributionList object.",
-        "The service call response (type ListStreamingDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.CloudFront.Model.ListStreamingDistributionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFStreamingDistributionsCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// Use this when paginating results to indicate where
@@ -49,8 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public String Marker { get; set; }
+        public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// The maximum number of streaming distributions
@@ -59,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public String MaxItem { get; set; }
-        
+        public System.String MaxItem { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -85,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new ListStreamingDistributionsRequest();
+            var request = new Amazon.CloudFront.Model.ListStreamingDistributionsRequest();
             
             if (cmdletContext.Marker != null)
             {
@@ -130,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         internal class CmdletContext : ExecutorContext
         {
-            public String Marker { get; set; }
-            public String MaxItems { get; set; }
+            public System.String Marker { get; set; }
+            public System.String MaxItems { get; set; }
         }
         
     }
