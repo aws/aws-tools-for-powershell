@@ -1,11 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Dismount-EC2NetworkInterface -AttachmentId "eni-1a2b3c4d"</code>
-    <description>Detaches the elastic network interface (ENI) eni-1a2b3c4d.</description>
-  </example>
-  <example>
-    <code>Dismount-EC2NetworkInterface -AttachmentId "eni-1a2b3c4d" -Force</code>
-    <description>Forcibly detaches the elastic network interface (ENI) eni-1a2b3c4d.</description>
+    <code>PS C:\> Dismount-EC2NetworkInterface -AttachmentId eni-attach-1a2b3c4d -Force</code>
+    <description>This example removes the specified attachment between a network interface and an instance.</description>
   </example>
 </examples>
