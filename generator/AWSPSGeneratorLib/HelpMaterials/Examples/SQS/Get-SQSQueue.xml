@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Get-SQSQueue</code>
-    <description>This command retrieves a list of all SQS queues.</description>
+    <code>PS C:\> Get-SQSQueue
+	
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/AnotherQueue
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/DeadLetterQueue
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue</code>
+    <description>This example lists all queues.</description>
   </example>
   <example>
-    <code>Get-SQSQueue -QueueNamePrefix ps-</code>
-    <description>This command retrieves a list of all SQS queues with the name prefix of "ps-".</description>
+    <code>PS C:\> Get-SQSQueue -QueueNamePrefix My
+	
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue</code>
+    <description>This example lists any queues that start with the specified name.</description>
   </example>
 </examples>

@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>New-SQSQueue -QueueName ps-queue-1</code>
-    <description>This command creates a new SQS queue with the name "ps-queue-1".</description>
+    <code>PS C:\> New-SQSQueue -QueueName MyQueue
+	
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue</code>
+    <description>This example creates a queue with the specified name.</description>
   </example>
 </examples>
