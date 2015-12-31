@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2NetworkAcl -NetworkAclId acl-12345678
+    
+Associations : {aclassoc-1a2b3c4d}
+Entries      : {Amazon.EC2.Model.NetworkAclEntry, Amazon.EC2.Model.NetworkAclEntry}
+IsDefault    : False
+NetworkAclId : acl-12345678
+Tags         : {Name}
+VpcId        : vpc-12345678</code>
+    <description>This example describes the specified network ACL.</description>
+  </example>
+  <example>
+    <code>PS C:\> (Get-EC2NetworkAcl -NetworkAclId acl-12345678).Entries
+    
+CidrBlock    : 0.0.0.0/0
+Egress       : True
+IcmpTypeCode :
+PortRange    :
+Protocol     : -1
+RuleAction   : deny
+RuleNumber   : 32767
+
+CidrBlock    : 0.0.0.0/0
+Egress       : False
+IcmpTypeCode :
+PortRange    :
+Protocol     : -1
+RuleAction   : deny
+RuleNumber   : 32767</code>
+    <description>This example describes the rules for the specified network ACL.</description>
+  </example>  
+  <example>
+    <code>PS C:\> Get-EC2NetworkAcl</code>
+    <description>This example describes all your network ACLs.</description>
+  </example>
+</examples>

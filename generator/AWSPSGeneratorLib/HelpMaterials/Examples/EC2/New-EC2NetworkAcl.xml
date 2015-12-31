@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2NetworkAcl -VpcId vpc-12345678
+    
+Associations : {}
+Entries      : {Amazon.EC2.Model.NetworkAclEntry, Amazon.EC2.Model.NetworkAclEntry}
+IsDefault    : False
+NetworkAclId : acl-12345678
+Tags         : {}
+VpcId        : vpc-12345678</code>
+    <description>This example creates a network ACL for the specified VPC.</description>
+  </example>
+</examples>
