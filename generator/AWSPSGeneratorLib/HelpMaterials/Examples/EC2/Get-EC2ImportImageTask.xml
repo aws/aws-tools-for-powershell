@@ -1,8 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
 	<example>
-		<code>
-PS C:\> Get-EC2ImportImageTask
+		<code>PS C:\> Get-EC2ImportImageTask -ImportTaskId import-ami-hgfedcba
+        
+Architecture    : x86_64
+Description     : Windows Image 2
+Hypervisor      :
+ImageId         : ami-1a2b3c4d
+ImportTaskId    : import-ami-hgfedcba
+LicenseType     : AWS
+Platform        : Windows
+Progress        :
+SnapshotDetails : {/dev/sda1}
+Status          : completed
+StatusMessage   : </code>
+		<description>This example describes the specified image import task.</description>
+	</example>
+	<example>
+		<code>PS C:\> Get-EC2ImportImageTask
         
 Architecture    :
 Description     : Windows Image 1
@@ -26,26 +41,7 @@ Platform        : Windows
 Progress        :
 SnapshotDetails : {/dev/sda1}
 Status          : completed
-StatusMessage   :        
-		</code>
-		<description>This example shows how to obtain details of all current image import tasks and their status.</description>
-	</example>
-	<example>
-		<code>
-PS C:\> Get-EC2ImportImageTask -ImportTaskId import-ami-hgfedcba
-        
-Architecture    : x86_64
-Description     : Windows Image 2
-Hypervisor      :
-ImageId         : ami-1a2b3c4d
-ImportTaskId    : import-ami-hgfedcba
-LicenseType     : AWS
-Platform        : Windows
-Progress        :
-SnapshotDetails : {/dev/sda1}
-Status          : completed
-StatusMessage   :        
-		</code>
-		<description>This example shows how to obtain details of a specific image import task.</description>
+StatusMessage   : </code>
+		<description>This example describes all your image import tasks.</description>
 	</example>
 </examples>

@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>Import-EC2Volume -ImageFile .\mydiskvolume.vmdk -VolumeSize 4 -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a
+    <code>PS C:\> Import-EC2Volume -ImageFile .\mydiskvolume.vmdk -VolumeSize 4 -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a
 
 ConversionTaskId : import-vol-123456
 ExpirationTime   : 2014-06-23T15:45:03Z
@@ -10,22 +9,18 @@ ImportInstance   : Amazon.EC2.Model.ImportVolumeTaskDetails
 ImportVolume     :
 State            : active
 StatusMessage    : Pending
-Tags             : {}
-    </code>
-    <description>Uploads and requests conversion of the specified disk image to an EBS volume of size 4GB. The file format parameter value will be inferred from the file extension of the image file (vmdk). The image file artifacts will be uploaded to the Amazon S3 bucket 'myimages' (created if it does not exist) and will be have a key format of of '/{guid}/mydiskvolume.* where {guid} will be replaced by a new GUID formatted as 32 digits separated by hyphens. The conversion task object returned by Amazon EC2 is output to the pipeline and can be used to monitor conversion progress using Get-EC2ConversionTask or cancel it using Stop-EC2ConversionTask.</description>
+Tags             : {}</code>
+    <description>This example uploads and requests conversion of the specified disk image to an Amazon EBS volume of size 4 GB. The file format parameter value is inferred from the file extension of the image file (vmdk). The image file artifacts are uploaded to the Amazon S3 bucket 'myimages' (created if it does not exist), with a key format of of '/{guid}/mydiskvolume.*, where {guid} will be replaced by a new GUID formatted as 32 digits separated by hyphens. The conversion task object returned by Amazon EC2 is output to the pipeline and can be used to monitor conversion progress using Get-EC2ConversionTask or cancel it using Stop-EC2ConversionTask.</description>
   </example>
   <example>
-    <code>
-PS C:\>Import-EC2Volume -ImageFile .\diskvolume1.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
+    <code>PS C:\> Import-EC2Volume -ImageFile .\diskvolume1.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
 
-mydiskvolumes/cc164294-94b0-42cc-ac8f-9ae2ddffaa53/diskvolume1.vmdkmanifest.xml
-    </code>
-    <description>Uploads the artifacts for the specified disk image to Amazon S3. The volume size of the eventual EBS volume (when converted) will be set to the larger of 8GB or the image file size. The file format will be inferred from the file extension of the image file (vmdk). The image file artifacts will be uploaded to the Amazon S3 bucket 'myimages' (created if it does not exist) and will be have a key format of of '/mydiskvolumes/{guid}/diskvolume1.* where {guid} will be replaced by a new GUID formatted as 32 digits separated by hyphens. The cmdlet outputs the S3 object key of the uploaded manifest. This can be used at a later time to start conversion using the -ManifestFileKey parameter.</description>
+mydiskvolumes/cc164294-94b0-42cc-ac8f-9ae2ddffaa53/diskvolume1.vmdkmanifest.xml</code>
+    <description>This example uploads the artifacts for the specified disk image to Amazon S3. The volume size of the eventual Amazon EBS volume (when converted) is set to the larger of 8 GB or the image file size. The file format is inferred from the file extension of the image file (vmdk). The image file artifacts are uploaded to the Amazon S3 bucket 'myimages' (created if it does not exist), with a key format of '/mydiskvolumes/{guid}/diskvolume1.*, where {guid} is replaced by a new GUID formatted as 32 digits separated by hyphens. The cmdlet outputs the S3 object key of the uploaded manifest. This can be used at a later time to start conversion using the -ManifestFileKey parameter.</description>
   </example>
   <example>
-    <code>
-PS C:\>Import-EC2Volume -ManifestFileKey "mydiskvolumes/cc164294-94b0-42cc-ac8f-9ae2ddffaa53/diskvolume1.vmdkmanifest.xml" `
-                 -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a
+    <code>PS C:\> Import-EC2Volume -ManifestFileKey "mydiskvolumes/cc164294-94b0-42cc-ac8f-9ae2ddffaa53/diskvolume1.vmdkmanifest.xml" `
+-BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a
 
 ConversionTaskId : import-vol-654321
 ExpirationTime   : 2014-06-23T15:45:03Z
@@ -33,17 +28,15 @@ ImportInstance   : Amazon.EC2.Model.ImportVolumeTaskDetails
 ImportVolume     :
 State            : active
 StatusMessage    : Pending
-Tags             : {}
-    </code>
-    <description>This example shows how to request image file conversion using artifacts uploaded previously using the -UploadOnly switch. The conversion task object returned by Amazon EC2 is output to the pipeline and can be used to monitor conversion progress using Get-EC2ConversionTask or cancel it using Stop-EC2ConversionTask.</description>
+Tags             : {}</code>
+    <description>This example requests image file conversion using artifacts uploaded previously using the -UploadOnly switch. The conversion task object returned by Amazon EC2 is output to the pipeline and can be used to monitor conversion progress using Get-EC2ConversionTask or cancel it using Stop-EC2ConversionTask.</description>
   </example>
   <example>
-    <code>
-PS C:\>$m1 = Import-EC2Volume -ImageFile .\diskvolume1.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
-PS C:\>$m2 = Import-EC2Volume -ImageFile .\diskvolume2.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
-PS C:\>$m3 = Import-EC2Volume -ImageFile .\diskvolume3.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
+    <code>PS C:\> $m1 = Import-EC2Volume -ImageFile .\diskvolume1.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
+PS C:\> $m2 = Import-EC2Volume -ImageFile .\diskvolume2.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
+PS C:\> $m3 = Import-EC2Volume -ImageFile .\diskvolume3.vmdk -UploadOnly -BucketName myimages -KeyPrefix mydiskvolumes
 
-PS C:\>Import-EC2Volume -ManifestFileKey @($m1, $m2, $m3) ` -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a
+PS C:\> Import-EC2Volume -ManifestFileKey @($m1, $m2, $m3) ` -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a
 
 ConversionTaskId : import-vol-212121
 ExpirationTime   : 2014-06-23T15:45:03Z
@@ -67,22 +60,17 @@ ImportInstance   : Amazon.EC2.Model.ImportVolumeTaskDetails
 ImportVolume     :
 State            : active
 StatusMessage    : Pending
-Tags             : {}
-    </code>
-    <description>This example shows how to request image file conversion for a collection of images uploaded previously using the -UploadOnly switch. The conversion task object for each image is output to the pipeline and can be used to monitor conversion progress using Get-EC2ConversionTask or cancel it using Stop-EC2ConversionTask.</description>
+Tags             : {}</code>
+    <description>This example requests image file conversion for a collection of images uploaded previously using the -UploadOnly switch. The conversion task object for each image is output to the pipeline and can be used to monitor conversion progress using Get-EC2ConversionTask or cancel it using Stop-EC2ConversionTask.</description>
   </example>
   <example>
-    <code>
-PS C:\>Import-EC2Volume -ImageFile .\mydiskvolume.vmdk -VolumeSize 4 -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a `
-                 -RollbackOnUploadError
-    </code>
-    <description>This example shows how to run the cmdlet so that if an upload error occurs the S3 bucket any content uploaded prior to the error is automatically deleted from the bucket. Note that when the -RollbackOnUploadError switch is set, it is not possible to re-run the cmdlet in 'resume' mode.</description>
+    <code>PS C:\> Import-EC2Volume -ImageFile .\mydiskvolume.vmdk -VolumeSize 4 -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a `
+-RollbackOnUploadError</code>
+    <description>This example runs the cmdlet so that if an upload error occurs, any content uploaded prior to the error is automatically deleted from the S3 bucket. Note that when the -RollbackOnUploadError parameter is used, it is not possible to re-run the cmdlet in 'resume' mode.</description>
   </example>
   <example>
-    <code>
-PS C:\>Import-EC2Volume -ImageFile .\mydiskvolume.vmdk -VolumeSize 4 -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a `
-                 -Resume
-    </code>
-    <description>This example shows how to resume importing a volume after a previous upload failure. The cmdlet will analyze the import manifest for the image to determine which image file parts were not uploaded and then commence upload of just those pieces. Note that 'resume' mode is not applicable if the -RollbackOnUploadError switch was used in the original upload command.</description>
+    <code>PS C:\> Import-EC2Volume -ImageFile .\mydiskvolume.vmdk -VolumeSize 4 -BucketName myimages -Region us-west-2 -AvailabilityZone us-west-2a `
+-Resume</code>
+    <description>This example resumes importing a volume after a previous upload failure. The cmdlet analyzes the import manifest for the image to determine which image file parts were not uploaded, and then uploads just those pieces. Note that 'resume' mode is not applicable if the -RollbackOnUploadError switch was used in the original upload command.</description>
   </example>
 </examples>
