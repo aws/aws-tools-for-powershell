@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $ip = @{ IpProtocol="tcp"; FromPort="80"; ToPort="80"; IpRanges="203.0.113.0/24" }
+
+PS C:\> Grant-EC2SecurityGroupEgress -GroupId sg-12345678 -IpPermission $ip</code>
+    <description>This example defines an egress rule for the specified security group for EC2-VPC. The rule grants access to the specified IP address range on TCP port 80. The syntax used by this example requires PowerShell version 3 or higher.</description>
+  </example>
+  <example>
+    <code>PS C:\> $ip = New-Object Amazon.EC2.Model.IpPermission
+PS C:\> $ip.IpProtocol = "tcp"
+PS C:\> $ip.FromPort = 80
+PS C:\> $ip.ToPort = 80
+PS C:\> $ip.IpRanges.Add("203.0.113.0/24")
+
+PS C:\> Grant-EC2SecurityGroupEgress -GroupId sg-12345678 -IpPermission $ip</code>
+    <description>With PowerShell version 2, you must use New-Object to create the IpPermission object.</description>
+</description>
+  </example>
+  <example>
+    <code>PS C:\> $ug = New-Object Amazon.EC2.Model.UserIdGroupPair
+PS C:\> $ug.GroupId = "sg-1a2b3c4d"
+PS C:\> $ug.UserId = "123456789012"
+
+PS C:\> Grant-EC2SecurityGroupEgress -GroupId sg-12345678 -IpPermission @( @{ IpProtocol="tcp"; FromPort="80"; ToPort="80"; UserIdGroupPairs=$ug } )</code>
+    <description>This example grants access to the specified source security group on TCP port 80.</description>
+  </example>
+</examples>
