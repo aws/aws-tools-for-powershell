@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AWS Tools for Windows PowerShell")]
 [assembly: AssemblyCompany("Amazon.com, Inc")]
 [assembly: AssemblyProduct("AWS Tools for Windows PowerShell")]
-[assembly: AssemblyCopyright("Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
+[assembly: AssemblyCopyright("Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDescription("")]
