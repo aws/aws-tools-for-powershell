@@ -20,7 +20,7 @@ Author = 'Amazon.com, Inc'
 CompanyName = 'Amazon.com, Inc'
 
 # Copyright statement for this module
-Copyright = 'Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+Copyright = 'Copyright 2012-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
 # Description of the functionality provided by this module
 Description = 'The AWS Tools for Windows PowerShell lets developers and administrators manage their AWS services from the Windows PowerShell scripting environment.'

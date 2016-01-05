@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// <b>Important: This command is reserved for future use, and is currently not available
     /// for you to use.</b><para>
-    /// Describes the ID format settings for your resources, for example, to view which resource
-    /// types are enabled for longer IDs. This request only returns information about resource
-    /// types whose ID formats can be modified; it does not return information about other
-    /// resource types. 
+    /// Describes the ID format settings for your resources on a per-region basis, for example,
+    /// to view which resource types are enabled for longer IDs. This request only returns
+    /// information about resource types whose ID formats can be modified; it does not return
+    /// information about other resource types. 
     /// </para><para>
     /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>.
     /// 
@@ -41,7 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// These settings apply to the IAM user who makes the request; they do not apply to the
     /// entire AWS account. By default, an IAM user defaults to the same settings as the root
     /// user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a>
-    /// command. These settings are applied on a per-region basis.
+    /// command. Resources created with longer IDs are visible to all IAM users, regardless
+    /// of these settings and provided that they have permission to use the relevant <code>Describe</code>
+    /// command for the resource type.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2IdFormat")]

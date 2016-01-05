@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><important><para>
     /// EC2-Classic: You can have up to 500 security groups.
     /// </para><para>
-    /// EC2-VPC: You can create up to 100 security groups per VPC.
+    /// EC2-VPC: You can create up to 500 security groups per VPC.
     /// </para></important><para>
     /// When you create a security group, you specify a friendly name of your choice. You
     /// can have a security group for use in EC2-Classic with the same name as a security
