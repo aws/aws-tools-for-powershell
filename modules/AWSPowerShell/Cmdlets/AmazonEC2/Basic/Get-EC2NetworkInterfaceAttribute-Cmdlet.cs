@@ -39,35 +39,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public class GetEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter Attachment
+        #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The <c>attachment</c> attribute.</para>
+        /// <para>The attribute of the network interface.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Attachment { get; set; }
-        #endregion
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The <c>description</c> attribute.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Group
-        /// <summary>
-        /// <para>
-        /// <para>The <c>groupSet</c> attribute.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Groups")]
-        public System.String Group { get; set; }
+        [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.NetworkInterfaceAttribute")]
+        public Amazon.EC2.NetworkInterfaceAttribute Attribute { get; set; }
         #endregion
         
         #region Parameter NetworkInterfaceId
@@ -80,16 +60,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String NetworkInterfaceId { get; set; }
         #endregion
         
-        #region Parameter SourceDestCheck
-        /// <summary>
-        /// <para>
-        /// <para>The <c>sourceDestCheck</c> attribute.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SourceDestCheck { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -100,11 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.Attachment = this.Attachment;
-            context.Description = this.Description;
-            context.Groups = this.Group;
+            context.Attribute = this.Attribute;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
-            context.SourceDestCheck = this.SourceDestCheck;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -118,25 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.DescribeNetworkInterfaceAttributeRequest();
             
-            if (cmdletContext.Attachment != null)
+            if (cmdletContext.Attribute != null)
             {
-                request.Attachment = cmdletContext.Attachment;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Groups != null)
-            {
-                request.Groups = cmdletContext.Groups;
+                request.Attribute = cmdletContext.Attribute;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
                 request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
-            }
-            if (cmdletContext.SourceDestCheck != null)
-            {
-                request.SourceDestCheck = cmdletContext.SourceDestCheck;
             }
             
             CmdletOutput output;
@@ -173,11 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Attachment { get; set; }
-            public System.String Description { get; set; }
-            public System.String Groups { get; set; }
+            public Amazon.EC2.NetworkInterfaceAttribute Attribute { get; set; }
             public System.String NetworkInterfaceId { get; set; }
-            public System.String SourceDestCheck { get; set; }
         }
         
     }
