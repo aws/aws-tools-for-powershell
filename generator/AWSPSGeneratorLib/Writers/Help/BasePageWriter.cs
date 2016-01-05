@@ -161,7 +161,7 @@ namespace AWSPowerShellGenerator.Writers.Help
         protected virtual void WriteFooter(TextWriter writer)
         {
             writer.WriteLine("<div id=\"pageFooter\">");
-                writer.WriteLine("<div class=\"copyright\">&copy; {0}</div>", HelpGeneratorBase.Copyright);
+                writer.WriteLine("<div id=\"copyright\"></div>");
                 writer.WriteLine("<span class=\"newline linkto\"><a href=\"javascript:void(0)\" onclick=\"AWSHelpObj.displayLink('{0}', '{1}')\">Link to this page</a></span>", 
                                  this.GenerateFilename(), 
                                  this.GetTOCID());
@@ -210,6 +210,7 @@ namespace AWSPowerShellGenerator.Writers.Help
             writer.WriteLine("$(\"div#regionDisclaimer\").remove();");
             writer.WriteLine("}");
             writer.WriteLine("AWSHelpObj.setAssemblyVersion();");
+            writer.WriteLine("AWSHelpObj.setCopyrightText();");
             writer.WriteLine("});");
             writer.WriteLine("</script>");
             writer.WriteLine("<!-- END-SECTION -->");
