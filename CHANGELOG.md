@@ -1,3 +1,7 @@
+### 3.1.36.2 (2016-01-06)
+  * Amazon EC2
+    - Corrected parameters for the Get-EC2NetworkInterfaceAttribute cmdlet due to errors in the underlying SDK request class for the operation. The class and the cmdlet should have exposed a single Attribute parameter, not members for each value allowed for 'Attribute'.
+
 ### 3.1.36.1 (2015-12-22)
   * Initialize-AWSDefaults
     - Fixed further reported issue with the cmdlet reporting 'profile not found' error with no profile name detailed.
