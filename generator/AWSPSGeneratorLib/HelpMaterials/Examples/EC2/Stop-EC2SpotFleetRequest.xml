@@ -5,7 +5,7 @@
     <description>This example cancels the specified Spot fleet request and terminates the associated Spot instances.</description>
   </example>
   <example>
-    <code>PS C:\> Stop-EC2SpotFleetRequest -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -TerminateInstance $false
+    <code>PS C:\> Stop-EC2SpotFleetRequest -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -TerminateInstance $false</code>
     <description>This example cancels the specified Spot fleet request without terminating the associated Spot instances.</description>
   </example>
 </examples>
