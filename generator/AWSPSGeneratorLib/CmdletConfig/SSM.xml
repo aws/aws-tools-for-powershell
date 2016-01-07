@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SSM</ServiceNounPrefix>
+  <ServiceName>Amazon Simple Systems Management</ServiceName>
   <ServiceClientInterface>IAmazonSimpleSystemsManagement</ServiceClientInterface>
   <ServiceClient>AmazonSimpleSystemsManagementClient</ServiceClient>
   <ServiceNamespace>Amazon.SimpleSystemsManagement</ServiceNamespace>

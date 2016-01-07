@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public class GetSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the SSM document.</para>
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class UpdateAGAccountCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter PatchOperation
         /// <summary>
         /// <para>
         /// <para>A list of operations describing the updates to apply to the specified resource. The
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("PatchOperations")]
         public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

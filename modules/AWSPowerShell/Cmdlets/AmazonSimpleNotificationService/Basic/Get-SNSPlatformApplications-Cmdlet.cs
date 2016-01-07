@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class GetSNSPlatformApplicationsCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>NextToken string is used when calling ListPlatformApplications action to retrieve
@@ -56,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

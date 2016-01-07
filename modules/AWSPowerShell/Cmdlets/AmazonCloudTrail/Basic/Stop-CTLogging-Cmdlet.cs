@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// <summary>
     /// Suspends the recording of AWS API calls and log file delivery for the specified trail.
     /// Under most circumstances, there is no need to use this action. You can update a trail
-    /// without stopping it first. This action is the only way to stop recording.
+    /// without stopping it first. This action is the only way to stop recording. For a trail
+    /// enabled in all regions, this operation must be called from the region in which the
+    /// trail was created, or an <code>InvalidHomeRegionException</code> will occur. This
+    /// operation cannot be called on the shadow trails (replicated trails in other regions)
+    /// of a trail enabled in all regions.
     /// </summary>
     [Cmdlet("Stop", "CTLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -41,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class StopCTLoggingCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop
@@ -49,14 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Name parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

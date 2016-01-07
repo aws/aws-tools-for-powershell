@@ -46,28 +46,37 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class InvokeLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// Gets and sets the property FunctionName. 
-        /// <para>
-        /// The cloud function name.
+        /// The Lambda function name.
         /// </para>
+        /// <para>
+        /// You can specify a function name (for example, Thumbnail) or you can specify Amazon Resource Name (ARN) of 
+        /// the function (for example, arn:aws:lambda:us-west-2:account-id:function:ThumbNail). AWS Lambda also allows 
+        /// you to specify a partial ARN (for example, account-id:Thumbnail). Note that the length constraint applies 
+        /// only to the ARN. If you specify only the function name, it is limited to 64 character in length.
+        /// </para>
+        /// <para>
+        /// Length constraints: Minimum length of 1. Maximum length of 140.
+        /// </para>
+        /// <para>
+        /// Pattern: (arn:aws:lambda:)?([a-z]{2}-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?
         /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
-        
+        #endregion
+
+        #region Parameter Payload
         /// <summary>
-        /// <para>
-        /// Gets and sets the property InvokeArgs. 
-        /// <para>
         /// JSON that you want to provide to your Lambda function as input.
-        /// </para>
-        /// </para>
         /// </summary>
         [Parameter(Position = 1)]
         public System.String Payload { get; set; }
+        #endregion
 
+        #region Parameter ClientContext
         /// <summary>
         /// Using the <code>ClientContext</code> you can pass client-specific information to the
         /// Lambda function you are invoking. You can then process the client information in your
@@ -77,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [Parameter(Position = 2)]
         public System.String ClientContext { get; set; }
+        #endregion
 
+        #region Parameter InvocationType
         /// <summary>
         /// By default, the <code>Invoke</code> API assumes "RequestResponse" invocation type.
         /// You can optionally request asynchronous execution by specifying "Event" as the <code>InvocationType</code>.
@@ -88,8 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// without running it. 
         /// </summary>
         [Parameter(Position = 3)]
+        [AWSConstantClassSource("Amazon.Lambda.InvocationType")]
         public Amazon.Lambda.InvocationType InvocationType { get; set; }
+        #endregion
 
+        #region Parameter LogType 
         /// <summary>
         /// You can set this optional parameter to "Tail" in the request only if you specify the
         /// <code>InvocationType</code> parameter with value "RequestResponse". In this case,
@@ -97,8 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// function in the <code>x-amz-log-results</code> header. 
         /// </summary>
         [Parameter(Position = 4)]
+        [AWSConstantClassSource("Amazon.Lambda.LogType")]
         public Amazon.Lambda.LogType LogType { get; set; }
+        #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -106,6 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

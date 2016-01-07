@@ -44,13 +44,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Request", "KINStreamRetentionPeriodIncrease", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the IncreaseStreamRetentionPeriod operation against AWS Kinesis.", Operation = new[] {"IncreaseStreamRetentionPeriod"})]
+    [AWSCmdlet("Invokes the IncreaseStreamRetentionPeriod operation against Amazon Kinesis.", Operation = new[] {"IncreaseStreamRetentionPeriod"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.IncreaseStreamRetentionPeriodResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RequestKINStreamRetentionPeriodIncreaseCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter RetentionPeriodHour
         /// <summary>
         /// <para>
         /// <para>The new retention period of the stream, in hours. Must be more than the current retention
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [System.Management.Automation.Parameter]
         [Alias("RetentionPeriodHours")]
         public System.Int32 RetentionPeriodHour { get; set; }
+        #endregion
         
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream to modify.</para>
@@ -68,14 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StreamName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

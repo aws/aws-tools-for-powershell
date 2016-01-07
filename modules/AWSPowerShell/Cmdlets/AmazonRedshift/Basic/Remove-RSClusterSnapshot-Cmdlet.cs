@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class RemoveRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter SnapshotClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the cluster the snapshot was created from. This parameter
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshotClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The unique identifier of the manual snapshot to be deleted. </para><para>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

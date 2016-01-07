@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class NewRSEventSubscriptionCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Enabled
         /// <summary>
         /// <para>
         /// <para> A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code>
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter EventCategory
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Redshift event categories to be published by the event notification
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("EventCategories")]
         public System.String[] EventCategory { get; set; }
+        #endregion
         
+        #region Parameter Severity
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Redshift event severity to be published by the event notification
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Severity { get; set; }
+        #endregion
         
+        #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit the event
@@ -98,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnsTopicArn { get; set; }
+        #endregion
         
+        #region Parameter SourceId
         /// <summary>
         /// <para>
         /// <para> A list of one or more identifiers of Amazon Redshift source objects. All of the objects
@@ -110,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("SourceIds")]
         public System.String[] SourceId { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The type of source that will be generating the events. For example, if you want to
@@ -122,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceType { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionName
         /// <summary>
         /// <para>
         /// <para> The name of the event subscription to be created. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank.</li><li>Must contain from 1 to 255 alphanumeric
@@ -132,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SubscriptionName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -141,7 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -149,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

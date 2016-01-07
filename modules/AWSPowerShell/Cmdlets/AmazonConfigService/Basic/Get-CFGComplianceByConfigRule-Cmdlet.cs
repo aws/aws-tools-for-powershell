@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGComplianceByConfigRule")]
     [OutputType("Amazon.ConfigService.Model.ComplianceByConfigRule")]
-    [AWSCmdlet("Invokes the DescribeComplianceByConfigRule operation against Amazon Config.", Operation = new[] {"DescribeComplianceByConfigRule"})]
+    [AWSCmdlet("Invokes the DescribeComplianceByConfigRule operation against AWS Config.", Operation = new[] {"DescribeComplianceByConfigRule"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceByConfigRule",
         "This cmdlet returns a collection of ComplianceByConfigRule objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeComplianceByConfigRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGComplianceByConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComplianceType
         /// <summary>
         /// <para>
         /// <para>Filters the results by compliance. The valid values are <code>Compliant</code> and
@@ -66,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ComplianceTypes")]
         public System.String[] ComplianceType { get; set; }
+        #endregion
         
+        #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
         /// <para>Specify one or more AWS Config rule names to filter the results by rule.</para>
@@ -75,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRuleNames")]
         public System.String[] ConfigRuleName { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
@@ -84,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

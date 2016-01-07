@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class GetCPJobDetailsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The unique system-generated ID for the job.</para>
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String JobId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

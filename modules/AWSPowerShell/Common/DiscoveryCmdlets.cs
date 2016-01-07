@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Common
         }
 
         /// <summary>
-        /// Searches the set of base service client classes to find a matching PowerShell prefix 
+        /// Searches the set of base service client classes to find a matching PowerShell prefix
         /// or service name.
         /// </summary>
         /// <param name="searchText">The search text to match against</param>
@@ -305,14 +305,14 @@ namespace Amazon.PowerShell.Common
         }
 
         /// <summary>
-        /// Searches the set of base service client classes to discover the PowerShell prefix 
+        /// Searches the set of base service client classes to discover the PowerShell prefix
         /// code for a service parsed as part of an AWS CLI command.
         /// </summary>
         /// <param name="searchText">The search text to match against</param>
         /// <returns>Collection of prefixes that matched the search</returns>
         /// <remarks>
         /// When matching for a CLI command priority is given to matching on prefix code only.
-        /// Service names will only be inspected if we could not match prefixes (as AWS CLI 
+        /// Service names will only be inspected if we could not match prefixes (as AWS CLI
         /// prefixes do not always match our prefixes).
         /// </remarks>
         IEnumerable<string> MatchCliPrefixesOrNames(string searchText)

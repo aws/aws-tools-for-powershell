@@ -65,14 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2SubnetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone for the subnet.</para><para>Default: Amazon EC2 selects one for you (recommended).</para>
+        /// <para>The Availability Zone for the subnet.</para><para>Default: AWS selects one for you. If you create more than one subnet in your VPC,
+        /// we may not necessarily select a different zone for each subnet. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter CidrBlock
         /// <summary>
         /// <para>
         /// <para>The network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.</para>
@@ -80,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String CidrBlock { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC.</para>
@@ -88,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

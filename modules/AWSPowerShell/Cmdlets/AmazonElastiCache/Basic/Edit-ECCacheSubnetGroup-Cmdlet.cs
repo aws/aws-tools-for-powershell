@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class EditECCacheSubnetGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheSubnetGroupDescription
         /// <summary>
         /// <para>
         /// <para>A description for the cache subnet group.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String CacheSubnetGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter CacheSubnetGroupName
         /// <summary>
         /// <para>
         /// <para>The name for the cache subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</para><para>Example: <code>mysubnetgroup</code></para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The EC2 subnet IDs for the cache subnet group.</para>
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

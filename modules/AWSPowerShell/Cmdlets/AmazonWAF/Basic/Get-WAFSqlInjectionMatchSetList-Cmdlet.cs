@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFSqlInjectionMatchSetListCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies the number of <a>SqlInjectionMatchSet</a> objects that you want AWS WAF
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextMarker
         /// <summary>
         /// <para>
         /// <para>If you specify a value for <code>Limit</code> and you have more <a>SqlInjectionMatchSet</a>
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String NextMarker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

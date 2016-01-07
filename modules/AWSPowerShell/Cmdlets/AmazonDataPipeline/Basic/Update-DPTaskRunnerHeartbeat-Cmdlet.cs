@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class UpdateDPTaskRunnerHeartbeatCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The public DNS name of the task runner.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter TaskrunnerId
         /// <summary>
         /// <para>
         /// <para>The ID of the task runner. This value should be unique across your AWS account. In
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TaskrunnerId { get; set; }
+        #endregion
         
+        #region Parameter WorkerGroup
         /// <summary>
         /// <para>
         /// <para>The type of task the task runner is configured to accept and process. The worker group
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String WorkerGroup { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

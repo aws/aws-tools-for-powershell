@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class NewAGResourceCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParentId
         /// <summary>
         /// <para>
         /// <para>The parent resource's identifier.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ParentId { get; set; }
+        #endregion
         
+        #region Parameter PathPart
         /// <summary>
         /// <para>
         /// <para>The last path segment for this resource.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PathPart { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The identifier of the <a>RestApi</a> for the resource. </para>
@@ -61,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -117,6 +117,9 @@
     <Reference Include="AWSSDK.EC2">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ECR">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ECR.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ECS">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGTapeRecoveryPointsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the number of virtual tape recovery points that are described be limited
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An opaque string that indicates the position at which to begin describing the virtual
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

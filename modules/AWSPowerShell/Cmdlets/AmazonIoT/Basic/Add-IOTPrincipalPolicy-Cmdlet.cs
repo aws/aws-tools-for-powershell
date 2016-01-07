@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class AddIOTPrincipalPolicyCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The policy name.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter Principal
         /// <summary>
         /// <para>
         /// <para>The principal which can be a certificate ARN (as returned from the CreateCertificate
@@ -55,14 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Principal { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Principal parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

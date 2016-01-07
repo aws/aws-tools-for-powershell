@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSLoadBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>An array of layer IDs.</para>
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class StartEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdditionalInfo
         /// <summary>
         /// <para>
         /// <para>Reserved.</para>
@@ -66,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdditionalInfo { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>One or more instance IDs.</para>
@@ -75,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("Instance","InstanceIds")]
         public object[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

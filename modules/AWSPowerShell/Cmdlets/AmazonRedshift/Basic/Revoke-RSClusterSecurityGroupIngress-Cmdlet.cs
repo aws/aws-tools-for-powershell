@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class RevokeRSClusterSecurityGroupIngressCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter CIDRIP
         /// <summary>
         /// <para>
         /// <para> The IP range for which to revoke access. This range must be a valid Classless Inter-Domain
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String CIDRIP { get; set; }
+        #endregion
         
+        #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the security Group from which to revoke the ingress rule. </para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the EC2 Security Group whose access is to be revoked. If <code>EC2SecurityGroupName</code>
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String EC2SecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
         /// <para> The AWS account number of the owner of the security group specified in the <code>EC2SecurityGroupName</code>
@@ -81,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.String EC2SecurityGroupOwnerId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -89,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

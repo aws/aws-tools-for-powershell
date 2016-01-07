@@ -56,6 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     {
         protected IAmazonSecurityTokenService Client { get; private set; }
 
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// The Amazon Resource Name (ARN) of the role that the caller is assuming.
@@ -65,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RoleArn { get; set; }
-        
+        #endregion
+
+        #region Parameter RoleSessionName
         /// <summary>
         /// <para>
         /// An identifier for the assumed role session. Typically, you pass the name or identifier that is associated with the user who is using your
@@ -77,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [Parameter(Position = 1)]
         public System.String RoleSessionName { get; set; }
-        
+        #endregion
+
+        #region Parameter WebIdentityToken
         /// <summary>
         /// <para>
         /// The OAuth 2.0 access token or OpenID Connect id token that is provided by the identity provider. Your application must get this token by
@@ -89,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [Parameter(Position = 2)]
         public System.String WebIdentityToken { get; set; }
-        
+        #endregion
+
+        #region Parameter ProviderId
         /// <summary>
         /// <para>
         /// Specify this value only for OAuth access tokens. Do not specify this value for OpenID Connect id tokens, such as <c>accounts.google.com</c>.
@@ -101,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [Parameter(Position = 3)]
         public System.String ProviderId { get; set; }
-        
+        #endregion
+
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// A supplemental policy that is associated with the temporary security credentials from the <c>AssumeRoleWithWebIdentity</c> call. The
@@ -113,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [Parameter(Position = 4)]
         public System.String Policy { get; set; }
-        
+        #endregion
+
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// The duration, in seconds, of the role session. The value can range from 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the
@@ -125,12 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.STS
         [Parameter]
         [Alias("DurationSeconds")]
         public System.Int32? Duration { get; set; }
+        #endregion
 
+        #region Parameter Region
         /// <summary>
         /// The region to use. STS has a single endpoint irrespective of region, though STS in GovCloud has its own endpoint.
         /// </summary>
         [Parameter]
         public System.String Region { get; set; }
+        #endregion
 
         protected IAmazonSecurityTokenService CreateClient(string region)
         {

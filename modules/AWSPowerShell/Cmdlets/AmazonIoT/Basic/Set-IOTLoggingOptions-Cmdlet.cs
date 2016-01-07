@@ -39,14 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class SetIOTLoggingOptionsCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoggingOptionsPayload_LogLevel
         /// <summary>
         /// <para>
         /// <para>The logging level.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IoT.LogLevel")]
         public Amazon.IoT.LogLevel LoggingOptionsPayload_LogLevel { get; set; }
+        #endregion
         
+        #region Parameter LoggingOptionsPayload_RoleArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that grants access.</para>
@@ -54,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LoggingOptionsPayload_RoleArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

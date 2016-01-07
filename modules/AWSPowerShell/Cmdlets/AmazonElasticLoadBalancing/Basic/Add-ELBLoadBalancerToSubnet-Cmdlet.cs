@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     ///  
     /// <para>
     /// The load balancer evenly distributes requests across all registered subnets. For more
-    /// information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html">Elastic
-    /// Load Balancing in Amazon VPC</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-manage-subnets.html">Add
+    /// or Remove Subnets for Your Load Balancer in a VPC</a> in the <i>Elastic Load Balancing
+    /// Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELBLoadBalancerToSubnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class AddELBLoadBalancerToSubnetCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -53,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter Subnet
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets to add for the load balancer. You can add only one subnet per
@@ -63,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Subnets")]
         public System.String[] Subnet { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

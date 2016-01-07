@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class SetDPStatusCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ObjectId
         /// <summary>
         /// <para>
         /// <para>The IDs of the objects. The corresponding objects can be either physical or components,
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("ObjectIds")]
         public System.String[] ObjectId { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline that contains the objects.</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Status
         /// <summary>
         /// <para>
         /// <para>The status to be set on all the objects specified in <code>objectIds</code>. For components,
@@ -70,14 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Status { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the object ids.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

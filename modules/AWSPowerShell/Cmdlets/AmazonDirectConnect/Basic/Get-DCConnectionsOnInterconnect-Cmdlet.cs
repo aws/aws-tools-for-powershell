@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class GetDCConnectionsOnInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter InterconnectId
         /// <summary>
         /// <para>
         /// <para>ID of the interconnect on which a list of connection is provisioned.</para><para>Example: dxcon-abc123</para><para>Default: None</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InterconnectId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

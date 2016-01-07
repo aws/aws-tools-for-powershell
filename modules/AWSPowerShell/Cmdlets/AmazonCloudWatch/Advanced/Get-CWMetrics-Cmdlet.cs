@@ -40,6 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     )]
     public class GetCWMetricsCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
+        #region Parameter Namespace
         /// <summary>
         /// <para>
         /// The namespace to filter against.
@@ -49,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Namespace { get; set; }
-        
+        #endregion
+
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// The name of the metric to filter against.
@@ -59,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String MetricName { get; set; }
-        
+        #endregion
+
+        #region Parameter Dimension
         /// <summary>
         /// <para>
         /// A list of dimensions to filter against.
@@ -70,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [Parameter(Position = 2)]
         [Alias("Dimensions")]
         public Amazon.CloudWatch.Model.DimensionFilter[] Dimension { get; set; }
-        
+        #endregion
+
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// The token returned by a previous call to indicate that there is more data available.
@@ -78,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [Parameter]
         public System.String NextToken { get; set; }
+        #endregion
 
+        #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all metrics to the pipeline. If set,
         /// the cmdlet will retrieve only the next 'page' of results (max 500 entries) using the 
@@ -86,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [Parameter]
         public SwitchParameter NoAutoIteration { get; set; }
-        
+        #endregion
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

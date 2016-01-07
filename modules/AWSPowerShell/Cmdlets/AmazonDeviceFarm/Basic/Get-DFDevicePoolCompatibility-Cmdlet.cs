@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class GetDFDevicePoolCompatibilityCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the app that is associated with the specified device pool.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppArn { get; set; }
+        #endregion
         
+        #region Parameter DevicePoolArn
         /// <summary>
         /// <para>
         /// <para>The device pool's ARN.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DevicePoolArn { get; set; }
+        #endregion
         
+        #region Parameter TestType
         /// <summary>
         /// <para>
         /// <para>The test type for the specified device pool.</para><para>Allowed values include the following:</para><ul><li><para>BUILTIN_FUZZ: The built-in fuzz type.</para></li><li><para>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app,
@@ -61,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DeviceFarm.TestType")]
         public Amazon.DeviceFarm.TestType TestType { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

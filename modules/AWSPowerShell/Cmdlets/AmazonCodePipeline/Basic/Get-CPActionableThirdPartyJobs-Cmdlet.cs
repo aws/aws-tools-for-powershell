@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class GetCPActionableThirdPartyJobsCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionTypeId_Category
         /// <summary>
         /// <para>
         /// <para>A category defines what kind of action can be taken in the stage, and constrains the
@@ -54,8 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionCategory")]
         public Amazon.CodePipeline.ActionCategory ActionTypeId_Category { get; set; }
+        #endregion
         
+        #region Parameter MaxBatchSize
         /// <summary>
         /// <para>
         /// <para>The maximum number of jobs to return in a poll for jobs call.</para>
@@ -63,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MaxBatchSize { get; set; }
+        #endregion
         
+        #region Parameter ActionTypeId_Provider
         /// <summary>
         /// <para>
         /// <para>The provider of the service being called by the action. Valid providers are determined
@@ -73,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ActionTypeId_Provider { get; set; }
+        #endregion
         
+        #region Parameter ActionTypeId_Version
         /// <summary>
         /// <para>
         /// <para>A string that identifies the action type. </para>
@@ -81,15 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ActionTypeId_Version { get; set; }
+        #endregion
         
+        #region Parameter ActionTypeId_Owner
         /// <summary>
         /// <para>
         /// <para>The creator of the action being called. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionOwner")]
         public Amazon.CodePipeline.ActionOwner ActionTypeId_Owner { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

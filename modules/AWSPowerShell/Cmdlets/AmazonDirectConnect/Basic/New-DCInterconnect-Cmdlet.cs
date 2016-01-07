@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class NewDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter Bandwidth
         /// <summary>
         /// <para>
         /// <para>The port bandwidth</para><para>Example: 1Gbps</para><para>Default: None</para><para>Available values: 1Gbps,10Gbps</para>
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Bandwidth { get; set; }
+        #endregion
         
+        #region Parameter InterconnectName
         /// <summary>
         /// <para>
         /// <para>The name of the interconnect.</para><para>Example: "<i>1G Interconnect to AWS</i>"</para><para>Default: None</para>
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String InterconnectName { get; set; }
+        #endregion
         
+        #region Parameter Location
         /// <summary>
         /// <para>
         /// <para>Where the interconnect is located</para><para>Example: EqSV5</para><para>Default: None</para>
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Location { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

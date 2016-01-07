@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class EditECReplicationGroupCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, this parameter causes the modifications in this request and
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ApplyImmediately { get; set; }
+        #endregion
         
+        #region Parameter AutomaticFailoverEnabled
         /// <summary>
         /// <para>
         /// <para>Whether a read replica will be automatically promoted to read/write primary if the
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutomaticFailoverEnabled { get; set; }
+        #endregion
         
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para>This parameter is currently disabled.</para>
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the cache parameter group to apply to all of the clusters in this replication
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CacheParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
         /// <para>A list of cache security group names to authorize for the clusters in this replication
@@ -87,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CacheSecurityGroupNames")]
         public System.String[] CacheSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The upgraded version of the cache engine to be run on the cache clusters in the replication
@@ -96,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter NotificationTopicArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
@@ -105,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NotificationTopicArn { get; set; }
+        #endregion
         
+        #region Parameter NotificationTopicStatus
         /// <summary>
         /// <para>
         /// <para>The status of the Amazon SNS notification topic for the replication group. Notifications
@@ -114,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NotificationTopicStatus { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
@@ -125,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter PrimaryClusterId
         /// <summary>
         /// <para>
         /// <para>If this parameter is specified, ElastiCache will promote each of the cache clusters
@@ -135,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PrimaryClusterId { get; set; }
+        #endregion
         
+        #region Parameter ReplicationGroupDescription
         /// <summary>
         /// <para>
         /// <para>A description for the replication group. Maximum length is 255 characters.</para>
@@ -143,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReplicationGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
         /// <para>The identifier of the replication group to modify.</para>
@@ -151,7 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReplicationGroupId { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
         /// <para>Specifies the VPC Security Groups associated with the cache clusters in the replication
@@ -162,7 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("SecurityGroupIds")]
         public System.String[] SecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotRetentionLimit
         /// <summary>
         /// <para>
         /// <para>The number of days for which ElastiCache will retain automatic node group snapshots
@@ -173,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 SnapshotRetentionLimit { get; set; }
+        #endregion
         
+        #region Parameter SnapshottingClusterId
         /// <summary>
         /// <para>
         /// <para>The cache cluster ID that will be used as the daily snapshot source for the replication
@@ -182,7 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshottingClusterId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotWindow
         /// <summary>
         /// <para>
         /// <para>The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot
@@ -192,7 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshotWindow { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -200,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// other than the default SOA record and NS resource record sets. If your hosted zone
     /// contains other resource record sets, you must delete them before you can delete your
     /// hosted zone. If you try to delete a hosted zone that contains other resource record
-    /// sets, Route 53 will deny your request with a <code>HostedZoneNotEmpty</code> error.
-    /// For information about deleting records from your hosted zone, see <a>ChangeResourceRecordSets</a>.</important>
+    /// sets, Amazon Route 53 will deny your request with a <code>HostedZoneNotEmpty</code>
+    /// error. For information about deleting records from your hosted zone, see <a>ChangeResourceRecordSets</a>.</important>
     /// </summary>
     [Cmdlet("Remove", "R53HostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
@@ -51,14 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class RemoveR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone you want to delete.</para>
+        /// <para>The ID of the hosted zone you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -66,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

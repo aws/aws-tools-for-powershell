@@ -76,6 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class SendSESRawEmailCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RawMessage_Data
         /// <summary>
         /// <para>
         /// <para>The raw data of the message. The client must ensure that the message format complies
@@ -89,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream RawMessage_Data { get; set; }
+        #endregion
         
+        #region Parameter Destination
         /// <summary>
         /// <para>
         /// <para>A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.</para>
@@ -98,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Destinations")]
         public System.String[] Destination { get; set; }
+        #endregion
         
+        #region Parameter FromArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -113,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FromArn { get; set; }
+        #endregion
         
+        #region Parameter ReturnPathArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -131,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReturnPathArn { get; set; }
+        #endregion
         
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para>The identity's email address. If you do not provide a value for this parameter, you
@@ -148,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Source { get; set; }
+        #endregion
         
+        #region Parameter SourceArn
         /// <summary>
         /// <para>
         /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -166,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -174,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

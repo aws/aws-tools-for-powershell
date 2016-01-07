@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class NewECSnapshotCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheClusterId
         /// <summary>
         /// <para>
         /// <para>The identifier of an existing cache cluster. The snapshot will be created from this
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheClusterId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotName
         /// <summary>
         /// <para>
         /// <para>A name for the snapshot being created.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

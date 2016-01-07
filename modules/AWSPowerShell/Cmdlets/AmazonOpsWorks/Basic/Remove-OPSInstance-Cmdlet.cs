@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class RemoveOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeleteElasticIp
         /// <summary>
         /// <para>
         /// <para>Whether to delete the instance Elastic IP address.</para>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Boolean DeleteElasticIp { get; set; }
+        #endregion
         
+        #region Parameter DeleteVolume
         /// <summary>
         /// <para>
         /// <para>Whether to delete the instance's Amazon EBS volumes.</para>
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("DeleteVolumes")]
         public System.Boolean DeleteVolume { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para>
@@ -74,14 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -89,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

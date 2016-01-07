@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CGI</ServiceNounPrefix>
+  <ServiceName>Amazon Cognito Identity</ServiceName>
   <ServiceNamespace>Amazon.CognitoIdentity</ServiceNamespace>
   <ServiceClientInterface>IAmazonCognitoIdentity</ServiceClientInterface>
   <ServiceClient>AmazonCognitoIdentityClient</ServiceClient>

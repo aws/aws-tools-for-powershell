@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class GetEFSMountTargetSecurityGroupCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter MountTargetId
         /// <summary>
         /// <para>
         /// <para>The ID of the mount target whose security groups you want to retrieve.</para>
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String MountTargetId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

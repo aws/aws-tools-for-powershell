@@ -45,14 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class RemoveCPCustomActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Category
         /// <summary>
         /// <para>
         /// <para>The category of the custom action that you want to delete, such as source or deploy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionCategory")]
         public Amazon.CodePipeline.ActionCategory Category { get; set; }
+        #endregion
         
+        #region Parameter Provider
         /// <summary>
         /// <para>
         /// <para>The provider of the service used in the custom action, such as AWS CodeDeploy.</para>
@@ -60,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Provider { get; set; }
+        #endregion
         
+        #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>The version of the custom action to delete.</para>
@@ -68,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Version { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

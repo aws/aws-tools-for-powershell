@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>String. The ID of the file system whose tags you want to delete.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FileSystemId { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>A list of tag keys to delete.</para>
@@ -64,14 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the FileSystemId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

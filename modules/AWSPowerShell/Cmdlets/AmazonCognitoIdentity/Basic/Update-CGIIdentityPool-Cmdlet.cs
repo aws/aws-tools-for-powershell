@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     )]
     public class UpdateCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowUnauthenticatedIdentity
         /// <summary>
         /// <para>
         /// TRUE if the identity pool
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         [System.Management.Automation.Parameter]
         [Alias("AllowUnauthenticatedIdentities")]
         public System.Boolean AllowUnauthenticatedIdentity { get; set; }
+        #endregion
         
+        #region Parameter DeveloperProviderName
         /// <summary>
         /// <para>
         /// <para>The "domain" by which Cognito will refer to your users.</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeveloperProviderName { get; set; }
+        #endregion
         
+        #region Parameter IdentityPoolId
         /// <summary>
         /// <para>
         /// An identity pool ID in the format REGION:GUID.
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String IdentityPoolId { get; set; }
+        #endregion
         
+        #region Parameter IdentityPoolName
         /// <summary>
         /// <para>
         /// <para>A string that you provide.</para>
@@ -76,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IdentityPoolName { get; set; }
+        #endregion
         
+        #region Parameter OpenIdConnectProviderARNs
         /// <summary>
         /// <para>
         /// <para>A list of OpendID Connect provider ARNs.</para>
@@ -84,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] OpenIdConnectProviderARNs { get; set; }
+        #endregion
         
+        #region Parameter SupportedLoginProvider
         /// <summary>
         /// <para>
         /// <para>Optional key:value pairs mapping provider names to provider app IDs.</para>
@@ -93,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         [System.Management.Automation.Parameter]
         [Alias("SupportedLoginProviders")]
         public System.Collections.Hashtable SupportedLoginProvider { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -101,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

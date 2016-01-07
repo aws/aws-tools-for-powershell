@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class NewHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>A user-defined token to ensure idempotence. Subsequent calls to this action with the
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter EniIp
         /// <summary>
         /// <para>
         /// <para>The IP address to assign to the HSM's ENI.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EniIp { get; set; }
+        #endregion
         
+        #region Parameter ExternalId
         /// <summary>
         /// <para>
         /// <para>The external ID from <b>IamRoleArn</b>, if present.</para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExternalId { get; set; }
+        #endregion
         
+        #region Parameter IamRoleArn
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your
@@ -73,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String IamRoleArn { get; set; }
+        #endregion
         
+        #region Parameter SshKey
         /// <summary>
         /// <para>
         /// <para>The SSH public key to install on the HSM.</para>
@@ -81,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SshKey { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The identifier of the subnet in your VPC in which to place the HSM.</para>
@@ -89,15 +101,20 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionType
         /// <summary>
         /// <para>
         /// <para>The subscription type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudHSM.SubscriptionType")]
         public Amazon.CloudHSM.SubscriptionType SubscriptionType { get; set; }
+        #endregion
         
+        #region Parameter SyslogIp
         /// <summary>
         /// <para>
         /// <para>The IP address for the syslog monitoring server.</para>
@@ -105,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SyslogIp { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -113,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

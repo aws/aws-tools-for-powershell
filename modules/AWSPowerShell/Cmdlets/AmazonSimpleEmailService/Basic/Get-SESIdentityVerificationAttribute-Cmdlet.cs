@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class GetSESIdentityVerificationAttributeCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>A list of identities.</para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("Identities")]
         public System.String[] Identity { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

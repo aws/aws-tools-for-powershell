@@ -39,18 +39,40 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class GetCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter IncludeShadowTrail
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include shadow trails in the response. A shadow trail is the
+        /// replication in a region of a trail that was created in a different region. The default
+        /// is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        [Alias("IncludeShadowTrails")]
+        public System.Boolean IncludeShadowTrail { get; set; }
+        #endregion
+        
+        #region Parameter TrailNameList
         /// <summary>
         /// <para>
         /// <para>Specifies a list of trail names, trail ARNs, or both, of the trails to describe. The
         /// format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.
         /// If an empty list is specified, information for the trail in the current region is
-        /// returned.</para>
+        /// returned.</para><ul><li>If an empty list is specified and <code>IncludeShadowTrails</code> is false,
+        /// then information for all trails in the current region is returned.</li><li> If an
+        /// empty list is specified and IncludeShadowTrails is null or true, then information
+        /// for all trails in the current region and any associated shadow trails in other regions
+        /// is returned. </li></ul><note>If one or more trail names are specified, information
+        /// is returned only if the names match the names of trails belonging only to the current
+        /// region. To return information about a trail in another region, you must specify its
+        /// trail ARN.</note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Name")]
         public System.String[] TrailNameList { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -62,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 Credentials = this.CurrentCredentials
             };
             
+            if (ParameterWasBound("IncludeShadowTrail"))
+                context.IncludeShadowTrails = this.IncludeShadowTrail;
             if (this.TrailNameList != null)
             {
                 context.TrailNameList = new List<System.String>(this.TrailNameList);
@@ -79,6 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request
             var request = new Amazon.CloudTrail.Model.DescribeTrailsRequest();
             
+            if (cmdletContext.IncludeShadowTrails != null)
+            {
+                request.IncludeShadowTrails = cmdletContext.IncludeShadowTrails.Value;
+            }
             if (cmdletContext.TrailNameList != null)
             {
                 request.TrailNameList = cmdletContext.TrailNameList;
@@ -118,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeShadowTrails { get; set; }
             public List<System.String> TrailNameList { get; set; }
         }
         

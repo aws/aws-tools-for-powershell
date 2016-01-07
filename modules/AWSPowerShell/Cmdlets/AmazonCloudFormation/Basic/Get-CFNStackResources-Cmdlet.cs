@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class GetCFNStackResourcesCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter LogicalResourceId
         /// <summary>
         /// <para>
         /// <para>The logical name of the resource as specified in the template.</para><para>Default: There is no default value.</para>
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LogicalResourceId { get; set; }
+        #endregion
         
+        #region Parameter PhysicalResourceId
         /// <summary>
         /// <para>
         /// <para>The name or unique identifier that corresponds to a physical instance ID of a resource
@@ -75,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PhysicalResourceId { get; set; }
+        #endregion
         
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or the unique stack ID that is associated with the stack, which are not always
@@ -86,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

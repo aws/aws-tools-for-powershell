@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     )]
     public class GetESTagCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter ARN
         /// <summary>
         /// <para>
         /// <para> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ARN { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

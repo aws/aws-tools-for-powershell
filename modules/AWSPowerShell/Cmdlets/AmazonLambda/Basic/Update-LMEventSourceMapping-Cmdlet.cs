@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class UpdateLMEventSourceMappingCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter BatchSize
         /// <summary>
         /// <para>
         /// <para>The maximum number of stream records that can be sent to your Lambda function for
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 BatchSize { get; set; }
+        #endregion
         
+        #region Parameter Enabled
         /// <summary>
         /// <para>
         /// <para>Specifies whether AWS Lambda should actively poll the stream or not. If disabled,
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The Lambda function to which you want the stream records sent.</para><para> You can specify an unqualified function name (for example, "Thumbnail") or you can
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter UUID
         /// <summary>
         /// <para>
         /// <para>The event source mapping identifier.</para>
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UUID { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -92,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

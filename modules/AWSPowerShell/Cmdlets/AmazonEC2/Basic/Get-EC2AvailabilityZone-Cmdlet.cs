@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2AvailabilityZoneCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>message</code> - Information about the Availability Zone.</para></li><li><para><code>region-name</code> - The name of the region for the Availability Zone (for example,
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter ZoneName
         /// <summary>
         /// <para>
         /// <para>The names of one or more Availability Zones.</para>
@@ -67,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ZoneNames")]
         public System.String[] ZoneName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

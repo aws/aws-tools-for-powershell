@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class StopECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task
@@ -56,7 +58,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter Reason
+        /// <summary>
+        /// <para>
+        /// <para>An optional message specified when a task is stopped. For example, if you are using
+        /// a custom scheduler, you can use this parameter to specify the reason for stopping
+        /// the task here, and the message will appear in subsequent <a>DescribeTasks</a> API
+        /// operations on this task. Up to 255 characters are allowed in this message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Reason { get; set; }
+        #endregion
+        
+        #region Parameter Task
         /// <summary>
         /// <para>
         /// <para>The task ID or full Amazon Resource Name (ARN) entry of the task to stop.</para>
@@ -64,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Task { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -91,6 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             };
             
             context.Cluster = this.Cluster;
+            context.Reason = this.Reason;
             context.Task = this.Task;
             
             var output = Execute(context) as CmdletOutput;
@@ -108,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
+            }
+            if (cmdletContext.Reason != null)
+            {
+                request.Reason = cmdletContext.Reason;
             }
             if (cmdletContext.Task != null)
             {
@@ -149,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal class CmdletContext : ExecutorContext
         {
             public System.String Cluster { get; set; }
+            public System.String Reason { get; set; }
             public System.String Task { get; set; }
         }
         

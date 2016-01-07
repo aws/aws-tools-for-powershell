@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     )]
     public class GetDDBStreamCmdlet : AmazonDynamoDBStreamsClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartShardId
         /// <summary>
         /// <para>
         /// <para>The shard ID of the first item that this operation will evaluate. Use the value that
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String ExclusiveStartShardId { get; set; }
+        #endregion
         
+        #region Parameter StreamArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the stream.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamArn { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of shard objects to return. The upper limit is 100.</para>
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

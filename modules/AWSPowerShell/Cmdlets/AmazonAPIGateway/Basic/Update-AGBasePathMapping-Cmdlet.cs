@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class UpdateAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter BasePath
         /// <summary>
         /// <para>
         /// <para>The base path of the <a>BasePathMapping</a> resource to change.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BasePath { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The domain name of the <a>BasePathMapping</a> resource to change.</para>
@@ -53,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter PatchOperation
         /// <summary>
         /// <para>
         /// <para>A list of operations describing the updates to apply to the specified resource. The
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("PatchOperations")]
         public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

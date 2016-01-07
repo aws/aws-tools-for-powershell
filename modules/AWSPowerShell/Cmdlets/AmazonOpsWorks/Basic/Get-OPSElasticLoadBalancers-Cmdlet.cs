@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSElasticLoadBalancersCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>A list of layer IDs. The action describes the Elastic Load Balancing instances for
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>A stack ID. The action describes the stack's Elastic Load Balancing instances.</para>
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

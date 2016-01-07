@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VpnConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>customer-gateway-configuration</code> - The configuration information for the
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VpnConnectionId
         /// <summary>
         /// <para>
         /// <para>One or more VPN connection IDs.</para><para>Default: Describes your VPN connections.</para>
@@ -78,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("VpnConnectionIds")]
         public System.String[] VpnConnectionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

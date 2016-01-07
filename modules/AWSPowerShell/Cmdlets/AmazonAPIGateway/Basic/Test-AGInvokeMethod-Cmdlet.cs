@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class TestAGInvokeMethodCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter Body
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -45,15 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Body { get; set; }
+        #endregion
         
+        #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientCertificateId { get; set; }
+        #endregion
         
+        #region Parameter HttpMethod
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -61,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HttpMethod { get; set; }
+        #endregion
         
+        #region Parameter PathWithQueryString
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -69,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PathWithQueryString { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -77,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -85,7 +97,20 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter StageVariable
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("StageVariables")]
+        public System.Collections.Hashtable StageVariable { get; set; }
+        #endregion
+        
+        #region Parameter Header
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -94,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("Headers")]
         public System.Collections.Hashtable Header { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -120,6 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.PathWithQueryString = this.PathWithQueryString;
             context.ResourceId = this.ResourceId;
             context.RestApiId = this.RestApiId;
+            if (this.StageVariable != null)
+            {
+                context.StageVariables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.StageVariable.Keys)
+                {
+                    context.StageVariables.Add((String)hashKey, (String)(this.StageVariable[hashKey]));
+                }
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -160,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.RestApiId != null)
             {
                 request.RestApiId = cmdletContext.RestApiId;
+            }
+            if (cmdletContext.StageVariables != null)
+            {
+                request.StageVariables = cmdletContext.StageVariables;
             }
             
             CmdletOutput output;
@@ -203,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String PathWithQueryString { get; set; }
             public System.String ResourceId { get; set; }
             public System.String RestApiId { get; set; }
+            public Dictionary<System.String, System.String> StageVariables { get; set; }
         }
         
     }

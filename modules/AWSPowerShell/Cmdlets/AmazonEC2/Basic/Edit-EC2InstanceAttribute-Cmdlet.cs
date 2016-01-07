@@ -47,14 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2InstanceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The name of the attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.InstanceAttributeName")]
         public Amazon.EC2.InstanceAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
@@ -68,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("BlockDeviceMappings")]
         public Amazon.EC2.Model.InstanceBlockDeviceMappingSpecification[] BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter DisableApiTermination
         /// <summary>
         /// <para>
         /// <para>If the value is <code>true</code>, you can't terminate the instance using the Amazon
@@ -78,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean DisableApiTermination { get; set; }
+        #endregion
         
+        #region Parameter EbsOptimized
         /// <summary>
         /// <para>
         /// <para>Specifies whether the instance is optimized for EBS I/O. This optimization provides
@@ -89,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter Group
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] Changes the security groups of the instance. You must specify at least one
@@ -100,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("GroupId","Groups")]
         public System.String[] Group { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
@@ -108,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter InstanceInitiatedShutdownBehavior
         /// <summary>
         /// <para>
         /// <para>Specifies whether an instance stops or terminates when you initiate shutdown from
@@ -117,7 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceInitiatedShutdownBehavior { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>Changes the instance type to the specified value. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
@@ -126,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceType { get; set; }
+        #endregion
         
+        #region Parameter Kernel
         /// <summary>
         /// <para>
         /// <para>Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB
@@ -135,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Kernel { get; set; }
+        #endregion
         
+        #region Parameter Ramdisk
         /// <summary>
         /// <para>
         /// <para>Changes the instance's RAM disk to the specified value. We recommend that you use
@@ -144,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Ramdisk { get; set; }
+        #endregion
         
+        #region Parameter SourceDestCheck
         /// <summary>
         /// <para>
         /// <para>Specifies whether source/destination checking is enabled. A value of <code>true</code>
@@ -154,7 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SourceDestCheck { get; set; }
+        #endregion
         
+        #region Parameter SriovNetSupport
         /// <summary>
         /// <para>
         /// <para>Set to <code>simple</code> to enable enhanced networking for the instance.</para><para>There is no way to disable enhanced networking at this time.</para><para>This option is supported only for HVM instances. Specifying this option with a PV
@@ -163,7 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SriovNetSupport { get; set; }
+        #endregion
         
+        #region Parameter UserData
         /// <summary>
         /// <para>
         /// <para>Changes the instance's user data to the specified value.</para>
@@ -171,7 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String UserData { get; set; }
+        #endregion
         
+        #region Parameter Value
         /// <summary>
         /// <para>
         /// <para>A new value for the attribute. Use only with the <code>kernel</code>, <code>ramdisk</code>,
@@ -181,14 +210,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Value { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -196,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

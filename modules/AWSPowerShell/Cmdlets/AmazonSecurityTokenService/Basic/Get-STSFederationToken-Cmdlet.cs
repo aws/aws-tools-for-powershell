@@ -40,16 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.STS
     ///  If you are creating a mobile-based or browser-based app that can authenticate users
     /// using a web identity provider like Login with Amazon, Facebook, Google, or an OpenID
     /// Connect-compatible identity provider, we recommend that you use <a href="http://aws.amazon.com/cognito/">Amazon
-    /// Cognito</a> or <code>AssumeRoleWithWebIdentity</code>. For more information, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html">Creating Temporary
-    /// Security Credentials for Mobile Apps Using Identity Providers</a>.
+    /// Cognito</a> or <code>AssumeRoleWithWebIdentity</code>. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_assumerolewithwebidentity">Federation
+    /// Through a Web-based Identity Provider</a>.
     /// </para></note><para>
     /// The <code>GetFederationToken</code> action must be called by using the long-term AWS
     /// security credentials of an IAM user. You can also call <code>GetFederationToken</code>
     /// using the security credentials of an AWS account (root), but this is not recommended.
     /// Instead, we recommend that you create an IAM user for the purpose of the proxy application
     /// and then attach a policy to the IAM user that limits federated users to only the actions
-    /// and resources they need access to. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html">IAM
-    /// Best Practices</a> in <i>Using IAM</i>. 
+    /// and resources they need access to. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html">IAM
+    /// Best Practices</a> in the <i>Using IAM</i>. 
     /// </para><para>
     /// The temporary security credentials that are obtained by using the long-term credentials
     /// of an IAM user are valid for the specified duration, between 900 seconds (15 minutes)
@@ -82,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// are used to access a resource that has a resource-based policy that specifically allows
     /// the federated user to access the resource. 
     /// </para><para>
-    /// For more information about how permissions work, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html">Permissions
+    /// For more information about how permissions work, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html">Permissions
     /// for GetFederationToken</a>. For information about using <code>GetFederationToken</code>
-    /// to create temporary security credentials, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingFedTokens.html">Creating
-    /// Temporary Credentials to Enable Access for Federated Users</a>. 
+    /// to create temporary security credentials, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getfederationtoken">GetFederationToken—Federation
+    /// Through a Custom Identity Broker</a>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "STSFederationToken")]
@@ -96,6 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     )]
     public class GetSTSFederationTokenCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DurationInSeconds
         /// <summary>
         /// <para>
         /// <para>The duration, in seconds, that the session should last. Acceptable durations for federation
@@ -109,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("DurationSeconds")]
         public System.Int32 DurationInSeconds { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the federated user. The name is used as an identifier for the temporary
@@ -120,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// <para>An IAM policy in JSON format that is passed with the <code>GetFederationToken</code>
@@ -136,13 +142,13 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// the federated user to access the resource. </para><note>The policy plain text must be 2048 bytes or shorter. However, an internal conversion
         /// compresses it into a packed binary format with a separate limit. The PackedPolicySize
         /// response element indicates by percentage how close to the upper size limit the policy
-        /// is, with 100% equaling the maximum allowed size. </note><para>For more information about how permissions work, see <a href="http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html">Permissions
+        /// is, with 100% equaling the maximum allowed size. </note><para>For more information about how permissions work, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getfederationtoken.html">Permissions
         /// for GetFederationToken</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Policy { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

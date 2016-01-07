@@ -31,7 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Updates the settings that specify delivery of log files. Changes to a trail do not
     /// require stopping the CloudTrail service. Use this action to designate an existing
     /// bucket for log delivery. If the existing bucket has previously been a target for CloudTrail
-    /// log files, an IAM policy exists for the bucket.
+    /// log files, an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called
+    /// from the region in which the trail was created; otherwise, an <code>InvalidHomeRegionException</code>
+    /// is thrown.
     /// </summary>
     [Cmdlet("Update", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.UpdateTrailResponse")]
@@ -41,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class UpdateCTTrailCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter CloudWatchLogsLogGroupArn
         /// <summary>
         /// <para>
         /// <para>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier
@@ -50,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CloudWatchLogsLogGroupArn { get; set; }
+        #endregion
         
+        #region Parameter CloudWatchLogsRoleArn
         /// <summary>
         /// <para>
         /// <para>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
@@ -59,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CloudWatchLogsRoleArn { get; set; }
+        #endregion
         
+        #region Parameter EnableLogFileValidation
         /// <summary>
         /// <para>
         /// <para>Specifies whether log file validation is enabled. The default is false.</para><note>When you disable log file integrity validation, the chain of digest files is
@@ -73,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EnableLogFileValidation { get; set; }
+        #endregion
         
+        #region Parameter IncludeGlobalServiceEvent
         /// <summary>
         /// <para>
         /// <para>Specifies whether the trail is publishing events from global services such as IAM
@@ -83,7 +93,24 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.Parameter]
         [Alias("IncludeGlobalServiceEvents")]
         public System.Boolean IncludeGlobalServiceEvent { get; set; }
+        #endregion
         
+        #region Parameter IsMultiRegionTrail
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the trail applies only to the current region or to all regions.
+        /// The default is false. If the trail exists only in the current region and this value
+        /// is set to true, shadow trails (replications of the trail) will be created in the other
+        /// regions. If the trail exists in all regions and this value is set to false, the trail
+        /// will remain in the region where it was created, and its shadow trails in other regions
+        /// will be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IsMultiRegionTrail { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value
@@ -93,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the trail or trail ARN. If <code>Name</code> is a trail name,
@@ -106,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter S3BucketName
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the Amazon S3 bucket designated for publishing log files. See
@@ -116,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String S3BucketName { get; set; }
+        #endregion
         
+        #region Parameter S3KeyPrefix
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have
@@ -126,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String S3KeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter SnsTopicName
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the Amazon SNS topic defined for notification of log file delivery.
@@ -135,7 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SnsTopicName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -143,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -167,6 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.EnableLogFileValidation = this.EnableLogFileValidation;
             if (ParameterWasBound("IncludeGlobalServiceEvent"))
                 context.IncludeGlobalServiceEvents = this.IncludeGlobalServiceEvent;
+            if (ParameterWasBound("IsMultiRegionTrail"))
+                context.IsMultiRegionTrail = this.IsMultiRegionTrail;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             context.S3BucketName = this.S3BucketName;
@@ -200,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.IncludeGlobalServiceEvents != null)
             {
                 request.IncludeGlobalServiceEvents = cmdletContext.IncludeGlobalServiceEvents.Value;
+            }
+            if (cmdletContext.IsMultiRegionTrail != null)
+            {
+                request.IsMultiRegionTrail = cmdletContext.IsMultiRegionTrail.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -260,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             public System.String CloudWatchLogsRoleArn { get; set; }
             public System.Boolean? EnableLogFileValidation { get; set; }
             public System.Boolean? IncludeGlobalServiceEvents { get; set; }
+            public System.Boolean? IsMultiRegionTrail { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public System.String S3BucketName { get; set; }

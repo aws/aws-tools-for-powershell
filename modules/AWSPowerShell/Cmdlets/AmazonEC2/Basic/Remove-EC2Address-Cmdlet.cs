@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RemoveEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocationId
         /// <summary>
         /// <para>
         /// <para>[EC2-VPC] The allocation ID. Required for EC2-VPC.</para>
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String AllocationId { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</para>
@@ -70,14 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PublicIp parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

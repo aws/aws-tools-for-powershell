@@ -3,11 +3,9 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>INS</ServiceNounPrefix>
-
+  <ServiceName>Amazon Inspector</ServiceName>
   <ServiceNamespace>Amazon.Inspector</ServiceNamespace>
-
   <ServiceClientInterface>IAmazonInspector</ServiceClientInterface>
-  
   <ServiceClient>AmazonInspectorClient</ServiceClient>
 
   <AutoIterate EmitLimit="MaxResults" 

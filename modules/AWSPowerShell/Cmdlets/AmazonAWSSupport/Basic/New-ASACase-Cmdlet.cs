@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class NewASACaseCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
         /// <para>The ID of a set of one or more attachments for the case. Create the set by using <a>AddAttachmentsToSet</a>.</para>
@@ -77,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AttachmentSetId { get; set; }
+        #endregion
         
+        #region Parameter CategoryCode
         /// <summary>
         /// <para>
         /// <para>The category of problem for the AWS Support case. </para>
@@ -85,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String CategoryCode { get; set; }
+        #endregion
         
+        #region Parameter CcEmailAddress
         /// <summary>
         /// <para>
         /// <para>A list of email addresses that AWS Support copies on case correspondence.</para>
@@ -94,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("CcEmailAddresses")]
         public System.String[] CcEmailAddress { get; set; }
+        #endregion
         
+        #region Parameter CommunicationBody
         /// <summary>
         /// <para>
         /// <para>The communication body text when you create an AWS Support case by calling <a>CreateCase</a>.</para>
@@ -102,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public System.String CommunicationBody { get; set; }
+        #endregion
         
+        #region Parameter IssueType
         /// <summary>
         /// <para>
         /// <para>The type of issue for the case. You can specify either "customer-service" or "technical."
@@ -111,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IssueType { get; set; }
+        #endregion
         
+        #region Parameter Language
         /// <summary>
         /// <para>
         /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
@@ -121,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Language { get; set; }
+        #endregion
         
+        #region Parameter ServiceCode
         /// <summary>
         /// <para>
         /// <para>The code for the AWS service returned by the call to <a>DescribeServices</a>.</para>
@@ -129,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ServiceCode { get; set; }
+        #endregion
         
+        #region Parameter SeverityCode
         /// <summary>
         /// <para>
         /// <para>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</para><note><para>The availability of severity levels depends on each customer's support subscription.
@@ -139,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String SeverityCode { get; set; }
+        #endregion
         
+        #region Parameter Subject
         /// <summary>
         /// <para>
         /// <para>The title of the AWS Support case.</para>
@@ -147,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Subject { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -155,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

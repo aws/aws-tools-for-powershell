@@ -31,13 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Creates a new role for your AWS account. For more information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
     /// with Roles</a>. For information about limitations on role names and the number of
     /// roles you can create, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
-    /// 
-    ///  
-    /// <para>
-    /// The policy in the following example grants permission to an EC2 instance to assume
-    /// the role.
-    /// </para>
+    /// on IAM Entities</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.Role")]
@@ -48,14 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class NewIAMRoleCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssumeRolePolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The policy that grants an entity permission to assume the role.</para>
+        /// <para>The trust relationship policy document that grants an entity permission to assume
+        /// the role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String AssumeRolePolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter Path
         /// <summary>
         /// <para>
         /// <para> The path to the role. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -64,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Path { get; set; }
+        #endregion
         
+        #region Parameter RoleName
         /// <summary>
         /// <para>
         /// <para>The name of the role to create.</para>
@@ -72,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String RoleName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

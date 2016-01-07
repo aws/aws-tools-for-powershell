@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class RemoveCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceName
         /// <summary>
         /// <para>
         /// <para>The names of the on-premises instances to remove tags from.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("InstanceNames")]
         public System.String[] InstanceName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>The tag key-value pairs to remove from the on-premises instances.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.CodeDeploy.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -64,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

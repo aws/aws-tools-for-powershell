@@ -28,7 +28,8 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Returns descriptions for existing application versions.
+    /// Retrieve a list of application versions stored in your AWS Elastic Beanstalk storage
+    /// bucket.
     /// </summary>
     [Cmdlet("Get", "EBApplicationVersion")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
@@ -39,25 +40,29 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
-        /// ones that are associated with the specified application. </para>
+        /// <para>If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include
+        /// ones that are associated with the specified application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para> If specified, restricts the returned descriptions to only include ones that have
-        /// the specified version labels. </para>
+        /// <para>If specified, restricts the returned descriptions to only include ones that have the
+        /// specified version labels.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("VersionLabels")]
         public System.String[] VersionLabel { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

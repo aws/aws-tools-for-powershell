@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class UpdateINSAssessmentCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssessmentArn
         /// <summary>
         /// <para>
         /// <para>Asessment ARN that you want to update.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AssessmentArn { get; set; }
+        #endregion
         
+        #region Parameter AssessmentName
         /// <summary>
         /// <para>
         /// <para>Assessment name that you want to update.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AssessmentName { get; set; }
+        #endregion
         
+        #region Parameter DurationInSecond
         /// <summary>
         /// <para>
         /// <para>Assessment duration in seconds that you want to update. The default value is 3600
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("DurationInSeconds")]
         public System.Int32 DurationInSecond { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class EnableDPPipelineCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterValue
         /// <summary>
         /// <para>
         /// <para>A list of parameter values to pass to the pipeline at activation.</para>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("ParameterValues")]
         public Amazon.DataPipeline.Model.ParameterValue[] ParameterValue { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline.</para>
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter StartTimestamp
         /// <summary>
         /// <para>
         /// <para>The date and time to resume the pipeline. By default, the pipeline resumes from the
@@ -74,14 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTimestamp { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PipelineId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -89,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

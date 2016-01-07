@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SG</ServiceNounPrefix>
+  <ServiceName>AWS Storage Gateway</ServiceName>
   <ServiceClientInterface>IAmazonStorageGateway</ServiceClientInterface>
   <ServiceClient>AmazonStorageGatewayClient</ServiceClient>
   <ServiceNamespace>Amazon.StorageGateway</ServiceNamespace>

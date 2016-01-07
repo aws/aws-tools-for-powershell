@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class NewRSClusterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowVersionUpgrade
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, major version upgrades can be applied during the maintenance
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AllowVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AutomatedSnapshotRetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days that automated snapshots are retained. If the value is 0, automated
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 AutomatedSnapshotRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para> The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> A unique identifier for the cluster. You use this identifier to refer to the cluster
@@ -90,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the parameter group to be associated with this cluster. </para><para>Default: The default Amazon Redshift cluster parameter group. For information about
@@ -101,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter ClusterSecurityGroup
         /// <summary>
         /// <para>
         /// <para> A list of security groups to be associated with this cluster. </para><para> Default: The default cluster security group for Amazon Redshift. </para>
@@ -110,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("ClusterSecurityGroups")]
         public System.String[] ClusterSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter ClusterSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> The name of a cluster subnet group to be associated with this cluster. </para><para> If this parameter is not provided the resulting cluster will be deployed outside
@@ -119,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClusterSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter ClusterType
         /// <summary>
         /// <para>
         /// <para> The type of the cluster. When cluster type is specified as <ul><li><code>single-node</code>,
@@ -129,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String ClusterType { get; set; }
+        #endregion
         
+        #region Parameter ClusterVersion
         /// <summary>
         /// <para>
         /// <para> The version of the Amazon Redshift engine software that you want to deploy on the
@@ -138,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClusterVersion { get; set; }
+        #endregion
         
+        #region Parameter DBName
         /// <summary>
         /// <para>
         /// <para>The name of the first database to be created when the cluster is created. </para><para>To create additional databases after the cluster is created, connect to the cluster
@@ -152,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBName { get; set; }
+        #endregion
         
+        #region Parameter ElasticIp
         /// <summary>
         /// <para>
         /// <para>The Elastic IP (EIP) address for the cluster.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
@@ -163,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ElasticIp { get; set; }
+        #endregion
         
+        #region Parameter Encrypted
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, the data in the cluster is encrypted at rest. </para><para>Default: false</para>
@@ -171,7 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Encrypted { get; set; }
+        #endregion
         
+        #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses
@@ -180,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmClientCertificateIdentifier { get; set; }
+        #endregion
         
+        #region Parameter HsmConfigurationIdentifier
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the HSM configuration that contains the information the Amazon
@@ -189,7 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HsmConfigurationIdentifier { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
         /// <para>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
@@ -198,7 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter MasterUsername
         /// <summary>
         /// <para>
         /// <para> The user name associated with the master user account for the cluster that is being
@@ -210,7 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MasterUsername { get; set; }
+        #endregion
         
+        #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para> The password associated with the master user account for the cluster that is being
@@ -221,7 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MasterUserPassword { get; set; }
+        #endregion
         
+        #region Parameter NodeType
         /// <summary>
         /// <para>
         /// <para> The node type to be provisioned for the cluster. For information about node types,
@@ -233,7 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String NodeType { get; set; }
+        #endregion
         
+        #region Parameter NumberOfNodes
         /// <summary>
         /// <para>
         /// <para> The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b>
@@ -245,7 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NumberOfNodes { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the cluster accepts incoming connections. </para><para>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the
@@ -255,7 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para> The weekly time range (in UTC) during which automated cluster maintenance can occur.
@@ -267,7 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, the cluster can be accessed from a public network. </para>
@@ -275,7 +319,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -284,7 +330,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para>A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.</para><para>Default: The default VPC security group is associated with the cluster.</para>
@@ -293,7 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -301,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck">Health
-    /// Checks</a> in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html">Configure
+    /// Health Checks</a> in the <i>Elastic Load Balancing Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ELBHealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class SetELBHealthCheckCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter HealthCheck_HealthyThreshold
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health checks successes required before moving the instance
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 HealthCheck_HealthyThreshold { get; set; }
+        #endregion
         
+        #region Parameter HealthCheck_Interval
         /// <summary>
         /// <para>
         /// <para>The approximate interval, in seconds, between health checks of an individual instance.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 HealthCheck_Interval { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer.</para>
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter HealthCheck_Target
         /// <summary>
         /// <para>
         /// <para>The instance being checked. The protocol is either TCP, HTTP, HTTPS, or SSL. The range
@@ -85,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HealthCheck_Target { get; set; }
+        #endregion
         
+        #region Parameter HealthCheck_Timeout
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, during which no response means a failed health check.</para><para>This value must be less than the <code>Interval</code> value.</para>
@@ -93,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 HealthCheck_Timeout { get; set; }
+        #endregion
         
+        #region Parameter HealthCheck_UnhealthyThreshold
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before moving the instance
@@ -102,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 HealthCheck_UnhealthyThreshold { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -110,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

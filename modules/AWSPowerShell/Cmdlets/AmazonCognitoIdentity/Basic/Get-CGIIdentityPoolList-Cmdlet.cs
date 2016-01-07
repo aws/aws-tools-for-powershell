@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     )]
     public class GetCGIIdentityPoolListCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
+        
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// The maximum number of identities to return.
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// A pagination token.
@@ -61,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

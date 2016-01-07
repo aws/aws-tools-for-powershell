@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class WriteS3BucketWebsiteCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket to apply the configuration to.
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter WebsiteConfiguration_ErrorDocument
         /// <summary>
         /// <para>
         /// The ErrorDocument value, an object key name to use when a 4XX class error occurs.
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String WebsiteConfiguration_ErrorDocument { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_HostName
         /// <summary>
         /// <para>
         /// Name of the host where requests will be redirected.
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_HostName")]
         public System.String RedirectAllRequestsTo_HostName { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_HttpRedirectCode
         /// <summary>
         /// <para>
         /// The HTTP redirect code to use on the response. Not required if one of the siblings is present.
@@ -72,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_HttpRedirectCode")]
         public System.String RedirectAllRequestsTo_HttpRedirectCode { get; set; }
+        #endregion
         
+        #region Parameter WebsiteConfiguration_IndexDocumentSuffix
         /// <summary>
         /// <para>
         /// <para>This value is a suffix that is appended to a request that is for a "directory" 
@@ -85,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String WebsiteConfiguration_IndexDocumentSuffix { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_Protocol
         /// <summary>
         /// <para>
         /// Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.
@@ -94,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_Protocol")]
         public System.String RedirectAllRequestsTo_Protocol { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_ReplaceKeyPrefixWith
         /// <summary>
         /// <para>
         /// The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the
@@ -105,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyPrefixWith")]
         public System.String RedirectAllRequestsTo_ReplaceKeyPrefixWith { get; set; }
+        #endregion
         
+        #region Parameter RedirectAllRequestsTo_ReplaceKeyWith
         /// <summary>
         /// <para>
         /// The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is
@@ -115,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RedirectAllRequestsTo_ReplaceKeyWith")]
         public System.String RedirectAllRequestsTo_ReplaceKeyWith { get; set; }
+        #endregion
         
+        #region Parameter WebsiteConfiguration_RoutingRule
         /// <summary>
         /// <para>
         /// The list of routing rules that can be used for configuring redirects if certain conditions are meet.
@@ -124,14 +142,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("WebsiteConfiguration_RoutingRules")]
         public Amazon.S3.Model.RoutingRule[] WebsiteConfiguration_RoutingRule { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BucketName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -139,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class NewDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A textual description for the directory.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The fully qualified name for the directory, such as <code>corp.example.com</code>.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password for the directory administrator. The directory creation process creates
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter ShortName
         /// <summary>
         /// <para>
         /// <para>The short name of the directory, such as <code>CORP</code>.</para>
@@ -72,15 +80,20 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ShortName { get; set; }
+        #endregion
         
+        #region Parameter Size
         /// <summary>
         /// <para>
         /// <para>The size of the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.DirectorySize")]
         public Amazon.DirectoryService.DirectorySize Size { get; set; }
+        #endregion
         
+        #region Parameter VpcSettings_SubnetId
         /// <summary>
         /// <para>
         /// <para>The identifiers of the subnets for the directory servers. The two subnets must be
@@ -91,15 +104,19 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("VpcSettings_SubnetIds")]
         public System.String[] VpcSettings_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter VpcSettings_VpcId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the VPC to create the Simple AD directory in.</para>
+        /// <para>The identifier of the VPC in which to create the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VpcSettings_VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -107,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

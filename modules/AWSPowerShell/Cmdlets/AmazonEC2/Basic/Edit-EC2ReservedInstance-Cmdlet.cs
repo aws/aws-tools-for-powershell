@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the Availability Zone, instance count, instance type, or network platform
-    /// (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
+    /// (EC2-Classic or EC2-VPC) of your Reserved instances. The Reserved instances to be
     /// modified must be identical, except for Availability Zone, network platform, and instance
     /// type.
     /// 
@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive token you provide to ensure idempotency of your modification
@@ -57,25 +59,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Reserved Instances to modify.</para>
+        /// <para>The IDs of the Reserved instances to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ReservedInstancesIds")]
         public System.String[] ReservedInstancesId { get; set; }
+        #endregion
         
+        #region Parameter TargetConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configuration settings for the Reserved Instances to modify.</para>
+        /// <para>The configuration settings for the Reserved instances to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("TargetConfigurations")]
         public Amazon.EC2.Model.ReservedInstancesConfiguration[] TargetConfiguration { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

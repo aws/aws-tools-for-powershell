@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class UpdateETSPipelineCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter AwsKmsKeyArn
         /// <summary>
         /// <para>
         /// <para>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</para><para>If you use either <code>S3</code> or <code>S3-AWS-KMS</code> as your <code>Encryption:Mode</code>,
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AwsKmsKeyArn { get; set; }
+        #endregion
         
+        #region Parameter ContentConfig_Bucket
         /// <summary>
         /// <para>
         /// <para> The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded
@@ -74,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContentConfig_Bucket { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailConfig_Bucket
         /// <summary>
         /// <para>
         /// <para> The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded
@@ -93,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ThumbnailConfig_Bucket { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Completed
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder has finished
@@ -102,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Completed { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Error
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an
@@ -111,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Error { get; set; }
+        #endregion
         
+        #region Parameter Id
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline that you want to update.</para>
@@ -119,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter InputBucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket in which you saved the media files that you want to transcode
@@ -128,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String InputBucket { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline. We recommend that the name be unique within the AWS account,
@@ -137,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter ContentConfig_Permission
         /// <summary>
         /// <para>
         /// <para>Optional. The <code>Permissions</code> object specifies which users and/or predefined
@@ -154,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("ContentConfig_Permissions")]
         public Amazon.ElasticTranscoder.Model.Permission[] ContentConfig_Permission { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailConfig_Permission
         /// <summary>
         /// <para>
         /// <para>Optional. The <code>Permissions</code> object specifies which users and/or predefined
@@ -171,7 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("ThumbnailConfig_Permissions")]
         public Amazon.ElasticTranscoder.Model.Permission[] ThumbnailConfig_Permission { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Progressing
         /// <summary>
         /// <para>
         /// <para>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify
@@ -180,7 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Progressing { get; set; }
+        #endregion
         
+        #region Parameter Role
         /// <summary>
         /// <para>
         /// <para>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to
@@ -189,7 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Role { get; set; }
+        #endregion
         
+        #region Parameter ContentConfig_StorageClass
         /// <summary>
         /// <para>
         /// <para> The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>,
@@ -199,7 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContentConfig_StorageClass { get; set; }
+        #endregion
         
+        #region Parameter ThumbnailConfig_StorageClass
         /// <summary>
         /// <para>
         /// <para> The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>,
@@ -209,7 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ThumbnailConfig_StorageClass { get; set; }
+        #endregion
         
+        #region Parameter Notifications_Warning
         /// <summary>
         /// <para>
         /// <para>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a
@@ -218,7 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Notifications_Warning { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -226,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

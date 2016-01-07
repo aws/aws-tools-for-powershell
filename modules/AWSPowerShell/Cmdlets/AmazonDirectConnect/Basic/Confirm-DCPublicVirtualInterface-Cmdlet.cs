@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class ConfirmDCPublicVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter VirtualInterfaceId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VirtualInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

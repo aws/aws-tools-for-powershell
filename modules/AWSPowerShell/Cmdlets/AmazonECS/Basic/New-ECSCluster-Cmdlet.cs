@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class NewECSClusterCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterName
         /// <summary>
         /// <para>
         /// <para>The name of your cluster. If you do not specify a name for your cluster, you create
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ClusterName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

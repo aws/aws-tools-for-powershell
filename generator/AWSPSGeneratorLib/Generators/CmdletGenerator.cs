@@ -284,7 +284,7 @@ namespace AWSPowerShellGenerator.Generators
                 {
                     CmdletServiceClientWriter.Write(writer, 
                                                     CurrentModel, 
-                                                    ModelCollection.ClientNameMappings[configModel.ServiceNounPrefix], 
+                                                    CurrentModel.ServiceName, 
                                                     GetServiceVersion(configModel.ServiceNamespace, configModel.ServiceClient));
                 }
 
@@ -304,8 +304,32 @@ namespace AWSPowerShellGenerator.Generators
                 AliasStore.Instance.AddAliases(cmdletKey, configModel.CustomAliases[cmdletKey]);
             }
 
-            CopyGeneratedCmdlets(Path.Combine(TempOutputDir, configModel.SourceGenerationFolder),
-                                 Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder));
+            var outputRoot = Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder);
+            CopyGeneratedCmdlets(Path.Combine(TempOutputDir, configModel.SourceGenerationFolder), outputRoot);
+
+            // if the service contains any hand-maintained cmdlets, scan them to update any
+            // ValidateSet attributes for parameters with types derived from ConstantClass
+            UpdateAdvancedCmdlets(outputRoot);
+        }
+
+        /// <summary>
+        /// Scans for any hand-maintained cmdlets and performs update operations on the
+        /// raw text. Currently this just involves updating ValidateSet attributes on 
+        /// parameters with a type derived from the SDK's ConstantClass 'enum' type.
+        /// </summary>
+        /// <param name="outputRoot">The root output folder for the service being generated.</param>
+        private void UpdateAdvancedCmdlets(string outputRoot)
+        {
+            var advancedCmdletsFolder = Path.Combine(outputRoot, "Advanced");
+            if (!Directory.Exists(advancedCmdletsFolder))
+                return;
+
+            var sourceFiles = Directory.GetFiles(advancedCmdletsFolder, "*.cs");
+            foreach (var sourceFile in sourceFiles)
+            {
+                var updater = new ValidateSetUpdater(sourceFile, CurrentServiceAssembly, Logger);
+                updater.ParseAndUpdate();
+            }
         }
 
         // the set of subfolders in the final output directory for a service that will
@@ -491,12 +515,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             var currentModel = analyzer.CurrentModel;
 
-            string serviceDisplayName;
-            if (!ModelCollection.ClientNameMappings.TryGetValue(currentModel.ServiceNounPrefix, out serviceDisplayName))
-            {
-                Logger.LogError("Cannot find display name for service " + currentModel.ServiceNounPrefix);
-                return;
-            }
+            string serviceDisplayName = currentModel.ServiceName;
 
             if (analyzer.GenerateIterationCode)
             {

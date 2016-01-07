@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>AG</ServiceNounPrefix>
+  <ServiceName>Amazon API Gateway</ServiceName>
   <ServiceClientInterface>IAmazonAPIGateway</ServiceClientInterface>
   <ServiceClient>AmazonAPIGatewayClient</ServiceClient>
   <ServiceNamespace>Amazon.APIGateway</ServiceNamespace>
@@ -11,6 +12,7 @@
                Next="Position" />
 
   <PipelineByValueProperties>
+    <Property>ClientCertificateId</Property>
     <Property>RestApiId</Property>
     <Property>DeploymentId</Property>
     <Property>ResourceId</Property>

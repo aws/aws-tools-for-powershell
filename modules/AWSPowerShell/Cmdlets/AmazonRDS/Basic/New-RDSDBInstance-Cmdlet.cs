@@ -39,16 +39,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class NewRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
         /// <para> The amount of storage (in gigabytes) to be initially allocated for the database instance.
-        /// </para><para> Type: Integer</para><para><b>MySQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>PostgreSQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>Oracle</b></para><para> Constraints: Must be an integer from 10 to 6144.</para><para><b>SQL Server</b></para><para> Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise
+        /// </para><para> Type: Integer</para><para><b>MySQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>MariaDB</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>PostgreSQL</b></para><para> Constraints: Must be an integer from 5 to 6144.</para><para><b>Oracle</b></para><para> Constraints: Must be an integer from 10 to 6144.</para><para><b>SQL Server</b></para><para> Constraints: Must be an integer from 200 to 4096 (Standard Edition and Enterprise
         /// Edition) or from 20 to 4096 (Express Edition and Web Edition)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 AllocatedStorage { get; set; }
+        #endregion
         
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> Indicates that minor engine upgrades will be applied automatically to the DB instance
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para> The EC2 Availability Zone that the database instance will be created in. For information
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
         /// <para> The number of days for which automated backups are retained. Setting this parameter
@@ -80,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 BackupRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter CharacterSetName
         /// <summary>
         /// <para>
         /// <para> For supported engines, indicates that the DB instance should be associated with the
@@ -89,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CharacterSetName { get; set; }
+        #endregion
         
+        #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
         /// <para>True to copy all tags from the DB instance to snapshots of the DB instance; otherwise
@@ -98,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean CopyTagsToSnapshot { get; set; }
+        #endregion
         
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the DB cluster that the instance will belong to.</para><para>For information on creating a DB cluster, see <a>CreateDBCluster</a>.</para><para>Type: String</para>
@@ -106,18 +120,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
         /// <para> The compute and memory capacity of the DB instance. </para><para> Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
-        /// | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge
-        /// | db.t2.micro | db.t2.small | db.t2.medium | db.t2.large</code></para>
+        /// | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge
+        /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
+        /// | db.t2.small | db.t2.medium | db.t2.large</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBInstanceClass { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The DB instance identifier. This parameter is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for
@@ -127,10 +146,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String DBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBName
         /// <summary>
         /// <para>
         /// <para>The meaning of this parameter differs according to the database engine you use.</para><para>Type: String</para><para><b>MySQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// is not specified, no database is created in the DB instance. </para><para>Constraints:</para><ul><li>Must contain 1 to 64 alphanumeric characters</li><li>Cannot be a word reserved
+        /// by the specified database engine</li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
         /// is not specified, no database is created in the DB instance. </para><para>Constraints:</para><ul><li>Must contain 1 to 64 alphanumeric characters</li><li>Cannot be a word reserved
         /// by the specified database engine</li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
         /// is not specified, the default "postgres" database is created in the DB instance. </para><para>Constraints:</para><ul><li>Must contain 1 to 63 alphanumeric characters</li><li>Must begin with a
@@ -143,7 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBName { get; set; }
+        #endregion
         
+        #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB parameter group to associate with this DB instance. If this argument
@@ -153,7 +178,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter DBSecurityGroup
         /// <summary>
         /// <para>
         /// <para> A list of DB security groups to associate with this DB instance. </para><para> Default: The default DB security group for the database engine. </para>
@@ -162,7 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("DBSecurityGroups")]
         public System.String[] DBSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> A DB subnet group to associate with this DB instance. </para><para> If there is no DB subnet group, then it is a non-VPC DB instance. </para>
@@ -170,17 +199,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para> The name of the database engine to be used for this instance. </para><para> Valid Values: <code>MySQL</code> | <code>oracle-se1</code> | <code>oracle-se</code>
-        /// | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code> |
-        /// <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para><para> Not every database engine is available for every AWS region. </para>
+        /// <para> The name of the database engine to be used for this instance. </para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
+        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code> |
+        /// <code>aurora</code></para><para> Not every database engine is available for every AWS region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para> The version number of the database engine to use. </para><para> The following are the database engines and major and minor versions that are available
@@ -189,30 +223,26 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// 5.1.73a | 5.1.73b</code></li><li><b>Version 5.5 (Only available in the following
         /// regions: ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1,
         /// us-west-2):</b><code> 5.5.40 | 5.5.40a</code></li><li><b>Version 5.5 (Available
-        /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version
-        /// 5.6 (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b |
-        /// 5.6.22 | 5.6.23</code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
+        /// in all regions):</b><code> 5.5.40b | 5.5.41 | 5.5.42</code></li><li><b>Version 5.6
+        /// (Available in all regions):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22
+        /// | 5.6.23</code></li></ul><para><b>MariaDB</b></para><ul><li><b>Version 10.0 (Available in all regions except AWS GovCloud (US) Region
+        /// (us-gov-west-1)):</b><code> 10.0.17 </code></li></ul><para><b>Oracle Database Enterprise Edition (oracle-ee)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: ap-northeast-1,
         /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
-        /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Available in all regions):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 |
-        /// 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4</code></li><li><b>Version
-        /// 12.1 (Available in all regions):</b><code>12.1.0.1.v1 | 12.1.0.1.v2 | 12.1.0.2.v1
-        /// </code></li></ul><para><b>Oracle Database Standard Edition (oracle-se)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3
-        /// | 11.2.0.4.v4</code></li><li><b>Version 12.1 (Only available in the following regions:
-        /// eu-central-1, us-west-1):</b><code>12.1.0.1.v1 | 12.1.0.1.v2</code></li></ul><para><b>Oracle Database Standard Edition One (oracle-se1)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3
-        /// | 11.2.0.4.v4</code></li><li><b>Version 12.1 (Only available in the following regions:
-        /// eu-central-1, us-west-1):</b><code> 12.1.0.1.v1 | 12.1.0.1.v2</code></li></ul><para><b>PostgreSQL</b></para><ul><li><b>Version 9.3 (Only available in the following regions: ap-northeast-1,
+        /// 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version
+        /// 11.2 (Available in all regions):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3
+        /// | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4</code></li><li><b>Version 12.1 (Available
+        /// in all regions):</b><code>12.1.0.1.v1 | 12.1.0.1.v2 | 12.1.0.2.v1 </code></li></ul><para><b>Oracle Database Standard Edition (oracle-se)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1, us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1, us-west-1):</b><code>12.1.0.1.v1 | 12.1.0.1.v2</code></li></ul><para><b>Oracle Database Standard Edition One (oracle-se1)</b></para><ul><li><b>Version 11.2 (Only available in the following regions: us-west-1):</b><code> 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7</code></li><li><b>Version 11.2 (Only available in the following regions: eu-central-1, us-west-1):</b><code> 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.3.v3 | 11.2.0.4.v1 | 11.2.0.4.v3 | 11.2.0.4.v4</code></li><li><b>Version 12.1 (Only available in the following regions: eu-central-1, us-west-1):</b><code> 12.1.0.1.v1 | 12.1.0.1.v2</code></li></ul><para><b>PostgreSQL</b></para><ul><li><b>Version 9.3 (Only available in the following regions: ap-northeast-1,
         /// ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2):</b><code>
         /// 9.3.1 | 9.3.2</code></li><li><b>Version 9.3 (Available in all regions):</b><code>
-        /// 9.3.3 | 9.3.5 | 9.3.6</code></li><li><b>Version 9.4 (Available in all regions):</b><code> 9.4.1</code></li></ul><para><b>Microsoft SQL Server Enterprise Edition (sqlserver-ee)</b></para><ul><li><b>Version 10.50 (Only available in the following regions: eu-central-1,
-        /// us-west-1):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Only available
-        /// in the following regions: eu-central-1, us-west-1):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Express Edition (sqlserver-ex)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Standard Edition (sqlserver-se)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul><para><b>Microsoft SQL Server Web Edition (sqlserver-web)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li></ul>
+        /// 9.3.3 | 9.3.5 | 9.3.6 | 9.3.9 | 9.3.10</code></li><li><b>Version 9.4 (Available in
+        /// all regions):</b><code> 9.4.1 | 9.4.4 | 9.4.5</code></li></ul><para><b>Microsoft SQL Server Enterprise Edition (sqlserver-ee)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li></ul><para><b>Microsoft SQL Server Express Edition (sqlserver-ex)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li><li><b>Version 12.00 (Available in all regions):</b><code> 12.00.4422.0.v1</code></li></ul><para><b>Microsoft SQL Server Standard Edition (sqlserver-se)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li><li><b>Version 12.00 (Available in all regions):</b><code> 12.00.4422.0.v1</code></li></ul><para><b>Microsoft SQL Server Web Edition (sqlserver-web)</b></para><ul><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.2789.0.v1</code></li><li><b>Version 10.50 (Available in all regions):</b><code> 10.50.6000.34.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.2100.60.v1</code></li><li><b>Version 11.00 (Available in all regions):</b><code> 11.00.5058.0.v1</code></li><li><b>Version 12.00 (Available in all regions):</b><code> 12.00.4422.0.v1</code></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter Iops
         /// <summary>
         /// <para>
         /// <para> The amount of Provisioned IOPS (input/output operations per second) to be initially
@@ -221,10 +251,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Iops { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The KMS key identifier for an encrypted DB instance. </para><para>The KMS key identifier is the Amazon Resoure Name (ARN) for the KMS encryption key.
+        /// <para> The KMS key identifier for an encrypted DB instance. </para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB instance with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB instance, then you can use the KMS key alias instead
         /// of the ARN for the KM encryption key.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
@@ -235,7 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KmsKeyId { get; set; }
+        #endregion
         
+        #region Parameter LicenseModel
         /// <summary>
         /// <para>
         /// <para> License model information for this DB instance. </para><para> Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
@@ -244,11 +278,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LicenseModel { get; set; }
+        #endregion
         
+        #region Parameter MasterUsername
         /// <summary>
         /// <para>
         /// <para> The name of master user for the client DB instance. </para><para><b>MySQL</b></para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>First character must be
-        /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para>Type: String</para><para><b>Oracle</b></para><para>Constraints:</para><ul><li>Must be 1 to 30 alphanumeric characters.</li><li>First character must be
+        /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para><b>MariaDB</b></para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>Cannot be a reserved word
+        /// for the chosen database engine.</li></ul><para>Type: String</para><para><b>Oracle</b></para><para>Constraints:</para><ul><li>Must be 1 to 30 alphanumeric characters.</li><li>First character must be
         /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para><b>SQL Server</b></para><para>Constraints:</para><ul><li>Must be 1 to 128 alphanumeric characters.</li><li>First character must
         /// be a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li>Must be 1 to 63 alphanumeric characters.</li><li>First character must be
         /// a letter.</li><li>Cannot be a reserved word for the chosen database engine.</li></ul>
@@ -256,16 +293,47 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MasterUsername { get; set; }
+        #endregion
         
+        #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para> The password for the master database user. Can be any printable ASCII character except
-        /// "/", """, or "@". </para><para>Type: String</para><para><b>MySQL</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>Oracle</b></para><para> Constraints: Must contain from 8 to 30 characters. </para><para><b>SQL Server</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>PostgreSQL</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>Amazon Aurora</b></para><para> Constraints: Must contain from 8 to 41 characters. </para>
+        /// "/", """, or "@". </para><para>Type: String</para><para><b>MySQL</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>MariaDB</b></para><para> Constraints: Must contain from 8 to 41 characters. </para><para><b>Oracle</b></para><para> Constraints: Must contain from 8 to 30 characters. </para><para><b>SQL Server</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>PostgreSQL</b></para><para> Constraints: Must contain from 8 to 128 characters. </para><para><b>Amazon Aurora</b></para><para> Constraints: Must contain from 8 to 41 characters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MasterUserPassword { get; set; }
+        #endregion
         
+        #region Parameter MonitoringInterval
+        /// <summary>
+        /// <para>
+        /// <para>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+        /// for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0.
+        /// The default is 60.</para><para>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+        /// to a value other than 0.</para><para>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MonitoringInterval { get; set; }
+        #endregion
+        
+        #region Parameter MonitoringRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
+        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
+        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
+        /// a <code>MonitoringRoleArn</code> value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MonitoringRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter MultiAZ
         /// <summary>
         /// <para>
         /// <para> Specifies if the DB instance is a Multi-AZ deployment. You cannot set the AvailabilityZone
@@ -276,7 +344,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean MultiAZ { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para> Indicates that the DB instance should be associated with the specified option group.
@@ -287,17 +357,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para> The port number on which the database accepts connections. </para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
+        /// <para> The port number on which the database accepts connections. </para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
         /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
         /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
         /// <para> The daily time range during which automated backups are created if automated backups
@@ -312,7 +386,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredBackupWindow { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para> The weekly time range during which system maintenance can occur, in Universal Coordinated
@@ -324,7 +400,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
         /// <para> Specifies the accessibility options for the DB instance. A value of true specifies
@@ -339,7 +417,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
         
+        #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
         /// <para> Specifies whether the DB instance is encrypted. </para><para> Default: false </para>
@@ -347,7 +427,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean StorageEncrypted { get; set; }
+        #endregion
         
+        #region Parameter StorageType
         /// <summary>
         /// <para>
         /// <para> Specifies the storage type to be associated with the DB instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
@@ -357,7 +439,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StorageType { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -366,7 +450,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
         /// <para> The ARN from the Key Store with which to associate the instance for TDE encryption.
@@ -375,7 +461,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TdeCredentialArn { get; set; }
+        #endregion
         
+        #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
         /// <para> The password for the given ARN from the Key Store in order to access the device.
@@ -384,7 +472,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TdeCredentialPassword { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para> A list of EC2 VPC security groups to associate with this DB instance. </para><para> Default: The default EC2 VPC security group for the DB subnet group's VPC. </para>
@@ -393,7 +483,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -401,7 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -447,6 +539,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.LicenseModel = this.LicenseModel;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
+            if (ParameterWasBound("MonitoringInterval"))
+                context.MonitoringInterval = this.MonitoringInterval;
+            context.MonitoringRoleArn = this.MonitoringRoleArn;
             if (ParameterWasBound("MultiAZ"))
                 context.MultiAZ = this.MultiAZ;
             context.OptionGroupName = this.OptionGroupName;
@@ -562,6 +657,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
             }
+            if (cmdletContext.MonitoringInterval != null)
+            {
+                request.MonitoringInterval = cmdletContext.MonitoringInterval.Value;
+            }
+            if (cmdletContext.MonitoringRoleArn != null)
+            {
+                request.MonitoringRoleArn = cmdletContext.MonitoringRoleArn;
+            }
             if (cmdletContext.MultiAZ != null)
             {
                 request.MultiAZ = cmdletContext.MultiAZ.Value;
@@ -665,6 +768,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String LicenseModel { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.Int32? MonitoringInterval { get; set; }
+            public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }

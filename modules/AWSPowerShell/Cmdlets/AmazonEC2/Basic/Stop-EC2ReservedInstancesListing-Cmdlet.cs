@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
+    /// Cancels the specified Reserved instance listing in the Reserved Instance Marketplace.
     /// 
     ///  
     /// <para>
@@ -45,14 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class StopEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ReservedInstancesListingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Reserved Instance listing.</para>
+        /// <para>The ID of the Reserved instance listing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedInstancesListingId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -60,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

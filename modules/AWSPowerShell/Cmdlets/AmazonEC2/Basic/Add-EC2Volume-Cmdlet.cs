@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class AddEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Device
         /// <summary>
         /// <para>
         /// <para>The device name to expose to the instance (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para>
@@ -71,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Device { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter VolumeId
         /// <summary>
         /// <para>
         /// <para>The ID of the EBS volume. The volume and instance must be within the same Availability
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String VolumeId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -96,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

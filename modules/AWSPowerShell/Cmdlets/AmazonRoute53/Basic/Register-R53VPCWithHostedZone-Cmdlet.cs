@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    ///  To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
+    /// To associate a VPC with an hosted zone, send a <code>POST</code> request to the <code>2013-04-01/hostedzone/<i>hosted
     /// zone ID</i>/associatevpc</code> resource. The request body must include an XML document
     /// with a <code>AssociateVPCWithHostedZoneRequest</code> element. The response returns
     /// the <code>AssociateVPCWithHostedZoneResponse</code> element that contains <code>ChangeInfo</code>
@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class RegisterR53VPCWithHostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Comment
         /// <summary>
         /// <para>
         /// <para><i>Optional:</i> Any comments you want to include about a <code>AssociateVPCWithHostedZoneRequest</code>.</para>
@@ -57,16 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Comment { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone you want to associate your VPC with.</para><para>Note that you cannot associate a VPC with a hosted zone that doesn't have an existing
+        /// <para>The ID of the hosted zone you want to associate your VPC with.</para><para>Note that you cannot associate a VPC with a hosted zone that doesn't have an existing
         /// VPC association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -74,15 +80,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VPC_VPCId { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.VPCRegion")]
         public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -90,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

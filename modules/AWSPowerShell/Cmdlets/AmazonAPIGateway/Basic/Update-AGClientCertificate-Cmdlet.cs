@@ -38,14 +38,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class UpdateAGClientCertificateCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientCertificateId { get; set; }
+        #endregion
         
+        #region Parameter PatchOperation
         /// <summary>
         /// <para>
         /// <para>A list of operations describing the updates to apply to the specified resource. The
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("PatchOperations")]
         public Amazon.APIGateway.Model.PatchOperation[] PatchOperation { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

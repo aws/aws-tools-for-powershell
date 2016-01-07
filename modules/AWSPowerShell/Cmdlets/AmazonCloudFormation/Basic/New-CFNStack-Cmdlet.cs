@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class NewCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter Capability
         /// <summary>
         /// <para>
         /// <para>A list of capabilities that you must specify before AWS CloudFormation can create
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Capabilities")]
         public System.String[] Capability { get; set; }
+        #endregion
         
+        #region Parameter DisableRollback
         /// <summary>
         /// <para>
         /// <para>Set to <code>true</code> to disable rollback of the stack if stack creation failed.
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean DisableRollback { get; set; }
+        #endregion
         
+        #region Parameter NotificationARNs
         /// <summary>
         /// <para>
         /// <para>The Simple Notification Service (SNS) topic ARNs to publish stack related events.
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] NotificationARNs { get; set; }
+        #endregion
         
+        #region Parameter OnFailure
         /// <summary>
         /// <para>
         /// <para>Determines what action will be taken if stack creation fails. This must be one of:
@@ -91,8 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudFormation.OnFailure")]
         public Amazon.CloudFormation.OnFailure OnFailure { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of <code>Parameter</code> structures that specify input parameters for the
@@ -102,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public Amazon.CloudFormation.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The template resource types that you have permissions to work with for this create
@@ -122,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("ResourceTypes")]
         public System.String[] ResourceType { get; set; }
+        #endregion
         
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name that is associated with the stack. The name must be unique in the region
@@ -133,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the stack policy body. For more information, go to <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
@@ -144,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StackPolicyBody { get; set; }
+        #endregion
         
+        #region Parameter StackPolicyURL
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the stack policy. The URL must point to a policy (max
@@ -155,7 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StackPolicyURL { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A set of user-defined <code>Tags</code> to associate with this stack, represented
@@ -166,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.CloudFormation.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TemplateBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -177,7 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TemplateBody { get; set; }
+        #endregion
         
+        #region Parameter TemplateURL
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
@@ -189,7 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TemplateURL { get; set; }
+        #endregion
         
+        #region Parameter TimeoutInMinutes
         /// <summary>
         /// <para>
         /// <para>The amount of time that can pass before the stack status becomes CREATE_FAILED; if
@@ -199,7 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 TimeoutInMinutes { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -207,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

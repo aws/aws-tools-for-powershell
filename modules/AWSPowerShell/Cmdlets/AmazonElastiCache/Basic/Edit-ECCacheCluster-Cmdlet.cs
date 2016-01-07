@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class EditECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, this parameter causes the modifications in this request and
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ApplyImmediately { get; set; }
+        #endregion
         
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para>This parameter is currently disabled.</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AZMode
         /// <summary>
         /// <para>
         /// <para>Specifies whether the new nodes in this Memcached cache cluster are all created in
@@ -73,8 +79,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElastiCache.AZMode")]
         public Amazon.ElastiCache.AZMode AZMode { get; set; }
+        #endregion
         
+        #region Parameter CacheClusterId
         /// <summary>
         /// <para>
         /// <para>The cache cluster identifier. This value is stored as a lowercase string.</para>
@@ -82,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheClusterId { get; set; }
+        #endregion
         
+        #region Parameter CacheNodeIdsToRemove
         /// <summary>
         /// <para>
         /// <para>A list of cache node IDs to be removed. A node ID is a numeric identifier (0001, 0002,
@@ -97,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] CacheNodeIdsToRemove { get; set; }
+        #endregion
         
+        #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the cache parameter group to apply to this cache cluster. This change
@@ -107,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CacheParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
         /// <para>A list of cache security group names to authorize on this cache cluster. This change
@@ -118,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CacheSecurityGroupNames")]
         public System.String[] CacheSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para>
@@ -126,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter NewAvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The list of Availability Zones where the new Memcached cache nodes will be created.</para><para>This parameter is only valid when <i>NumCacheNodes</i> in the request is greater than
@@ -155,7 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("NewAvailabilityZones")]
         public System.String[] NewAvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter NotificationTopicArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
@@ -164,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NotificationTopicArn { get; set; }
+        #endregion
         
+        #region Parameter NotificationTopicStatus
         /// <summary>
         /// <para>
         /// <para>The status of the Amazon SNS notification topic. Notifications are sent only if the
@@ -173,7 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NotificationTopicStatus { get; set; }
+        #endregion
         
+        #region Parameter NumCacheNode
         /// <summary>
         /// <para>
         /// <para>The number of cache nodes that the cache cluster should have. If the value for <code>NumCacheNodes</code>
@@ -203,7 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("NumCacheNodes")]
         public System.Int32 NumCacheNode { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
@@ -214,7 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
         /// <para>Specifies the VPC Security Groups associated with the cache cluster.</para><para>This parameter can be used only with clusters that are created in an Amazon Virtual
@@ -224,7 +253,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("SecurityGroupIds")]
         public System.String[] SecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotRetentionLimit
         /// <summary>
         /// <para>
         /// <para>The number of days for which ElastiCache will retain automatic cache cluster snapshots
@@ -235,7 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 SnapshotRetentionLimit { get; set; }
+        #endregion
         
+        #region Parameter SnapshotWindow
         /// <summary>
         /// <para>
         /// <para>The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot
@@ -244,7 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshotWindow { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -252,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

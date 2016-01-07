@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSTaskDefinitionDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter TaskDefinition
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> for the latest <code>ACTIVE</code> revision, <code>family</code>
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TaskDefinition { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

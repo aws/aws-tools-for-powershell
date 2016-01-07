@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IE
     )]
     public class GetIEJobCmdlet : AmazonImportExportClientCmdlet, IExecutor
     {
+        
+        #region Parameter APIVersion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String APIVersion { get; set; }
+        #endregion
         
+        #region Parameter MaxJob
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.IE
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxJobs")]
         public System.Int32 MaxJob { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -67,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

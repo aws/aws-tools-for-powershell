@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>DS</ServiceNounPrefix>
+  <ServiceName>AWS Directory Service</ServiceName>
   <ServiceClientInterface>IAmazonDirectoryService</ServiceClientInterface>
   <ServiceClient>AmazonDirectoryServiceClient</ServiceClient>
   <ServiceNamespace>Amazon.DirectoryService</ServiceNamespace>
@@ -72,6 +73,24 @@
 	<ServiceOperation MethodName="UpdateRadius" 
 		Output="Void" 
 		PipelineParameter="DirectoryId" />
+        
+    <!-- Managed Directory Operations -->    
+        
+    <ServiceOperation MethodName="CreateMicrosoftAD" 
+        PipelineParameter="Name" />
+        
+    <ServiceOperation MethodName="CreateTrust" 
+        PipelineParameter="DirectoryId" />
+        
+    <ServiceOperation MethodName="DeleteTrust" />
+        
+    <ServiceOperation MethodName="DescribeTrusts" 
+        PipelineParameter="DirectoryId"
+        Noun="Trust" Verb="Get" />
+        
+    <ServiceOperation MethodName="VerifyTrust" 
+        Verb="Approve" />
+    
 
   </ServiceOperations>
 

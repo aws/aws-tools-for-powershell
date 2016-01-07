@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class GetCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the log group to query.</para>
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the log stream to query.</para>
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogStreamName { get; set; }
+        #endregion
         
+        #region Parameter StartFromHead
         /// <summary>
         /// <para>
         /// <para>If set to true, the earliest log events would be returned first. The default is false
@@ -82,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean StartFromHead { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -90,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of log events returned in the response. If you don't specify a
@@ -101,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> A string token used for pagination that points to the next page of results. It must
@@ -112,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

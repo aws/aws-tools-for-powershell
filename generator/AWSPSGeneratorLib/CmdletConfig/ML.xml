@@ -3,12 +3,9 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>ML</ServiceNounPrefix>
-
+  <ServiceName>Amazon Machine Learning</ServiceName>
   <ServiceNamespace>Amazon.MachineLearning</ServiceNamespace>
-
   <ServiceClientInterface>IAmazonMachineLearning</ServiceClientInterface>
-  
-
   <ServiceClient>AmazonMachineLearningClient</ServiceClient>
 
   <AutoIterate EmitLimit="Limit" 

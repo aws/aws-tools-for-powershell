@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSTimeBasedAutoScalingCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>An array of instance IDs.</para>
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InstanceIds")]
         public System.String[] InstanceId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

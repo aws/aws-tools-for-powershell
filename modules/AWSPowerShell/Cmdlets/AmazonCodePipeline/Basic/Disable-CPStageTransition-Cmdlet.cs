@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class DisableCPStageTransitionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineName
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline in which you want to disable the flow of artifacts from one
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PipelineName { get; set; }
+        #endregion
         
+        #region Parameter Reason
         /// <summary>
         /// <para>
         /// <para>The reason given to the user why a stage is disabled, such as waiting for manual approval
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Reason { get; set; }
+        #endregion
         
+        #region Parameter StageName
         /// <summary>
         /// <para>
         /// <para>The name of the stage where you want to disable the inbound or outbound transition
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StageName { get; set; }
+        #endregion
         
+        #region Parameter TransitionType
         /// <summary>
         /// <para>
         /// <para>Specifies whether artifacts will be prevented from transitioning into the stage and
@@ -74,8 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.StageTransitionType")]
         public Amazon.CodePipeline.StageTransitionType TransitionType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

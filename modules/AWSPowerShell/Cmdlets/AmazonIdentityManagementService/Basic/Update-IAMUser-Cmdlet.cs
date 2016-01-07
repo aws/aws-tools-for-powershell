@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class UpdateIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPath
         /// <summary>
         /// <para>
         /// <para>New path for the user. Include this parameter only if you're changing the user's path.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String NewPath { get; set; }
+        #endregion
         
+        #region Parameter NewUserName
         /// <summary>
         /// <para>
         /// <para>New name for the user. Include this parameter only if you're changing the user's name.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String NewUserName { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>Name of the user to update. If you're changing the name of the user, this is the original
@@ -71,14 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the UserName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -86,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

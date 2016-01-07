@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSAgentVersionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationManager_Name
         /// <summary>
         /// <para>
         /// <para>The name. This parameter must be set to "Chef".</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigurationManager_Name { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter ConfigurationManager_Version
         /// <summary>
         /// <para>
         /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
@@ -65,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigurationManager_Version { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

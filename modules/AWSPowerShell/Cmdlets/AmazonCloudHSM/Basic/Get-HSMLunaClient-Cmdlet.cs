@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class GetHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateFingerprint
         /// <summary>
         /// <para>
         /// <para>The certificate fingerprint.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CertificateFingerprint { get; set; }
+        #endregion
         
+        #region Parameter ClientArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the client.</para>
@@ -53,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ClientArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

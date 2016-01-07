@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class NewRSHsmClientCertificateCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter HsmClientCertificateIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier to be assigned to the new HSM client certificate that the cluster will
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String HsmClientCertificateIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

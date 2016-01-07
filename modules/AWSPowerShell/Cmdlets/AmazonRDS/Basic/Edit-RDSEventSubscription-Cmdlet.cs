@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class EditRDSEventSubscriptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Enabled
         /// <summary>
         /// <para>
         /// <para> A Boolean value; set to <b>true</b> to activate the subscription. </para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Enabled { get; set; }
+        #endregion
         
+        #region Parameter EventCategory
         /// <summary>
         /// <para>
         /// <para> A list of event categories for a SourceType that you want to subscribe to. You can
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("EventCategories")]
         public System.String[] EventCategory { get; set; }
+        #endregion
         
+        #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of the SNS topic created for event notification. The
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String SnsTopicArn { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The type of source that will be generating the events. For example, if you want to
@@ -87,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceType { get; set; }
+        #endregion
         
+        #region Parameter SubscriptionName
         /// <summary>
         /// <para>
         /// <para>The name of the RDS event notification subscription.</para>
@@ -95,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SubscriptionName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -103,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSEventsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// <para> The number of minutes prior to the time of the request for which to retrieve events.
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Duration { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para> The end of the time interval for which to retrieve events, specified in ISO 8601
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the event source for which events will be returned. If this parameter
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The event source to retrieve events for. If no value is specified, all events are
@@ -82,8 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.Redshift.SourceType")]
         public Amazon.Redshift.SourceType SourceType { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para> The beginning of the time interval to retrieve events for, specified in ISO 8601
@@ -93,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -106,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -118,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -82,6 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class ReceiveSQSMessageCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeName
         /// <summary>
         /// <para>
         /// <para>A list of attributes that need to be returned along with each message. </para><para> The following lists the names and descriptions of the attributes that can be returned:
@@ -97,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("AttributeNames")]
         public System.String[] AttributeName { get; set; }
+        #endregion
         
+        #region Parameter MessageCount
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages to return. Amazon SQS never returns more messages than
@@ -107,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("MaxNumberOfMessages")]
         public System.Int32 MessageCount { get; set; }
+        #endregion
         
+        #region Parameter MessageAttributeName
         /// <summary>
         /// <para>
         /// <para>The name of the message attribute, where <i>N</i> is the index. The message attribute
@@ -125,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter]
         [Alias("MessageAttributeNames")]
         public System.String[] MessageAttributeName { get; set; }
+        #endregion
         
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
@@ -133,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter VisibilityTimeout
         /// <summary>
         /// <para>
         /// <para>The duration (in seconds) that the received messages are hidden from subsequent retrieve
@@ -142,7 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 VisibilityTimeout { get; set; }
+        #endregion
         
+        #region Parameter WaitTimeInSeconds
         /// <summary>
         /// <para>
         /// <para>The duration (in seconds) for which the call will wait for a message to arrive in
@@ -153,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter(Position = 4)]
         [Alias("WaitTimeSeconds")]
         public System.Int32 WaitTimeInSeconds { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -161,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

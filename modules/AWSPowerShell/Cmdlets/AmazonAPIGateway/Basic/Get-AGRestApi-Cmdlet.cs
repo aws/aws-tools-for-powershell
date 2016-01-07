@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The identifier of the <a>RestApi</a> resource.</para>
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

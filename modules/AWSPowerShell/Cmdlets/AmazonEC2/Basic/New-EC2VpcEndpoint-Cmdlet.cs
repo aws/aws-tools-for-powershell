@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2VpcEndpointCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
         /// <para>A policy to attach to the endpoint that controls access to the service. The policy
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter RouteTableId
         /// <summary>
         /// <para>
         /// <para>One or more route table IDs.</para>
@@ -75,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RouteTableIds")]
         public System.String[] RouteTableId { get; set; }
+        #endregion
         
+        #region Parameter ServiceName
         /// <summary>
         /// <para>
         /// <para>The AWS service name, in the form <code>com.amazonaws.<i>region</i>.<i>service</i></code>.
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceName { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of the VPC in which the endpoint will be used.</para>
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -100,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

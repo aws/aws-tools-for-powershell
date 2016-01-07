@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class GetMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter EvaluationId
         /// <summary>
         /// <para>
         /// <para>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each <code>MLModel</code>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String EvaluationId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -62,17 +62,19 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para><para>
     /// For more information about developing and using AWS Config rules, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating
     /// AWS Resource Configurations with AWS Config</a> in the <i>AWS Config Developer Guide</i>.
-    /// </para><para></para>
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "CFGConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutConfigRule operation against Amazon Config.", Operation = new[] {"PutConfigRule"})]
+    [AWSCmdlet("Invokes the PutConfigRule operation against AWS Config.", Operation = new[] {"PutConfigRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigRule_ConfigRuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ConfigService.Model.PutConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class WriteCFGConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Scope_ComplianceResourceId
         /// <summary>
         /// <para>
         /// <para>The IDs of only those AWS resources that you want AWS Config to evaluate against the
@@ -82,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_ComplianceResourceId")]
         public System.String Scope_ComplianceResourceId { get; set; }
+        #endregion
         
+        #region Parameter Scope_ComplianceResourceType
         /// <summary>
         /// <para>
         /// <para>The resource types of only those AWS resources that you want AWS Config to evaluate
@@ -93,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_ComplianceResourceTypes")]
         public System.String[] Scope_ComplianceResourceType { get; set; }
+        #endregion
         
+        #region Parameter ConfigRule_ConfigRuleArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the AWS Config rule.</para>
@@ -101,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigRule_ConfigRuleArn { get; set; }
+        #endregion
         
+        #region Parameter ConfigRule_ConfigRuleId
         /// <summary>
         /// <para>
         /// <para>The ID of the AWS Config rule.</para>
@@ -109,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigRule_ConfigRuleId { get; set; }
+        #endregion
         
+        #region Parameter ConfigRule_ConfigRuleName
         /// <summary>
         /// <para>
         /// <para>The name that you assign to the AWS Config rule. The name is required if you are adding
@@ -118,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ConfigRule_ConfigRuleName { get; set; }
+        #endregion
         
+        #region Parameter ConfigRule_ConfigRuleState
         /// <summary>
         /// <para>
         /// <para>Indicates whether the AWS Config rule is active or currently being deleted by AWS
@@ -130,8 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ConfigService.ConfigRuleState")]
         public Amazon.ConfigService.ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
+        #endregion
         
+        #region Parameter ConfigRule_Description
         /// <summary>
         /// <para>
         /// <para>The description that you provide for the AWS Config rule.</para>
@@ -139,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigRule_Description { get; set; }
+        #endregion
         
+        #region Parameter ConfigRule_InputParameter
         /// <summary>
         /// <para>
         /// <para>A string in JSON format that is passed to the AWS Config rule Lambda function.</para>
@@ -148,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_InputParameters")]
         public System.String ConfigRule_InputParameter { get; set; }
+        #endregion
         
+        #region Parameter ConfigRule_MaximumExecutionFrequency
         /// <summary>
         /// <para>
         /// <para>The maximum frequency at which the AWS Config rule runs evaluations.</para><para>If your rule is periodic, meaning it runs an evaluation when AWS Config delivers a
@@ -161,8 +180,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ConfigService.MaximumExecutionFrequency")]
         public Amazon.ConfigService.MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
+        #endregion
         
+        #region Parameter Source_SourceDetail
         /// <summary>
         /// <para>
         /// <para>Provides the source and type of the event that causes AWS Config to evaluate your
@@ -172,7 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Source_SourceDetails")]
         public Amazon.ConfigService.Model.SourceDetail[] Source_SourceDetail { get; set; }
+        #endregion
         
+        #region Parameter Source_SourceIdentifier
         /// <summary>
         /// <para>
         /// <para>For AWS managed Config rules, a pre-defined identifier from a list. To reference the
@@ -184,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Source_SourceIdentifier")]
         public System.String Source_SourceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Scope_TagKey
         /// <summary>
         /// <para>
         /// <para>The tag key that is applied to only those AWS resources that you want AWS Config to
@@ -194,7 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_TagKey")]
         public System.String Scope_TagKey { get; set; }
+        #endregion
         
+        #region Parameter Scope_TagValue
         /// <summary>
         /// <para>
         /// <para>The tag value applied to only those AWS resources that you want AWS Config to evaluate
@@ -205,7 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_TagValue")]
         public System.String Scope_TagValue { get; set; }
+        #endregion
         
+        #region Parameter Source_Owner
         /// <summary>
         /// <para>
         /// <para>Indicates whether AWS or the customer owns and manages the AWS Config rule.</para>
@@ -213,15 +243,20 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Source_Owner")]
+        [AWSConstantClassSource("Amazon.ConfigService.Owner")]
         public Amazon.ConfigService.Owner Source_Owner { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ConfigRule_ConfigRuleName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -229,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

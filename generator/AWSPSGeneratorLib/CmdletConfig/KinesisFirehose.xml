@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>KINF</ServiceNounPrefix>
+  <ServiceName>Amazon Kinesis Firehose</ServiceName>
   <ServiceNamespace>Amazon.KinesisFirehose</ServiceNamespace>
   <ServiceClientInterface>IAmazonKinesisFirehose</ServiceClientInterface>
   <ServiceClient>AmazonKinesisFirehoseClient</ServiceClient>

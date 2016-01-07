@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class NewEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application. If no application is found with this name, and <code>AutoCreateApplication</code>
@@ -52,21 +54,23 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter AutoCreateApplication
         /// <summary>
         /// <para>
         /// <para> Determines how the system behaves if the specified application for this version does
-        /// not already exist: </para><enumValues><value name="true"><para><code>true</code>: Automatically creates the specified application for this version
-        /// if it does not already exist. </para></value><value name="false"><para><code>false</code>: Returns an <code>InvalidParameterValue</code> if the specified
-        /// application for this version does not already exist. </para></value></enumValues><ul><li><code>true</code> : Automatically creates the specified
-        /// application for this release if it does not already exist. </li><li><code>false</code>
-        /// : Throws an <code>InvalidParameterValue</code> if the specified application for this
-        /// release does not already exist. </li></ul><para> Default: <code>false</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
+        /// not already exist: </para><ul><li><code>true</code> : Automatically creates the specified application for
+        /// this release if it does not already exist. </li><li><code>false</code> : Throws
+        /// an <code>InvalidParameterValue</code> if the specified application for this release
+        /// does not already exist. </li></ul><para> Default: <code>false</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoCreateApplication { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Describes this version.</para>
@@ -74,7 +78,21 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Process
+        /// <summary>
+        /// <para>
+        /// <para>Preprocesses and validates the environment manifest and configuration files in the
+        /// source bundle. Validating configuration files can identify issues prior to deploying
+        /// the application version to an environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Process { get; set; }
+        #endregion
+        
+        #region Parameter SourceBundle_S3Bucket
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 bucket where the data is located.</para>
@@ -82,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceBundle_S3Bucket { get; set; }
+        #endregion
         
+        #region Parameter SourceBundle_S3Key
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 key where the data is located.</para>
@@ -90,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceBundle_S3Key { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para>A label identifying this version.</para><para>Constraint: Must be unique per application. If an application version already exists
@@ -100,7 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -108,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -130,6 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (ParameterWasBound("AutoCreateApplication"))
                 context.AutoCreateApplication = this.AutoCreateApplication;
             context.Description = this.Description;
+            if (ParameterWasBound("Process"))
+                context.Process = this.Process;
             context.SourceBundle_S3Bucket = this.SourceBundle_S3Bucket;
             context.SourceBundle_S3Key = this.SourceBundle_S3Key;
             context.VersionLabel = this.VersionLabel;
@@ -157,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Process != null)
+            {
+                request.Process = cmdletContext.Process.Value;
             }
             
              // populate SourceBundle
@@ -229,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String ApplicationName { get; set; }
             public System.Boolean? AutoCreateApplication { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? Process { get; set; }
             public System.String SourceBundle_S3Bucket { get; set; }
             public System.String SourceBundle_S3Key { get; set; }
             public System.String VersionLabel { get; set; }

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class SetASInstanceHealthCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter HealthStatus
         /// <summary>
         /// <para>
         /// <para> The health status of the instance. Set to <code>Healthy</code> if you want the instance
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String HealthStatus { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the EC2 instance.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter ShouldRespectGracePeriod
         /// <summary>
         /// <para>
         /// <para>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>
@@ -74,14 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Boolean ShouldRespectGracePeriod { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the InstanceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -89,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

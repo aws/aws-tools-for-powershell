@@ -50,14 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class GetDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to retrieve snapshot information for.</para>
+        /// <para>The identifier of the directory for which to retrieve snapshot information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotId
         /// <summary>
         /// <para>
         /// <para>A list of identifiers of the snapshots to obtain the information for. If this member
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("SnapshotIds")]
         public System.String[] SnapshotId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of objects to return.</para>
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to <a>DescribeSnapshots</a>.
@@ -85,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

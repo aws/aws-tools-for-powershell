@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGConfigRules")]
     [OutputType("Amazon.ConfigService.Model.ConfigRule")]
-    [AWSCmdlet("Invokes the DescribeConfigRules operation against Amazon Config.", Operation = new[] {"DescribeConfigRules"})]
+    [AWSCmdlet("Invokes the DescribeConfigRules operation against AWS Config.", Operation = new[] {"DescribeConfigRules"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigRule",
         "This cmdlet returns a collection of ConfigRule objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeConfigRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGConfigRulesCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
         /// <para>The names of the AWS Config rules for which you want details. If you do not specify
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRuleNames")]
         public System.String[] ConfigRuleName { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

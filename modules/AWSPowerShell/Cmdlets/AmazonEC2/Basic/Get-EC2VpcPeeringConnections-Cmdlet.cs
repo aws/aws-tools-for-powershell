@@ -39,10 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VpcPeeringConnectionsCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The CIDR block of the peer VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the peer
-        /// VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the peer VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The CIDR block of the requester's VPC.</para></li><li><para><code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the
+        /// VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the peer VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The CIDR block of the requester's
+        /// VPC.</para></li><li><para><code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the
         /// requester VPC.</para></li><li><para><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</para></li><li><para><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code>
         /// | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code>
         /// | <code>deleted</code> | <code>rejected</code>).</para></li><li><para><code>status-message</code> - A message that provides more information about the status
@@ -59,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
         /// <para>One or more VPC peering connection IDs.</para><para>Default: Describes all your VPC peering connections.</para>
@@ -68,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("VpcPeeringConnectionIds")]
         public System.String[] VpcPeeringConnectionId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

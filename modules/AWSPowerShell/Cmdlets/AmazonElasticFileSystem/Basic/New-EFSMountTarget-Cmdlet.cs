@@ -106,6 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     )]
     public class NewEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
+        
+        #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>The ID of the file system for which to create the mount target.</para>
@@ -113,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FileSystemId { get; set; }
+        #endregion
         
+        #region Parameter IpAddress
         /// <summary>
         /// <para>
         /// <para>A valid IPv4 address within the address range of the specified subnet.</para>
@@ -121,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IpAddress { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroup
         /// <summary>
         /// <para>
         /// <para> Up to 5 VPC security group IDs, of the form "sg-xxxxxxxx". These must be for the
@@ -131,7 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         [System.Management.Automation.Parameter]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet to add the mount target in.</para>
@@ -139,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -147,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -28,12 +28,11 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a snapshot of an existing directory.
+    /// Creates a snapshot of a Simple AD directory.
     /// 
-    ///  
-    /// <para>
-    /// You cannot take snapshots of extended or connected directories.
-    /// </para>
+    ///  <note><para>
+    /// You cannot take snapshots of AD Connector directories.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "DSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class NewDSSnapshotCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// <para>The identifier of the directory to take a snapshot of.</para>
@@ -51,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The descriptive name to apply to the snapshot.</para>
@@ -59,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -67,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class NewMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter EvaluationDataSourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the <code>DataSource</code> for the evaluation. The schema of the <code>DataSource</code>
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EvaluationDataSourceId { get; set; }
+        #endregion
         
+        #region Parameter EvaluationId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>Evaluation</code>.</para>
@@ -73,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String EvaluationId { get; set; }
+        #endregion
         
+        #region Parameter EvaluationName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>Evaluation</code>.</para>
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("Name")]
         public System.String EvaluationName { get; set; }
+        #endregion
         
+        #region Parameter MLModelId
         /// <summary>
         /// <para>
         /// <para>The ID of the <code>MLModel</code> to evaluate.</para><para>The schema used in creating the <code>MLModel</code> must match the schema of the
@@ -92,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ModelId")]
         public System.String MLModelId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -100,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     )]
     public class GetWKSWorkspaceBundlesCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter BundleId
         /// <summary>
         /// <para>
         /// <para>An array of strings that contains the identifiers of the bundles to retrieve. This
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("BundleIds")]
         public System.String[] BundleId { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
+        #endregion
         
+        #region Parameter Owner
         /// <summary>
         /// <para>
         /// <para>The owner of the bundles to retrieve. This parameter cannot be combined with any other
@@ -79,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Owner { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

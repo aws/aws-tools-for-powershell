@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class GetCWLExportTasksCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter StatusCode
         /// <summary>
         /// <para>
         /// <para>All export tasks that matches the specified status code will be returned. This can
@@ -57,8 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudWatchLogs.ExportTaskStatusCode")]
         public Amazon.CloudWatchLogs.ExportTaskStatusCode StatusCode { get; set; }
+        #endregion
         
+        #region Parameter TaskId
         /// <summary>
         /// <para>
         /// <para>Export task that matches the specified task Id will be returned. This can result in
@@ -67,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TaskId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para> The maximum number of items returned in the response. If you don't specify a value,
@@ -77,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> A string token used for pagination that points to the next page of results. It must
@@ -87,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

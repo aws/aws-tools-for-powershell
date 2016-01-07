@@ -45,12 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// operating systems accept multiple domain names separated by spaces. However, Windows
     /// and other Linux operating systems treat the value as a single domain, which results
     /// in unexpected behavior. If your DHCP options set is associated with a VPC that has
-    /// instances with multiple operating systems, specify only one domain name.</li><li><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
-    /// servers.</li><li><code>netbios-name-servers</code> - The IP addresses of up to four
-    /// NetBIOS name servers.</li><li><code>netbios-node-type</code> - The NetBIOS node
-    /// type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are
-    /// not currently supported). For more information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC
-    /// 2132</a>. </li></ul><para>
+    /// instances with multiple operating systems, specify only one domain name.</li><li><code>ntp-servers</code>
+    /// - The IP addresses of up to four Network Time Protocol (NTP) servers.</li><li><code>netbios-name-servers</code>
+    /// - The IP addresses of up to four NetBIOS name servers.</li><li><code>netbios-node-type</code>
+    /// - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast
+    /// and multicast are not currently supported). For more information about these node
+    /// types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>. </li></ul><para>
     /// Your VPC automatically starts out with a set of DHCP options that includes only a
     /// DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and
     /// if your VPC has an Internet gateway, make sure to set the <code>domain-name-servers</code>
@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2DhcpOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DhcpConfiguration
         /// <summary>
         /// <para>
         /// <para>A DHCP configuration option.</para>
@@ -76,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DhcpConfigurations")]
         public Amazon.EC2.Model.DhcpConfiguration[] DhcpConfiguration { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -84,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

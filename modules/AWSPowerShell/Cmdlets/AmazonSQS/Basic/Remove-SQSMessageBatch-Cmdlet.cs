@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class RemoveSQSMessageBatchCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Entry
         /// <summary>
         /// <para>
         /// <para>A list of receipt handles for the messages to be deleted.</para>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         [System.Management.Automation.Parameter]
         [Alias("Entries")]
         public Amazon.SQS.Model.DeleteMessageBatchRequestEntry[] Entry { get; set; }
+        #endregion
         
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2SubnetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availabilityZone</code> - The Availability Zone for the subnet. You can also
@@ -66,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>One or more subnet IDs.</para><para>Default: Describes all your subnets.</para>
@@ -75,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

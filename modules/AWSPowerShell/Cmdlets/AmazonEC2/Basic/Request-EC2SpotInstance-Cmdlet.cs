@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class RequestEC2SpotInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter LaunchSpecification_AddressingType
         /// <summary>
         /// <para>
         /// <para>Deprecated.</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchSpecification_AddressingType { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_AllSecurityGroup
         /// <summary>
         /// <para>
         /// <para>One or more security groups. When requesting instances in a VPC, you must specify
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_AllSecurityGroups")]
         public Amazon.EC2.Model.GroupIdentifier[] LaunchSpecification_AllSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter IamInstanceProfile_Arn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the instance profile.</para>
@@ -70,16 +76,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_IamInstanceProfile_Arn")]
         public System.String IamInstanceProfile_Arn { get; set; }
+        #endregion
         
+        #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone.</para>
+        /// <para>The Availability Zones. To specify multiple Availability Zones, separate them using
+        /// commas; for example, "us-west-2a, us-west-2b".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_Placement_AvailabilityZone")]
         public System.String Placement_AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZoneGroup
         /// <summary>
         /// <para>
         /// <para>The user-specified name for a logical grouping of bids.</para><para>When you specify an Availability Zone group in a Spot Instance request, all Spot instances
@@ -98,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AvailabilityZoneGroup { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>One or more block device mapping entries.</para>
@@ -107,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_BlockDeviceMappings")]
         public Amazon.EC2.Model.BlockDeviceMapping[] LaunchSpecification_BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter BlockDurationMinute
         /// <summary>
         /// <para>
         /// <para>The required duration for the Spot instances, in minutes. This value must be a multiple
@@ -115,13 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// At the end of the duration period, Amazon EC2 marks the Spot instance for termination
         /// and provides a Spot instance termination notice, which gives the instance a two-minute
         /// warning before it terminates.</para><para>Note that you can't specify an Availability Zone group or a launch group if you specify
-        /// a required duration.</para>
+        /// a duration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("BlockDurationMinutes")]
         public System.Int32 BlockDurationMinute { get; set; }
+        #endregion
         
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -131,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_EbsOptimized
         /// <summary>
         /// <para>
         /// <para>Indicates whether the instance is optimized for EBS I/O. This optimization provides
@@ -142,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean LaunchSpecification_EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
         /// <para>The name of the placement group (for cluster instances).</para>
@@ -151,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_Placement_GroupName")]
         public System.String Placement_GroupName { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_ImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the AMI.</para>
@@ -159,7 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchSpecification_ImageId { get; set; }
+        #endregion
         
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
         /// <para>The maximum number of Spot instances to launch.</para><para>Default: 1</para>
@@ -167,15 +192,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.InstanceType")]
         public Amazon.EC2.InstanceType LaunchSpecification_InstanceType { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_KernelId
         /// <summary>
         /// <para>
         /// <para>The ID of the kernel.</para>
@@ -183,7 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchSpecification_KernelId { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_KeyName
         /// <summary>
         /// <para>
         /// <para>The name of the key pair.</para>
@@ -191,7 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchSpecification_KeyName { get; set; }
+        #endregion
         
+        #region Parameter LaunchGroup
         /// <summary>
         /// <para>
         /// <para>The instance launch group. Launch groups are Spot instances that launch together and
@@ -200,7 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchGroup { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_MonitoringEnabled
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -208,7 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean LaunchSpecification_MonitoringEnabled { get; set; }
+        #endregion
         
+        #region Parameter IamInstanceProfile_Name
         /// <summary>
         /// <para>
         /// <para>The name of the instance profile.</para>
@@ -217,7 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_IamInstanceProfile_Name")]
         public System.String IamInstanceProfile_Name { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_NetworkInterface
         /// <summary>
         /// <para>
         /// <para>One or more network interfaces.</para>
@@ -226,7 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_NetworkInterfaces")]
         public Amazon.EC2.Model.InstanceNetworkInterfaceSpecification[] LaunchSpecification_NetworkInterface { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_RamdiskId
         /// <summary>
         /// <para>
         /// <para>The ID of the RAM disk.</para>
@@ -234,7 +276,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchSpecification_RamdiskId { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_SecurityGroup
         /// <summary>
         /// <para>
         /// <para>One or more security group names.</para>
@@ -243,7 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("LaunchSpecification_SecurityGroups")]
         public System.String[] LaunchSpecification_SecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter SpotPrice
         /// <summary>
         /// <para>
         /// <para>The maximum hourly price (bid) for any Spot instance launched to fulfill the request.</para>
@@ -251,7 +297,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SpotPrice { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet in which to launch the instance.</para>
@@ -259,15 +307,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchSpecification_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The Spot instance request type.</para><para>Default: <code>one-time</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.SpotInstanceType")]
         public Amazon.EC2.SpotInstanceType Type { get; set; }
+        #endregion
         
+        #region Parameter LaunchSpecification_UserData
         /// <summary>
         /// <para>
         /// <para>The Base64-encoded MIME user data to make available to the instances.</para>
@@ -275,7 +328,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LaunchSpecification_UserData { get; set; }
+        #endregion
         
+        #region Parameter ValidFrom
         /// <summary>
         /// <para>
         /// <para>The start date of the request. If this is a one-time request, the request becomes
@@ -286,7 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ValidFrom { get; set; }
+        #endregion
         
+        #region Parameter ValidUntil
         /// <summary>
         /// <para>
         /// <para>The end date of the request. If this is a one-time request, the request remains active
@@ -297,7 +354,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime ValidUntil { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -305,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

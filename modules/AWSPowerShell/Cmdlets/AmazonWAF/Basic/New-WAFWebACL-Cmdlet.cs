@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class NewWAFWebACLCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeToken
         /// <summary>
         /// <para>
         /// <para>The value returned by the most recent call to <a>GetChangeToken</a>.</para>
@@ -71,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ChangeToken { get; set; }
+        #endregion
         
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// <para>A friendly name or description for the metrics for this <code>WebACL</code>. The name
@@ -81,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MetricName { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>A friendly name or description of the <a>WebACL</a>. You can't change <code>Name</code>
@@ -90,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter DefaultAction_Type
         /// <summary>
         /// <para>
         /// <para>Specifies how you want AWS WAF to respond to requests that match the settings in a
@@ -102,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.WAF.WafActionType")]
         public Amazon.WAF.WafActionType DefaultAction_Type { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

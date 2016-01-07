@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class GetRDSEventCategoriesCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently supported.</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter SourceType
         /// <summary>
         /// <para>
         /// <para> The type of source that will be generating the events. </para><para>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</para>
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceType { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

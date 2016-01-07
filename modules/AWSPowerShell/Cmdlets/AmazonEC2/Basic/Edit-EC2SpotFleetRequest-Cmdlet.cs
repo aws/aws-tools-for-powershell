@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2SpotFleetRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExcessCapacityTerminationPolicy
         /// <summary>
         /// <para>
         /// <para>Indicates whether running Spot instances should be terminated if the target capacity
@@ -69,8 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.ExcessCapacityTerminationPolicy")]
         public Amazon.EC2.ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
+        #endregion
         
+        #region Parameter TargetCapacity
         /// <summary>
         /// <para>
         /// <para>The size of the fleet.</para>
@@ -78,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 TargetCapacity { get; set; }
+        #endregion
         
+        #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
         /// <para>The ID of the Spot fleet request.</para>
@@ -86,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SpotFleetRequestId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

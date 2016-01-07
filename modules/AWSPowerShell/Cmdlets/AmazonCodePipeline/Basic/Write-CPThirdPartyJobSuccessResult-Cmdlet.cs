@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class WriteCPThirdPartyJobSuccessResultCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter CurrentRevision_ChangeIdentifier
         /// <summary>
         /// <para>
         /// <para>The change identifier for the current revision.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CurrentRevision_ChangeIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>The clientToken portion of the clientId and clientToken pair used to verify that the
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter ContinuationToken
         /// <summary>
         /// <para>
         /// <para>A system-generated token, such as a AWS CodeDeploy deployment ID, that a job uses
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContinuationToken { get; set; }
+        #endregion
         
+        #region Parameter ExecutionDetails_ExternalExecutionId
         /// <summary>
         /// <para>
         /// <para>The system-generated unique ID of this action used to identify this job worker in
@@ -74,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExecutionDetails_ExternalExecutionId { get; set; }
+        #endregion
         
+        #region Parameter JobId
         /// <summary>
         /// <para>
         /// <para>The ID of the job that successfully completed. This is the same ID returned from PollForThirdPartyJobs.</para>
@@ -82,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String JobId { get; set; }
+        #endregion
         
+        #region Parameter ExecutionDetails_PercentComplete
         /// <summary>
         /// <para>
         /// <para>The percentage of work completed on the action, represented on a scale of zero to
@@ -91,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ExecutionDetails_PercentComplete { get; set; }
+        #endregion
         
+        #region Parameter CurrentRevision_Revision
         /// <summary>
         /// <para>
         /// <para>The revision ID of the current version of an artifact.</para>
@@ -99,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CurrentRevision_Revision { get; set; }
+        #endregion
         
+        #region Parameter ExecutionDetails_Summary
         /// <summary>
         /// <para>
         /// <para>The summary of the current status of the actions.</para>
@@ -107,14 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExecutionDetails_Summary { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the JobId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -122,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

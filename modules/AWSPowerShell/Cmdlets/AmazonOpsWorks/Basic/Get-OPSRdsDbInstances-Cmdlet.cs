@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSRdsDbInstancesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter RdsDbInstanceArn
         /// <summary>
         /// <para>
         /// <para>An array containing the ARNs of the instances to be described.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("RdsDbInstanceArns")]
         public System.String[] RdsDbInstanceArn { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID that the instances are registered with. The operation returns descriptions
@@ -63,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

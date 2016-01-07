@@ -33,13 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Stop", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the StopConfigurationRecorder operation against Amazon Config.", Operation = new[] {"StopConfigurationRecorder"})]
+    [AWSCmdlet("Invokes the StopConfigurationRecorder operation against AWS Config.", Operation = new[] {"StopConfigurationRecorder"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ConfigService.Model.StopConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class StopCFGConfigurationRecorderCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
         /// <para>The name of the recorder object that records each configuration change made to the
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfigurationRecorderName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

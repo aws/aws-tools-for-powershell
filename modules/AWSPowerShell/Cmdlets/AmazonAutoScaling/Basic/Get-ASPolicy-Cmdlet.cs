@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class GetASPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>One or more policy names or policy ARNs to be described. If you omit this list, all
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyNames")]
         public System.String[] PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PolicyType
         /// <summary>
         /// <para>
         /// <para>One or more policy types. Valid values are <code>SimpleScaling</code> and <code>StepScaling</code>.</para>
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("PolicyTypes")]
         public System.String[] PolicyType { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to be returned with each call.</para>
@@ -77,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -86,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

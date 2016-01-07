@@ -70,6 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class UpdateKINFDestinationCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        
+        #region Parameter CurrentDeliveryStreamVersionId
         /// <summary>
         /// <para>
         /// <para>Obtain this value from the <code>VersionId</code> result of the <a>DeliveryStreamDescription</a>
@@ -82,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CurrentDeliveryStreamVersionId { get; set; }
+        #endregion
         
+        #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream.</para>
@@ -90,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryStreamName { get; set; }
+        #endregion
         
+        #region Parameter DestinationId
         /// <summary>
         /// <para>
         /// <para>The ID of the destination.</para>
@@ -98,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DestinationId { get; set; }
+        #endregion
         
+        #region Parameter RedshiftDestinationUpdate
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -106,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
+        #endregion
         
+        #region Parameter S3DestinationUpdate
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -114,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -122,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

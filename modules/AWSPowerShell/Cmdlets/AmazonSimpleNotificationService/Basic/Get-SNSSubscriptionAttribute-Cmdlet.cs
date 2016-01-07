@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class GetSNSSubscriptionAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter SubscriptionArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the subscription whose properties you want to get.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SubscriptionArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

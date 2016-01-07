@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class NewECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para>This parameter is currently disabled.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AZMode
         /// <summary>
         /// <para>
         /// <para>Specifies whether the nodes in this Memcached node group are created in a single Availability
@@ -57,8 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElastiCache.AZMode")]
         public Amazon.ElastiCache.AZMode AZMode { get; set; }
+        #endregion
         
+        #region Parameter CacheClusterId
         /// <summary>
         /// <para>
         /// <para>The node group identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li>A name must contain from 1 to 20 alphanumeric characters or hyphens.</li><li>The first character must be a letter.</li><li>A name cannot end with a hyphen
@@ -67,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheClusterId { get; set; }
+        #endregion
         
+        #region Parameter CacheNodeType
         /// <summary>
         /// <para>
         /// <para>The compute and memory capacity of the nodes in the node group.</para><para>Valid node types are as follows:</para><ul><li>General purpose: <ul><li>Current generation: <code>cache.t2.micro</code>,
@@ -85,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CacheNodeType { get; set; }
+        #endregion
         
+        #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the parameter group to associate with this cache cluster. If this argument
@@ -94,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CacheParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
         /// <para>A list of security group names to associate with this cache cluster.</para><para>Use this parameter only when you are creating a cache cluster outside of an Amazon
@@ -104,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("CacheSecurityGroupNames")]
         public System.String[] CacheSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter CacheSubnetGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the subnet group to be used for the cache cluster.</para><para>Use this parameter only when you are creating a cache cluster in an Amazon Virtual
@@ -113,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CacheSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
         /// <para>The name of the cache engine to be used for this cache cluster.</para><para>Valid values for this parameter are:</para><para><code>memcached</code> | <code>redis</code></para>
@@ -121,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The version number of the cache engine to be used for this cache cluster. To view
@@ -130,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter NotificationTopicArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic
@@ -139,7 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NotificationTopicArn { get; set; }
+        #endregion
         
+        #region Parameter NumCacheNode
         /// <summary>
         /// <para>
         /// <para>The initial number of cache nodes that the cache cluster will have.</para><para>For clusters running Redis, this value must be 1. For clusters running Memcached,
@@ -150,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("NumCacheNodes")]
         public System.Int32 NumCacheNode { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para>The port number on which each of the cache nodes will accept connections.</para>
@@ -158,7 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PreferredAvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The EC2 Availability Zone in which the cache cluster will be created.</para><para>All nodes belonging to this Memcached cache cluster are placed in the preferred Availability
@@ -167,7 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredAvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter PreferredAvailabilityZoneSet
         /// <summary>
         /// <para>
         /// <para>A list of the Availability Zones in which cache nodes will be created. The order of
@@ -180,7 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("PreferredAvailabilityZones")]
         public System.String[] PreferredAvailabilityZoneSet { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
@@ -191,7 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
         /// <para>The ID of the replication group to which this cache cluster should belong. If this
@@ -205,7 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ReplicationGroupId { get; set; }
+        #endregion
         
+        #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
         /// <para>One or more VPC security groups associated with the cache cluster.</para><para>Use this parameter only when you are creating a cache cluster in an Amazon Virtual
@@ -215,7 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("SecurityGroupIds")]
         public System.String[] SecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter SnapshotArn
         /// <summary>
         /// <para>
         /// <para>A single-element string list containing an Amazon Resource Name (ARN) that uniquely
@@ -228,7 +265,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("SnapshotArns")]
         public System.String[] SnapshotArn { get; set; }
+        #endregion
         
+        #region Parameter SnapshotName
         /// <summary>
         /// <para>
         /// <para>The name of a snapshot from which to restore data into the new node group. The snapshot
@@ -238,7 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotName { get; set; }
+        #endregion
         
+        #region Parameter SnapshotRetentionLimit
         /// <summary>
         /// <para>
         /// <para>The number of days for which ElastiCache will retain automatic snapshots before deleting
@@ -249,7 +290,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 SnapshotRetentionLimit { get; set; }
+        #endregion
         
+        #region Parameter SnapshotWindow
         /// <summary>
         /// <para>
         /// <para>The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot
@@ -260,7 +303,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshotWindow { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of cost allocation tags to be added to this resource. A tag is a key-value
@@ -270,7 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -278,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

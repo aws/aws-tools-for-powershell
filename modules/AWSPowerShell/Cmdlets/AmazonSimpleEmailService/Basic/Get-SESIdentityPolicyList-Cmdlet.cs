@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class GetSESIdentityPolicyListCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Identity
         /// <summary>
         /// <para>
         /// <para>The identity that is associated with the policy for which the policies will be listed.
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Identity { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

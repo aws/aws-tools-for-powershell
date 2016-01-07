@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Deletes the specified Auto Scaling policy.
+    /// 
+    ///  
+    /// <para>
+    /// Deleting a policy deletes the underlying alarm action, but does not delete the alarm,
+    /// even if it no longer has an associated action.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "ASPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -39,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class RemoveASPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the Auto Scaling group.</para>
@@ -46,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the policy.</para>
@@ -55,14 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("PolicyARN")]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -70,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

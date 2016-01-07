@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class UpdateSESReceiptRuleCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Rule_Action
         /// <summary>
         /// <para>
         /// <para>An ordered list of actions to perform on messages that match at least one of the recipient
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Rule_Actions")]
         public Amazon.SimpleEmail.Model.ReceiptAction[] Rule_Action { get; set; }
+        #endregion
         
+        #region Parameter Rule_Enabled
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, the receipt rule is active. The default value is true.</para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Rule_Enabled { get; set; }
+        #endregion
         
+        #region Parameter Rule_Name
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule. The name must:</para><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
@@ -74,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Rule_Name { get; set; }
+        #endregion
         
+        #region Parameter Rule_Recipient
         /// <summary>
         /// <para>
         /// <para>The recipient domains and email addresses to which the receipt rule applies. If this
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Rule_Recipients")]
         public System.String[] Rule_Recipient { get; set; }
+        #endregion
         
+        #region Parameter RuleSetName
         /// <summary>
         /// <para>
         /// <para>The name of the receipt rule set to which the receipt rule belongs.</para>
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RuleSetName { get; set; }
+        #endregion
         
+        #region Parameter Rule_ScanEnabled
         /// <summary>
         /// <para>
         /// <para>If <code>true</code>, then messages to which this receipt rule applies are scanned
@@ -101,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Rule_ScanEnabled { get; set; }
+        #endregion
         
+        #region Parameter Rule_TlsPolicy
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon SES should require that incoming email is delivered over
@@ -111,8 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleEmail.TlsPolicy")]
         public Amazon.SimpleEmail.TlsPolicy Rule_TlsPolicy { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -120,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -49,12 +49,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Get", "KINStreams")]
     [OutputType("Amazon.Kinesis.Model.ListStreamsResponse")]
-    [AWSCmdlet("Invokes the ListStreams operation against AWS Kinesis.", Operation = new[] {"ListStreams"})]
+    [AWSCmdlet("Invokes the ListStreams operation against Amazon Kinesis.", Operation = new[] {"ListStreams"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.ListStreamsResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINStreamsCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream to start the list with.</para>
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ExclusiveStartStreamName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of streams to list.</para>
@@ -70,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

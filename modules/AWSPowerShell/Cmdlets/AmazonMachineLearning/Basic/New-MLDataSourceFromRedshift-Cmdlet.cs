@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class NewMLDataSourceFromRedshiftCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter DatabaseInformation_ClusterIdentifier
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -79,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseInformation_ClusterIdentifier")]
         public System.String DatabaseInformation_ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter ComputeStatistic
         /// <summary>
         /// <para>
         /// <para>The compute statistics for a <code>DataSource</code>. The statistics are generated
@@ -92,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("ComputeStatistics")]
         public System.Boolean ComputeStatistic { get; set; }
+        #endregion
         
+        #region Parameter DatabaseInformation_DatabaseName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -101,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseInformation_DatabaseName")]
         public System.String DatabaseInformation_DatabaseName { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_DataRearrangement
         /// <summary>
         /// <para>
         /// <para>Describes the splitting specifications for a <code>DataSource</code>.</para>
@@ -109,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_DataRearrangement { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_DataSchema
         /// <summary>
         /// <para>
         /// <para>A JSON string that represents the schema for an Amazon Redshift <code>DataSource</code>.
@@ -125,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_DataSchema { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_DataSchemaUri
         /// <summary>
         /// <para>
         /// <para>Describes the schema location for an Amazon Redshift <code>DataSource</code>.</para>
@@ -133,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_DataSchemaUri { get; set; }
+        #endregion
         
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</para>
@@ -141,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter DataSourceName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>DataSource</code>. </para>
@@ -149,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSourceName { get; set; }
+        #endregion
         
+        #region Parameter DatabaseCredentials_Password
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -158,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseCredentials_Password")]
         public System.String DatabaseCredentials_Password { get; set; }
+        #endregion
         
+        #region Parameter RoleARN
         /// <summary>
         /// <para>
         /// <para>A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf
@@ -168,7 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleARN { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_S3StagingLocation
         /// <summary>
         /// <para>
         /// <para>Describes an Amazon S3 location to store the result set of the <code>SelectSqlQuery</code>
@@ -177,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_S3StagingLocation { get; set; }
+        #endregion
         
+        #region Parameter DataSpec_SelectSqlQuery
         /// <summary>
         /// <para>
         /// <para>Describes the SQL Query to execute on an Amazon Redshift database for an Amazon Redshift
@@ -186,7 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSpec_SelectSqlQuery { get; set; }
+        #endregion
         
+        #region Parameter DatabaseCredentials_Username
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -195,7 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("DataSpec_DatabaseCredentials_Username")]
         public System.String DatabaseCredentials_Username { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -203,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class AddIAMClientIDToOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientID
         /// <summary>
         /// <para>
         /// <para>The client ID (also known as audience) to add to the IAM OpenID Connect provider.</para>
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientID { get; set; }
+        #endregion
         
+        #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to add the
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OpenIDConnectProviderArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

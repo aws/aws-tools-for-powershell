@@ -37,15 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// element. The response returns the <code>CreateHostedZoneResponse</code> element that
     /// contains metadata about the hosted zone.
     /// </para><para>
-    /// Route 53 automatically creates a default SOA record and four NS records for the zone.
-    /// The NS records in the hosted zone are the name servers you give your registrar to
-    /// delegate your domain to. For more information about SOA and NS records, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
-    /// and SOA Records that Route 53 Creates for a Hosted Zone</a> in the <i>Amazon Route
-    /// 53 Developer Guide</i>.
+    /// Amazon Route 53 automatically creates a default SOA record and four NS records for
+    /// the zone. The NS records in the hosted zone are the name servers you give your registrar
+    /// to delegate your domain to. For more information about SOA and NS records, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
+    /// and SOA Records that Amazon Route 53 Creates for a Hosted Zone</a> in the <i>Amazon
+    /// Route 53 Developer Guide</i>.
     /// </para><para>
     /// When you create a zone, its initial status is <code>PENDING</code>. This means that
     /// it is not yet available on all DNS servers. The status of the zone changes to <code>INSYNC</code>
-    /// when the NS and SOA records are available on all Route 53 DNS servers. 
+    /// when the NS and SOA records are available on all Amazon Route 53 DNS servers. 
     /// </para><para>
     /// When trying to create a hosted zone using a reusable delegation set, you could specify
     /// an optional DelegationSetId, and Route53 would assign those 4 NS records for the zone,
@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class NewR53HostedZoneCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CallerReference
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and that allows failed <code>CreateHostedZone</code>
@@ -72,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String CallerReference { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneConfig_Comment
         /// <summary>
         /// <para>
         /// <para>An optional comment about your hosted zone. If you don't want to specify a comment,
@@ -82,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String HostedZoneConfig_Comment { get; set; }
+        #endregion
         
+        #region Parameter DelegationSetId
         /// <summary>
         /// <para>
         /// <para>The delegation set id of the reusable delgation set whose NS records you want to assign
@@ -91,29 +97,34 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DelegationSetId { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the domain. This must be a fully-specified domain, for example, www.example.com.
-        /// The trailing dot is optional; Route 53 assumes that the domain name is fully qualified.
-        /// This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com.
-        /// (with a trailing dot) as identical.</para><para>This is the name you have registered with your DNS registrar. You should ask your
+        /// The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully
+        /// qualified. This means that Amazon Route 53 treats www.example.com (without a trailing
+        /// dot) and www.example.com. (with a trailing dot) as identical.</para><para>This is the name you have registered with your DNS registrar. You should ask your
         /// registrar to change the authoritative name servers for your domain to the set of <code>NameServers</code>
         /// elements returned in <code>DelegationSet</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter HostedZoneConfig_PrivateZone
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether this is a private hosted zone. The value is returned
-        /// in the response; do not specify it in the request.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean HostedZoneConfig_PrivateZone { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -121,15 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VPC_VPCId { get; set; }
+        #endregion
         
+        #region Parameter VPC_VPCRegion
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.VPCRegion")]
         public Amazon.Route53.VPCRegion VPC_VPCRegion { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -137,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

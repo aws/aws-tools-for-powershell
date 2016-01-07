@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class AddSNSPermissionCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionName
         /// <summary>
         /// <para>
         /// <para>The action you want to allow for the specified principal(s).</para><para>Valid values: any Amazon SNS action name.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("ActionNames")]
         public System.String[] ActionName { get; set; }
+        #endregion
         
+        #region Parameter AWSAccountId
         /// <summary>
         /// <para>
         /// <para>The AWS account IDs of the users (principals) who will be given access to the specified
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("AWSAccountIds")]
         public System.String[] AWSAccountId { get; set; }
+        #endregion
         
+        #region Parameter Label
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the new policy statement.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Label { get; set; }
+        #endregion
         
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic whose access control policy you wish to modify.</para>
@@ -75,14 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TopicArn { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the TopicArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -90,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

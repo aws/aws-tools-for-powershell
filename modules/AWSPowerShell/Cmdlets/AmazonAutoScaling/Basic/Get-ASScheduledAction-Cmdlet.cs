@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class GetASScheduledActionCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The latest scheduled start time to return. If scheduled action names are provided,
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter ScheduledActionName
         /// <summary>
         /// <para>
         /// <para>Describes one or more scheduled actions. If you omit this list, the call describes
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ScheduledActionNames")]
         public System.String[] ScheduledActionName { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The earliest scheduled start time to return. If scheduled action names are provided,
@@ -79,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call.</para>
@@ -88,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -97,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMOpenIDConnectProviderCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter OpenIDConnectProviderArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider to get information
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String OpenIDConnectProviderArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

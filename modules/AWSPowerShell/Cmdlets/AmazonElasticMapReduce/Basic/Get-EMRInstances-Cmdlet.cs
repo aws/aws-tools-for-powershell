@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class GetEMRInstancesCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
         /// <para>The identifier of the cluster for which to list the instances.</para>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ClusterId { get; set; }
+        #endregion
         
+        #region Parameter InstanceGroupId
         /// <summary>
         /// <para>
         /// <para>The identifier of the instance group for which to list the instances.</para>
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceGroupId { get; set; }
+        #endregion
         
+        #region Parameter InstanceGroupType
         /// <summary>
         /// <para>
         /// <para>The type of instance group for which to list the instances.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("InstanceGroupTypes")]
         public System.String[] InstanceGroupType { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The pagination token that indicates the next set of results to retrieve.</para>
@@ -76,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

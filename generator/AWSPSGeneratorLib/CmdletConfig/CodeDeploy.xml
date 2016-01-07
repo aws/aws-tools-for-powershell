@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CD</ServiceNounPrefix>
+  <ServiceName>AWS CodeDeploy</ServiceName>
   <ServiceNamespace>Amazon.CodeDeploy</ServiceNamespace>
   <ServiceClientInterface>IAmazonCodeDeploy</ServiceClientInterface>
   <ServiceClient>AmazonCodeDeployClient</ServiceClient>

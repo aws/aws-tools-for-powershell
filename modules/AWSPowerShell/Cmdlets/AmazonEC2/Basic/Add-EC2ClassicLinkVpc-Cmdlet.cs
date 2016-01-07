@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class AddEC2ClassicLinkVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Group
         /// <summary>
         /// <para>
         /// <para>The ID of one or more of the VPC's security groups. You cannot specify security groups
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("Groups")]
         public System.String[] Group { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of an EC2-Classic instance to link to the ClassicLink-enabled VPC.</para>
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
+        #endregion
         
+        #region Parameter VpcId
         /// <summary>
         /// <para>
         /// <para>The ID of a ClassicLink-enabled VPC.</para>
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VpcId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class GetCSDomainCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The names of the domains you want to include in the response.</para>
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("DomainNames")]
         public System.String[] DomainName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

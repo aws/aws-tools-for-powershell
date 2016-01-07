@@ -136,7 +136,7 @@
                     <div class="parameter">
                         <div class="parameterName">-ProfileName &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
                         <div class="parameterDescription">
-                            The name associated with a set of credentials previously saved in either the encryptred SDK credential store (and shared with the AWS SDK for .NET
+                            The name associated with a set of credentials previously saved in either the encrypted SDK credential store (and shared with the AWS SDK for .NET
                             and the AWS Toolkit for Visual Studio) or an ini-format credential file, shared with the SDKs and the AWS CLI.
                         </div>
                         <div class="parameterAttributes">
@@ -159,8 +159,13 @@
                     <div class="parameter">
                         <div class="parameterName">-ProfileLocation &lt;<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a>&gt;</div>
                         <div class="parameterDescription">
-                            Custom location of the cross-SDK ini-format credential file (by default the tools check for C:\users\username\.aws\credentials). This parameter is not used 
-                            if credentials are being accessed in the encrypted SDK credential store.
+						<p>Used to specify the name and location of the ini-format credential file (shared with the AWS CLI and other AWS SDKs) 
+						when the file does not use the default name and/or folder location.</p>
+						<p>When the ini-format credential file uses the default filename ('credentials') and is placed in the default search location 
+						('C:\Users\<i>userid</i>\.aws') this parameter is not required. This parameter is also not required when the profile to be used 
+						is contained in the encrypted credential file shared with the AWS SDK for .NET and AWS Toolkit for Visual Studio.</p>
+						<p>As the current folder can vary in a shell or during script execution it is advised that you use specify a fully qualified 
+						path instead of a relative path.</p>
                         </div>
                         <div class="parameterAttributes">
                             <table>
@@ -242,7 +247,7 @@
             </div>
         </div>
         <div id="pageFooter">
-            <div class="copyright">&copy; Copyright 2008-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.</div>
+            <div id="copyright"></div>
             <span class="newline linkto"><a href="javascript:void(0)" onclick="AWSHelpObj.displayLink('pstoolsref-commonparams.html', 'Common Parameters')">Link to this page</a></span>
             <span class="divider">&nbsp;</span>
             <!-- BEGIN-FEEDBACK-SECTION -->
@@ -255,6 +260,7 @@
         <script type="text/javascript">jQuery.noConflict();</script>
         <script type="text/javascript" src="../resources/parseuri.js"></script>
         <script type="text/javascript" src="../resources/pagescript.js"></script>
+        <script type="text/javascript">AWSHelpObj.setCopyrightText();</script>
         <!-- BEGIN-SECTION -->
         <script type="text/javascript">
             jQuery(function ($) {

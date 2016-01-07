@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class GetAGModelTemplateCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ModelName
         /// <summary>
         /// <para>
         /// <para>The name of the model for which to generate a template.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ModelName { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The ID of the <a>RestApi</a> under which the model exists.</para>
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

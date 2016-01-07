@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public class GetSSMDocumentListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter DocumentFilterList
         /// <summary>
         /// <para>
         /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public Amazon.SimpleSystemsManagement.Model.DocumentFilter[] DocumentFilterList { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this call. The call also returns a token
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

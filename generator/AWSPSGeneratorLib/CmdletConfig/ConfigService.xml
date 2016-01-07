@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CFG</ServiceNounPrefix>
+  <ServiceName>AWS Config</ServiceName>
   <ServiceNamespace>Amazon.ConfigService</ServiceNamespace>
   <ServiceClientInterface>IAmazonConfigService</ServiceClientInterface>
   <ServiceClient>AmazonConfigServiceClient</ServiceClient>

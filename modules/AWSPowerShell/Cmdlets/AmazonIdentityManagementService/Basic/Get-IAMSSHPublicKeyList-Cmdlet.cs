@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMSSHPublicKeyListCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the IAM user to list SSH public keys for. If none is specified, the UserName
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
@@ -86,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

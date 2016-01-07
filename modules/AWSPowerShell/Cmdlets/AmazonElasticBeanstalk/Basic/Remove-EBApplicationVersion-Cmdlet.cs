@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class RemoveEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of the application to delete releases from.</para>
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter DeleteSourceBundle
         /// <summary>
         /// <para>
         /// <para>Indicates whether to delete the associated source bundle from Amazon S3: </para><ul><li><code>true</code>: An attempt is made to delete the associated Amazon S3
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Boolean DeleteSourceBundle { get; set; }
+        #endregion
         
+        #region Parameter VersionLabel
         /// <summary>
         /// <para>
         /// <para> The label of the version to delete. </para>
@@ -67,14 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ApplicationName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

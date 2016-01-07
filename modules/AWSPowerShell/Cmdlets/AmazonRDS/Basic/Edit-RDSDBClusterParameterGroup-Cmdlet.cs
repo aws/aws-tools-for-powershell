@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class EditRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster parameter group to modify.</para>
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Parameter
         /// <summary>
         /// <para>
         /// <para>A list of parameters in the DB cluster parameter group to modify.</para>
@@ -77,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Parameters")]
         public Amazon.RDS.Model.Parameter[] Parameter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

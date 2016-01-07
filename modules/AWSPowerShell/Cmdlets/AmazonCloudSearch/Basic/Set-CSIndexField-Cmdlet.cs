@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CS
     )]
     public class SetCSIndexFieldCmdlet : AmazonCloudSearchClientCmdlet, IExecutor
     {
+        
+        #region Parameter TextArrayOptions_AnalysisScheme
         /// <summary>
         /// <para>
         /// <para>The name of an analysis scheme for a <code>text-array</code> field.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_AnalysisScheme")]
         public System.String TextArrayOptions_AnalysisScheme { get; set; }
+        #endregion
         
+        #region Parameter TextOptions_AnalysisScheme
         /// <summary>
         /// <para>
         /// <para>The name of an analysis scheme for a <code>text</code> field.</para>
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_AnalysisScheme")]
         public System.String TextOptions_AnalysisScheme { get; set; }
+        #endregion
         
+        #region Parameter DateArrayOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_DefaultValue")]
         public System.String DateArrayOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter DateOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -83,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_DefaultValue")]
         public System.String DateOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter DoubleArrayOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -93,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_DefaultValue")]
         public System.Double DoubleArrayOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter DoubleOptions_DefaultValue
         /// <summary>
         /// <para>
         /// <para>A value to use for the field if the field isn't specified for a document. This can
@@ -104,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_DefaultValue")]
         public System.Double DoubleOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter IntArrayOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -114,7 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_DefaultValue")]
         public System.Int64 IntArrayOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter IntOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -125,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_DefaultValue")]
         public System.Int64 IntOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter LatLonOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -135,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_DefaultValue")]
         public System.String LatLonOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter LiteralArrayOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -145,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_DefaultValue")]
         public System.String LiteralArrayOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter LiteralOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -155,7 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_DefaultValue")]
         public System.String LiteralOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter TextArrayOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -165,7 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_DefaultValue")]
         public System.String TextArrayOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter TextOptions_DefaultValue
         /// <summary>
         /// <para>
         /// A value to use for the field if the field
@@ -175,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_DefaultValue")]
         public System.String TextOptions_DefaultValue { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -183,7 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter DateArrayOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -192,7 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_FacetEnabled")]
         public System.Boolean DateArrayOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter DateOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -201,7 +233,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_FacetEnabled")]
         public System.Boolean DateOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter DoubleArrayOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -210,7 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_FacetEnabled")]
         public System.Boolean DoubleArrayOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter DoubleOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -219,7 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_FacetEnabled")]
         public System.Boolean DoubleOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter IntArrayOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -228,7 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_FacetEnabled")]
         public System.Boolean IntArrayOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter IntOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -237,7 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_FacetEnabled")]
         public System.Boolean IntOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter LatLonOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -246,7 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_FacetEnabled")]
         public System.Boolean LatLonOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter LiteralArrayOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -255,7 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_FacetEnabled")]
         public System.Boolean LiteralArrayOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter LiteralOptions_FacetEnabled
         /// <summary>
         /// <para>
         /// <para>Whether facet information can be returned for the field.</para>
@@ -264,7 +310,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_FacetEnabled")]
         public System.Boolean LiteralOptions_FacetEnabled { get; set; }
+        #endregion
         
+        #region Parameter TextArrayOptions_HighlightEnabled
         /// <summary>
         /// <para>
         /// <para>Whether highlights can be returned for the field.</para>
@@ -273,7 +321,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_HighlightEnabled")]
         public System.Boolean TextArrayOptions_HighlightEnabled { get; set; }
+        #endregion
         
+        #region Parameter TextOptions_HighlightEnabled
         /// <summary>
         /// <para>
         /// <para>Whether highlights can be returned for the field.</para>
@@ -282,7 +332,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_HighlightEnabled")]
         public System.Boolean TextOptions_HighlightEnabled { get; set; }
+        #endregion
         
+        #region Parameter IndexField_IndexFieldName
         /// <summary>
         /// <para>
         /// <para>A string that represents the name of an index field. CloudSearch supports regular
@@ -298,15 +350,20 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IndexField_IndexFieldName { get; set; }
+        #endregion
         
+        #region Parameter IndexField_IndexFieldType
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudSearch.IndexFieldType")]
         public Amazon.CloudSearch.IndexFieldType IndexField_IndexFieldType { get; set; }
+        #endregion
         
+        #region Parameter DateArrayOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -315,7 +372,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_ReturnEnabled")]
         public System.Boolean DateArrayOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter DateOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -324,7 +383,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_ReturnEnabled")]
         public System.Boolean DateOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter DoubleArrayOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -333,7 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_ReturnEnabled")]
         public System.Boolean DoubleArrayOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter DoubleOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -342,7 +405,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_ReturnEnabled")]
         public System.Boolean DoubleOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter IntArrayOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -351,7 +416,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_ReturnEnabled")]
         public System.Boolean IntArrayOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter IntOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -360,7 +427,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_ReturnEnabled")]
         public System.Boolean IntOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter LatLonOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -369,7 +438,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_ReturnEnabled")]
         public System.Boolean LatLonOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter LiteralArrayOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -378,7 +449,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_ReturnEnabled")]
         public System.Boolean LiteralArrayOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter LiteralOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -387,7 +460,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_ReturnEnabled")]
         public System.Boolean LiteralOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter TextArrayOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -396,7 +471,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_ReturnEnabled")]
         public System.Boolean TextArrayOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter TextOptions_ReturnEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field can be returned in the search results.</para>
@@ -405,7 +482,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_ReturnEnabled")]
         public System.Boolean TextOptions_ReturnEnabled { get; set; }
+        #endregion
         
+        #region Parameter DateArrayOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -414,7 +493,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_SearchEnabled")]
         public System.Boolean DateArrayOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter DateOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -423,7 +504,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_SearchEnabled")]
         public System.Boolean DateOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter DoubleArrayOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -432,7 +515,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_SearchEnabled")]
         public System.Boolean DoubleArrayOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter DoubleOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -441,7 +526,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_SearchEnabled")]
         public System.Boolean DoubleOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter IntArrayOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -450,7 +537,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_SearchEnabled")]
         public System.Boolean IntArrayOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter IntOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -459,7 +548,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_SearchEnabled")]
         public System.Boolean IntOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter LatLonOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -468,7 +559,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_SearchEnabled")]
         public System.Boolean LatLonOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter LiteralArrayOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -477,7 +570,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_SearchEnabled")]
         public System.Boolean LiteralArrayOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter LiteralOptions_SearchEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the contents of the field are searchable.</para>
@@ -486,7 +581,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_SearchEnabled")]
         public System.Boolean LiteralOptions_SearchEnabled { get; set; }
+        #endregion
         
+        #region Parameter DateOptions_SortEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the field can be used to sort the search results.</para>
@@ -495,7 +592,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_SortEnabled")]
         public System.Boolean DateOptions_SortEnabled { get; set; }
+        #endregion
         
+        #region Parameter DoubleOptions_SortEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the field can be used to sort the search results.</para>
@@ -504,7 +603,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_SortEnabled")]
         public System.Boolean DoubleOptions_SortEnabled { get; set; }
+        #endregion
         
+        #region Parameter IntOptions_SortEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the field can be used to sort the search results.</para>
@@ -513,7 +614,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_SortEnabled")]
         public System.Boolean IntOptions_SortEnabled { get; set; }
+        #endregion
         
+        #region Parameter LatLonOptions_SortEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the field can be used to sort the search results.</para>
@@ -522,7 +625,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_SortEnabled")]
         public System.Boolean LatLonOptions_SortEnabled { get; set; }
+        #endregion
         
+        #region Parameter LiteralOptions_SortEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the field can be used to sort the search results.</para>
@@ -531,7 +636,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_SortEnabled")]
         public System.Boolean LiteralOptions_SortEnabled { get; set; }
+        #endregion
         
+        #region Parameter TextOptions_SortEnabled
         /// <summary>
         /// <para>
         /// <para>Whether the field can be used to sort the search results.</para>
@@ -540,7 +647,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_SortEnabled")]
         public System.Boolean TextOptions_SortEnabled { get; set; }
+        #endregion
         
+        #region Parameter DateOptions_SourceField
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -549,7 +658,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateOptions_SourceField")]
         public System.String DateOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter DoubleOptions_SourceField
         /// <summary>
         /// <para>
         /// <para>The name of the source field to map to the field. </para>
@@ -558,7 +669,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleOptions_SourceField")]
         public System.String DoubleOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter IntOptions_SourceField
         /// <summary>
         /// <para>
         /// <para>The name of the source field to map to the field. </para>
@@ -567,7 +680,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntOptions_SourceField")]
         public System.String IntOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter LatLonOptions_SourceField
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -576,7 +691,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LatLonOptions_SourceField")]
         public System.String LatLonOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter LiteralOptions_SourceField
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -585,7 +702,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralOptions_SourceField")]
         public System.String LiteralOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter TextOptions_SourceField
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -594,7 +713,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextOptions_SourceField")]
         public System.String TextOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter DateArrayOptions_SourceField
         /// <summary>
         /// <para>
         /// <para>A list of source fields to map to the field. </para>
@@ -603,7 +724,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DateArrayOptions_SourceFields")]
         public System.String DateArrayOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter DoubleArrayOptions_SourceField
         /// <summary>
         /// <para>
         /// <para>A list of source fields to map to the field. </para>
@@ -612,7 +735,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_DoubleArrayOptions_SourceFields")]
         public System.String DoubleArrayOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter IntArrayOptions_SourceField
         /// <summary>
         /// <para>
         /// <para>A list of source fields to map to the field. </para>
@@ -621,7 +746,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_IntArrayOptions_SourceFields")]
         public System.String IntArrayOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter LiteralArrayOptions_SourceField
         /// <summary>
         /// <para>
         /// <para>A list of source fields to map to the field. </para>
@@ -630,7 +757,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_LiteralArrayOptions_SourceFields")]
         public System.String LiteralArrayOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter TextArrayOptions_SourceField
         /// <summary>
         /// <para>
         /// <para>A list of source fields to map to the field. </para>
@@ -639,7 +768,9 @@ namespace Amazon.PowerShell.Cmdlets.CS
         [System.Management.Automation.Parameter]
         [Alias("IndexField_TextArrayOptions_SourceFields")]
         public System.String TextArrayOptions_SourceField { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -647,7 +778,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGChapCredentialsCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter TargetARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a>
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TargetARN { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

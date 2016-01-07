@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class EditRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplyImmediately
         /// <summary>
         /// <para>
         /// <para> Indicates whether the changes should be applied immediately, or during the next maintenance
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Boolean ApplyImmediately { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the option group to be modified. </para><para> Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter OptionsToInclude
         /// <summary>
         /// <para>
         /// <para> Options in this list are added to the option group or, if already present, the specified
@@ -66,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.RDS.Model.OptionConfiguration[] OptionsToInclude { get; set; }
+        #endregion
         
+        #region Parameter OptionsToRemove
         /// <summary>
         /// <para>
         /// <para> Options in this list are removed from the option group. </para>
@@ -74,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] OptionsToRemove { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -82,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

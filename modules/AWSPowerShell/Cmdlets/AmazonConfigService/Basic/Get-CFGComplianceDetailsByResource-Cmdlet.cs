@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGComplianceDetailsByResource")]
     [OutputType("Amazon.ConfigService.Model.EvaluationResult")]
-    [AWSCmdlet("Invokes the GetComplianceDetailsByResource operation against Amazon Config.", Operation = new[] {"GetComplianceDetailsByResource"})]
+    [AWSCmdlet("Invokes the GetComplianceDetailsByResource operation against AWS Config.", Operation = new[] {"GetComplianceDetailsByResource"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.EvaluationResult",
         "This cmdlet returns a collection of EvaluationResult objects.",
         "The service call response (type Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGComplianceDetailsByResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComplianceType
         /// <summary>
         /// <para>
         /// <para>Specify to filter the results by compliance. The valid values are <code>Compliant</code>,
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ComplianceTypes")]
         public System.String[] ComplianceType { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the AWS resource for which you want compliance information.</para>
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The type of the AWS resource for which you want compliance information.</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceType { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
@@ -76,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

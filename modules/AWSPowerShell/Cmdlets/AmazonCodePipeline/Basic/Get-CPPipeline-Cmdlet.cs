@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class GetCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline for which you want to get information. Pipeline names must
@@ -49,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>The version number of the pipeline. If you do not specify a version, defaults to the
@@ -58,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Version { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

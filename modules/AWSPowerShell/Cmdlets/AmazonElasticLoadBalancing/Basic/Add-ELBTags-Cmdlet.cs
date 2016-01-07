@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// Each tag consists of a key and an optional value. If a tag with the same key is already
     /// associated with the load balancer, <code>AddTags</code> updates its value.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb">Tagging</a>
-    /// in the <i>Elastic Load Balancing Developer Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/add-remove-tags.html">Tag
+    /// Your Load Balancer</a> in the <i>Elastic Load Balancing Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELBTags", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     )]
     public class AddELBTagsCmdlet : AmazonElasticLoadBalancingClientCmdlet, IExecutor
     {
+        
+        #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
         /// <para>The name of the load balancer. You can specify one load balancer only.</para>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("LoadBalancerNames")]
         public System.String[] LoadBalancerName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>The tags.</para>
@@ -66,14 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Tags")]
         public Amazon.ElasticLoadBalancing.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of Tag objects that were added.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

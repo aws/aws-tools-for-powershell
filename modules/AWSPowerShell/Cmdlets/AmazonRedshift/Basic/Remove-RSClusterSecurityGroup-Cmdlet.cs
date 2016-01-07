@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class RemoveRSClusterSecurityGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the cluster security group to be deleted. </para>
@@ -53,14 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ClusterSecurityGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

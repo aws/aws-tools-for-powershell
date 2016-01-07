@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class GetEMRClusterCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
         /// <para>The identifier of the cluster to describe.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

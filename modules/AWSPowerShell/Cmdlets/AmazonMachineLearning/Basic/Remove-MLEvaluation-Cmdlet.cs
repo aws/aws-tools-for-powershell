@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class RemoveMLEvaluationCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter EvaluationId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>Evaluation</code> to delete.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String EvaluationId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

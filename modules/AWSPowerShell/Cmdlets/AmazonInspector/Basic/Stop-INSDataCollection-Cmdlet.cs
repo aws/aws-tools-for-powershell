@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class StopINSDataCollectionCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssessmentArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the assessment for which you want to stop the data collection process.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AssessmentArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

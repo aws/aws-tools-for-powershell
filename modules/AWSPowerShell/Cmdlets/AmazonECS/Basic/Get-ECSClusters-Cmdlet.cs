@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class GetECSClustersCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of cluster results returned by <code>ListClusters</code> in paginated
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListClusters</code>
@@ -66,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

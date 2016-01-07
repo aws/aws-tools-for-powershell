@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     )]
     public class NewCFInvalidationCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
+        
+        #region Parameter InvalidationBatch_CallerReference
         /// <summary>
         /// <para>
         /// A unique name that ensures the request
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InvalidationBatch_CallerReference { get; set; }
+        #endregion
         
+        #region Parameter DistributionId
         /// <summary>
         /// <para>
         /// The distribution's id.
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DistributionId { get; set; }
+        #endregion
         
+        #region Parameter Paths_Item
         /// <summary>
         /// <para>
         /// A complex type that contains a list of the objects
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("InvalidationBatch_Paths_Items")]
         public System.String[] Paths_Item { get; set; }
+        #endregion
         
+        #region Parameter Paths_Quantity
         /// <summary>
         /// <para>
         /// The number of objects that you want to invalidate.
@@ -80,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter]
         [Alias("InvalidationBatch_Paths_Quantity")]
         public System.Int32 Paths_Quantity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

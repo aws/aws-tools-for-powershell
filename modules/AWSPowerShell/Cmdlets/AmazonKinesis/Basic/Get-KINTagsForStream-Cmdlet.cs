@@ -32,12 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Get", "KINTagsForStream")]
     [OutputType("Amazon.Kinesis.Model.ListTagsForStreamResponse")]
-    [AWSCmdlet("Invokes the ListTagsForStream operation against AWS Kinesis.", Operation = new[] {"ListTagsForStream"})]
+    [AWSCmdlet("Invokes the ListTagsForStream operation against Amazon Kinesis.", Operation = new[] {"ListTagsForStream"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.ListTagsForStreamResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.ListTagsForStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetKINTagsForStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExclusiveStartTagKey
         /// <summary>
         /// <para>
         /// <para>The key to use as the starting point for the list of tags. If this parameter is set,
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExclusiveStartTagKey { get; set; }
+        #endregion
         
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The number of tags to return. If this number is less than the total number of tags
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

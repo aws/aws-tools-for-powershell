@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFByteMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter ByteMatchSetId
         /// <summary>
         /// <para>
         /// <para>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to get. <code>ByteMatchSetId</code>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ByteMatchSetId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

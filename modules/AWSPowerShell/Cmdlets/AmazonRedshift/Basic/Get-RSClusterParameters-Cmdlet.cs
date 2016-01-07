@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSClusterParametersCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of a cluster parameter group for which to return details. </para>
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para> The parameter types to return. Specify <code>user</code> to show parameters that
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Source { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -85,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -97,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

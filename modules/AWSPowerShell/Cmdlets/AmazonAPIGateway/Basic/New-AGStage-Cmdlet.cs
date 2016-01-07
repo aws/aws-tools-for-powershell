@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     )]
     public class NewAGStageCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheClusterEnabled
         /// <summary>
         /// <para>
         /// <para>Whether cache clustering is enabled for the stage.</para>
@@ -45,15 +47,20 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean CacheClusterEnabled { get; set; }
+        #endregion
         
+        #region Parameter CacheClusterSize
         /// <summary>
         /// <para>
         /// <para>The stage's cache cluster size.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.CacheClusterSize")]
         public Amazon.APIGateway.CacheClusterSize CacheClusterSize { get; set; }
+        #endregion
         
+        #region Parameter DeploymentId
         /// <summary>
         /// <para>
         /// <para>The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</para>
@@ -61,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DeploymentId { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>The description of the <a>Stage</a> resource.</para>
@@ -69,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter RestApiId
         /// <summary>
         /// <para>
         /// <para>The identifier of the <a>RestApi</a> resource for the <a>Stage</a> resource to create.</para>
@@ -77,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RestApiId { get; set; }
+        #endregion
         
+        #region Parameter StageName
         /// <summary>
         /// <para>
         /// <para>The name for the <a>Stage</a> resource.</para>
@@ -85,7 +98,21 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StageName { get; set; }
+        #endregion
         
+        #region Parameter Variable
+        /// <summary>
+        /// <para>
+        /// <para>A map that defines the stage variables for the new <a>Stage</a> resource. Variable
+        /// names can have alphabetic characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Variables")]
+        public System.Collections.Hashtable Variable { get; set; }
+        #endregion
+        
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -93,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -118,6 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.Description = this.Description;
             context.RestApiId = this.RestApiId;
             context.StageName = this.StageName;
+            if (this.Variable != null)
+            {
+                context.Variables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Variable.Keys)
+                {
+                    context.Variables.Add((String)hashKey, (String)(this.Variable[hashKey]));
+                }
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -154,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.StageName != null)
             {
                 request.StageName = cmdletContext.StageName;
+            }
+            if (cmdletContext.Variables != null)
+            {
+                request.Variables = cmdletContext.Variables;
             }
             
             CmdletOutput output;
@@ -196,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String Description { get; set; }
             public System.String RestApiId { get; set; }
             public System.String StageName { get; set; }
+            public Dictionary<System.String, System.String> Variables { get; set; }
         }
         
     }

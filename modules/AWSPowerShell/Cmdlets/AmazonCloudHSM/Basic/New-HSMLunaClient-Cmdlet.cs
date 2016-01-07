@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     )]
     public class NewHSMLunaClientCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
+        
+        #region Parameter Certificate
         /// <summary>
         /// <para>
         /// <para>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Certificate { get; set; }
+        #endregion
         
+        #region Parameter Label
         /// <summary>
         /// <para>
         /// <para>The label for the client.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Label { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

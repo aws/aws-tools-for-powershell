@@ -2,14 +2,15 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CSD</ServiceNounPrefix>
+  <ServiceName>Amazon CloudSearchDomain</ServiceName>
   <ServiceClientInterface>IAmazonCloudSearchDomain</ServiceClientInterface>
   <ServiceClient>AmazonCloudSearchDomainClient</ServiceClient>
   <ServiceNamespace>Amazon.CloudSearchDomain</ServiceNamespace>
   
   <ServiceOperations>
-    <ServiceOperation MethodName="Search" Noun="Documents" Output="Response" SupportsAnonymous ="true"/>
-    <ServiceOperation MethodName="Suggest" Verb ="Get" Noun="Suggestions" Output="Response" SupportsAnonymous ="true"/>
-    <ServiceOperation MethodName="UploadDocuments" Verb="Write" Noun="Documents" Output="Response" SupportsAnonymous ="true"/>    
+    <ServiceOperation MethodName="Search" Exclude="true"/>
+    <ServiceOperation MethodName="Suggest" Exclude="true"/>
+    <ServiceOperation MethodName="UploadDocuments" Exclude="true"/>    
   </ServiceOperations>
 
 </ConfigModel>

@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBDNSAvailabilityCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter CNAMEPrefix
         /// <summary>
         /// <para>
         /// <para> The prefix used when this CNAME is reserved. </para>
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CNAMEPrefix { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

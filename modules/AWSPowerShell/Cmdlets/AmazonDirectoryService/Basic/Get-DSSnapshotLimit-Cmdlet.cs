@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class GetDSSnapshotLimitCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
         /// <para>Contains the identifier of the directory to obtain the limits for.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

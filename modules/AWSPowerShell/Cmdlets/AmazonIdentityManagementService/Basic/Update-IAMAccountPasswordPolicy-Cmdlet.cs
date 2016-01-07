@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class UpdateIAMAccountPasswordPolicyCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowUsersToChangePassword
         /// <summary>
         /// <para>
         /// <para> Allows all IAM users in your account to use the AWS Management Console to change
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AllowUsersToChangePassword { get; set; }
+        #endregion
         
+        #region Parameter HardExpiry
         /// <summary>
         /// <para>
         /// <para>Prevents IAM users from setting a new password after their password has expired.</para><para>Default value: false</para>
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean HardExpiry { get; set; }
+        #endregion
         
+        #region Parameter MaxPasswordAge
         /// <summary>
         /// <para>
         /// <para>The number of days that an IAM user password is valid. The default value of 0 means
@@ -74,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MaxPasswordAge { get; set; }
+        #endregion
         
+        #region Parameter MinimumPasswordLength
         /// <summary>
         /// <para>
         /// <para>The minimum number of characters allowed in an IAM user password.</para><para>Default value: 6</para>
@@ -82,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MinimumPasswordLength { get; set; }
+        #endregion
         
+        #region Parameter PasswordReusePrevention
         /// <summary>
         /// <para>
         /// <para>Specifies the number of previous passwords that IAM users are prevented from reusing.
@@ -91,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 PasswordReusePrevention { get; set; }
+        #endregion
         
+        #region Parameter RequireLowercaseCharacter
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one lowercase character
@@ -101,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("RequireLowercaseCharacters")]
         public System.Boolean RequireLowercaseCharacter { get; set; }
+        #endregion
         
+        #region Parameter RequireNumber
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one numeric character (0
@@ -111,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("RequireNumbers")]
         public System.Boolean RequireNumber { get; set; }
+        #endregion
         
+        #region Parameter RequireSymbol
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one of the following non-alphanumeric
@@ -121,7 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("RequireSymbols")]
         public System.Boolean RequireSymbol { get; set; }
+        #endregion
         
+        #region Parameter RequireUppercaseCharacter
         /// <summary>
         /// <para>
         /// <para>Specifies whether IAM user passwords must contain at least one uppercase character
@@ -131,7 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("RequireUppercaseCharacters")]
         public System.Boolean RequireUppercaseCharacter { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -139,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

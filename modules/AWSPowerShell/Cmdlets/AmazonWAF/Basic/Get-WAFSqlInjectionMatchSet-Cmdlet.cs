@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFSqlInjectionMatchSetCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter SqlInjectionMatchSetId
         /// <summary>
         /// <para>
         /// <para>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SqlInjectionMatchSetId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

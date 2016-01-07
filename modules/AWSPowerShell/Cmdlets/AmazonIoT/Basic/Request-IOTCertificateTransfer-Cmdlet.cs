@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// using the UpdateCertificate API.
     /// </para><para>
     /// The certificate must not have any policies attached to it. These can be detached using
-    /// the <a>DetachPrincipalPolicy</a> API.
+    /// the DetachPrincipalPolicy API.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class RequestIOTCertificateTransferCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateId
         /// <summary>
         /// <para>
         /// <para>The ID of the certificate.</para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CertificateId { get; set; }
+        #endregion
         
+        #region Parameter TargetAwsAccount
         /// <summary>
         /// <para>
         /// <para>The AWS account.</para>
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TargetAwsAccount { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

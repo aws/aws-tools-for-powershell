@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class RestoreRDSDBInstanceToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
         /// <para> Indicates that minor version upgrades will be applied automatically to the DB instance
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoMinorVersionUpgrade { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para> The EC2 Availability Zone that the database instance will be created in. </para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
         /// <para>True to copy all tags from the restored DB instance to snapshots of the DB instance;
@@ -72,26 +78,33 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean CopyTagsToSnapshot { get; set; }
+        #endregion
         
+        #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
         /// <para> The compute and memory capacity of the Amazon RDS DB instance. </para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
         /// | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
-        /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
-        /// | db.t2.small | db.t2.medium | db.t2.large</code></para><para>Default: The same DBInstanceClass as the original DB instance.</para>
+        /// | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large
+        /// | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
+        /// | db.t2.medium | db.t2.large</code></para><para>Default: The same DBInstanceClass as the original DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBInstanceClass { get; set; }
+        #endregion
         
+        #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para> The database name for the restored DB instance. </para><note><para>This parameter is not used for the MySQL engine.</para></note>
+        /// <para> The database name for the restored DB instance. </para><note><para>This parameter is not used for the MySQL or MariaDB engines.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBName { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para> The DB subnet group name to use for the new instance. </para>
@@ -99,17 +112,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>oracle-se1</code> | <code>oracle-se</code>
-        /// | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code> |
-        /// <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code></para>
+        /// <para> The database engine to use for the new instance. </para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source</para><para> Valid Values: <code>MySQL</code> | <code>mariadb</code> | <code>oracle-se1</code>
+        /// | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code> | <code>sqlserver-se</code>
+        /// | <code>sqlserver-ex</code> | <code>sqlserver-web</code> | <code>postgres</code>|
+        /// <code>aurora</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter Iops
         /// <summary>
         /// <para>
         /// <para> The amount of Provisioned IOPS (input/output operations per second) to be initially
@@ -118,7 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Iops { get; set; }
+        #endregion
         
+        #region Parameter LicenseModel
         /// <summary>
         /// <para>
         /// <para> License model information for the restored DB instance. </para><para> Default: Same as source. </para><para> Valid values: <code>license-included</code> | <code>bring-your-own-license</code>
@@ -127,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LicenseModel { get; set; }
+        #endregion
         
+        #region Parameter MultiAZ
         /// <summary>
         /// <para>
         /// <para> Specifies if the DB instance is a Multi-AZ deployment. </para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
@@ -136,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean MultiAZ { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the option group to be used for the restored DB instance.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
@@ -146,7 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the database accepts connections. </para><para>Constraints: Value must be <code>1150-65535</code></para><para>Default: The same port as the original DB instance.</para>
@@ -154,7 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
         /// <para> Specifies the accessibility options for the DB instance. A value of true specifies
@@ -169,7 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PubliclyAccessible { get; set; }
+        #endregion
         
+        #region Parameter RestoreTime
         /// <summary>
         /// <para>
         /// <para> The date and time to restore from. </para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li>Must be before the latest restorable time for the DB instance</li><li>Cannot
@@ -178,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime RestoreTime { get; set; }
+        #endregion
         
+        #region Parameter SourceDBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the source DB instance from which to restore. </para><para>Constraints:</para><ul><li>Must be the identifier of an existing database instance</li><li>Must contain
@@ -188,7 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceDBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter StorageType
         /// <summary>
         /// <para>
         /// <para> Specifies the storage type to be associated with the DB instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
@@ -198,7 +232,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StorageType { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -207,7 +243,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter TargetDBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para> The name of the new database instance to be created. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens</li><li>First
@@ -217,7 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String TargetDBInstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
         /// <para> The ARN from the Key Store with which to associate the instance for TDE encryption.
@@ -226,7 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TdeCredentialArn { get; set; }
+        #endregion
         
+        #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
         /// <para> The password for the given ARN from the Key Store in order to access the device.
@@ -235,7 +277,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TdeCredentialPassword { get; set; }
+        #endregion
         
+        #region Parameter UseLatestRestorableTime
         /// <summary>
         /// <para>
         /// <para> Specifies whether (<code>true</code>) or not (<code>false</code>) the DB instance
@@ -244,7 +288,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean UseLatestRestorableTime { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -252,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

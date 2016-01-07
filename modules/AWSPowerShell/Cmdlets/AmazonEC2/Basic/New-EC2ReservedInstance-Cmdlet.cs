@@ -28,16 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Purchases a Reserved Instance for use with your account. With Amazon EC2 Reserved
-    /// Instances, you obtain a capacity reservation for a certain instance configuration
-    /// over a specified period of time and pay a lower hourly rate compared to on-Demand
+    /// Purchases a Reserved instance for use with your account. With Amazon EC2 Reserved
+    /// instances, you obtain a capacity reservation for a certain instance configuration
+    /// over a specified period of time and pay a lower hourly rate compared to On-Demand
     /// Instance pricing.
     /// 
     ///  
     /// <para>
-    /// Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings
-    /// that match your specifications. After you've purchased a Reserved Instance, you can
-    /// check for your new Reserved Instance with <a>DescribeReservedInstances</a>.
+    /// Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved instance offerings
+    /// that match your specifications. After you've purchased a Reserved instance, you can
+    /// check for your new Reserved instance with <a>DescribeReservedInstances</a>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
     /// Instances</a> and <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter LimitPrice_Amount
         /// <summary>
         /// <para>
         /// <para>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Double LimitPrice_Amount { get; set; }
+        #endregion
         
+        #region Parameter LimitPrice_CurrencyCode
         /// <summary>
         /// <para>
         /// <para>The currency in which the <code>limitPrice</code> amount is specified. At this time,
@@ -69,24 +73,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
+        [AWSConstantClassSource("Amazon.EC2.CurrencyCodeValues")]
         public Amazon.EC2.CurrencyCodeValues LimitPrice_CurrencyCode { get; set; }
+        #endregion
         
+        #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of Reserved Instances to purchase.</para>
+        /// <para>The number of Reserved instances to purchase.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedInstancesOfferingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Reserved Instance offering to purchase.</para>
+        /// <para>The ID of the Reserved instance offering to purchase.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedInstancesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -94,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3VersionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// The name of the bucket containing the objects.
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter Encoding
         /// <summary>
         /// <para>
         /// Requests Amazon S3 to encode the object keys in the response and specifies
@@ -57,8 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.S3.EncodingType")]
         public Amazon.S3.EncodingType Encoding { get; set; }
+        #endregion
         
+        #region Parameter KeyMarker
         /// <summary>
         /// <para>
         /// Specifies the key to start with when listing objects in a bucket.
@@ -66,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KeyMarker { get; set; }
+        #endregion
         
+        #region Parameter VersionIdMarker
         /// <summary>
         /// <para>
         /// Specifies the object version you want to start listing from.
@@ -74,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String VersionIdMarker { get; set; }
+        #endregion
         
+        #region Parameter Delimiter
         /// <summary>
         /// <para>
         /// A delimiter is a character you use to group keys.
@@ -82,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Delimiter { get; set; }
+        #endregion
         
+        #region Parameter MaxKey
         /// <summary>
         /// <para>
         /// Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.
@@ -91,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("MaxKeys")]
         public System.Int32 MaxKey { get; set; }
+        #endregion
         
+        #region Parameter Prefix
         /// <summary>
         /// <para>
         /// Limits the response to keys that begin with the specified prefix.
@@ -99,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Prefix { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

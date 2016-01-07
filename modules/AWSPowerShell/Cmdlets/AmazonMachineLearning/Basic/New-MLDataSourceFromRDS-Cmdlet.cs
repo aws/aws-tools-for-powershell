@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.ML
     )]
     public class NewMLDataSourceFromRDSCmdlet : AmazonMachineLearningClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComputeStatistic
         /// <summary>
         /// <para>
         /// <para>The compute statistics for a <code>DataSource</code>. The statistics are generated
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("ComputeStatistics")]
         public System.Boolean ComputeStatistic { get; set; }
+        #endregion
         
+        #region Parameter DatabaseInformation_DatabaseName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -77,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseInformation_DatabaseName")]
         public System.String DatabaseInformation_DatabaseName { get; set; }
+        #endregion
         
+        #region Parameter RDSData_DataRearrangement
         /// <summary>
         /// <para>
         /// <para>DataRearrangement - A JSON string that represents the splitting requirement of a <code>DataSource</code>.
@@ -86,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_DataRearrangement { get; set; }
+        #endregion
         
+        #region Parameter RDSData_DataSchema
         /// <summary>
         /// <para>
         /// <para>A JSON string that represents the schema for an Amazon RDS <code>DataSource</code>.
@@ -102,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_DataSchema { get; set; }
+        #endregion
         
+        #region Parameter RDSData_DataSchemaUri
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 location of the <code>DataSchema</code>. </para>
@@ -110,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_DataSchemaUri { get; set; }
+        #endregion
         
+        #region Parameter DataSourceId
         /// <summary>
         /// <para>
         /// <para>A user-supplied ID that uniquely identifies the <code>DataSource</code>. Typically,
@@ -119,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSourceId { get; set; }
+        #endregion
         
+        #region Parameter DataSourceName
         /// <summary>
         /// <para>
         /// <para>A user-supplied name or description of the <code>DataSource</code>.</para>
@@ -127,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DataSourceName { get; set; }
+        #endregion
         
+        #region Parameter DatabaseInformation_InstanceIdentifier
         /// <summary>
         /// <para>
         /// <para>The ID of an RDS DB instance.</para>
@@ -136,7 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseInformation_InstanceIdentifier")]
         public System.String DatabaseInformation_InstanceIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DatabaseCredentials_Password
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -145,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseCredentials_Password")]
         public System.String DatabaseCredentials_Password { get; set; }
+        #endregion
         
+        #region Parameter RDSData_ResourceRole
         /// <summary>
         /// <para>
         /// <para>The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic Compute Cloud
@@ -156,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_ResourceRole { get; set; }
+        #endregion
         
+        #region Parameter RoleARN
         /// <summary>
         /// <para>
         /// <para>The role that Amazon ML assumes on behalf of the user to create and activate a data
@@ -166,7 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleARN { get; set; }
+        #endregion
         
+        #region Parameter RDSData_S3StagingLocation
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon
@@ -175,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_S3StagingLocation { get; set; }
+        #endregion
         
+        #region Parameter RDSData_SecurityGroupId
         /// <summary>
         /// <para>
         /// <para>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that
@@ -187,7 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("RDSData_SecurityGroupIds")]
         public System.String[] RDSData_SecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter RDSData_SelectSqlQuery
         /// <summary>
         /// <para>
         /// <para>The query that is used to retrieve the observation data for the <code>DataSource</code>.</para>
@@ -195,7 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_SelectSqlQuery { get; set; }
+        #endregion
         
+        #region Parameter RDSData_ServiceRole
         /// <summary>
         /// <para>
         /// <para>The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to monitor
@@ -206,7 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_ServiceRole { get; set; }
+        #endregion
         
+        #region Parameter RDSData_SubnetId
         /// <summary>
         /// <para>
         /// <para>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is
@@ -215,7 +247,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RDSData_SubnetId { get; set; }
+        #endregion
         
+        #region Parameter DatabaseCredentials_Username
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -224,7 +258,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         [System.Management.Automation.Parameter]
         [Alias("RDSData_DatabaseCredentials_Username")]
         public System.String DatabaseCredentials_Username { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -232,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

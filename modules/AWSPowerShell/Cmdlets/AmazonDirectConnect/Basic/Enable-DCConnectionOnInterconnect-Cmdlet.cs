@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class EnableDCConnectionOnInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter Bandwidth
         /// <summary>
         /// <para>
         /// <para>Bandwidth of the connection.</para><para>Example: "<i>500Mbps</i>"</para><para>Default: None</para>
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String Bandwidth { get; set; }
+        #endregion
         
+        #region Parameter ConnectionName
         /// <summary>
         /// <para>
         /// <para>Name of the provisioned connection.</para><para>Example: "<i>500M Connection to AWS</i>"</para><para>Default: None</para>
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ConnectionName { get; set; }
+        #endregion
         
+        #region Parameter InterconnectId
         /// <summary>
         /// <para>
         /// <para>ID of the interconnect on which the connection will be provisioned.</para><para>Example: dxcon-456abc78</para><para>Default: None</para>
@@ -67,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InterconnectId { get; set; }
+        #endregion
         
+        #region Parameter OwnerAccount
         /// <summary>
         /// <para>
         /// <para>Numeric account Id of the customer for whom the connection will be provisioned.</para><para>Example: 123443215678</para><para>Default: None</para>
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String OwnerAccount { get; set; }
+        #endregion
         
+        #region Parameter Vlan
         /// <summary>
         /// <para>
         /// <para>The dedicated VLAN provisioned to the connection.</para><para>Example: 101</para><para>Default: None</para>
@@ -83,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public System.Int32 Vlan { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -91,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

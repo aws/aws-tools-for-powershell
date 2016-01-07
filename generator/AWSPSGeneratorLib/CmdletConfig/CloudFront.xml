@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CF</ServiceNounPrefix>
+  <ServiceName>Amazon CloudFront</ServiceName>
   <ServiceClientInterface>IAmazonCloudFront</ServiceClientInterface>
   <ServiceClient>AmazonCloudFrontClient</ServiceClient>
   <ServiceNamespace>Amazon.CloudFront</ServiceNamespace>

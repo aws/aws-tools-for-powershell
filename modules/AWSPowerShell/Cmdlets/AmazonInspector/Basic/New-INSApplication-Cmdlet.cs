@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class NewINSApplicationCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The user-defined name identifying the application that you want to create. The name
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter ResourceGroupArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the resource group that is used to create the application.</para>
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceGroupArn { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

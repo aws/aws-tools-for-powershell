@@ -28,7 +28,17 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a new version of the specified AWS IoT policy.
+    /// Creates a new version of the specified AWS IoT policy. To update a policy, create
+    /// a new policy version. A managed policy can have up to five versions. If the policy
+    /// has five versions, you must delete an existing version using <a>DeletePolicyVersion</a>
+    /// before you create a new version.
+    /// 
+    ///  
+    /// <para>
+    /// Optionally, you can set the new version as the policy's default version. The default
+    /// version is the operative version; that is, the version that is in effect for the certificates
+    /// that the policy is attached to.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreatePolicyVersionResponse")]
@@ -38,14 +48,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class NewIOTPolicyVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The JSON document that describes the policy.</para>
+        /// <para>The JSON document that describes the policy. Minimum length of 1. Maximum length of
+        /// 2048 excluding whitespaces</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyDocument { get; set; }
+        #endregion
         
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The policy name.</para>
@@ -53,15 +68,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter SetAsDefault
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the policy version is set as the default.</para>
+        /// <para>Specifies whether the policy version is set as the default. When this parameter is
+        /// true, the new policy version becomes the operative version; that is, the version that
+        /// is in effect for the certificates that the policy is attached to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SetAsDefault { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

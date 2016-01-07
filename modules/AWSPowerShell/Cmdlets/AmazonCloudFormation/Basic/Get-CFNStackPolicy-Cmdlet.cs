@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class GetCFNStackPolicyCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or unique stack ID that is associated with the stack whose policy you want
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

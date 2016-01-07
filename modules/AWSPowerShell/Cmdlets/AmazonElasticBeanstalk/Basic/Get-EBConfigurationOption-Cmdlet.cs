@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     )]
     public class GetEBConfigurationOptionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para> The name of the application associated with the configuration template or environment.
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter EnvironmentName
         /// <summary>
         /// <para>
         /// <para> The name of the environment whose configuration options you want to describe. </para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EnvironmentName { get; set; }
+        #endregion
         
+        #region Parameter Option
         /// <summary>
         /// <para>
         /// <para> If specified, restricts the descriptions to only the specified options. </para>
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         [System.Management.Automation.Parameter]
         [Alias("Options")]
         public Amazon.ElasticBeanstalk.Model.OptionSpecification[] Option { get; set; }
+        #endregion
         
+        #region Parameter TemplateName
         /// <summary>
         /// <para>
         /// <para> The name of the configuration template whose configuration options you want to describe.
@@ -78,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TemplateName { get; set; }
+        #endregion
         
+        #region Parameter SolutionStackName
         /// <summary>
         /// <para>
         /// <para> The name of the solution stack whose configuration options you want to describe.
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SolutionStackName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

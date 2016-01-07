@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class NewKMSKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>Description of the key. We recommend that you choose a description that helps your
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter KeyUsage
         /// <summary>
         /// <para>
         /// <para>Specifies the intended use of the key. Currently this defaults to ENCRYPT/DECRYPT,
@@ -58,8 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.KeyManagementService.KeyUsageType")]
         public Amazon.KeyManagementService.KeyUsageType KeyUsage { get; set; }
+        #endregion
         
+        #region Parameter Policy
         /// <summary>
         /// <para>
         /// <para>Policy to attach to the key. This is required and delegates back to the account. The
@@ -68,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Policy { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

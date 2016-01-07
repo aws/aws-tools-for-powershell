@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2ImageAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter LaunchPermission_Add
         /// <summary>
         /// <para>
         /// <para>The AWS account ID to add to the list of launch permissions for the AMI.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.LaunchPermission[] LaunchPermission_Add { get; set; }
+        #endregion
         
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The name of the attribute to modify.</para>
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Attribute { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the AMI.</para>
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter ImageId
         /// <summary>
         /// <para>
         /// <para>The ID of the AMI.</para>
@@ -76,15 +84,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ImageId { get; set; }
+        #endregion
         
+        #region Parameter OperationType
         /// <summary>
         /// <para>
         /// <para>The operation type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.OperationType")]
         public Amazon.EC2.OperationType OperationType { get; set; }
+        #endregion
         
+        #region Parameter ProductCode
         /// <summary>
         /// <para>
         /// <para>One or more product codes. After you add a product code to an AMI, it can't be removed.
@@ -94,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("ProductCodes")]
         public System.String[] ProductCode { get; set; }
+        #endregion
         
+        #region Parameter LaunchPermission_Remove
         /// <summary>
         /// <para>
         /// <para>The AWS account ID to remove from the list of launch permissions for the AMI.</para>
@@ -102,7 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.EC2.Model.LaunchPermission[] LaunchPermission_Remove { get; set; }
+        #endregion
         
+        #region Parameter UserGroup
         /// <summary>
         /// <para>
         /// <para>One or more user groups. This is only valid when modifying the <code>launchPermission</code>
@@ -112,7 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("UserGroups")]
         public System.String[] UserGroup { get; set; }
+        #endregion
         
+        #region Parameter UserId
         /// <summary>
         /// <para>
         /// <para>One or more AWS account IDs. This is only valid when modifying the <code>launchPermission</code>
@@ -122,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("UserIds")]
         public System.String[] UserId { get; set; }
+        #endregion
         
+        #region Parameter Value
         /// <summary>
         /// <para>
         /// <para>The value of the attribute being modified. This is only valid when modifying the <code>description</code>
@@ -131,14 +152,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Value { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ImageId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -146,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

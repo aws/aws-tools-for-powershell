@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMUserCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The name of the user to get information about.</para><para>This parameter is optional. If it is not included, it defaults to the user making
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

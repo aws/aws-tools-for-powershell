@@ -63,6 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class StartEMRJobFlowCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdditionalInfo
         /// <summary>
         /// <para>
         /// <para>A JSON string for selecting additional features.</para>
@@ -70,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdditionalInfo { get; set; }
+        #endregion
         
+        #region Parameter Instances_AdditionalMasterSecurityGroup
         /// <summary>
         /// <para>
         /// <para>A list of additional Amazon EC2 security group IDs for the master node.</para>
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_AdditionalMasterSecurityGroups")]
         public System.String[] Instances_AdditionalMasterSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Instances_AdditionalSlaveSecurityGroup
         /// <summary>
         /// <para>
         /// <para>A list of additional Amazon EC2 security group IDs for the slave nodes.</para>
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_AdditionalSlaveSecurityGroups")]
         public System.String[] Instances_AdditionalSlaveSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter AmiVersion
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
@@ -103,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AmiVersion { get; set; }
+        #endregion
         
+        #region Parameter Application
         /// <summary>
         /// <para>
         /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout",
@@ -113,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Applications")]
         public Amazon.ElasticMapReduce.Model.Application[] Application { get; set; }
+        #endregion
         
+        #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The Amazon EC2 Availability Zone for the job flow.</para>
@@ -122,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_Placement_AvailabilityZone")]
         public System.String Placement_AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter BootstrapAction
         /// <summary>
         /// <para>
         /// <para> A list of bootstrap actions that will be run before Hadoop is started on the cluster
@@ -132,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("BootstrapActions")]
         public Amazon.ElasticMapReduce.Model.BootstrapActionConfig[] BootstrapAction { get; set; }
+        #endregion
         
+        #region Parameter Configuration
         /// <summary>
         /// <para>
         /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The list of configurations supplied for the EMR cluster you are creating.</para>
@@ -141,7 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Configurations")]
         public Amazon.ElasticMapReduce.Model.Configuration[] Configuration { get; set; }
+        #endregion
         
+        #region Parameter Instances_Ec2KeyName
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon EC2 key pair that can be used to ssh to the master node as
@@ -150,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_Ec2KeyName { get; set; }
+        #endregion
         
+        #region Parameter Instances_Ec2SubnetId
         /// <summary>
         /// <para>
         /// <para> To launch the job flow in Amazon Virtual Private Cloud (Amazon VPC), set this parameter
@@ -163,25 +183,29 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_Ec2SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Instances_EmrManagedMasterSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group (managed by Amazon ElasticMapReduce)
-        /// for the master node.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the master node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_EmrManagedMasterSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Instances_EmrManagedSlaveSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group (managed by Amazon ElasticMapReduce)
-        /// for the slave nodes.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the slave nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_EmrManagedSlaveSecurityGroup { get; set; }
+        #endregion
         
+        #region Parameter Instances_HadoopVersion
         /// <summary>
         /// <para>
         /// <para>The Hadoop version for the job flow. Valid inputs are "0.18" (deprecated), "0.20"
@@ -193,7 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_HadoopVersion { get; set; }
+        #endregion
         
+        #region Parameter Instances_InstanceCount
         /// <summary>
         /// <para>
         /// <para>The number of Amazon EC2 instances used to execute the job flow.</para>
@@ -201,7 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Instances_InstanceCount { get; set; }
+        #endregion
         
+        #region Parameter Instances_InstanceGroup
         /// <summary>
         /// <para>
         /// <para>Configuration for the job flow's instance groups.</para>
@@ -210,17 +238,22 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_InstanceGroups")]
         public Amazon.ElasticMapReduce.Model.InstanceGroupConfig[] Instances_InstanceGroup { get; set; }
+        #endregion
         
+        #region Parameter JobFlowRole
         /// <summary>
         /// <para>
-        /// <para>An IAM role for the job flow. The EC2 instances of the job flow assume this role.
-        /// The default role is <code>EMRJobflowDefault</code>. In order to use the default role,
-        /// you must have already created it using the CLI.</para>
+        /// <para>Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2
+        /// instances of the cluster assume this role. The default role is <code>EMR_EC2_DefaultRole</code>.
+        /// In order to use the default role, you must have already created it using the CLI or
+        /// console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String JobFlowRole { get; set; }
+        #endregion
         
+        #region Parameter Instances_KeepJobFlowAliveWhenNoStep
         /// <summary>
         /// <para>
         /// <para>Specifies whether the job flow should be kept alive after completing all steps.</para>
@@ -229,7 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Instances_KeepJobFlowAliveWhenNoSteps")]
         public System.Boolean Instances_KeepJobFlowAliveWhenNoStep { get; set; }
+        #endregion
         
+        #region Parameter LogUri
         /// <summary>
         /// <para>
         /// <para>The location in Amazon S3 to write the log files of the job flow. If a value is not
@@ -238,7 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String LogUri { get; set; }
+        #endregion
         
+        #region Parameter Instances_MasterInstanceType
         /// <summary>
         /// <para>
         /// <para>The EC2 instance type of the master node.</para>
@@ -246,7 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_MasterInstanceType { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the job flow.</para>
@@ -254,7 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter NewSupportedProduct
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
@@ -273,7 +314,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("NewSupportedProducts")]
         public Amazon.ElasticMapReduce.Model.SupportedProductConfig[] NewSupportedProduct { get; set; }
+        #endregion
         
+        #region Parameter ReleaseLabel
         /// <summary>
         /// <para>
         /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use
@@ -282,7 +325,20 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReleaseLabel { get; set; }
+        #endregion
         
+        #region Parameter Instances_ServiceAccessSecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon EC2 security group for the Amazon EMR service to access
+        /// clusters in VPC private subnets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Instances_ServiceAccessSecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter ServiceRole
         /// <summary>
         /// <para>
         /// <para>The IAM role that will be assumed by the Amazon EMR service to access AWS resources
@@ -291,7 +347,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRole { get; set; }
+        #endregion
         
+        #region Parameter Instances_SlaveInstanceType
         /// <summary>
         /// <para>
         /// <para>The EC2 instance type of the slave nodes.</para>
@@ -299,7 +357,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Instances_SlaveInstanceType { get; set; }
+        #endregion
         
+        #region Parameter Step
         /// <summary>
         /// <para>
         /// <para>A list of steps to be executed by the job flow.</para>
@@ -308,7 +368,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Steps")]
         public Amazon.ElasticMapReduce.Model.StepConfig[] Step { get; set; }
+        #endregion
         
+        #region Parameter SupportedProduct
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
@@ -321,7 +383,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("SupportedProducts")]
         public System.String[] SupportedProduct { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</para>
@@ -330,7 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.ElasticMapReduce.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Instances_TerminationProtected
         /// <summary>
         /// <para>
         /// <para>Specifies whether to lock the job flow to prevent the Amazon EC2 instances from being
@@ -339,7 +405,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Instances_TerminationProtected { get; set; }
+        #endregion
         
+        #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
         /// <para>Whether the job flow is visible to all IAM users of the AWS account associated with
@@ -352,7 +420,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("VisibleToAllUsers")]
         public System.Boolean VisibleToAllUser { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -360,7 +430,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -415,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.Instances_KeepJobFlowAliveWhenNoSteps = this.Instances_KeepJobFlowAliveWhenNoStep;
             context.Instances_MasterInstanceType = this.Instances_MasterInstanceType;
             context.Instances_Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.Instances_ServiceAccessSecurityGroup = this.Instances_ServiceAccessSecurityGroup;
             context.Instances_SlaveInstanceType = this.Instances_SlaveInstanceType;
             if (ParameterWasBound("Instances_TerminationProtected"))
                 context.Instances_TerminationProtected = this.Instances_TerminationProtected;
@@ -588,6 +659,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.Instances.MasterInstanceType = requestInstances_instances_MasterInstanceType;
                 requestInstancesIsNull = false;
             }
+            System.String requestInstances_instances_ServiceAccessSecurityGroup = null;
+            if (cmdletContext.Instances_ServiceAccessSecurityGroup != null)
+            {
+                requestInstances_instances_ServiceAccessSecurityGroup = cmdletContext.Instances_ServiceAccessSecurityGroup;
+            }
+            if (requestInstances_instances_ServiceAccessSecurityGroup != null)
+            {
+                request.Instances.ServiceAccessSecurityGroup = requestInstances_instances_ServiceAccessSecurityGroup;
+                requestInstancesIsNull = false;
+            }
             System.String requestInstances_instances_SlaveInstanceType = null;
             if (cmdletContext.Instances_SlaveInstanceType != null)
             {
@@ -730,6 +811,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.Boolean? Instances_KeepJobFlowAliveWhenNoSteps { get; set; }
             public System.String Instances_MasterInstanceType { get; set; }
             public System.String Instances_Placement_AvailabilityZone { get; set; }
+            public System.String Instances_ServiceAccessSecurityGroup { get; set; }
             public System.String Instances_SlaveInstanceType { get; set; }
             public System.Boolean? Instances_TerminationProtected { get; set; }
             public System.String JobFlowRole { get; set; }

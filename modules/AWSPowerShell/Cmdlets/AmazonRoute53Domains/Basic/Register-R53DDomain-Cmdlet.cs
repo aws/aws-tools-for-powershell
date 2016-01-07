@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     )]
     public class RegisterR53DDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdminContact_AddressLine1
         /// <summary>
         /// <para>
         /// <para>First line of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_AddressLine1 { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_AddressLine1
         /// <summary>
         /// <para>
         /// <para>First line of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -70,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_AddressLine1 { get; set; }
+        #endregion
         
+        #region Parameter TechContact_AddressLine1
         /// <summary>
         /// <para>
         /// <para>First line of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_AddressLine1 { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_AddressLine2
         /// <summary>
         /// <para>
         /// <para>Second line of contact's address, if any.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -86,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_AddressLine2 { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_AddressLine2
         /// <summary>
         /// <para>
         /// <para>Second line of contact's address, if any.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -94,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_AddressLine2 { get; set; }
+        #endregion
         
+        #region Parameter TechContact_AddressLine2
         /// <summary>
         /// <para>
         /// <para>Second line of contact's address, if any.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -102,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_AddressLine2 { get; set; }
+        #endregion
         
+        #region Parameter AutoRenew
         /// <summary>
         /// <para>
         /// <para>Indicates whether the domain will be automatically renewed (<code>true</code>) or
@@ -111,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AutoRenew { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_City
         /// <summary>
         /// <para>
         /// <para>The city of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -119,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_City { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_City
         /// <summary>
         /// <para>
         /// <para>The city of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -127,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_City { get; set; }
+        #endregion
         
+        #region Parameter TechContact_City
         /// <summary>
         /// <para>
         /// <para>The city of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -135,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_City { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_ContactType
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
@@ -145,8 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53Domains.ContactType")]
         public Amazon.Route53Domains.ContactType AdminContact_ContactType { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_ContactType
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
@@ -156,8 +181,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53Domains.ContactType")]
         public Amazon.Route53Domains.ContactType RegistrantContact_ContactType { get; set; }
+        #endregion
         
+        #region Parameter TechContact_ContactType
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
@@ -167,32 +195,44 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53Domains.ContactType")]
         public Amazon.Route53Domains.ContactType TechContact_ContactType { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_CountryCode
         /// <summary>
         /// <para>
         /// <para>Code for the country of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53Domains.CountryCode")]
         public Amazon.Route53Domains.CountryCode AdminContact_CountryCode { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_CountryCode
         /// <summary>
         /// <para>
         /// <para>Code for the country of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53Domains.CountryCode")]
         public Amazon.Route53Domains.CountryCode RegistrantContact_CountryCode { get; set; }
+        #endregion
         
+        #region Parameter TechContact_CountryCode
         /// <summary>
         /// <para>
         /// <para>Code for the country of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53Domains.CountryCode")]
         public Amazon.Route53Domains.CountryCode TechContact_CountryCode { get; set; }
+        #endregion
         
+        #region Parameter DomainName
         /// <summary>
         /// <para>
         /// <para>The name of a domain.</para><para>Type: String</para><para>Default: None</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
@@ -201,7 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
         
+        #region Parameter DurationInYears
         /// <summary>
         /// <para>
         /// <para>The number of years the domain will be registered. Domains are registered for a minimum
@@ -210,7 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DurationInYears { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_Email
         /// <summary>
         /// <para>
         /// <para>Email address of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 254 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -218,7 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_Email { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_Email
         /// <summary>
         /// <para>
         /// <para>Email address of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 254 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -226,7 +272,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_Email { get; set; }
+        #endregion
         
+        #region Parameter TechContact_Email
         /// <summary>
         /// <para>
         /// <para>Email address of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 254 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -234,7 +282,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_Email { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_ExtraParam
         /// <summary>
         /// <para>
         /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para><para>Type: Complex</para><para>Default: None</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Children: <code>Name</code>, <code>Value</code></para><para>Required: No</para>
@@ -243,7 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter]
         [Alias("AdminContact_ExtraParams")]
         public Amazon.Route53Domains.Model.ExtraParam[] AdminContact_ExtraParam { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_ExtraParam
         /// <summary>
         /// <para>
         /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para><para>Type: Complex</para><para>Default: None</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Children: <code>Name</code>, <code>Value</code></para><para>Required: No</para>
@@ -252,7 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter]
         [Alias("RegistrantContact_ExtraParams")]
         public Amazon.Route53Domains.Model.ExtraParam[] RegistrantContact_ExtraParam { get; set; }
+        #endregion
         
+        #region Parameter TechContact_ExtraParam
         /// <summary>
         /// <para>
         /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para><para>Type: Complex</para><para>Default: None</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Children: <code>Name</code>, <code>Value</code></para><para>Required: No</para>
@@ -261,7 +315,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter]
         [Alias("TechContact_ExtraParams")]
         public Amazon.Route53Domains.Model.ExtraParam[] TechContact_ExtraParam { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_Fax
         /// <summary>
         /// <para>
         /// <para>Fax number of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
@@ -270,7 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_Fax { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_Fax
         /// <summary>
         /// <para>
         /// <para>Fax number of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
@@ -279,7 +337,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_Fax { get; set; }
+        #endregion
         
+        #region Parameter TechContact_Fax
         /// <summary>
         /// <para>
         /// <para>Fax number of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
@@ -288,7 +348,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_Fax { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_FirstName
         /// <summary>
         /// <para>
         /// <para>First name of contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -296,7 +358,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_FirstName { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_FirstName
         /// <summary>
         /// <para>
         /// <para>First name of contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -304,7 +368,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_FirstName { get; set; }
+        #endregion
         
+        #region Parameter TechContact_FirstName
         /// <summary>
         /// <para>
         /// <para>First name of contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -312,7 +378,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_FirstName { get; set; }
+        #endregion
         
+        #region Parameter IdnLangCode
         /// <summary>
         /// <para>
         /// <para>Reserved for future use.</para>
@@ -320,7 +388,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IdnLangCode { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_LastName
         /// <summary>
         /// <para>
         /// <para>Last name of contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -328,7 +398,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_LastName { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_LastName
         /// <summary>
         /// <para>
         /// <para>Last name of contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -336,7 +408,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_LastName { get; set; }
+        #endregion
         
+        #region Parameter TechContact_LastName
         /// <summary>
         /// <para>
         /// <para>Last name of contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: Yes</para>
@@ -344,7 +418,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_LastName { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_OrganizationName
         /// <summary>
         /// <para>
         /// <para>Name of the organization for contact types other than <code>PERSON</code>.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters. Contact type must not be <code>PERSON</code>.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -352,7 +428,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_OrganizationName { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_OrganizationName
         /// <summary>
         /// <para>
         /// <para>Name of the organization for contact types other than <code>PERSON</code>.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters. Contact type must not be <code>PERSON</code>.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -360,7 +438,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_OrganizationName { get; set; }
+        #endregion
         
+        #region Parameter TechContact_OrganizationName
         /// <summary>
         /// <para>
         /// <para>Name of the organization for contact types other than <code>PERSON</code>.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters. Contact type must not be <code>PERSON</code>.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -368,7 +448,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_OrganizationName { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_PhoneNumber
         /// <summary>
         /// <para>
         /// <para>The phone number of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
@@ -377,7 +459,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_PhoneNumber { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_PhoneNumber
         /// <summary>
         /// <para>
         /// <para>The phone number of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
@@ -386,7 +470,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_PhoneNumber { get; set; }
+        #endregion
         
+        #region Parameter TechContact_PhoneNumber
         /// <summary>
         /// <para>
         /// <para>The phone number of the contact.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
@@ -395,7 +481,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_PhoneNumber { get; set; }
+        #endregion
         
+        #region Parameter PrivacyProtectAdminContact
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -405,7 +493,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PrivacyProtectAdminContact { get; set; }
+        #endregion
         
+        #region Parameter PrivacyProtectRegistrantContact
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -415,7 +505,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PrivacyProtectRegistrantContact { get; set; }
+        #endregion
         
+        #region Parameter PrivacyProtectTechContact
         /// <summary>
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -425,7 +517,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean PrivacyProtectTechContact { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_State
         /// <summary>
         /// <para>
         /// <para>The state or province of the contact's city.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -433,7 +527,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_State { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_State
         /// <summary>
         /// <para>
         /// <para>The state or province of the contact's city.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -441,7 +537,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_State { get; set; }
+        #endregion
         
+        #region Parameter TechContact_State
         /// <summary>
         /// <para>
         /// <para>The state or province of the contact's city.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -449,7 +547,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_State { get; set; }
+        #endregion
         
+        #region Parameter AdminContact_ZipCode
         /// <summary>
         /// <para>
         /// <para>The zip or postal code of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -457,7 +557,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AdminContact_ZipCode { get; set; }
+        #endregion
         
+        #region Parameter RegistrantContact_ZipCode
         /// <summary>
         /// <para>
         /// <para>The zip or postal code of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -465,7 +567,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RegistrantContact_ZipCode { get; set; }
+        #endregion
         
+        #region Parameter TechContact_ZipCode
         /// <summary>
         /// <para>
         /// <para>The zip or postal code of the contact's address.</para><para>Type: String</para><para>Default: None</para><para>Constraints: Maximum 255 characters.</para><para>Parents: <code>RegistrantContact</code>, <code>AdminContact</code>, <code>TechContact</code></para><para>Required: No</para>
@@ -473,7 +577,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TechContact_ZipCode { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -481,7 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

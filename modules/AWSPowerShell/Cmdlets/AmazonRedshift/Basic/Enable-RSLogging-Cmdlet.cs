@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class EnableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter BucketName
         /// <summary>
         /// <para>
         /// <para> The name of an existing S3 bucket where the log files are to be stored. </para><para>Constraints:</para><ul><li>Must be in the same region as the cluster</li><li>The cluster must have
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BucketName { get; set; }
+        #endregion
         
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster on which logging is to be started. </para><para>Example: <code>examplecluster</code></para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter S3KeyPrefix
         /// <summary>
         /// <para>
         /// <para> The prefix applied to the log file names. </para><para>Constraints:</para><ul><li>Cannot exceed 512 characters</li><li>Cannot contain spaces( ), double quotes
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String S3KeyPrefix { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -73,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

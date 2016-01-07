@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGComplianceByResource")]
     [OutputType("Amazon.ConfigService.Model.ComplianceByResource")]
-    [AWSCmdlet("Invokes the DescribeComplianceByResource operation against Amazon Config.", Operation = new[] {"DescribeComplianceByResource"})]
+    [AWSCmdlet("Invokes the DescribeComplianceByResource operation against AWS Config.", Operation = new[] {"DescribeComplianceByResource"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceByResource",
         "This cmdlet returns a collection of ComplianceByResource objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeComplianceByResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGComplianceByResourceCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ComplianceType
         /// <summary>
         /// <para>
         /// <para>Filters the results by compliance. The valid values are <code>Compliant</code> and
@@ -68,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ComplianceTypes")]
         public System.String[] ComplianceType { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the AWS resource for which you want compliance information. You can specify
@@ -78,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The types of AWS resources for which you want compliance information; for example,
@@ -88,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceType { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of evaluation results returned on each page. The default is 10.
@@ -98,7 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
@@ -107,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class GetSNSEndpointAttributesCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndpointArn
         /// <summary>
         /// <para>
         /// <para>EndpointArn for GetEndpointAttributes input.</para>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String EndpointArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     )]
     public class GetASACasesCmdlet : AmazonAWSSupportClientCmdlet, IExecutor
     {
+        
+        #region Parameter AfterTime
         /// <summary>
         /// <para>
         /// <para>The start date for a filtered date search on support case communications. Case communications
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AfterTime { get; set; }
+        #endregion
         
+        #region Parameter BeforeTime
         /// <summary>
         /// <para>
         /// <para>The end date for a filtered date search on support case communications. Case communications
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BeforeTime { get; set; }
+        #endregion
         
+        #region Parameter CaseIdList
         /// <summary>
         /// <para>
         /// <para>A list of ID numbers of the support cases you want returned. The maximum number of
@@ -80,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] CaseIdList { get; set; }
+        #endregion
         
+        #region Parameter DisplayId
         /// <summary>
         /// <para>
         /// <para>The ID displayed for a case in the AWS Support Center user interface. </para>
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DisplayId { get; set; }
+        #endregion
         
+        #region Parameter IncludeCommunication
         /// <summary>
         /// <para>
         /// <para>Specifies whether communications should be included in the <a>DescribeCases</a> results.
@@ -98,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("IncludeCommunications")]
         public System.Boolean IncludeCommunication { get; set; }
+        #endregion
         
+        #region Parameter IncludeResolvedCase
         /// <summary>
         /// <para>
         /// <para>Specifies whether resolved support cases should be included in the <a>DescribeCases</a>
@@ -108,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("IncludeResolvedCases")]
         public System.Boolean IncludeResolvedCase { get; set; }
+        #endregion
         
+        #region Parameter Language
         /// <summary>
         /// <para>
         /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
@@ -118,7 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Language { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return before paginating.</para>
@@ -127,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A resumption point for pagination.</para>
@@ -135,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

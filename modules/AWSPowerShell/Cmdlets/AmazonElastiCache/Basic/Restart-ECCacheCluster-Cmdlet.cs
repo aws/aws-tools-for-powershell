@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class RestartECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheClusterId
         /// <summary>
         /// <para>
         /// <para>The cache cluster identifier. This parameter is stored as a lowercase string.</para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheClusterId { get; set; }
+        #endregion
         
+        #region Parameter CacheNodeIdsToReboot
         /// <summary>
         /// <para>
         /// <para>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002,
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String[] CacheNodeIdsToReboot { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

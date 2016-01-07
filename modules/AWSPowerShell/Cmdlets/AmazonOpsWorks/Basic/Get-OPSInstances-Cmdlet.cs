@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSInstancesCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>An array of instance IDs to be described. If you use this parameter, <code>DescribeInstances</code>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         [Alias("InstanceIds")]
         public System.String[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions
@@ -66,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String LayerId { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>A stack ID. If you use this parameter, <code>DescribeInstances</code> returns descriptions
@@ -75,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

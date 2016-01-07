@@ -39,28 +39,34 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class EnableDSSsoCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to enable single-sign on for.</para>
+        /// <para>The identifier of the directory for which to enable single-sign on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter Password
         /// <summary>
         /// <para>
         /// <para>The password of an alternate account to use to enable single-sign on. This is only
-        /// used for AD Connector directories. See the <i>UserName</i> parameter for more information.</para>
+        /// used for AD Connector directories. For more information, see the <i>UserName</i> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Password { get; set; }
+        #endregion
         
+        #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>The username of an alternate account to use to enable single-sign on. This is only
         /// used for AD Connector directories. This account must have privileges to add a service
-        /// principle name. </para><para>If the AD Connector service account does not have privileges to add a service principle
+        /// principal name. </para><para>If the AD Connector service account does not have privileges to add a service principal
         /// name, you can specify an alternate account with the <i>UserName</i> and <i>Password</i>
         /// parameters. These credentials are only used to enable single sign-on and are not stored
         /// by the service. The AD Connector service account is not changed.</para>
@@ -68,14 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String UserName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

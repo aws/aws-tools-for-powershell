@@ -2,6 +2,7 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>R53</ServiceNounPrefix>
+  <ServiceName>Amazon Route 53</ServiceName>
   <ServiceClientInterface>IAmazonRoute53</ServiceClientInterface>
   <ServiceClient>AmazonRoute53Client</ServiceClient>
   <ServiceNamespace>Amazon.Route53</ServiceNamespace>
@@ -21,7 +22,7 @@
                Start="Marker"
                Next="NextMarker"
                TruncatedFlag="IsTruncated"
-               Exclusions="ListResourceRecordSets;ListGeoLocationsResult"
+               Exclusions="ListResourceRecordSets;ListGeoLocationsResult;ListTrafficPolicyInstances;ListTrafficPolicyInstancesByHostedZone;ListTrafficPolicyInstancesByPolicy"
                ServicePageSize="100"
                />
 
@@ -37,20 +38,40 @@
     <ServiceOperation MethodName="ChangeTagsForResource" Output="Void" PipelineParameter="ResourceId"/>
     <ServiceOperation MethodName="CreateHealthCheck" Output="Response" PipelineParameter="CallerReference" PositionalParameters="HealthCheckConfig_IPAddress"/>
     <ServiceOperation MethodName="CreateHostedZone" Output="Response" PipelineParameter="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment"/>
+    <ServiceOperation MethodName="CreateTrafficPolicy" Output="Response" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="CreateTrafficPolicyInstance" Output="Response" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="CreateTrafficPolicyVersion" Output="Response" PipelineParameter="Id"/>
     <ServiceOperation MethodName="DeleteHealthCheck" Output="Void" />
     <ServiceOperation MethodName="DeleteHostedZone" />
+    <ServiceOperation MethodName="DeleteTrafficPolicy" PipelineParameter="Id" Output="Void" />
+    <ServiceOperation MethodName="DeleteTrafficPolicyInstance" Output="Void" />
     <ServiceOperation MethodName="GetChange" />
+    <ServiceOperation MethodName="GetChangeDetails" />
     <ServiceOperation MethodName="GetCheckerIpRanges"/>
     <ServiceOperation MethodName="GetGeoLocation" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="GetHealthCheck" />
     <ServiceOperation MethodName="GetHealthCheckCount" />
     <ServiceOperation MethodName="GetHostedZone" Output="Response" />
+    <ServiceOperation MethodName="GetTrafficPolicy" PipelineParameter="Id" />
+    <ServiceOperation MethodName="GetTrafficPolicyInstance" />
+    <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" />
+    <ServiceOperation MethodName="ListChangeBatchesByHostedZone" PipelineParameter="HostedZoneId"/>
+    <ServiceOperation MethodName="ListChangeBatchesByRRSet" PipelineParameter="HostedZoneId"/>
     <ServiceOperation MethodName="ListGeoLocations" Output="Response" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="ListResourceRecordSets" Output="Response" PipelineParameter="HostedZoneId" PositionalParameters="StartRecordName;StartRecordType"/>
     <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceId"/>
     <ServiceOperation MethodName="ListTagsForResources" PipelineParameter="ResourceId"/>
+    
+    <ServiceOperation MethodName="ListTrafficPolicies" Exclude="true"/>
+    <ServiceOperation MethodName="ListTrafficPolicyInstances" Output="Response" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" Output="Response" PipelineParameter="HostedZoneId"/>
+    <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" Output="Response" PipelineParameter="TrafficPolicyId"/>
+    <ServiceOperation MethodName="ListTrafficPolicyVersions" Exclude="true"/>
+    
     <ServiceOperation MethodName="UpdateHealthCheck" PipelineParameter="HealthCheckId"/>
     <ServiceOperation MethodName="UpdateHostedZoneComment" PipelineParameter="Id"/>
+    <ServiceOperation MethodName="UpdateTrafficPolicyComment" PipelineParameter="Id"/>
+    <ServiceOperation MethodName="UpdateTrafficPolicyInstance" PipelineParameter="Id"/>
 
     <ServiceOperation MethodName="CreateReusableDelegationSet" Output="Response" PipelineParameter="HostedZoneId" />
     <ServiceOperation MethodName="DeleteReusableDelegationSet" Output="Void" />

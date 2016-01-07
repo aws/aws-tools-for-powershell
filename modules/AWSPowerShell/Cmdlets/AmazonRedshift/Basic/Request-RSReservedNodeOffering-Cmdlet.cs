@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class RequestRSReservedNodeOfferingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter NodeCount
         /// <summary>
         /// <para>
         /// <para>The number of reserved nodes you want to purchase.</para><para>Default: <code>1</code></para>
@@ -56,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.Int32 NodeCount { get; set; }
+        #endregion
         
+        #region Parameter ReservedNodeOfferingId
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the reserved node offering you want to purchase.</para>
@@ -64,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedNodeOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -72,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

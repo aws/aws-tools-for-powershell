@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class RevokeRDSDBSecurityGroupIngressCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter CIDRIP
         /// <summary>
         /// <para>
         /// <para> The IP range to revoke access from. Must be a valid CIDR range. If <code>CIDRIP</code>
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String CIDRIP { get; set; }
+        #endregion
         
+        #region Parameter DBSecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB security group to revoke ingress from. </para>
@@ -58,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBSecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupId
         /// <summary>
         /// <para>
         /// <para> The id of the EC2 security group to revoke access from. For VPC DB security groups,
@@ -69,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EC2SecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the EC2 security group to revoke access from. For VPC DB security groups,
@@ -80,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EC2SecurityGroupName { get; set; }
+        #endregion
         
+        #region Parameter EC2SecurityGroupOwnerId
         /// <summary>
         /// <para>
         /// <para> The AWS Account Number of the owner of the EC2 security group specified in the <code>EC2SecurityGroupName</code>
@@ -92,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EC2SecurityGroupOwnerId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -100,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

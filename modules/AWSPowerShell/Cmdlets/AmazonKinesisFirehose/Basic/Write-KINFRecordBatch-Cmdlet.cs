@@ -96,6 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class WriteKINFRecordBatchCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream.</para>
@@ -103,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryStreamName { get; set; }
+        #endregion
         
+        #region Parameter Record
         /// <summary>
         /// <para>
         /// <para>One or more records.</para>
@@ -112,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Records")]
         public Amazon.KinesisFirehose.Model.Record[] Record { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -120,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

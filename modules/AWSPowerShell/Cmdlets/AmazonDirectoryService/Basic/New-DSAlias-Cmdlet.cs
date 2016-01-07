@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Creates an alias for a directory and assigns the alias to the directory. The alias
-    /// is used to construct the access URL for the directory, such as <code>http://&lt;alias&gt;.awsapps.com</code>.
+    /// is used to construct the access URL for the directory, such as <code>http://<![CDATA[&#x3C;]]>alias<![CDATA[&#x3E;]]>.awsapps.com</code>.
     /// 
     ///  <important><para>
     /// After an alias has been created, it cannot be deleted or reused, so this operation
@@ -44,23 +44,29 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class NewDSAliasCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation will throw an
-        /// <code>EntityAlreadyExistsException</code> if this alias already exists.</para>
+        /// <para>The requested alias.</para><para>The alias must be unique amongst all aliases in AWS. This operation throws an <code>EntityAlreadyExistsException</code>
+        /// error if the alias already exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Alias { get; set; }
+        #endregion
         
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to create the alias for.</para>
+        /// <para>The identifier of the directory for which to create the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

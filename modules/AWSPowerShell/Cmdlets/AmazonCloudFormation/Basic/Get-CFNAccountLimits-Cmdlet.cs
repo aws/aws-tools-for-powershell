@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class GetCFNAccountLimitsCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A string that identifies the next page of limits that you want to retrieve.</para>
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

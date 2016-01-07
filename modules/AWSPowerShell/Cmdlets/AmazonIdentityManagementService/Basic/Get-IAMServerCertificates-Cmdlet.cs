@@ -35,6 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <para>
     ///  You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
     /// parameters. 
+    /// </para><para>
+    /// For more information about working with server certificates, including a list of AWS
+    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMServerCertificates")]
@@ -47,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMServerCertificatesCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter PathPrefix
         /// <summary>
         /// <para>
         /// <para> The path prefix for filtering the results. For example: <code>/company/servercerts</code>
@@ -57,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PathPrefix { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Use this parameter only when paginating results and only after you receive a response
@@ -68,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Use this only when paginating results to indicate the maximum number of items you
@@ -83,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

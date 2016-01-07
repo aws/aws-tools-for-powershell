@@ -54,16 +54,20 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class GetDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>A list of identifiers of the directories to obtain the information for. If this member
-        /// is null, all directories that belong to the current account are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
+        /// <para>A list of identifiers of the directories for which to obtain the information. If this
+        /// member is null, all directories that belong to the current account are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("DirectoryIds")]
         public System.String[] DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return. If this value is zero, the maximum number of
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <i>DescribeDirectoriesResult.NextToken</i> value from a previous call to <a>DescribeDirectories</a>.
@@ -81,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

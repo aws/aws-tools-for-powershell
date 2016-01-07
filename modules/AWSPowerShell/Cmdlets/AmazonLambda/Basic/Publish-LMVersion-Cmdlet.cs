@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class PublishLMVersionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter CodeSha256
         /// <summary>
         /// <para>
         /// <para>The SHA256 hash of the deployment package you want to publish. This provides validation
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CodeSha256 { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> The description for the version you are publishing. If not provided, AWS Lambda copies
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
         /// <para>The Lambda function name. You can specify an unqualified function name (for example,
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FunctionName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

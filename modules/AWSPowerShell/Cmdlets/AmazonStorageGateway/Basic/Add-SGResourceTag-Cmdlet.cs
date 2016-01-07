@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class AddSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource you want to add tags to.</para>
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceARN { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>The key-value pair that represents the tag you want to add to the resource. The value
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

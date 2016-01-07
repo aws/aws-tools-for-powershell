@@ -48,9 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </para><para>
     /// The decoded message includes the following type of information: 
     /// </para><ul><li>Whether the request was denied due to an explicit deny or due to the absence
-    /// of an explicit allow. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage_EvaluationLogic.html#policy-eval-denyallow">Determining
-    /// Whether a Request is Allowed or Denied</a> in <i>Using IAM</i>. </li><li>The principal
-    /// who made the request.</li><li>The requested action.</li><li>The requested resource.</li><li>The values of condition keys in the context of the user's request.</li></ul>
+    /// of an explicit allow. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow">Determining
+    /// Whether a Request is Allowed or Denied</a> in the <i>Using IAM</i>. </li><li>The
+    /// principal who made the request.</li><li>The requested action.</li><li>The requested
+    /// resource.</li><li>The values of condition keys in the context of the user's request.</li></ul>
     /// </summary>
     [Cmdlet("Convert", "STSAuthorizationMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -61,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     )]
     public class ConvertSTSAuthorizationMessageCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter EncodedMessage
         /// <summary>
         /// <para>
         /// <para>The encoded message that was returned with the response.</para>
@@ -68,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String EncodedMessage { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

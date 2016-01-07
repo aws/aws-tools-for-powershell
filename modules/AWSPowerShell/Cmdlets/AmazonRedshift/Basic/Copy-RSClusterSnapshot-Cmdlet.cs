@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class CopyRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter SourceSnapshotClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster the source snapshot was created from. This parameter
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SourceSnapshotClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter SourceSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier for the source snapshot. </para><para>Constraints:</para><ul><li>Must be the identifier for a valid automated snapshot whose state is <code>available</code>.</li></ul>
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter TargetSnapshotIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier given to the new manual snapshot. </para><para>Constraints:</para><ul><li>Cannot be null, empty, or blank.</li><li>Must contain from 1 to 255 alphanumeric
@@ -80,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String TargetSnapshotIdentifier { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

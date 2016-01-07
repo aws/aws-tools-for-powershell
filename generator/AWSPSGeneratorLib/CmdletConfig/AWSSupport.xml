@@ -2,9 +2,12 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ASA</ServiceNounPrefix>
+  <ServiceName>AWS Support API</ServiceName>
   <ServiceClientInterface>IAmazonAWSSupport</ServiceClientInterface>
   <ServiceClient>AmazonAWSSupportClient</ServiceClient>
   <ServiceNamespace>Amazon.AWSSupport</ServiceNamespace>
+
+  <DefaultRegion>us-east-1</DefaultRegion>
 
   <AutoIterate Start="NextToken" EmitLimit="MaxResults" Next="NextToken" />
 

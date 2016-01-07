@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class WriteCWLSubscriptionFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter DestinationArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the destination to deliver matching log events to. Currently, the supported
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DestinationArn { get; set; }
+        #endregion
         
+        #region Parameter FilterName
         /// <summary>
         /// <para>
         /// <para>A name for the subscription filter.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String FilterName { get; set; }
+        #endregion
         
+        #region Parameter FilterPattern
         /// <summary>
         /// <para>
         /// <para>A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String FilterPattern { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the log group to associate the subscription filter with.</para>
@@ -84,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested
@@ -95,14 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleArn { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LogGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -110,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSAssessmentTelemetryCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssessmentArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the assessment the telemetry of which you want to obtain.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AssessmentArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

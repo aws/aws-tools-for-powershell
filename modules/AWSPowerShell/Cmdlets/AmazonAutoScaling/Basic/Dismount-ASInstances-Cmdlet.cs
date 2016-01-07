@@ -28,12 +28,16 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Removes one or more instances from the specified Auto Scaling group. After the instances
-    /// are detached, you can manage them independently from the rest of the Auto Scaling
-    /// group.
+    /// Removes one or more instances from the specified Auto Scaling group.
     /// 
     ///  
     /// <para>
+    /// After the instances are detached, you can manage them independently from the rest
+    /// of the Auto Scaling group.
+    /// </para><para>
+    /// If you do not specify the option to decrement the desired capacity, Auto Scaling launches
+    /// instances to replace the ones that are detached.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html">Detach
     /// EC2 Instances from Your Auto Scaling Group</a> in the <i>Auto Scaling Developer Guide</i>.
     /// </para>
@@ -47,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class DismountASInstancesCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group.</para>
@@ -54,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>One or more instance IDs.</para>
@@ -63,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InstanceIds")]
         public System.String[] InstanceId { get; set; }
+        #endregion
         
+        #region Parameter ShouldDecrementDesiredCapacity
         /// <summary>
         /// <para>
         /// <para>If <code>True</code>, the Auto Scaling group decrements the desired capacity value
@@ -72,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ShouldDecrementDesiredCapacity { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -80,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

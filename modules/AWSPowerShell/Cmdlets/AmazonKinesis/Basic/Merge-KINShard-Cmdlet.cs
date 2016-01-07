@@ -69,13 +69,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Merge", "KINShard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the MergeShards operation against AWS Kinesis.", Operation = new[] {"MergeShards"})]
+    [AWSCmdlet("Invokes the MergeShards operation against Amazon Kinesis.", Operation = new[] {"MergeShards"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.MergeShardsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class MergeKINShardCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdjacentShardToMerge
         /// <summary>
         /// <para>
         /// <para>The shard ID of the adjacent shard for the merge.</para>
@@ -83,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String AdjacentShardToMerge { get; set; }
+        #endregion
         
+        #region Parameter ShardToMerge
         /// <summary>
         /// <para>
         /// <para>The shard ID of the shard to combine with the adjacent shard for the merge.</para>
@@ -91,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ShardToMerge { get; set; }
+        #endregion
         
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream for the merge.</para>
@@ -99,14 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StreamName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -114,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

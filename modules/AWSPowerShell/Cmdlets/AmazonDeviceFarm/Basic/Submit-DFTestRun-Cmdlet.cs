@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class SubmitDFTestRunCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the app to schedule a run.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AppArn { get; set; }
+        #endregion
         
+        #region Parameter Configuration_AuxiliaryApp
         /// <summary>
         /// <para>
         /// <para>A list of auxiliary apps for the run.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_AuxiliaryApps")]
         public System.String[] Configuration_AuxiliaryApp { get; set; }
+        #endregion
         
+        #region Parameter Configuration_BillingMethod
         /// <summary>
         /// <para>
         /// <para>Specifies the billing method for a test run: <code>metered</code> or <code>unmetered</code>.
@@ -63,8 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DeviceFarm.BillingMethod")]
         public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
+        #endregion
         
+        #region Parameter Radios_Bluetooth
         /// <summary>
         /// <para>
         /// <para>True if Bluetooth is enabled at the beginning of the test; otherwise, false.</para>
@@ -73,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Bluetooth")]
         public System.Boolean Radios_Bluetooth { get; set; }
+        #endregion
         
+        #region Parameter DevicePoolArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the device pool for the run to be scheduled.</para>
@@ -81,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DevicePoolArn { get; set; }
+        #endregion
         
+        #region Parameter Configuration_ExtraDataPackageArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the extra data for the run. The extra data is a .zip file that AWS Device
@@ -90,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Configuration_ExtraDataPackageArn { get; set; }
+        #endregion
         
+        #region Parameter Test_Filter
         /// <summary>
         /// <para>
         /// <para>The test's filter.</para>
@@ -98,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Test_Filter { get; set; }
+        #endregion
         
+        #region Parameter Radios_Gp
         /// <summary>
         /// <para>
         /// <para>True if GPS is enabled at the beginning of the test; otherwise, false.</para>
@@ -107,7 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Gps")]
         public System.Boolean Radios_Gp { get; set; }
+        #endregion
         
+        #region Parameter Location_Latitude
         /// <summary>
         /// <para>
         /// <para>The latitude.</para>
@@ -116,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Location_Latitude")]
         public System.Double Location_Latitude { get; set; }
+        #endregion
         
+        #region Parameter Configuration_Locale
         /// <summary>
         /// <para>
         /// <para>Information about the locale that is used for the run.</para>
@@ -124,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Configuration_Locale { get; set; }
+        #endregion
         
+        #region Parameter Location_Longitude
         /// <summary>
         /// <para>
         /// <para>The longitude.</para>
@@ -133,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Location_Longitude")]
         public System.Double Location_Longitude { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name for the run to be scheduled.</para>
@@ -141,7 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Configuration_NetworkProfileArn
         /// <summary>
         /// <para>
         /// <para>Reserved for internal use.</para>
@@ -149,7 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Configuration_NetworkProfileArn { get; set; }
+        #endregion
         
+        #region Parameter Radios_Nfc
         /// <summary>
         /// <para>
         /// <para>True if NFC is enabled at the beginning of the test; otherwise, false.</para>
@@ -158,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Nfc")]
         public System.Boolean Radios_Nfc { get; set; }
+        #endregion
         
+        #region Parameter Test_Parameter
         /// <summary>
         /// <para>
         /// <para>The test's parameters, such as test framework parameters and fixture settings.</para>
@@ -167,7 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Test_Parameters")]
         public System.Collections.Hashtable Test_Parameter { get; set; }
+        #endregion
         
+        #region Parameter ProjectArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the project for the run to be scheduled.</para>
@@ -175,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ProjectArn { get; set; }
+        #endregion
         
+        #region Parameter Test_TestPackageArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the uploaded test that will be run.</para>
@@ -183,7 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Test_TestPackageArn { get; set; }
+        #endregion
         
+        #region Parameter Test_Type
         /// <summary>
         /// <para>
         /// <para>The test's type.</para><para>Must be one of the following values:</para><ul><li><para>BUILTIN_FUZZ: The built-in fuzz type.</para></li><li><para>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app,
@@ -191,8 +228,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DeviceFarm.TestType")]
         public Amazon.DeviceFarm.TestType Test_Type { get; set; }
+        #endregion
         
+        #region Parameter Radios_Wifi
         /// <summary>
         /// <para>
         /// <para>True if Wi-Fi is enabled at the beginning of the test; otherwise, false.</para>
@@ -201,7 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         [System.Management.Automation.Parameter]
         [Alias("Configuration_Radios_Wifi")]
         public System.Boolean Radios_Wifi { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -209,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

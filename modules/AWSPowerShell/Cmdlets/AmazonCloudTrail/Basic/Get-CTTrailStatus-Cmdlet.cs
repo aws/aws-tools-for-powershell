@@ -41,15 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class GetCTTrailStatusCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>Specifies the name or the CloudTrail ARN of the trail for which you are requesting
-        /// status. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
+        /// status. To get the status of a shadow trail (a replication of the trail in another
+        /// region), you must specify its ARN. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-1:123456789012:trail/MyTrail</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

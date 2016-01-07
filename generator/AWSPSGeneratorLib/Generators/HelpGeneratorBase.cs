@@ -48,18 +48,6 @@ namespace AWSPowerShellGenerator.Generators
             { "Amazon.PowerShell.Common.InitializeDefaultsCmdlet", new string[] { AWSCredentialsArgumentsTypename, AWSRegionArgumentsTypename } },
         };
 
-        private static string _copyright;
-        public static string Copyright
-        {
-            get
-            {
-                return _copyright ??
-                       (_copyright =
-                           string.Format("Copyright 2008-{0} Amazon.com, Inc. or its affiliates. All Rights Reserved.",
-                               DateTime.UtcNow.Year));
-            }
-        }
-
         // Some of our cmdlets belong to a service but don't make service calls (eg the DynamoDB
         // schema builders). This inverted map lets us detect these when introspecting for the service owner
         // so that we categorize them correctly. I could have made it a simple string:string map but

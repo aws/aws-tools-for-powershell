@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class GetLMFunctionsCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code>
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>Optional integer. Specifies the maximum number of AWS Lambda functions to return in
@@ -65,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.Int32 MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

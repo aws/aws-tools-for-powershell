@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     )]
     public class GetDFSuiteListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
+        
+        #region Parameter Arn
         /// <summary>
         /// <para>
         /// <para>The suites' ARNs.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Arn { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous call to this operation, which can
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

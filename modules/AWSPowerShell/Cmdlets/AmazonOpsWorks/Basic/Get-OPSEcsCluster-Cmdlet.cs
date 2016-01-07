@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class GetOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter EcsClusterArn
         /// <summary>
         /// <para>
         /// <para>A list of ARNs, one for each cluster to be described.</para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("EcsClusterArns")]
         public System.String[] EcsClusterArn { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>A stack ID. <code>DescribeEcsClusters</code> returns a description of the cluster
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>To receive a paginated response, use this parameter to specify the maximum number
@@ -79,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("MaxResults")]
         public System.Int32 MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>If the previous paginated request did not return all of the remaining results, the
@@ -92,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

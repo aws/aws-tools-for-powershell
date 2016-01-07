@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2NetworkInterfaceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the network interface.</para>
@@ -52,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Group
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more security groups.</para>
@@ -61,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("GroupId","Groups")]
         public System.String[] Group { get; set; }
+        #endregion
         
+        #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
         /// <para>The primary private IP address of the network interface. If you don't specify an IP
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String PrivateIpAddress { get; set; }
+        #endregion
         
+        #region Parameter PrivateIpAddressSet
         /// <summary>
         /// <para>
         /// <para>One or more private IP addresses.</para>
@@ -81,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("PrivateIpAddresses")]
         public Amazon.EC2.Model.PrivateIpAddressSpecification[] PrivateIpAddressSet { get; set; }
+        #endregion
         
+        #region Parameter SecondaryPrivateIpAddressCount
         /// <summary>
         /// <para>
         /// <para>The number of secondary private IP addresses to assign to a network interface. When
@@ -95,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 SecondaryPrivateIpAddressCount { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the subnet to associate with the network interface.</para>
@@ -103,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -111,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

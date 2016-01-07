@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class RegisterOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter InstanceIdentity_Document
         /// <summary>
         /// <para>
         /// <para>A JSON document that contains the metadata. </para>
@@ -57,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceIdentity_Document { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The instance's hostname.</para>
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter PrivateIp
         /// <summary>
         /// <para>
         /// <para>The instance's private IP address.</para>
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PrivateIp { get; set; }
+        #endregion
         
+        #region Parameter PublicIp
         /// <summary>
         /// <para>
         /// <para>The instance's public IP address.</para>
@@ -81,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PublicIp { get; set; }
+        #endregion
         
+        #region Parameter RsaPublicKey
         /// <summary>
         /// <para>
         /// <para>The instances public RSA key. This key is used to encrypt communication between the
@@ -90,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RsaPublicKey { get; set; }
+        #endregion
         
+        #region Parameter RsaPublicKeyFingerprint
         /// <summary>
         /// <para>
         /// <para>The instances public RSA key fingerprint.</para>
@@ -98,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RsaPublicKeyFingerprint { get; set; }
+        #endregion
         
+        #region Parameter InstanceIdentity_Signature
         /// <summary>
         /// <para>
         /// <para>A signature that can be used to verify the document's accuracy and authenticity. </para>
@@ -106,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceIdentity_Signature { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The ID of the stack that the instance is to be registered with.</para>
@@ -114,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -122,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -30,7 +30,50 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Runs and maintains a desired number of tasks from a specified task definition. If
     /// the number of tasks running in a service drops below <code>desiredCount</code>, Amazon
-    /// ECS spawns another instantiation of the task in the specified cluster.
+    /// ECS spawns another instantiation of the task in the specified cluster. To update an
+    /// existing service, see <a>UpdateService</a>.
+    /// 
+    ///  
+    /// <para>
+    /// You can optionally specify a deployment configuration for your service. During a deployment
+    /// (which is triggered by changing the task definition of a service with an <a>UpdateService</a>
+    /// operation), the service scheduler uses the <code>minimumHealthyPercent</code> and
+    /// <code>maximumPercent</code> parameters to determine the deployment strategy.
+    /// </para><para>
+    /// If the <code>minimumHealthyPercent</code> is below 100%, the scheduler can ignore
+    /// the <code>desiredCount</code> temporarily during a deployment. For example, if your
+    /// service has a <code>desiredCount</code> of four tasks, a <code>minimumHealthyPercent</code>
+    /// of 50% allows the scheduler to stop two existing tasks before starting two new tasks.
+    /// Tasks for services that <i>do not</i> use a load balancer are considered healthy if
+    /// they are in the <code>RUNNING</code> state; tasks for services that <i>do</i> use
+    /// a load balancer are considered healthy if they are in the <code>RUNNING</code> state
+    /// and the container instance it is hosted on is reported as healthy by the load balancer.
+    /// The default value for <code>minimumHealthyPercent</code> is 50% in the console and
+    /// 100% for the AWS CLI, the AWS SDKs, and the APIs.
+    /// </para><para>
+    /// The <code>maximumPercent</code> parameter represents an upper limit on the number
+    /// of running tasks during a deployment, which enables you to define the deployment batch
+    /// size. For example, if your service has a <code>desiredCount</code> of four tasks,
+    /// a <code>maximumPercent</code> value of 200% starts four new tasks before stopping
+    /// the four older tasks (provided that the cluster resources required to do this are
+    /// available). The default value for <code>maximumPercent</code> is 200%.
+    /// </para><para>
+    /// When the service scheduler launches new tasks, it attempts to balance them across
+    /// the Availability Zones in your cluster with the following logic:
+    /// </para><ul><li><para>
+    /// Determine which of the container instances in your cluster can support your service's
+    /// task definition (for example, they have the required CPU, memory, ports, and container
+    /// instance attributes).
+    /// </para></li><li><para>
+    /// Sort the valid container instances by the fewest number of running tasks for this
+    /// service in the same Availability Zone as the instance. For example, if zone A has
+    /// one running service task and zones B and C each have zero, valid container instances
+    /// in either zone B or C are considered optimal for placement.
+    /// </para></li><li><para>
+    /// Place the new service task on a valid container instance in an optimal Availability
+    /// Zone (based on the previous steps), favoring container instances with the fewest number
+    /// of running tasks for this service.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Service")]
@@ -41,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public class NewECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
@@ -49,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
         
+        #region Parameter Cluster
         /// <summary>
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the cluster on which to run your
@@ -58,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cluster { get; set; }
+        #endregion
         
+        #region Parameter DesiredCount
         /// <summary>
         /// <para>
         /// <para>The number of instantiations of the specified task definition to place and keep running
@@ -67,7 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DesiredCount { get; set; }
+        #endregion
         
+        #region Parameter LoadBalancer
         /// <summary>
         /// <para>
         /// <para>A list of load balancer objects, containing the load balancer name, the container
@@ -78,7 +129,36 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("LoadBalancers")]
         public Amazon.ECS.Model.LoadBalancer[] LoadBalancer { get; set; }
+        #endregion
         
+        #region Parameter DeploymentConfiguration_MaximumPercent
+        /// <summary>
+        /// <para>
+        /// <para>The upper limit (as a percentage of the service's <code>desiredCount</code>) of the
+        /// number of running tasks that can be running in a service during a deployment. The
+        /// maximum number of tasks during a deployment is the <code>desiredCount</code> multiplied
+        /// by the <code>maximumPercent</code>/100, rounded down to the nearest integer value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 DeploymentConfiguration_MaximumPercent { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentConfiguration_MinimumHealthyPercent
+        /// <summary>
+        /// <para>
+        /// <para>The lower limit (as a percentage of the service's <code>desiredCount</code>) of the
+        /// number of running tasks that must remain running and healthy in a service during a
+        /// deployment. The minimum healthy tasks during a deployment is the <code>desiredCount</code>
+        /// multiplied by the <code>minimumHealthyPercent</code>/100, rounded up to the nearest
+        /// integer value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 DeploymentConfiguration_MinimumHealthyPercent { get; set; }
+        #endregion
+        
+        #region Parameter Role
         /// <summary>
         /// <para>
         /// <para>The name or full Amazon Resource Name (ARN) of the IAM role that allows your Amazon
@@ -88,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Role { get; set; }
+        #endregion
         
+        #region Parameter ServiceName
         /// <summary>
         /// <para>
         /// <para>The name of your service. Up to 255 letters (uppercase and lowercase), numbers, hyphens,
@@ -99,7 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceName { get; set; }
+        #endregion
         
+        #region Parameter TaskDefinition
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -110,7 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TaskDefinition { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -118,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -138,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             
             context.ClientToken = this.ClientToken;
             context.Cluster = this.Cluster;
+            if (ParameterWasBound("DeploymentConfiguration_MaximumPercent"))
+                context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
+            if (ParameterWasBound("DeploymentConfiguration_MinimumHealthyPercent"))
+                context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             if (ParameterWasBound("DesiredCount"))
                 context.DesiredCount = this.DesiredCount;
             if (this.LoadBalancer != null)
@@ -167,6 +257,35 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
+            }
+            
+             // populate DeploymentConfiguration
+            bool requestDeploymentConfigurationIsNull = true;
+            request.DeploymentConfiguration = new Amazon.ECS.Model.DeploymentConfiguration();
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_MaximumPercent = null;
+            if (cmdletContext.DeploymentConfiguration_MaximumPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_MaximumPercent = cmdletContext.DeploymentConfiguration_MaximumPercent.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_MaximumPercent != null)
+            {
+                request.DeploymentConfiguration.MaximumPercent = requestDeploymentConfiguration_deploymentConfiguration_MaximumPercent.Value;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            System.Int32? requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent = null;
+            if (cmdletContext.DeploymentConfiguration_MinimumHealthyPercent != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent = cmdletContext.DeploymentConfiguration_MinimumHealthyPercent.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent != null)
+            {
+                request.DeploymentConfiguration.MinimumHealthyPercent = requestDeploymentConfiguration_deploymentConfiguration_MinimumHealthyPercent.Value;
+                requestDeploymentConfigurationIsNull = false;
+            }
+             // determine if request.DeploymentConfiguration should be set to null
+            if (requestDeploymentConfigurationIsNull)
+            {
+                request.DeploymentConfiguration = null;
             }
             if (cmdletContext.DesiredCount != null)
             {
@@ -225,6 +344,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public System.String ClientToken { get; set; }
             public System.String Cluster { get; set; }
+            public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
+            public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancers { get; set; }
             public System.String Role { get; set; }

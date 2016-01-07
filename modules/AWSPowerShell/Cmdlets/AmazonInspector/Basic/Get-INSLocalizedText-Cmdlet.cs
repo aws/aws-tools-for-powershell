@@ -38,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSLocalizedTextCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter Locale
         /// <summary>
         /// <para>
         /// <para>The locale that you want to translate a textual identifier into.</para>
@@ -45,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Locale { get; set; }
+        #endregion
         
+        #region Parameter LocalizedText
         /// <summary>
         /// <para>
         /// <para>A list of textual identifiers.</para>
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         [System.Management.Automation.Parameter]
         [Alias("LocalizedTexts")]
         public Amazon.Inspector.Model.LocalizedText[] LocalizedText { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

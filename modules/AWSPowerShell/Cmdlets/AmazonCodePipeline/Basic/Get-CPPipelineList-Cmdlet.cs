@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class GetCPPipelineListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list pipelines call, which can be
@@ -48,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -74,15 +74,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53ResourceRecordSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HostedZoneId
         /// <summary>
         /// <para>
-        /// <para> The ID of the hosted zone that contains the resource record sets that you want to
+        /// <para>The ID of the hosted zone that contains the resource record sets that you want to
         /// get.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HostedZoneId { get; set; }
+        #endregion
         
+        #region Parameter StartRecordIdentifier
         /// <summary>
         /// <para>
         /// <para><i>Weighted resource record sets only:</i> If results were truncated for a given DNS
@@ -93,7 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartRecordIdentifier { get; set; }
+        #endregion
         
+        #region Parameter StartRecordName
         /// <summary>
         /// <para>
         /// <para>The first name in the lexicographic ordering of domain names that you want the <code>ListResourceRecordSets</code>
@@ -102,20 +108,25 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String StartRecordName { get; set; }
+        #endregion
         
+        #region Parameter StartRecordType
         /// <summary>
         /// <para>
         /// <para>The DNS type at which to begin the listing of resource record sets. </para><para>Valid values: <code>A</code> | <code>AAAA</code> | <code>CNAME</code> | <code>MX</code>
         /// | <code>NS</code> | <code>PTR</code> | <code>SOA</code> | <code>SPF</code> | <code>SRV</code>
         /// | <code>TXT</code></para><para>Values for Weighted Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
-        /// | <code>TXT</code></para><para> Values for Regional Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
+        /// | <code>TXT</code></para><para>Values for Regional Resource Record Sets: <code>A</code> | <code>AAAA</code> | <code>CNAME</code>
         /// | <code>TXT</code></para><para>Values for Alias Resource Record Sets: <code>A</code> | <code>AAAA</code></para><para>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
         /// an <a>InvalidInput</a> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
+        [AWSConstantClassSource("Amazon.Route53.RRType")]
         public Amazon.Route53.RRType StartRecordType { get; set; }
+        #endregion
         
+        #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of records you want in the response body.</para>
@@ -124,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public System.String MaxItem { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

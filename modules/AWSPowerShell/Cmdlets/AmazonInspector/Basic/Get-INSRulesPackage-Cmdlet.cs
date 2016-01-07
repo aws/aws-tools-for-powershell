@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSRulesPackageCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter RulesPackageArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the rules package that you want to describe.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RulesPackageArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

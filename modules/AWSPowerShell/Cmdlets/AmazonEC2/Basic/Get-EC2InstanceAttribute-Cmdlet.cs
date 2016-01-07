@@ -44,14 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2InstanceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>The instance attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceAttributeName")]
         public Amazon.EC2.InstanceAttributeName Attribute { get; set; }
+        #endregion
         
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance.</para>
@@ -59,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

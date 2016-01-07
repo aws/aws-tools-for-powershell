@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class EnableCPStageTransitionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter PipelineName
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline in which you want to enable the flow of artifacts from one
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PipelineName { get; set; }
+        #endregion
         
+        #region Parameter StageName
         /// <summary>
         /// <para>
         /// <para>The name of the stage where you want to enable the transition of artifacts, either
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StageName { get; set; }
+        #endregion
         
+        #region Parameter TransitionType
         /// <summary>
         /// <para>
         /// <para>Specifies whether artifacts will be allowed to enter the stage and be processed by
@@ -65,8 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.StageTransitionType")]
         public Amazon.CodePipeline.StageTransitionType TransitionType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -74,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

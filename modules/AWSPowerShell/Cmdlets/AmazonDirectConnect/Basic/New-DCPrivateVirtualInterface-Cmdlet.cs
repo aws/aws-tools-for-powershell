@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class NewDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter NewPrivateVirtualInterface_AmazonAddress
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPrivateVirtualInterface_AmazonAddress { get; set; }
+        #endregion
         
+        #region Parameter NewPrivateVirtualInterface_Asn
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NewPrivateVirtualInterface_Asn { get; set; }
+        #endregion
         
+        #region Parameter NewPrivateVirtualInterface_AuthKey
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPrivateVirtualInterface_AuthKey { get; set; }
+        #endregion
         
+        #region Parameter ConnectionId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -71,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ConnectionId { get; set; }
+        #endregion
         
+        #region Parameter NewPrivateVirtualInterface_CustomerAddress
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -79,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPrivateVirtualInterface_CustomerAddress { get; set; }
+        #endregion
         
+        #region Parameter NewPrivateVirtualInterface_VirtualGatewayId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -87,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPrivateVirtualInterface_VirtualGatewayId { get; set; }
+        #endregion
         
+        #region Parameter NewPrivateVirtualInterface_VirtualInterfaceName
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -95,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NewPrivateVirtualInterface_VirtualInterfaceName { get; set; }
+        #endregion
         
+        #region Parameter NewPrivateVirtualInterface_Vlan
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -103,7 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NewPrivateVirtualInterface_Vlan { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -111,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

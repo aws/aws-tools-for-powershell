@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class GetR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HealthCheckId
         /// <summary>
         /// <para>
         /// <para>The ID of the health check to retrieve.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HealthCheckId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

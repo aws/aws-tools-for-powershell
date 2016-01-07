@@ -26,9 +26,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     public abstract class DDBSchemaCmdletHelper
     {
-        internal static readonly string KeyType_Hash = "HASH";
-        internal static readonly string KeyType_Range = "RANGE";
-
         /// <summary>
         /// Returns the schema object to manipulate.
         /// </summary>

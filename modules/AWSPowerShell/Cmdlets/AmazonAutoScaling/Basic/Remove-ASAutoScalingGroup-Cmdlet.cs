@@ -32,10 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// The group must have no instances and no scaling activities in progress.
+    /// If the group has instances or scaling activities in progress, you must specify the
+    /// option to force the deletion in order for it to succeed.
     /// </para><para>
-    /// To remove all instances before calling <code>DeleteAutoScalingGroup</code>, call <a>UpdateAutoScalingGroup</a>
-    /// to set the minimum and maximum size of the Auto Scaling group to zero.
+    /// If the group has policies, deleting the group deletes the policies, the underlying
+    /// alarm actions, and any alarm that no longer has an associated action.
+    /// </para><para>
+    /// To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a>
+    /// with the list of instances and the option to decrement the desired capacity so that
+    /// Auto Scaling does not launch replacement instances.
+    /// </para><para>
+    /// To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a>
+    /// and set the minimum size and desired capacity of the Auto Scaling group to zero.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -47,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public class RemoveASAutoScalingGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the group to delete.</para>
@@ -54,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutoScalingGroupName { get; set; }
+        #endregion
         
+        #region Parameter ForceDelete
         /// <summary>
         /// <para>
         /// <para>Specifies that the group will be deleted along with all instances associated with
@@ -64,14 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ForceDelete { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the AutoScalingGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

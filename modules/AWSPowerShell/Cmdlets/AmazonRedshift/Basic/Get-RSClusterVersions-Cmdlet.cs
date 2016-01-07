@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSClusterVersionsCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para> The name of a specific cluster parameter group family to return details for. </para><para>Constraints:</para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ClusterParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter ClusterVersion
         /// <summary>
         /// <para>
         /// <para> The specific cluster version to return. </para><para>Example: <code>1.0</code></para>
@@ -59,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterVersion { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional parameter that specifies the starting point to return a set of response
@@ -73,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para> The maximum number of response records to return in each call. If the number of remaining
@@ -85,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

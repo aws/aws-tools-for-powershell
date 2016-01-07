@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
     )]
     public class GetINSTagListForResourceCmdlet : AmazonInspectorClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
         /// <para>The ARN specifying the resource whose tags you want to list.</para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

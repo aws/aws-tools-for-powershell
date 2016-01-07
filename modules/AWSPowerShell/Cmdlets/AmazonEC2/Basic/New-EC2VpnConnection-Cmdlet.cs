@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2VpnConnectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CustomerGatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of the customer gateway.</para>
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String CustomerGatewayId { get; set; }
+        #endregion
         
+        #region Parameter Options_StaticRoutesOnly
         /// <summary>
         /// <para>
         /// <para>Indicates whether the VPN connection uses static routes only. Static routes must be
@@ -74,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("StaticRoutesOnly")]
         public System.Boolean Options_StaticRoutesOnly { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The type of VPN connection (<code>ipsec.1</code>).</para>
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Type { get; set; }
+        #endregion
         
+        #region Parameter VpnGatewayId
         /// <summary>
         /// <para>
         /// <para>The ID of the virtual private gateway.</para>
@@ -90,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String VpnGatewayId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -98,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGWorkingStorageCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

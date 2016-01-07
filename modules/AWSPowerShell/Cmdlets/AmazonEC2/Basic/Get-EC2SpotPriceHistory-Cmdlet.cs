@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2SpotPriceHistoryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>Filters the results by the specified Availability Zone.</para>
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>The date and time, up to the current date, from which to stop retrieving the price
@@ -67,11 +71,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone for which prices should be
-        /// returned.</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>m1.small</code>).</para></li><li><para><code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code>
+        /// returned.</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>product-description</code> - The product description for the Spot price (<code>Linux/UNIX</code>
         /// | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code>
         /// | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</para></li><li><para><code>spot-price</code> - The Spot price. The value must match exactly (or use wildcards;
         /// greater than or less than comparison is not supported).</para></li><li><para><code>timestamp</code> - The timestamp of the Spot price history, in UTC format (for
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>Filters the results by the specified instance types.</para>
@@ -91,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("InstanceTypes")]
         public System.String[] InstanceType { get; set; }
+        #endregion
         
+        #region Parameter ProductDescription
         /// <summary>
         /// <para>
         /// <para>Filters the results by the specified basic product descriptions.</para>
@@ -100,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("ProductDescriptions")]
         public System.String[] ProductDescription { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>The date and time, up to the past 90 days, from which to start retrieving the price
@@ -109,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return in a single call. Specify a value between
@@ -120,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results.</para>
@@ -128,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -32,12 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// 
     ///  
     /// <para>
-    /// A certificate cannot be deleted if it has a policy attached to it. To delete a certificate,
-    /// first detach all policies using the <a>DetachPrincipalPolicy</a> operation.
-    /// </para><para>
-    /// In addition, a certificate cannot be deleted if it is in ACTIVE status. To delete
-    /// a certificate, first change the status to INACTIVE using the <a>UpdateCertificate</a>
-    /// operation.
+    /// A certificate cannot be deleted if it has a policy attached to it or if its status
+    /// is set to ACTIVE. To delete a certificate, first detach all policies using the <a>DetachPrincipalPolicy</a>
+    /// API. Next use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE
+    /// status.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -49,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class RemoveIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateId
         /// <summary>
         /// <para>
         /// <para>The ID of the certificate.</para>
@@ -56,14 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CertificateId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the CertificateId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -71,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

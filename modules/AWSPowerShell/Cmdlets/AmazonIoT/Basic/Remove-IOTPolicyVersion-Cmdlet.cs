@@ -28,14 +28,10 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified version of the specified policy. The default version of the
-    /// policy cannot be deleted.
-    /// 
-    ///  
-    /// <para>
-    /// To delete the default version use the <a>DeletePolicy</a> API or mark the policy as
-    /// non-default and then delete it.
-    /// </para>
+    /// Deletes the specified version of the specified policy. You cannot delete the default
+    /// version of a policy using this API. To delete the default version of a policy, use
+    /// <a>DeletePolicy</a>. To find out which version of a policy is marked as the default
+    /// version, use ListPolicyVersions.
     /// </summary>
     [Cmdlet("Remove", "IOTPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -46,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     )]
     public class RemoveIOTPolicyVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
+        
+        #region Parameter PolicyName
         /// <summary>
         /// <para>
         /// <para>The name of the policy.</para>
@@ -53,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PolicyName { get; set; }
+        #endregion
         
+        #region Parameter PolicyVersionId
         /// <summary>
         /// <para>
         /// <para>The policy version ID.</para>
@@ -61,14 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyVersionId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PolicyName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -76,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

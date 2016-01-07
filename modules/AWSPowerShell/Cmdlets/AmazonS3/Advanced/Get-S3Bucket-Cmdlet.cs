@@ -36,11 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3BucketCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
+        #region Parameter BucketName
         /// <summary>
         /// If set, returns a single S3Bucket instance mapping to the specified bucket.
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {

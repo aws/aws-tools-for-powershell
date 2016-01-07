@@ -3,11 +3,9 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>WAF</ServiceNounPrefix>
-
+  <ServiceName>AWS WAF</ServiceName>
   <ServiceNamespace>Amazon.WAF</ServiceNamespace>
-
   <ServiceClientInterface>IAmazonWAF</ServiceClientInterface>
-
   <ServiceClient>AmazonWAFClient</ServiceClient>
   
   <AutoIterate EmitLimit="Limit"

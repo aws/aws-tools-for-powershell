@@ -47,14 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDOnPremiseInstanceListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter RegistrationStatus
         /// <summary>
         /// <para>
         /// <para>The on-premises instances registration status:</para><ul><li>Deregistered: Include in the resulting list deregistered on-premises instances.</li><li>Registered: Include in the resulting list registered on-premises instances.</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.RegistrationStatus")]
         public Amazon.CodeDeploy.RegistrationStatus RegistrationStatus { get; set; }
+        #endregion
         
+        #region Parameter TagFilter
         /// <summary>
         /// <para>
         /// <para>The on-premises instance tags that will be used to restrict the corresponding on-premises
@@ -64,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("TagFilters")]
         public Amazon.CodeDeploy.Model.TagFilter[] TagFilter { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list on-premises instances call,
@@ -73,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

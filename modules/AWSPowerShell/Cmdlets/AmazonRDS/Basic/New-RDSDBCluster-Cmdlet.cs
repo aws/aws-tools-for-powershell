@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class NewRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>A list of EC2 Availability Zones that instances in the DB cluster can be created in.
@@ -51,17 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("AvailabilityZones")]
         public System.String[] AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter BackupRetentionPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of days for which automated backups are retained. Setting this parameter
-        /// to a positive number enables backups. Setting this parameter to 0 disables automated
-        /// backups. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 0 to 35</li></ul>
+        /// <para>The number of days for which automated backups are retained. You must specify a minimum
+        /// value of 1. </para><para>Default: 1 </para><para>Constraints:</para><ul><li>Must be a value from 1 to 35</li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 BackupRetentionPeriod { get; set; }
+        #endregion
         
+        #region Parameter CharacterSetName
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
@@ -70,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CharacterSetName { get; set; }
+        #endregion
         
+        #region Parameter DatabaseName
         /// <summary>
         /// <para>
         /// <para>The name for your database of up to 8 alpha-numeric characters. If you do not provide
@@ -79,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DatabaseName { get; set; }
+        #endregion
         
+        #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
         /// <para>The DB cluster identifier. This parameter is stored as a lowercase string. </para><para>Constraints:</para><ul><li>Must contain from 1 to 63 alphanumeric characters or hyphens.</li><li>First
@@ -89,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
+        #endregion
         
+        #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB cluster parameter group to associate with this DB cluster. If
@@ -100,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
         /// <para>A DB subnet group to associate with this DB cluster. </para>
@@ -108,7 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DBSubnetGroupName { get; set; }
+        #endregion
         
+        #region Parameter Engine
         /// <summary>
         /// <para>
         /// <para>The name of the database engine to be used for this DB cluster. </para><para>Valid Values: <code>aurora</code></para>
@@ -116,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Engine { get; set; }
+        #endregion
         
+        #region Parameter EngineVersion
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to use. </para><para><b>Aurora</b></para><para>Example: <code>5.6.10a</code></para>
@@ -124,7 +141,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// If you are creating a DB cluster with the same AWS account that owns the KMS encryption
+        /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
+        /// of the ARN for the KM encryption key.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
+        /// for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default encryption
+        /// key. AWS KMS creates the default encryption key for your AWS account. Your AWS account
+        /// has a different default encryption key for each AWS region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter MasterUsername
         /// <summary>
         /// <para>
         /// <para> The name of the master user for the client DB cluster. </para><para>Constraints:</para><ul><li>Must be 1 to 16 alphanumeric characters.</li><li>First character must be
@@ -133,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MasterUsername { get; set; }
+        #endregion
         
+        #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para>The password for the master database user. This password can contain any printable
@@ -142,7 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MasterUserPassword { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
@@ -152,7 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Port
         /// <summary>
         /// <para>
         /// <para> The port number on which the instances in the DB cluster accept connections. </para><para> Default: <code>3306</code></para>
@@ -160,7 +201,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
+        #endregion
         
+        #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
@@ -173,7 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredBackupWindow { get; set; }
+        #endregion
         
+        #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
@@ -184,7 +229,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
         
+        #region Parameter StorageEncrypted
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the DB cluster is encrypted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean StorageEncrypted { get; set; }
+        #endregion
+        
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -193,7 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
         /// <para>A list of EC2 VPC security groups to associate with this DB cluster. </para>
@@ -202,7 +261,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -210,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -241,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
             context.OptionGroupName = this.OptionGroupName;
@@ -248,6 +310,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            if (ParameterWasBound("StorageEncrypted"))
+                context.StorageEncrypted = this.StorageEncrypted;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.RDS.Model.Tag>(this.Tag);
@@ -305,6 +369,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
             if (cmdletContext.MasterUsername != null)
             {
                 request.MasterUsername = cmdletContext.MasterUsername;
@@ -328,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.StorageEncrypted != null)
+            {
+                request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
             }
             if (cmdletContext.Tags != null)
             {
@@ -381,12 +453,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBSubnetGroupName { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? StorageEncrypted { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }

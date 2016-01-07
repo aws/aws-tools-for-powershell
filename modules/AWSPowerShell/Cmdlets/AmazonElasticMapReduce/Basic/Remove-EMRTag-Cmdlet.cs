@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class RemoveEMRTagCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The Amazon EMR resource identifier from which tags will be removed. This value must
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>A list of tag keys to remove from a resource.</para>
@@ -64,14 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of Tag keys that were removed.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

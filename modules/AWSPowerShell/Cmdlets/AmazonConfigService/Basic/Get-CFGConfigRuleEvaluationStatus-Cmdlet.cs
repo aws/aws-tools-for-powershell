@@ -34,13 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGConfigRuleEvaluationStatus")]
     [OutputType("Amazon.ConfigService.Model.ConfigRuleEvaluationStatus")]
-    [AWSCmdlet("Invokes the DescribeConfigRuleEvaluationStatus operation against Amazon Config.", Operation = new[] {"DescribeConfigRuleEvaluationStatus"})]
+    [AWSCmdlet("Invokes the DescribeConfigRuleEvaluationStatus operation against AWS Config.", Operation = new[] {"DescribeConfigRuleEvaluationStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigRuleEvaluationStatus",
         "This cmdlet returns a collection of ConfigRuleEvaluationStatus objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGConfigRuleEvaluationStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigRuleName
         /// <summary>
         /// <para>
         /// <para>The name of the AWS managed Config rules for which you want status information. If
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ConfigRuleNames")]
         public System.String[] ConfigRuleName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class NewOPSInstanceCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentVersion
         /// <summary>
         /// <para>
         /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li><code>INHERIT</code> - Use the stack's default agent version setting.</li><li><i>version_number</i> - Use the specified agent version. This value overrides
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AgentVersion { get; set; }
+        #endregion
         
+        #region Parameter AmiId
         /// <summary>
         /// <para>
         /// <para>A custom AMI ID to be used to create the instance. The AMI should be based on one
@@ -69,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AmiId { get; set; }
+        #endregion
         
+        #region Parameter Architecture
         /// <summary>
         /// <para>
         /// <para>The instance architecture. The default option is <code>x86_64</code>. Instance types
@@ -79,8 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.Architecture")]
         public Amazon.OpsWorks.Architecture Architecture { get; set; }
+        #endregion
         
+        #region Parameter AutoScalingType
         /// <summary>
         /// <para>
         /// <para>For load-based or time-based instances, the type. Windows stacks can use only time-based
@@ -88,8 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.AutoScalingType")]
         public Amazon.OpsWorks.AutoScalingType AutoScalingType { get; set; }
+        #endregion
         
+        #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The instance Availability Zone. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
@@ -98,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AvailabilityZone { get; set; }
+        #endregion
         
+        #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
         /// <para>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block
@@ -109,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("BlockDeviceMappings")]
         public Amazon.OpsWorks.Model.BlockDeviceMapping[] BlockDeviceMapping { get; set; }
+        #endregion
         
+        #region Parameter EbsOptimized
         /// <summary>
         /// <para>
         /// <para>Whether to create an Amazon EBS-optimized instance.</para>
@@ -117,7 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EbsOptimized { get; set; }
+        #endregion
         
+        #region Parameter Hostname
         /// <summary>
         /// <para>
         /// <para>The instance host name.</para>
@@ -125,7 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Hostname { get; set; }
+        #endregion
         
+        #region Parameter InstallUpdatesOnBoot
         /// <summary>
         /// <para>
         /// <para>Whether to install operating system and package updates when the instance boots. The
@@ -139,7 +159,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean InstallUpdatesOnBoot { get; set; }
+        #endregion
         
+        #region Parameter InstanceType
         /// <summary>
         /// <para>
         /// <para>The instance type, such as <code>t2.micro</code>. For a list of supported instance
@@ -152,7 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String InstanceType { get; set; }
+        #endregion
         
+        #region Parameter LayerId
         /// <summary>
         /// <para>
         /// <para>An array that contains the instance's layer IDs.</para>
@@ -161,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [Alias("LayerIds")]
         public System.String[] LayerId { get; set; }
+        #endregion
         
+        #region Parameter Os
         /// <summary>
         /// <para>
         /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li>A supported Linux operating system: An Amazon Linux version, such as <code>Amazon
@@ -178,7 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Os { get; set; }
+        #endregion
         
+        #region Parameter RootDeviceType
         /// <summary>
         /// <para>
         /// <para>The instance root device type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage
@@ -186,8 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.RootDeviceType")]
         public Amazon.OpsWorks.RootDeviceType RootDeviceType { get; set; }
+        #endregion
         
+        #region Parameter SshKeyName
         /// <summary>
         /// <para>
         /// <para>The instance's Amazon EC2 key-pair name.</para>
@@ -195,7 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SshKeyName { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
@@ -203,7 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter SubnetId
         /// <summary>
         /// <para>
         /// <para>The ID of the instance's subnet. If the stack is running in a VPC, you can use this
@@ -213,15 +248,20 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SubnetId { get; set; }
+        #endregion
         
+        #region Parameter VirtualizationType
         /// <summary>
         /// <para>
         /// <para>The instance's virtualization type, <code>paravirtual</code> or <code>hvm</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.OpsWorks.VirtualizationType")]
         public Amazon.OpsWorks.VirtualizationType VirtualizationType { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -229,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DP
     )]
     public class GetDPObjectCmdlet : AmazonDataPipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter EvaluateExpression
         /// <summary>
         /// <para>
         /// <para>Indicates whether any expressions in the object should be evaluated when the object
@@ -50,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 2)]
         [Alias("EvaluateExpressions")]
         public System.Boolean EvaluateExpression { get; set; }
+        #endregion
         
+        #region Parameter ObjectId
         /// <summary>
         /// <para>
         /// <para>The IDs of the pipeline objects that contain the definitions to be described. You
@@ -60,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("ObjectIds")]
         public System.String[] ObjectId { get; set; }
+        #endregion
         
+        #region Parameter PipelineId
         /// <summary>
         /// <para>
         /// <para>The ID of the pipeline that contains the object definitions.</para>
@@ -68,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.DP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PipelineId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>The starting point for the results to be returned. For the first call, this value
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     )]
     public class EditSQSMessageVisibilityCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
+        
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
         /// <para>The URL of the Amazon SQS queue to take action on.</para>
@@ -73,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String QueueUrl { get; set; }
+        #endregion
         
+        #region Parameter ReceiptHandle
         /// <summary>
         /// <para>
         /// <para>The receipt handle associated with the message whose visibility timeout should be
@@ -82,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ReceiptHandle { get; set; }
+        #endregion
         
+        #region Parameter VisibilityTimeout
         /// <summary>
         /// <para>
         /// <para>The new value (in seconds - from 0 to 43200 - maximum 12 hours) for the message's
@@ -91,14 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 VisibilityTimeout { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the QueueUrl parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -106,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

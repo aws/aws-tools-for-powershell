@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class NewRSClusterParameterGroupCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> A description of the parameter group. </para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter ParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para> The Amazon Redshift engine version to which the cluster parameter group applies.
@@ -74,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String ParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter ParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the cluster parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens</li><li>First character
@@ -84,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>A list of tag instances.</para>
@@ -93,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -101,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

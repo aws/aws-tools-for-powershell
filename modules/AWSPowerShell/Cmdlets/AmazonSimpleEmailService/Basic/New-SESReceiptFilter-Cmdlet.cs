@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     )]
     public class NewSESReceiptFilterCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter IpFilter_Cidr
         /// <summary>
         /// <para>
         /// <para>A single IP address or a range of IP addresses that you want to block or allow, specified
@@ -58,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         [System.Management.Automation.Parameter]
         [Alias("Filter_IpFilter_Cidr")]
         public System.String IpFilter_Cidr { get; set; }
+        #endregion
         
+        #region Parameter Filter_Name
         /// <summary>
         /// <para>
         /// <para>The name of the IP address filter. The name must:</para><ul><li>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Filter_Name { get; set; }
+        #endregion
         
+        #region Parameter IpFilter_Policy
         /// <summary>
         /// <para>
         /// <para>Indicates whether to block or allow incoming mail from the specified IP addresses.</para>
@@ -76,8 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filter_IpFilter_Policy")]
+        [AWSConstantClassSource("Amazon.SimpleEmail.ReceiptFilterPolicy")]
         public Amazon.SimpleEmail.ReceiptFilterPolicy IpFilter_Policy { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -85,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

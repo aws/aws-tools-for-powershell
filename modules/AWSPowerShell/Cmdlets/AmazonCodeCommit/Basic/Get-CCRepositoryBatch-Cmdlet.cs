@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     )]
     public class GetCCRepositoryBatchCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The names of the repositories to get information about.</para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("RepositoryNames")]
         public System.String[] RepositoryName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

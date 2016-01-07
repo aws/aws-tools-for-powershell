@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Retrieves information about the specified server certificate.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about working with server certificates, including a list of AWS
+    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "IAMServerCertificate")]
     [OutputType("Amazon.IdentityManagement.Model.ServerCertificate")]
@@ -39,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ServerCertificateName
         /// <summary>
         /// <para>
         /// <para>The name of the server certificate you want to retrieve information about.</para>
@@ -46,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ServerCertificateName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

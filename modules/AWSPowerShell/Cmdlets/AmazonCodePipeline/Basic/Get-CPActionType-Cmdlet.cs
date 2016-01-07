@@ -40,14 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
     )]
     public class GetCPActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionOwnerFilter
         /// <summary>
         /// <para>
         /// <para>Filters the list of action types to those created by a specified entity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionOwner")]
         public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>An identifier that was returned from the previous list action types call, which can
@@ -56,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

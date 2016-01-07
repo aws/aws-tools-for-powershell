@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public class InvokeKMSReEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter CiphertextBlob
         /// <summary>
         /// <para>
         /// <para>Ciphertext of the data to re-encrypt.</para>
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.MemoryStream CiphertextBlob { get; set; }
+        #endregion
         
+        #region Parameter DestinationEncryptionContext
         /// <summary>
         /// <para>
         /// <para>Encryption context to be used when the data is re-encrypted.</para>
@@ -67,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable DestinationEncryptionContext { get; set; }
+        #endregion
         
+        #region Parameter DestinationKeyId
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the customer master key used to re-encrypt the data. This
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DestinationKeyId { get; set; }
+        #endregion
         
+        #region Parameter GrantToken
         /// <summary>
         /// <para>
         /// <para>A list of grant tokens.</para><para>For more information, go to <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
@@ -88,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter]
         [Alias("GrantTokens")]
         public System.String[] GrantToken { get; set; }
+        #endregion
         
+        #region Parameter SourceEncryptionContext
         /// <summary>
         /// <para>
         /// <para>Encryption context used to encrypt and decrypt the data specified in the <code>CiphertextBlob</code>
@@ -97,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Collections.Hashtable SourceEncryptionContext { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -105,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

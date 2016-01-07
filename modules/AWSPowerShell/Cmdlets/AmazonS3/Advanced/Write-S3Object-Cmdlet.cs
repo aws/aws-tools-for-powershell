@@ -57,55 +57,66 @@ namespace Amazon.PowerShell.Cmdlets.S3
 		// try and anticipate all the ways a user might mean 'write everything to root'
         readonly string[] rootIndicators = new string[] { "/", @"\" };
 
-		/// <summary>
-		/// The name of the bucket that will hold the uploaded content.
-		/// </summary>
+        #region Parameter BucketName
+        /// <summary>
+        /// The name of the bucket that will hold the uploaded content.
+        /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
 		public System.String BucketName { get; set; }
+        #endregion
 
-		#region Upload Single File Params
+        #region Upload Single File Params
 
-		/// <summary>
-		/// The key that will be used to identify the object in S3. If the -File parameter is specified, -Key is optional
-		/// and the object key can be inferred from the filename value supplied to the -File parameter.
-		/// </summary>
+        #region Parameter Key
+        /// <summary>
+        /// The key that will be used to identify the object in S3. If the -File parameter is specified, -Key is optional
+        /// and the object key can be inferred from the filename value supplied to the -File parameter.
+        /// </summary>
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromLocalFile, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromContent, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromStream, Mandatory = true, ValueFromPipelineByPropertyName = true)]
 		public System.String Key { get; set; }
+        #endregion
 
-		/// <summary>
-		/// The full path to the local file to be uploaded.
-		/// </summary>
+        #region Parameter File
+        /// <summary>
+        /// The full path to the local file to be uploaded.
+        /// </summary>
         [Parameter(Position = 2, ParameterSetName = ParamSet_FromLocalFile, Mandatory = true)]
 		public System.String File { get; set; }
+        #endregion
 
-		/// <summary>
-		/// Specifies text content that will be used to set the content of the object in S3. Use a here-string to
-		/// specify multiple lines of text.
-		/// </summary>
+        #region Parameter Content 
+        /// <summary>
+        /// Specifies text content that will be used to set the content of the object in S3. Use a here-string to
+        /// specify multiple lines of text.
+        /// </summary>
         [Alias("Text")]
 		[Parameter(ParameterSetName = ParamSet_FromContent, Mandatory = true)]
 		public System.String Content { get; set; }
+        #endregion
 
-		#endregion
+        #endregion
 
         #region Upload Stream Params
 
-		/// <summary>
-		/// The stream to be uploaded.
-		/// </summary>
+        #region Parameter Stream
+        /// <summary>
+        /// The stream to be uploaded.
+        /// </summary>
         [Parameter(ParameterSetName = ParamSet_FromStream, Mandatory = true)]
 		public System.IO.Stream Stream { get; set; }
+        #endregion
 
-		#endregion
+        #endregion
 
         #region Upload Folder Params
 
-		/// <summary>
-		/// <para>
-		/// The common key prefix that will be used for the objects uploaded to S3. Use this parameter when uploading
-		/// multiple objects. Each object's final key will be of the form 'keyprefix/filename'.
+        #region Parameter KeyPrefix
+        /// <summary>
+        /// <para>
+        /// The common key prefix that will be used for the objects uploaded to S3. Use this parameter when uploading
+        /// multiple objects. Each object's final key will be of the form 'keyprefix/filename'.
         /// </para>
         /// <para>
         /// To indicate that all content should be uploaded to the root of the bucket, specify a KeyPrefix of '\'
@@ -115,7 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Alias("Prefix")]
         [Parameter(Position = 1, ParameterSetName = ParamSet_FromLocalFolder, Mandatory = true, ValueFromPipelineByPropertyName = true)]
         public System.String KeyPrefix { get; set; }
+        #endregion
 
+        #region Parameter Folder
         /// <summary>
         /// The full path to a local folder; all content in the folder will be uploaded to the
         /// specified bucket and key. Sub-folders in the folder will only be uploaded if the
@@ -124,7 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Alias("Directory")]
         [Parameter(Position = 2, ParameterSetName = ParamSet_FromLocalFolder, Mandatory = true)]
         public System.String Folder { get; set; }
+        #endregion
 
+        #region Parameter Recurse
         /// <summary>
         /// If set, all sub-folders beneath the folder set in LocalFolder will also be uploaded.
         /// The folder structure will be mirrored in S3.
@@ -132,114 +147,173 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(Position = 3, ParameterSetName = ParamSet_FromLocalFolder)]
         public SwitchParameter Recurse { get; set; }
+        #endregion
 
+        #region Parameter SearchPattern
         /// <summary>
         /// The search pattern used to determine which files in the directory are uploaded.
         /// </summary>
         [Alias("Pattern")]
         [Parameter(Position = 4, ParameterSetName = ParamSet_FromLocalFolder)]
         public System.String SearchPattern { get; set; }
+        #endregion
 
         #endregion
 
         #region Canned ACLs
 
+        #region Parameter CannedACLName
         /// <summary>
         /// Specifies the name of the canned ACL (access control list) of permissions to be applied to the S3 object(s).
         /// Please refer to <a href="http://docs.aws.amazon.com/sdkfornet/v3/apidocs/Index.html?page=S3/TS3_S3CannedACL.html&tocid=Amazon_S3_S3CannedACL">Amazon.S3.Model.S3CannedACL</a> for information on S3 Canned ACLs.
         /// </summary>
         [Parameter]
-        public System.String CannedACLName { get; set; }
+        [AWSConstantClassSource("Amazon.S3.S3CannedACL")]
+        public Amazon.S3.S3CannedACL CannedACLName { get; set; }
+        #endregion
 
+        #region Parameter PublicReadOnly 
         /// <summary>
         /// If set, applies an ACL making the S3 object(s) public with read-only permissions
         /// </summary>
         [Parameter]
         public SwitchParameter PublicReadOnly { get; set; }
+        #endregion
 
+        #region Parameter PublicReadWrite
         /// <summary>
         /// If set, applies an ACL making the S3 object(s) public with read-write permissions
         /// </summary>
         [Parameter]
         public SwitchParameter PublicReadWrite { get; set; }
+        #endregion
 
         #endregion
 
         #region Shared Params
 
+        #region Parameter ContentType 
         /// <summary>
         /// Specifies the MIME type of the content being uploaded.
         /// </summary>
         [Parameter]
         public System.String ContentType { get; set; }
+        #endregion
+
+        #region Parameter StorageClass
+
+        // NOTE: This parameter does not use the marker attribute for automated validate set
+        // updating because it would cause GLACIER to be added as a valid value. S3 does not
+        // support use of GLACIER as a storage class on PutObject, it must be handled as a
+        // lifecycle configuration
+        // http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html
 
         /// <summary>
+        /// Specifies the storage class for the object.
+        /// Please refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> for information on S3 storage classes.
+        /// </summary>
+        [Parameter]
+        public Amazon.S3.S3StorageClass StorageClass { get; set; }
+        #endregion
+
+        #region Parameter StandardStorage
+        /// <summary>
+        /// <para>
         /// Specifies the STANDARD storage class, which is the default storage class for S3 objects.
         /// Provides a 99.999999999% durability guarantee.
+        /// </para>
+        /// <para>
+        /// This parameter is deprecated. Please use the StorageClass parameter instead.
+        /// </para>
         /// </summary>
         [Parameter]
         public SwitchParameter StandardStorage { get; set; }
+        #endregion
 
+        #region Parameter ReducedRedundancyStorage
         /// <summary>
+        /// <para>
         /// Specifies S3 should use REDUCED_REDUNDANCY storage class for the object. This
         /// provides a reduced (99.99%) durability guarantee at a lower
         /// cost as compared to the STANDARD storage class. Use this
         /// storage class for non-mission critical data or for data
-        /// that doesn’t require the higher level of durability that S3
+        /// that does not require the higher level of durability that S3
         /// provides with the STANDARD storage class.
+        /// </para>
+        /// <para>
+        /// This parameter is deprecated. Please use the StorageClass parameter instead.
+        /// </para>
         /// </summary>
         [Parameter]
         public SwitchParameter ReducedRedundancyStorage { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryption
         /// <summary>
         /// Specifies the encryption used on the server to store the content.
-        /// Allowable values: None, AES256, AWSKMS.
+        /// Allowable values: None, AES256, aws:kms.
         /// </summary>
         [Parameter]
-        public System.String ServerSideEncryption { get; set; }
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionMethod")]
+        public Amazon.S3.ServerSideEncryptionMethod ServerSideEncryption { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionKeyManagementServiceKeyId
         /// <summary>
         /// Specifies the AWS KMS key for Amazon S3 to use to encrypt the object.
         /// </summary>
         [Parameter]
         public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// Specifies the server-side encryption algorithm to be used with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
         [Parameter]
-        public System.String ServerSideEncryptionCustomerMethod { get; set; }
+        [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
+        public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerProvidedKey
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 to use to encrypt the object.
         /// </summary>
         [Parameter]
         public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
+        #endregion
 
+        #region Parameter ServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
         [Parameter]
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
+        #endregion
 
+        #region Parameter Metadata
         /// <summary>
         /// Metadata headers to set on the object.
         /// </summary>
         [Parameter]
         public System.Collections.Hashtable Metadata { get; set; }
+        #endregion
 
+        #region Parameter HeaderCollection
         /// <summary>
         /// Response headers to set on the object.
         /// </summary>
         [Parameter]
         [Alias("Headers")]
         public System.Collections.Hashtable HeaderCollection { get; set; }
+        #endregion
 
         #endregion
 
         #region TransferUtility Params
 
+        #region Parameter ConcurrentServiceRequest
         /// <summary>
         /// This property determines how many active threads will be used to upload the file .
         /// This property is only applicable if the file being uploaded is larger than 16 MB, in which case TransferUtility 
@@ -249,9 +323,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [Parameter]
         [Alias("ConcurrentServiceRequests")]
         public System.Int32? ConcurrentServiceRequest { get; set; }
+        #endregion
 
         #endregion
 
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -259,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter Force { get; set; }
+        #endregion
 
         protected override void ProcessRecord()
         {
@@ -310,21 +387,23 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.CannedACL = S3CannedACL.PublicReadWrite;
 
             context.ContentType = this.ContentType;
-            
-            if (this.StandardStorage.IsPresent)
-                context.StorageClass = S3StorageClass.Standard;
-            else if (this.ReducedRedundancyStorage.IsPresent)
-                context.StorageClass = S3StorageClass.ReducedRedundancy;
+
+            if (ParameterWasBound("StorageClass"))
+                context.StorageClass = this.StorageClass;
+            else
+            {
+                if (this.StandardStorage.IsPresent)
+                    context.StorageClass = S3StorageClass.Standard;
+                else if (this.ReducedRedundancyStorage.IsPresent)
+                    context.StorageClass = S3StorageClass.ReducedRedundancy;
+            }
 
             if (!string.IsNullOrEmpty(this.ServerSideEncryption))
-            {
                 context.ServerSideEncryptionMethod = Amazon.PowerShell.Utils.Common.Convert(this.ServerSideEncryption);
-            }
 
             if (!string.IsNullOrEmpty(this.ServerSideEncryptionCustomerMethod))
-            {
-                context.ServerSideEncryptionCustomerMethod = Amazon.S3.ServerSideEncryptionCustomerMethod.FindValue(this.ServerSideEncryptionCustomerMethod);
-            }
+                context.ServerSideEncryptionCustomerMethod = this.ServerSideEncryptionCustomerMethod;
+
             context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
             context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
             context.ServerSideEncryptionKeyManagementServiceKeyId = this.ServerSideEncryptionKeyManagementServiceKeyId;

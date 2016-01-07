@@ -36,13 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGConfigurationRecorderStatus")]
     [OutputType("Amazon.ConfigService.Model.ConfigurationRecorderStatus")]
-    [AWSCmdlet("Invokes the DescribeConfigurationRecorderStatus operation against Amazon Config.", Operation = new[] {"DescribeConfigurationRecorderStatus"})]
+    [AWSCmdlet("Invokes the DescribeConfigurationRecorderStatus operation against AWS Config.", Operation = new[] {"DescribeConfigurationRecorderStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationRecorderStatus",
         "This cmdlet returns a collection of ConfigurationRecorderStatus objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeConfigurationRecorderStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGConfigurationRecorderStatusCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationRecorderName
         /// <summary>
         /// <para>
         /// <para>The name(s) of the configuration recorder. If the name is not specified, the action
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigurationRecorderNames")]
         public System.String[] ConfigurationRecorderName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

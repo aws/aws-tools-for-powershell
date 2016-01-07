@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     )]
     public class GetRSLoggingStatusCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
         /// <para> The identifier of the cluster to get the logging status from. </para><para>Example: <code>examplecluster</code></para>
@@ -46,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterIdentifier { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

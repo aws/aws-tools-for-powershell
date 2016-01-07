@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     ///  <important> You can delete a reusable delegation set only if there are no associated
     /// hosted zones. If your reusable delegation set contains associated hosted zones, you
     /// must delete them before you can delete your reusable delegation set. If you try to
-    /// delete a reusable delegation set that contains associated hosted zones, Route 53 will
-    /// deny your request with a <code>DelegationSetInUse</code> error.</important>
+    /// delete a reusable delegation set that contains associated hosted zones, Amazon Route
+    /// 53 will deny your request with a <code>DelegationSetInUse</code> error.</important>
     /// </summary>
     [Cmdlet("Remove", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -47,21 +47,27 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class RemoveR53ReusableDelegationSetCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para> The ID of the reusable delegation set you want to delete.</para>
+        /// <para>The ID of the reusable delegation set you want to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the Id parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

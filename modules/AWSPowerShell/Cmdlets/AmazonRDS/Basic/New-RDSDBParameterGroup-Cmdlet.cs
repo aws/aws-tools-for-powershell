@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class NewRDSDBParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
         /// <para> The DB parameter group family name. A DB parameter group can be associated with one
@@ -70,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DBParameterGroupFamily { get; set; }
+        #endregion
         
+        #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the DB parameter group. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters</li><li>First character must be
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DBParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para> The description for the DB parameter group. </para>
@@ -87,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -96,7 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -104,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

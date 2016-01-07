@@ -35,7 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information about tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
-    /// Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more
+    /// information about creating IAM policies that control users' access to resources based
+    /// on tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html">Supported
+    /// Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon Elastic
+    /// Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -47,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2TagCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Resource
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more resources to tag. For example, ami-1a2b3c4d.</para>
@@ -55,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ResourceId","Resources")]
         public System.String[] Resource { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>One or more tags. The <code>value</code> parameter is required, but if you don't want
@@ -66,14 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Tags")]
         public Amazon.EC2.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of Tag objects that were created.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -81,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

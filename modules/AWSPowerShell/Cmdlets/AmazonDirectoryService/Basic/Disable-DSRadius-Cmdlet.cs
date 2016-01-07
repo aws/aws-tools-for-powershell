@@ -28,8 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Disables multi-factor authentication (MFA) with Remote Authentication Dial In User
-    /// Service (RADIUS) for an AD Connector directory.
+    /// Disables multi-factor authentication (MFA) with the Remote Authentication Dial In
+    /// User Service (RADIUS) server for an AD Connector directory.
     /// </summary>
     [Cmdlet("Disable", "DSRadius", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -40,21 +40,27 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class DisableDSRadiusCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to disable MFA for.</para>
+        /// <para>The identifier of the directory for which to disable MFA.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

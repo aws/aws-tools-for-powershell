@@ -34,15 +34,19 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// For information about the number of server certificates you can upload, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>IAM User Guide</i>. 
+    /// For more information about working with server certificates, including a list of AWS
+    /// services that can use the server certificates that you manage with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// with Server Certificates</a> in the <i>IAM User Guide</i>.
+    /// </para><para>
+    /// For information about the number of server certificates you can upload, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html">Limitations
+    /// on IAM Entities and Objects</a> in the <i>IAM User Guide</i>. 
     /// </para><note>Because the body of the public key certificate, private key, and the certificate
     /// chain can be large, you should use POST rather than GET when calling <code>UploadServerCertificate</code>.
     /// For information about setting up signatures and authorization through the API, go
     /// to <a href="http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing
     /// AWS API Requests</a> in the <i>AWS General Reference</i>. For general information
-    /// about using the Query API with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making
-    /// Query Requests</a> in the <i>IAM User Guide</i>. </note>
+    /// about using the Query API with IAM, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html">Calling
+    /// the API by Making HTTP Query Requests</a> in the <i>IAM User Guide</i>. </note>
     /// </summary>
     [Cmdlet("Publish", "IAMServerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.ServerCertificateMetadata")]
@@ -53,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class PublishIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter CertificateBody
         /// <summary>
         /// <para>
         /// <para>The contents of the public key certificate in PEM-encoded format.</para>
@@ -60,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String CertificateBody { get; set; }
+        #endregion
         
+        #region Parameter CertificateChain
         /// <summary>
         /// <para>
         /// <para>The contents of the certificate chain. This is typically a concatenation of the PEM-encoded
@@ -69,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
         public System.String CertificateChain { get; set; }
+        #endregion
         
+        #region Parameter Path
         /// <summary>
         /// <para>
         /// <para>The path for the server certificate. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
@@ -81,7 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Path { get; set; }
+        #endregion
         
+        #region Parameter PrivateKey
         /// <summary>
         /// <para>
         /// <para>The contents of the private key in PEM-encoded format.</para>
@@ -89,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String PrivateKey { get; set; }
+        #endregion
         
+        #region Parameter ServerCertificateName
         /// <summary>
         /// <para>
         /// <para>The name for the server certificate. Do not include the path in this value. The name
@@ -98,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ServerCertificateName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -106,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGResourceConfigHistory")]
     [OutputType("Amazon.ConfigService.Model.ConfigurationItem")]
-    [AWSCmdlet("Invokes the GetResourceConfigHistory operation against Amazon Config.", Operation = new[] {"GetResourceConfigHistory"})]
+    [AWSCmdlet("Invokes the GetResourceConfigHistory operation against AWS Config.", Operation = new[] {"GetResourceConfigHistory"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigurationItem",
         "This cmdlet returns a collection of ConfigurationItem objects.",
         "The service call response (type Amazon.ConfigService.Model.GetResourceConfigHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     )]
     public class GetCFGResourceConfigHistoryCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChronologicalOrder
         /// <summary>
         /// <para>
         /// <para>The chronological order for configuration items listed. By default the results are
@@ -61,8 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ConfigService.ChronologicalOrder")]
         public Amazon.ConfigService.ChronologicalOrder ChronologicalOrder { get; set; }
+        #endregion
         
+        #region Parameter EarlierTime
         /// <summary>
         /// <para>
         /// <para>The time stamp that indicates an earlier time. If not specified, the action returns
@@ -72,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EarlierTime { get; set; }
+        #endregion
         
+        #region Parameter LaterTime
         /// <summary>
         /// <para>
         /// <para>The time stamp that indicates a later time. If not specified, current time is taken.</para>
@@ -80,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime LaterTime { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the resource (for example., <code>sg-xxxxxx</code>).</para>
@@ -88,15 +97,20 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The resource type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ConfigService.ResourceType")]
         public Amazon.ConfigService.ResourceType ResourceType { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of configuration items returned on each page. The default is 10.
@@ -106,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
@@ -115,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

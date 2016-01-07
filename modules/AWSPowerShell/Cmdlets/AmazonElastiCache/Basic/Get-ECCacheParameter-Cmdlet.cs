@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class GetECCacheParameterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
         /// <para>The name of a specific cache parameter group to return details for.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CacheParameterGroupName { get; set; }
+        #endregion
         
+        #region Parameter Source
         /// <summary>
         /// <para>
         /// <para>The parameter types to return.</para><para>Valid values: <code>user</code> | <code>system</code> | <code>engine-default</code></para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Source { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
@@ -65,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
@@ -76,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public System.Int32 MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

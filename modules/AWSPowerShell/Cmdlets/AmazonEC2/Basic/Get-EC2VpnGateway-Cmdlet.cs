@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2VpnGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>attachment.state</code> - The current state of the attachment between the gateway
@@ -65,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
         
+        #region Parameter VpnGatewayId
         /// <summary>
         /// <para>
         /// <para>One or more virtual private gateway IDs.</para><para>Default: Describes all your virtual private gateways.</para>
@@ -74,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("VpnGatewayIds")]
         public System.String[] VpnGatewayId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

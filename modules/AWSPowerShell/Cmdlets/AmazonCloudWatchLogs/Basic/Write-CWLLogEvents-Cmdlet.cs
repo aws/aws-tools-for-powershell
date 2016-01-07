@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class WriteCWLLogEventsCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter LogEvent
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("LogEvents")]
         public Amazon.CloudWatchLogs.Model.InputLogEvent[] LogEvent { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the log group to put log events to.</para>
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the log stream to put log events to.</para>
@@ -76,7 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String LogStreamName { get; set; }
+        #endregion
         
+        #region Parameter SequenceToken
         /// <summary>
         /// <para>
         /// <para> A string token that must be obtained from the response of the previous <code class="code">PutLogEvents</code>
@@ -85,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SequenceToken { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -93,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

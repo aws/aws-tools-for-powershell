@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GetEC2ExportTasksCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExportTaskId
         /// <summary>
         /// <para>
         /// <para>One or more export task IDs.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ExportTaskIds")]
         public System.String[] ExportTaskId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

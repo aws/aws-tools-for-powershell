@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// associated with this health check. If resource record sets are associated with this
     /// health check, you must disassociate them before you can delete your health check.
     /// If you try to delete a health check that is associated with resource record sets,
-    /// Route 53 will deny your request with a <code>HealthCheckInUse</code> error. For information
-    /// about disassociating the records from your health check, see <a>ChangeResourceRecordSets</a>.</important>
+    /// Amazon Route 53 will deny your request with a <code>HealthCheckInUse</code> error.
+    /// For information about disassociating the records from your health check, see <a>ChangeResourceRecordSets</a>.</important>
     /// </summary>
     [Cmdlet("Remove", "R53HealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class RemoveR53HealthCheckCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter HealthCheckId
         /// <summary>
         /// <para>
         /// <para>The ID of the health check to delete.</para>
@@ -54,14 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String HealthCheckId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the HealthCheckId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -69,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

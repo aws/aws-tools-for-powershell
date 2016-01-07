@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class NewWAFRuleCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeToken
         /// <summary>
         /// <para>
         /// <para>The value returned by the most recent call to <a>GetChangeToken</a>.</para>
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ChangeToken { get; set; }
+        #endregion
         
+        #region Parameter MetricName
         /// <summary>
         /// <para>
         /// <para>A friendly name or description for the metrics for this <code>Rule</code>. The name
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MetricName { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>A friendly name or description of the <a>Rule</a>. You can't change the name of a
@@ -88,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

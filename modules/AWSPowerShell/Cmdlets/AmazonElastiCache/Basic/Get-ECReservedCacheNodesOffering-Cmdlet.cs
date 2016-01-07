@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
     )]
     public class GetECReservedCacheNodesOfferingCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
     {
+        
+        #region Parameter CacheNodeType
         /// <summary>
         /// <para>
         /// <para>The cache node type filter value. Use this parameter to show only the available offerings
@@ -59,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String CacheNodeType { get; set; }
+        #endregion
         
+        #region Parameter Duration
         /// <summary>
         /// <para>
         /// <para>Duration filter value, specified in years or seconds. Use this parameter to show only
@@ -68,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Duration { get; set; }
+        #endregion
         
+        #region Parameter OfferingType
         /// <summary>
         /// <para>
         /// <para>The offering type filter value. Use this parameter to show only the available offerings
@@ -77,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OfferingType { get; set; }
+        #endregion
         
+        #region Parameter ProductDescription
         /// <summary>
         /// <para>
         /// <para>The product description filter value. Use this parameter to show only the available
@@ -86,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ProductDescription { get; set; }
+        #endregion
         
+        #region Parameter ReservedCacheNodesOfferingId
         /// <summary>
         /// <para>
         /// <para>The offering identifier filter value. Use this parameter to show only the available
@@ -95,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReservedCacheNodesOfferingId { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An optional marker returned from a prior request. Use this marker for pagination of
@@ -106,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
         
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
@@ -117,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

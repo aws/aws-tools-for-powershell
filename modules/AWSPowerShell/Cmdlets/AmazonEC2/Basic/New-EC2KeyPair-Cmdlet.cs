@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter KeyName
         /// <summary>
         /// <para>
         /// <para>A unique name for the key pair.</para><para>Constraints: Up to 255 ASCII characters</para>
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String KeyName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -68,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

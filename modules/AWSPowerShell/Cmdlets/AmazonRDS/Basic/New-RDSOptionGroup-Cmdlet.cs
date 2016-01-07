@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public class NewRDSOptionGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
+        
+        #region Parameter EngineName
         /// <summary>
         /// <para>
         /// <para> Specifies the name of the engine that this option group should be associated with.
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String EngineName { get; set; }
+        #endregion
         
+        #region Parameter MajorEngineVersion
         /// <summary>
         /// <para>
         /// <para> Specifies the major version of the engine that this option group should be associated
@@ -56,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String MajorEngineVersion { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupDescription
         /// <summary>
         /// <para>
         /// <para> The description of the option group. </para>
@@ -64,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.String OptionGroupDescription { get; set; }
+        #endregion
         
+        #region Parameter OptionGroupName
         /// <summary>
         /// <para>
         /// <para> Specifies the name of the option group to be created. </para><para> Constraints: </para><ul><li>Must be 1 to 255 alphanumeric characters or hyphens</li><li>First character
@@ -73,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
         
+        #region Parameter Tag
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -82,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -90,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

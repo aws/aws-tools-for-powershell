@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     )]
     public class EditR53TagsForResourceCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AddTag
         /// <summary>
         /// <para>
         /// <para>A complex type that contains a list of <code>Tag</code> elements. Each <code>Tag</code>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("AddTags")]
         public Amazon.Route53.Model.Tag[] AddTag { get; set; }
+        #endregion
         
+        #region Parameter RemoveTagKey
         /// <summary>
         /// <para>
         /// <para>A list of <code>Tag</code> keys that you want to remove from the specified resource.</para>
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter]
         [Alias("RemoveTagKeys")]
         public System.String[] RemoveTagKey { get; set; }
+        #endregion
         
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the resource for which you want to add, change, or delete tags.</para>
@@ -65,22 +71,29 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceId { get; set; }
+        #endregion
         
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>The type of the resource.</para><para>- The resource type for health checks is <code>healthcheck</code>.</para><para>- The resource type for hosted zones is <code>hostedzone</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Route53.TagResourceType")]
         public Amazon.Route53.TagResourceType ResourceType { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ResourceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -88,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

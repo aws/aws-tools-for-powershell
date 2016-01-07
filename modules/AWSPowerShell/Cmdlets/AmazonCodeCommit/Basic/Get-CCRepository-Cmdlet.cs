@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
     )]
     public class GetCCRepositoryCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
+        
+        #region Parameter RepositoryName
         /// <summary>
         /// <para>
         /// <para>The name of the repository to get information about.</para>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RepositoryName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

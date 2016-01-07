@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     )]
     public class GetIAMAccessKeyLastUsedCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter AccessKeyId
         /// <summary>
         /// <para>
         /// <para>The identifier of an access key.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AccessKeyId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

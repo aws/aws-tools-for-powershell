@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public class GetCFNTemplateSummaryCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter StackName
         /// <summary>
         /// <para>
         /// <para>The name or the stack ID that is associated with the stack, which are not always interchangeable.
@@ -60,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackName { get; set; }
+        #endregion
         
+        #region Parameter TemplateBody
         /// <summary>
         /// <para>
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TemplateBody { get; set; }
+        #endregion
         
+        #region Parameter TemplateURL
         /// <summary>
         /// <para>
         /// <para>Location of file containing the template body. The URL must point to a template (max
@@ -83,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TemplateURL { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

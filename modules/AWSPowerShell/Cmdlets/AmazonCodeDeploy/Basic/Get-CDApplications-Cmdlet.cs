@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDApplicationsCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>A list of application names, with multiple application names separated by spaces.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ApplicationNames")]
         public System.String[] ApplicationName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

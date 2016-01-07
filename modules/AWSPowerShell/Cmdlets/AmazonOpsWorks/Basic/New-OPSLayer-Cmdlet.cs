@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class NewOPSLayerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attribute
         /// <summary>
         /// <para>
         /// <para>One or more user-defined key-value pairs to be added to the stack attributes.</para><para>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
         
+        #region Parameter AutoAssignElasticIp
         /// <summary>
         /// <para>
         /// <para>Whether to automatically assign an <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
@@ -72,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("AutoAssignElasticIps")]
         public System.Boolean AutoAssignElasticIp { get; set; }
+        #endregion
         
+        #region Parameter AutoAssignPublicIp
         /// <summary>
         /// <para>
         /// <para>For stacks that are running in a VPC, whether to automatically assign a public IP
@@ -83,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("AutoAssignPublicIps")]
         public System.Boolean AutoAssignPublicIp { get; set; }
+        #endregion
         
+        #region Parameter CustomRecipes_Configure
         /// <summary>
         /// <para>
         /// <para>An array of custom recipe names to be run following a <code>configure</code> event.</para>
@@ -91,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] CustomRecipes_Configure { get; set; }
+        #endregion
         
+        #region Parameter CustomInstanceProfileArn
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM profile to be used for the layer's EC2 instances. For more information
@@ -101,7 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomInstanceProfileArn { get; set; }
+        #endregion
         
+        #region Parameter CustomJson
         /// <summary>
         /// <para>
         /// <para>A JSON-formatted string containing custom stack configuration and deployment attributes
@@ -111,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String CustomJson { get; set; }
+        #endregion
         
+        #region Parameter CustomSecurityGroupId
         /// <summary>
         /// <para>
         /// <para>An array containing the layer custom security group IDs.</para>
@@ -120,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("CustomSecurityGroupIds")]
         public System.String[] CustomSecurityGroupId { get; set; }
+        #endregion
         
+        #region Parameter Shutdown_DelayUntilElbConnectionsDrained
         /// <summary>
         /// <para>
         /// <para>Whether to enable Elastic Load Balancing connection draining. For more information,
@@ -131,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("LifecycleEventConfiguration_Shutdown_DelayUntilElbConnectionsDrained")]
         public System.Boolean Shutdown_DelayUntilElbConnectionsDrained { get; set; }
+        #endregion
         
+        #region Parameter CustomRecipes_Deploy
         /// <summary>
         /// <para>
         /// <para>An array of custom recipe names to be run following a <code>deploy</code> event.</para>
@@ -139,7 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] CustomRecipes_Deploy { get; set; }
+        #endregion
         
+        #region Parameter EnableAutoHealing
         /// <summary>
         /// <para>
         /// <para>Whether to disable auto healing for the layer.</para>
@@ -147,7 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean EnableAutoHealing { get; set; }
+        #endregion
         
+        #region Parameter Shutdown_ExecutionTimeout
         /// <summary>
         /// <para>
         /// <para>The time, in seconds, that AWS OpsWorks will wait after triggering a Shutdown event
@@ -157,7 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("LifecycleEventConfiguration_Shutdown_ExecutionTimeout")]
         public System.Int32 Shutdown_ExecutionTimeout { get; set; }
+        #endregion
         
+        #region Parameter InstallUpdatesOnBoot
         /// <summary>
         /// <para>
         /// <para>Whether to install operating system and package updates when the instance boots. The
@@ -171,7 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean InstallUpdatesOnBoot { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The layer name, which is used by the console.</para>
@@ -179,7 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Package
         /// <summary>
         /// <para>
         /// <para>An array of <code>Package</code> objects that describes the layer packages.</para>
@@ -188,7 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("Packages")]
         public System.String[] Package { get; set; }
+        #endregion
         
+        #region Parameter CustomRecipes_Setup
         /// <summary>
         /// <para>
         /// <para>An array of custom recipe names to be run following a <code>setup</code> event.</para>
@@ -196,7 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] CustomRecipes_Setup { get; set; }
+        #endregion
         
+        #region Parameter Shortname
         /// <summary>
         /// <para>
         /// <para>For custom layers only, use this parameter to specify the layer's short name, which
@@ -210,7 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Shortname { get; set; }
+        #endregion
         
+        #region Parameter CustomRecipes_Shutdown
         /// <summary>
         /// <para>
         /// <para>An array of custom recipe names to be run following a <code>shutdown</code> event.</para>
@@ -218,7 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] CustomRecipes_Shutdown { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The layer stack ID.</para>
@@ -226,7 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter Type
         /// <summary>
         /// <para>
         /// <para>The layer type. A stack cannot have more than one built-in layer of the same type.
@@ -234,8 +272,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
+        [AWSConstantClassSource("Amazon.OpsWorks.LayerType")]
         public Amazon.OpsWorks.LayerType Type { get; set; }
+        #endregion
         
+        #region Parameter CustomRecipes_Undeploy
         /// <summary>
         /// <para>
         /// <para>An array of custom recipe names to be run following a <code>undeploy</code> event.</para>
@@ -243,7 +284,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] CustomRecipes_Undeploy { get; set; }
+        #endregion
         
+        #region Parameter UseEbsOptimizedInstance
         /// <summary>
         /// <para>
         /// <para>Whether to use Amazon EBS-optimized instances.</para>
@@ -252,7 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("UseEbsOptimizedInstances")]
         public System.Boolean UseEbsOptimizedInstance { get; set; }
+        #endregion
         
+        #region Parameter VolumeConfiguration
         /// <summary>
         /// <para>
         /// <para>A <code>VolumeConfigurations</code> object that describes the layer's Amazon EBS volumes.</para>
@@ -261,7 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         [System.Management.Automation.Parameter]
         [Alias("VolumeConfigurations")]
         public Amazon.OpsWorks.Model.VolumeConfiguration[] VolumeConfiguration { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -269,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

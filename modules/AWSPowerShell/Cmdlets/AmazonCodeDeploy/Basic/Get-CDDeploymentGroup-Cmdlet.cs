@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class GetCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
         /// <para>The name of an existing AWS CodeDeploy application associated with the applicable
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
         
+        #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
         /// <para>The name of an existing deployment group for the specified application.</para>
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentGroupName { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

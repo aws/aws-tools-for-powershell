@@ -40,22 +40,29 @@ namespace Amazon.PowerShell.Cmdlets.DS
     )]
     public class UpdateDSRadiusCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter RadiusSettings_AuthenticationProtocol
         /// <summary>
         /// <para>
         /// <para>The protocol specified for your RADIUS endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.RadiusAuthenticationProtocol")]
         public Amazon.DirectoryService.RadiusAuthenticationProtocol RadiusSettings_AuthenticationProtocol { get; set; }
+        #endregion
         
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory to update the RADIUS server information for.</para>
+        /// <para>The identifier of the directory for which to update the RADIUS server information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryId { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_DisplayLabel
         /// <summary>
         /// <para>
         /// <para>Not currently used.</para>
@@ -63,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RadiusSettings_DisplayLabel { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusPort
         /// <summary>
         /// <para>
         /// <para>The port that your RADIUS server is using for communications. Your on-premises network
@@ -72,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 RadiusSettings_RadiusPort { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusRetry
         /// <summary>
         /// <para>
         /// <para>The maximum number of times that communication with the RADIUS server is attempted.
@@ -82,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("RadiusSettings_RadiusRetries")]
         public System.Int32 RadiusSettings_RadiusRetry { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusServer
         /// <summary>
         /// <para>
         /// <para>An array of strings that contains the IP addresses of the RADIUS server endpoints,
@@ -92,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.Parameter]
         [Alias("RadiusSettings_RadiusServers")]
         public System.String[] RadiusSettings_RadiusServer { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_RadiusTimeout
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, to wait for the RADIUS server to respond.</para>
@@ -100,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 RadiusSettings_RadiusTimeout { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_SharedSecret
         /// <summary>
         /// <para>
         /// <para>The shared secret code that was specified when your RADIUS endpoints were created.</para>
@@ -108,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RadiusSettings_SharedSecret { get; set; }
+        #endregion
         
+        #region Parameter RadiusSettings_UseSameUsername
         /// <summary>
         /// <para>
         /// <para>Not currently used.</para>
@@ -116,14 +135,18 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean RadiusSettings_UseSameUsername { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the DirectoryId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -131,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -34,13 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGComplianceSummaryByResourceType")]
     [OutputType("Amazon.ConfigService.Model.ComplianceSummaryByResourceType")]
-    [AWSCmdlet("Invokes the GetComplianceSummaryByResourceType operation against Amazon Config.", Operation = new[] {"GetComplianceSummaryByResourceType"})]
+    [AWSCmdlet("Invokes the GetComplianceSummaryByResourceType operation against AWS Config.", Operation = new[] {"GetComplianceSummaryByResourceType"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceSummaryByResourceType",
         "This cmdlet returns a collection of ComplianceSummaryByResourceType objects.",
         "The service call response (type Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class GetCFGComplianceSummaryByResourceTypeCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
         /// <para>Specify one or more resource types to get the number of resources that are compliant
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ResourceTypes")]
         public System.String[] ResourceType { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class EditEC2NetworkInterfaceAttributeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Attachment_AttachmentId
         /// <summary>
         /// <para>
         /// <para>The ID of the network interface attachment.</para>
@@ -47,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Attachment_AttachmentId { get; set; }
+        #endregion
         
+        #region Parameter Attachment_DeleteOnTermination
         /// <summary>
         /// <para>
         /// <para>Indicates whether the network interface is deleted when the instance is terminated.</para>
@@ -55,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Attachment_DeleteOnTermination { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description for the network interface.</para>
@@ -63,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Group
         /// <summary>
         /// <para>
         /// <para>Changes the security groups for the network interface. The new set of groups you specify
@@ -75,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("GroupId","Groups")]
         public System.String[] Group { get; set; }
+        #endregion
         
+        #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
         /// <para>The ID of the network interface.</para>
@@ -83,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String NetworkInterfaceId { get; set; }
+        #endregion
         
+        #region Parameter SourceDestCheck
         /// <summary>
         /// <para>
         /// <para>Indicates whether source/destination checking is enabled. A value of <code>true</code>
@@ -95,14 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SourceDestCheck { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the NetworkInterfaceId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -110,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

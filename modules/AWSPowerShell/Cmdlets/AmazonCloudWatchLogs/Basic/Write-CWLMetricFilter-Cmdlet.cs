@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class WriteCWLMetricFilterCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter FilterName
         /// <summary>
         /// <para>
         /// <para>A name for the metric filter.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String FilterName { get; set; }
+        #endregion
         
+        #region Parameter FilterPattern
         /// <summary>
         /// <para>
         /// <para>A valid CloudWatch Logs filter pattern for extracting metric data out of ingested
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String FilterPattern { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para>The name of the log group to associate the metric filter with.</para>
@@ -71,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter MetricTransformation
         /// <summary>
         /// <para>
         /// <para>A collection of information needed to define how metric data gets emitted.</para>
@@ -80,14 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MetricTransformations")]
         public Amazon.CloudWatchLogs.Model.MetricTransformation[] MetricTransformation { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the LogGroupName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

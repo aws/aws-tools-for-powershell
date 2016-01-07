@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public class GetKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream.</para>
@@ -48,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryStreamName { get; set; }
+        #endregion
         
+        #region Parameter ExclusiveStartDestinationId
         /// <summary>
         /// <para>
         /// <para>Specifies the destination ID to start returning the destination information. Currently
@@ -57,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ExclusiveStartDestinationId { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The limit on the number of destinations to return. Currently, you can have one destination
@@ -66,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

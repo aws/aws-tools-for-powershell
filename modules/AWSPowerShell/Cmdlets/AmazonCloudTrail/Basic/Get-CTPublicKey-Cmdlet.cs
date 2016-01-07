@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public class GetCTPublicKeyCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndTime
         /// <summary>
         /// <para>
         /// <para>Optionally specifies, in UTC, the end of the time range to look up public keys for
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
         /// <para>Optionally specifies, in UTC, the start of the time range to look up public keys for
@@ -65,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>Reserved for future use.</para>
@@ -73,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

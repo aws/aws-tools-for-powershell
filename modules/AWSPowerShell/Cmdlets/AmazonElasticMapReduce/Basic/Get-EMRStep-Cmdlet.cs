@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     )]
     public class GetEMRStepCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ClusterId
         /// <summary>
         /// <para>
         /// <para>The identifier of the cluster with steps to describe.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String ClusterId { get; set; }
+        #endregion
         
+        #region Parameter StepId
         /// <summary>
         /// <para>
         /// <para>The identifier of the step to describe.</para>
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StepId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

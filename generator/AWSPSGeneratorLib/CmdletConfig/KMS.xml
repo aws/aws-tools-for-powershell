@@ -3,6 +3,7 @@
              xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <ServiceNounPrefix>KMS</ServiceNounPrefix>
+  <ServiceName>AWS Key Management Service</ServiceName>
   <ServiceNamespace>Amazon.KeyManagementService</ServiceNamespace>
   <ServiceClientInterface>IAmazonKeyManagementService</ServiceClientInterface>
   <ServiceClient>AmazonKeyManagementServiceClient</ServiceClient>

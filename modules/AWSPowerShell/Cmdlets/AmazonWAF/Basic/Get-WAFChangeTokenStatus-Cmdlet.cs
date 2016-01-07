@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     )]
     public class GetWAFChangeTokenStatusCmdlet : AmazonWAFClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeToken
         /// <summary>
         /// <para>
         /// <para>The change token for which you want to get the status. This change token was previously
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ChangeToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

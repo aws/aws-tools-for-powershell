@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     )]
     public class GetSNSTopicAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter TopicArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the topic whose properties you want to get.</para>
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TopicArn { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     )]
     public class GetSGVTLDevicesCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
+        
+        #region Parameter VTLDeviceARNs
         /// <summary>
         /// <para>
         /// <para>An array of strings, where each string represents the Amazon Resource Name (ARN) of
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] VTLDeviceARNs { get; set; }
+        #endregion
         
+        #region Parameter GatewayARN
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -63,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Specifies that the number of VTL devices described be limited to the specified number.</para>
@@ -72,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An opaque string that indicates the position at which to begin describing the VTL
@@ -82,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

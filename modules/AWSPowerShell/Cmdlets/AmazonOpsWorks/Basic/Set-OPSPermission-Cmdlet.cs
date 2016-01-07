@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     )]
     public class SetOPSPermissionCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowSsh
         /// <summary>
         /// <para>
         /// <para>The user is allowed to use SSH to communicate with the instance.</para>
@@ -54,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.Boolean AllowSsh { get; set; }
+        #endregion
         
+        #region Parameter AllowSudo
         /// <summary>
         /// <para>
         /// <para>The user is allowed to use <b>sudo</b> to elevate privileges.</para>
@@ -62,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         public System.Boolean AllowSudo { get; set; }
+        #endregion
         
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>The user's IAM ARN.</para>
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String IamUserArn { get; set; }
+        #endregion
         
+        #region Parameter Level
         /// <summary>
         /// <para>
         /// <para>The user's permission level, which must be set to one of the following strings. You
@@ -80,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Level { get; set; }
+        #endregion
         
+        #region Parameter StackId
         /// <summary>
         /// <para>
         /// <para>The stack ID.</para>
@@ -88,14 +98,18 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String StackId { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the StackId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -103,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class RegisterCDOnPremiseInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter IamUserArn
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM user to associate with the on-premises instance.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IamUserArn { get; set; }
+        #endregion
         
+        #region Parameter InstanceName
         /// <summary>
         /// <para>
         /// <para>The name of the on-premises instance to register.</para>
@@ -54,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceName { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -62,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

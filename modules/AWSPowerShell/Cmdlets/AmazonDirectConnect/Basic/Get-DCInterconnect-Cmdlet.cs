@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public class GetDCInterconnectCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter InterconnectId
         /// <summary>
         /// <para>
         /// Documentation for this parameter is not currently available; please refer to the service API documentation.
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InterconnectId { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

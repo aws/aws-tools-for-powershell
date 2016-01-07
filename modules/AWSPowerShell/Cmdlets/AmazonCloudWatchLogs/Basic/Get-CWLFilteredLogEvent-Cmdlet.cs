@@ -54,15 +54,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public class GetCWLFilteredLogEventCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the end time of the range for the request. If provided,
-        /// events with a timestamp later than this time will not be returned.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. If provided, events with a timestamp later than this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 EndTime { get; set; }
+        #endregion
         
+        #region Parameter FilterPattern
         /// <summary>
         /// <para>
         /// <para> A valid CloudWatch Logs filter pattern to use for filtering the response. If not
@@ -71,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FilterPattern { get; set; }
+        #endregion
         
+        #region Parameter Interleaved
         /// <summary>
         /// <para>
         /// <para>If provided, the API will make a best effort to provide responses that contain events
@@ -82,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Interleaved { get; set; }
+        #endregion
         
+        #region Parameter LogGroupName
         /// <summary>
         /// <para>
         /// <para> The name of the log group to query. </para>
@@ -90,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String LogGroupName { get; set; }
+        #endregion
         
+        #region Parameter LogStreamName
         /// <summary>
         /// <para>
         /// <para> Optional list of log stream names within the specified log group to search. Defaults
@@ -100,16 +110,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogStreamNames")]
         public System.String[] LogStreamName { get; set; }
+        #endregion
         
+        #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>A unix timestamp indicating the start time of the range for the request. If provided,
-        /// events with a timestamp prior to this time will not be returned.</para>
+        /// <para>A point in time expressed as the number of milliseconds since Jan 1, 1970 00:00:00
+        /// UTC. If provided, events with a timestamp prior to this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 StartTime { get; set; }
+        #endregion
         
+        #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>The maximum number of events to return in a page of results. Default is 10,000 events.</para>
@@ -118,16 +132,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
         
+        #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para>A pagination token obtained from a <code class="code">FilterLogEvents</code> response
-        /// to continue paginating the FilterLogEvents results.</para>
+        /// to continue paginating the FilterLogEvents results. This token is omitted from the
+        /// response when there are no other events to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

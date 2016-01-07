@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     )]
     public class NewETSPresetCmdlet : AmazonElasticTranscoderClientCmdlet, IExecutor
     {
+        
+        #region Parameter Thumbnails_AspectRatio
         /// <summary>
         /// <para>
         /// <important><para>To better control resolution and aspect ratio of thumbnails, we recommend that you
@@ -63,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_AspectRatio { get; set; }
+        #endregion
         
+        #region Parameter Video_AspectRatio
         /// <summary>
         /// <para>
         /// <important><para>To better control resolution and aspect ratio of output videos, we recommend that
@@ -79,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_AspectRatio { get; set; }
+        #endregion
         
+        #region Parameter Audio_AudioPackingMode
         /// <summary>
         /// <para>
         /// <para>The method of organizing audio channels and tracks. Use <code>Audio:Channels</code>
@@ -129,7 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Audio_AudioPackingMode { get; set; }
+        #endregion
         
+        #region Parameter CodecOptions_BitDepth
         /// <summary>
         /// <para>
         /// <para>You can only choose an audio bit depth when you specify <code>flac</code> or <code>pcm</code>
@@ -140,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_BitDepth")]
         public System.String CodecOptions_BitDepth { get; set; }
+        #endregion
         
+        #region Parameter CodecOptions_BitOrder
         /// <summary>
         /// <para>
         /// <para>You can only choose an audio bit order when you specify <code>pcm</code> for the value
@@ -150,7 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_BitOrder")]
         public System.String CodecOptions_BitOrder { get; set; }
+        #endregion
         
+        #region Parameter Audio_BitRate
         /// <summary>
         /// <para>
         /// <para>The bit rate of the audio stream in the output file, in kilobits/second. Enter an
@@ -159,7 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Audio_BitRate { get; set; }
+        #endregion
         
+        #region Parameter Video_BitRate
         /// <summary>
         /// <para>
         /// <para>The bit rate of the video stream in the output file, in kilobits/second. Valid values
@@ -176,7 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_BitRate { get; set; }
+        #endregion
         
+        #region Parameter Audio_Channel
         /// <summary>
         /// <para>
         /// <para>The number of audio channels in the output file. The following values are valid:</para><para><code>auto</code>, <code>0</code>, <code>1</code>, <code>2</code></para><para>One channel carries the information played by a single speaker. For example, a stereo
@@ -195,7 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Audio_Channels")]
         public System.String Audio_Channel { get; set; }
+        #endregion
         
+        #region Parameter Audio_Codec
         /// <summary>
         /// <para>
         /// <para>The audio codec for the output file. Valid values include <code>aac</code>, <code>flac</code>,
@@ -204,7 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Audio_Codec { get; set; }
+        #endregion
         
+        #region Parameter Video_Codec
         /// <summary>
         /// <para>
         /// <para>The video codec for the output file. Valid values include <code>gif</code>, <code>H.264</code>,
@@ -215,7 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_Codec { get; set; }
+        #endregion
         
+        #region Parameter Video_CodecOption
         /// <summary>
         /// <para>
         /// <para><b>Profile (H.264/VP8 Only)</b></para><para>The H.264 profile that you want to use for the output file. Elastic Transcoder supports
@@ -273,7 +295,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Video_CodecOptions")]
         public System.Collections.Hashtable Video_CodecOption { get; set; }
+        #endregion
         
+        #region Parameter Container
         /// <summary>
         /// <para>
         /// <para>The container type for the output file. Valid values include <code>flac</code>, <code>flv</code>,
@@ -283,7 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String Container { get; set; }
+        #endregion
         
+        #region Parameter Description
         /// <summary>
         /// <para>
         /// <para>A description of the preset.</para>
@@ -291,7 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Description { get; set; }
+        #endregion
         
+        #region Parameter Video_DisplayAspectRatio
         /// <summary>
         /// <para>
         /// <para>The value that Elastic Transcoder adds to the metadata in the output file.</para>
@@ -299,7 +327,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_DisplayAspectRatio { get; set; }
+        #endregion
         
+        #region Parameter Video_FixedGOP
         /// <summary>
         /// <para>
         /// <para>Applicable only when the value of Video:Codec is one of <code>H.264</code>, <code>MPEG2</code>,
@@ -311,7 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_FixedGOP { get; set; }
+        #endregion
         
+        #region Parameter Thumbnails_Format
         /// <summary>
         /// <para>
         /// <para>The format of thumbnails, if any. Valid values are <code>jpg</code> and <code>png</code>.
@@ -321,7 +353,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_Format { get; set; }
+        #endregion
         
+        #region Parameter Video_FrameRate
         /// <summary>
         /// <para>
         /// <para>The frames per second for the video stream in the output file. Valid values include:</para><para><code>auto</code>, <code>10</code>, <code>15</code>, <code>23.97</code>, <code>24</code>,
@@ -337,7 +371,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_FrameRate { get; set; }
+        #endregion
         
+        #region Parameter Thumbnails_Interval
         /// <summary>
         /// <para>
         /// <para>The approximate number of seconds between thumbnails. Specify an integer value.</para>
@@ -345,7 +381,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_Interval { get; set; }
+        #endregion
         
+        #region Parameter Video_KeyframesMaxDist
         /// <summary>
         /// <para>
         /// <para>Applicable only when the value of Video:Codec is one of <code>H.264</code>, <code>MPEG2</code>,
@@ -364,7 +402,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_KeyframesMaxDist { get; set; }
+        #endregion
         
+        #region Parameter Video_MaxFrameRate
         /// <summary>
         /// <para>
         /// <para>If you specify <code>auto</code> for <code>FrameRate</code>, Elastic Transcoder uses
@@ -377,7 +417,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_MaxFrameRate { get; set; }
+        #endregion
         
+        #region Parameter Thumbnails_MaxHeight
         /// <summary>
         /// <para>
         /// <para>The maximum height of thumbnails in pixels. If you specify auto, Elastic Transcoder
@@ -387,7 +429,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_MaxHeight { get; set; }
+        #endregion
         
+        #region Parameter Video_MaxHeight
         /// <summary>
         /// <para>
         /// <para>The maximum height of the output video in pixels. If you specify <code>auto</code>,
@@ -397,7 +441,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_MaxHeight { get; set; }
+        #endregion
         
+        #region Parameter Thumbnails_MaxWidth
         /// <summary>
         /// <para>
         /// <para>The maximum width of thumbnails in pixels. If you specify auto, Elastic Transcoder
@@ -407,7 +453,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_MaxWidth { get; set; }
+        #endregion
         
+        #region Parameter Video_MaxWidth
         /// <summary>
         /// <para>
         /// <para> The maximum width of the output video in pixels. If you specify <code>auto</code>,
@@ -417,7 +465,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_MaxWidth { get; set; }
+        #endregion
         
+        #region Parameter Name
         /// <summary>
         /// <para>
         /// <para>The name of the preset. We recommend that the name be unique within the AWS account,
@@ -426,7 +476,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
         
+        #region Parameter Thumbnails_PaddingPolicy
         /// <summary>
         /// <para>
         /// <para>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may
@@ -437,7 +489,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_PaddingPolicy { get; set; }
+        #endregion
         
+        #region Parameter Video_PaddingPolicy
         /// <summary>
         /// <para>
         /// <para>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may
@@ -448,7 +502,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_PaddingPolicy { get; set; }
+        #endregion
         
+        #region Parameter CodecOptions_Profile
         /// <summary>
         /// <para>
         /// <para>You can only choose an audio profile when you specify AAC for the value of Audio:Codec.</para><para>Specify the AAC profile for the output file. Elastic Transcoder supports the following
@@ -463,7 +519,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_Profile")]
         public System.String CodecOptions_Profile { get; set; }
+        #endregion
         
+        #region Parameter Thumbnails_Resolution
         /// <summary>
         /// <para>
         /// <important><para>To better control resolution and aspect ratio of thumbnails, we recommend that you
@@ -477,7 +535,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_Resolution { get; set; }
+        #endregion
         
+        #region Parameter Video_Resolution
         /// <summary>
         /// <para>
         /// <important><para>To better control resolution and aspect ratio of output videos, we recommend that
@@ -498,7 +558,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_Resolution { get; set; }
+        #endregion
         
+        #region Parameter Audio_SampleRate
         /// <summary>
         /// <para>
         /// <para>The sample rate of the audio stream in the output file, in Hertz. Valid values include:</para><para><code>auto</code>, <code>22050</code>, <code>32000</code>, <code>44100</code>, <code>48000</code>,
@@ -508,7 +570,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Audio_SampleRate { get; set; }
+        #endregion
         
+        #region Parameter CodecOptions_Signed
         /// <summary>
         /// <para>
         /// <para>You can only choose whether an audio sample is signed when you specify <code>pcm</code>
@@ -519,7 +583,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Audio_CodecOptions_Signed")]
         public System.String CodecOptions_Signed { get; set; }
+        #endregion
         
+        #region Parameter Thumbnails_SizingPolicy
         /// <summary>
         /// <para>
         /// <para>Specify one of the following values to control scaling of thumbnails:</para><para><ul><li><code>Fit</code>: Elastic Transcoder scales thumbnails so they match the
@@ -546,7 +612,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Thumbnails_SizingPolicy { get; set; }
+        #endregion
         
+        #region Parameter Video_SizingPolicy
         /// <summary>
         /// <para>
         /// <para>Specify one of the following values to control scaling of the output video:</para><para><ul><li><code>Fit</code>: Elastic Transcoder scales the output video so it matches
@@ -574,7 +642,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Video_SizingPolicy { get; set; }
+        #endregion
         
+        #region Parameter Video_Watermark
         /// <summary>
         /// <para>
         /// <para>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder
@@ -590,7 +660,9 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Video_Watermarks")]
         public Amazon.ElasticTranscoder.Model.PresetWatermark[] Video_Watermark { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -598,7 +670,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

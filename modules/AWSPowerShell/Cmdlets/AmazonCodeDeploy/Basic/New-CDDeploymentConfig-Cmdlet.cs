@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     )]
     public class NewCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
         /// <para>The name of the deployment configuration to create.</para>
@@ -46,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentConfigName { get; set; }
+        #endregion
         
+        #region Parameter MinimumHealthyHosts_Type
         /// <summary>
         /// <para>
         /// <para>The minimum healthy instances type:</para><ul><li>HOST_COUNT: The minimum number of healthy instances, as an absolute value.</li><li>FLEET_PERCENT: The minimum number of healthy instances, as a percentage of the
@@ -61,8 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.MinimumHealthyHostsType")]
         public Amazon.CodeDeploy.MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }
+        #endregion
         
+        #region Parameter MinimumHealthyHosts_Value
         /// <summary>
         /// <para>
         /// <para>The minimum healthy instances value.</para>
@@ -70,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 MinimumHealthyHosts_Value { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -78,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

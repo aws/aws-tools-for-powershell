@@ -37,13 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Remove", "KINTagsFromStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTagsFromStream operation against AWS Kinesis.", Operation = new[] {"RemoveTagsFromStream"})]
+    [AWSCmdlet("Invokes the RemoveTagsFromStream operation against Amazon Kinesis.", Operation = new[] {"RemoveTagsFromStream"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.RemoveTagsFromStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public class RemoveKINTagsFromStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
+        
+        #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream.</para>
@@ -51,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
         
+        #region Parameter TagKey
         /// <summary>
         /// <para>
         /// <para>A list of tag keys. Each corresponding tag is removed from the stream.</para>
@@ -60,14 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the collection of tag keys that were removed.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -75,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {

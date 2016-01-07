@@ -28,18 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Adds one or more egress rules to a security group for use with a VPC. Specifically,
-    /// this action permits instances to send traffic to one or more destination CIDR IP address
-    /// ranges, or to one or more destination security groups for the same VPC.
+    /// [EC2-VPC only] Adds one or more egress rules to a security group for use with a VPC.
+    /// Specifically, this action permits instances to send traffic to one or more destination
+    /// CIDR IP address ranges, or to one or more destination security groups for the same
+    /// VPC. This action doesn't apply to security groups for use in EC2-Classic. For more
+    /// information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
+    /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// 
     ///  <important><para>
     /// You can have up to 50 rules per security group (covering both ingress and egress rules).
     /// </para></important><para>
-    /// A security group is for use with instances either in the EC2-Classic platform or in
-    /// a specific VPC. This action doesn't apply to security groups for use in EC2-Classic.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-    /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
-    /// </para><para>
     /// Each rule consists of the protocol (for example, TCP), plus either a CIDR range or
     /// a source group. For the TCP and UDP protocols, you must also specify the destination
     /// port or port range. For the ICMP protocol, you must also specify the ICMP type and
@@ -58,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class GrantEC2SecurityGroupEgressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter GroupId
         /// <summary>
         /// <para>
         /// <para>The ID of the security group.</para>
@@ -65,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GroupId { get; set; }
+        #endregion
         
+        #region Parameter IpPermission
         /// <summary>
         /// <para>
         /// <para>A set of IP permissions. You can't specify a destination security group and a CIDR
@@ -75,14 +77,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("IpPermissions")]
         public Amazon.EC2.Model.IpPermission[] IpPermission { get; set; }
+        #endregion
         
+        #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the GroupId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter PassThru { get; set; }
+        #endregion
         
+        #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
         /// the cmdlet to continue its operation. This parameter should always
@@ -90,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public SwitchParameter Force { get; set; }
-        
+        #endregion
         
         protected override void ProcessRecord()
         {
