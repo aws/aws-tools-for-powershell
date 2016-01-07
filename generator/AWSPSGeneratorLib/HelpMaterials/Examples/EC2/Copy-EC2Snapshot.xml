@@ -1,18 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Copy-EC2Snapshot -SourceRegion eu-west-1 -SourceSnapshotId "snap-1a2b3c4d" -Region us-west-2</code>
-    <description>Copies the specified snapshot from the EU (Ireland) region to US West (Oregon). No description will be applied to the snapshot copy. Use this set of parameters if your shell does not have a default region set.</description>
+    <code>PS C:\> Copy-EC2Snapshot -SourceRegion eu-west-1 -SourceSnapshotId snap-12345678 -Region us-west-2</code>
+    <description>This example copies the specified snapshot from the EU (Ireland) region to the US West (Oregon) region.</description>
   </example>
   <example>
-    <code>
-PS C:\>Set-DefaultAWSRegion us-west-2
-PS C:\>Copy-EC2Snapshot -SourceRegion eu-west-1 -SourceSnapshotId "snap-1a2b3c4d"
+    <code>PS C:\> Set-DefaultAWSRegion us-west-2
+PS C:\> Copy-EC2Snapshot -SourceRegion eu-west-1 -SourceSnapshotId snap-12345678
     </code>
-    <description>Copies the specified snapshot from the EU (Ireland) region to the region defined by the current shell default (shown here as US West (Oregon)). No description will be applied to the snapshot copy.</description>
-  </example>
-  <example>
-    <code>Copy-EC2Snapshot -SourceRegion eu-west-1 -SourceSnapshotId "snap-1a2b3c4d" -DestinationRegion us-west-2 -Description "Copy of snapshot snap-1a2b3c4d"</code>
-    <description>Copies the specified snapshot from the EU (Ireland) region to US West (Oregon) and applies the specified description to the copy. The -DestinationRegion parameter must be used if the current shell has a default region set that is different to the required destination for the snapshot.</description>
+    <description>If you set a default region and omit the Region parameter, the default destination region is the default region.</description>
   </example>
 </examples>

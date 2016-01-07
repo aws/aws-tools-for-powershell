@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>New-EC2InternetGateway
+    <code>PS C:\> New-EC2InternetGateway
 
-InternetGatewayId                       Attachments                             Tags
------------------                       -----------                             ----
-igw-1a2b3c4d                            {vpc-1a2b3c4d}                          {}
-    </code>
-    <description>Creates a new VPC Internet Gateway in the current default region.</description>
+Attachments    InternetGatewayId    Tags
+-----------    -----------------    ----
+{}             igw-1a2b3c4d         {}</code>
+    <description>This example creates an Internet gateway.</description>
   </example>
 </examples>

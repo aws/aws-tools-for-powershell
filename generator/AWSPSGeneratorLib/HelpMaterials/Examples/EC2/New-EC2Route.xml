@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2Route -RouteTableId rtb-1a2b3c4d -DestinationCidrBlock 0.0.0.0/0 -GatewayId igw-1a2b3c4d
+    
+True</code>
+    <description>This example creates the specified route for the specified route table. The route matches all traffic and sends it to the specified Internet gateway.</description>
+  </example>
+</examples>

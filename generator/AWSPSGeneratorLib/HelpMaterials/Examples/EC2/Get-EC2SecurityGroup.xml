@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2SecurityGroup.xml -GroupId sg-12345678
+    
+Description         : default VPC security group
+GroupId             : sg-12345678
+GroupName           : default
+IpPermissions       : {Amazon.EC2.Model.IpPermission}
+IpPermissionsEgress : {Amazon.EC2.Model.IpPermission}
+OwnerId             : 123456789012
+Tags                : {}
+VpcId               : vpc-12345678</code>
+    <description>This example describes the specified security group for a VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2SecurityGroup.xml -GroupName my-security-group
+    
+Description         : my security group
+GroupId             : sg-45678901
+GroupName           : my-security-group
+IpPermissions       : {Amazon.EC2.Model.IpPermission, Amazon.EC2.Model.IpPermission}
+IpPermissionsEgress : {}
+OwnerId             : 123456789012
+Tags                : {}
+VpcId               :</code>
+    <description>This example describes the specified security group for EC2-Classic.</description>
+  </example>
+</examples>

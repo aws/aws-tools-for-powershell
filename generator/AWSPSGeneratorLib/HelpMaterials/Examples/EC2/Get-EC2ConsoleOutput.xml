@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2ConsoleOutput -InstanceId i-12345678 | format-list
+    
+InstanceId       : i-12345678
+Output           : ...
+Timestamp        : 12/27/2015 5:51:05 PM</code>
+    <description>This example gets the console output for the specified Linux instance.</description>
+  </example>
+</examples>

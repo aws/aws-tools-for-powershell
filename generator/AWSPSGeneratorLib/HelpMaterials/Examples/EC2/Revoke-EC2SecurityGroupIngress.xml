@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $ip = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.0/24" }
+
+PS C:\> Revoke-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission $ip</code>
+    <description>This example revokes access to TCP port 22 from the specified address range for the specified security group for EC2-VPC. Note that you must identify security groups for EC2-VPC using the security group ID not the security group name. The syntax used by this example requires PowerShell version 3 or higher.</description>
+  </example>
+  <example>
+    <code>PS C:\> $ip = New-Object Amazon.EC2.Model.IpPermission
+PS C:\> $ip.IpProtocol = "tcp"
+PS C:\> $ip.FromPort = 22
+PS C:\> $ip.ToPort = 22
+PS C:\> $ip.IpRanges.Add("203.0.113.0/24")
+
+PS C:\> Revoke-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission $ip</code>
+    <description>With PowerShell version 2, you must use New-Object to create the IpPermission object.</description>
+  </example>
+  <example>
+    <code>PS C:\> $ip = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.0/24" }
+
+PS C:\> Revoke-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission $ip</code>
+    <description>This example revokes access to TCP port 22 from the specified address range for the specified security group for EC2-Classic. The syntax used by this example requires PowerShell version 3 or higher.</description>
+  </example>
+  <example>
+    <code>PS C:\> $ip = New-Object Amazon.EC2.Model.IpPermission
+PS C:\> $ip.IpProtocol = "tcp"
+PS C:\> $ip.FromPort = 22
+PS C:\> $ip.ToPort = 22
+PS C:\> $ip.IpRanges.Add("203.0.113.0/24")
+
+PS C:\> Revoke-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission $ip</code>
+    <description>With PowerShell version 2, you must use New-Object to create the IpPermission object.</description>
+</description>
+  </example>
+</examples>

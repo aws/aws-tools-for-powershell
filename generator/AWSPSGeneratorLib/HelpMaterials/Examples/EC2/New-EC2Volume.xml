@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2Volume -Size 50 -AvailabilityZone us-west-2a -VolumeType gp2
+    
+Attachments      : {}
+AvailabilityZone : us-west-2a
+CreateTime       : 12/22/2015 1:42:07 AM
+Encrypted        : False
+Iops             : 150
+KmsKeyId         :
+Size             : 50
+SnapshotId       :
+State            : creating
+Tags             : {}
+VolumeId         : vol-12345678
+VolumeType       : gp2</code>
+    <description>This example creates the specified volume.</description>
+  </example>
+</examples>

@@ -1,29 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>$tag = New-Object Amazon.EC2.Model.Tag
-PS C:\>$tag.Key = "Name"
-PS C:\>$tag.Value = "My instance"
+  <example>
+    <code>PS C:\> New-EC2Tag -Resource i-12345678 -Tag @{ Key="myTag"; Value="myTagValue" }</code>
+    <description>This example adds a single tag to the specified resource. The tag key is 'myTag' and the tag value is 'myTagValue'. The syntax used by this example requires PowerShell version 3 or higher.</description>
+  </example>
+  <example>
+    <code>PS C:\> New-EC2Tag -Resource i-12345678 -Tag @( @{ Key="myTag"; Value="newTagValue" }, @{ Key="test"; Value="anotherTagValue" } )</code>
+    <description>This example updates or adds the specified tags to the specified resource. The syntax used by this example requires PowerShell version 3 or higher.</description>
+  </example>
+    <code>PS C:\>$tag = New-Object Amazon.EC2.Model.Tag
+PS C:\>$tag.Key = "myTag"
+PS C:\>$tag.Value = "myTagValue"
 
-PS C:\>New-EC2Tag -Resource "i-1a2b3c4d" -Tag $tag
+PS C:\>New-EC2Tag -Resource i-12345678 -Tag $tag
     </code>
-    <description>Tags instance i-1a2b3c4d with the name "My instance".</description>
-  </example>
-  <example>
-    <code>New-EC2Tag -Resource "i-1a2b3c4d" -Tag @{ Key="Name"; Value="My instance" }</code>
-    <description>Tags instance i-1a2b3c4d with the name "My instance". This more concise version requires PowerShell v3 or higher.</description>
-  </example>
-  <example>
-    <code>New-EC2Tag -Resource "i-1a2b3c4d" -Tag @( @{ Key="Name"; Value="My instance" }, @{ Key="Test"; Value="Another tag value" } )</code>
-    <description>Updates the tags for the specified instance, causing the Name tag value to be set to "My instance" and a new tag, "Test" to be added with the value 'Another tag value'. This more concise version requires PowerShell v3 or higher. PowerShell v2 users should use New-Object to instantiate the Tag instances to be passed to the -Tags parameter.</description>
-  </example>
-  <example>
-    <code>
-PS C:\>New-EC2Tag -Resource @( "i-1a2b3c4d", "i-4d3c2b1a" ) `
-           -Tag @( @{ Key="Name"; Value="My instance" }, `
-                   @{ Key="Test"; Value="Another tag value" } )
-    </code>
-    <description>This example, for PowerShell v3 or higher, shows how to apply multiple tags to multiple instances.</description>
+    <description>With PowerShell version 2, you must use New-Object to create the tag for the Tag parameter.</description>
   </example>
 </examples>

@@ -1,14 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Add-EC2InternetGateway -InternetGatewayId "igw-1a2b3c4d" -VpcId "vpc-1a2b3c4d"</code>
-    <description>Adds a VPC Internet Gateway to a VPC in the current default region.</description>
+    <code>PS C:\> Add-EC2InternetGateway -InternetGatewayId igw-1a2b3c4d -VpcId vpc-12345678</code>
+    <description>This example attaches the specified Internet gateway to the specified VPC.</description>
   </example>
   <example>
-    <code>
-PS C:\>$VPC = New-EC2Vpc -CidrBlock 10.0.0.0/24
-PS C:\>New-EC2InternetGateway | Add-EC2InternetGateway -VpcId $VPC.VpcId
-    </code>
-    <description>Creates a VPC and Internet Gateway, and attaches the Gateway to the VPC in the current default region.</description>
+    <code>PS C:\> $vpc = New-EC2Vpc -CidrBlock 10.0.0.0/16
+PS C:\> New-EC2InternetGateway | Add-EC2InternetGateway -VpcId $vpc.VpcId</code>
+    <description>This example creates a VPC and an Internet gateway, and then attaches the Internet gateway to the VPC.</description>
   </example>
 </examples>

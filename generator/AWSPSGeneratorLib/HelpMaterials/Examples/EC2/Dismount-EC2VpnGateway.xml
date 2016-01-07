@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Dismount-EC2VpnGateway -VpnGatewayId "vgw-1a2b3c4d" -VpcId "vpc-1a2b3c4d"</code>
-    <description>Detaches the virtual private gateway from the VPC.</description>
+    <code>PS C:\> Dismount-EC2VpnGateway -VpnGatewayId vgw-1a2b3c4d -VpcId vpc-12345678</code>
+    <description>This example detaches the specified virtual private gateway from the specified VPC.</description>
   </example>
 </examples>

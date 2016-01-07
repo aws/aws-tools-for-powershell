@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2SpotInstanceRequest -SpotInstanceRequestId sir-12345678
+    
+ActualBlockHourlyPrice   :
+AvailabilityZoneGroup    :
+BlockDurationMinutes     : 0
+CreateTime               : 4/8/2015 2:51:33 PM
+Fault                    :
+InstanceId               : i-12345678
+LaunchedAvailabilityZone : us-west-2b
+LaunchGroup              :
+LaunchSpecification      : Amazon.EC2.Model.LaunchSpecification
+ProductDescription       : Linux/UNIX
+SpotInstanceRequestId    : sir-12345678
+SpotPrice                : 0.020000
+State                    : active
+Status                   : Amazon.EC2.Model.SpotInstanceStatus
+Tags                     : {Name}
+Type                     : one-time</code>
+    <description>This example describes the specified Spot instance request.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2SpotInstanceRequest</code>
+    <description>This example describes all your Spot instance requests.</description>
+  </example>
+</examples>

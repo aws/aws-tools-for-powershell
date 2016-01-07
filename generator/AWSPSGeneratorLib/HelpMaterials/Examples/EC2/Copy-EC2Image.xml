@@ -1,22 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>Copy-EC2Image -SourceRegion eu-west-1 -SourceImageId "ami-1a2b3c4d" -Region us-west-2</code>
-    <description>Copies the specified AMI in the EU (Ireland) region to US West (Oregon). If -Region is not specified, the default region for the current shell is used as the destination. The copy will have the same name and description as the source AMI.</description>
-  </example>
-  <example>
-    <code>
-PS C:\>Set-DefaultAWSRegion us-west-2
-PS C:\>Copy-EC2Image -SourceRegion eu-west-1 -SourceImageId "ami-1a2b3c4d" -Name "Copy of ami-1a2b3c4d"
-    </code>
-    <description>Copies the specified AMI in the EU (Ireland) region to the region defined by the current shell default (shown here as US West (Oregon)). The copy of the AMI will have the specified name applied.</description>
-  </example>
-  <example>
-    <code>Copy-EC2Image -SourceRegion eu-west-1 -SourceImageId "ami-1a2b3c4d" -Region us-west-2 -Description "Description of ami-1a2b3c4d"</code>
-    <description>Copies the specified AMI in the EU (Ireland) region to US West (Oregon). The copy will have the same name as the source AMI and the specified description.</description>
-  </example>
-  <example>
-    <code>Copy-EC2Image -SourceRegion eu-west-1 -SourceImageId "ami-1a2b3c4d" -Region us-west-2 -ClientToken "idempotencyToken"</code>
-    <description>Copies the specified AMI in the EU (Ireland) region to US West (Oregon). The copy will have the same name and description as the source AMI. The unique, case sensitive value supplied as -ClientToken will be used to ensure idempotency of the request.</description>
+    <code>PS C:\> Copy-EC2Image -SourceRegion eu-west-1 -SourceImageId ami-12345678 -Region us-west-2 -Name "Copy of ami-12345678"
+    
+ami-87654321</code>
+    <description>This example copies the specified AMI in the 'EU (Ireland)' region to the 'US West (Oregon)' region. If -Region is not specified, the current default region is used as the destination region.</description>
   </example>
 </examples>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Edit-EC2SnapshotAttribute -SnapshotId snap-12345678 -Attribute CreateVolumePermission -OperationType Add -GroupName all</code>
+    <description>This example makes the specified snapshot public by setting its CreateVolumePermission attribute.</description>
+  </example>
+</examples>

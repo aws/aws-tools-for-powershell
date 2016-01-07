@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2RouteTable -VpcId vpc-12345678
+    
+Associations    : {rtbassoc-12345678}
+PropagatingVgws : {}
+Routes          : {, }
+RouteTableId    : rtb-1a2b3c4d
+Tags            : {}
+VpcId           : vpc-12345678</code>
+    <description>This example describes the specified route table.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2RouteTable
+    
+DestinationCidrBlock    : 10.0.0.0/16
+DestinationPrefixListId :
+GatewayId               : local
+InstanceId              :
+InstanceOwnerId         :
+NetworkInterfaceId      :
+Origin                  : CreateRouteTable
+State                   : active
+VpcPeeringConnectionId  :
+
+DestinationCidrBlock    : 0.0.0.0/0
+DestinationPrefixListId :
+GatewayId               : igw-1a2b3c4d
+InstanceId              :
+InstanceOwnerId         :
+NetworkInterfaceId      :
+Origin                  : CreateRoute
+State                   : active
+VpcPeeringConnectionId  :</code>
+    <description>This example describes the routes for the specified route table.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2RouteTable</code>
+    <description>This example describes all your route tables.</description>
+  </example>
+</examples>

@@ -1,19 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>$ric1 = New-Object Amazon.EC2.Model.ReservedInstancesConfiguration
-PS C:\>$ric1.AvailabilityZone = "us-east-1a"
-PS C:\>$ric1.InstanceCount = 1
-PS C:\>$ric1.Platform = "EC2-VPC"
+    <code>PS C:\> $config = New-Object Amazon.EC2.Model.ReservedInstancesConfiguration
+PS C:\> $config.AvailabilityZone = "us-west-2a"
+PS C:\> $config.InstanceCount = 1
+PS C:\> $config.Platform = "EC2-VPC"
 
-# ...create additional configuration instances as needed
-
-# ...if more than one configuration was created, use array syntax e.g. -TargetConfiguration @( $ric1, $ric2 )
-PS C:\>Edit-EC2ReservedInstance `
-        -ReservedInstancesId @("FE32132D-70D5-4795-B400-AE4350E35639", "0CC556F3-7AB8-4C00-B0E5-98666E89136F") `
-        -TargetConfiguration $ric1
-    </code>
-    <description>This example modifies the availability zone, instance count and platform for the specified reserved instances. Platform may be either "EC2-VPC" or "EC2-Classic".</description>
+PS C:\> Edit-EC2ReservedInstance `
+-ReservedInstancesId @("FE32132D-70D5-4795-B400-AE435EXAMPLE", "0CC556F3-7AB8-4C00-B0E5-98666EXAMPLE") `
+-TargetConfiguration $config</code>
+    <description>This example modifies the Availability Zone, instance count, and platform for the specified Reserved instances.</description>
   </example>
 </examples>

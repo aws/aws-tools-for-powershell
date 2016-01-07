@@ -1,17 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-PS C:\>New-EC2VPC -CidrBlock 10.0.0.0/16
+    <code>PS C:\> New-EC2VPC -CidrBlock 10.0.0.0/16
 
-VpcId           : vpc-1a2b3c4d
-State           : pending
-CidrBlock       : 10.0.0.0/24
+CidrBlock       : 10.0.0.0/16
 DhcpOptionsId   : dopt-1a2b3c4d
-Tags            : {}
 InstanceTenancy : default
 IsDefault       : False
-    </code>
-    <description>Creates a new VPC with CIDR 10.0.0.0/24 in the current default region. This will also create a new default DHCP Options Set, Main Route Table, and Default Network ACL associated with the VPC.</description>
+State           : pending
+Tags            : {}
+VpcId           : vpc-12345678</code>
+    <description>This example creates a VPC with the specified CIDR. Amazon VPC also creates the following for the VPC: a default DHCP options set, a main route table, and a default network ACL.</description>
   </example>
 </examples>

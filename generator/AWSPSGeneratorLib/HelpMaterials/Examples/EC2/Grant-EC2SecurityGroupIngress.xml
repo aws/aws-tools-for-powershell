@@ -1,149 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>
-# assumes VPC with id 'vpc-123456' exists
-PS C:\>$groupid = New-EC2SecurityGroup -VpcId "vpc-123456" -GroupName "ingressGroupVPC" -GroupDescription "ingress security group for EC2-VPC usage"
+    <code>PS C:\> $ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
+PS C:\> $ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
 
-# define the ingress permissions; using New-Object and property assignment
-# works for PowerShell version 2 and higher
-PS C:\>$ip1 = new-object Amazon.EC2.Model.IpPermission
-PS C:\>$ip1.IpProtocol = "tcp"
-PS C:\>$ip1.FromPort = 22
-PS C:\>$ip1.ToPort = 22
-PS C:\>$ip1.IpRanges.Add("203.0.113.25/32")
-
-PS C:\>$ip2 = new-object Amazon.EC2.Model.IpPermission
-PS C:\>$ip2.IpProtocol = "tcp"
-PS C:\>$ip2.FromPort = 3389
-PS C:\>$ip2.ToPort = 3389
-PS C:\>$ip2.IpRanges.Add("203.0.113.25/32")
-
-# add these ingress permissions to the security group
-PS C:\>Grant-EC2SecurityGroupIngress -GroupId $groupid -IpPermission @( $ip1, $ip2 )
-
-# confirm
-PS C:\>($groupid | Get-EC2SecurityGroup).IpPermission
-
-IpProtocol       : tcp
-FromPort         : 22
-ToPort           : 22
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-
-IpProtocol       : tcp
-FromPort         : 3389
-ToPort           : 3389
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-    </code>
-    <description>This example shows how to create a security group for a VPC and define ingress rules granting access to a specific IP address for SSH (port 22) and RDC (port 3389). When using security groups for EC2-VPC, you must use the security group id to identify the group. This example can be used with PowerShell version 2 or higher.</description>
+PS C:\> Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( $ip1, $ip2 )</code>
+    <description>This example defines ingress rules for a security group for EC2-VPC. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). Note that you must identify security groups for EC2-VPC using the security group ID not the security group name. The syntax used by this example requires PowerShell version 3 or higher.</description>
   </example>
   <example>
-    <code>
-# assumes VPC with id 'vpc-123456' exists
-PS C:\>$groupid = New-EC2SecurityGroup -VpcId "vpc-123456" -GroupName "ingressGroupVPC" -GroupDescription "ingress security group for EC2-VPC usage"
+    <code>PS C:\> $ip1 = New-Object Amazon.EC2.Model.IpPermission
+PS C:\> $ip1.IpProtocol = "tcp"
+PS C:\> $ip1.FromPort = 22
+PS C:\> $ip1.ToPort = 22
+PS C:\> $ip1.IpRanges.Add("203.0.113.25/32")
 
-# define the ingress permissions using 'splatting'; this works for
-# PowerShell version 3 and higher
-PS C:\>$ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
-PS C:\>$ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
+PS C:\> $ip2 = new-object Amazon.EC2.Model.IpPermission
+PS C:\> $ip2.IpProtocol = "tcp"
+PS C:\> $ip2.FromPort = 3389
+PS C:\> $ip2.ToPort = 3389
+PS C:\> $ip2.IpRanges.Add("203.0.113.25/32")
 
-# add these ingress permissions to the security group
-PS C:\>Grant-EC2SecurityGroupIngress -GroupId $groupid -IpPermission @( $ip1, $ip2 )
-
-# confirm
-PS C:\>($groupid | Get-EC2SecurityGroup).IpPermissions
-
-IpProtocol       : tcp
-FromPort         : 22
-ToPort           : 22
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-
-IpProtocol       : tcp
-FromPort         : 3389
-ToPort           : 3389
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-    </code>
-    <description>This example shows how to create a security group for a VPC and define ingress rules granting access to a specific IP address for SSH (port 22) and RDC (port 3389). When using security groups for EC2-VPC, you must use the security group id to identify the group. This example can be used with PowerShell version 3 or higher.</description>
+PS C:\> Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( $ip1, $ip2 )</code>
+    <description>With PowerShell version 2, you must use New-Object to create the IpPermission objects.</description>
   </example>
   <example>
-    <code>
-PS C:\>New-EC2SecurityGroup -GroupName "ingressGroupClassic" -GroupDescription "ingress security group for EC2-Classic usage"
+    <code>PS C:\> $ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
+PS C:\> $ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
 
-# define the ingress permissions; using New-Object and property assignment
-# works for PowerShell version 2 and higher
-PS C:\>$ip1 = new-object Amazon.EC2.Model.IpPermission
-PS C:\>$ip1.IpProtocol = "tcp"
-PS C:\>$ip1.FromPort = 22
-PS C:\>$ip1.ToPort = 22
-PS C:\>$ip1.IpRanges.Add("203.0.113.25/32")
-
-PS C:\>$ip2 = new-object Amazon.EC2.Model.IpPermission
-PS C:\>$ip2.IpProtocol = "tcp"
-PS C:\>$ip2.FromPort = 3389
-PS C:\>$ip2.ToPort = 3389
-PS C:\>$ip2.IpRanges.Add("203.0.113.25/32")
-
-# add these ingress permissions to the security group using group name
-PS C:\>Grant-EC2SecurityGroupIngress -GroupName "ingressGroupClassic" -IpPermission @( $ip1, $ip2 )
-
-# confirm
-PS C:\>(Get-EC2SecurityGroup -GroupName "ingressGroupClassic").IpPermissions
-
-IpProtocol       : tcp
-FromPort         : 22
-ToPort           : 22
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-
-IpProtocol       : tcp
-FromPort         : 3389
-ToPort           : 3389
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-    </code>
-    <description>This example shows how to create a security group for EC2-Classic and define ingress rules granting access to a specific IP address for SSH (port 22) and RDC (port 3389). When using security groups for EC2-Classic, you can use the security group name or id to identify the group. This example can be used with PowerShell version 2 or higher.</description>
+PS C:\> Grant-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission @( $ip1, $ip2 )</code>
+    <description>This example defines ingress rules for a security group for EC2-Classic. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). The syntax used by this example requires PowerShell version 3 or higher.</description>
   </example>
   <example>
-    <code>
-PS C:\>New-EC2SecurityGroup -GroupName "ingressGroupClassic" -GroupDescription "ingress security group for EC2-Classic usage"
+    <code>PS C:\> $ip1 = New-Object Amazon.EC2.Model.IpPermission
+PS C:\> $ip1.IpProtocol = "tcp"
+PS C:\> $ip1.FromPort = 22
+PS C:\> $ip1.ToPort = 22
+PS C:\> $ip1.IpRanges.Add("203.0.113.25/32")
 
-# define the ingress permissions using 'splatting'; this works for
-# PowerShell version 3 and higher
-PS C:\>$ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
-PS C:\>$ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
+PS C:\> $ip2 = new-object Amazon.EC2.Model.IpPermission
+PS C:\> $ip2.IpProtocol = "tcp"
+PS C:\> $ip2.FromPort = 3389
+PS C:\> $ip2.ToPort = 3389
+PS C:\> $ip2.IpRanges.Add("203.0.113.25/32")
 
-# add these ingress permissions to the security group using group name
-PS C:\>Grant-EC2SecurityGroupIngress -GroupName "ingressGroupClassic" -IpPermission @( $ip1, $ip2 )
-
-# confirm
-PS C:\>(Get-EC2SecurityGroup -GroupName "ingressGroupClassic").IpPermissions
-
-IpProtocol       : tcp
-FromPort         : 22
-ToPort           : 22
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-
-IpProtocol       : tcp
-FromPort         : 3389
-ToPort           : 3389
-UserIdGroupPairs : {}
-IpRanges         : {203.0.113.25/32}
-    </code>
-    <description>This example shows how to create a security group for EC2-Classic and define ingress rules granting access to a specific IP address for SSH (port 22) and RDC (port 3389). When using security groups for EC2-Classic, you can use the security group name or id to identify the group. This example can be used with PowerShell version 3 or higher.</description>
+PS C:\> Grant-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission @( $ip1, $ip2 )</code>
+    <description>With PowerShell version 2, you must use New-Object to create the IpPermission objects.</description>
+</description>
   </example>
   <example>
-    <code>
-PS C:\>$ug = New-Object Amazon.EC2.Model.UserIdGroupPair
-PS C:\>$ug.GroupId = "sg-1a2b3c4d"
-PS C:\>$ug.UserId = "123456789012"
+    <code>PS C:\> $ug = New-Object Amazon.EC2.Model.UserIdGroupPair
+PS C:\> $ug.GroupId = "sg-1a2b3c4d"
+PS C:\> $ug.UserId = "123456789012"
 
-PS C:\>Grant-EC2SecurityGroupIngress -GroupId "sg-4d3c2b1a" -IpPermission @( @{ IpProtocol="tcp"; FromPort="8081"; ToPort="8081"; UserIdGroupPairs=$ug } )
+PS C:\> Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( @{ IpProtocol="tcp"; FromPort="8081"; ToPort="8081"; UserIdGroupPairs=$ug } )
     </code>
-    <description>This example grants TCP port 8081 access from the source group with ID sg-1a2b3c4d to the security group with ID sg-4d3c2b1a. In this example, your AWS account ID is 123456789012. For EC2-VPC, you must use the security group IDs in a request, not the security group names. For EC2-Classic you can replace the GroupId fields with GroupName and specify the group names instead.</description>
+    <description>This example grants TCP port 8081 access from the specified source security group (sg-1a2b3c4d) to the specified security group (sg-12345678).</description>
   </example>
 </examples>
