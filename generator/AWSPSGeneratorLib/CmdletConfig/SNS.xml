@@ -63,6 +63,7 @@
     <ServiceOperation MethodName="Unsubscribe" Verb="Disconnect" Noun="Notification" Output="Void" />
 
     <ServiceOperation MethodName="SubscribeQueue" Exclude="true" />
+    <ServiceOperation MethodName="SubscribeQueueToTopics" Exclude="true" />
     <ServiceOperation MethodName="FindTopic" Exclude="true" />
   </ServiceOperations>
 
