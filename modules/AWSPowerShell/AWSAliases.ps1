@@ -2399,6 +2399,8 @@ Set-Alias -Name Put-SESIdentityPolicy -Value Write-SESIdentityPolicy
 Set-Alias -Name SES-PutIdentityPolicy -Value Write-SESIdentityPolicy
 Set-Alias -Name SES-ReorderReceiptRuleSet -Value Set-SESReceiptRuleSetOrder
 Set-Alias -Name SES-SendBounce -Value Send-SESBounce
+Set-Alias -Name Set-SNSSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
+Set-Alias -Name SNS-SetSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
 Set-Alias -Name Set-SNSTopicAttributes -Value Set-SNSTopicAttribute
 Set-Alias -Name SNS-SetTopicAttributes -Value Set-SNSTopicAttribute
 Set-Alias -Name SNS-Subscribe -Value Connect-SNSNotification
@@ -2437,8 +2439,6 @@ Set-Alias -Name SNS-Publish -Value Publish-SNSMessage
 Set-Alias -Name SNS-RemovePermission -Value Remove-SNSPermission
 Set-Alias -Name SNS-SetEndpointAttributes -Value Set-SNSEndpointAttributes
 Set-Alias -Name SNS-SetPlatformApplicationAttributes -Value Set-SNSPlatformApplicationAttributes
-Set-Alias -Name Set-SNSSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
-Set-Alias -Name SNS-SetSubscriptionAttributes -Value Set-SNSSubscriptionAttribute
 Set-Alias -Name SQS-AddPermission -Value Add-SQSPermission
 Set-Alias -Name Change-SQSMessageVisibility -Value Edit-SQSMessageVisibility
 Set-Alias -Name SQS-ChangeMessageVisibility -Value Edit-SQSMessageVisibility
