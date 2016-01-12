@@ -328,6 +328,10 @@
     <ServiceOperation MethodName="DetachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId"/>
     <ServiceOperation MethodName="DisableVpcClassicLink" />
     <ServiceOperation MethodName="EnableVpcClassicLink" />
+
+    <ServiceOperation MethodName="DisableVpcClassicLinkDnsSupport" />
+    <ServiceOperation MethodName="EnableVpcClassicLinkDnsSupport" />
+    <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" />
     
     <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType"/>
     <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters"/>
@@ -340,6 +344,7 @@
     <ServiceOperation MethodName="CreateNatGateway" PipelineParameter="SubnetId" Output="Response" />
     <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
     <ServiceOperation MethodName="DeleteNatGateway" />
+
 
   </ServiceOperations>
 

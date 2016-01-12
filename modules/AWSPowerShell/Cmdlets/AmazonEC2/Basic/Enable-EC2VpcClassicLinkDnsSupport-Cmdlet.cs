@@ -28,47 +28,52 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the ID format settings for your resources on a per-region basis, for example,
-    /// to view which resource types are enabled for longer IDs. This request only returns
-    /// information about resource types whose ID formats can be modified; it does not return
-    /// information about other resource types. 
-    /// 
-    ///  
-    /// <para>
-    /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>.
-    /// 
-    /// </para><para>
-    /// These settings apply to the IAM user who makes the request; they do not apply to the
-    /// entire AWS account. By default, an IAM user defaults to the same settings as the root
-    /// user, unless they explicitly override the settings by running the <a>ModifyIdFormat</a>
-    /// command. Resources created with longer IDs are visible to all IAM users, regardless
-    /// of these settings and provided that they have permission to use the relevant <code>Describe</code>
-    /// command for the resource type.
-    /// </para>
+    /// Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the
+    /// DNS hostname of a linked EC2-Classic instance resolves to its private IP address when
+    /// addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
+    /// of an instance in a VPC resolves to its private IP address when addressed from a linked
+    /// EC2-Classic instance. For more information about ClassicLink, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+    /// in the Amazon Elastic Compute Cloud User Guide.
     /// </summary>
-    [Cmdlet("Get", "EC2IdFormat")]
-    [OutputType("Amazon.EC2.Model.IdFormat")]
-    [AWSCmdlet("Invokes the DescribeIdFormat operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeIdFormat"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.IdFormat",
-        "This cmdlet returns a collection of IdFormat objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeIdFormatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Enable", "EC2VpcClassicLinkDnsSupport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.Boolean")]
+    [AWSCmdlet("Invokes the EnableVpcClassicLinkDnsSupport operation against Amazon Elastic Compute Cloud.", Operation = new[] {"EnableVpcClassicLinkDnsSupport"})]
+    [AWSCmdletOutput("System.Boolean",
+        "This cmdlet returns a Boolean object.",
+        "The service call response (type Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class GetEC2IdFormatCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class EnableEC2VpcClassicLinkDnsSupportCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter Resource
+        #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The type of resource.</para>
+        /// <para>The ID of the VPC. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Resource { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String VpcId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VpcId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-EC2VpcClassicLinkDnsSupport (EnableVpcClassicLinkDnsSupport)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -76,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.Resource = this.Resource;
+            context.VpcId = this.VpcId;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -88,11 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DescribeIdFormatRequest();
+            var request = new Amazon.EC2.Model.EnableVpcClassicLinkDnsSupportRequest();
             
-            if (cmdletContext.Resource != null)
+            if (cmdletContext.VpcId != null)
             {
-                request.Resource = cmdletContext.Resource;
+                request.VpcId = cmdletContext.VpcId;
             }
             
             CmdletOutput output;
@@ -101,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.DescribeIdFormat(request);
+                var response = client.EnableVpcClassicLinkDnsSupport(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Statuses;
+                object pipelineOutput = response.Return;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -129,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Resource { get; set; }
+            public System.String VpcId { get; set; }
         }
         
     }
