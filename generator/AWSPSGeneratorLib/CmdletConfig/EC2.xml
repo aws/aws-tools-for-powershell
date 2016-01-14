@@ -345,6 +345,16 @@
     <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
     <ServiceOperation MethodName="DeleteNatGateway" />
 
+    <ServiceOperation MethodName="RunScheduledInstances" 
+                      Noun="ScheduledInstance" 
+                      PipelineParameter="LaunchSpecification" 
+                      ShouldProcessTarget="ScheduledInstanceId" />
+    <ServiceOperation MethodName="PurchaseScheduledInstances" 
+                      Verb="New" 
+                      Noun="ScheduledInstancePurchase" 
+                      PipelineParameter="PurchaseRequests"/>
+    <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" />
+    <ServiceOperation MethodName="DescribeScheduledInstances" Noun="ScheduledInstance" />
 
   </ServiceOperations>
 
@@ -426,6 +436,7 @@
     <Property>VpcId</Property>
     <Property>SubnetId</Property>
     <Property>GroupId</Property>
+    <Property>ScheduledInstanceId</Property>
     <!-- excluded so we don't take both values and trigger 'cannot specify both
          values' ec2 error
     <Property>GroupName</Property> 

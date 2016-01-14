@@ -28,32 +28,46 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
+    /// Purchases one or more Scheduled Instances with the specified schedule.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
-    /// Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour
+    /// for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
+    /// to check for available schedules and obtain a purchase token.
     /// </para>
     /// </summary>
-    [Cmdlet("Stop", "EC2ReservedInstancesListing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ReservedInstancesListing")]
-    [AWSCmdlet("Invokes the CancelReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelReservedInstancesListing"})]
-    [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
-        "This cmdlet returns a collection of ReservedInstancesListing objects.",
-        "The service call response (type Amazon.EC2.Model.CancelReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EC2ScheduledInstancePurchase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.ScheduledInstance")]
+    [AWSCmdlet("Invokes the PurchaseScheduledInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"PurchaseScheduledInstances"})]
+    [AWSCmdletOutput("Amazon.EC2.Model.ScheduledInstance",
+        "This cmdlet returns a collection of ScheduledInstance objects.",
+        "The service call response (type Amazon.EC2.Model.PurchaseScheduledInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class StopEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public class NewEC2ScheduledInstancePurchaseCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ReservedInstancesListingId
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The ID of the Reserved Instance listing.</para>
+        /// <para>Unique, case-sensitive identifier that ensures the idempotency of the request. For
+        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReservedInstancesListingId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter PurchaseRequest
+        /// <summary>
+        /// <para>
+        /// <para>One or more purchase requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [Alias("PurchaseRequests")]
+        public Amazon.EC2.Model.PurchaseRequest[] PurchaseRequest { get; set; }
         #endregion
         
         #region Parameter Force
@@ -70,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReservedInstancesListingId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-EC2ReservedInstancesListing (CancelReservedInstancesListing)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PurchaseRequest", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2ScheduledInstancePurchase (PurchaseScheduledInstances)"))
             {
                 return;
             }
@@ -82,7 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 Credentials = this.CurrentCredentials
             };
             
-            context.ReservedInstancesListingId = this.ReservedInstancesListingId;
+            context.ClientToken = this.ClientToken;
+            if (this.PurchaseRequest != null)
+            {
+                context.PurchaseRequests = new List<Amazon.EC2.Model.PurchaseRequest>(this.PurchaseRequest);
+            }
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -94,11 +112,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CancelReservedInstancesListingRequest();
+            var request = new Amazon.EC2.Model.PurchaseScheduledInstancesRequest();
             
-            if (cmdletContext.ReservedInstancesListingId != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ReservedInstancesListingId = cmdletContext.ReservedInstancesListingId;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.PurchaseRequests != null)
+            {
+                request.PurchaseRequests = cmdletContext.PurchaseRequests;
             }
             
             CmdletOutput output;
@@ -107,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.CancelReservedInstancesListing(request);
+                var response = client.PurchaseScheduledInstances(request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ReservedInstancesListings;
+                object pipelineOutput = response.ScheduledInstanceSet;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -135,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ReservedInstancesListingId { get; set; }
+            public System.String ClientToken { get; set; }
+            public List<Amazon.EC2.Model.PurchaseRequest> PurchaseRequests { get; set; }
         }
         
     }
