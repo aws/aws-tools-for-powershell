@@ -1,0 +1,143 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.CloudWatchEvents;
+using Amazon.CloudWatchEvents.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CWE
+{
+    /// <summary>
+    /// Tests whether an event pattern matches the provided event.
+    /// 
+    ///  
+    /// <para><b>Note:</b> Most services in AWS treat : or / as the same character in Amazon Resource
+    /// Names (ARNs). However, CloudWatch Events uses an exact match in event patterns and
+    /// rules. Be sure to use the correct ARN characters when creating event patterns so that
+    /// they match the ARN syntax in the event you want to match. 
+    /// </para>
+    /// </summary>
+    [Cmdlet("Test", "CWEEventPattern")]
+    [OutputType("System.Boolean")]
+    [AWSCmdlet("Invokes the TestEventPattern operation against Amazon CloudWatch Events.", Operation = new[] {"TestEventPattern"})]
+    [AWSCmdletOutput("System.Boolean",
+        "This cmdlet returns a Boolean object.",
+        "The service call response (type Amazon.CloudWatchEvents.Model.TestEventPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class TestCWEEventPatternCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Event
+        /// <summary>
+        /// <para>
+        /// <para>The event in the JSON format to test against the event pattern.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Event { get; set; }
+        #endregion
+        
+        #region Parameter EventPattern
+        /// <summary>
+        /// <para>
+        /// <para>The event pattern you want to test.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EventPattern { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.Event = this.Event;
+            context.EventPattern = this.EventPattern;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.CloudWatchEvents.Model.TestEventPatternRequest();
+            
+            if (cmdletContext.Event != null)
+            {
+                request.Event = cmdletContext.Event;
+            }
+            if (cmdletContext.EventPattern != null)
+            {
+                request.EventPattern = cmdletContext.EventPattern;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.TestEventPattern(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.Result;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String Event { get; set; }
+            public System.String EventPattern { get; set; }
+        }
+        
+    }
+}

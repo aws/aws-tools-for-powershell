@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>CWE</ServiceNounPrefix>
+  <ServiceName>Amazon CloudWatch Events</ServiceName>
+  <ServiceClientInterface>IAmazonCloudWatchEvents</ServiceClientInterface>
+  <ServiceClient>AmazonCloudWatchEventsClient</ServiceClient>
+  <ServiceNamespace>Amazon.CloudWatchEvents</ServiceNamespace>
+
+  <AutoIterate EmitLimit="Limit" Start="NextToken" />
+  
+  <PipelineParameter>Rule</PipelineParameter>
+  
+  <PipelineByValueProperties>
+    <Property>Name</Property>
+  </PipelineByValueProperties>
+    
+  <ServiceOperations>
+    <ServiceOperation MethodName="DeleteRule" Output="Void"/>
+    <ServiceOperation MethodName="DescribeRule" Noun="RuleDetail" Output="Response"/>
+    <ServiceOperation MethodName="DisableRule" Output="Void"/>
+    <ServiceOperation MethodName="EnableRule" Output="Void"/>
+    <ServiceOperation MethodName="ListRuleNamesByTarget" Verb="Get" PipelineParameter="TargetArn"/>
+    <ServiceOperation MethodName="ListRules" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix"/>
+    <ServiceOperation MethodName="ListTargetsByRule" Verb="Get" />
+    <ServiceOperation MethodName="PutEvents" Output="Response" Noun="Event"/>
+    <ServiceOperation MethodName="PutRule" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="PutTargets" Noun="Target" />
+    <ServiceOperation MethodName="RemoveTargets" Noun="Target" />
+    <ServiceOperation MethodName="TestEventPattern" PipelineParameter="Event"/>
+  </ServiceOperations>
+
+</ConfigModel>
