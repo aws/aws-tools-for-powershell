@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// and <code>TokenCode</code> parameters. The <code>SerialNumber</code> value identifies
     /// the user's hardware or virtual MFA device. The <code>TokenCode</code> is the time-based
     /// one-time password (TOTP) that the MFA devices produces. 
-    /// </para><member name="RoleArn" target="arnType"></member><member name="RoleSessionName" target="userNameType"></member><member name="Policy" target="sessionPolicyDocumentType"></member><member name="DurationSeconds" target="roleDurationSecondsType"></member><member name="ExternalId" target="externalIdType"></member>
+    /// </para><member name="RoleArn" target="arnType" /><member name="RoleSessionName" target="userNameType" /><member name="Policy" target="sessionPolicyDocumentType" /><member name="DurationSeconds" target="roleDurationSecondsType" /><member name="ExternalId" target="externalIdType" />
     /// </summary>
     [Cmdlet("Use", "STSRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleResponse")]
