@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter ConfigurationManager_Version
         /// <summary>
         /// <para>
-        /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
-        /// is 11.4.</para>
+        /// <para>The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks,
+        /// and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

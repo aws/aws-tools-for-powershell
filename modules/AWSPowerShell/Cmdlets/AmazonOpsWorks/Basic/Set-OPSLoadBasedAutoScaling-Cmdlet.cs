@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter DownScaling_CpuThreshold
         /// <summary>
         /// <para>
-        /// <para>The CPU utilization threshold, as a percent of the available CPU.</para>
+        /// <para>The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables
+        /// the threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter UpScaling_CpuThreshold
         /// <summary>
         /// <para>
-        /// <para>The CPU utilization threshold, as a percent of the available CPU.</para>
+        /// <para>The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables
+        /// the threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,7 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter DownScaling_LoadThreshold
         /// <summary>
         /// <para>
-        /// <para>The load threshold. For more information about how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
+        /// <para>The load threshold. A value of -1 disables the threshold. For more information about
+        /// how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
         /// (computing)</a>.</para>
         /// </para>
         /// </summary>
@@ -190,7 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter UpScaling_LoadThreshold
         /// <summary>
         /// <para>
-        /// <para>The load threshold. For more information about how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
+        /// <para>The load threshold. A value of -1 disables the threshold. For more information about
+        /// how load is computed, see <a href="http://en.wikipedia.org/wiki/Load_%28computing%29">Load
         /// (computing)</a>.</para>
         /// </para>
         /// </summary>
@@ -201,7 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter DownScaling_MemoryThreshold
         /// <summary>
         /// <para>
-        /// <para>The memory utilization threshold, as a percent of the available memory.</para>
+        /// <para>The memory utilization threshold, as a percent of the available memory. A value of
+        /// -1 disables the threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -211,7 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter UpScaling_MemoryThreshold
         /// <summary>
         /// <para>
-        /// <para>The memory utilization threshold, as a percent of the available memory.</para>
+        /// <para>The memory utilization threshold, as a percent of the available memory. A value of
+        /// -1 disables the threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -119,9 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>Specifies the operation. You can specify only one command.</para><para>For stacks, the following commands are available:</para><ul><li><code>execute_recipes</code>: Execute one or more recipes. To specify the
         /// recipes, set an <code>Args</code> parameter named <code>recipes</code> to the list
         /// of recipes to be executed. For example, to execute <code>phpapp::appsetup</code>,
-        /// set <code>Args</code> to <code>{"recipes":["phpapp::appsetup"]}</code>.</li><li><code>install_dependencies</code>: Install the stack's dependencies.</li><li><code>update_custom_cookbooks</code>:
-        /// Update the stack's custom cookbooks.</li><li><code>update_dependencies</code>: Update
-        /// the stack's dependencies.</li></ul><note>The update_dependencies and install_dependencies
+        /// set <code>Args</code> to <code>{"recipes":["phpapp::appsetup"]}</code>.</li><li><code>install_dependencies</code>:
+        /// Install the stack's dependencies.</li><li><code>update_custom_cookbooks</code>: Update
+        /// the stack's custom cookbooks.</li><li><code>update_dependencies</code>: Update the
+        /// stack's dependencies.</li></ul><note>The update_dependencies and install_dependencies
         /// commands are supported only for Linux instances. You can run the commands successfully
         /// on Windows instances, but they do nothing.</note><para>For apps, the following commands are available:</para><ul><li><code>deploy</code>: Deploy an app. Ruby on Rails apps have an optional
         /// <code>Args</code> parameter named <code>migrate</code>. Set <code>Args</code> to {"migrate":["true"]}
