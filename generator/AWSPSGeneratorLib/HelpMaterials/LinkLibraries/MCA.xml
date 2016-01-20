@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+    <link name="User Guide">http://docs.aws.amazon.com/mobileanalytics/latest/ug/</link>
+  </set>
+</links>
