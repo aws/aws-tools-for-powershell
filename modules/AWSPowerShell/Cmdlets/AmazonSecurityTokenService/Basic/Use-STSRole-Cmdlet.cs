@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         #region Parameter RoleSessionName
         /// <summary>
         /// <para>
-        /// <para>An identifier for the assumed role session. </para><para>Use the role session name to uniquely identity a session when the same role is assumed
+        /// <para>An identifier for the assumed role session. </para><para>Use the role session name to uniquely identify a session when the same role is assumed
         /// by different principals or for different reasons. In cross-account scenarios, the
         /// role session name is visible to, and can be logged by the account that owns the role.
         /// The role session name is also used in the ARN of the assumed role principal. This
