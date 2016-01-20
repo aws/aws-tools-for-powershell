@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Cancels the specified Reserved instance listing in the Reserved Instance Marketplace.
+    /// Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedInstancesListingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Reserved instance listing.</para>
+        /// <para>The ID of the Reserved Instance listing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -18,6 +18,7 @@
     <Path>CognitoIdentity.xml</Path>
     <Path>ConfigService.xml</Path>
     <Path>CloudWatch.xml</Path>
+    <Path>CloudWatchEvents.xml</Path>
     <Path>CloudWatchLogs.xml</Path>
     <Path>DataPipeline.xml</Path>
     <Path>DeviceFarm.xml</Path>

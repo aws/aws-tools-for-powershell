@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>An array of <code>BlockDeviceMapping</code> objects that specify the instance's block
         /// devices. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
-        /// Device Mapping</a>.</para>
+        /// Device Mapping</a>. Note that block device mappings are not supported for custom AMIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -196,8 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// 2012 R2 Base</code>.</li><li>A custom AMI: <code>Custom</code>.</li></ul><para>For more information on the supported operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
         /// OpsWorks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
         /// to <code>Custom</code>, you must use the <a>CreateInstance</a> action's AmiId parameter
-        /// to specify the custom AMI that you want to use. For more information on the supported
-        /// operating systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
+        /// to specify the custom AMI that you want to use. Block device mappings are not supported
+        /// if the value is <code>Custom</code>. For more information on the supported operating
+        /// systems, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
         /// Systems</a>For more information on how to use custom AMIs with AWS OpsWorks, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</para>
         /// </para>

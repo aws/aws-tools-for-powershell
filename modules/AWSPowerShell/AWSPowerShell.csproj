@@ -90,6 +90,9 @@
     <Reference Include="AWSSDK.CloudWatch">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudWatchEvents">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>

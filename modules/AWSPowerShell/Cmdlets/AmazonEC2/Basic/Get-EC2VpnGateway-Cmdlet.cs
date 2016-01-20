@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>attachment.state</code> - The current state of the attachment between the gateway
         /// and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code>
-        /// | <code>detached</code>).</para></li><li><para><code>attachment.vpc-id</code> - The ID of an attached VPC.</para></li><li><para><code>availability-zone</code> - The Availability Zone for the virtual private gateway.</para></li><li><para><code>state</code> - The state of the virtual private gateway (<code>pending</code>
+        /// | <code>detached</code>).</para></li><li><para><code>attachment.vpc-id</code> - The ID of an attached VPC.</para></li><li><para><code>availability-zone</code> - The Availability Zone for the virtual private gateway
+        /// (if applicable).</para></li><li><para><code>state</code> - The state of the virtual private gateway (<code>pending</code>
         /// | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. This filter is independent
         /// of the <code>tag-value</code> filter. For example, if you use both the filter "tag-key=Purpose"

@@ -45,7 +45,6 @@ PS C:\> $ip2.IpRanges.Add("203.0.113.25/32")
 
 PS C:\> Grant-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission @( $ip1, $ip2 )</code>
     <description>With PowerShell version 2, you must use New-Object to create the IpPermission objects.</description>
-</description>
   </example>
   <example>
     <code>PS C:\> $ug = New-Object Amazon.EC2.Model.UserIdGroupPair

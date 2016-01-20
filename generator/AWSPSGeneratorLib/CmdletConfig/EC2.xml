@@ -328,6 +328,10 @@
     <ServiceOperation MethodName="DetachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId"/>
     <ServiceOperation MethodName="DisableVpcClassicLink" />
     <ServiceOperation MethodName="EnableVpcClassicLink" />
+
+    <ServiceOperation MethodName="DisableVpcClassicLinkDnsSupport" />
+    <ServiceOperation MethodName="EnableVpcClassicLinkDnsSupport" />
+    <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" />
     
     <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType"/>
     <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters"/>
@@ -340,6 +344,17 @@
     <ServiceOperation MethodName="CreateNatGateway" PipelineParameter="SubnetId" Output="Response" />
     <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
     <ServiceOperation MethodName="DeleteNatGateway" />
+
+    <ServiceOperation MethodName="RunScheduledInstances" 
+                      Noun="ScheduledInstance" 
+                      PipelineParameter="LaunchSpecification" 
+                      ShouldProcessTarget="ScheduledInstanceId" />
+    <ServiceOperation MethodName="PurchaseScheduledInstances" 
+                      Verb="New" 
+                      Noun="ScheduledInstancePurchase" 
+                      PipelineParameter="PurchaseRequests"/>
+    <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" />
+    <ServiceOperation MethodName="DescribeScheduledInstances" Noun="ScheduledInstance" />
 
   </ServiceOperations>
 
@@ -421,6 +436,7 @@
     <Property>VpcId</Property>
     <Property>SubnetId</Property>
     <Property>GroupId</Property>
+    <Property>ScheduledInstanceId</Property>
     <!-- excluded so we don't take both values and trigger 'cannot specify both
          values' ec2 error
     <Property>GroupName</Property> 

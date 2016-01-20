@@ -33,17 +33,25 @@ namespace AWSPowerShellGenerator.Utils
         /// <param name="ndoc"></param>
         public void Load(string baseName, out Assembly assembly, out XmlDocument ndoc)
         {
-            if (string.IsNullOrEmpty(SdkAssembliesFolder))
-                throw new InvalidOperationException("Expected 'SdkAssembliesFolder' to have been set prior to calling Load(...)");
+            
+                if (string.IsNullOrEmpty(SdkAssembliesFolder))
+                    throw new InvalidOperationException("Expected 'SdkAssembliesFolder' to have been set prior to calling Load(...)");
 
-            var assemblyFile = Path.Combine(SdkAssembliesFolder, baseName + ".dll");
-            var ndocFile = Path.Combine(SdkAssembliesFolder, baseName + ".xml");
+                var assemblyFile = Path.Combine(SdkAssembliesFolder, baseName + ".dll");
+                var ndocFile = Path.Combine(SdkAssembliesFolder, baseName + ".xml");
+                try
+                {
+                    assembly = Assembly.LoadFrom(assemblyFile);
+                    ndoc = new XmlDocument();
+                    ndoc.Load(ndocFile);
 
-            assembly = Assembly.LoadFrom(assemblyFile);
-            ndoc = new XmlDocument();
-            ndoc.Load(ndocFile);
-
-            Add(baseName, assembly, ndoc);
+                    Add(baseName, assembly, ndoc);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An exception occured while processing files {0} and {1}.", assemblyFile, ndocFile);
+                    throw ex;
+                }
         }
 
         /// <summary>

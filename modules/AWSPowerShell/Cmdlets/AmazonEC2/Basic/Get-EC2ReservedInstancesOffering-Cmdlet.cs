@@ -28,16 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes Reserved instance offerings that are available for purchase. With Reserved
-    /// instances, you purchase the right to launch instances for a period of time. During
+    /// Describes Reserved Instance offerings that are available for purchase. With Reserved
+    /// Instances, you purchase the right to launch instances for a period of time. During
     /// that time period, you do not receive insufficient capacity errors, and you pay a lower
     /// usage rate than the rate charged for On-Demand instances for the actual time used.
     /// 
     ///  
     /// <para>
-    /// If you have listed your own Reserved instances for sale in the Reserved Instance Marketplace,
+    /// If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace,
     /// they will be excluded from these results. This is to ensure that you do not purchase
-    /// your own Reserved instances.
+    /// your own Reserved Instances.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
     /// Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone in which the Reserved instance can be used.</para>
+        /// <para>The Availability Zone in which the Reserved Instance can be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -67,12 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved instance
-        /// can be used.</para></li><li><para><code>duration</code> - The duration of the Reserved instance (for example, one year
-        /// or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved instance (for example,
+        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone where the Reserved Instance
+        /// can be used.</para></li><li><para><code>duration</code> - The duration of the Reserved Instance (for example, one year
+        /// or three years), in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
         /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type that is covered by the reservation.</para></li><li><para><code>marketplace</code> - Set to <code>true</code> to show only Reserved Instance
         /// Marketplace offerings. When this filter is not used, which is the default behavior,
-        /// all offerings from both AWS and the Reserved Instance Marketplace are listed.</para></li><li><para><code>product-description</code> - The Reserved instance product platform description.
+        /// all offerings from both AWS and the Reserved Instance Marketplace are listed.</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
         /// Instances that include <code>(Amazon VPC)</code> in the product platform description
         /// will only be displayed to EC2-Classic account holders and are for use with Amazon
         /// VPC. (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// with SQL Server Standard (Amazon VPC)</code> | <code>Windows with SQL Server Web</code>
         /// | <code> Windows with SQL Server Web (Amazon VPC)</code> | <code>Windows with SQL
         /// Server Enterprise</code> | <code>Windows with SQL Server Enterprise (Amazon VPC)</code>)
-        /// </para></li><li><para><code>reserved-instances-offering-id</code> - The Reserved instances' offering ID.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved instance, per hour (for
+        /// </para></li><li><para><code>reserved-instances-offering-id</code> - The Reserved Instances offering ID.</para></li><li><para><code>usage-price</code> - The usage price of the Reserved Instance, per hour (for
         /// example, 0.84).</para></li></ul>
         /// </para>
         /// </summary>
@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceTenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy of the instances covered by the reservation. A Reserved instance with
+        /// <para>The tenancy of the instances covered by the reservation. A Reserved Instance with
         /// a tenancy of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant
-        /// hardware (i.e., Dedicated instances).</para><para>Default: <code>default</code></para>
+        /// hardware (i.e., Dedicated Instances).</para><para>Default: <code>default</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -160,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OfferingType
         /// <summary>
         /// <para>
-        /// <para>The Reserved instance offering type. If you are using tools that predate the 2011-11-01
+        /// <para>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01
         /// API version, you only have access to the <code>Medium Utilization</code> Reserved
-        /// instance offering type. </para>
+        /// Instance offering type. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ProductDescription
         /// <summary>
         /// <para>
-        /// <para>The Reserved instance product platform description. Instances that include <code>(Amazon
+        /// <para>The Reserved Instance product platform description. Instances that include <code>(Amazon
         /// VPC)</code> in the description are for use with Amazon VPC.</para>
         /// </para>
         /// </summary>
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedInstancesOfferingId
         /// <summary>
         /// <para>
-        /// <para>One or more Reserved instances offering IDs.</para>
+        /// <para>One or more Reserved Instances offering IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

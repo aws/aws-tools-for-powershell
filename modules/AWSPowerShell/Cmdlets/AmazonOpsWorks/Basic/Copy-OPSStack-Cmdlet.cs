@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>When included in a request, the parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
         /// secret access key.</li><li>For HTTP bundles and Subversion repositories, set <code>Password</code>
-        /// to the password.</li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html"></a>.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
+        /// to the password.</li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html" />.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
         /// actual value.</para>
         /// </para>
         /// </summary>
@@ -401,8 +401,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter ConfigurationManager_Version
         /// <summary>
         /// <para>
-        /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
-        /// is 11.4.</para>
+        /// <para>The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks,
+        /// and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

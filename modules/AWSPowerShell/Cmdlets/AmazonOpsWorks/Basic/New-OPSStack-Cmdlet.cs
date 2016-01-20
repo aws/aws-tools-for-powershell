@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>The default AWS OpsWorks agent version. You have the following options:</para><ul><li>Auto-update - Set this parameter to <code>LATEST</code>. AWS OpsWorks automatically
         /// installs new agent versions on the stack's instances as soon as they are available.</li><li>Fixed version - Set this parameter to your preferred agent version. To update
         /// the agent version, you must edit the stack configuration and specify a new version.
-        /// AWS OpsWorks then automatically installs that version on the stack's instances.</li></ul><para>The default setting is <code>LATEST</code>. To specify an agent version, you must
-        /// use the complete version number, not the abbreviated number shown on the console.
-        /// For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</para><note>You can also specify an agent version when you create or update an instance,
+        /// AWS OpsWorks then automatically installs that version on the stack's instances.</li></ul><para>The default setting is the most recent release of the agent. To specify an agent version,
+        /// you must use the complete version number, not the abbreviated number shown on the
+        /// console. For a list of available agent version numbers, call <a>DescribeAgentVersions</a>.</para><note>You can also specify an agent version when you create or update an instance,
         /// which overrides the stack's default setting.</note>
         /// </para>
         /// </summary>
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>When included in a request, the parameter depends on the repository type. </para><ul><li>For Amazon S3 bundles, set <code>Password</code> to the appropriate IAM
         /// secret access key.</li><li>For HTTP bundles and Subversion repositories, set <code>Password</code>
-        /// to the password.</li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html"></a>.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
+        /// to the password.</li></ul><para>For more information on how to safely handle IAM credentials, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html" />.</para><para>In responses, AWS OpsWorks returns <code>*****FILTERED*****</code> instead of the
         /// actual value.</para>
         /// </para>
         /// </summary>
@@ -364,8 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter ConfigurationManager_Version
         /// <summary>
         /// <para>
-        /// <para>The Chef version. This parameter must be set to 0.9, 11.4, or 11.10. The default value
-        /// is 11.4.</para>
+        /// <para>The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks,
+        /// and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

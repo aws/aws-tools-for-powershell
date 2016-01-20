@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// SAML 2.0-based Federation</a> in the <i>Using IAM</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html">Creating
     /// SAML Identity Providers</a> in the <i>Using IAM</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.html">Configuring
     /// a Relying Party and Claims</a> in the <i>Using IAM</i>. </li><li><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_saml.html">Creating
-    /// a Role for SAML 2.0 Federation</a> in the <i>Using IAM</i>. </li></ul><member name="RoleArn" target="arnType"></member><member name="SAMLAssertion" target="SAMLAssertionType"></member><member name="Policy" target="sessionPolicyDocumentType"></member><member name="DurationSeconds" target="roleDurationSecondsType"></member>
+    /// a Role for SAML 2.0 Federation</a> in the <i>Using IAM</i>. </li></ul><member name="RoleArn" target="arnType" /><member name="SAMLAssertion" target="SAMLAssertionType" /><member name="Policy" target="sessionPolicyDocumentType" /><member name="DurationSeconds" target="roleDurationSecondsType" />
     /// </summary>
     [Cmdlet("Use", "STSRoleWithSAML", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse")]
