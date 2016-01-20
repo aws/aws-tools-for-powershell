@@ -91,7 +91,7 @@ namespace AWSPowerShellGenerator.Generators
                                     WriteSyntax(psHelpWriter, cmdletName, allProperties);
                                     WriteParameters(psHelpWriter, cmdletName, allProperties);
                                     WriteReturnValues(psHelpWriter, AWSCmdletOutputAttributes);
-                                    WriteRelatedLinks(psHelpWriter);
+                                    WriteRelatedLinks(psHelpWriter, cmdletName);
                                     WriteExamples(psHelpWriter, cmdletName);
                                 }
                                 psHelpWriter.WriteEndElement();
@@ -281,13 +281,17 @@ namespace AWSPowerShellGenerator.Generators
             writer.WriteEndElement();
         }
 
-        private static void WriteRelatedLinks(XmlTextWriter writer)
+        private static void WriteRelatedLinks(XmlTextWriter writer, string cmdletName)
         {
+            var webrefLink 
+                = string.Format("http://docs.aws.amazon.com/powershell/latest/reference/Index.html?page={0}.html&tocid={0}", 
+                                cmdletName);
+
             writer.WriteStartElement("relatedLinks");
             writer.WriteStartElement("navigationLink");
             {
                 writer.WriteElementString("linkText", "Online version:");
-                writer.WriteElementString("uri", @"http://docs.aws.amazon.com/powershell/latest/reference/Index.html");
+                writer.WriteElementString("uri", webrefLink);
             }
             writer.WriteEndElement();
             writer.WriteEndElement();
