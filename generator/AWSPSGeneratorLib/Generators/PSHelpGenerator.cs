@@ -91,7 +91,7 @@ namespace AWSPowerShellGenerator.Generators
                                     WriteSyntax(psHelpWriter, cmdletName, allProperties);
                                     WriteParameters(psHelpWriter, cmdletName, allProperties);
                                     WriteReturnValues(psHelpWriter, AWSCmdletOutputAttributes);
-                                    WriteRelatedLinks(psHelpWriter, cmdletName);
+                                    WriteRelatedLinks(psHelpWriter, serviceAbbreviation, cmdletName);
                                     WriteExamples(psHelpWriter, cmdletName);
                                 }
                                 psHelpWriter.WriteEndElement();
@@ -281,19 +281,66 @@ namespace AWSPowerShellGenerator.Generators
             writer.WriteEndElement();
         }
 
-        private static void WriteRelatedLinks(XmlTextWriter writer, string cmdletName)
+        private void WriteRelatedLinks(XmlTextWriter writer, string serviceAbbreviation, string cmdletName)
         {
             var webrefLink 
-                = string.Format("http://docs.aws.amazon.com/powershell/latest/reference/Index.html?page={0}.html&tocid={0}", 
+                = string.Format("{0}/Index.html?page={1}.html&tocid={1}",
+                                WebApiReferenceBaseUrl,
                                 cmdletName);
 
             writer.WriteStartElement("relatedLinks");
+
+            // first link must always be to the online version so get-help -online works
+            WriteRelatedHelpNavigationLink(writer, "Online version:", webrefLink);
+
+            WriteRelatedHelpNavigationLink(writer,
+                                            "Common credential and region parameters: ",
+                                            string.Format("{0}/items/pstoolsref-commonparams.html", WebApiReferenceBaseUrl));
+
+            // finish with any service api reference/user guide links
+            XmlDocument document;
+            if (LinksCache.TryGetValue(serviceAbbreviation, out document))
+            {
+                ConstructLinks(writer, document, "*");
+                ConstructLinks(writer, document, cmdletName);
+            }
+
+            writer.WriteEndElement();
+        }
+
+        public void ConstructLinks(XmlTextWriter writer, XmlDocument document, string target)
+        {
+            var links = GetRelatedLinks(document, target);
+            if (links != null)
+            {
+                foreach (XmlNode link in links)
+                {
+                    string displayname = null;
+                    try { displayname = link.Attributes["name"].InnerText; } catch { }
+
+                    if (string.IsNullOrEmpty(displayname) || string.IsNullOrEmpty(link.InnerText))
+                    {
+                        Logger.LogError("Malformed link {0}, skipping" + link.OuterXml.ToString());
+                    }
+
+                    WriteRelatedHelpNavigationLink(writer, displayname + ":", link.InnerText);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Emits a single navigation link to the help. 
+        /// </summary>
+        /// <param name="writer"></param>
+        /// <param name="linkText">The 'display' text for the link</param>
+        /// <param name="linkUri">The uri, if relevant</param>
+        private static void WriteRelatedHelpNavigationLink(XmlTextWriter writer, string linkText, string linkUri)
+        {
             writer.WriteStartElement("navigationLink");
             {
-                writer.WriteElementString("linkText", "Online version:");
-                writer.WriteElementString("uri", webrefLink);
+                writer.WriteElementString("linkText", linkText);
+                writer.WriteElementString("uri", string.IsNullOrEmpty(linkUri) ? string.Empty : linkUri);
             }
-            writer.WriteEndElement();
             writer.WriteEndElement();
         }
 

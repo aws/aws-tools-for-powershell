@@ -383,40 +383,24 @@ namespace AWSPowerShellGenerator.Generators
 
         public void ConstructLinks(StringBuilder sb, XmlDocument document, string target)
         {
-            var xpath = string.Format("links/set[@target='{0}']", target);
-            var set = document.SelectSingleNode(xpath);
-            if (set == null)
+            var links = GetRelatedLinks(document, target);
+            if (links != null)
             {
-                Console.WriteLine("Unable to find related links for target {0} in service {1}, probed xpath {2}", target, document.Name, xpath);
-                return;
-            }
-
-            // to allow easier management over time of the link files, filter out sets who don't yet have
-            // content but are present simply as templates, that way we don't need to comment out sections
-            // of the file
-            var firstLink = set.FirstChild;
-            if (firstLink == null || string.IsNullOrEmpty(firstLink.InnerText))
-            {
-                Console.WriteLine("Skipping empty link set for target {0} in {1}", target, document.Name);
-                return;
-            }
-
-
-            var links = set.SelectNodes("link");
-            foreach (XmlNode link in links)
-            {
-
-                string displayname = null;
-                try { displayname = link.Attributes["name"].InnerText; } catch {}
-
-                if (string.IsNullOrEmpty(displayname) || string.IsNullOrEmpty(link.InnerText))
+                foreach (XmlNode link in links)
                 {
-                    Logger.LogError("Malformed link {0}, skipping" + link.OuterXml.ToString());
-                }
 
-                sb.Append("<div class=\"relatedLink\">");
-                sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", displayname, link.InnerText);
-                sb.Append("</div>");
+                    string displayname = null;
+                    try { displayname = link.Attributes["name"].InnerText; } catch { }
+
+                    if (string.IsNullOrEmpty(displayname) || string.IsNullOrEmpty(link.InnerText))
+                    {
+                        Logger.LogError("Malformed link {0}, skipping" + link.OuterXml.ToString());
+                    }
+
+                    sb.Append("<div class=\"relatedLink\">");
+                    sb.AppendFormat("<a href=\"{1}\" target=_blank>{0}</a>", displayname, link.InnerText);
+                    sb.Append("</div>");
+                }
             }
         }
 

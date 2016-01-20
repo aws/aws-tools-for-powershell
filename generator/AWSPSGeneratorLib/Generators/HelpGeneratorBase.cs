@@ -22,6 +22,8 @@ namespace AWSPowerShellGenerator.Generators
 
         #endregion
 
+        public const string WebApiReferenceBaseUrl = "http://docs.aws.amazon.com/powershell/latest/reference";
+
         protected List<Type> CmdletTypes;
 
         // keyed by cmdlet name
@@ -130,6 +132,30 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             Console.WriteLine();
+        }
+
+        protected XmlNodeList GetRelatedLinks(XmlDocument document, string target)
+        {
+            var xpath = string.Format("links/set[@target='{0}']", target);
+            var set = document.SelectSingleNode(xpath);
+            if (set == null)
+            {
+                Console.WriteLine("Unable to find related links for target {0} in service {1}, probed xpath {2}", target, document.Name, xpath);
+                return null;
+            }
+
+            // to allow easier management over time of the link files, filter out sets who don't yet have
+            // content but are present simply as templates, that way we don't need to comment out sections
+            // of the file
+            var firstLink = set.FirstChild;
+            if (firstLink == null || string.IsNullOrEmpty(firstLink.InnerText))
+            {
+                Console.WriteLine("Skipping empty link set for target {0} in {1}", target, document.Name);
+                return null;
+            }
+
+
+            return set.SelectNodes("link");
         }
 
         private const string namespacePrefix = "Amazon.PowerShell.Cmdlets.";
