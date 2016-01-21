@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>A list of <code>Parameter</code> structures that specify input parameters for the
-        /// stack.</para>
+        /// stack. For more information, see the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a>
+        /// data type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -142,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The name that is associated with the stack. The name must be unique in the region
         /// in which you are creating the stack.</para><note>A stack name can contain only alphanumeric characters (case sensitive) and
-        /// hyphens. It must start with an alphabetic character and cannot be longer than 255
+        /// hyphens. It must start with an alphabetic character and cannot be longer than 128
         /// characters.</note>
         /// </para>
         /// </summary>
@@ -179,9 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of user-defined <code>Tags</code> to associate with this stack, represented
-        /// by key/value pairs. Tags defined for the stack are propagated to EC2 resources that
-        /// are created as part of the stack. A maximum number of 10 tags can be specified.</para>
+        /// <para>Key-value pairs to associate with this stack. AWS CloudFormation also propagates these
+        /// tags to the resources created in the stack. A maximum number of 10 tags can be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

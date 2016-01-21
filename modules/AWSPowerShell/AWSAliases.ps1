@@ -270,6 +270,7 @@ Set-Alias -Name ACM-RequestCertificate -Value New-ACMCertificate
 Set-Alias -Name ACM-ResendValidationEmail -Value Send-ACMValidationEmail
 Set-Alias -Name Cancel-CFNUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name CFN-CancelUpdateStack -Value Stop-CFNUpdateStack
+Set-Alias -Name CFN-ContinueUpdateRollback -Value Resume-CFNUpdateRollback
 Set-Alias -Name Create-CFNStack -Value New-CFNStack
 Set-Alias -Name CFN-CreateStack -Value New-CFNStack
 Set-Alias -Name Delete-CFNStack -Value Remove-CFNStack

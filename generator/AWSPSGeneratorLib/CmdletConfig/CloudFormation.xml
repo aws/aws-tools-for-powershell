@@ -38,6 +38,7 @@
         <Param Name="TimeoutInMinutes" AutoRename="false" />
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Output="Void" />    
     <ServiceOperation MethodName="DeleteStack" Output="Void"/>
     <ServiceOperation MethodName="DescribeAccountLimits"/>
     <ServiceOperation MethodName="DescribeStackEvents"/>

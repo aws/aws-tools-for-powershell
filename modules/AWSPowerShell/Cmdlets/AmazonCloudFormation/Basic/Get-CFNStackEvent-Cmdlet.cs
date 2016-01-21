@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>String that identifies the start of the next list of events, if there is one.</para><para>Default: There is no default value.</para>
+        /// <para>A string that identifies the next page of events that you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

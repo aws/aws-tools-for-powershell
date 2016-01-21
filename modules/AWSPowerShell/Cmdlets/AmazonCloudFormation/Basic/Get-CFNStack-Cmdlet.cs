@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// String that identifies the start of the next
-        /// list of stacks, if there is one.
+        /// <para>A string that identifies the next page of stacks that you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
