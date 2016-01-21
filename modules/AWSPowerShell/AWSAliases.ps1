@@ -260,6 +260,14 @@ Set-Alias -Name EB-RequestEnvironmentInfo -Value Request-EBEnvironmentInfo
 Set-Alias -Name EB-RestartAppServer -Value Restart-EBAppServer
 Set-Alias -Name Retrieve-EBEnvironmentInfo -Value Get-EBEnvironmentInfo
 Set-Alias -Name EB-RetrieveEnvironmentInfo -Value Get-EBEnvironmentInfo
+Set-Alias -Name Delete-ACMCertificate -Value Remove-ACMCertificate
+Set-Alias -Name ACM-DeleteCertificate -Value Remove-ACMCertificate
+Set-Alias -Name Describe-ACMCertificateDetail -Value Get-ACMCertificateDetail
+Set-Alias -Name ACM-DescribeCertificate -Value Get-ACMCertificateDetail
+Set-Alias -Name ACM-GetCertificate -Value Get-ACMCertificate
+Set-Alias -Name ACM-ListCertificates -Value Get-ACMCertificateList
+Set-Alias -Name ACM-RequestCertificate -Value New-ACMCertificate
+Set-Alias -Name ACM-ResendValidationEmail -Value Send-ACMValidationEmail
 Set-Alias -Name Cancel-CFNUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name CFN-CancelUpdateStack -Value Stop-CFNUpdateStack
 Set-Alias -Name Create-CFNStack -Value New-CFNStack

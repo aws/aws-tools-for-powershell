@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+    <example>
+        <code>
+PS C:\> New-ACMCertificate -DomainName "www.example.com"
+arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
+        </code>
+        <description>Creates a new certificate. The service returns the ARN of the new certificate.</description>
+    </example>
+    <example>
+        <code>
+PS C:\> New-ACMCertificate -DomainName "www.example.com" -SubjectAlternativeName "example.com","www.example.net"
+arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
+        </code>
+        <description>Creates a new certificate. The service returns the ARN of the new certificate.</description>
+    </example>
+</examples>

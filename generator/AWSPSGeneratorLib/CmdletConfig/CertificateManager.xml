@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ACM</ServiceNounPrefix>
+  <ServiceName>AWS Certificate Manager</ServiceName>
+  <ServiceClientInterface>IAmazonCertificateManager</ServiceClientInterface>
+  <ServiceClient>AmazonCertificateManagerClient</ServiceClient>
+  <ServiceNamespace>Amazon.CertificateManager</ServiceNamespace>
+
+  <AutoIterate Start="NextToken" EmitLimit="MaxItems" Next="NextToken" />
+
+  <PipelineParameter>CertificateArn</PipelineParameter>
+
+  <PipelineByValueProperties>
+    <Property>CertificateArn</Property>
+    <Property>DomainName</Property>
+  </PipelineByValueProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="DeleteCertificate" Output="Void" />
+    <ServiceOperation MethodName="DescribeCertificate" Noun="CertificateDetail" />
+    <ServiceOperation MethodName="GetCertificate" Output="Response" />
+    <ServiceOperation MethodName="ListCertificates" Verb="Get" Noun="CertificateList" />
+    <ServiceOperation MethodName="RequestCertificate" Verb="New" NoPipelineParameter="true" ShouldProcessTarget="DomainName" />
+    <ServiceOperation MethodName="ResendValidationEmail" Verb="Send" Output="Void" />
+  </ServiceOperations>
+
+</ConfigModel>

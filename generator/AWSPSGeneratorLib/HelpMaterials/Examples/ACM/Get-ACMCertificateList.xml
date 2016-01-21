@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Get-ACMCertificateList
+
+CertificateArn                                                                      DomainName
+--------------                                                                      ----------
+arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012 www.example.com
+    </code>
+    <description>Retrieves a list of all your certificate ARNs and the domain name for each. The cmdlet will automatically paginate to retrieve all the ARNs. To manually control pagination, use the -MaxItem parameter to control how many certificate ARNs are returned for each service call and the -NextToken parameter to indicate the starting point for each call.</description>
+  </example>
+  <example>
+    <code>Get-ACMCertificateList -CertificateStatus "VALIDATION_TIMED_OUT","FAILED"</code>
+    <description>Retrieves a list of all your certificate ARNs where the certificate status matches on the supplied states.</description>
+  </example>
+</examples>

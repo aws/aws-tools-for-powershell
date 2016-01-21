@@ -55,6 +55,7 @@ RequiredAssemblies = @(
   "AWSSDK.AutoScaling.dll",
   "AWSSDK.AWSMarketplaceCommerceAnalytics.dll",
   "AWSSDK.AWSSupport.dll",
+  "AWSSDK.CertificateManager.dll",
   "AWSSDK.CloudFormation.dll",
   "AWSSDK.CloudFront.dll",
   "AWSSDK.CloudHSM.dll",
