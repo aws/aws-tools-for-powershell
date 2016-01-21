@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A token used to retrieve the next value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

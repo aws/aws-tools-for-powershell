@@ -28,53 +28,31 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Updates the status of the specified certificate. This operation is idempotent.
-    /// 
-    ///  
-    /// <para>
-    /// Moving a cert from the ACTIVE state (including REVOKED) will NOT disconnect currently-connected
-    /// devices, although these devices will be unable to reconnect.
-    /// </para><para>
-    /// The ACTIVE state is required to authenticate devices connecting to AWS IoT using a
-    /// certificate.
-    /// </para>
+    /// Disables the specified rule
     /// </summary>
-    [Cmdlet("Update", "IOTCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Disable", "IOTTopicRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateCertificate operation against AWS IoT.", Operation = new[] {"UpdateCertificate"})]
+    [AWSCmdlet("Invokes the DisableTopicRule operation against AWS IoT.", Operation = new[] {"DisableTopicRule"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.IoT.Model.UpdateCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IoT.Model.DisableTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public class UpdateIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public class DisableIOTTopicRuleCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter CertificateId
+        #region Parameter RuleName
         /// <summary>
         /// <para>
-        /// <para>The ID of the certificate.</para>
+        /// <para>The name of the rule to disable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String CertificateId { get; set; }
-        #endregion
-        
-        #region Parameter NewStatus
-        /// <summary>
-        /// <para>
-        /// <para>The new status.</para><para>Note: setting the status to PENDING_TRANSFER will result in an exception being thrown.
-        /// PENDING_TRANSFER is a status used internally by AWS IoT and is not meant to be used
-        /// by developers.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.IoT.CertificateStatus")]
-        public Amazon.IoT.CertificateStatus NewStatus { get; set; }
+        public System.String RuleName { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the CertificateId parameter.
+        /// Returns the value passed to the RuleName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTCertificate (UpdateCertificate)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RuleName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-IOTTopicRule (DisableTopicRule)"))
             {
                 return;
             }
@@ -107,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 Credentials = this.CurrentCredentials
             };
             
-            context.CertificateId = this.CertificateId;
-            context.NewStatus = this.NewStatus;
+            context.RuleName = this.RuleName;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -120,15 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.UpdateCertificateRequest();
+            var request = new Amazon.IoT.Model.DisableTopicRuleRequest();
             
-            if (cmdletContext.CertificateId != null)
+            if (cmdletContext.RuleName != null)
             {
-                request.CertificateId = cmdletContext.CertificateId;
-            }
-            if (cmdletContext.NewStatus != null)
-            {
-                request.NewStatus = cmdletContext.NewStatus;
+                request.RuleName = cmdletContext.RuleName;
             }
             
             CmdletOutput output;
@@ -137,11 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = client.UpdateCertificate(request);
+                var response = client.DisableTopicRule(request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.CertificateId;
+                    pipelineOutput = this.RuleName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -167,8 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CertificateId { get; set; }
-            public Amazon.IoT.CertificateStatus NewStatus { get; set; }
+            public System.String RuleName { get; set; }
         }
         
     }

@@ -1675,6 +1675,8 @@ Set-Alias -Name List-INSAttachedAssessment -Value Get-INSAttachedAssessment
 Set-Alias -Name INS-ListAttachedAssessments -Value Get-INSAttachedAssessment
 Set-Alias -Name List-INSAttachedRulesPackage -Value Get-INSAttachedRulesPackage
 Set-Alias -Name INS-ListAttachedRulesPackages -Value Get-INSAttachedRulesPackage
+Set-Alias -Name IOT-GetLoggingOptions -Value Get-IOTLoggingOptions
+Set-Alias -Name IOT-GetPolicy -Value Get-IOTPolicy
 Set-Alias -Name IOT-GetPolicyVersion -Value Get-IOTPolicyVersion
 Set-Alias -Name IOT-GetTopicRule -Value Get-IOTTopicRule
 Set-Alias -Name IOT-ListCertificates -Value Get-IOTCertificateList
@@ -1727,8 +1729,8 @@ Set-Alias -Name Describe-IOTThing -Value Get-IOTThing
 Set-Alias -Name IOT-DescribeThing -Value Get-IOTThing
 Set-Alias -Name IOT-DetachPrincipalPolicy -Value Remove-IOTPrincipalPolicy
 Set-Alias -Name IOT-DetachThingPrincipal -Value Remove-IOTThingPrincipal
-Set-Alias -Name IOT-GetLoggingOptions -Value Get-IOTLoggingOptions
-Set-Alias -Name IOT-GetPolicy -Value Get-IOTPolicy
+Set-Alias -Name IOT-DisableTopicRule -Value Disable-IOTTopicRule
+Set-Alias -Name IOT-EnableTopicRule -Value Enable-IOTTopicRule
 Set-Alias -Name KIN-AddTagsToStream -Value Add-KINTagsToStream
 Set-Alias -Name Create-KINStream -Value New-KINStream
 Set-Alias -Name KIN-CreateStream -Value New-KINStream

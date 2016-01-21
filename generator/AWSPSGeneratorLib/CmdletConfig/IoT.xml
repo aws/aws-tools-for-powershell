@@ -76,7 +76,11 @@
     <ServiceOperation MethodName="GetPolicyVersion"
         PipelineParameter="PolicyName"
         Output="Response"/>
-    <ServiceOperation MethodName="GetTopicRule" />
+
+    <ServiceOperation MethodName="GetTopicRule" Output="Response" />
+    <ServiceOperation MethodName="EnableTopicRule" Output="Void" />
+    <ServiceOperation MethodName="DisableTopicRule" Output="Void" />
+
     <ServiceOperation MethodName="ListCertificates"
                       Verb="Get"
                       Noun="CertificateList"
