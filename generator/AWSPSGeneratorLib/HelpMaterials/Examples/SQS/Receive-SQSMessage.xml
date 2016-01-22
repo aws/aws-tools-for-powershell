@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Receive-SQSMessage -AttributeName SenderId, SentTimestamp -MessageAttributeName StudentName, StudentGrade -MessageCount 10 -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+
+Attributes             : {[SenderId, AIDAIAZKMSNQ7TEXAMPLE], [SentTimestamp, 1451495923744]}
+Body                   : Information about John Doe's grade.
+MD5OfBody              : ea572796e3c231f974fe75d89EXAMPLE
+MD5OfMessageAttributes : 48c1ee811f0fe7c4e88fbe0f5EXAMPLE
+MessageAttributes      : {[StudentGrade, Amazon.SQS.Model.MessageAttributeValue], [StudentName, Amazon.SQS.Model.MessageAttributeValue]}
+MessageId              : 53828c4b-631b-469b-8833-c093cEXAMPLE
+ReceiptHandle          : AQEBpfGp...20Q5cg==</code>
+    <description>This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.</description>
+  </example>
+</examples>
