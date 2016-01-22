@@ -284,7 +284,7 @@ namespace AWSPowerShellGenerator.Generators
         private void WriteRelatedLinks(XmlTextWriter writer, string serviceAbbreviation, string cmdletName)
         {
             var webrefLink 
-                = string.Format("{0}/Index.html?page={1}.html&tocid={1}",
+                = string.Format("{0}/index.html?page={1}.html&tocid={1}",
                                 WebApiReferenceBaseUrl,
                                 cmdletName);
 

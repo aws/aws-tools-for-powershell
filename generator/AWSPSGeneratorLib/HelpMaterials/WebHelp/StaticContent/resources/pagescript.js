@@ -50,7 +50,7 @@
         var queryString = "?page=" + page + "&tocid=" + tocid;
 
         var pos = window.location.href.lastIndexOf('/items/');
-        var baseUrl = window.location.href.substr(0, pos) + '/Index.html' + queryString;
+        var baseUrl = window.location.href.substr(0, pos) + '/index.html' + queryString;
 
         prompt('Copy this URL to use to navigate to this page', baseUrl);
     },

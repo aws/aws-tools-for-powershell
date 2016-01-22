@@ -17,7 +17,7 @@ namespace AWSPowerShellGenerator.Generators
 
         #region Public properties
 
-        // the root path of the AWS .Net sdk docs; eg http://docs.aws.amazon.com/sdkfornet/latest/apidocs
+        // the root path of the AWS .Net sdk docs; eg http://docs.aws.amazon.com/sdkfornet/v3/apidocs
         public string SDKHelpRoot { get; set; }
 
         // the root path of the docs domain for cn-north-1 region
@@ -52,7 +52,7 @@ namespace AWSPowerShellGenerator.Generators
             base.GenerateHelper();
 
             if (string.IsNullOrEmpty(SDKHelpRoot))
-                SDKHelpRoot = "http://docs.aws.amazon.com/sdkfornet/latest/apidocs/";
+                SDKHelpRoot = "http://docs.aws.amazon.com/sdkfornet/v3/apidocs/";
             else if (!SDKHelpRoot.EndsWith("/"))
                 SDKHelpRoot = SDKHelpRoot + "/";
 
@@ -421,10 +421,19 @@ namespace AWSPowerShellGenerator.Generators
                 if (t.StartsWith("Amazon.", StringComparison.Ordinal))
                 {
                     // generate the old 'full' namepath and then shrink it down in the same way
-                    // as the sdk to avoid filepath limitations. SDK 'long' pattern is 
-                    // string.Format("T_{0}_{1}_{2}", type.Namespace, type.Name, version.ShortName)) + ".html";
-                    var sdkTypePagePath = string.Format("T_{0}_NET3_5", t);
-                    return string.Format("{0}items/{1}.html", SDKHelpRoot, ShrinkSdkLongFilepath(sdkTypePagePath));
+                    // as the sdk to avoid filepath limitations. Example SDK path:
+                    // http://docs.aws.amazon.com/sdkfornet/v3/apidocs/index.html?page=EC2/TEC2ScheduledInstance.html&tocid=Amazon_EC2_Model_ScheduledInstance
+                    // Note how the pages are arranged beneath an extra folder
+                    var nameComponents = t.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                    var serviceName = nameComponents[1];
+                    var tName = nameComponents[nameComponents.Length - 1];
+                     
+                    var sdkTypePagePath = string.Format("T{0}{1}", serviceName, tName);
+                    return string.Format("{0}index.html?page={1}/{2}.html&tocid={3}", 
+                                         SDKHelpRoot, 
+                                         serviceName,
+                                         ShrinkSdkLongFilepath(sdkTypePagePath),
+                                         t.Replace('.', '_'));
                 }
 
                 // 'spot' some common types we see in external apis
@@ -439,9 +448,8 @@ namespace AWSPowerShellGenerator.Generators
         // docs from one tool
         private static string ShrinkSdkLongFilepath(string name)
         {
-            var fixedUpName = name.Replace('.', '_').Replace('<', '_').Replace('>', '_');
+            var fixedUpName = name.Replace(".", "").Replace("<", "").Replace(">", "");
             fixedUpName = fixedUpName.Replace("Amazon", "");
-            fixedUpName = fixedUpName.Replace("__", "");
             fixedUpName = fixedUpName.Replace("_Model_", "");
             fixedUpName = fixedUpName.Replace("_Begin", "");
             fixedUpName = fixedUpName.Replace("_End", "");
@@ -451,6 +459,7 @@ namespace AWSPowerShellGenerator.Generators
             fixedUpName = fixedUpName.Replace("ElasticMapReduce", "EMR");
             fixedUpName = fixedUpName.Replace("ElasticTranscoder", "ETS");
             fixedUpName = fixedUpName.Replace("SimpleNotificationService", "SNS");
+            fixedUpName = fixedUpName.Replace("_", "");
 
             if (fixedUpName.Length > MAX_FILE_SIZE)
             {
