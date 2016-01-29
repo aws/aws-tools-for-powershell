@@ -52,6 +52,12 @@
     <ServiceOperation MethodName="GetChangeToken" />
     <ServiceOperation MethodName="GetChangeTokenStatus" />
     <ServiceOperation MethodName="GetSampledRequests" Noun="SampledRequestList" Output="Response" PipelineParameter="WebACLId" />
+
+    <ServiceOperation MethodName="ListSizeConstraintSets" Noun="SizeConstraintSetList" />
+    <ServiceOperation MethodName="UpdateSizeConstraintSet" PipelineParameter="ChangeToken" ShouldProcessTarget="SizeConstraintSetId" />    
+    <ServiceOperation MethodName="CreateSizeConstraintSet" PipelineParameter="ChangeToken" Output="Response" ShouldProcessTarget="Name"/>    
+    <ServiceOperation MethodName="DeleteSizeConstraintSet" PipelineParameter="ChangeToken" ShouldProcessTarget="SizeConstraintSetId" />    
+    <ServiceOperation MethodName="GetSizeConstraintSet" />    
   </ServiceOperations>
   
 </ConfigModel>

@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>An array of updates to make to the <a>WebACL</a>.</para><para>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete
-        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></li><li><a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>,
-        /// and <code>RuleId</code></li><li><a>WafAction</a>: Contains <code>Type</code></li></ul>
+        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></li><li><a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, and
+        /// <code>RuleId</code></li><li><a>WafAction</a>: Contains <code>Type</code></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
