@@ -161,6 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext == null)
                 throw new InvalidOperationException();
 
+            // Instantiate the client early so that any proxy settings configured via Set-AWSProxy will
+            // be picked up and available when the SDK downloads the key->filter metadata content for those 
+            // customers that use a mandated and authenticated proxy.
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+
             CmdletOutput output = null;
 
             if (cmdletContext.Names == null || cmdletContext.Names.Length == 0)
@@ -242,9 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 if (patterns.Count > 1 || customPatternUsed)
                     cmdletContext.OutputAllAvailable = true;
 
-                // decided to not use the helper inside Amazon.EC2.Util.ImageUtilities to do this, so I can capture
-                // the service request/response to the history stack and allow us to pass in multiple filter names
-                var client = Client ?? CreateClient(context.Credentials, context.Region);
+                // Decided to not use the helper inside Amazon.EC2.Util.ImageUtilities to do this, so I can capture
+                // the service request/response to the history stack and allow us to pass in multiple filter names.
                 var request = new DescribeImagesRequest
                 {
                     Owners = new List<string> {"amazon"},
@@ -282,17 +286,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             return output;
         }
 
-        static ImageUtilities.ImageDescriptor LookupDescriptorByKey(string key)
+        ImageUtilities.ImageDescriptor LookupDescriptorByKey(string key)
         {
-            return ImageUtilities.DescriptorFromKey(key);
+            return ImageUtilities.DescriptorFromKey(key, Client);
         }
 
-        static ImageUtilities.ImageDescriptor LookupDescriptorByName(string name)
+        ImageUtilities.ImageDescriptor LookupDescriptorByName(string name)
         {
             var keys = ImageUtilities.ImageKeys;
             foreach (var k in keys)
             {
-                var descriptor = ImageUtilities.DescriptorFromKey(k);
+                var descriptor = ImageUtilities.DescriptorFromKey(k, Client);
                 if (descriptor.NamePrefix.Equals(name, StringComparison.OrdinalIgnoreCase))
                     return descriptor;
             }
