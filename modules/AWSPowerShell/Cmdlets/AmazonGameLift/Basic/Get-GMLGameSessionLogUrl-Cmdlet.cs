@@ -1,0 +1,129 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.GameLift;
+using Amazon.GameLift.Model;
+
+namespace Amazon.PowerShell.Cmdlets.GML
+{
+    /// <summary>
+    /// Retrieves the location of stored game session logs for a specified game session. When
+    /// a game session is terminated, Amazon GameLift automatically stores the logs in Amazon
+    /// S3. Use this URL to download the logs.
+    /// 
+    ///  <note><para>
+    /// See the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
+    /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
+    /// are not saved.
+    /// </para></note>
+    /// </summary>
+    [Cmdlet("Get", "GMLGameSessionLogUrl")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the GetGameSessionLogUrl operation against Amazon GameLift Service.", Operation = new[] {"GetGameSessionLogUrl"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    {
+        
+        #region Parameter GameSessionId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier for a game session. Specify the game session you want to get logs
+        /// for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String GameSessionId { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            context.GameSessionId = this.GameSessionId;
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.GameLift.Model.GetGameSessionLogUrlRequest();
+            
+            if (cmdletContext.GameSessionId != null)
+            {
+                request.GameSessionId = cmdletContext.GameSessionId;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = client.GetGameSessionLogUrl(request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.PreSignedUrl;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        
+        internal class CmdletContext : ExecutorContext
+        {
+            public System.String GameSessionId { get; set; }
+        }
+        
+    }
+}

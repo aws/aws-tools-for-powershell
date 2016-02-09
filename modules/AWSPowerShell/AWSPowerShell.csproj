@@ -144,6 +144,9 @@
     <Reference Include="AWSSDK.ElasticTranscoder">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.ElasticTranscoder.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GameLift">
+      <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.GameLift.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>..\..\Include\sdk\assemblies\net35\AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>

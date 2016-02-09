@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <ServiceNounPrefix>GML</ServiceNounPrefix>
+  <ServiceName>Amazon GameLift Service</ServiceName>
+  <ServiceNamespace>Amazon.GameLift</ServiceNamespace>
+  <ServiceClientInterface>IAmazonGameLift</ServiceClientInterface>
+  <ServiceClient>AmazonGameLiftClient</ServiceClient>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
+
+  <VerbMappings>
+    <Map From="List" To="Get"/>
+  </VerbMappings>
+
+  <PipelineParameter>BuildId</PipelineParameter>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateAlias" ShouldProcessTarget="Name"/>
+    <ServiceOperation MethodName="CreateBuild" Output="Response"/>
+    <ServiceOperation MethodName="CreateFleet" ShouldProcessTarget="Name" />
+    <ServiceOperation MethodName="CreateGameSession" ShouldProcessTarget="Name"/>
+    <ServiceOperation MethodName="CreatePlayerSessions"
+                      PipelineParameter="GameSessionId"
+                      Noun="PlayerSession"/>
+    <ServiceOperation MethodName="DeleteAlias" Output="Void"/>
+    <ServiceOperation MethodName="DeleteBuild" Output="Void"/>
+    <ServiceOperation MethodName="DeleteFleet" Output="Void"/>
+    <ServiceOperation MethodName="DescribeAlias" Noun="AliasDetail"/>
+    <ServiceOperation MethodName="DescribeBuild" Noun="BuildDetail"/>
+    <ServiceOperation MethodName="DescribeEC2InstanceLimits" Noun="EC2InstanceLimit"/>
+    <ServiceOperation MethodName="DescribeFleetAttributes" Noun="FleetAttribute"/>
+    <ServiceOperation MethodName="DescribeFleetCapacity"/>
+    <ServiceOperation MethodName="DescribeFleetEvents" Noun="FleetEvent"/>
+    <ServiceOperation MethodName="DescribeFleetPortSettings" Noun="FleetPortSetting"/>
+    <ServiceOperation MethodName="DescribeFleetUtilization"/>
+    <ServiceOperation MethodName="DescribeGameSessions" Noun="GameSession"/>
+    <ServiceOperation MethodName="DescribePlayerSessions" Noun="PlayerSession"/>
+    <ServiceOperation MethodName="GetGameSessionLogUrl"/>
+    <ServiceOperation MethodName="ListAliases" Noun="Alias"/>
+    <ServiceOperation MethodName="ListBuilds" Noun="Build"/>
+    <ServiceOperation MethodName="ListFleets" Noun="Fleet"/>
+    <ServiceOperation MethodName="RequestUploadCredentials" Output="Response" Noun="UploadCredential" />
+    <ServiceOperation MethodName="ResolveAlias"/>
+    <ServiceOperation MethodName="UpdateAlias" ShouldProcessTarget="AliasId"/>
+    <ServiceOperation MethodName="UpdateBuild" ShouldProcessTarget="BuildId"/>
+    <ServiceOperation MethodName="UpdateFleetAttributes" ShouldProcessTarget="FleetId" Noun="FleetAttribute"/>
+    <ServiceOperation MethodName="UpdateFleetCapacity" />
+    <ServiceOperation MethodName="UpdateFleetPortSettings" Noun="FleetPortSetting"/>
+    <ServiceOperation MethodName="UpdateGameSession" ShouldProcessTarget="GameSessionId"/>
+
+    <!-- NEWP! -->
+    <ServiceOperation MethodName="CreatePlayerSession" ShouldProcessTarget="PlayerId" Exclude="true" />
+  </ServiceOperations>
+
+  <PipelineByValueProperties>
+    <Property>BuildId</Property>
+    <Property>AliasId</Property>
+    <Property>GameSessionId</Property>
+    <Property>PlayerId</Property>
+  </PipelineByValueProperties>
+
+</ConfigModel>
