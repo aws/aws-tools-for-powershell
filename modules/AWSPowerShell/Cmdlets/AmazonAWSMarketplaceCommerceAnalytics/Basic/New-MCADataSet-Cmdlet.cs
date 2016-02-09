@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     /// If a file with the same name already exists (e.g. if the same data set is requested
     /// twice), the original file will be overwritten by the new file. Requires a Role with
     /// an attached permissions policy providing Allow permissions for the following actions:
-    /// s3:PutObject, s3:getBucketLocation, sns:SetRegion, sns:ListTopics, sns:Publish, iam:GetRolePolicy.
+    /// s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
     /// </summary>
     [Cmdlet("New", "MCADataSet")]
     [OutputType("System.String")]
@@ -48,10 +48,28 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     public class NewMCADataSetCmdlet : AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet, IExecutor
     {
         
+        #region Parameter CustomerDefinedValue
+        /// <summary>
+        /// <para>
+        /// (Optional) Key-value pairs which
+        /// will be returned, unmodified, in the Amazon SNS notification message and the data
+        /// set metadata file. These key-value pairs can be used to correlated responses with
+        /// tracking information from other systems.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CustomerDefinedValues")]
+        public System.Collections.Hashtable CustomerDefinedValue { get; set; }
+        #endregion
+        
         #region Parameter DataSetPublicationDate
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The date a data set was published.
+        /// For daily data sets, provide a date with day-level granularity for the desired day.
+        /// For weekly data sets, provide a date with day-level granularity within the desired
+        /// week (the day value will be ignored). For monthly data sets, provide a date with month-level
+        /// granularity for the desired month (the day value will be ignored).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,7 +79,24 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         #region Parameter DataSetType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The desired data set type.</para><para><ul><li><i>customer_subscriber_hourly_monthly_subscriptions</i> - Available daily
+        /// by 5:00 PM Pacific Time since 2014-07-21.</li><li><i>customer_subscriber_annual_subscriptions</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2014-07-21.</li><li><i>daily_business_usage_by_instance_type</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_fees</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_free_trial_conversions</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_new_instances</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_new_product_subscribers</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_canceled_product_subscribers</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>monthly_revenue_billing_and_revenue_data</i>
+        /// - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.</li><li><i>monthly_revenue_annual_subscriptions</i> - Available monthly on the 4th day
+        /// of the month by 5:00 PM Pacific Time since 2015-02.</li><li><i>disbursed_amount_by_product</i>
+        /// - Available every 30 days by 5:00 PM Pacific Time since 2012-04.</li><li><i>disbursed_amount_by_customer_geo</i>
+        /// - Available every 30 days by 5:00 PM Pacific Time since 2012-04.</li><li><i>disbursed_amount_by_age_of_uncollected_funds</i>
+        /// - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>disbursed_amount_by_age_of_disbursed_funds</i>
+        /// - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>customer_profile_by_industry</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>customer_profile_by_revenue</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li><li><i>customer_profile_by_geography</i>
+        /// - Available daily by 5:00 PM Pacific Time since 2015-10-01.</li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         #region Parameter DestinationS3BucketName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The name (friendly name, not ARN)
+        /// of the destination S3 bucket.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -82,7 +118,12 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         #region Parameter DestinationS3Prefix
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// (Optional) The desired S3 prefix for
+        /// the published data set, similar to a directory path in standard file systems. For
+        /// example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets",
+        /// the output file "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
+        /// If the prefix directory structure does not exist, it will be created. If no prefix
+        /// is provided, the data set will be published to the S3 bucket root.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         #region Parameter RoleNameArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The Amazon Resource Name (ARN) of the Role
+        /// with an attached permissions policy to interact with the provided AWS services.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -102,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// Amazon Resource Name (ARN) for the SNS Topic
+        /// that will be notified when the data set has been published or if an error has occurred.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -119,6 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.MCA
                 Credentials = this.CurrentCredentials
             };
             
+            if (this.CustomerDefinedValue != null)
+            {
+                context.CustomerDefinedValues = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CustomerDefinedValue.Keys)
+                {
+                    context.CustomerDefinedValues.Add((String)hashKey, (String)(this.CustomerDefinedValue[hashKey]));
+                }
+            }
             if (ParameterWasBound("DataSetPublicationDate"))
                 context.DataSetPublicationDate = this.DataSetPublicationDate;
             context.DataSetType = this.DataSetType;
@@ -139,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.MCA
             // create request
             var request = new Amazon.AWSMarketplaceCommerceAnalytics.Model.GenerateDataSetRequest();
             
+            if (cmdletContext.CustomerDefinedValues != null)
+            {
+                request.CustomerDefinedValues = cmdletContext.CustomerDefinedValues;
+            }
             if (cmdletContext.DataSetPublicationDate != null)
             {
                 request.DataSetPublicationDate = cmdletContext.DataSetPublicationDate.Value;
@@ -198,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         internal class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> CustomerDefinedValues { get; set; }
             public System.DateTime? DataSetPublicationDate { get; set; }
             public Amazon.AWSMarketplaceCommerceAnalytics.DataSetType DataSetType { get; set; }
             public System.String DestinationS3BucketName { get; set; }
