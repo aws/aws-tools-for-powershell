@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Scope_ComplianceResourceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of only those AWS resources that you want AWS Config to evaluate against the
-        /// rule. If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>.</para>
+        /// <para>The IDs of the only AWS resource that you want to trigger an evaluation for the rule.
+        /// If you specify a resource ID, you must specify one resource type for <code>ComplianceResourceTypes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Scope_ComplianceResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource types of only those AWS resources that you want AWS Config to evaluate
-        /// against the rule. You can specify only one type if you also specify resource IDs for
+        /// <para>The resource types of only those AWS resources that you want to trigger an evaluation
+        /// for the rule. You can only specify one type if you also specify a resource ID for
         /// <code>ComplianceResourceId</code>.</para>
         /// </para>
         /// </summary>
@@ -213,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Scope_TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag key that is applied to only those AWS resources that you want AWS Config to
-        /// evaluate against the rule.</para>
+        /// <para>The tag key that is applied to only those AWS resources that you want you want to
+        /// trigger an evaluation for the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -225,9 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Scope_TagValue
         /// <summary>
         /// <para>
-        /// <para>The tag value applied to only those AWS resources that you want AWS Config to evaluate
-        /// against the rule. If you specify a value for <code>TagValue</code>, you must also
-        /// specify a value for <code>TagKey</code>.</para>
+        /// <para>The tag value applied to only those AWS resources that you want to trigger an evaluation
+        /// for the rule. If you specify a value for <code>TagValue</code>, you must also specify
+        /// a value for <code>TagKey</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

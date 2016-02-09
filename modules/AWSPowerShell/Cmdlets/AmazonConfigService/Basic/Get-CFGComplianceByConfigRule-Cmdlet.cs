@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// A rule is compliant if all of the evaluated resources comply with it, and it is noncompliant
     /// if any of these resources do not comply. 
     /// </para><para>
-    /// If AWS Config has no current evaluation results for the rule, it returns <code>InsufficientData</code>.
+    /// If AWS Config has no current evaluation results for the rule, it returns <code>INSUFFICIENT_DATA</code>.
     /// This result might indicate one of the following conditions: <ul><li>AWS Config has
     /// never invoked an evaluation for the rule. To check whether it has, use the <code>DescribeConfigRuleEvaluationStatus</code>
     /// action to get the <code>LastSuccessfulInvocationTime</code> and <code>LastFailedInvocationTime</code>.</li><li>The rule's AWS Lambda function is failing to send evaluation results to AWS Config.
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ComplianceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by compliance. The valid values are <code>Compliant</code> and
-        /// <code>NonCompliant</code>.</para>
+        /// <para>Filters the results by compliance.</para><para>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
