@@ -39,6 +39,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public class NewCFDistributionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        #region Parameter ViewerCertificate_ACMCertificateArn
+        /// <summary>
+        /// <para>
+        /// If you want viewers to use HTTPS to
+        /// request your objects and you're using an alternate domain name in your object URLs
+        /// (for example, https://example.com/logo.jpg), specify the ACM certificate ARN of the
+        /// custom viewer certificate for this distribution. Specify either this value, IAMCertificateId,
+        /// or CloudFrontDefaultCertificate.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfig_ViewerCertificate_ACMCertificateArn")]
+        public System.String ViewerCertificate_ACMCertificateArn { get; set; }
+        #endregion
+        
         #region Parameter Logging_Bucket
         /// <summary>
         /// <para>
@@ -72,10 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_Certificate
         /// <summary>
         /// <para>
-        /// If you want viewers to use HTTPS to request
-        /// your objects and you're using an alternate domain name in your object URLs (for example,
-        /// https://example.com/logo.jpg), you can use your own IAM or ACM certificate. For ACM,
-        /// set to the ACM certificate ARN. For IAM, set to the IAM certificate identifier.
+        /// Note: this field is deprecated. Please use
+        /// one of [ACMCertificateArn, IAMCertificateId, CloudFrontDefaultCertificate].
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,14 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_CertificateSource
         /// <summary>
         /// <para>
-        /// If you want viewers to use HTTPS to
-        /// request your objects and you're using the CloudFront domain name of your distribution
-        /// in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
-        /// set to "cloudfront". If you want viewers to use HTTPS to request your objects and
-        /// you're using an alternate domain name in your object URLs (for example, https://example.com/logo.jpg),
-        /// you can use your own IAM or ACM certificate. To use an ACM certificate, set to "acm"
-        /// and update the Certificate to the ACM certificate ARN. To use an IAM certificate,
-        /// set to "iam" and update the Certificate to the IAM certificate identifier.
+        /// Note: this field is deprecated. Please
+        /// use one of [ACMCertificateArn, IAMCertificateId, CloudFrontDefaultCertificate].
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,11 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_CloudFrontDefaultCertificate
         /// <summary>
         /// <para>
-        /// Note: this field is deprecated.
-        /// Please use "cloudfront" as CertificateSource and omit specifying a Certificate. If
-        /// you want viewers to use HTTPS to request your objects and you're using the CloudFront
-        /// domain name of your distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
-        /// set to true. Omit this value if you are setting an IAMCertificateId.
+        /// If you want viewers to use
+        /// HTTPS to request your objects and you're using the CloudFront domain name of your
+        /// distribution in your object URLs (for example, https://d111111abcdef8.cloudfront.net/logo.jpg),
+        /// set to true. Omit this value if you are setting an ACMCertificateArn or IAMCertificateId.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -243,12 +249,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
-        /// Note: this field is deprecated. Please
-        /// use "iam" as CertificateSource and specify the IAM certificate Id as the Certificate.
-        /// If you want viewers to use HTTPS to request your objects and you're using an alternate
-        /// domain name in your object URLs (for example, https://example.com/logo.jpg), specify
-        /// the IAM certificate identifier of the custom viewer certificate for this distribution.
-        /// Specify either this value or CloudFrontDefaultCertificate.
+        /// If you want viewers to use HTTPS to request
+        /// your objects and you're using an alternate domain name in your object URLs (for example,
+        /// https://example.com/logo.jpg), specify the IAM certificate identifier of the custom
+        /// viewer certificate for this distribution. Specify either this value, ACMCertificateArn,
+        /// or CloudFrontDefaultCertificate.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -822,6 +827,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (ParameterWasBound("GeoRestriction_Quantity"))
                 context.DistributionConfig_Restrictions_GeoRestriction_Quantity = this.GeoRestriction_Quantity;
             context.DistributionConfig_Restrictions_GeoRestriction_RestrictionType = this.GeoRestriction_RestrictionType;
+            context.DistributionConfig_ViewerCertificate_ACMCertificateArn = this.ViewerCertificate_ACMCertificateArn;
             context.DistributionConfig_ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
             context.DistributionConfig_ViewerCertificate_CertificateSource = this.ViewerCertificate_CertificateSource;
             if (ParameterWasBound("ViewerCertificate_CloudFrontDefaultCertificate"))
@@ -1167,6 +1173,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
              // populate ViewerCertificate
             bool requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = true;
             requestDistributionConfig_distributionConfig_ViewerCertificate = new Amazon.CloudFront.Model.ViewerCertificate();
+            System.String requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_ACMCertificateArn = null;
+            if (cmdletContext.DistributionConfig_ViewerCertificate_ACMCertificateArn != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_ACMCertificateArn = cmdletContext.DistributionConfig_ViewerCertificate_ACMCertificateArn;
+            }
+            if (requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_ACMCertificateArn != null)
+            {
+                requestDistributionConfig_distributionConfig_ViewerCertificate.ACMCertificateArn = requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_ACMCertificateArn;
+                requestDistributionConfig_distributionConfig_ViewerCertificateIsNull = false;
+            }
             System.String requestDistributionConfig_distributionConfig_ViewerCertificate_viewerCertificate_Certificate = null;
             if (cmdletContext.DistributionConfig_ViewerCertificate_Certificate != null)
             {
@@ -1637,6 +1653,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public List<System.String> DistributionConfig_Restrictions_GeoRestriction_Items { get; set; }
             public System.Int32? DistributionConfig_Restrictions_GeoRestriction_Quantity { get; set; }
             public Amazon.CloudFront.GeoRestrictionType DistributionConfig_Restrictions_GeoRestriction_RestrictionType { get; set; }
+            public System.String DistributionConfig_ViewerCertificate_ACMCertificateArn { get; set; }
             public System.String DistributionConfig_ViewerCertificate_Certificate { get; set; }
             public Amazon.CloudFront.CertificateSource DistributionConfig_ViewerCertificate_CertificateSource { get; set; }
             public System.Boolean? DistributionConfig_ViewerCertificate_CloudFrontDefaultCertificate { get; set; }
