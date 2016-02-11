@@ -28,10 +28,11 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Returns a list of the fields contained in the specified certificate. For example,
-    /// this function returns the certificate status, a flag that indicates whether the certificate
+    /// Returns a list of the fields contained in the specified ACM Certificate. For example,
+    /// this action returns the certificate status, a flag that indicates whether the certificate
     /// is associated with any other AWS service, and the date at which the certificate request
-    /// was created. The certificate is specified on input by its Amazon Resource Name (ARN).
+    /// was created. The ACM Certificate is specified on input by its Amazon Resource Name
+    /// (ARN).
     /// </summary>
     [Cmdlet("Get", "ACMCertificateDetail")]
     [OutputType("Amazon.CertificateManager.Model.CertificateDetail")]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para> String that contains a certificate ARN. The ARN must be of the form: </para><para><code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para> For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para> String that contains an ACM Certificate ARN. The ARN must be of the form: </para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para> For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
         /// </para>
         /// </summary>

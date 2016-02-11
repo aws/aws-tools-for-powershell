@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
     /// Resends the email that requests domain ownership validation. The domain owner or
-    /// an authorized representative must approve the ACM certificate before it can be issued.
+    /// an authorized representative must approve the ACM Certificate before it can be issued.
     /// The certificate can be approved by clicking a link in the mail to navigate to the
     /// Amazon certificate approval website and then clicking <b>I Approve</b>. However, the
     /// validation email can be blocked by spam filters. Therefore, if you do not receive
     /// the original mail, you can request that the mail be resent within 72 hours of requesting
-    /// the ACM certificate. If more than 72 hours have elapsed since your original request
+    /// the ACM Certificate. If more than 72 hours have elapsed since your original request
     /// or since your last attempt to resend validation mail, you must request a new certificate.
     /// </summary>
     [Cmdlet("Send", "ACMValidationEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para> String that contains the ARN of the requested certificate. The certificate ARN is
         /// generated and returned by <a>RequestCertificate</a> as soon as the request is made.
-        /// By default, using this parameter causes email to be sent to all top level domains
+        /// By default, using this parameter causes email to be sent to all top-level domains
         /// you specified in the certificate request. </para><para> The ARN must be of the form: </para><para><code>arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para>
         /// </para>
         /// </summary>
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para> The base validation domain that will act as the suffix of the email addresses that
         /// are used to send the emails. This must be the same as the <code>Domain</code> value
-        /// or a super domain of the <code>Domain</code> value. For example, if you requested
-        /// a certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b>
+        /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
+        /// certificate for <code>site.subdomain.example.com</code> and specify a <b>ValidationDomain</b>
         /// of <code>subdomain.example.com</code>, ACM sends email to the domain registrant, technical
         /// contact, and administrative contact in WHOIS and the following five addresses: <ul><li>admin@subdomain.example.com</li><li>administrator@subdomain.example.com</li><li>hostmaster@subdomain.example.com</li><li>postmaster@subdomain.example.com</li><li>webmaster@subdomain.example.com</li></ul></para>
         /// </para>

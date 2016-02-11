@@ -28,11 +28,11 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Requests an ACM certificate for use with other AWS services. To request an ACM certificate,
+    /// Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
     /// you must specify the fully qualified domain name (FQDN) for your site. You can also
     /// specify additional FQDNs if users can reach your site by using other names. For each
     /// domain name you specify, email is sent to the domain owner to request approval to
-    /// issue the certificate. After receiving approval from the domain owner, the ACM certificate
+    /// issue the certificate. After receiving approval from the domain owner, the ACM Certificate
     /// is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/overview.html">
     /// AWS Certificate Manager User Guide </a>.
     /// </summary>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para> Fully qualified domain name (FQDN), such as www.example.com, of the site you want
-        /// to secure with an SSL/TLS certificate. Use an asterisk (*) to create a wildcard certificate
+        /// to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate
         /// that protects several sites in the same domain. For example, *.example.com protects
         /// www.example.com, site.example.com, and images.example.com. </para>
         /// </para>
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para> The base validation domain that will act as the suffix of the email addresses that
         /// are used to send the emails. This must be the same as the <code>Domain</code> value
-        /// or a super domain of the <code>Domain</code> value. For example, if you requested
-        /// a certificate for <code>www.example.com</code> and specify <b>DomainValidationOptions</b>
+        /// or a superdomain of the <code>Domain</code> value. For example, if you requested a
+        /// certificate for <code>test.example.com</code> and specify <b>DomainValidationOptions</b>
         /// of <code>example.com</code>, ACM sends email to the domain registrant, technical contact,
         /// and administrative contact in WHOIS and the following five addresses: <ul><li>admin@example.com</li><li>administrator@example.com</li><li>hostmaster@example.com</li><li>postmaster@example.com</li><li>webmaster@example.com</li></ul></para>
         /// </para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para> Additional FQDNs to be included in the Subject Alternative Name extension of the
-        /// ACM certificate. For example, add the name www.example.net to a certificate for which
+        /// ACM Certificate. For example, add the name www.example.net to a certificate for which
         /// the <code>DomainName</code> field is www.example.com if users can reach your site
         /// by using either name. </para>
         /// </para>
